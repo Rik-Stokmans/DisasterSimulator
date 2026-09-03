@@ -1,0 +1,496 @@
+{
+  "$schema": "../municipality-audit.schema.json",
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM1773",
+    "name": "Olst-Wijhe",
+    "province": "Overijssel",
+    "safetyRegion": "IJsselland"
+  },
+  "agent": {
+    "taskName": "municipality_gm1773",
+    "agentId": "/root/municipality_gm0396",
+    "completedAt": "2026-09-03T10:31:00Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "GM1773 passes the complete deterministic ten-preset, six-checkpoint and eight-service contract. Its CBS/PDOK 2025 identity, 19,003-person municipality control, 23 neighbourhoods in twelve districts, five BAG places, sixteen BRT settlements, Olst and Wijhe rail stations, 37 scheduled-transit stop areas and five domestic NWB logical links are coherent; rounded neighbourhood rows sum to 19,015, only twelve above the separately published control (+0.063%). Release is nevertheless correction-required. Olst-Wijhe straddles both banks of the IJssel and depends on primary defences, floodplains, regional weteringen, pumps, sewer/wastewater chains, ferries and a narrow north-south road/rail system. The river preset reports 1.714546 inundation stress from T+12 through T+72, 8,465 affected resident-equivalents at T+24 and 699,473.193 deprived person-hours at T+72 without selecting an IJssel hydrograph, one of three contained primary and three contained regional LIWO candidates, a dike/structure state, connected footprint, arrival or recession. The open-coast preset gives zero direct water; retain that narrowly scoped suppression, but do not treat it as an all-clear for northwester IJsselmeer loading, IJssel backwater, weteringen, groundwater, sewer or pluvial pathways. Pluvial reports 0.187849 at T+12/T+24 without the municipality's rain-duration, terrain, sewer, groundwater, pump or receiving-water state. Seven unrelated active hazards reuse the same leading ten neighbourhoods. A controlled T+24 source at the official Buitengebied Den Nul centre near Fortmond/Duursche Waarden produces direct fire 0.567512 and 4,605 affected, yet its containing neighbourhood ranks eighteenth of 23. The static network does not apply the active 24 August–25 December 2026 N337 through-traffic closure, represents neither Olst–Welsum nor Wijhe–Vorchten ferry, and cannot route external 24/7 acute care. Public context identifies 103 water/wastewater objects, local Olst/Wijhe Waterinfo observations, one Enexis planning sample, 43 antenna sites and thirteen education locations, but none establishes complete live topology, flow, backup, staffing or restoration. Unknown, NoData, candidate catalogues, design cases, planned works and static register/schedule status must never become zero, safe, open or operational.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek / PDOK / Kadaster",
+      "title": "E01 — GM1773 official 2025 municipality, neighbourhood, place, settlement and safety-region context",
+      "url": "https://api.pdok.nl/cbs/wijken-en-buurten-2025/ogc/v1?f=html&lang=nl",
+      "accessedAt": "2026-09-03T10:25:00Z",
+      "edition": "CBS Wijken en buurten 2025; generated snapshots retrieved 31 August–2 September 2026",
+      "supports": [
+        "Annual CBS/PDOK inputs identify GM1773 as Olst-Wijhe in Overijssel and safety region IJsselland and report 19,003 residents, density 167/km², 23.8% aged 65 or older and 2,407 one-person households; the generated centre [6.154171137085497,52.379519370795336] lies inside the 2025 boundary.",
+        "Twenty-three neighbourhood rows in twelve districts sum to 19,015 residents, twelve above the separately rounded municipality control (+0.063%); households sum to 8,125 and independently rounded age-65-plus rows to 4,520. Allocation reconciles to the municipality control without rewriting the published rows.",
+        "BAG supplies five places—Marle, Olst, Welsum, Wesepe and Wijhe—and BRT supplies sixteen source-labelled settlements: nine woonkernen and seven buurtschappen. No generated place label point falls outside the municipality.",
+        "CBS regional statistics expose all 36 fields. District heating and public charging are null in all 23 rows and cars per household is null in two. CBS/PDOK is CC BY 4.0 and BAG is Public Domain Mark 1.0; null/suppression remains NoData rather than zero."
+      ]
+    },
+    {
+      "publisher": "Waterschap Drents Overijsselse Delta / Hoogwaterbeschermingsprogramma",
+      "title": "E02 — IJsseldijk Zwolle–Olst safety task and current eight-year IJsselwerken programme",
+      "url": "https://www.wdodelta.nl/ijsseldijkzwolle-olst",
+      "accessedAt": "2026-09-03T10:25:00Z",
+      "edition": "Current project page; official start 17 June 2026; verkenningsrapport 2019",
+      "supports": [
+        "The 29 km primary defence runs from Haereweg in Olst through Wijhe and Herxen to Zwolle and protects Salland/Zwolle from the IJssel and, during northwester storms, from IJsselmeer influence. The authority says it is not strong enough for the future and is being strengthened; that planning statement is not an event-time failure observation.",
+        "The strengthening programme officially began 17 June 2026 and is planned for eight years. Work-state, temporary geometry and access can therefore change within the simulator's reference period and require valid-time evidence.",
+        "The public verkenningsrapport at https://www.wdodelta.nl/_flysystem/media/verkenningsnrapport-hwbp-ijsseldijk-zwolle-olst.pdf scoped roughly 28.4 km for strengthening and identified four water-retaining structures outside the then-required standard, including RWZI Olst effluent and RWZI Wijhe overflow structures. Historical assessment is not current component condition.",
+        "WDODelta provides public planning/project evidence but no blanket machine-reuse licence or incident-time dike, structure, pump or breach-state feed was identified."
+      ]
+    },
+    {
+      "publisher": "Watermanagementcentrum Nederland / Rijkswaterstaat / IPLO",
+      "title": "E03 — LIWO 2025.1.6 candidate catalogue and current Olst/Wijhe Waterinfo context",
+      "url": "https://basisinformatie-overstromingen.nl/geoserver/ows?service=WFS&version=2.0.0&request=GetFeature&typeNames=LIWO_Basis%3Agebiedsindeling_doorbraaklocaties_primair&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=6.06609%2C52.29766%2C6.23567%2C52.45354%2CEPSG%3A4326",
+      "accessedAt": "2026-09-03T10:25:00Z",
+      "edition": "LIWO application 2025.1.6; WFS queried 3 September 2026; Waterinfo snapshots retrieved 2–3 September 2026",
+      "supports": [
+        "A bounded LIWO WFS query returns five primary and four regional candidates; point-in-polygon against the generated boundary contains primary Olst, Wijhe and Windesheim plus regional Meenhorst, Wijhe Oost and Wijhe West. Bbox-only candidates outside the polygon were not assigned.",
+        "Candidate points and frequency-class flags are scenario-selection metadata, not active failures, forecasts, connected inundation footprints or metre depths. Operational use must pin release, water boundary/datum, defence/control state, footprint, arrival, depth/velocity, duration/recession, units, CRS/resolution, uncertainty, coverage, NoData, licence and authority approval.",
+        "The cached observations contain Olst discharge 143.64 m³/s and water level 27 cm NAP plus Wijhe water level 7 cm NAP at 17:30Z on 2 September 2026. Forecasts cover requested T+1/T+6/T+12/T+24 only; no T+48/T+72 feature exists.",
+        "Waterinfo values are observation/forecast context with distinct issue and valid times, parameter, datum and quality; they are not the canonical exercise hydrograph. Waterinfo is CC0/non-mission-critical. Missing horizons remain NoData, not zero water or safe conditions."
+      ]
+    },
+    {
+      "publisher": "Gemeente Olst-Wijhe",
+      "title": "E04 — Climate-adaptation policy, programme and municipal sewer/groundwater duties",
+      "url": "https://www.olst-wijhe.nl/bestuur/visies-beleid-en-regelgeving/duurzaamheid/klimaatadaptatie-1",
+      "accessedAt": "2026-09-03T10:25:00Z",
+      "edition": "Climate policy adopted 2 March 2026; implementation programme adopted 17 March 2026 for 2026–2028; GRP 2022–2028",
+      "supports": [
+        "The municipality adopted its Climate Adaptation Policy on 2 March 2026 and a 2026–2028 implementation programme on 17 March 2026. These documents establish current planning and governance, not an observed event or completed measure.",
+        "The municipal sewer plan at https://www.olst-wijhe.nl/ondernemers/bedrijventerreinen/bedrijventerrein-de-meente-noord/bijlagen-kavelverkoop-bedrijventerrein-de-meente-noord/bijlagen-kavelverkoop-bedrijventerrein-de-meente-noord/kaderstellende-documenten/gemeentelijke-rioleringsplan-olst-wijhe-2022-2028.pdf distinguishes wastewater, rainwater and groundwater duties, identifies water nuisance, heat, drought and flood stress tests, and states rural pressure sewers are not designed for rainwater.",
+        "The plan calls for monitoring groundwater, addressing both high levels and summer deficits, surface retention/storage before discharge, masterplans for settlement rainwater and fewer combined-sewer overflows. These are distinct causal pathways that a single municipal pluvial scalar cannot represent.",
+        "The municipal documents are public administrative evidence; no standard redistribution licence, machine API, native stress-test resolution or guaranteed update cadence was identified on the cited pages."
+      ]
+    },
+    {
+      "publisher": "Provincie Overijssel / Gemeente Olst-Wijhe / WDODelta",
+      "title": "E05 — Active N337 restriction, emergency access and ferry dependency",
+      "url": "https://www.overijssel.nl/onderwerpen/verkeer-en-vervoer/wegenprojecten/n337-zwolle-olst",
+      "accessedAt": "2026-09-03T10:25:00Z",
+      "edition": "Current works page valid 24 August–25 December 2026; municipal FAQ inspected 3 September 2026",
+      "supports": [
+        "At audit time the N337 between Olst and Den Nul is closed to through traffic from 24 August until 25 December 2026. Residents, cycles, emergency services and bus 161 may use the parallel road; extra travel time and pressure on diversion routes are explicitly expected.",
+        "A further De Kneu–De Meente closure is announced for October/November but its exact planning and diversion were not yet published. Future unspecified restriction details remain Unknown until valid.",
+        "The municipal FAQ at https://www.olst-wijhe.nl/samenleven/werken-aan-de-ijsseldijk/veelgestelde-vragen-afsluiting-n337/veelgestelde-vragen-over-afsluiting-n337 says Olst and Wijhe ferries are intended to continue during the works, but low water can prevent sailing and an undated Veerweg junction weekend closure will require an Abbott-site diversion.",
+        "The municipality's August 2026 ferry-card decision says about 280 Welsum/Marle households rely on the ferries for care, social activity and municipal services. This is dependency evidence, not incident-time ferry operation or passenger capacity. No blanket reuse licence was identified."
+      ]
+    },
+    {
+      "publisher": "Staatsbosbeheer / Gemeente Olst-Wijhe",
+      "title": "E06 — Duursche Waarden, Fortmond woodland and visitor-access context",
+      "url": "https://www.staatsbosbeheer.nl/uit-in-de-natuur/locaties/ijsselvallei/over-de-ijsselvallei",
+      "accessedAt": "2026-09-03T10:25:00Z",
+      "edition": "Current visitor/context pages inspected 3 September 2026",
+      "supports": [
+        "Staatsbosbeheer identifies Fortmond in Olst and a 2.5 km path through dense floodplain forest in the Duursche Waarden, with visitor parking, monument and lookout tower. The municipality also describes the area as a water-rich marsh/nature visitor destination on the IJssel.",
+        "Official context establishes combustible woodland/vegetation and transient visitation eligibility near Den Nul/Fortmond, but not current fuel moisture, ignition, perimeter, wind/plume, access, extinguishing-water availability, suppression or occupancy.",
+        "The controlled audit source uses an official neighbourhood centre to test source containment; it is synthetic and not a live incident or forecast.",
+        "No machine-readable local fire perimeter, visitor counter, operational cadence or standard reuse licence was identified on these pages."
+      ]
+    },
+    {
+      "publisher": "RIVM / ProRail / OVapi / Rijkswaterstaat",
+      "title": "E07 — External acute care, rail, scheduled transit and domestic road context",
+      "url": "https://datacatalogus.rivm.nl/dataset.xhtml?persistentId=doi%3A10.21945%2F8E767B2D-9CED-4A85-A95D-3AC1A608C663",
+      "accessedAt": "2026-09-03T10:25:00Z",
+      "edition": "RIVM acute-care v1.1 published 3 July 2026; NWB-Light 1 August 2026; ProRail snapshot and GTFS v9543 valid 30 August–12 December 2026",
+      "supports": [
+        "RIVM acute-care v1.1 is CC0 static survey data. It assigns no respondent acute-care point inside GM1773; nearest to the municipal centre are 24/7 Deventer Ziekenhuis at 13.37 km and Isala Zwolle at 15.03 km, both reporting acute obstetrics. Distance is not an ambulance route or live acceptance state.",
+        "NWB supplies five logical links but only three physical corridor identities: N756 toward Raalte, N348 toward Raalte and Deventer, and N337 toward Zwolle and Deventer. Each 150 scenario-unit route is Mobility/Supply-only; paired edges on N348/N337 are series continuations, not additive emergency capacity.",
+        "ProRail supplies stations Olst and Wijhe and GTFS assigns 37 stop areas. Static station/stop geometry and feed-valid schedules do not establish passengers, accessibility, rolling stock, emergency role or actual operation.",
+        "The graph contains no ferry/cross-IJssel edge to the west bank and no destination-level ambulance/care route. NWB is CC0; RIVM is CC0; source/version/feed validity must remain attached to rail and transit context."
+      ]
+    },
+    {
+      "publisher": "Het Waterschapshuis / WDODelta / Netbeheer Nederland / Enexis / RDI / DUO",
+      "title": "E08 — Public water, wastewater, electricity, communications and education context",
+      "url": "https://www.wdodelta.nl/riolering-olst-wijhe-krijgt-nieuwe-route",
+      "accessedAt": "2026-09-03T10:25:00Z",
+      "edition": "Deployment snapshots retrieved 31 August–3 September 2026; authority project pages inspected 3 September 2026",
+      "supports": [
+        "Generated containment assigns 103 HWH points: eight sewer pumps, eighteen surface-water pumps, one wastewater treatment plant and 76 weirs. HWH IMWA/DAMO is contributor-dependent/partial, weekly where supplied and CC BY-SA 4.0; register presence/capacity is not connectivity, telemetry, live operation, backup or restoration.",
+        "WDODelta documents a pressure main carrying Wijhe wastewater to RWZI Olst, rerouted because part lay in the IJsseldijk, and names RWZI Olst and Wijhe sewer pump. Planned June 2025 commissioning is not proof of current topology/condition or exercise-time operation.",
+        "One NBNL postcode sample maps to Enexis OL Olst and reports 43.2 MW existing withdrawal, 21.6 MW required withdrawal, 3.0 MW/eight-request withdrawal queue, 43.2 MW existing injection, 49.7 MW required injection and 52.8 MW/eight-request injection queue with twelve projects and earliest year 2026. This is planning capacity, not live load/outage/switching/reserve; exact reuse licence was not identified.",
+        "RDI assigns 43 antenna sites—eighteen mobile, sixteen fixed-link, eight amateur and one broadcast—and DUO assigns thirteen education uses—six primary, one secondary and six other. RDI register terms/cadence are not a live coverage contract; DUO RIO is daily attribution-licensed register data. Points do not establish connectivity, occupancy, shelter role or operation."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio IJsselland",
+      "title": "E09 — Current regional crisis-plan and response-governance context",
+      "url": "https://www.vrijsselland.nl/over-veiligheidsregio-ijsselland/documentatie/",
+      "accessedAt": "2026-09-03T10:25:00Z",
+      "edition": "Crisisplan 2023–2026 and strategic policy agenda 2023–2026 listed as current on 3 September 2026",
+      "supports": [
+        "The safety region's current documentation says its 2023–2026 crisis plan defines the crisis organisation, information lines and roles/responsibilities, while the strategic agenda governs current ambitions. This is organisational planning evidence, not activation or performance in a particular incident.",
+        "Public plan availability does not establish warning receipt, dike inspection, ferry/road/rail status, evacuation, shelter, care acceptance, water-chain control, resupply, dewatering or restoration at any simulator checkpoint.",
+        "The public knowledge platform notes that current plans/procedures are maintained in the regional handbook. Public pages do not provide a complete machine action/resource/decision-state feed or guaranteed update cadence.",
+        "No standard redistribution licence was identified; public plan text may support governance labels but not exact operational resource counts or execution claims."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM1773, Olst-Wijhe, Overijssel and safety region IJsselland agree across generated and official 2025 inputs.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "Feature id, bundle code/name, province, safety-region membership and 2025 boundary/statistics editions agree.",
+        "The municipality centre lies inside its boundary and no identity contradiction was found.",
+        "Five BAG places and all source-labelled settlements remain within their official municipality assignment."
+      ]
+    },
+    "geography": {
+      "status": "warn",
+      "summary": "Administrative geography is coherent, but it is not an IJssel/floodplain/defence, wetering, groundwater, sewer, ferry or nature-fire model.",
+      "evidenceRefs": ["E01", "E02", "E03", "E04", "E06"],
+      "notes": [
+        "Twenty-three neighbourhoods, five BAG places and sixteen BRT settlements retain source identity.",
+        "The municipality occupies both IJssel banks and contains primary/regional candidate points; administrative polygons cannot select hydraulic connectivity or defence state.",
+        "Weteringen, pumps, sewer catchments, rural pressure sewer, floodplain/nature areas and ferry landings require distinct geometries and evidence classes."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Official 2025 population and neighbourhood statistics reconcile within normal CBS rounding/publication precision.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "The municipality control is 19,003; neighbourhood values sum to 19,015 (+12, +0.063%), households to 8,125 and rounded age-65-plus values to 4,520.",
+        "The detail model preserves the municipality control and does not rewrite published neighbourhood rows.",
+        "Residents do not measure ferry users, rail/bus travellers, pupils, patients/staff, nature visitors, responders, displaced people or incident-specific occupancy."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "All 36 statistical fields are exposed, but source nulls and operational/transient population gaps require explicit semantics.",
+      "evidenceRefs": ["E01", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "District heating and charging have 0/23 coverage and cars per household is null in two rows; nulls remain NoData.",
+        "Population/business/building proxies do not identify visitor, patient, pupil, passenger, household ferry-dependency or response-resource state.",
+        "NoData, official zero and absent local matches remain distinct from zero activity, risk, outage or need."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "Five active BAG places and sixteen BRT settlements coherently capture the dispersed municipal pattern.",
+      "evidenceRefs": ["E01", "E05"],
+      "notes": [
+        "The BRT mix is nine woonkernen and seven buurtschappen, including the west-bank Welsum/Marle and floodplain-adjacent Den Nul/Fortmond contexts.",
+        "A place or settlement label is not a verified shelter, ferry state, utility hub or live occupancy.",
+        "Small west-bank and rural settlements require destination-specific ferry/road/care/supply access rather than population-centroid inference."
+      ]
+    },
+    "transport": {
+      "status": "fail",
+      "summary": "Static roads, two stations and 37 stop areas omit active N337 state, ferry crossings and destination-level care/access continuity.",
+      "evidenceRefs": ["E05", "E07"],
+      "notes": [
+        "Five logical links reduce to N756, N348 and N337 physical corridors and affect only Mobility/Supply, but their scenario-unit capacities are not emergency throughput.",
+        "The N337 through-traffic closure is active on 3 September 2026 yet is not applied; zero assigned NDW situations is NoData, not evidence that the road is open.",
+        "Olst–Welsum and Wijhe–Vorchten ferries are absent. Static stations/stops do not prove train, bus or ferry operation, and external acute-care routes are not represented."
+      ]
+    },
+    "emergencyContext": {
+      "status": "warn",
+      "summary": "Official sources establish strong river, water-chain, nature, access, care and crisis-governance context but not a live incident.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E06", "E07", "E08", "E09"],
+      "notes": [
+        "The IJsseldijk task, six contained LIWO candidate points, current Waterinfo and climate/water plans establish eligibility and selection options, not a failure or consequence forecast.",
+        "The active N337 restriction is event-valid road evidence; ferry intentions, planned works, registers, care survey and organisational plans remain distinct evidence classes.",
+        "No public source validates exact first-72-hour utility, hospital, ferry, responder or recovery state."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten canonical presets execute at T+0/6/12/24/48/72 for all eight services without missing snapshots.",
+      "evidenceRefs": ["E01", "E02", "E03", "E04", "E06"],
+      "notes": [
+        "At T+24 storm reports inundation stress 0.180695 and 3,126 affected; pluvial 0.187849 and 1,036; river 1.714546 and 8,465. Direct open-coast water is zero while 15.717 m/s wind context remains.",
+        "At T+24 heat reports 24.042°C/drought 0.530182 and 1,441 affected; winter 3,182, cyber 4,357, earthquake zero affected after T+6 ground motion 0.018488 g, and canonical wildfire zero direct flame/smoke 0.426728 with 334 affected.",
+        "Compound remains degraded at T+72 with inundation stress 0.204098, cyber 0.057474, 9,535 affected and all eight services frozen at T+48 values. Passing execution does not validate local physics or operations."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Finite bounds, determinism, exact-zero event forcing, allocation reconciliation and cumulative person-hour arithmetic pass.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "The focused gate checks every numerical hazard field, service availability/demand/delivery, event-attributable burden and causal ledger closure.",
+        "Municipal affected people and service demand/delivery reconcile across all 23 official local regions to the 19,003 population control.",
+        "Map-layer selection does not alter hazard/service state; deterministic equality and monotone cumulative burden pass."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "Population-led surfaces contradict Olst-Wijhe's IJssel, drainage, west-bank, nature and source geography.",
+      "evidenceRefs": ["E01", "E02", "E03", "E04", "E06"],
+      "notes": [
+        "River T+24 is led by Wijhe Centrum, Krijtenberg en Noorder Koeslag, Kortrick en Zonnekamp, Peperkamp en De Enk and Olst Centrum-Oost rather than a selected LIWO footprint, defence segment, floodplain or arrival grid.",
+        "Storm, pluvial, river, heat, winter, cyber and wildfire reuse the same first ten neighbourhoods despite unrelated mechanisms.",
+        "A controlled source at [6.127014637613348,52.35750499614399] produces direct flame 0.567512, smoke 0.552398 and 4,605 affected at T+24, but containing Buitengebied Den Nul ranks 18/23."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "Exact service loss/restoration is unsupported by hydraulic, road/ferry, care, water-chain or privacy-safe utility topology.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E07", "E08"],
+      "notes": [
+        "The model does not connect IJssel observations/forecast, primary/regional defences, six candidates, 103 water objects, weteringen, sewer/pressure main, groundwater or pumps to Water/Drainage.",
+        "One Enexis planning sample, 43 antenna sites and thirteen schools cannot justify exact Power/Gas/Telecom/Facilities/Supply availability or restoration.",
+        "The active N337 restriction, both ferries, rail/bus operation, west-bank isolation and Deventer/Isala acceptance are absent from incident-time Mobility/Facilities/Supply causality."
+      ]
+    },
+    "causalTrace": {
+      "status": "fail",
+      "summary": "Arithmetic explanations close but omit selected authority events, live observations, actions and resources needed to justify local consequences.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E06", "E07", "E08", "E09"],
+      "notes": [
+        "No trace selects IJssel hydrograph/datum, dike/structure state, LIWO case/footprint, wetering/pump/sewer/groundwater state, rainfall duration, arrival or recession.",
+        "No trace selects local fire fuel/perimeter/weather/suppression, a KNMI earthquake field, authorised cyber target, transient population, ferry status, care destination or live utility boundary.",
+        "No trace records warning, dike/pump inspection, road/ferry decision, evacuation/shelter, hospital diversion, resupply, dewatering, repair or verified restoration."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "Sustained river/compound disruption and other recovery labels are not tied to Olst-Wijhe actions, resources, access or operator evidence.",
+      "evidenceRefs": ["E02", "E03", "E05", "E07", "E08", "E09"],
+      "notes": [
+        "River remains at inundation stress 1.714546 from T+12 through T+72; affected rises from 8,465 at T+24 to 9,114 at T+48 and services then freeze through T+72, including Drainage 0.234848 and Facilities 0.360744.",
+        "Compound affected rises to 9,535 and all services freeze from T+48 to T+72 while the model remains degraded; no named blocker or resource justifies the plateau.",
+        "Other scenarios recover to exact values without an owner, inspection, ferry/route state, crew, equipment, fuel, water, care transfer, completion evidence or valid T+72 forecast."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": ["power", "water", "drainage", "gas", "telecom", "mobility", "facilities", "supply"]
+  },
+  "findings": [
+    {
+      "id": "GM1773-DATA-001",
+      "severity": "informational",
+      "category": "identity",
+      "status": "fixed",
+      "summary": "Generated identity, settlement membership and 2025 demographic controls are coherent.",
+      "evidence": "GM1773, Olst-Wijhe, Overijssel, IJsselland and editions agree; centre is contained. CBS reports 19,003 residents; 23 rows total 19,015 (+0.063%) and reconcile without rewriting observations. Five BAG places and sixteen BRT settlements are present.",
+      "action": "Retain publisher edition/retrieval, geometry source, null semantics and published-versus-allocated reconciliation on every refresh."
+    },
+    {
+      "id": "GM1773-NODATA-001",
+      "severity": "informational",
+      "category": "regional-data",
+      "status": "fixed",
+      "summary": "Unavailable fields and absent local records remain Unknown rather than false zero, openness or safety claims.",
+      "evidence": "District heat/charging are null 23/23; cars per household is null twice. There is no internal RIVM acute-care point, KNMI weather station/seismic origin, RIVM PM2.5 point or assigned NDW situation. Waterinfo has no requested T+48/T+72 forecast. No value is fabricated.",
+      "action": "Preserve source version, issue/valid time, spatial coverage, licence, NoData mask and reason code through ingestion, UI and export; absence never means zero, open/closed, operational or safe."
+    },
+    {
+      "id": "GM1773-IJSSEL-SUPPORT-001",
+      "severity": "critical",
+      "category": "hazard",
+      "status": "open",
+      "summary": "A genuine IJssel pathway is converted into unsupported exact persistent local inundation.",
+      "evidence": "River T+12 through T+72 reports 1.714546 inundation stress, 8,465 affected at T+24 and 699,473.193 deprived person-hours at T+72. Three primary and three regional LIWO candidate points lie in the boundary, but no hydrograph/datum, dike section/state, structure, case, connected footprint, arrival, velocity or recession is selected. Current Olst/Wijhe observations and forecasts only reach T+24.",
+      "action": "Retain IJssel eligibility but gate local magnitude, exposed population and consequences as Unknown until RWS/WDOD select one versioned, connected hydraulic/defence scenario. Keep direct North-Sea coastal water zero only in that narrow source scope."
+    },
+    {
+      "id": "GM1773-PLUVIAL-GROUNDWATER-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Generic pluvial precision omits rainfall duration, terrain, rural pressure sewer, groundwater, pump and receiving-water state.",
+      "evidence": "Pluvial T+12/T+24 reports 0.187849 inundation stress and T+24 Drainage availability 0.646655 without choosing the municipal stress-test surface or masterplan, sewer/overflow topology, groundwater observation, wetering/pump state or IJssel boundary. The GRP explicitly separates these pathways and says rural pressure sewer is not for rainwater.",
+      "action": "Ingest a governed Olst-Wijhe/RIVUS/WDOD/AHN/GWSW event package with rain amount/duration, terrain, groundwater, sewer inclusion, surface-water boundary, controls, footprint/depth, arrival/recession, issue/valid time, units, CRS/resolution, licence, uncertainty and NoData."
+    },
+    {
+      "id": "GM1773-SPATIAL-SEED-001",
+      "severity": "critical",
+      "category": "geography",
+      "status": "open",
+      "summary": "Seven unrelated active hazards reuse the same leading ten-neighbourhood order.",
+      "evidence": "At T+24 storm, pluvial, river, heat, winter, cyber and wildfire all rank Wijhe Centrum, Krijtenberg en Noorder Koeslag, Kortrick en Zonnekamp, Peperkamp en De Enk, Olst Centrum-Oost, Stationswijk en Industrieweg, Olst Centrum-West, Boskamp Kern, Elshof and Wesepe Kern first through tenth despite incompatible mechanisms.",
+      "action": "Replace the shared regional hash with hazard-specific, versioned surfaces and uncertainty. Suppress hotspot/rank language and decision-facing local numbers until each hazard has source/time/geometry support."
+    },
+    {
+      "id": "GM1773-FIRE-CONTAINMENT-001",
+      "severity": "critical",
+      "category": "hazard",
+      "status": "open",
+      "summary": "A controlled Den Nul/Fortmond source fails source-neighbourhood containment.",
+      "evidence": "A controlled T+24 source at the official Buitengebied Den Nul centre [6.127014637613348,52.35750499614399], near the documented Duursche Waarden/Fortmond visitor woodland, produces direct fire 0.567512, smoke 0.552398 and 4,605 affected, but its containing neighbourhood ranks 18/23 while dense Wijhe areas lead. Canonical wildfire is a separate remote-smoke exercise with zero direct local flame.",
+      "action": "Keep canonical remote smoke labelled as such and add a named source-contained nature-fire exercise using eligible vegetation, current fuel/moisture, event-valid wind, visitors, access, extinguishing water and authority perimeter/suppression. If synthetic, show that class and require containment."
+    },
+    {
+      "id": "GM1773-N337-FERRY-001",
+      "severity": "critical",
+      "category": "network",
+      "status": "open",
+      "summary": "The network ignores the active N337 restriction and omits both cross-IJssel ferries.",
+      "evidence": "The N337 Olst–Den Nul through-traffic closure is valid 24 August–25 December 2026; only defined user groups use the parallel road and future subphase details remain pending. The static graph applies no date restriction and has no Olst–Welsum or Wijhe–Vorchten ferry. Official municipal evidence identifies roughly 280 Welsum/Marle households as ferry-dependent for care/services and notes low water can stop sailing.",
+      "action": "Apply inclusive valid-time route restrictions only when scenario reference dates overlap, add typed ferry edges with operator/status/water-level/schedule/capacity/accessibility and keep no-match state Unknown. Model diversion, emergency exception and west-bank isolation without copying road state into rail/ferry."
+    },
+    {
+      "id": "GM1773-CARE-TRANSIENT-001",
+      "severity": "high",
+      "category": "exposure",
+      "status": "open",
+      "summary": "Static residents omit ferry users, visitors, pupils, passengers, care clients and external acute-care demand.",
+      "evidence": "The municipality has no RIVM acute-care respondent point; nearest 24/7 survey sites are Deventer Ziekenhuis (13.37 km centre distance) and Isala Zwolle (15.03 km). Thirty-seven stops, two stations, thirteen education sites, Duursche Waarden/Fortmond visitors and ferry-dependent households are static context only. No current occupancy, accessible route, acceptance, staffing, beds, shelter or transport need is consumed.",
+      "action": "Add authority-reviewed aggregate dynamic exposure and destination interfaces with observation/valid time, occupancy range, role/activation, accessibility, staffing/capacity, patient needs, hospital acceptance/diversion, shelter and transport. Zero internal SEH is not zero care."
+    },
+    {
+      "id": "GM1773-WATERCHAIN-UTILITIES-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Public water assets and planning samples cannot support exact eight-service topology or restoration.",
+      "evidence": "HWH assigns 103 partial/register points, including one RWZI, eight sewer pumps and eighteen surface-water pumps. WDODelta documents the Wijhe-to-Olst pressure main. One Enexis OL Olst sample, 43 antennas and thirteen schools are planning/register context. None establishes drinking-water source/pressure/quality, electrical/gas/telecom connectivity, current flow, backup, stock, crew or restoration.",
+      "action": "Request governed current municipal GWSW and WDOD water/wastewater topology plus security-safe Vitens/Enexis/gas/telecom zones, outage, backup and restoration bands. Reconcile public assets explicitly; keep sensitive/unavailable topology Unknown or the smallest transparent synthetic fallback."
+    },
+    {
+      "id": "GM1773-OTHER-HAZARDS-001",
+      "severity": "high",
+      "category": "limitation",
+      "status": "open",
+      "summary": "Weather, heat/drought, winter, cyber, seismic and coastal consequences lack local event fields and support boundaries.",
+      "evidence": "At T+24 the model reports exact affected residents and service states for storm, heat, winter and cyber without an issue/valid-time KNMI field, heat-vulnerability/occupancy surface, gritting/access state or authorised cyber system boundary. T+6 earthquake publishes 0.018488 g without a named origin, ShakeMap, soil/site response or fragility. Direct coastal water is zero, but northwester IJsselmeer loading and local water pathways remain separate Unknowns.",
+      "action": "Require a municipality-hazard-service support matrix with evidence class, publisher/version, issue/valid time, geometry/system boundary, exposed objects, uncertainty, licence and NoData. Unsupported values may remain diagnostic only and cannot drive local decision claims."
+    },
+    {
+      "id": "GM1773-RECOVERY-LEDGER-001",
+      "severity": "critical",
+      "category": "explainability",
+      "status": "open",
+      "summary": "First-72-hour plateaus and recovery labels lack accountable local actions, resources and prerequisites.",
+      "evidence": "River Water/Drainage/Power/Mobility and five other service values freeze from T+24 or T+48 through T+72 under an unsupported constant water state. Compound freezes every service from T+48 to T+72. Other presets recover exactly without a named dike/pump inspection, N337/ferry/rail state, evacuation, care diversion, resupply, dewatering, crew, fuel, part or completion observation.",
+      "action": "At T+0/6/12/24/48/72 require typed incident/action/resource records: owner, target, prerequisite, crew/material/fuel/water, road/ferry/rail/alternative access, start/end, observed/planned/completed state, validity, evidence class, uncertainty and counterfactual."
+    },
+    {
+      "id": "GM1773-CONTRACT-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The complete deterministic numerical, causal, allocation and checkpoint contract passes for GM1773.",
+      "evidence": "The focused gate covers ten presets, T+0/6/12/24/48/72 and eight services. Outputs are finite/deterministic; zero-event behaviour is exact; allocation/demand/delivery reconcile; causal arithmetic closes; burden is monotone; layer selection is invariant; and persistent modeled river water blocks generic recovery.",
+      "action": "Keep GM1773 and national ALL coverage in regression and add assertions for IJssel evidence gating, local pluvial support, independent ranks, Den Nul/Fortmond source containment, N337 valid time, ferry edges, external care, NoData and action-led recovery."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Evidence-gate the GM1773 IJssel result and add governed pluvial/groundwater/water-control scenarios.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/MapView.tsx"
+      ],
+      "validation": "Retain IJssel eligibility but make 1.714546, exposed residents and service effects unsupported/Unknown until a selected LIWO/RWS/WDOD event includes hydrograph/datum, defence/structure state, connected footprint, depth/velocity, arrival, duration/recession, issue/valid time, CRS/resolution, units, uncertainty, coverage, licence and approval. Integrate municipality/RIVUS/WDOD/AHN/GWSW rain, sewer, groundwater and control evidence separately. Direct North-Sea water remains zero only in its narrow source scope."
+    },
+    {
+      "summary": "Replace shared neighbourhood ranks and add a source-contained Den Nul/Fortmond nature-fire exercise.",
+      "files": [
+        "packages/sim-core/src/scenarios.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/geometry.ts",
+        "packages/sim-core/src/model.test.ts",
+        "scripts/fetch-realism-data.mjs",
+        "apps/web/src/scenarios.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Use authoritative combustible-area geometry only as eligibility, event-valid KNMI weather, current fuel/moisture, visitors, access, extinguishing water and authority ignition/perimeter/suppression. Preserve source/time/licence/coverage/NoData. Validate that [6.127014637613348,52.35750499614399] lies in Buitengebied Den Nul and the source region leads direct exposure unless a documented physical model explains otherwise; unrelated hazard ranks must differ."
+    },
+    {
+      "summary": "Apply valid-time N337 restrictions and add typed Olst/Wijhe ferry and external-care access.",
+      "files": [
+        "scripts/fetch-realism-data.mjs",
+        "scripts/apply-audited-lifelines.mjs",
+        "apps/web/public/data/transport-network.json",
+        "apps/web/public/data/transport-roads.geojson",
+        "packages/sim-core/src/network.ts",
+        "packages/sim-core/src/network.test.ts",
+        "apps/web/src/data.ts"
+      ],
+      "validation": "For reference dates 24 August–25 December 2026 apply the N337 through-traffic restriction with parallel-road emergency/resident/bus exception and explicit diversion uncertainty; outside-window dates do not inherit it. Add Olst–Welsum and Wijhe–Vorchten ferry mode, operator, landing, timetable, water-level/closure, capacity/accessibility, evidence/validity and Mobility/Supply scope. Zero NDW remains NoData. Route Deventer/Isala as destinations without inferring live acceptance."
+    },
+    {
+      "summary": "Build current water/wastewater and privacy-safe physical utility adapters.",
+      "files": [
+        "scripts/fetch-water-assets.mjs",
+        "scripts/fetch-realism-data.mjs",
+        "packages/sim-core/src/network.ts",
+        "packages/sim-core/src/types.ts",
+        "apps/web/src/data.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Reconcile HWH CC BY-SA 4.0's 103 assigned objects against current municipal GWSW and WDOD wetering/pump/RWZI/pressure-main topology, retaining contributor completeness and unknown state. For Vitens, Enexis, gas and telecom use authorised aggregate connectivity, observation/outage, backup and restoration ranges. NBNL MW/queues, RDI points and provider areas remain planning/register context absent compatible topology and validity."
+    },
+    {
+      "summary": "Add event-valid dynamic exposure, care, shelter and transport destinations.",
+      "files": [
+        "scripts/fetch-public-facilities.mjs",
+        "scripts/fetch-realism-data.mjs",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/network.ts",
+        "apps/web/src/data.ts",
+        "apps/web/src/components/OperationsBrief.tsx"
+      ],
+      "validation": "Retain RIVM acute v1.1 CC0, daily DUO, BAG/BRT, GTFS, ferry and nature visitor locations as dated context. Request municipality/GHOR/VR/transport/land-manager aggregates for current people, accessible destinations, role/activation, staffing/capacity range, patient needs, acceptance/diversion, shelter and transport. Zero internal RIVM respondents and absent counters remain NoData, not zero care or visitors."
+    },
+    {
+      "summary": "Evidence-gate all other local hazard/service precision and first-72-hour recovery.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/src/components/CausalExplanation.tsx",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/OperationsBrief.tsx"
+      ],
+      "validation": "Exact magnitude, ranks, affected population, service consequences and exports require hazard/service support with publisher/version, evidence class, issue/valid time, geometry/system boundary, coverage, licence, uncertainty and NoData. Each checkpoint plateau/deterioration/restoration cites an owner, target, prerequisite, crew/material/fuel/water, route/ferry access, start/end and state. Distinguish observations, forecasts, candidate scenarios, plans/registers and synthetic exercise values."
+    }
+  ],
+  "residualLimitations": [
+    "This artifact audits a deterministic first-72-hour exercise model, not a forecast, warning, evacuation instruction, hydraulic assessment, ferry/road/rail operating decision, hospital status or operator restoration commitment.",
+    "CBS 2025 values are rounded/suppressed and residents exclude ferry passengers, commuters, pupils, patients, staff, nature/event visitors, responders and displaced people; no timestamped dynamic occupancy is consumed.",
+    "Generalized administrative polygons and centroids cannot resolve IJssel floodplains/compartments, dike/structure state, wetering/pump/sewer/groundwater catchments, combustible vegetation, ferry landings or utility zones.",
+    "Six contained LIWO points are candidates, not breaches or footprints. Bbox queries include outside points unless polygon-filtered, and candidate frequency flags are not current probability, water level, depth or arrival.",
+    "Waterinfo observations/forecasts are valid-time public context and stop at requested T+24 in the cache. They are not selected as the exercise hydrograph and missing T+48/T+72 is NoData.",
+    "Future-standard dike non-compliance and an eight-year strengthening programme do not mean event-time failure. Construction status, temporary defences and component condition can change and remain Unknown without a valid feed.",
+    "Municipal climate policy, GRP and stress-test references establish responsibilities and planning, not a live rain event, groundwater field, sewer/pump state, completed measure or local depth.",
+    "The controlled nature-fire source is synthetic. Official vegetation/visitor context does not establish current fuel moisture, ignition, perimeter, wind/plume, occupancy, access, extinguishing water, crew or suppression.",
+    "NWB, ProRail and GTFS are static/register/schedule evidence. The N337 page gives a current restriction but not live diversion throughput; future subphase timing is pending and ferries can change with water/operations.",
+    "RIVM's zero internal acute-care respondent points does not erase local care or demand. Centre distance to Deventer/Isala is not route time, ambulance availability, live acceptance, beds, staff, utilities or backup.",
+    "HWH coverage is partial/provider-dependent. Registered object, type or capacity does not establish connected topology, current operation, compatible flow units, power/backup, control sequence or recovery.",
+    "One NBNL postcode sample, RDI antennas, DUO schools and absent local air/weather points are planning/register/coverage context. They do not establish customer connectivity, occupancy, load, signal, air surface, outage, reserve or repair.",
+    "Complete physical electricity, gas, drinking-water, wastewater, telecom, care, supply, ferry and emergency-resource topology/live state may be unavailable or security-sensitive and remains Unknown or explicitly synthetic.",
+    "Exact hazard, neighbourhood, affected-population, service-availability, recovery and person-hour values remain synthetic/derived screening until critical/high findings are corrected and authorities review the selected event; impacts beyond T+72 are outside scope."
+  ],
+  "provinceReviewFlags": [
+    "GM1773-IJSSEL-SUPPORT-001 and GM1773-PLUVIAL-GROUNDWATER-001 — Overijssel, WDOD, RWS, Olst-Wijhe and VRIJ should govern selected IJssel/defence and local rain/sewer/groundwater/wetering scenarios separately; candidate or planning context must not become live consequences.",
+    "GM1773-N337-FERRY-001 — Province, municipality, WDOD, ferry operators, transport operators and VRIJ should validate reference-date N337 restrictions, emergency/diversion access and both ferry dependencies, including Welsum/Marle isolation and explicit NoData.",
+    "GM1773-SPATIAL-SEED-001 and GM1773-FIRE-CONTAINMENT-001 — Province, municipality, VRIJ, Staatsbosbeheer and other land managers should require hazard-specific surfaces and a source-contained Den Nul/Fortmond nature-fire exercise; the source neighbourhood currently ranks eighteenth.",
+    "GM1773-WATERCHAIN-UTILITIES-001 — Province, municipality, WDOD, Vitens, Enexis, gas and telecom partners should define privacy/security-safe topology, live-state and restoration interfaces; public assets/planning samples remain non-causal.",
+    "GM1773-CARE-TRANSIENT-001 and GM1773-RECOVERY-LEDGER-001 — VRIJ/GHOR, Olst-Wijhe, Deventer/Isala, care, education, transport, ferry and supply partners should govern dynamic exposure, destinations, checkpoint actions/resources and recovery without converting registers or intentions into operation."
+  ]
+}

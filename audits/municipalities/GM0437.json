@@ -1,0 +1,439 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0437",
+    "name": "Ouder-Amstel",
+    "province": "Noord-Holland",
+    "safetyRegion": "Amsterdam-Amstelland"
+  },
+  "agent": {
+    "taskName": "municipality_gm0437",
+    "agentId": "/root/municipality_gm0244",
+    "completedAt": "2026-09-03T11:15:26Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "GM0437 identity, Noord-Holland and Veiligheidsregio Amsterdam-Amstelland assignment, 2025 full boundary and CBS resident control are coherent. Fresh context reports 14,532 residents; seven published neighbourhoods sum to 14,530 (-2, -0.014%), and deterministic allocation adds one resident to each of Ouderkerk aan de Amstel and Duivendrecht. The bundle retains three BAG places, three BRT cores, Duivendrecht station, seventeen scheduled-transit stop areas and six logical road edges. All ten canonical presets execute deterministically at T+0/6/12/24/48/72 across eight services. Release is nevertheless correction-required. Ouder-Amstel combines dense Duivendrecht/Amsterdam-Duivendrecht, the Amstel and boezem-connected managed polders, and the official Ronde Hoep emergency-overflow area. The regional risk profile names Ouder-Amstel in a Lek/Amsterdam-Rijnkanaal reference flood, yet the river preset returns exact zero; coastal T+24 instead emits 1.231505 normalized inundation stress and 6,762 affected residents without selecting a defence, breach or hydraulic case. Seven unrelated hazards reproduce the same complete neighbourhood severity order. Ronde Hoep can be deliberately filled over 24 hours with up to 2.4 million cubic metres and is expected to take about fifteen days to pump down, so its control, warning and recovery pathway cannot be represented by a generic three-day curve. Exact mobility, care, utility and recovery values exceed public topology, incident-state, resource and action evidence. Static plans, registers and empty live matches remain context or Unknown/NoData, never zero, safe or operational.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek (CBS)",
+      "title": "E01 — Kerncijfers wijken en buurten 2025, table 86165NED, OData API",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM0437%27%29",
+      "accessedAt": "2026-09-03T11:00:00Z",
+      "edition": 2025,
+      "supports": [
+        "The official municipality row identifies GM0437 Ouder-Amstel and reports 14,532 residents, density 607 per square kilometre, 22.3% age 65 or older and 2,482 one-person households.",
+        "Seven published neighbourhood rows sum to 14,530 residents (-2, -0.014%), 6,600 households and 3,240 residents aged 65 or older; deterministic allocation adds two residents to reconcile to the municipality control.",
+        "Thirty-six fields exist, but average home value, distance to doctor/supermarket and several housing fields cover six of seven rows, cars per household covers four, and district-heating/public-charging fields cover zero. Suppressed/null coverage remains Unknown, never official zero.",
+        "CBS OData is machine-readable under CC BY 4.0. Annual residents do not establish event-time workers, travellers, visitors, pupils, patients, responders, shelter occupancy, preparedness or self-reliance."
+      ]
+    },
+    {
+      "publisher": "PDOK / CBS / Kadaster / Rijkswaterstaat / ProRail / OVapi",
+      "title": "E02 — Full municipal geometry, settlements and road, rail and scheduled-transit reference inputs",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_niet_gegeneraliseerd/items?f=json&filter=statcode%3D%27GM0437%27",
+      "accessedAt": "2026-09-03T11:01:00Z",
+      "edition": "2025 boundary/statistics and current generated BAG, BRT, NWB, ProRail and GTFS reference snapshots",
+      "supports": [
+        "The generated reference point [4.9124219673930325, 52.288560455422676] lies inside the fresh full-resolution 2025 municipal boundary.",
+        "The bundle retains one district, seven neighbourhoods, BAG places Amsterdam-Duivendrecht, Duivendrecht and Ouderkerk aan de Amstel, and BRT cores Duivendrecht, Ouderkerk and Waver without a centre exception.",
+        "The graph has six logical boundary edges: A2 to De Ronde Venen and Amsterdam, A9 to Amsterdam and Amstelveen, A10 to Amsterdam and N522 to Amstelveen. It has one ProRail station, Duivendrecht, and seventeen GTFS stop areas.",
+        "The paired A2 and A9 edges are series segments on two physical corridors, not four independent capacity sources. Nominal 260/150 values are scenario ceilings, not observed vehicles per hour or incident throughput.",
+        "CBS boundary OGC is half-yearly/CC BY 4.0; BAG is daily/Public Domain Mark 1.0; BRT is CC BY 4.0; NWB monthly and ProRail CC0 1.0. OVapi GTFS is best-effort timetable context without an operational SLA."
+      ]
+    },
+    {
+      "publisher": "Waterschap Amstel, Gooi en Vecht / Waternet",
+      "title": "E03 — Ronde Hoep emergency inlet, overflow area, pumping and dike-improvement context",
+      "url": "https://www.agv.nl/werk-in-uitvoering/rondehoep/vragen-en-antwoorden-rondehoep/vragen-en-antwoorden-noodinlaat/",
+      "accessedAt": "2026-09-03T11:02:00Z",
+      "edition": "Current official project and Gemaal Ronde Hoep pages inspected 3 September 2026; construction page expected completion mid-July 2026 but did not establish current commissioned state",
+      "supports": [
+        "The Ronde Hoep inlet is an official last-resort control for extreme Amstel-boezem water: the safety region decides deployment and residents are to be informed 24 hours in advance.",
+        "The official design allows controlled inflow over 24 hours, capped at 2.4 million cubic metres, with a stated target water level of NAP -2.15 m and allowance to NAP -1.90 m for wind setup/waves. These are design/scenario values, not a live activation or building-level depth surface.",
+        "AGV expects about fifteen days to pump the polder empty after inlet use. Its Gemaal Ronde Hoep page describes an electric pump, five sub-polders/levels and discharge to the Waver; registered or historic equipment does not prove incident capacity, power, control or availability.",
+        "The page explicitly records coordination about potentially inundated transformer kiosks, gas tanks and pressure sewer protection. It does not publish completed measures, exact affected assets, network topology, live state or guaranteed continuity.",
+        "AGV also reports ongoing/finished dike-improvement projects around Ronde Hoep. Human-readable project pages have no discovered stable machine API, explicit analytical reuse licence, live control feed or complete NoData contract."
+      ]
+    },
+    {
+      "publisher": "Gemeente Ouder-Amstel",
+      "title": "E04 — Municipal sewer, rainwater, groundwater and climate-adaptation duties",
+      "url": "https://www.ouder-amstel.nl/Home/Wonen_en_leefomgeving/Riolering_en_wateroverlast",
+      "accessedAt": "2026-09-03T11:03:00Z",
+      "edition": "Water- en rioleringsprogramma 2023–2027 and current municipal guidance inspected 3 September 2026",
+      "supports": [
+        "The municipality states duties for collection/transport of wastewater and excess rain/ground water in public space, while private owners retain duties on their plots.",
+        "The linked climate-adaptation guidance says heavy rainfall can overload sewers or enter homes and promotes retention/infiltration and heat measures.",
+        "These are governance and planning records, not event rainfall, sewer/catchment topology, blockage, groundwater state, pumping capacity, overflow operation, repair progress or a forecast.",
+        "The inspected human-readable pages expose no stable municipal stress-raster API, stated refresh contract, complete analytical reuse licence or explicit NoData semantics."
+      ]
+    },
+    {
+      "publisher": "Gemeente Ouder-Amstel",
+      "title": "E05 — Amstelvoorde, Werkstad OverAmstel, Ouderkerkerplas and A9 programme context",
+      "url": "https://www.ouder-amstel.nl/Home/Projecten_en_plannen/Projecten_en_plannen/Amstelvoorde_voorheen_De_Nieuwe_Kern",
+      "accessedAt": "2026-09-03T11:04:00Z",
+      "edition": "Current linked municipal project/recreation pages inspected 3 September 2026",
+      "supports": [
+        "Amstelvoorde lies between Duivendrecht station, the Johan Cruijff ArenA and A2 and plans up to 6,200 homes, facilities, hospitality, offices and expanded sports-training uses; first homes were planned for 2027/2028. Future programme capacity must not be added to the current 2025 resident baseline before dated delivery evidence.",
+        "Werkstad OverAmstel is a mixed employment/transformation area shared with Amsterdam and multiple landowners. Industriegebied Amstel has only 60 published residents, so resident allocation is not a daytime worker/activity estimate.",
+        "Ouderkerkerplas official recreation pages describe beaches, day camping and water/nature uses with seasonal path closures; this establishes variable presence/access eligibility, not counts or live occupancy.",
+        "Municipal A9/SAA pages describe multi-year works and a 2026 target. A programme schedule does not establish current completion, carriageway/exit passability or incident-time capacity.",
+        "The linked human-readable pages provide planning/context rather than a live machine feed; no common explicit analytical reuse licence or quantitative visitor/workforce/route NoData contract was found."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Amsterdam-Amstelland",
+      "title": "E06 — Regionaal Risicoprofiel 2025–2028, Crisisplan 2025–2028 and 72-hour preparedness guidance",
+      "url": "https://stukken.veiligheidsregioaa.nl/wp-content/uploads/2025/06/VRAA_REGRISICOPROFIEL_VERDIEPING_25-28_DEF.pdf",
+      "accessedAt": "2026-09-03T11:05:00Z",
+      "edition": "2025–2028",
+      "supports": [
+        "The official regional profile identifies polder filling/dike failure, heat, severe storm, drought, extreme-rain water nuisance, utility failures and cyber disruption for Ouder-Amstel.",
+        "Its official river reference describes a Lek breach/high-water wave reaching the Amsterdam-Rijnkanaal and explicitly says Ouder-Amstel is affected. This is an illustrative planning scenario, not an activated incident or local calibration.",
+        "The profile says regional-dike/polder failure is more probable than sea or major-river flooding; extreme rain can exceed polder/sewer pump capacity; drought can affect peat dikes, foundations, water quality and supply; natural-fire risk is regionally small but not impossible.",
+        "The crisis plan is information-led and adaptive and allocates public care, mobility, medical, communication and recovery roles. It does not publish incident-time crews, shelters, vehicles, hospital acceptance, pump commands, materials or restoration commitments.",
+        "Regional guidance asks households to prepare for 72 hours. It is a preparedness target, not measured Ouder-Amstel stock, compliance, self-reliance or distribution capacity; document/page reuse terms did not provide a machine-data licence."
+      ]
+    },
+    {
+      "publisher": "Het Waterschapshuis / Stichting Mijn Aansluiting / Netbeheer Nederland / RDI / DUO / KVK-PDOK / RIVM / NDW",
+      "title": "E07 — Public water, provider, planning, facility, care, telecom and road-context snapshots",
+      "url": "https://api.pdok.nl/hwh/waterschappen-kunstwerken-imwa/ogc/v2",
+      "accessedAt": "2026-09-03T11:06:00Z",
+      "edition": "Deployment snapshots retrieved 31 August–3 September 2026; RIVM acute-care questionnaire 2026 v1.1",
+      "supports": [
+        "The contributor-dependent HWH aggregation assigns 199 objects to GM0437: 23 surface-water pumps, 171 weirs and five sluices. CC BY-SA 4.0 registry points lack complete topology, comparable capacity, target settings, power/control/backup, maintenance and live operation.",
+        "The provider-territory lookup at the representative point returns Liander for power, Stedin for gas, Waternet for drinking water and Ziggo for telecom, but no drainage provider. Public Domain point membership has affectsSimulation=false; absence is incomplete coverage, not absence of municipal/AGV duty.",
+        "One large-user planning sample maps to Liander service area Amstelveen with 56/54 MW existing/required withdrawal plus queues/projects. It is quarterly/monthly planning context, not live load, outage, feeder topology, switching, reserve or restoration.",
+        "Registers assign 44 antenna installations, fourteen education locations and three governmental-service addresses to GM0437. They do not establish radio coverage/backhaul, people, emergency role, opening, capacity, stock, accessibility, backup or live operation.",
+        "RIVM assigns no emergency department inside GM0437. Ziekenhuis Amstelland is about 2.71 km straight-line but reports non-24/7 emergency opening; Amsterdam UMC AMC is about 3.18 km and reports 24/7 care. Annual CC0 questionnaire data do not establish route time, ambulances, acceptance/diversion, occupancy, staffing or generator endurance.",
+        "Three valid-time NDW vehicle-obstruction records intersected GM0437 in the 3 September 2026 snapshot. They are timestamped observations and do not automatically bind the exercise network or prove all other roads open; NDW is CC0 unless stated otherwise."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat-WMCN / IPLO / KNMI / RIVM",
+      "title": "E08 — LIWO flood cases and timestamped water, weather, seismic and air-quality screens",
+      "url": "https://iplo.nl/thema/water/applicaties-modellen/berichtgeving-crisismanagement/liwo/",
+      "accessedAt": "2026-09-03T11:07:00Z",
+      "edition": "LIWO 2025.1.6; deployment observation/forecast snapshots retrieved 2–3 September 2026",
+      "supports": [
+        "LIWO 2025.1.6 exposes professional flood-information layers requiring expert water-manager interpretation. A selected case must retain source, defence/breach/control state, protected domain, native depth/velocity units, footprint, arrival/persistence/recession, probability, CRS, licence and NoData.",
+        "No Waterinfo observation or rolling forecast point is assigned inside GM0437; the national Waterinfo forecast has no source records at T+72. Missing point/horizon coverage cannot establish Amstel/boezem/polder water or defence state and must not be held or interpolated as fact.",
+        "No municipal KNMI station/warning, RIVM PM2.5 station or KNMI seismic event is assigned in the deployment screens. Empty spatial/time matching remains Unknown/NoData, not calm weather, clean air, zero ground motion or safe conditions.",
+        "The canonical wildfire source at [5.75, 52.18] is a synthetic remote exercise. Its GM0437 T+24 smoke value is neither a station observation nor a selected incident plume.",
+        "KNMI is CC BY 4.0 and Waterinfo CC0 unless component terms state otherwise. Operational records require issue, observation, valid and retrieval times, coverage, fault/revision state and an explicit affectsSimulation binding."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM0437, Ouder-Amstel, Noord-Holland and Veiligheidsregio Amsterdam-Amstelland are internally and officially coherent.",
+      "evidenceRefs": ["E01", "E02", "E06"],
+      "notes": [
+        "Generated municipality, province and exactly one safety-region assignment agree.",
+        "The representative point lies inside the fresh full-resolution 2025 boundary.",
+        "Annual/static context, official scenario, timestamped observation/forecast and synthetic exercise evidence remain explicitly distinct."
+      ]
+    },
+    "geography": {
+      "status": "fail",
+      "summary": "Administrative geography is coherent, but river/coastal, emergency-overflow, pluvial, fire/smoke and infrastructure domains do not govern local impacts.",
+      "evidenceRefs": ["E02", "E03", "E04", "E06", "E08"],
+      "notes": [
+        "Storm, pluvial, coastal, heat, winter, cyber and wildfire share exactly the same seven-neighbourhood T+24 severity order.",
+        "River returns exact zero despite an official reference scenario naming Ouder-Amstel; coastal selects no defence, breach, protected domain, hydraulic footprint or boundary conditions.",
+        "Ronde Hoep emergency storage is a deliberate boezem-protection action with a defined control and duration, not interchangeable with generic coastal or pluvial forcing.",
+        "Full polygons and mechanism-eligible domains must govern containment and ranking."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Official resident controls and neighbourhood aggregates reconcile within negligible CBS rounding/suppression difference.",
+      "evidenceRefs": ["E01", "E02", "E05", "E07"],
+      "notes": [
+        "CBS reports 14,532 residents; seven published rows sum to 14,530 (-2, -0.014%), while model allocations reconcile exactly to 14,532.",
+        "Age 65-plus and one-person-household counts can inform aggregate assistance demand but never identify individuals, care needs or readiness.",
+        "Residents remain separate from workers, pupils, patients, Duivendrecht travellers, Ouderkerkerplas visitors, sports/event participants, responders and future Amstelvoorde occupants under CORR-015."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "Seven neighbourhoods support census allocation, but null statistics and live water, utility, care, mobility and activity state remain incomplete.",
+      "evidenceRefs": ["E01", "E03", "E04", "E05", "E07"],
+      "notes": [
+        "Several fields cover only four or six of seven rows and district heat/public charging cover zero; missing values remain Unknown/NoData.",
+        "Water assets, provider territories, grid planning, antenna, school, government, care and project records have incompatible scope, cadence and operational meaning.",
+        "Registered or planned assets do not establish connectivity, capacity, occupancy, settings, backup, current condition, commissioning or restoration."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "The three BAG places and Duivendrecht, Ouderkerk and Waver cores preserve distinct urban, village and rural labels without duplicating population.",
+      "evidenceRefs": ["E01", "E02", "E05"],
+      "notes": [
+        "Amsterdam-Duivendrecht is an Ouder-Amstel place name and must not be reassigned from its official municipality because its label begins with Amsterdam.",
+        "The seven neighbourhoods retain Industriegebied Amstel and three sparse polder/linear areas rather than collapsing all residents to Ouderkerk or Duivendrecht.",
+        "Settlement labels and future plans are static context, not incident-time presence, access, service or protection."
+      ]
+    },
+    "transport": {
+      "status": "fail",
+      "summary": "Six logical road edges plus station/stop registers do not form an incident-valid independent access graph for both urban and polder areas.",
+      "evidenceRefs": ["E02", "E05", "E07"],
+      "notes": [
+        "The two A2 and two A9 links are series segments on shared physical corridors, while A10 and N522 also connect through Amsterdam/Amstelveen common-mode approaches.",
+        "Duivendrecht is a multimodal rail/metro/bus interchange, but static ProRail/GTFS records do not prove incident-time service, platform access or capacity.",
+        "A9 works and three timestamped NDW vehicle obstructions require valid-time interpretation; neither project schedules nor absence of another NDW record proves passability.",
+        "The graph lacks Ronde Hoep/Waver internal approaches, water crossings, direction, restriction, emergency priority and unit-bearing incident throughput."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "Official overflow, flood, water-chain, mobility, care and preparedness evidence is not selected into incident, action or resource state.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "No selected Lek/sea/regional-dike/rain/fire/cyber incident, Ronde Hoep decision, pump/control state, route restriction, visitor estimate, hospital acceptance or operator condition drives outputs.",
+        "Plans and profiles define mechanisms/governance; neither proves activation, staffing, materials, shelters, warnings, completed protection or restoration.",
+        "Empty local observation/facility screens cannot validate exercise forcing or mean safe/operational.",
+        "Seventy-two-hour household guidance is a planning target, not measured preparedness or local supply-chain capability."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten canonical presets execute deterministically at six mandatory checkpoints across eight services.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "The initial focused audit:model gate passed one file/two tests in 33.18 seconds; successful execution does not establish local calibration.",
+        "Maximum severity / maximum affected / T+72 attributable person-hours are storm 0.554018 / 4,713 / 231,139.401; pluvial 0.340909 / 2,129 / 151,519.354; river 0 / 0 / 0; coastal 0.471340 / 6,762 / 469,389.288; heat 0.666490 / 1,202 / 124,415.925.",
+        "Remaining values are winter 0.733329 / 3,763 / 245,751.810; cyber 0.516325 / 4,226 / 233,181.944; earthquake 0.015309 / 0 / 9,149.687; wildfire 0.110665 / 0 / 57,669.898; compound 0.947064 / 8,847 / 606,919.006.",
+        "These decimals are deterministic exercise outputs, not observations, forecasts, casualties, evacuees, measured outages or operator commitments."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Outputs satisfy the current finite, deterministic, zero-intensity, selected-layer-invariance, reconciliation and causal-ledger contracts.",
+      "evidenceRefs": ["E01", "E02"],
+      "notes": [
+        "Required structural/range, local-sum, causality and repeatability checks pass for all presets/checkpoints/services.",
+        "Allocated neighbourhood populations 8,251, 5,606, 60, 355, 55, 70 and 135 sum exactly to the 14,532 municipality control while preserving the two-person published-row difference.",
+        "Every preset's zero-intensity run returns exact-zero event hazard, affected resident-equivalents and event-attributable deprivation.",
+        "The legacy floodDepthM field is normalized inundation stress under CORR-017, never measured metres; coastal 1.231505 must not be presented as physical depth."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "A shared neighbourhood seed overrides distinct water, heat, weather, fire/smoke and cyber geography.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E06", "E08"],
+      "notes": [
+        "At T+24, severe storm, pluvial, coastal, heat, winter, cyber and wildfire all rank Bullewijk/Hole, Duivendrecht, Rondehoeppolder, Industriegebied Amstel, Ouderkerk, Duivendrechtsche polder, then Bullewijker polder.",
+        "Official evidence distinguishes dense urban/transit/work areas, managed polders, Amstel/boezem water, emergency storage and recreation; these seven hazards cannot defensibly share a complete order.",
+        "River and earthquake zero-severity ranks merely expose tie/input ordering, not authoritative local exposure.",
+        "The remote wildfire preset produces T+24 smoke 0.266207 with zero local flame and no event-valid plume; its local ranking remains unsupported."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "Exact service availability exceeds verified drainage, transport, utility, telecom, care and supply topology/state evidence.",
+      "evidenceRefs": ["E02", "E03", "E04", "E07"],
+      "notes": [
+        "At compound T+24 availability is Power 0.272245, Water 0.308851, Drainage 0.274558, Gas 0.573753, Telecom 0.156796, Mobility 0.817193, Facilities 0.314889 and Supply 0.816675.",
+        "Provider territories, one planning sample, 199 water objects, 44 antennas, fourteen schools, three government addresses, six logical road links and external hospitals do not form compatible live topology/capacity/backup/restoration evidence.",
+        "No drainage provider is returned at the reference point; this is incomplete/Unknown coverage, not absence of municipal/AGV drainage responsibility.",
+        "Ronde Hoep controls and pumping have real power/control/crew dependencies, but public pages/registers cannot justify exact cyber, water or drainage loss without connected topology and incident state."
+      ]
+    },
+    "causalTrace": {
+      "status": "warn",
+      "summary": "The numerical causal ledger closes, but authority-selected causes, controls, actions, owners and resources remain absent.",
+      "evidenceRefs": ["E03", "E04", "E06", "E07", "E08"],
+      "notes": [
+        "Outputs expose hazard, direct-service, interdependency, network, recovery and local-allocation components with matched totals.",
+        "Cumulative person-hours are synthetic no-event-counterfactual accounting, not observed outage duration, deaths, displaced people or unmet care.",
+        "No selected breach/inlet/rain/fire/cyber event, pump/weir/sewer action, road intervention, utility switching or hospital acceptance explains exact trajectories.",
+        "Every action requires authority/owner, target, prerequisite, route, crew/material/fuel/water, start/end, state, evidence class/time and uncertainty."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "Flood-control and compound persistence/recovery lack selected events, constraints, resources and actions through T+72.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "Coastal direct severity is zero at T+72 while 1,607 residents remain affected and Drainage is 0.752335; no breach closure, outside-water level, pump-down state, access, power/backup or crew explains persistence/recovery.",
+        "If Ronde Hoep emergency storage is selected, the official timeline is 24 hours of controlled filling and about fifteen days of pumping, extending far beyond this window; it must not be forced into generic coastal/pluvial recovery.",
+        "Compound T+72 retains severity 0.540400 and 8,847 affected, while all eight service values are exactly unchanged from T+24, without an action/resource or capacity constraint explaining the plateau.",
+        "T+0–6 needs incident selection, warning and route/water-system verification; T+6–24 needs the 24-hour inlet warning/decision, resident/livestock/visitor measures, utility protection, access/care and pumping controls; T+24–72 needs dewatering, damage/welfare/supply, route and restoration state. None is evidenced.",
+        "Exact 469,389.288 coastal and 606,919.006 compound person-hours remain non-decision-grade synthetic outputs until typed incident/action/resource evidence exists."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": ["severe-storm", "pluvial-flood", "river-flood", "coastal-flood", "heatwave", "winter-storm", "cyberattack", "earthquake", "wildfire", "compound"],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": ["power", "water", "drainage", "gas", "telecom", "mobility", "facilities", "supply"]
+  },
+  "findings": [
+    {
+      "id": "GM0437-IDENTITY-001",
+      "severity": "informational",
+      "category": "identity",
+      "status": "fixed",
+      "summary": "Identity, boundary, safety region and resident controls are coherent.",
+      "evidence": "GM0437 Ouder-Amstel, Noord-Holland and Amsterdam-Amstelland agree; the reference point is inside the full 2025 boundary. CBS reports 14,532 residents and seven neighbourhood rows total 14,530, a -2/-0.014% rounding/suppression difference; allocations sum exactly to the municipality control.",
+      "action": "Retain the verified identity, full-boundary containment and exact municipal population control. Preserve edition/provenance and keep null or suppressed regional fields Unknown."
+    },
+    {
+      "id": "GM0437-FLOOD-SOURCE-001",
+      "severity": "critical",
+      "category": "hazard",
+      "status": "open",
+      "summary": "River exact zero and generic coastal precision contradict the bounded official flood evidence.",
+      "evidence": "VrAA's official illustrative Lek/Amsterdam-Rijnkanaal flood explicitly names Ouder-Amstel as affected, but the river preset is exact zero at every checkpoint. Coastal T+24 instead reports normalized stress 1.231505 and 6,762 affected without a selected defence, breach, protected domain, footprint, arrival or recession. Neither result establishes local safety or depth.",
+      "action": "Suppress unsupported zero/safe and precise local inundation conclusions. Integrate only an expert-selected, versioned AGV/WMCN/LIWO case with mechanism, defence/breach/control state, protected domain, native units, footprint, arrival/persistence/recession, probability, CRS, licence and NoData; no selected case remains Unknown."
+    },
+    {
+      "id": "GM0437-RONDEHOEP-001",
+      "severity": "critical",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The official Ronde Hoep emergency-overflow decision and long pump-down are absent from scenario state.",
+      "evidence": "AGV describes a last-resort safety-region decision, 24-hour prior resident warning, up to 2.4 million m3 controlled inflow over 24 hours, coordination for transformer/gas-tank/pressure-sewer protection and an expected roughly fifteen-day pump-down. The simulator has no inlet decision, commissioning/control state, affected footprint, action sequence or beyond-72-hour recovery tail.",
+      "action": "Implement Ronde Hoep as a separately named official scenario/action adapter, never as automatic baseline forcing. Require authority decision, inlet/defence state, notification validity, footprint/native levels, resident/livestock/asset measures, pump/power/access state and multi-day recovery; otherwise show Unknown/not activated."
+    },
+    {
+      "id": "GM0437-SHARED-SPATIAL-001",
+      "severity": "critical",
+      "category": "geography",
+      "status": "open",
+      "summary": "Seven unrelated hazards reuse one complete seven-neighbourhood severity order.",
+      "evidence": "At T+24 storm, pluvial, coastal, heat, winter, cyber and wildfire all rank Bullewijk/Hole, Duivendrecht, Rondehoeppolder, Industriegebied Amstel, Ouderkerk, Duivendrechtsche polder, Bullewijker polder. Official sources distinguish urban/transit/work, managed-polder, emergency-storage, recreation and utility domains; the order comes from a shared seed, not those mechanisms.",
+      "action": "Replace the common municipal seed with hazard-specific source, eligible-domain, forcing, exposed-object and support adapters over full polygons. Add cross-preset tests against silent rank reuse; incompatible or missing spatial evidence must render Unknown instead of precise neighbourhood ordering."
+    },
+    {
+      "id": "GM0437-PLUVIAL-DRAINAGE-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Pluvial and Drainage state is disconnected from polders, boezem, sewers, pumps, weirs, sluices and antecedent water state.",
+      "evidence": "Municipal, AGV and VrAA evidence establishes low polders, rain/groundwater/sewer duties and capacity exceedance. Pluvial T+24 reports stress 0.472028, 2,129 affected and Drainage 0.498250 without a municipal stress raster, antecedent storage/groundwater, sewer/catchment, street flow, receiving-water level, control command, power/backup or verified topology. The 199 registered objects cannot fill those gaps.",
+      "action": "Obtain versioned municipal stress surfaces and AGV peilgebied, watercourse/boezem, defence/control and sewer/drainage exports with event definition, antecedent state, CRS, units, licence and NoData. Keep points contextual until connectivity, capacity, settings, power/control, backup and live state are reviewed."
+    },
+    {
+      "id": "GM0437-DYNAMIC-POPULATION-001",
+      "severity": "high",
+      "category": "exposure",
+      "status": "open",
+      "summary": "Resident-only exposure misses work, transit, recreation and development timing while risking premature future residents.",
+      "evidence": "Industriegebied Amstel has only 60 published residents although Werkstad is an employment/transformation area; Duivendrecht station has multimodal flows and Ouderkerkerplas has seasonal recreation. Amstelvoorde plans up to 6,200 homes with first delivery from 2027/2028, so it is not current population. The model allocates only annual CBS residents and exact affected values cannot represent incident-time presence.",
+      "action": "Keep the 2025 resident baseline immutable. Add separate privacy-safe, timestamped worker/traveller/visitor/pupil/patient and response cohorts with confidence intervals, seasonal/day-type/clock validity and conservation; activate future Amstelvoorde cohorts only from evidenced delivery dates. Unknown counts must remain Unknown."
+    },
+    {
+      "id": "GM0437-ACCESS-CORRIDOR-001",
+      "severity": "critical",
+      "category": "network",
+      "status": "open",
+      "summary": "Logical edge count overstates independent access and cannot support exact mobility, evacuation, care or supply recovery.",
+      "evidence": "Six boundary edges include paired series A2 and A9 links rather than four independent routes, plus A10/N522 shared Amsterdam-Amstelveen approaches. Duivendrecht station/GTFS are timetables, A9 has project-state uncertainty and three current NDW obstruction records require matching. Ronde Hoep/Waver approaches and water crossings are absent. Compound Mobility 0.817193 and Supply 0.816675 therefore exceed evidence.",
+      "action": "Build an authority-reviewed multimodal graph from current NWB/local ownership, rail/transit and crossings, preserving physical-corridor common mode, direction, mode, restrictions, internal approaches, passability, emergency priority, valid time and unit-bearing throughput. Gate route-dependent outputs Unknown when usable topology or incident state is missing."
+    },
+    {
+      "id": "GM0437-CARE-ACCESS-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Acute care is cross-boundary and opening differs, but route, ambulance and acceptance state is absent.",
+      "evidence": "RIVM assigns no emergency department inside GM0437. Ziekenhuis Amstelland is about 2.71 km straight-line but not 24/7; Amsterdam UMC AMC is about 3.18 km and reports 24/7. Annual facility context supplies no incident-valid road time, ambulance resource, acceptance/diversion, occupancy, staffing, backup/fuel or alternative pathway. A2/A9/N522/urban common mode makes straight-line proximity non-operational.",
+      "action": "Bind a privacy-safe regional care interface to the valid-time network with destination class/opening, route state/time, ambulance resource, acceptance/diversion, bounded capacity, backup/fuel and validity. Keep unavailable or protected state Unknown rather than infer operation from annual registers."
+    },
+    {
+      "id": "GM0437-LIFELINE-TOPOLOGY-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Public territories and registers cannot justify exact first-72-hour utility and facility trajectories.",
+      "evidence": "Point lookup identifies Liander, Stedin, Waternet and Ziggo; HWH supplies 199 objects, with one grid-planning postcode, 44 antenna records, fourteen schools and three public-service addresses. None supplies connected power/gas/water/drainage/telecom/facility topology, compatible capacities, switching/pressure/backhaul, priority users, backup, fuel, damage, crews or restoration. Drainage provider lookup is empty/Unknown.",
+      "action": "Keep public layers as official context with coverage, version, retrieval, licence and affectsSimulation=false. Use only operator-approved aggregate zones or an explicitly synthetic minimum fallback with uncertainty; suppress asset-like exact percentages and make missing topology/state Unknown, not zero or operational."
+    },
+    {
+      "id": "GM0437-WILDFIRE-SMOKE-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Canonical remote smoke is rendered locally without an observed plume or selected local ignition.",
+      "evidence": "The wildfire preset source is the synthetic point [5.75, 52.18]; GM0437 receives T+24 smoke 0.266207, zero local flame and the same shared neighbourhood order as six unrelated hazards. VrAA assesses regional nature-fire risk as small but possible and no municipal PM2.5 station is assigned. Neither omission nor zero flame proves safe; no ignition, perimeter, eligible fuel/moisture, wind, plume, firewater or suppression state is selected.",
+      "action": "Label the canonical run remote synthetic smoke. Require a named source/perimeter, eligible vegetation, event-valid wind/plume or observation/forecast, access, extinguishing water and suppression state before local flame/smoke allocation; missing station/plume data remains Unknown."
+    },
+    {
+      "id": "GM0437-RECOVERY-ACTION-001",
+      "severity": "critical",
+      "category": "explainability",
+      "status": "open",
+      "summary": "Exact T+0–72 recovery and deprivation lack incident, action, resource and constraint evidence.",
+      "evidence": "Compound retains severity 0.540400 and 8,847 affected at T+72 while all eight availability values exactly equal T+24. Coastal retains 1,607 affected after direct forcing reaches zero. No breach/inlet, pump, route, utility, care, welfare, supply or repair action explains these paths; 469,389.288 and 606,919.006 person-hours are synthetic accounting. Official Ronde Hoep pump-down alone can last about fifteen days.",
+      "action": "Add a typed action/resource ledger spanning detection/decision, warnings, route/water checks, inlet/pump/control operations, utility protection/switching, care/evacuation, welfare/supply, dewatering and repair. Require owner, prerequisites, capacity/unit, route, crew/material/fuel, start/end, state, evidence class/time and uncertainty; derive recovery only from feasible actions."
+    },
+    {
+      "id": "GM0437-UI-PROVENANCE-001",
+      "severity": "medium",
+      "category": "ui",
+      "status": "open",
+      "summary": "Precise map values can still be read as local measurements or forecasts despite scenario-only evidence.",
+      "evidence": "The simulation exposes six-decimal normalized flood/service values and neighbourhood ranks while local incident, hydraulic, topology, dynamic-population and resource evidence is absent. floodDepthM is a legacy normalized stress field, not metres. Current NDW records, static registers, future projects, official scenarios and synthetic forcing have different time/scope semantics that a generic layer can conflate.",
+      "action": "Show evidence class, publisher, edition/retrieval/issue/valid time, coverage, licence, affectsSimulation, native unit, uncertainty and NoData reason beside every value. Label synthetic stress and resident-equivalent outputs prominently, never append physical units, and disable decision-grade export for unsupported layers."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Replace generic local flood semantics with selected mechanism-specific Lek/sea/regional-dike and Ronde Hoep official scenarios.",
+      "files": ["packages/sim-core/src/model.ts", "apps/web/src/data.ts", "apps/web/src/components/Inspector.tsx"],
+      "validation": "For GM0437, no selected flood case yields Unknown rather than river zero/safe or coastal precision. Fixture cases preserve source/version, mechanism, defence/breach/inlet/control state, protected domain, native units, footprint, arrival/persistence/recession, probability, CRS, licence and NoData. A Ronde Hoep fixture requires authority decision, 24-hour warning/fill semantics and beyond-72-hour pump-down without presenting design level as building depth."
+    },
+    {
+      "summary": "Use hazard-specific full-polygon spatial adapters and source-aware fire/smoke allocation.",
+      "files": ["packages/sim-core/src/model.ts", "packages/sim-core/src/municipality-coverage.test.ts"],
+      "validation": "Storm, pluvial, flood, heat, winter, cyber and wildfire no longer silently share a complete seven-neighbourhood order. Tests prove eligible-domain/source containment, population conservation and explicit Unknown for absent/incompatible forcing; remote smoke is labelled and cannot create unsupported local flame."
+    },
+    {
+      "summary": "Integrate governed Ouder-Amstel/AGV pluvial and managed-water inputs without inventing topology or live operation.",
+      "files": ["scripts/fetch-water-assets.mjs", "apps/web/src/data.ts", "packages/sim-core/src/model.ts"],
+      "validation": "Fixtures preserve stress-event definition, antecedent groundwater/storage, peilgebied/catchment, receiving water, sewer, pump/weir/sluice connectivity, capacity units, controls, power/backup, validity, CRS, licence and NoData. Registry-only points remain affectsSimulation=false and empty drainage territory stays Unknown."
+    },
+    {
+      "summary": "Separate residents from dated work, transit, recreation, education, care and future-development cohorts.",
+      "files": ["apps/web/src/data.ts", "packages/sim-core/src/model.ts", "packages/sim-core/src/municipality-coverage.test.ts"],
+      "validation": "Resident allocations always reconcile to 14,532. Each dynamic cohort shows source, confidence, date/season/day/clock validity and conservation, never overwrites residents, never activates Amstelvoorde future homes before evidenced delivery and returns Unknown when no count is supported."
+    },
+    {
+      "summary": "Build valid-time multimodal access/care dependencies with physical-corridor common mode.",
+      "files": ["scripts/apply-audited-lifelines.mjs", "apps/web/public/data/transport-network.json", "packages/sim-core/src/model.ts"],
+      "validation": "A2 and A9 paired logical segments are series, not additive. Tests cover urban and Ronde Hoep/Waver approaches, water crossings, station/transit validity, project/NDW restrictions, destination opening, route time, ambulance/acceptance state and alternatives. Missing passability/capacity makes route-dependent mobility, care and supply Unknown."
+    },
+    {
+      "summary": "Gate utility/recovery outputs on typed evidence and make UI provenance/NoData explicit.",
+      "files": ["packages/sim-core/src/model.ts", "apps/web/src/components/Inspector.tsx", "apps/web/src/components/MapView.tsx"],
+      "validation": "Every service/recovery change exposes incident, owner/action/resource/prerequisite, capacity unit, route, crew/material/fuel, start/end, state, evidence class/time and uncertainty. Compound services cannot plateau or recover without causal entries. UI shows source/version/validity/coverage/licence/affectsSimulation/NoData, labels floodDepthM normalized stress and blocks unsupported decision-grade export."
+    }
+  ],
+  "residualLimitations": [
+    "Public evidence does not expose complete or incident-valid electricity, gas, drinking-water, sewer/drainage, telecom, multimodal, care, shelter or supply topology, compatible capacity, switching/control, backup, damage, crews or restoration state; protected/unavailable facts remain Unknown.",
+    "AGV's Ronde Hoep values describe an official design/planning mechanism. The inspected construction page expected completion in July 2026 but did not prove current commissioning, readiness, inlet command, affected asset protection or live pump state.",
+    "LIWO and regional scenarios require expert selection and interpretation. This audit does not select a breach/inlet or convert scenario water levels into property-scale depths, casualties, evacuation numbers or operational instructions.",
+    "CBS annual residents omit incident-time workers, commuters, Duivendrecht travellers, Ouderkerkerplas visitors, pupils, patients, livestock, responders and future Amstelvoorde occupants; no authoritative complete municipal dynamic-population feed was found.",
+    "The current public snapshots are heterogeneous: three NDW obstruction geometries matched, while local Waterinfo, KNMI warning/station, PM2.5 and seismic matches were empty. These are time/coverage facts, not validation of arbitrary exercise forcing or proof other conditions are safe.",
+    "Straight-line care distance is not travel time. Hospital opening, acceptance/diversion, ambulance availability, occupancy, staffing and generator/fuel endurance remain incident-time Unknown.",
+    "Open water-asset and external-safety registers can support planning context but cannot safely or legally substitute for security-sensitive network topology or operator control state.",
+    "Model decimals and neighbourhood ranks are deterministic scenario indices. They are not measurements, forecasts, physical depths, observed outages, casualties, evacuees, promises or response orders."
+  ],
+  "provinceReviewFlags": [
+    "Noord-Holland review should align AGV/Waternet defence, boezem, peilgebied and emergency-storage semantics across Ouder-Amstel, Amsterdam, Amstelveen, Diemen, Uithoorn and Aalsmeer without copying one local pathway to another.",
+    "Require expert reconciliation of the VrAA Lek/Amsterdam-Rijnkanaal reference, LIWO cases and model river/coastal eligibility; Ouder-Amstel exact river zero and unselected coastal precision cannot both survive.",
+    "Review Ronde Hoep as a cross-boundary protective action: deliberate local impact can reduce Amstel-boezem risk elsewhere, so affected and benefited municipalities, decision authority, warnings and multi-day recovery must remain explicit.",
+    "Reconcile A2/A9/A10/N522, Duivendrecht multimodal interchange, A9 works and Amsterdam/Amstelveen care/supply dependencies with physical-corridor common mode and valid-time state.",
+    "Coordinate dynamic population and future-development editions around Werkstad OverAmstel, Amstelvoorde, Ouderkerkerplas and adjacent Amsterdam event/transit activity without moving Johan Cruijff ArenA or its residents/assets into GM0437.",
+    "Preserve split point-territory results—Liander power, Stedin gas, Waternet drinking water, Ziggo telecom and empty drainage—and prohibit province-wide extrapolation from a single representative point."
+  ]
+}
