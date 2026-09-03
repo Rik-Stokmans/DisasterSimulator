@@ -1897,17 +1897,17 @@ test('shows audited ferry lifelines only for mobility and emergency supply', asy
     }).__resilienceMap?.getSource('national-routes'),
   ))
 
-  const ferryState = (id: string) => page.evaluate((routeId) => {
+  const ferryStates = (ids: string[]) => page.evaluate((routeIds) => {
     const map = (window as Window & {
       __resilienceMap?: {
         getFeatureState(target: { source: string; id: string }): Record<string, number>
       }
     }).__resilienceMap!
-    return map.getFeatureState({
+    return routeIds.map((routeId) => map.getFeatureState({
       source: 'national-routes',
       id: routeId,
-    }) ?? {}
-  }, id)
+    }) ?? {})
+  }, ids)
   const layers = page.getByRole('navigation', { name: 'Simulation map layers' })
   const ferryIds = [
     'gtfs-ferry-wpd-holwerd-ameland',
@@ -1919,22 +1919,19 @@ test('shows audited ferry lifelines only for mobility and emergency supply', asy
   ]
 
   await layers.getByRole('button', { name: 'Roads & mobility: Accessible capacity' }).click()
-  for (const id of ferryIds) {
-    await expect.poll(async () => (await ferryState(id)).opacity).toBeGreaterThan(0)
-    expect((await ferryState(id)).width).toBe(1.8)
-  }
+  await expect.poll(async () => (await ferryStates(ferryIds)).every(
+    ({ opacity, width }) => opacity > 0 && width === 1.8,
+  )).toBe(true)
 
   await layers.getByRole('button', { name: 'Electricity: Service availability' }).click()
-  for (const id of ferryIds) {
-    await expect.poll(async () => (await ferryState(id)).opacity).toBe(0)
-    expect((await ferryState(id)).width).toBe(0)
-  }
+  await expect.poll(async () => (await ferryStates(ferryIds)).every(
+    ({ opacity, width }) => opacity === 0 && width === 0,
+  )).toBe(true)
 
   await layers.getByRole('button', { name: 'Emergency supply: Delivered / demand' }).click()
-  for (const id of ferryIds) {
-    await expect.poll(async () => (await ferryState(id)).opacity).toBeGreaterThan(0)
-    expect((await ferryState(id)).width).toBe(1.8)
-  }
+  await expect.poll(async () => (await ferryStates(ferryIds)).every(
+    ({ opacity, width }) => opacity > 0 && width === 1.8,
+  )).toBe(true)
   expect(errors).toEqual([])
 })
 
