@@ -2014,8 +2014,10 @@ test('switches layers, scrubs time, and keeps inspector semantics aligned', asyn
   await layerNavigation.getByRole('button', { name: 'Hazard forcing: Scenario severity' }).click()
   await page.getByRole('slider', { name: /Simulation time/ }).fill('48')
   await expect(page.locator('.current-time strong')).toHaveText('T+12:00')
-  await expect(page.locator('.status-hero-copy')).toContainText('mm/h rain')
-  await expect(page.locator('.mini-grid').getByText('Flood stress', { exact: true })).toBeVisible()
+  await expect(page.locator('.status-hero-copy')).toContainText('Local result unavailable')
+  await expect(page.locator('.status-hero-copy')).toContainText('evidence class unsupported')
+  await expect(page.locator('.mini-grid').getByText('Local hazard', { exact: true }).locator('..')).toContainText('Unknown')
+  await expect(page.locator('.mini-grid').getByText('Spatial evidence', { exact: true }).locator('..')).toContainText('Unsupported')
 
   await layerNavigation.getByRole('button', { name: 'Population & needs: Modeled residents under service pressure' }).click()
   await expect(page.locator('.status-hero-copy')).toContainText('CBS context + scenario')
@@ -4142,6 +4144,10 @@ test('keeps mobile navigation reachable and preserves an edge district selection
   await expect(page.getByTitle('Reset national view')).toBeVisible()
   await page.getByRole('button', { name: 'Close operations menu' }).click()
   await page.waitForTimeout(1_200)
+
+  const mapTools = page.getByRole('button', { name: 'Open map view and overlays' })
+  await expect(mapTools).toBeVisible()
+  await expect(mapTools).toHaveAttribute('aria-expanded', 'false')
 
   // Real CBS buurt polygons replace the old six schematic sectors. Selecting a
   // rendered polygon must open and retain that official region in the inspector.

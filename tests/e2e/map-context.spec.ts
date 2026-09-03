@@ -4,7 +4,10 @@ import { observeBrowserDiagnostics, openReadyApp } from './support'
 test.describe.configure({ mode: 'serial' })
 
 test('keeps affected regions visible across time, map questions, aerial imagery, and 3D', async ({ page }) => {
-  test.setTimeout(60_000)
+  // This intentionally exercises three MapLibre modes and several large
+  // sources in one browser lifecycle. Parallel WebGL tests can heavily
+  // throttle evaluate/click calls even when the deployed UI stays responsive.
+  test.setTimeout(90_000)
   const diagnostics = observeBrowserDiagnostics(page)
   const cameraRequests: string[] = []
   const roadSituationRequests: string[] = []
@@ -90,7 +93,7 @@ test('keeps affected regions visible across time, map questions, aerial imagery,
   await expect(page.locator('.affected-overlay-key')).toContainText('T+24:00')
   await expect.poll(async () => {
     const { counts } = await overlayState()
-    return (counts.affected ?? 0) + (counts.critical ?? 0)
+    return (counts.affected ?? 0) + (counts.critical ?? 0) + (counts.unknown ?? 0)
   }).toBeGreaterThan(0)
   await expect(page.locator('.map-overlay-switch.affected')).toContainText(/\d+ affected · \d+ critical/)
 

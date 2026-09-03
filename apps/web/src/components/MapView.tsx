@@ -3738,6 +3738,7 @@ export function MapView({
   const [roadSituationOverlayPreference, setRoadSituationOverlayPreference] =
     useState<OverlayPreference>('auto')
   const [cameraOverlayEnabled, setCameraOverlayEnabled] = useState(false)
+  const [mobileMapControlsOpen, setMobileMapControlsOpen] = useState(false)
   const [trafficCameras, setTrafficCameras] = useState<PublicTrafficCameraCollection | null>(null)
   const [cameraLoadError, setCameraLoadError] = useState<string | null>(null)
   const [official3dState, setOfficial3dState] = useState<Official3dState>('idle')
@@ -5135,7 +5136,20 @@ export function MapView({
         Use the municipality chooser for a nonvisual location selection. Use the layer controls to
         change the mapped service and the timeline checkpoints to change time.
       </span>
-      <section className="map-view-controls panel" aria-label="Map view and context overlays">
+      <section
+        className={`map-view-controls panel${mobileMapControlsOpen ? ' mobile-expanded' : ''}`}
+        aria-label="Map view and context overlays"
+      >
+        <button
+          type="button"
+          className="map-view-mobile-toggle"
+          aria-expanded={mobileMapControlsOpen}
+          aria-label={`${mobileMapControlsOpen ? 'Close' : 'Open'} map view and overlays`}
+          onClick={() => setMobileMapControlsOpen((current) => !current)}
+        >
+          <span>Map tools</span>
+          <span aria-hidden="true">{mobileMapControlsOpen ? '×' : '+'}</span>
+        </button>
         <header>
           <strong>Map view</strong>
           <small>{basemapMode === 'aerial' ? 'PDOK orthophoto · not live' : 'PDOK cartography'}</small>
