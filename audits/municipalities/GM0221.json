@@ -1,0 +1,443 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0221",
+    "name": "Doesburg",
+    "province": "Gelderland",
+    "safetyRegion": "Gelderland-Midden"
+  },
+  "agent": {
+    "taskName": "municipality_gm0221",
+    "agentId": "/root/causal_engine_v3",
+    "completedAt": "2026-09-02T21:35:32Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "GM0221 passes the deterministic model contract across all ten canonical scenarios, T+0/6/12/24/48/72 and all eight essential services. Its 2025 CBS identity, generalized boundary, 11,125 residents, eleven neighbourhoods, one BAG place, one BRT settlement label and all fourteen NWB source-section identities are coherent. Exact no-event behavior, local reconciliation, causal ledgers, event-attributable essential-service person-hours, logical-transfer-proxy labels and map-layer invariance also pass. Release nevertheless remains correction-required. The river preset assigns a precise 2.847590 m internal flood-stress value and 6,775 affected residents at T+24 solely from a municipal reference-point distance to an approximate IJssel segment; it remains identically severe through T+72 without selecting a source hydrograph, defence state, breach/overtopping event, connected depth grid, arrival or recession. Seven unrelated hazards use exactly the same eleven-neighbourhood order. Waterschap Rijn en IJssel already publishes Doesburg-specific T100/T1000 rain-depth, building, road-passability and heat layers whose geography conflicts with that generic ordering, while a focused source inside current TOP10NL loofbos in Beinum I ranks its source neighbourhood only eighth. The July 2026 VGGM consultation draft explicitly treats actual river-flood recovery as potentially multi-year and identifies Doesburg's dense historic centre as a distinct urban-fire risk. Public machine data can materially improve context, but sixteen water-control/wastewater objects, provider territories, fifteen antenna installations, three schools, two public-service records and zero in-boundary acute-care records do not establish utility topology, live operation, backup, stocks, crews or restoration. NoData remains Unknown; official context, current observations and deterministic T+72 output remain separate.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek",
+      "title": "Kerncijfers wijken en buurten 2025 — filtered rows for GM0221",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM0221%27%29&%24select=WijkenEnBuurten%2CGemeentenaam_1%2CAantalInwoners_5%2CBevolkingsdichtheid_34%2Ck_65JaarOfOuder_12%2CEenpersoonshuishoudens_30",
+      "accessedAt": "2026-09-02T21:19:25Z",
+      "edition": 2025,
+      "supports": [
+        "Official-context GM0221/Doesburg identity, population 11,125, density 962 residents per square kilometre, 3,249 residents aged 65 or older (29.2 percent) and 2,043 one-person households.",
+        "The machine-readable OData table is an annual official statistical release under CC BY 4.0. Independently rounded neighbourhood rows require reconciliation; suppressed, unknown and not-applicable values must remain null rather than zero.",
+        "CBS aggregates support transparent vulnerability and demand context, not identification of medically dependent residents, preparedness, visitors, workers or observed emergency demand."
+      ]
+    },
+    {
+      "publisher": "PDOK / CBS / Kadaster / Rijkswaterstaat / ProRail",
+      "title": "Gemeente and buurt gegeneraliseerd 2025 with BAG, BRT TOP10NL, NWB and railway context",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_gegeneraliseerd/items?f=json&limit=1000&datetime=2025-07-01T00%3A00%3A00Z",
+      "accessedAt": "2026-09-02T21:28:00Z",
+      "edition": "CBS/BAG 2025; BRT object sources through 2024; live NWB OGC inspected 2 September 2026",
+      "supports": [
+        "The application consumes annual CC BY 4.0 GM0221 municipality and eleven-neighbourhood generalized geometry. Reference point [6.143610706540431, 52.018450726644105] and the BAG Doesburg place centre lie inside the polygon; the separate BRT woonkern is a settlement label, not an administrative or population unit.",
+        "BAG place access is https://api.pdok.nl/kadaster/bag/ogc/v2/collections/woonplaats under the Public Domain Mark. BRT TOP10NL access is https://api.pdok.nl/kadaster/brt-top10nl/ogc/v1, national 1:10,000 topography published annually under CC BY 4.0 with object-level source and registration dates.",
+        "TOP10NL terrain object 56e8d726-be1f-5352-af98-d0e4ccff8929, local id 106603397, is typed bos: loofbos, has source date 2024 and registration date 2025-11-01, and contains focused point [6.131079647350572, 51.99801875867161] in BU02210104 Beinum I. Static land cover is eligibility context, not live fuel, an incident or spread.",
+        "NWB OGC https://api.pdok.nl/rws/nationaal-wegenbestand-wegen/ogc/v1 is national monthly CC0 road geometry. Section-level live WFS queries verified all fourteen generated records: 413291029, 415293030, 415293031, 415293034, 600148616, 600148617, 601299208 and 601299193 carry wegnummer N338; 411296006, 411296005, 415293049, 416293023, 600148708 and 600149140 carry N317. No source wvkId is duplicated among the four local links.",
+        "ProRail and GTFS return no municipal station and 25 stop-area records. Static railway geometry, an absent station and scheduled stops do not establish live operation, evacuation or emergency capacity."
+      ]
+    },
+    {
+      "publisher": "Veiligheids- en Gezondheidsregio Gelderland-Midden",
+      "title": "Regionaal Risicoprofiel Gelderland-Midden — July 2026 consultation draft",
+      "url": "https://cms.vggm.nl/sites/default/files/2026-07/Regionaal%20Risicoprofiel%20VGGM.pdf",
+      "accessedAt": "2026-09-02T21:31:00Z",
+      "edition": "July 2026 consultation draft, sent to participating councils 10 July 2026; consultation closes 2 October 2026",
+      "supports": [
+        "Doesburg is one of the fifteen participating municipalities. The draft identifies dike ring 48 Rhine and IJssel, says upstream high water reaches the region over days, and treats river flooding as a high-impact mechanism. An actual inundation can require years of recovery, whereas a threat without inundation may normalize within days.",
+        "The profile treats extreme rain, drought, heat, snow/ice, storm, nature fire, electricity, gas/heat, drinking water, telecom, care continuity and transport as distinct risks and emphasizes cascades rather than one all-purpose spatial rank.",
+        "It identifies Doesburg, Arnhem and Wageningen as dense historic centres where close buildings, wooden floors, older installations, limited compartmentation, narrow streets and limited firefighting-water access can accelerate urban fire. That is not the same hazard as a vegetation wildfire.",
+        "Electricity disruption can affect lighting, heat, communication, medical equipment, drinking water, traffic, retail/payment and wastewater treatment. The profile says Vitens supplies regional drinking water and describes technical failure, rupture, contamination, sabotage, cyber, drought and rain as different mechanisms.",
+        "This is an official current consultation document, not a final adopted plan, machine hazard surface, live event feed, local asset inventory or restoration commitment; its draft status must travel with any use."
+      ]
+    },
+    {
+      "publisher": "Waterschap Rijn en IJssel / Gemeente Doesburg",
+      "title": "Klimaat Effect Atlas data for Doesburg and joint Beinum water-system evidence",
+      "url": "https://opengeo.wrij.nl/arcgis/rest/services/Klimaat/KEA_DATA/MapServer",
+      "accessedAt": "2026-09-02T21:29:00Z",
+      "edition": "live service inspected 2 September 2026; group labels expose Doesburg rain products dated 2022–2024",
+      "supports": [
+        "The public ArcGIS MapServer has a dedicated Doesburg group. Raster layers 248/249 are short-duration T100/T1000 maximum rain-water depth; feature layers 250/251 contain 4,721 building records with TYPE, T2_2030, T2_2085, MM70 and MM155; layers 252/253 contain 941 road-passability records with MM70/MM155; layer 139 is Doesburg heat stress and layers 100/101 contain 62 current/2050 surface-water-warming features.",
+        "A reproducible centroid intersection of layer 252's 941 T100 road records with the consumed CBS neighbourhoods found 27 MM70 records classified groot: Noordelijk Molenveld 8, Zuidelijk Molenveld 7, Beinum I 7, Verspreide huizen IJssel en Oude IJssel 2, De oude Stad binnen de gracht 2 and Bedrijventerrein Verhuellweg 1. Verspreide huizen Noordoost had 155 klein, one gemiddeld and no groot road record. Two feature centroids fell outside the generalized CBS polygons and remain an explicit boundary mismatch.",
+        "Layer 250's 4,721 T100 building records include 33 MM70 groot classifications, of which sixteen centroid-intersect De oude Stad binnen de gracht, seven Zuidelijk Molenveld and three Beinum II. These are static modeled classifications, not observed inundation, an emergency threshold or loss.",
+        "The municipality's joint Beinum design page https://www.doesburg.nl/definitief-ontwerp-watersysteem-beinum-ter-inzage documents seven ponds, extra peak storage, weirs and wadi connections. The historical page https://www.doesburg.nl/vertraging-door-langdurige-regen-en-hoge-waterstanden-ijssel records combined rain, (Oude) IJssel level and groundwater-pressure effects at Zanderskamp. Both support mechanism diversity, not current operating state.",
+        "Map/Query/Data and GeoJSON are integration-ready for features; rasters support Map/Query/export. The service publishes RD New extents but no layer description, raster cell size, fixed refresh cadence, copyright text or explicit reuse licence. Resolve licence, units, class definitions, provenance, edition and NoData with the publisher before caching or causal use."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / LIWO partners",
+      "title": "Waterinfo observations, Waterbericht and LIWO flood-scenario routes",
+      "url": "https://waterinfo.rws.nl/",
+      "accessedAt": "2026-09-02T21:33:00Z",
+      "edition": "deployed observation retrieved 2 September 2026 18:03 UTC; public Waterbericht updated hourly and looks at most 48 hours ahead",
+      "supports": [
+        "The deployed Waterinfo snapshot assigns one observation to GM0221: Doesburg, IJssel at 390 cm NAP, observed 2 September 2026 17:30 UTC, 33 minutes old at retrieval, publisher class Verlaagde waterstand and not flagged possibly faulty. Latest endpoints are https://waterinfo.rws.nl/api/point/latestmeasurement?parameterId=waterhoogte and parameterId=waterafvoer.",
+        "Rijkswaterstaat says LMW measurements are generally produced every ten minutes and the public endpoint advertised a five-minute cache; Waterinfo data are CC0 unless an individual component states otherwise and the public service is not mission-critical. A station value is not a continuous hydraulic surface, defence state, breach, local depth or T+72 forecast.",
+        "The official Waterbericht at https://www.rijkswaterstaat.nl/water/waterbericht was updated 2 September 2026 and described low Rhine/IJssel levels for its maximum 48-hour outlook. This current observation/outlook is deliberately separate from the simulator's hypothetical flood exercise and must never be replayed as scenario forcing.",
+        "LIWO OWS https://basisinformatie-overstromingen.nl/geoserver/ows and catalogue API https://basisinformatie-overstromingen.nl/api/v2/ expose named/versioned depth, arrival and duration products suitable for expert scenario selection. No blanket redistribution licence or fixed cadence was established in this audit; layer/version, terms, hydraulic source, defence event and NoData must be resolved before ingestion."
+      ]
+    },
+    {
+      "publisher": "Het Waterschapshuis / Waterschap Rijn en IJssel",
+      "title": "Public water-control and wastewater registries",
+      "url": "https://api.pdok.nl/hwh/waterschappen-kunstwerken-imwa/ogc/v2",
+      "accessedAt": "2026-09-02T21:20:00Z",
+      "edition": "deployed application snapshot inspected 2 September 2026",
+      "supports": [
+        "Kunstwerken IMWA is an integration-ready national OGC API/WFS/WMS/ATOM service, refreshed weekly under CC BY-SA 4.0. Waterketen DAMO at https://api.pdok.nl/hwh/waterschappen-waterketen-damo/ogc/v1 uses the same licence, but contributor completeness and refresh vary and must travel with each snapshot.",
+        "The deployed generalized-boundary intersection contains sixteen display-only objects: two sewer pumps, one surface-water pump, one sluice and twelve weirs. Named records include Gemaal Doesburg and Gemaal Angerlo; the latter's name illustrates why polygon intersection and asset identity/manager are separate checks.",
+        "The Gemaal Doesburg source record exposes numeric capacity 856 but no unit in the normalized object. Presence, status text and raw capacity do not establish catchment/pipe connectivity, compatible throughput, current operation, setpoint, receiving level, emergency power, outage or restoration.",
+        "NoData, contributor omission, plan status, missing capacity/status and numeric zero have different meanings and must never collapse into unavailable, absent or safe."
+      ]
+    },
+    {
+      "publisher": "Stichting Mijn Aansluiting / Netbeheer Nederland / KNMI / NDW / RDI / DUO / KVK / RIVM",
+      "title": "National provider, capacity, weather, mobility, telecom and facility context routes",
+      "url": "https://data.overheid.nl/en/dataset/81000-netbeheergebieden-elektriciteit--gas--media--riolering--warmte-en-water",
+      "accessedAt": "2026-09-02T21:32:00Z",
+      "edition": "catalogue updated 14 August 2026; deployed public-context snapshots inspected 2 September 2026",
+      "supports": [
+        "Public Domain Mijn Aansluiting WMS/WFS https://public.geodata.mijnaansluiting.nl/geoserver/mijnaansluiting_open/ows identifies Liander electricity/gas, Vitens drinking water and Ziggo media responsibility at the GM0221 reference point; drainage returns no containing polygon. Provider feature update dates vary. Territories are not physical topology, capacity, live outage or restoration, and an empty layer is Unknown.",
+        "The Netbeheer Nederland public capacity-map JSON sample at postcode 6981DD assigns OS DOETINCHEM 150kV TenneT/Liander and reports 41.6 MW queued withdrawal across 157 requests. The publisher says capacity/projects refresh at least quarterly and queues monthly but gives no exact dataset licence identifier beyond open data. One planning sample is not municipal coverage, present load, outage state, reserve or T+72 forecast.",
+        "KNMI Data Platform/API https://developer.dataplatform.knmi.nl/ provides valid-time weather products with dataset-specific licences, commonly CC BY 4.0; radar products may update every five minutes. Run time, valid time, member/version and licence must be explicit and observations must never become T+72 values.",
+        "NDW DATEX II https://opendata.ndw.nu/actueel_beeld.xml.gz supplies national CC0 current road situations; the deployed snapshot contains no GM0221 feature. An empty validity-matched incident intersection does not prove N317/N338 or a bridge open. RDI WFS https://antenneregister.nl/mapserver/wfs/ provides fifteen Doesburg antenna-installation records but its service does not state a reuse-licence version or fixed cadence.",
+        "DUO RIO https://onderwijsdata.duo.nl/dataset/c416acd1-e083-4ec6-9203-3b20f98fe143 refreshes daily around 06:15 under an attribution licence and supplies three Doesburg primary-school addresses. KVK OGC https://api.pdok.nl/kvk/overheidsdiensten-geharmoniseerd/ogc/v1 supplies two partial Public Domain service locations. RIVM acute-care https://data.rivm.nl/meta/srv/dut/catalog.search#/metadata/5cfcf748-414a-4cd0-b6a2-3512cc3e1184 is versioned CC0 and returns no in-boundary location; nearest straight-line context is Slingeland Ziekenhuis in Doetinchem at 10.78 km. Registers do not establish occupancy, shelter/care role, road access, staffing, capacity or backup."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM0221, Doesburg, Gelderland and safety region Gelderland-Midden are internally and officially coherent.",
+      "evidenceRefs": ["E01", "E02", "E03"],
+      "notes": [
+        "Generated code/name, province, boundary/statistics edition and feature identity are coherent.",
+        "The safety-region layer assigns GM0221 to exactly one region, Gelderland-Midden; E03 explicitly lists Doesburg among its fifteen municipalities.",
+        "No identity or administrative assignment defect was found."
+      ]
+    },
+    "geography": {
+      "status": "warn",
+      "summary": "The consumed 2025 generalized geography is coherent, but municipality, neighbourhood, river, dike ring, control asset, hydraulic scenario and incident geometry are not interchangeable.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E06"],
+      "notes": [
+        "Reference point [6.143610706540431, 52.018450726644105] is inside the generalized GM0221 polygon; boundaryEdition and statisticsEdition both equal 2025.",
+        "The Doesburg BAG place centre is inside the polygon and BRT supplies one woonkern. Focused point [6.131079647350572, 51.99801875867161] is inside current TOP10NL loofbos and BU02210104 Beinum I.",
+        "Two WRIJ road-feature centroids fall outside the generalized CBS neighbourhoods, which is retained as an overlay/boundary mismatch rather than forced into a region.",
+        "Administrative, neighbourhood, pond catchment, sewer, control asset, dike ring, defence, LIWO event, road section and incident perimeter remain distinct evidence types."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Headline municipality statistics agree with CBS 2025 and rounded neighbourhood residents reconcile within publication tolerance.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "Generated population 11,125, density 962, age65Pct 29.2 and one-person-household count 2,043 agree with official context.",
+        "Eleven rounded neighbourhood rows sum to 11,110 residents, fifteen below the municipality total, a -0.135 percent difference. They sum to 5,420 households and 3,245 residents aged 65 or older.",
+        "De oude Stad binnen de gracht has 2,445 rounded residents, including 1,130 aged 65 or older (46.2 percent), and 655 one-person households. This is material aggregate continuity context, not an individual vulnerability register.",
+        "Visitors, workers, care dependency, medication/equipment use, household preparedness and event-time presence remain unobserved."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "Eleven neighbourhoods provide useful aggregate context, but incomplete fields and a hazard-independent allocator prevent operational prioritization.",
+      "evidenceRefs": ["E01", "E03", "E04", "E06", "E07"],
+      "notes": [
+        "Population, age, businesses, cars, homes, households and land/water fields cover 11/11 neighbourhoods. Average household size, density and GP/supermarket distance cover 10/11; home value, cars per household, multifamily and tenure cover 7/11; assistance/disability/pension cover 8/11.",
+        "District-heating share and public-charging count cover 0/11 and correctly remain null. Missing, suppressed, NoData and not-applicable values are never converted to zero.",
+        "Largest neighbourhoods are Beinum I 2,835, De oude Stad binnen de gracht 2,445, De Ooi 2,275, Noordelijk Molenveld 1,145 and Beinum II 1,145.",
+        "Compound T+24 local population, affected population and all eight service ledgers reconcile, but seven independent scenarios rank all eleven neighbourhoods identically."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "One BAG place and one BRT woonkern labeled Doesburg are coherent and remain distinct from eleven CBS neighbourhoods.",
+      "evidenceRefs": ["E02"],
+      "notes": [
+        "The BAG place centre and municipality reference point are within the generalized boundary.",
+        "The BRT settlement label is topographic context, not a population total, emergency district or substitute municipality boundary.",
+        "No out-of-boundary place centre or settlement-identity issue was found."
+      ]
+    },
+    "transport": {
+      "status": "warn",
+      "summary": "All N317/N338 section labels and identities pass, but four border links are neither complete emergency access nor utility topology.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E07"],
+      "notes": [
+        "Four generated logical links connect GM0221 with Bronckhorst, Rheden and Zevenaar, total 1.416 km and nominal logical capacity 600.",
+        "Live official NWB section queries verify every one of fourteen wvkIds against physical wegnummer N317 or N338; no source id is duplicated and both physicalCorridorIds are resolved.",
+        "N317 crosses the IJssel and N338/other approaches interact with local water. Border sections do not establish bridge/approach passability, internal street access, detour capacity, vessel/lock state, bus operation or emergency routing.",
+        "NWB/NDW roads may support mobility and supply only. All eight services reuse the same four links; this is correctly labeled logical-proxy, not physical electricity, water, drainage, gas or telecom topology.",
+        "No municipal ProRail station and 25 scheduled stop areas establish neither absent public transport nor incident-time availability."
+      ]
+    },
+    "emergencyContext": {
+      "status": "warn",
+      "summary": "Strong public water, weather, road, provider and facility context exists, but live topology, operating state, resources, backup, stocks and restoration remain unavailable.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07"],
+      "notes": [
+        "Official plans, static registries, terrain and modeled stress layers are kept distinct from the deterministic scenario clock; none is automatically a T+0 observation or T+72 forecast.",
+        "The deployed boundary context contains sixteen HWH water objects, fifteen RDI antenna installations, three DUO education and two KVK public-service records; all remain display-only/affectsSimulation=false.",
+        "RIVM acute-care and Mijn Aansluiting drainage return no containing feature. Each result is Unknown/coverage-limited, not zero care, drainage or dependency.",
+        "Current Waterinfo context explicitly reports one Doesburg IJssel station; its observed low-level class does not invalidate a hypothetical flood exercise, and the exercise does not describe the current river.",
+        "No safe public source supplies complete feeder, pipe, pressure-zone, sewer/treatment, telecom backhaul, facility continuity, priority-customer, pharmacy/food/fuel stock, emergency-resource or restoration topology/state."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "warn",
+      "summary": "All ten canonical presets execute at every required checkpoint and for every service, but deterministic execution is not local calibration.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07"],
+      "notes": [
+        "Peak municipality severities are storm 0.734179, pluvial 0.327931, river 0.892801, coastal 0.025774, heat 0.686292, winter 0.634358, cyber 0.521695, earthquake 0.035265, wildfire 0.173526 and compound 0.926348.",
+        "At T+24 compound has rain 56.703426 mm/h, internal flood-stress amplitude 0.449293, wind 31.713951 m/s, cyber disruption 0.457682, severity 0.914627, pressure 0.574028, 6,803 modeled people under pressure and 105,561.78 cumulative event-attributable essential-service person-hours.",
+        "At T+72 compound retains internal flood stress 0.449293 and cyber disruption 0.059526, with severity 0.436370, pressure 0.624857, 7,600 modeled people under pressure and 419,897.51 cumulative proxy person-hours.",
+        "Canonical coastal has no direct water and only a small wind contribution; earthquake falls to zero current forcing by T+24; canonical wildfire has zero direct flame and transported smoke/drought at T+24. These scoped outputs do not prove absence of local/remote pathways.",
+        "All weather, water, fire, earthquake and cyber outputs are conditional exercise assumptions, not observations, probabilities, warnings, attack intelligence, outage reports or forecasts."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Finite bounds, exact no-event semantics, determinism, cumulative burden, route bounds, local reconciliation and layer invariance pass.",
+      "evidenceRefs": [],
+      "notes": [
+        "MUNICIPALITY_AUDIT_CODE=GM0221 pnpm audit:model passed both focused tests across 10 presets × 6 checkpoints × 8 services in 36.40 seconds, with 36.18 seconds test execution.",
+        "Every preset at intensity zero produced exactly zero current severity, peak severity, affected population and event-attributable essential-service person-hours at every checkpoint.",
+        "Repeated frames are deterministic; values are finite and bounded; cumulative person-hours are monotonic; route flow stays within effective logical capacity; all eight headline weights participate and sum to one.",
+        "Compound T+24 local allocation reconciles population 11,125, affected population 6,803 and every demand/delivery balance; maximum observed floating-point discrepancy is 5.329e-15.",
+        "Changing among all eleven map layers leaves hazard, pressure and affected population exactly invariant."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "The unnamed river screen, common neighbourhood ordering and source-insensitive fire allocation conflict with Doesburg's official water and built-environment evidence.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E06"],
+      "notes": [
+        "packages/sim-core/src/model.ts:430-479 derives river exposure from one municipal reference point and three approximate line segments. Lines 1190-1195 convert that scalar into direct water without selecting a source hydrograph, defence state, breach/overtopping, connected compartment or depth/arrival/duration/recession grid.",
+        "Canonical river T+24 reports internal flood stress 2.847590 m, severity 0.892801, pressure 0.572231, 6,775 affected residents and 102,324.34 cumulative proxy person-hours. No selected IJssel/Oude IJssel event supports that precision.",
+        "packages/sim-core/src/model.ts:3928-3941 derives one hazardSeed from city seed, scenario seed and region id; hazard type/source geometry are absent. Storm, pluvial, coastal, heat, winter, cyber and wildfire therefore share the exact order Verspreide huizen Noordoost, Zuidelijk Molenveld, Noordelijk Molenveld, Beinum II, Verspreide huizen IJssel en Oude IJssel, Bedrijventerrein Beinum, Bedrijventerrein Verhuellweg, Beinum I, De Ooi, De oude Stad and Verspreide huizen Fraterswaard-Noordoost.",
+        "WRIJ T100 MM70 road classifications place no groot record in model-first Verspreide huizen Noordoost but eight in Noordelijk Molenveld and seven each in Zuidelijk Molenveld and Beinum I. WRIJ building and heat layers add different geographies; they cannot all be represented by one common order.",
+        "A focused source [6.131079647350572, 51.99801875867161] is inside 2024-source TOP10NL loofbos and Beinum I. At T+24 direct fire is 0.638782, smoke 0.587015, drought 0.675868 and city severity 0.632879, yet Verspreide huizen Noordoost ranks first at 0.736948 while source neighbourhood Beinum I ranks eighth at 0.548929.",
+        "GM0221 has no municipality-specific unsupported-spatial note in packages/sim-core/src/model.ts:533-1106, so the UI exposes precise local river/pluvial/fire ranks without the audited warning used for peers."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "warn",
+      "summary": "All eight balances and dependency stages are inspectable, but exact magnitudes are not calibrated to local operators, pumps, facilities or access routes.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07"],
+      "notes": [
+        "River T+24 availability is power 0.384339, water 0.521202, drainage 0.195822, gas 0.774734, telecom 0.499218, mobility 0.146294, facilities 0.492310 and supply 0.405261.",
+        "At river T+72 availability is power 0.384339, water 0.521202, drainage 0.195822, gas 0.774734, telecom 0.499218, mobility 0.146294, facilities 0.414274 and supply 0.405261.",
+        "Compound T+24 availability is power 0.503694, water 0.363970, drainage 0.165008, gas 0.656010, telecom 0.169555, mobility 0.473100, facilities 0.578108 and supply 0.420138.",
+        "E03–E07 support dependency directions involving electricity, telecom, water control, wastewater, mobility, facilities and supply; none calibrates exact availability, demand, delivery, reserve, backup or repair.",
+        "The graph has no named Liander feeder/gas zone, Vitens pressure area, Ziggo/backhaul path, Gemaal Doesburg/sewer/RWZI/receiving-water chain, N317 bridge state, external hospital route, facility role or food/fuel depot.",
+        "Every service reuses the same four road-derived records and nominal capacity 600. Emitted transferSemantics is correctly logical-proxy and must never imply utility corridors or redundancy."
+      ]
+    },
+    "causalTrace": {
+      "status": "pass",
+      "summary": "Hazard, service and municipal explanation ledgers close and preserve evidence class, dependency order, operational assumptions and counterfactual scope.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07"],
+      "notes": [
+        "Hazard contributions sum to headline severity; every service baseline plus exact-stage deltas sums to availability; all eight weighted service shortfalls sum to municipal pressure.",
+        "System-pressure weights are power 0.18, water 0.15, drainage 0.08, gas 0.09, telecom 0.12, mobility 0.12, facilities 0.14 and supply 0.12, totaling one.",
+        "Dependency chains, local-context factors, drivers, recovery progress and restore-service counterfactual deltas are finite and arithmetically closed.",
+        "Household preparedness affects modeled people/supply consequences rather than physical hazard fragility. Day type, clock, demand, backup, network and repair multipliers are normalized/labeled assumptions; delayed interventions do not masquerade as actual crews or assets.",
+        "Event-attributable essential-service person-hours integrate weighted unmet-service pressure relative to a matched no-event baseline; they are not observed outage-hours, casualties, displacement or welfare loss."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "Sustained-water guards work arithmetically, but Doesburg's precise river forcing and T+72 service state have no selected hydraulic or resource evidence.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07"],
+      "notes": [
+        "Canonical river remains at flood stress 2.847590 and severity 0.892801 from T+24 through T+72; pressure rises from 0.572231 to 0.583156, affected population from 6,775 to 6,946 and cumulative proxy person-hours from 102,324.34 to 392,103.75.",
+        "Facilities availability falls from 0.492310 at T+24 to 0.414274 at T+72 while all other river-service availabilities are unchanged. The browser reports roughly 42 percent weighted essential-service availability and correctly labels direct inundation and network transfer as derived/proxy effects.",
+        "E03 says actual river inundation recovery can take years; E04's historical Zanderskamp example shows combined high river, prolonged rain and groundwater pressure can delay works. Neither calibrates this exact persistence, service trajectory, access, pumps, backup, crews or materials.",
+        "Compound retains active flood/cyber forcing and pressure worsens from 0.574028 to 0.624857 by T+72, showing the sustained-forcing recovery guard is active; local amplitude and consequences remain unsupported.",
+        "Browser inspection at 1440×1000 rendered GM0221/river T+72 and all eight service maps with Derived · evidence class derived-screening, current Waterinfo/NDW disclaimers and logical-proxy language. No console/page errors occurred; rendering correctness does not validate the hazard or restoration magnitude."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": ["power", "water", "drainage", "gas", "telecom", "mobility", "facilities", "supply"]
+  },
+  "findings": [
+    {
+      "id": "GM0221-RIVER-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "A reference-point-to-IJssel scalar presents precise sustained inundation without selecting a connected Doesburg hydraulic event.",
+      "evidence": "E03 and E05 establish real Doesburg river-flood context and the need to distinguish threat, actual inundation and recovery. packages/sim-core/src/model.ts:430-479 uses only distance to coarse line segments and lines 1190-1195 create direct depth. Canonical T+24 output is 2.847590 m internal flood stress, severity 0.892801, pressure 0.572231, 6,775 affected and 102,324.34 cumulative event-attributable service person-hours. It is unchanged in depth/severity at T+72. No source hydrograph, dike-ring-48 defence state, failure/overtopping, connected footprint, probability, depth surface, arrival, duration or recession supports those values. This is municipality-specific evidence of a shared river-screen limitation, not a claim that Doesburg is flood-safe.",
+      "action": "Before release mark GM0221 direct river forcing and downstream local consequences unsupported/Unknown for operational use until an authority expert selects a named connected versioned LIWO/WRIJ/Rijkswaterstaat event. Keep real river context and current station observations visible but separate. Retain source, failed element, defence state, probability class, depth/arrival/duration/recession, units, resolution, edition, licence, retrieval and NoData."
+    },
+    {
+      "id": "GM0221-SPATIAL-001",
+      "severity": "high",
+      "category": "geography",
+      "status": "open",
+      "summary": "One source-blind hash gives seven unrelated hazards exactly the same eleven-neighbourhood ordering.",
+      "evidence": "packages/sim-core/src/model.ts:3928-3941 omits hazard type and source geometry from hazardSeed. Severe storm, pluvial, coastal, heat, winter, cyber and wildfire all rank Verspreide huizen Noordoost, Zuidelijk Molenveld and Noordelijk Molenveld first through third and Beinum I eighth. E03–E04 document distinct rain, heat, urban-fire, river, pond, drainage and road geographies. GM0221 has no unsupported-note entry in lines 533-1106, so exact ranks are not protected by the municipality-specific warning used for audited peers.",
+      "action": "Grey or explicitly label all unsupported GM0221 neighbourhood ranks and prohibit dispatch/evacuation use. Replace the common hash with hazard-specific selected surfaces and explicit NoData: licensed WRIJ rain/heat products, LIWO connected flood events, valid-time weather, declared cyber targets and source-aware fire. Add tests that independent hazards can rank neighbourhoods differently."
+    },
+    {
+      "id": "GM0221-PLUVIAL-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The cloudburst map ignores already-published Doesburg T100/T1000 depth, building and road-passability products.",
+      "evidence": "E04 exposes integration-ready Doesburg layers 248–253 and mechanism-specific Beinum pond/wadi/weir and high-river/groundwater evidence. At MM70, layer 252 has no groot road record in model-first Verspreide huizen Noordoost but eight in Noordelijk Molenveld and seven each in Zuidelijk Molenveld and Beinum I; layer 250 has sixteen of 33 groot building records in De oude Stad. Canonical pluvial T+24 instead reports 0.270285 m internal flood stress and ranks the same neighbourhoods as six unrelated hazards. No rain cell, terrain, sewer/storage state, catchment, pump control, receiving level or WRIJ scenario grid governs the result.",
+      "action": "Set local pluvial ranks to unsupported pending ingestion of the WRIJ Doesburg products. Before caching, obtain explicit publisher licence, cell size, units/classes, edition, lineage, cadence and NoData. Keep these layers modeled scenario/context rather than observations; couple IMWA/DAMO/GWSW only after reviewed connectivity/control data is authorized."
+    },
+    {
+      "id": "GM0221-RECOVERY-001",
+      "severity": "high",
+      "category": "limitation",
+      "status": "open",
+      "summary": "The T+72 river service state is not supported by a selected water event, access state or local response resources.",
+      "evidence": "River flood stress/severity remain 2.847590/0.892801 from T+24 through T+72, while pressure rises to 0.583156, affected population to 6,946 and cumulative burden to 392,103.75. Browser output labels the state critical and weighted availability about 42 percent. E03 explicitly says actual flood recovery can take years; E04–E07 provide no event-specific recession, bridge/road access, pump condition, backup, crews, materials, shelter, supply or restoration schedule. The sustained-water guard is working, but its local trajectory is unsupported.",
+      "action": "Do not present the T+72 trajectory as a Doesburg forecast. Drive recession and repair eligibility from the selected hydraulic event and expose bounded, editable resources and response delays. Until authorized data exists, label recovery as a sensitivity envelope and keep interventions time-gated; never imply actual dispatched crews/assets."
+    },
+    {
+      "id": "GM0221-FIRE-001",
+      "severity": "medium",
+      "category": "hazard",
+      "status": "open",
+      "summary": "A focused ignition inside Beinum I loofbos does not control its own local direct-fire map, while the separate historic-centre fire mechanism is absent.",
+      "evidence": "E02 places [6.131079647350572, 51.99801875867161] inside TOP10NL 2024-source loofbos object 106603397 and BU02210104. The focused synthetic T+24 run reports fire 0.638782, smoke 0.587015, drought 0.675868 and city severity 0.632879, yet source neighbourhood Beinum I ranks 8/11 at 0.548929 while Verspreide huizen Noordoost ranks first at 0.736948. E03 separately identifies dense historic Doesburg as a building/urban-fire risk with narrow access and limited firefighting water; the canonical wildfire layer cannot represent that mechanism. The diagnostic is not an observed fire.",
+      "action": "Keep direct-fire ranks visibly synthetic and non-operational. For vegetation fire require source/perimeter intersection, eligible fuel, moisture, valid-time wind, access, firefighting water and suppression state; use annually refreshed TOP10NL only as static eligibility. Treat urban/conflagration fire as a separate scenario family using BAG/building/access/firefighting-water evidence, not a mutation of wildfire."
+    },
+    {
+      "id": "GM0221-WATER-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "accepted-limitation",
+      "summary": "Public pumps, sluice, weirs and local water designs establish context but not a live first-72-hour water/drainage network.",
+      "evidence": "E04 documents Beinum storage, wadi and weir pathways; E06 contributes two sewer pumps, one surface-water pump, one sluice and twelve weirs as sixteen display-only records. River T+24 water/drainage availability 0.521202/0.195822 and compound 0.363970/0.165008 arise from generic equations, not pipe/catchment topology, blockage, storage, receiving-water level, setpoint, unit-compatible pump capacity, emergency power, treatment dependency or operator state. Gemaal Doesburg's normalized 856 lacks a unit; missing fields are not zero.",
+      "action": "Keep IMWA/DAMO records non-causal with source timestamps and units. Prefer a municipality-authorized GWSW export and security-reviewed WRIJ connectivity/state for ponds, catchments, pumps, sewer, receiving water, controls and emergency power. Until then expose named subsystem assumptions and Unknown state rather than inferring operation/restoration from point presence."
+    },
+    {
+      "id": "GM0221-NETWORK-001",
+      "severity": "medium",
+      "category": "network",
+      "status": "accepted-limitation",
+      "summary": "Road-section provenance passes, but four NWB border links cannot represent emergency access or eight physical lifelines.",
+      "evidence": "E02's live section-level audit verifies all fourteen unique wvkIds and exact N317/N338 wegnummer values; there is no route-label blend or duplicated source id. The four links total nominal scenario capacity 600 and are reused by every service. Static border geometry supplies neither current bridge/approach/internal-road passability nor utility corridors; no current GM0221 NDW record is Unknown/open-state unresolved. The UI correctly calls non-mobility flow logical transfer proxies.",
+      "action": "Retain exact wvkId/wegnummer/physicalCorridorId provenance and logical-proxy language. Use monthly CC0 NWB only for road topology and validity-matched CC0 NDW for mobility/supply. Add bridge/approach and local emergency-routing state only from authoritative feeds; add service-specific graphs only from authorized operator data."
+    },
+    {
+      "id": "GM0221-CONTINUITY-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "accepted-limitation",
+      "summary": "Provider polygons, capacity sample, antennas, schools and service records do not resolve local utility, care or household continuity.",
+      "evidence": "E01 supplies older/one-person aggregate context; E07 identifies Liander, Vitens and Ziggo responsibility, one planning-capacity sample, fifteen antenna installations, three schools and two public-service locations. Drainage-provider and in-boundary acute-care queries return no feature; nearest straight-line acute-care context is 10.78 km away. None establishes feeder/pipe/backhaul topology, radio coverage, load, priority customers, backup endurance, occupancy, shelter/care role, passable hospital route, pharmacy/food/fuel stock, crews or restoration. E03 also identifies a dense historic centre whose access/continuity differs from generic population allocation.",
+      "action": "Keep all registries display-only with publisher, edition, retrieval, coverage, licence and explicit no-feature semantics. Use capacity, state, backup, stock and restoration only from authorized operator/GHOR/municipal exercise inputs; otherwise retain service-specific synthetic priors and explicit Unknown."
+    },
+    {
+      "id": "GM0221-OTHER-HAZARDS-001",
+      "severity": "medium",
+      "category": "limitation",
+      "status": "accepted-limitation",
+      "summary": "Storm, coastal, heat/drought, winter, cyber, earthquake and canonical wildfire outputs are bounded exercises rather than calibrated Doesburg predictions.",
+      "evidence": "E03 supports these hazard families and cascades as regional planning context while distinguishing their mechanisms. Model peaks are storm 0.734179, coastal 0.025774, heat 0.686292, winter 0.634358, cyber 0.521695, earthquake 0.035265 and wildfire 0.173526. Untargeted cyber, deterministic weather, coast distance, remote seismic attenuation and smoke/drought functions do not use current valid-time data, declared targets/events or exposed assets. Canonical coastal direct water and wildfire direct flame are zero, but those scoped outputs are not all-clear statements for local water/fire pathways.",
+      "action": "Keep scenario, observation, forecast and probability types separate. Integrate official operational sources only with run/valid time, edition, quality, licence and coverage. Require explicit cyber target/system boundary and selected seismic/fire/water source; use synthetic fallback only where public or authorized data is unavailable and label it."
+    },
+    {
+      "id": "GM0221-CONTRACT-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The deterministic, causal, exact-zero, reconciliation, NoData and map-layer contract passes for GM0221.",
+      "evidence": "The focused harness passes 10 presets × 6 checkpoints × 8 services. Every zero-intensity run is exact zero for severity, peak, affected population and cumulative event-attributable person-hours; repeated frames, finite bounds, monotonic accumulation and route bounds pass. Compound T+24 reconciles 11,125 people, 6,803 affected and all eight balances within 5.329e-15; eleven layer selections are invariant. Missing neighbourhood fields stay null, empty drainage/acute-care/NDW results remain Unknown, and public records remain affectsSimulation=false. Browser selection of GM0221/river T+72 loaded every service layer without console/page errors and kept observed Waterinfo separate from modeled forcing.",
+      "action": "Preserve these regression gates while correcting river attribution, local hazard allocation and recovery evidence. Passing arithmetic/rendering contracts must remain separate from physical/local validation; continue testing that no missing pixel, registry record or feed entry creates zero hazard, zero need, zero service or safe/open state."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Mark GM0221's river-distance result unsupported and require a selected connected hydraulic event before operational use.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "audits/correction-ledger.json"
+      ],
+      "validation": "Smallest safe correction: add a GM0221 river unsupported note and prevent precise local direct-water/affected/service claims from being treated as supported; retain real IJssel/Oude IJssel and dike-ring-48 context as unresolved, not safe. Durable machine source: expert-select a connected LIWO/WRIJ/Rijkswaterstaat scenario and retain event/layer/version, hydrograph, failed element, defence state, probability, depth/arrival/duration/recession, resolution, units, licence, retrieval and NoData. Run unit, focused GM0221, national ALL and browser Unknown/evidence regressions."
+    },
+    {
+      "summary": "Replace shared GM0221 neighbourhood ranks with hazard-specific public/authorized geometry and separate vegetation from historic-centre fire.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/src/data.ts",
+        "apps/web/public/data/hazards/doesburg-context.json"
+      ],
+      "validation": "For rain and heat use WRIJ Doesburg ArcGIS layers 248–253, 139 and 100/101 only after resolving licence, units/classes, cell size, edition, cadence and NoData; retain them as modeled context, never observations. For river use an expert-selected LIWO event. For vegetation fire require source/perimeter intersection plus annual TOP10NL CC BY 4.0 fuel eligibility and valid-time KNMI weather. Model dense historic-centre building fire separately using BAG/access/firefighting-water evidence. Assert independent hazards can rank neighbourhoods differently and Beinum I governs direct flame for the focused source under equal conditions."
+    },
+    {
+      "summary": "Integrate Beinum, pump, sewer and receiving-water context through public standards and authorized topology without turning registry points into live state.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/data.ts",
+        "apps/web/public/data/public-context/water-assets.geojson.gz"
+      ],
+      "validation": "Keep sixteen HWH Kunstwerken IMWA/Waterketen DAMO objects non-causal; IMWA is weekly and DAMO contributor cadence/completeness varies, both CC BY-SA 4.0. Seek a current municipality-authorized GWSW export and security-reviewed WRIJ links/state for the Beinum pond/wadi/weir system, pumps, sewer/treatment, receiving water, controls and emergency power, with compatible units, topology, cadence and terms. Preserve missing capacity/status, source contributor and numeric zero exactly."
+    },
+    {
+      "summary": "Integrate transport, provider, weather and facility data by evidence class and valid time while keeping utility transfer synthetic where topology is unavailable.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/data.ts",
+        "apps/web/public/data/transport-network.json"
+      ],
+      "validation": "Retain all fourteen monthly CC0 NWB wvkId/wegnummer identities and use event-valid CC0 NDW only for mobility/access; an empty feed is Unknown. Mijn Aansluiting Public Domain polygons assign responsibility only; Netbeheer Nederland samples are planning context; KNMI requires product-specific licence/run/valid time; DUO RIO is daily attribution-licensed; KVK partial Public Domain, RIVM versioned CC0 and RDI with unresolved licence/cadence remain context. None creates live capacity, backup or restoration. Keep non-road services logical-proxy until reviewed operator graphs exist and test NoData/observation/scenario separation."
+    }
+  ],
+  "residualLimitations": [
+    "This is a deterministic planning-model audit, not validation against an observed Doesburg disaster, outage, evacuation, casualty, health, welfare or restoration dataset.",
+    "The 2025 generalized CBS boundary supports municipal aggregation but not parcel hydraulics, dike rings/defences, pond or sewer catchments, asset ownership, bridge approaches or incident geometry.",
+    "The July 2026 VGGM risk profile is an official consultation draft rather than a final adopted plan; it provides mechanism/cascade context, not live state, local event forcing or restoration commitments.",
+    "WRIJ Doesburg rain and heat products are strong local modeled context, but explicit reuse licence, raster resolution, class definitions, units, exact lineage, cadence and NoData were not published in the service metadata and must be resolved before ingestion.",
+    "LIWO products require expert event/version/terms/NoData discipline and do not independently supply current forcing, defence condition, drainage controls or recovery resources.",
+    "TOP10NL forest is static eligibility context, not live fuel, moisture, perimeter, spread, smoke, access or suppression; the focused ignition is synthetic and urban fire is a different mechanism.",
+    "HWH/provider/capacity/antenna/facility/station/GTFS records are partial dated context, not complete topology, capacity, occupancy, operating state, backup, stock or restoration commitments.",
+    "No reviewed safe public source supplies complete Liander, Vitens, sewer/treatment, gas, telecom, care, food/fuel or emergency-resource topology/state; security-sensitive detail was not inferred.",
+    "First-72-hour household behaviour, medical dependency, visitors, responders, mutual aid, shelters, bus operation, pharmacies, fuel/food stocks, crew travel and repair priorities remain scenario assumptions or Unknown."
+  ],
+  "provinceReviewFlags": [
+    "Municipality-specific release blocker: mark GM0221's precise 2.847590 m river stress, exposed population and downstream local consequences unsupported until a named connected IJssel/Oude IJssel and dike-ring-48 event is selected.",
+    "Municipality-specific release blocker: ingest or visibly defer WRIJ Doesburg T100/T1000 depth/building/road products; model-first Verspreide huizen Noordoost has no MM70-groot T100 road record while Noordelijk Molenveld has eight and Beinum I/Zuidelijk Molenveld seven each.",
+    "Municipality-specific release blocker: focused direct flame inside Beinum I currently ranks its source 8/11; historic-centre building/conflagration fire must remain separate from vegetation wildfire.",
+    "Municipality-specific: preserve Doesburg's Beinum pond/wadi/weir, IJssel/Oude IJssel, groundwater, pump/sluice and N317/bridge-access mechanisms without implying live state.",
+    "Municipality-specific/network pass: all fourteen live NWB source records match exact N317/N338 wegnummer values and no wvkId is duplicated among four links.",
+    "Shared/national: replace centre-distance river screening and common neighbourhood hashes with expert-selected hazard-specific public/authorized surfaces and typed NoData; unsupported ranks must be visibly non-operational.",
+    "Shared/national: keep official observations/context, modeled scenarios, forecasts and probabilities distinct; current Waterinfo/KNMI/NDW observations cannot become T+72 values.",
+    "Shared/national: keep monthly NWB/validity-matched NDW physical mobility separate from utilities; all road-derived non-mobility flows remain logical transfer proxies.",
+    "Shared/national: keep public provider, capacity, water, antenna, facility, care and groundwater records non-causal unless authorized topology/state with edition, valid time, units, licence and coverage is supplied."
+  ]
+}

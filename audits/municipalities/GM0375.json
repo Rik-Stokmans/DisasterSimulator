@@ -1,0 +1,478 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0375",
+    "name": "Beverwijk",
+    "province": "Noord-Holland",
+    "safetyRegion": "Kennemerland"
+  },
+  "agent": {
+    "taskName": "municipality_gm0375",
+    "agentId": "/root/municipality_gm0518",
+    "completedAt": "2026-09-02T17:12:26Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "Beverwijk's generated identity, 2025 CBS totals and safety-region membership are coherent: 43,040 residents, 36 neighbourhoods, two BAG woonplaatsen, two BRT woonkernen, Beverwijk station and 50 GTFS stop areas are represented. Published neighbourhood population is five below the municipality total (-0.012%), consistent with CBS publication semantics. All ten canonical scenarios execute deterministically at T+0/6/12/24/48/72 across all eight services; exact-zero, finite-bound, causal-ledger, allocation, reconciliation and selected-layer invariants pass. Release remains correction-required because the operationally dominant local claims are not spatially defensible. The coastal preset displays a 2.505135-metre scalar at T+24, 27,648 affected people-equivalent, critical status and 100% inundation stress without selecting a dune/dike failure, surge level, connected footprint, probability class, arrival or dewatering curve. The same shared synthetic neighbourhood ordering puts Kuenenplein ahead of Wijk aan Zee, Industriegebied Hoogovens and De Pijp across physically unrelated hazards. Six A9/A22/N197 municipality-border proxies are copied into all eight lifelines and omit internal Wijk aan Zee access, tunnel dependencies and physical service topology. The ten-preset catalogue also omits the locally defining Tata Steel/high-furnace-gas/ammonia and Noordzeekanaal incident pathways documented by VRK. The UI transition is fast and stable, but labels the known derived coastal screen merely as evidence class scenario and offers no accessible neighbourhood picker. Public context remains non-causal, as it should: physical utility connectivity, switching, pressure, capacity, backups, staffing, stock and restoration are unavailable or security-sensitive and are not fabricated.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek (CBS)",
+      "title": "Kerncijfers wijken en buurten 2025, table 86165NED, OData API",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=WijkenEnBuurten%20eq%20%27GM0375%20%20%20%20%27&%24select=WijkenEnBuurten%2CGemeentenaam_1%2CAantalInwoners_5%2CBevolkingsdichtheid_34%2Ck_65JaarOfOuder_12%2CEenpersoonshuishoudens_30",
+      "accessedAt": "2026-09-02T16:56:00Z",
+      "edition": 2025,
+      "supports": [
+        "Fresh official row GM0375 gives Beverwijk, 43,040 residents, density 2,345 per square kilometre, 8,348 residents aged 65+ and 7,937 one-person households.",
+        "Municipality and neighbourhood attributes, plus CBS rounding, suppression and null semantics used for reconciliation.",
+        "Machine-readable OData; annual edition with later additions when source fields become available, reusable under CC BY 4.0. It is demographic context, not present occupancy, hazard exposure or response priority."
+      ]
+    },
+    {
+      "publisher": "PDOK / CBS / Kadaster / Rijkswaterstaat / ProRail",
+      "title": "CBS Gebiedsindelingen 2025 non-generalized geometry and national reference APIs",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_niet_gegeneraliseerd/items?f=json&limit=100&datetime=2025-07-01T00%3A00%3A00Z&bbox=4.50%2C52.42%2C4.75%2C52.56",
+      "accessedAt": "2026-09-02T16:57:00Z",
+      "edition": "2025 boundaries; current generated transport editions",
+      "supports": [
+        "Fresh full-resolution GM0375 is one MultiPolygon component with one ring and 1,478 coordinate positions; the generated overview geometry preserves topology but reduces it to 96 positions.",
+        "The generated centre [4.645161968341605, 52.48915146415194] and both BAG woonplaats labels are contained. The overview polygon is unsuitable for coastal-defence, inundation, sewer, road, asset or dune intersection.",
+        "CBS boundary OGC data are annual and CC BY 4.0. RWS NWB OGC is monthly and CC0 1.0; BRT TOP10NL is 1:10,000 vector, annual and CC BY 4.0; ProRail reference data are CC0. These provide geography/transport context, not live closures, passengers, evacuation throughput or utility topology.",
+        "The consumed data contain Beverwijk station, 50 GTFS stop areas and six logical road-border links to Heemskerk and Velsen."
+      ]
+    },
+    {
+      "publisher": "Gemeente Beverwijk",
+      "title": "Beverwijk en klimaat / Klimaatadaptatie 2021–2026",
+      "url": "https://www.drogevoetenbeverwijk.nl/klimaatadaptatie/startpagina",
+      "accessedAt": "2026-09-02T16:58:00Z",
+      "edition": "Current municipal page, aligned to Klimaatadaptatieplan 2021–2026",
+      "supports": [
+        "Beverwijk lies on the dune edge beside the former, reclaimed Wijkermeer; rain from higher sandy ground drains toward the lower wastewater treatment area in Wijkermeerpolder and can overload the sewer system.",
+        "The municipality specifically cites flooded streets, tunnels, cellars and the Wijckermolen viaduct during heavy rain, and identifies hard-surfaced neighbourhood heat plus drought-driven low groundwater/subsidence as local mechanisms.",
+        "The related municipal climate page states that Beverwijk and Wijk aan Zee are near the North Sea but protected by maintained/reinforced dunes. This establishes a defence-dependent pathway, not a 2.505-metre municipality-wide depth.",
+        "The public narrative and linked HHNK climate monitor are scenario/policy context, not live observations. No stable machine export, fixed refresh cadence or standard reuse licence is stated on the municipal page."
+      ]
+    },
+    {
+      "publisher": "Hoogheemraadschap Hollands Noorderkwartier (HHNK)",
+      "title": "Legger Waterkeringen and ArcGIS feature services",
+      "url": "https://kaarten.hhnk.nl/arcgis/rest/services/od_legger/od_legger_wv_zoneringen/MapServer/layers",
+      "accessedAt": "2026-09-02T16:59:00Z",
+      "edition": "Current service inspected 2 September 2026; water-assets edition 2025",
+      "supports": [
+        "The RD New ArcGIS service returns feature-level JSON, GeoJSON or PBF and distinguishes primary, regional and other defences plus dike, dam, dune and high-ground types. A fresh local-envelope query returned primary line D79 STRAND / DUIN KM 26.0–55.0 and D130 ZEEWERING TERREIN HOOGOVENS.",
+        "HHNK explains that primary defences protect against North Sea water and that the legal register changes when location, form or dimensions change; the web feature service is not defence-condition telemetry.",
+        "The generated HWH/PDOK context contains 83 points inside the generalized GM0375 footprint: five sewer pumps, one wastewater treatment plant, three surface-water pumps and 74 weirs, including named Wijk aan Zee, Beverwijk-East/West, Broekpolder and Wijkermeer assets. These remain display-only register context.",
+        "HHNK's 2025 water-register service labels itself Open Data, while no standard licence identifier was found for the defence service; HWH/PDOK IMWA derivatives are CC BY-SA 4.0. Record edition, legal status and terms before caching or causal use."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Kennemerland (VRK)",
+      "title": "Regionaal Risicoprofiel Kennemerland 2023–2030",
+      "url": "https://www.vrk.nl/sites/vrk/files/2025-04/Regionaal%20Risicoprofiel%20Kennemerland%202023_2030_Hoofdrapport.pdf",
+      "accessedAt": "2026-09-02T16:51:00Z",
+      "edition": "2023–2030",
+      "supports": [
+        "The current profile includes Beverwijk and identifies the Noordzeekanaal area and Tata Steel as regional risk hotspots; locally it names De Pijp/haven, hazardous-substance road/water transport, the Tata Steel/Linde Gas areas, Gasunie compressor and TenneT transformer stations.",
+        "It identifies the Wijkertunnel, Velsertunnel exit, Velserspoortunnel, Beverwijk station area, Rode Kruis Ziekenhuis burn centre, Heliomare, beach/dunes and constrained Wijk aan Zee/Noordpier access as Beverwijk operational concerns.",
+        "The assessed scenarios include regional-defence failure, dune fire, storm/cluster rain, drought/heat, electricity/gas/drinking-water/ICT failures, tunnel and Noordzeekanaal incidents, tank fire and high-furnace gas. Impact has increased for dike failure, nature fire and extreme weather since the prior profile.",
+        "This is a fixed, multi-year planning PDF with no standard reuse licence or machine update feed stated; it supports hazard scope and validation, not live probability, resources or restoration."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Kennemerland (VRK)",
+      "title": "Rampbestrijdingsplan Tata Steel IJmuiden, public part, version 2025",
+      "url": "https://www.vrk.nl/sites/vrk/files/2026-01/Concept%20RBP%20Tata%20Steel%202025%20Deel%20I%20%28openbaar%29%20versie%202.0.pdf",
+      "accessedAt": "2026-09-02T16:53:00Z",
+      "edition": "Public concept version 2.0, 2025",
+      "supports": [
+        "The public plan's defining scenarios are emissions of high-furnace gas and ammonia plus oxygen/nitrogen releases; worst-case effect areas can include Beverwijk and depend on weather and released volume.",
+        "It explicitly inventories the nearby dune defence, RWS pumping/sluice systems, PWN production/pumping, Alliander/TenneT transformers, Tata energy, North Sea/Noordzeekanaal shipping, ferry/sea lock, A22 Velsertunnel, A9 Wijkertunnel, rail/Velserspoortunnel, Beverwijk station, Rode Kruis Ziekenhuis burn centre and Heliomare.",
+        "Operational multi-scenario maps are distributed through CrisisConnect/LCMS; the public PDF does not expose a reusable machine effect-zone API, current plant state, utility topology or live facility capacity. No standard reuse licence or fixed machine cadence is stated."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / Watermanagementcentrum Nederland",
+      "title": "Waterinfo and Landelijk Informatiesysteem Water en Overstromingen (LIWO)",
+      "url": "https://www.rijkswaterstaat.nl/water/waterdata",
+      "accessedAt": "2026-09-02T17:04:00Z",
+      "edition": "Current services inspected 2 September 2026",
+      "supports": [
+        "Waterinfo provides current, expected and historical water level, wave, wind and other water measurements; many water-level locations have ten-minute observations. These observations can force or validate a named replay but are not an inundation model.",
+        "LIWO is the official professional flood-planning system. Its public OGC WMS at https://basisinformatie-overstromingen.nl/geoserver/ows exposes maximum-depth, duration, warning-time, flow-speed and protected/unprotected coastal layers; current capabilities updateSequence 83638 report no fee/access constraint.",
+        "LIWO layers are modeled scenario/screening data, not a current defence failure or forecast. Pixel size, source event, probability class, version, units, CRS, no-data, issue time and terms must be retained per selected layer; no guaranteed refresh cadence or explicit standard redistribution licence was established."
+      ]
+    },
+    {
+      "publisher": "Koninklijk Nederlands Meteorologisch Instituut (KNMI)",
+      "title": "KNMI Data Platform Open Data API and precipitation nowcasts",
+      "url": "https://developer.dataplatform.knmi.nl/open-data-api",
+      "accessedAt": "2026-09-02T16:49:00Z",
+      "edition": "Current API inspected 2 September 2026",
+      "supports": [
+        "The file API and notification service distribute raw meteorological datasets with versioned files. KNMI publishes 5-minute precipitation radar/nowcast grids through +2 hours and pilot ensembles/probabilities through +6 hours under CC BY 4.0.",
+        "Corrected daily radar has approximately 1-kilometre spatial resolution; current weather collections can support event-valid wind, temperature, humidity and precipitation replay with issue/valid time and uncertainty retained.",
+        "Weather observations/nowcasts do not supply a T+72 forecast, flood depth, defence state, wildfire perimeter, cyber intelligence, outage topology or restoration trajectory."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM0375, Beverwijk, Noord-Holland and safety region Kennemerland agree across generated inputs and current official records.",
+      "evidenceRefs": ["E01", "E02", "E05"],
+      "notes": [
+        "Generated feature id, region bundle code/name, province and exactly one safety-region membership agree.",
+        "The generated centre lies inside the generalized boundary; boundary/statistics edition 2025 and reference checks pass.",
+        "VRK's current profile explicitly includes Beverwijk."
+      ]
+    },
+    "geography": {
+      "status": "warn",
+      "summary": "Administrative topology is coherent, but the 96-position overview boundary is too coarse for coast, defence, hydraulic, road or asset intersection.",
+      "evidenceRefs": ["E02", "E03", "E04", "E07"],
+      "notes": [
+        "Generated and fresh non-generalized GM0375 each have one component and one ring; no component/topology contradiction was found.",
+        "The full-resolution exterior has 1,478 coordinate positions versus 96 in the overview geometry.",
+        "Beverwijk spans the dune edge, Wijk aan Zee, Hoogovens industrial land and low former-Wijkermeer terrain; a municipality centre or simplified boundary cannot assign their distinct mechanisms."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Generated municipal totals reproduce official 2025 CBS values and neighbourhood population reconciles within normal publication rounding.",
+      "evidenceRefs": ["E01", "E02"],
+      "notes": [
+        "Official/generated population is 43,040, density 2,345/km², age 65+ is 8,348 or 19.4%, and one-person households are 7,937.",
+        "Published neighbourhood population sums to 43,035, five below the municipality total (-0.012%); neighbourhood households sum to 19,955 and age 65+ to 8,345.",
+        "The allocator reconciles to 43,040 without rewriting published observations; rounded/suppressed totals are not exact occupancy microdata."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "All 36 official neighbourhoods and declared statistical fields are retained, with publication gaps represented as null rather than zero.",
+      "evidenceRefs": ["E01", "E02", "E03"],
+      "notes": [
+        "Core demographics cover 36/36 neighbourhoods; housing/home-value fields cover 32/36, cars per household 31/36, benefits 33/36 and doctor/supermarket/density 35/36.",
+        "District-heating share and public charging points cover 0/36 and correctly remain unavailable.",
+        "All generated local regions are neutral-priority/non-hub inputs; CBS context does not establish current vulnerability, evacuation priority or facility role."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "Beverwijk and Wijk aan Zee are present in both BAG and BRT settlement context without being converted into causal exposure.",
+      "evidenceRefs": ["E02", "E03", "E05"],
+      "notes": [
+        "Two BAG woonplaats labels and two BRT woonkernen are represented; neither label centre lies outside the generalized municipality boundary.",
+        "The Wijk aan Zee neighbourhood is separately available in the regional bundle with published population, but its label and centre do not establish coastal or fire exposure.",
+        "Transient beach/Bazaar visitors and present occupancy are not captured by resident totals."
+      ]
+    },
+    "transport": {
+      "status": "fail",
+      "summary": "The six-link municipal road graph omits locally decisive internal/tunnel access and cannot represent evacuation or any physical lifeline.",
+      "evidenceRefs": ["E02", "E03", "E05", "E06"],
+      "notes": [
+        "The graph contains A9, A22 and N197 links to Heemskerk/Velsen, with nominal capacity 260 for motorways and 150 for N197; all are logical proxies rather than measured throughput.",
+        "It has no internal branch/closure state for Wijk aan Zee, Wijckermolen, Beverwijk station, De Pijp/haven or the Velser-, Wijker- and Velserspoor tunnels that VRK identifies as dependencies.",
+        "Beverwijk station and 50 GTFS stop areas are reference context, not passenger load, vehicle accessibility, disruption, evacuation throughput or capacity.",
+        "The timestamped NDW layer is display-only and does not causally close a modeled route."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "Major Beverwijk response/continuity assets and industrial pathways are documented but do not enter operational state or prioritization.",
+      "evidenceRefs": ["E04", "E05", "E06", "E07"],
+      "notes": [
+        "Public context inside the overview polygon includes 83 water assets, four government-service register points, one RIVM emergency department (Rode Kruis Ziekenhuis) and 20 DUO education locations; these are correctly display-only.",
+        "A fresh Public Domain Mijn Aansluiting reference-point query returned Liander electricity (updated 24 March 2026), Stedin gas (17 December 2025), PWN water (7 September 2025), Ziggo media (7 September 2025) and no sewer provider polygon. Point results are incomplete responsibility context, not service topology.",
+        "The burn centre, Heliomare, Tata/Linde, Noordzeekanaal, tunnel and named utility assets have no operational role, capacity, dependency, occupancy, backup or restoration state; all 36 neighbourhoods remain neutral priority/non-hub.",
+        "No complete safe public source supplies live crews, evacuation capacity, grid switching, water pressure, sewer control, telecom backhaul, facility staffing/beds, stocks, backups or restoration priorities."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten canonical presets execute at all six checkpoints across all eight services with complete finite output.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "MUNICIPALITY_AUDIT_CODE=GM0375 pnpm audit:model passed one file/two tests in a final current-code rerun of 27.26 seconds on 2 September 2026. A focused current-code reproduction passed in 26.28 seconds (26.19-second import). The national harness is recorded green for 342 municipalities × 10 presets × 6 checkpoints × 8 services.",
+        "Peak severity / maximum affected / T+72 event-attributable deprived person-hours are: storm 0.407262 / 12,805 / 472,847.234; pluvial 0.578057 / 6,392 / 600,030.288; river 0 / 0 / 0; coastal 0.703996 / 30,094 / 1,493,749.716; heat 0.630134 / 1,184 / 283,775.640.",
+        "The remaining values are winter 0.786029 / 18,578 / 768,115.592; cyber 0.416616 / 12,844 / 511,460.589; earthquake 0.013221 / 0 / 21,828.650; wildfire 0.133591 / 1,032 / 198,304.822; compound 0.951277 / 30,382 / 1,726,311.113.",
+        "At T+24 coastal reports derived-screening depth 2.505135 m, gust 23.997869 m/s and 27,648 affected people-equivalent. Compound reports rain 59.467231 mm/h, flood pressure 0.805435 m, gust 28.514898 m/s and cyber disruption 0.365496, affecting 29,891.",
+        "The named Rhine/Meuse/IJssel preset correctly has zero direct river forcing and zero attributable person-hours here. Earthquake is a remote Groningen exercise; wildfire has zero direct flame and only drought/smoke at T+24. Storm, pluvial, heat, winter and cyber inputs are synthetic exercises, not observations or threat intelligence."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Determinism, finite bounds, exact no-event behavior, local allocation, reconciliation, monotone ledgers and selected-layer invariance pass.",
+      "evidenceRefs": [],
+      "notes": [
+        "All service availability stays in [0,1]; hazard dimensions, demand, delivery, affected people-equivalent and attributable person-hours are non-negative and cumulative ledgers never decrease.",
+        "At compound T+24 each service contains 36 local rows summing to 43,040 residents and 29,891 affected people-equivalent; demand/delivery reconcile exactly apart from maximum floating error 1.0658141036401503×10^-14.",
+        "For every preset/checkpoint, intensity zero gives exactly zero event dimensions, event severity, affected people and event-attributable person-hours while ambient seasonal temperature remains separate context.",
+        "Repeated current-code frames are deterministic and all eleven map layers return identical hazard, pressure and affected-population state."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "A centre-distance coastal scalar and one shared neighbourhood seed override documented coastal, pluvial, heat, fire and industrial geography.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E06", "E08"],
+      "notes": [
+        "At representative T+24, storm, pluvial, coastal, heat, winter, cyber and wildfire share the same order led by Kuenenplein, Sint Aagtendorp, Warande, Creutzberglaan and Westertuinen; Kuenenplein also leads while Wijk aan Zee and Industriegebied Hoogovens are outside the coastal top ten.",
+        "Code inspection traces this to one 0.82 + seededUnit(...) × 0.36 local multiplier independent of hazard type. No dune/defence, Wijkermeerpolder flow path, surface model, urban heat field, wind/smoke plume, ignition/perimeter or cyber asset can change the order.",
+        "The 2.505135-metre coastal scalar derives only from municipality-centre distance to a simplified coast segment. HHNK instead distinguishes primary dune and Hoogovens defence lines; no selected failure or connected footprint exists.",
+        "Full-resolution PDOK geometry is required before intersecting authoritative scenario grids, defence, road, water or land-cover data."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "All eight cascades calculate coherently, but identical road proxies replace every service graph and omit Beverwijk's documented interdependencies.",
+      "evidenceRefs": ["E02", "E04", "E05", "E06", "E07"],
+      "notes": [
+        "Coastal T+24 availability is power 0.485673, water 0.378025, drainage 0.194014, gas 0.622870, telecom 0.208138, mobility 0.291409, facilities 0.545157 and supply 0.433943.",
+        "Compound T+72 availability is power 0.430208, water 0.370018, drainage 0.294338, gas 0.536803, telecom 0.108666, mobility 0.508587, facilities 0.236376 and supply 0.391651; all recovery progress remains zero under continuing 0.805435-m flood pressure.",
+        "Every service exposes the identical six A9/A22/N197 route IDs with transferSemantics logical-proxy. Flow differs, but no source establishes these roads as power, water, drainage, gas, telecom or facility transfer edges or their nominal capacities.",
+        "VRK instead documents service-specific PWN, HHNK/RWS, Alliander/TenneT/Gasunie/Tata, tunnel, rail, port and health nodes. Public geometry and provider territories remain non-causal, which is safer than inventing their operation.",
+        "Exact availability must not be attributed to any operator, VRK or facility."
+      ]
+    },
+    "causalTrace": {
+      "status": "fail",
+      "summary": "The numerical causal ledger closes, but the UI obscures the model's derived-screening evidence class at the coastal decision point.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07"],
+      "notes": [
+        "The model harness verifies hazard, direct-service, dependency, intervention, network, allocation and reconciliation closure, changed-driver explanations and exact zero-intensity accounting.",
+        "Headless Chromium at 1440×1000 loaded the isolated preview in 0.981 s, selected Beverwijk in 0.067 s, resolved coastal selection in 0.190 s and reached T+24 in 0.834 s; the worker reported 224.1 ms and 2,124,504 wire bytes. No page exception or failed same-origin response occurred.",
+        "The hazard hero displays 70% scenario severity, 100% inundation stress and 'Scenario · evidence class scenario'; it does not expose HazardState.spatialEvidence='derived-screening'. A lower evidence row warns that official flood/defence layers are not a selected breach/depth scenario, but users must reconcile the contradiction themselves.",
+        "Beverwijk-to-Wijk aan Zee drilldown succeeded by a map-coordinate click in 0.511 s, but no neighbourhood combobox/search or DOM-accessible Wijk aan Zee label exists. Selecting among 36 buurten therefore requires visually locating an unlabeled canvas target."
+      ]
+    },
+    "recovery72h": {
+      "status": "warn",
+      "summary": "Continuing compound flood correctly blocks repair, while coastal recession/dewatering and restoration remain uncalibrated.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07"],
+      "notes": [
+        "Compound retains flood depth 0.805435 m and cyber disruption 0.047537 at T+72, remains critical with 30,382 affected people-equivalent and keeps all eight recoveryProgress values at zero.",
+        "The coastal preset falls from 2.505135 m at T+24 to zero direct depth at T+72 and reports 5,184 affected people-equivalent/recovering. T+72 recovery progress ranges 0.529237–0.858936 and availability 0.645166–0.911209, without a surge hydrograph, breach closure, drainage/dewatering, access or operator restoration model.",
+        "Storm, pluvial, winter, earthquake and wildfire event forcing is zero and status operational by T+72 without reducing cumulative attributable person-hours; heat/cyber retain weak forcing or recovery under their schedules.",
+        "The mechanics are conservative deterministic exercise rules, not local defence performance, drainage-control, facility continuity, repair-crew or operator restoration forecasts."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": ["power", "water", "drainage", "gas", "telecom", "mobility", "facilities", "supply"]
+  },
+  "findings": [
+    {
+      "id": "GM0375-DATA-001",
+      "severity": "informational",
+      "category": "identity",
+      "status": "fixed",
+      "summary": "Generated identity, regional membership, settlements and official demographic totals are coherent.",
+      "evidence": "Code, name, province, safety region and 2025 edition agree. CBS gives 43,040 residents; neighbourhood rows sum to 43,035 (-0.012%), a normal publication difference reconciled without changing observations. Both BAG places are contained.",
+      "action": "Retain edition, retrieval time, null semantics, full-resolution boundary access and published-versus-allocated reconciliation on each refresh."
+    },
+    {
+      "id": "GM0375-COASTAL-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "A generic coast-distance scalar is presented as precise, municipality-wide direct inundation without a selected defence failure or hydraulic event.",
+      "evidence": "At T+24 the preset reports 2.505135 m, 27,648 affected people-equivalent, critical status and 100% inundation stress; peak affected is 30,094 and T+72 attributable harm is 1,493,749.716 person-hours. HHNK identifies separate primary dune and Hoogovens sea-defence lines and the municipality says maintained dunes protect Wijk aan Zee, but the model selects no failed segment, surge level, connected footprint, probability class, arrival or dewatering curve.",
+      "action": "Require an expert-selected, versioned LIWO/HHNK coastal scenario intersected with full-resolution GM0375 before direct depth/exposure is shown. Until then mark direct coastal impact unsupported/unknown and retain only separately evidenced indirect effects."
+    },
+    {
+      "id": "GM0375-PLUVIAL-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Documented high-to-low drainage and tunnel waterlogging pathways do not drive pluvial exposure, drainage or mobility.",
+      "evidence": "At T+24 pluvial reports a 0.781179-m synthetic scalar and 6,392 affected people-equivalent. Municipal evidence instead traces higher sandy-ground runoff/sewer loading toward the low Wijkermeerpolder treatment area and names the Wijckermolen viaduct, streets, tunnels and cellars; none changes local rank, route state, pump state or drainage capacity.",
+      "action": "Ingest a pinned, licensed municipality/HHNK stress-test depth and duration surface with rainfall definition, units, source vintage and no-data semantics; keep it screening-only until locally validated and never infer sewer/pump capacity from register geometry."
+    },
+    {
+      "id": "GM0375-SPATIAL-001",
+      "severity": "high",
+      "category": "geography",
+      "status": "open",
+      "summary": "Unrelated hazards reuse one synthetic neighbourhood ranking, creating false local precision.",
+      "evidence": "Storm, pluvial, coastal, heat, winter, cyber and wildfire share the T+24 order led by Kuenenplein, Sint Aagtendorp and Warande. Kuenenplein leads the coastal list while Wijk aan Zee and Industriegebied Hoogovens are outside the top ten. Code uses one neighbourhood-id multiplier independent of hazard, despite distinct dune, low-polder, urban-heat, industrial, smoke and network mechanisms.",
+      "action": "Replace the shared seed with hazard-specific public spatial adapters. Until each adapter is sourced, label neighbourhood values synthetic, suppress hotspot language and preserve exact allocation/reconciliation."
+    },
+    {
+      "id": "GM0375-NETWORK-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "Six road-border links are copied into all eight services and omit internal/tunnel access that controls Beverwijk operations.",
+      "evidence": "Identical A9/A22/N197 IDs and nominal capacities appear for power, water, drainage, gas, telecom, mobility, facilities and supply. There is no internal branch or closure for Wijk aan Zee, Beverwijk station, De Pijp/haven, Wijckermolen or the Velser/Wijker/Velserspoor tunnels, while VRK identifies these as high-use or constrained dependencies.",
+      "action": "Use NWB/NDW/ProRail/GTFS only for mobility/supply after route matching, and build separate safe aggregate adapters for water and each utility. Never treat a road capacity as physical service transfer without operator evidence."
+    },
+    {
+      "id": "GM0375-INDUSTRIAL-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The canonical catalogue omits Beverwijk's defining Tata Steel and Noordzeekanaal hazardous-material incident pathways.",
+      "evidence": "VRK places part of Tata Steel/Linde Gas in Beverwijk and its current public plan defines high-furnace-gas, ammonia, oxygen and nitrogen releases whose effect area depends on weather/volume. The regional profile also identifies tank fire, hazardous-substance transport and Noordzeekanaal/tunnel incidents. None of the ten presets represents toxic plume/source control, sheltering, warning, health load or weather-aligned effect zones.",
+      "action": "Add a clearly named, authority-reviewed industrial/hazardous-material exercise or explicitly disclose this scope exclusion before claiming municipality hazard completeness; keep restricted LCMS layers restricted and use public REV/RBP context plus the smallest transparent hypothetical footprint where authorized data are unavailable."
+    },
+    {
+      "id": "GM0375-WILDFIRE-001",
+      "severity": "medium",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The wildfire preset is a remote smoke exercise and does not test the locally relevant dune-fire pathway.",
+      "evidence": "At T+24 direct flame is zero, smoke severity 0.289006, drought 0.631581, 947 affected people-equivalent and 67,656.285 attributable person-hours. VRK explicitly assesses dune fire and identifies Beverwijk's dunes, strand pavilions and constrained Wijk aan Zee access; no ignition, eligible dune vegetation, fuel state, wind-resolved perimeter, escape route or extinguishing-water assumption is selected.",
+      "action": "Keep the current preset labelled remote smoke and add a separately named local dune-fire exercise using authoritative land-cover/defence exclusions and event-valid KNMI weather; use a versioned minimal synthetic ignition/perimeter only because no public incident spread feed was identified."
+    },
+    {
+      "id": "GM0375-FACILITY-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "open",
+      "summary": "Above-regional health roles and mass-occupancy locations do not affect facility continuity or prioritization.",
+      "evidence": "VRK names the Rode Kruis Ziekenhuis burn centre, Heliomare and up to 25,000 weekend Bazaar visitors as special local exposure/continuity concerns. The app exposes the hospital and education/government registers only as context, all neighbourhoods are neutral, and coastal/compound facility availability 0.545157/0.294159 is a generic index with no occupancy, staffing, generator, patient-transfer or evacuation state.",
+      "action": "Add dated public role/occupancy context and use only authorized facility continuity feeds for operations; otherwise keep staffing, beds, visitors, generators, fuel, supplies and transfer capacity unknown rather than assigning synthetic precision."
+    },
+    {
+      "id": "GM0375-TOPOLOGY-001",
+      "severity": "medium",
+      "category": "limitation",
+      "status": "accepted-limitation",
+      "summary": "Complete physical utility, facility, stock, backup and restoration topology remains unavailable or security-sensitive.",
+      "evidence": "HWH/HHNK assets, Liander geometry, Mijn Aansluiting provider territories, RIVM/DUO points and the VRK asset inventory do not supply connectivity, capacity, telemetry, switching, pressure, redundancy, staffing, stocks, backups or restoration. Exact availability and road-proxy transfers are synthetic indices, not operator forecasts.",
+      "action": "Use public aggregate zones and authorized owner interfaces where safe; otherwise preserve unknown fields and an explicitly synthetic aggregate fallback without operator attribution or reverse-engineering sensitive infrastructure."
+    },
+    {
+      "id": "GM0375-UI-001",
+      "severity": "high",
+      "category": "explainability",
+      "status": "open",
+      "summary": "The coastal decision headline hides a known derived-screening evidence class and neighbourhood selection is canvas-only.",
+      "evidence": "The reproducible browser path completed quickly and without errors, but T+24 shows '100% inundation stress' and 'evidence class scenario' although model state records derived-screening. A caveat appears lower down, not in the metric label. No accessible picker/search exposes the 36 buurten; Wijk aan Zee required a coordinate click on the canvas.",
+      "action": "Display the actual hazard spatial-evidence class, selected event/source/version and missing footprint beside every direct metric, and add a searchable keyboard-accessible neighbourhood control."
+    },
+    {
+      "id": "GM0375-CONTRACT-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The complete numerical, causal, allocation, recovery and checkpoint contract passes for GM0375.",
+      "evidence": "The focused gate passes ten presets, six checkpoints and eight services. Values are finite/deterministic, zero intensity is exact, local totals reconcile, causal ledgers close, cumulative harm is monotone, layer selection is invariant and continuing compound flood blocks premature repair.",
+      "action": "Keep GM0375 and national ALL coverage in regression and add coastal-source-class, hazard-specific rank, tunnel/network, industrial-scope and browser provenance assertions."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Replace GM0375's generic direct coastal scalar with a selected defence-dependent hydraulic scenario and expose its evidence class at the decision point.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/public/data/hazards/GM0375-coastal-context.json",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/MapView.tsx"
+      ],
+      "validation": "Preferred public sources are RWS/WMCN LIWO OGC at https://basisinformatie-overstromingen.nl/geoserver/ows (raster/vector scenario layers for protected coastal maximum depth, duration, flow and warning time; layer-specific resolution/version and no guaranteed cadence; capabilities say fees/access constraints none but no standard redistribution licence was established), HHNK defence features at https://kaarten.hhnk.nl/arcgis/rest/services/od_legger/od_legger_wv_zoneringen/MapServer/1 (RD New feature JSON/GeoJSON/PBF, legal-change cadence, licence identifier not stated) and Waterinfo ten-minute coastal/water observations. Clip only with annual non-generalized PDOK CBS geometry (CC BY 4.0). Require expert selection of source event, failed D79/D130 segment or explicit no-failure case, surge level, probability, arrival/recession, units, CRS, no-data, retrieved-at and terms. Until approved, direct depth/exposure is unsupported. If no releasable event layer exists, use a smallest named/versioned synthetic breach polygon—not a municipality scalar—and label every dependent result hypothetical."
+    },
+    {
+      "summary": "Integrate local pluvial/heat/drought evidence and retire the shared neighbourhood ordering.",
+      "files": [
+        "scripts/fetch-realism-data.mjs",
+        "apps/web/public/data/hazards/GM0375-climate-context.json",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "First request/export the municipality-linked HHNK Klimaatmonitor at https://hhnk.klimaatmonitor.net for local depth, duration, heat, groundwater and subsidence cells; its web page does not expose a stable version, resolution, cadence or standard licence, so confirm all metadata/terms before caching. The national Klimaateffectatlas WMS https://cas.cloud.sogelink.com/geoserver/ows is CC BY 4.0 and downloadable as GeoTIFF/GeoPackage, but its publisher warns it is not suitable for local decisions: use it only as explicit screening when the local export cannot be licensed. Use KNMI 5-minute precipitation/nowcast and ten-minute weather observations (CC BY 4.0; approximately 1-km corrected radar grids) for named replay forcing, not as depth. Validate Wijkermeerpolder/Wijckermolen differentiation, no-data versus zero, exact population allocation and route effects. Where a municipal stress grid cannot be released, use one documented synthetic rainfall/terrain footprint with scenario id and never infer sewer/pump capacity."
+    },
+    {
+      "summary": "Separate mobility/supply routes from safe aggregate utility, drainage, telecom and facility networks.",
+      "files": [
+        "scripts/fetch-realism-data.mjs",
+        "scripts/apply-audited-lifelines.mjs",
+        "apps/web/public/data/transport-network.json",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/MapView.tsx"
+      ],
+      "validation": "For mobility/supply use RWS NWB OGC https://api.pdok.nl/rws/nationaal-wegenbestand-wegen/ogc/v1 (road sections, monthly, CC0 1.0), timestamped NDW DATEX II road situations (event-valid feed, CC0 where dataset metadata so states) and ProRail/GTFS reference data (CC0/operator feed cadence) to create explicit Wijk aan Zee, Wijckermolen, station and tunnel branches; none alone gives evacuation capacity. For water/drainage use HWH/PDOK IMWA OGC https://api.pdok.nl/hwh/waterschappen-waterbeheergebieden-imwa/ogc/v1 and the HHNK 2025 ArcGIS register (feature geometry, CC BY-SA 4.0 derivative/Open Data label, legal/edition cadence) only as topology context until connectivity/capacity is authorized. Liander current public electricity/gas geometry is CC BY 4.0 with no fixed refresh and no flow/outage state; Mijn Aansluiting is Public Domain live WMS/WFS with provider-variable timestamps and incomplete point coverage. No reviewed public source safely supplies complete PWN/Stedin/Ziggo/facility/stock/backup/restoration topology, so use clearly synthetic service-specific aggregate nodes and never reuse road IDs outside mobility/supply."
+    },
+    {
+      "summary": "Add or explicitly exclude a Beverwijk industrial/hazardous-material exercise aligned with the public Tata Steel plan.",
+      "files": [
+        "packages/sim-core/src/scenarios.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/scenarios.ts",
+        "apps/web/public/data/hazards/GM0375-industrial-context.json",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Use IenW Register Externe Veiligheidsrisico's/Atlas Veiligheid downloadable Seveso geometries (feature/site resolution, regularly updated, licence not stated on the public Atlas page) from https://www.atlasleefomgeving.nl/seveso-terreinbegrenzing-rev-in-ontwikkeling for source context and the VRK public 2025 RBP for named high-furnace-gas/ammonia/oxygen/nitrogen scenario semantics. Use RIVM Luchtmeetnet CSV https://data.rivm.nl/data/luchtmeetnet/ (station/time observations with current, provisional and validated annual partitions; reuse terms must be read from metadata) and KNMI CC BY 4.0 wind only as observed context/replay inputs, never as a toxic plume model. LCMS/CrisisConnect operational effect layers stay access-controlled. If VRK/ODNZKG cannot authorize an effect-zone export, use a versioned minimal hypothetical source/plume with stated substance, release, weather and uncertainty; never expose or reconstruct plant topology. Assert weather/valid-time provenance, shelter/warning semantics, no-event exactness and explicit scope labelling."
+    },
+    {
+      "summary": "Create a separately named local dune-fire exercise without treating regional risk or land cover as an incident perimeter.",
+      "files": [
+        "apps/web/public/data/hazards/GM0375-wildfire-context.json",
+        "packages/sim-core/src/scenarios.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/scenarios.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Use PDOK BRT TOP10NL https://api.pdok.nl/brt/top10nl/ogc/v1 (1:10,000 vector, annual, CC BY 4.0) and applicable public nature/land-cover layers only to delimit eligible vegetation, excluding sea/industry/built surfaces. Use KNMI Data Platform 5-/10-minute wind, temperature and humidity (CC BY 4.0) for a named replay. VRK's 2023–2030 dune-fire assessment is fixed planning evidence with no machine cadence/licence, not ignition or spread. No reviewed public authoritative source exposes a current local fire perimeter/fuel-moisture/spread feed, so the permitted fallback is one smallest versioned synthetic ignition/perimeter with explicit weather, access, escape and suppression-water assumptions. Test zero flame outside the footprint and prevent the shared neighbourhood seed from relocating the event."
+    },
+    {
+      "summary": "Surface true spatial provenance and add an accessible municipality-to-neighbourhood decision path.",
+      "files": [
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/MapView.tsx",
+        "apps/web/src/App.tsx",
+        "apps/web/e2e/municipality-coastal.spec.ts"
+      ],
+      "validation": "No external dataset is required for the control/accessibility fix. Reproduce at 1440×1000: choose Beverwijk, coastal-flood, T+24 and Hazard, then select Wijk aan Zee via both map and keyboard-accessible search. Assert the headline says derived screening/unsupported until a selected LIWO source exists; show event id, publisher, version, retrieved/valid time, licence and missing dimensions beside the depth. Keep the lower official-context caveat. Regression budgets may use the measured baseline (0.981-s initial load, 0.067-s municipality, 0.190-s scenario, 0.834-s checkpoint, 0.511-s coordinate drilldown) but performance measurements are diagnostics, not hazard evidence."
+    }
+  ],
+  "residualLimitations": [
+    "This audits a deterministic first-72-hour exercise model, not a forecast, emergency instruction, flood assessment, evacuation plan, plume model, wildfire forecast or operator commitment.",
+    "CBS 2025 values are rounded/suppressed and neighbourhood totals need not equal the municipality total; null district-heating and charging indicators are unknown, not zero.",
+    "The overview boundary is coherent for selection, but full-resolution PDOK geometry is required for coast, dune, defence, hydraulic, road, water-system, industrial and asset intersection.",
+    "HHNK defence and asset registers describe legal/physical context, not condition, failure, live level, flow, pump state, sewer capacity, connectivity or restoration; reuse terms vary and must be checked.",
+    "LIWO and climate-atlas layers are modeled scenarios/screens. They require expert event selection, layer metadata, probability/no-data semantics and local validation before causal use.",
+    "Waterinfo/KNMI/RIVM observations support provenance and replay but do not create a T+72 forecast, inundation surface, plume, fire perimeter, outage or recovery model.",
+    "The VRK profile/RBP are planning documents; public text does not expose live crews, response capacity, current Tata state, releasable effect zones, tunnel closure or restoration.",
+    "Transient Bazaar, beach, station and industrial populations, warning compliance, household stocks and people needing assistance are not represented by resident counts.",
+    "BAG/BRT labels, GTFS stops, NWB roads, ProRail traces and NDW records do not provide present occupancy, passenger loads, accessible vehicles, evacuation demand or throughput.",
+    "Public HWH/HHNK, government, RIVM/DUO, Liander and provider-area layers are partial context and do not establish physical connectivity, capacity, operating state, redundancy or priority.",
+    "No complete public physical electricity, drinking-water, wastewater, gas, telecom, facility, fuel, stock, staff, backup, repair or restoration topology is consumed; security-sensitive gaps remain unknown or synthetic.",
+    "The Groningen earthquake and remote-smoke presets remain exercises rather than local events; cyber has no local threat/asset evidence and all weather presets remain synthetic unless explicitly replayed.",
+    "Recovery beyond T+72, marine operations, freight/port flows and cross-jurisdiction effects into Velsen/Heemskerk remain outside validated scope."
+  ],
+  "provinceReviewFlags": [
+    "Noord-Holland/HHNK/Rijkswaterstaat: require an expert-selected, versioned LIWO event tied to the D79 dune and/or D130 Hoogovens sea-defence state before releasing direct coastal depth/exposure for Beverwijk.",
+    "Noord-Holland/Beverwijk/HHNK: publish a stable machine export, resolution, edition, no-data semantics, cadence and reuse licence for the local Wijkermeerpolder/Wijckermolen pluvial, heat and drought stress-test layers.",
+    "Kennemerland/VRK/ODNZKG/RIVM: treat Tata Steel, high-furnace-gas/ammonia, Noordzeekanaal and tunnel pathways as an explicit scenario scope decision; do not expose restricted LCMS detail or infer industrial topology.",
+    "Noord-Holland/RWS/ProRail/NDW/Vervoerregio: represent Wijk aan Zee, Beverwijk station and Velser/Wijker/Velserspoor tunnel branches for mobility/supply without converting road/reference data into evacuation capacity.",
+    "Noord-Holland utility, water, telecom, health and logistics operators: publish or authorize safe aggregate service zones, continuity/outage/restoration and facility-role interfaces where possible; retain unavailable physical topology as unknown rather than deriving it from roads or registry points."
+  ]
+}

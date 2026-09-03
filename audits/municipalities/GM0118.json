@@ -1,0 +1,475 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0118",
+    "name": "Hoogeveen",
+    "province": "Drenthe",
+    "safetyRegion": "Drenthe"
+  },
+  "agent": {
+    "taskName": "municipality_gm0118",
+    "agentId": "/root/municipality_gm0397",
+    "completedAt": "2026-09-03T05:28:00Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "GM0118's identity, Drenthe safety-region assignment, 2025 CBS population control and full-resolution municipal geometry are coherent. Fresh context reports 56,906 residents; 48 published neighbourhood rows sum to 56,925 (+19, +0.033%), a small difference that retains CBS rounding and suppression semantics. The regional bundle contains thirteen districts, 48 neighbourhoods, eleven BAG places, 22 BRT settlement labels, six logical road records, Hoogeveen railway station and 97 scheduled-transit stop areas. All ten canonical presets execute deterministically at T+0/6/12/24/48/72 across eight services, and structural/numerical invariants pass. Release is nevertheless correction-required. Veiligheidsregio Drenthe states that direct sea flooding is not applicable to Drenthe and instead treats it as an evacuation-reception region, while local water risk centres on extreme rain, canals, regional defences, low areas, water storage and system controls. The model correctly emits zero direct coastal inundation but still produces exact coastal service effects; its generic river preset reports persistent normalized inundation stress and 4,320 affected without a selected waterbody, regional-defence/control state or footprint. Eight unrelated hazards reuse the same complete neighbourhood ranking. A controlled ignition inside the official Boerveensche Plassen combustible polygon leaves source-containing Verspreide huizen Pesse-Oost only 17th of 48, behind urban Wolfsbos. Public evidence also distinguishes the A28/A37/N48/N374/N375 road system, rail station, weekday-only Bethesda week-hospital/basisspoedpost and 24/7 complex-emergency referral to Emmen, none of which is represented with incident-valid capacity or state. Public water, grid, antenna, education, care, weather, road and nature records remain context, not live topology, passability, occupancy or restoration. Missing public matches are Unknown/NoData, never zero or safe.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek (CBS)",
+      "title": "E01 — Kerncijfers wijken en buurten 2025, table 86165NED, OData API",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM0118%27%29",
+      "accessedAt": "2026-09-03T05:08:00Z",
+      "edition": 2025,
+      "supports": [
+        "The fresh official municipality row identifies GM0118 Hoogeveen and reports 56,906 residents, density 446 per square kilometre, 23.1% age 65 or older and 9,139 one-person households.",
+        "The 48 published neighbourhood rows sum to 56,925 residents (+19, +0.033%), 25,140 households and 13,145 residents aged 65 or older. Small differences preserve rounding, suppression and incomplete-value semantics.",
+        "Average-home and related housing fields are present for 47/48 rows and cars per household for 39/48; district-heating share and public-charging counts are unavailable for all 48 rows and must not be displayed as zero.",
+        "CBS OData is machine-readable under CC BY 4.0; CBS describes quarterly additions for this annual table. It supports official demographic context and allocation control, not incident-time presence, self-reliance, injury, evacuation or deprivation."
+      ]
+    },
+    {
+      "publisher": "PDOK / CBS / Kadaster / Rijkswaterstaat / ProRail / OVapi",
+      "title": "E02 — Full municipal geometry, settlements and road, rail and scheduled-transit references",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_niet_gegeneraliseerd/items?f=json&filter=statcode%3D%27GM0118%27",
+      "accessedAt": "2026-09-03T05:10:00Z",
+      "edition": "2025 full boundary; generated current-reference BAG, BRT, NWB, ProRail and GTFS editions",
+      "supports": [
+        "The generated centre [6.518577133563682, 52.71795163881612] lies inside the fresh 2025 municipal boundary.",
+        "The bundle contains thirteen districts, 48 neighbourhoods, eleven BAG places and 22 BRT labels: ten woonkernen, one deelkern, seven buurtschappen and four gehuchten.",
+        "Six logical boundary records retain A28 north/south, A37, N48, N375 and N374 physical-corridor identities. Hoogeveen station lies inside the boundary and the GTFS snapshot contains 97 stop areas.",
+        "A28 sections north and south share one physical corridor and are consecutive series edges, not independent additive capacity. Nominal 260/150 values are generalized scenario units, not vehicles, patients, evacuees, freight or repair throughput.",
+        "CBS boundary OGC is half-yearly/CC BY 4.0; BAG is daily/Public Domain Mark 1.0; NWB is monthly/CC0 1.0; ProRail geometry is manually refreshed/CC0 1.0. OVapi GTFS is free-use best-effort context without an operational SLA.",
+        "These sources support identity, geometry and reference connectivity only, not incident-time road/rail/transit operation, direction, queue, accessibility or capacity."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Drenthe (VRD)",
+      "title": "E03 — Regionaal Risicoprofiel 2025 and Dekkingsplan Brandweer Drenthe 2025–2028",
+      "url": "https://www.vrd.nl/publish/pages/2221/04-3b_vrd_regionaal_risicoprofiel_2025_inclusief_aanpassingen_1_.pdf",
+      "accessedAt": "2026-09-03T05:13:00Z",
+      "edition": "Risk profile 2025, adopted with 2025–2028 policy/deployment documents",
+      "supports": [
+        "VRD identifies Hoogeveen as a major core and a concentration of chemical industry, and the regional matrix includes extreme weather, nature fire, vital-service disruption, cyber consequences, induced earthquake, train disaster and hazardous-material accident.",
+        "The profile says direct sea flooding is not applicable to Drenthe; in such an event Drenthe is an evacuation-reception region for people, animals and goods. Limited high-water risk is described mainly around Meppel with possible wider road, rail and vital-function effects.",
+        "Extreme rain can exceed sewer/water-system design, flooding streets, cellars, homes and low roads. The profile records the 2007 Hoogeveen/Dwingeland park downburst and links storm/ice to power-line and route disruption.",
+        "Drenthe nature areas can combine drought, care sites, recreation and vital infrastructure; prolonged/multiple fires can exceed regular personnel and equipment. The region lacks named live incident/resource data in this documentary profile.",
+        "The profile is a human-readable multi-year policy product without a declared machine incident API, operational cadence or blanket reuse licence. It guides scenario selection and preparedness; it does not prove event state or probability."
+      ]
+    },
+    {
+      "publisher": "Waterschap Drents Overijsselse Delta (WDODelta) / Waterschap Vechtstromen / Het Waterschapshuis",
+      "title": "E04 — Hoogeveen water-system projects, drought lifecycle and public IMWA/DAMO objects",
+      "url": "https://www.wdodelta.nl/wateren-boven-hoogeveen-worden-toekomstproof-gemaakt",
+      "accessedAt": "2026-09-03T05:16:00Z",
+      "edition": "Current projects and drought notices through 1 September 2026; HWH reference snapshot retrieved 3 September 2026",
+      "supports": [
+        "WDODelta is adding storage, restoring drainage profiles and automating/new-building weirs near Domeinweg/Fluitenberg because both water nuisance and drought require improved control. Ruiner Aa works in 2026 likewise identify an aging water system, storage and remote-control changes.",
+        "The 2022–2027 water programme places Hoogeveen in the Meppelerdiep system of Oude Diep, Wold Aa and Drentse canals, with water supply from Meppel during drought, regional defences along parts of the Hoogeveensche Vaart and designated storage areas including Echten-Traandijk/Panjerd-Veeningen.",
+        "A September 2026 WDODelta update says water levels recovered after August rain but earlier requested restricted lock operation on the Hoogeveensche Vaart; Vechtstromen reported Hoogeveen drought deficit above the 5% driest years on 14 August. Dated measures and their recovery state cannot be generalized to arbitrary exercises.",
+        "The public municipal screen contains 195 registered objects: eleven sewer pumps, one wastewater-treatment facility, fifteen surface-water pumps, three sluices and 165 weirs. Register state does not establish topology, level area, control position, capacity, power/backup or operation.",
+        "HWH/PDOK IMWA/DAMO services are partial contributor-dependent aggregations under CC BY-SA 4.0. Feature date, collection, CRS, fields, licence, coverage and NoData must be pinned before integration."
+      ]
+    },
+    {
+      "publisher": "Interprovinciaal Overleg / Risicokaart / Het Drentse Landschap / Brandweer Nederland",
+      "title": "E05 — Official combustible-nature eligibility around Boerveensche Plassen, Spaarbankbos and Ruilerveld",
+      "url": "https://servicespub.risicokaart.nl/geoserver/ISOR_RK/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ISOR_RK%3Aisor_brandbaar_natuurgebied&outputFormat=application%2Fjson",
+      "accessedAt": "2026-09-03T05:18:00Z",
+      "edition": "Risicokaart metadata updated 19 February 2026; local feature validity dates 2005; daily regional phase inspected September 2026",
+      "supports": [
+        "The official WFS attributes three combustible areas to source holder 0118: Ruilerveld, Boerveense plassen and Spaarbankbos. The audit source [6.4802, 52.7603] is inside the Boerveense plassen polygon and CBS Verspreide huizen Pesse-Oost.",
+        "Risicokaart records eligible context, not current ignition, fuel, moisture, perimeter, spread, smoke, evacuation or response. Its public-domain catalogue metadata does not state feature-scale accuracy or a guaranteed operational refresh cadence; old begin-validity dates must remain visible.",
+        "Het Drentse Landschap describes Boerenveensche Plassen as extensive heath with large pools and fens; public tourism material gives 147 hectares while Risicokaart records total size 108, demonstrating different scope rather than a count to reconcile by assumption.",
+        "Brandweer Nederland's Drenthe phase is assessed daily from station indices, KNMI/other weather, land managers, experts and observation. A regional phase is not a local fire forecast and must retain issue time."
+      ]
+    },
+    {
+      "publisher": "Treant Zorggroep / GHOR Drenthe / RIVM",
+      "title": "E06 — Bethesda operating scope, Emmen acute referral and protected care-continuity information",
+      "url": "https://www.treant.nl/zorg/locaties/ziekenhuislocaties/bethesda",
+      "accessedAt": "2026-09-03T05:20:00Z",
+      "edition": "Current provider pages inspected September 2026; RIVM acute-care questionnaire 2026 v1.1",
+      "supports": [
+        "Treant describes Bethesda Hoogeveen as a week hospital open Monday 07:00 through Friday 20:00. Its basisspoedpost is open weekdays 08:00–22:00 for referred, non-life-threatening urgent care.",
+        "Life-threatening and complex acute patients are directed to Treant Scheper's 24/7 emergency department in Emmen. Thus the RIVM acute-care screen's zero GM0118 matches are consistent with its national SEH/acute-obstetrics scope but do not mean zero local care facilities or demand.",
+        "GHOR Drenthe states that facilities remain responsible for continuity and that it maintains protected GHOR4all information for 24-hour care, evacuation, outage and coordination. Those operational records are not public and cannot be inferred from provider webpages.",
+        "RIVM 2026 v1.1 is annual national-questionnaire context under CC0 1.0. Provider webpages are human-readable and declare no machine live-capacity API or simulation reuse licence.",
+        "Bethesda/Emmen roles support route and temporal modeling only after live acceptance, staffing, occupancy, backup, ambulance and road state are supplied."
+      ]
+    },
+    {
+      "publisher": "Netbeheer Nederland / RDI / DUO",
+      "title": "E07 — Grid-planning sample, antenna register and education-location context",
+      "url": "https://data.partnersinenergie.nl/capaciteitskaart/totaal/afname",
+      "accessedAt": "2026-09-03T05:21:00Z",
+      "edition": "Deployment public-context snapshots retrieved 2 September 2026",
+      "supports": [
+        "One NBNL postcode sample, 7904LG, maps to service area HGV Hoogeveen and regional operators Enexis/Rendo. It reports withdrawal existing/required/queue 103.8/86.1/42.0 MW with 45 requests and injection 97.5/111.9/9.2 MW with 31 requests, plus eleven projects from 2026.",
+        "NBNL capacity/projects update at least quarterly and queues monthly; the public frontend endpoints lack a stable API contract and exact licence identifier. One postcode planning sample is not full municipality/feeder coverage, current load, emergency reserve, outage or restoration telemetry.",
+        "The municipal screens contain 111 RDI antenna installations and 58 DUO education locations. Registered sites do not prove radio coverage/backhaul/power, student presence, shelter designation, accessibility, capacity, supplies or live operation.",
+        "RDI states no WFS refresh cadence or reuse licence; DUO is daily with a Creative Commons Attribution licence whose version is unspecified. All three datasets are official-context and affectsSimulation=false."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Drenthe / Gemeente Hoogeveen",
+      "title": "E08 — Weerbaar Drenthe first-72-hour programme and local resilience policy",
+      "url": "https://www.vrd.nl/publish/pages/2221/08-1_concept_programmaplan_weerbaar_drenthe.pdf",
+      "accessedAt": "2026-09-03T05:23:00Z",
+      "edition": "Concept regional programme 2025–2026; Hoogeveen coalition policy 2026–2030",
+      "supports": [
+        "The regional programme explicitly separates cold phase, warm phase within 72 hours, warm phase after 72 hours and recovery. It considers drinking-water continuity, emergency support points and public self/societal resilience.",
+        "VRD documents that emergency support points and use of fire stations are being explored. A concept or exploration is not an activated facility, resource commitment or guaranteed capacity.",
+        "Hoogeveen's current resilience policy names extended power failure, extreme weather, digital threats, vulnerable residents, crisis communication and strengthening vital networks but does not publish incident-ready locations/capacity.",
+        "These are human-readable planning/policy sources without stable machine action/resource APIs, fixed operational cadence or blanket reuse licences. They support required action-state schema, not populated live state."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / Provincie Drenthe / ProRail / KNMI / NDW / Rijkswaterstaat Waterinfo",
+      "title": "E09 — Hoogeveen corridor identity, expired restrictions and sparse observation coverage",
+      "url": "https://www.rijkswaterstaat.nl/wegen/wegenoverzicht/a37",
+      "accessedAt": "2026-09-03T05:25:00Z",
+      "edition": "Current asset pages and deployment observations/restrictions through 3 September 2026",
+      "supports": [
+        "Rijkswaterstaat identifies A37 from Hoogeveen to the German border and publishes fixed U31/U32 diversion routes. Province Drenthe identifies N374 as the Hoogeveen–Stadskanaal area-access route; ProRail confirms Hoogeveen station/rail geometry.",
+        "A municipal/Rijkswaterstaat notice closed N48 Hoogeveen–Balkbrug from 3 through 28 August 2026 and named A28/N377 and N34/A37 detours plus emergency-service priority. It had expired before this audit, illustrating why a dated closure must not remain active.",
+        "The deployment snapshot contains no NDW situation, KNMI station, Waterinfo point or RIVM PM2.5 station assigned inside GM0118. Drenthe's KNMI warning record at retrieval is level zero, but a province-wide warning snapshot is not an all-clear for an arbitrary scenario.",
+        "KNMI observations are ten-minute CC BY 4.0 point context; NDW DATEX II and Waterinfo are CC0 unless stated otherwise. Missing local point/record coverage is Unknown, not zero weather, road disruption, water condition or air pollution."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM0118, Hoogeveen, Drenthe and Veiligheidsregio Drenthe are internally and officially coherent.",
+      "evidenceRefs": ["E01", "E02", "E03"],
+      "notes": [
+        "Generated municipality, province and exactly one safety-region assignment agree.",
+        "The generated centre lies inside the fresh full-resolution 2025 municipal boundary.",
+        "Annual registers, policy, completed works/incidents, live observations and synthetic scenario checkpoints remain separate evidence classes."
+      ]
+    },
+    "geography": {
+      "status": "fail",
+      "summary": "Administrative geometry is coherent, but hazard-specific water and nature geography does not govern local impacts.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05"],
+      "notes": [
+        "Eight unrelated hazards share one complete 48-neighbourhood risk order at T+24.",
+        "A controlled ignition lies inside official Boerveense plassen and Verspreide huizen Pesse-Oost, yet the containing neighbourhood ranks 17/48.",
+        "Coastal direct inundation is correctly zero under current model scope, but coastal service effects are still allocated; river inundation is nonzero without a selected regional-water case.",
+        "Full polygons and eligible domains, not municipality-centre distance or a generic seed, must control containment and local ranking."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Official municipality controls and neighbourhood aggregates reconcile within minor CBS rounding difference.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "CBS reports 56,906 residents; 48 neighbourhood rows sum to 56,925 (+19, +0.033%), while model allocations reconcile to the municipal control.",
+        "A 23.1% age-65-plus share and 9,139 one-person households are relevant to warning, heat, evacuation, care and supply but not individual vulnerability records.",
+        "Resident-equivalent impacts omit visitors, workers, pupils, patients, road/rail users and responders."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "Forty-eight neighbourhoods support census allocation, while multiple fields and every live physical lifeline state remain incomplete.",
+      "evidenceRefs": ["E01", "E04", "E06", "E07", "E09"],
+      "notes": [
+        "Most CBS fields cover 47–48 rows, cars per household covers 39, and district-heating/public-charging cover zero; missing values remain Unknown.",
+        "Water objects, eligible nature, care, schools, antennas, grid planning and observations have incompatible support, cadence, licence and operational meaning.",
+        "Official registered assets do not establish local network connections, occupancy, capacity, state or recovery."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "Eleven BAG places and 22 BRT labels preserve the urban core, villages and dispersed peat-colony settlements.",
+      "evidenceRefs": ["E02", "E04", "E05"],
+      "notes": [
+        "BAG retains Hoogeveen, Pesse, Fluitenberg, Hollandscheveld, Elim, Nieuweroord, Nieuwlande, Noordscheschut, Stuifzand, Tiendeveen and Alteveer gem Hoogeveen.",
+        "BRT adds small places including Zwartschaap, Siberië, Nieuw Moscou, Zuideropgaande and Verspreide rural settlement context.",
+        "Settlement labels and resident counts do not prove incident-time occupancy, transport demand, warning receipt or self-reliance."
+      ]
+    },
+    "transport": {
+      "status": "fail",
+      "summary": "Reference routes are present but lack junction, direction, rail, incident, capacity and care-referral semantics.",
+      "evidenceRefs": ["E02", "E06", "E09"],
+      "notes": [
+        "Six NWB records identify A28/A37/N48/N374/N375 corridors, while the A28 sections are one non-additive series corridor around the Hoogeveen junction.",
+        "The graph does not encode direction, interchange, tunnel/underpass, closure, detour, emergency priority, queue or destination-specific throughput.",
+        "Hoogeveen station and 97 scheduled stops do not prove incident-time rail/bus operation or accessible evacuation capacity.",
+        "The expired N48 restriction illustrates the required start/end lifecycle and care/supply detour consequences."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "Official flood-scope, rain, nature-fire, water, care and 72-hour planning evidence is not causally selected in the model.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E08", "E09"],
+      "notes": [
+        "No selected local water footprint/control state, ignition/perimeter, road/rail restriction, activated reception/support site, hospital acceptance or response resource drives outputs.",
+        "Bethesda's operating hours and Emmen referral are current provider context but not live occupancy/acceptance or route state.",
+        "A daily nature phase, a level-zero warning and absent local sensor records cannot validate an arbitrary first-72-hour exercise."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten canonical presets execute at all six mandatory checkpoints for all eight services.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E08", "E09"],
+      "notes": [
+        "MUNICIPALITY_AUDIT_CODE=GM0118 pnpm audit:model passed one file/two tests in 31.76 seconds on the final rerun.",
+        "Maximum checkpoint severity / maximum affected / T+72 attributable person-hours are storm 0.759204 / 23,428 / 967,160.673; pluvial 0.295821 / 3,130 / 348,879.213; river 0.130032 / 4,320 / 641,237.066; coastal 0.033676 / 0 / 148,616.189.",
+        "Remaining values are heat 0.450756 / 0 / 226,364.629; winter 0.555878 / 13,568 / 739,235.914; cyber 0.556208 / 18,259 / 899,477.104; earthquake 0.130035 / 2,554 / 294,620.314; wildfire 0.116913 / 0 / 188,299.864; compound 0.926377 / 37,609 / 2,349,944.525.",
+        "At T+24 storm reports zero rain and wind but normalized inundation stress 0.473715, severity 0.262365 and 23,428 affected; this can only be interpreted as modeled residual effect, not current forcing.",
+        "Structural execution and deterministic decimals do not establish local empirical validity."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Outputs are finite, bounded, deterministic, exact at zero intensity, selected-layer invariant and locally reconciled.",
+      "evidenceRefs": ["E01", "E02"],
+      "notes": [
+        "All required structural, range, local-sum, causal-ledger and repeatability checks pass.",
+        "Every preset's zero-intensity run returns exact-zero hazard, affected resident-equivalents and cumulative deprived person-hours.",
+        "Changing the selected display service does not mutate hazard, pressure or affected population.",
+        "The generic floodDepthM-like field is normalized inundation stress under CORR-017, not measured metres."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "The common local seed overrides distinct rain, water, nature, weather, cyber and infrastructure geography.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05"],
+      "notes": [
+        "Storm, pluvial, river, coastal, heat, winter, cyber and wildfire share exactly the same complete T+24 order, led by Wolfsbos, Grittenhof and Oost.",
+        "A controlled Boerveensche Plassen source [6.4802, 52.7603] lies in official combustible geometry and Verspreide huizen Pesse-Oost.",
+        "At T+11/T+24 the controlled source has direct fire 0.385133, smoke 0.463893 and severity 0.420233, but its containing neighbourhood ranks 17/48 while urban Wolfsbos ranks first.",
+        "The test source is an audit fixture derived from official eligibility plus public coordinates, not a current ignition or event probability."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "Exact eight-service availability exceeds verified utility, water, care and transport topology/state evidence.",
+      "evidenceRefs": ["E02", "E04", "E06", "E07", "E09"],
+      "notes": [
+        "At compound T+24 availability is Power 0.283010, Water 0.373955, Drainage 0.210264, Gas 0.520319, Telecom 0.218797, Mobility 0.745406, Facilities 0.313958 and Supply 0.597654.",
+        "Only six NWB edges support Mobility and explicit road-logistics/Supply; no verified physical routes exist for Power, Water, Drainage, Gas, Telecom or Facilities.",
+        "One grid-planning point, 195 water objects, 111 antennas, 58 schools, Bethesda and an empty acute-SEH match are context, not compatible live topology/capacity/backup/restoration.",
+        "Official residents remain separate from non-resident activity demand under CORR-015."
+      ]
+    },
+    "causalTrace": {
+      "status": "warn",
+      "summary": "The numerical causal ledger closes, but authority-selected causes, owners, interventions and resources remain absent.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E08", "E09"],
+      "notes": [
+        "Outputs expose hazard, direct-service, interdependency, network, recovery and local-allocation components with matched totals.",
+        "Cumulative person-hours are synthetic no-event counterfactual accounting, not observed outage duration or unmet care need.",
+        "No selected water/fire event, utility network, junction restriction, hospital acceptance, reception/support point or response action explains exact trajectories.",
+        "Each change needs owner, target, prerequisite, route, crew/material/fuel/water, start/end, state, evidence class and uncertainty."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "Persistent river/compound state and exact recovery after other hazards lack action/resource and valid-state explanations.",
+      "evidenceRefs": ["E03", "E04", "E06", "E08", "E09"],
+      "notes": [
+        "River severity 0.130032, normalized stress 0.411312, 4,320 affected and all eight services stay exactly fixed from T+24 to T+72 without a selected persistent water condition.",
+        "Compound severity falls 0.926377 to 0.443371 while affected rises 36,715 to 37,609 and every service worsens slightly except Supply, but no action/blocking-state ledger explains the trajectory.",
+        "Storm reaches zero direct severity/affected and operational status at T+72 after 967,160.673 person-hours, while no crews, cleared roads, grid switching or water interventions are named.",
+        "Sustained disruption or recovery may be plausible, but exact first-72-hour values require explicit incident, action and resource states."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": ["power", "water", "drainage", "gas", "telecom", "mobility", "facilities", "supply"]
+  },
+  "findings": [
+    {
+      "id": "GM0118-LARGE-WATER-SCOPE-001",
+      "severity": "critical",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Coastal and river presets do not respect Drenthe's direct-flood versus reception/cascade scope.",
+      "evidence": "VRD explicitly says sea-flood consequences are not directly applicable to Drenthe and instead defines an evacuation-reception role; limited primary-water risk is centred around Meppel and wider route/vital-function cascades. The model correctly leaves coastal direct inundation and affected population at zero, yet at T+24 still reports severity 0.033676 and exact service reductions. River reports normalized inundation stress 0.411312, 4,320 affected and exact service state through T+72 without a selected waterbody, Hoogeveensche Vaart/regional defence, control, LIWO footprint, arrival or persistence case. The internal stress field is not metres.",
+      "action": "Retain scoped zero direct coastal inundation with an explicit 'not a local sea-flood footprint' label, while modeling reception, traffic, care, shelter, supply and mutual-aid consequences separately only when selected. Suppress exact river affected/service claims until a versioned authority-selected LIWO/WDODelta/Vechtstromen case supplies source, control/defence/failure, footprint, native units/resolution, arrival/persistence, probability, CRS, NoData, licence, transform hash and reviewer. Unknown is not safe."
+    },
+    {
+      "id": "GM0118-BOERVEEN-FIRE-001",
+      "severity": "critical",
+      "category": "geography",
+      "status": "open",
+      "summary": "An explicit source inside official Boerveensche Plassen ranks its containing rural neighbourhood only 17th of 48.",
+      "evidence": "IPO/Risicokaart attributes Boerveense plassen, Spaarbankbos and Ruilerveld combustible polygons to source holder 0118. Audit point [6.4802, 52.7603] lies inside the Boerveense plassen polygon and Verspreide huizen Pesse-Oost. At T+11 and T+24 direct fire is 0.385133, smoke 0.463893 and municipality severity 0.420233; the containing neighbourhood stays 17/48 while Wolfsbos ranks first, with 115 versus 1,110 affected at T+24. VRD identifies combined drought, recreation, care, vital-line and prolonged-resource constraints. The source is a controlled fixture, not a current fire.",
+      "action": "Block local fire ranking from operational use. Require explicit source/perimeter intersection with full municipal/neighbourhood and versioned combustible polygons, plus issue-valid wind/humidity, fuel/moisture, visitor/care presence, access, extinguishing water, crews and suppression state. Retain old feature dates and scope; absent ignition or compatible eligibility remains Unknown."
+    },
+    {
+      "id": "GM0118-SHARED-SPATIAL-SEED-001",
+      "severity": "critical",
+      "category": "geography",
+      "status": "open",
+      "summary": "Eight unrelated hazards reuse one full neighbourhood ranking across urban, rural, canal and nature contexts.",
+      "evidence": "Storm, pluvial, river, coastal, heat, winter, cyber and wildfire share the same 48-neighbourhood T+24 order from Wolfsbos/Grittenhof/Oost to Verspreide huizen Nijstad/Nieuweroord and Industriegebied Noord B. Official evidence distinguishes extreme-rain low roads/sewers, canals/storage/control areas, combustible heath/bos, the 2007 local downburst, care/referral routes, industry, rail and cyber/vital-system boundaries. Cyber and coastal reception effects have no defensible reason to share fire and rain order.",
+      "action": "Replace the common municipality seed with hazard-specific source, eligible-domain, forcing, exposed-object and evidence-support adapters. Require unrelated hazards not to silently share a complete order; when compatible spatial support is absent, render local ranking Unknown rather than precise."
+    },
+    {
+      "id": "GM0118-PLUVIAL-WATER-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Pluvial, drought and drainage outputs ignore named canals, catchments, storage, control state and works lifecycle.",
+      "evidence": "WDODelta identifies Hoogeveensche Vaart, Oude Diep/Ruiner Aa, storage areas, water supply, regional defences and ongoing Fluitenberg/Ruiner Aa storage/weir projects. The public screen finds 195 water objects but does not supply full topology/state. At pluvial T+24 normalized stress is 0.215413, 3,130 are affected, Drainage is 0.613899 and Water 0.786705; heat Water is 0.685735 with drought severity 0.409891. No catchment, level area, storage availability, asset connectivity/control, capacity, power/backup, drought measure or project completion drives those values.",
+      "action": "Version WDODelta/Vechtstromen native layers and HWH OGC objects with feature dates, scope, CRS, cadence, licence and NoData; bind catchments, level areas, storage, controls and project lifecycle before causal use. Obtain authorized capacity/power/backup and issue-valid drought data. Keep object registers affectsSimulation=false until reviewed."
+    },
+    {
+      "id": "GM0118-MULTIMODAL-ROUTES-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "The Hoogeveen A28/A37 junction, regional roads and railway lack direction, state and destination-specific operational meaning.",
+      "evidence": "Six edges represent A28 north/south, A37, N48, N374 and N375; shared A28 sections are non-additive series pieces. Hoogeveen station and 97 GTFS stops are present. The expired August 2026 N48 closure documented directional detours, local rat-running and emergency-service priority, while Rijkswaterstaat publishes A37 fixed diversion routes. The model has no junction/interchange, underpass, incident footprint, start/end state, queue, emergency priority, rail/bus operation, accessible transfer, destination or unit-bearing throughput.",
+      "action": "Build an authority-reviewed multimodal graph from monthly CC0 NWB, named junction structures, rail/station and valid GTFS/operational feeds. Preserve shared corridors, direction, mode, detour and start/end state. Bind routes to care, reception, supply and mutual-aid destinations; expired restrictions must deactivate and missing live state remains Unknown."
+    },
+    {
+      "id": "GM0118-CARE-REFERRAL-001",
+      "severity": "high",
+      "category": "exposure",
+      "status": "open",
+      "summary": "The empty acute-care register match hides a time-limited local hospital and route-dependent 24/7 referral to Emmen.",
+      "evidence": "RIVM's scoped acute-SEH/obstetrics screen returns zero inside GM0118. Treant nevertheless operates Bethesda as a weekday week hospital and a referred basisspoedpost weekdays 08:00–22:00, while directing life-threatening/complex patients to 24/7 Scheper in Emmen. GHOR holds protected continuity information for 24-hour care and outage/evacuation. With 23.1% age 65 or older, 9,139 one-person households and dispersed villages, zero public SEH matches cannot become zero need, capacity or travel dependency.",
+      "action": "Model Bethesda and Emmen as typed, time-windowed care roles with live acceptance, staffing, occupancy, specialty, ambulance, backup power/water/oxygen/medicine and route state only from authorized sources. Keep protected GHOR4all outside public output. Empty national-register coverage displays Unknown/not-in-scope, never no care."
+    },
+    {
+      "id": "GM0118-LIFELINE-PROVENANCE-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Exact service availability has no verified utility/facility topology, capacity, backup or live operator state.",
+      "evidence": "At compound T+24 exact availability spans Telecom 0.218797 to Mobility 0.745406. Public context includes one Enexis/Rendo grid-planning sample, 195 water objects, 111 antennas and 58 schools. These are not feeder/customer topology, live load/pressure/backhaul, damage, shelter activation, backup, switching or repair state. Power, Water, Drainage, Gas, Telecom and Facilities have no verified modeled physical routes; NWB is valid only for Mobility and explicit road-logistics/Supply.",
+      "action": "Integrate authorized operator topology, outage, priority-user, backup and restoration data where lawful and safe. Otherwise expose minimal versioned synthetic zones/graphs with ranges and uncertainty. Keep public planning/register/context layers affectsSimulation=false and suppress operator-validated-looking exact decimals."
+    },
+    {
+      "id": "GM0118-TEMPORAL-RECOVERY-001",
+      "severity": "critical",
+      "category": "service",
+      "status": "open",
+      "summary": "Residual forcing, persistent river state and compound deterioration lack incident/action/resource explanations through T+72.",
+      "evidence": "Storm T+24 has zero rain and wind yet normalized inundation stress 0.473715, severity 0.262365 and 23,428 affected; by T+72 it reports operational/zero affected after 967,160.673 person-hours. River holds severity 0.130032, stress 0.411312, 4,320 affected and all eight service values exactly fixed from T+24 to T+72. Compound severity falls 0.926377 to 0.443371 while affected rises and seven services worsen. No selected residual water condition, owner, crew, pump, road clearance, switching, fuel, material, care/reception action or blocking state explains these trajectories.",
+      "action": "Require a typed incident/action/resource ledger at T+0/6/12/24/48/72 with authority, owner, target, prerequisite, route, crew/material/fuel/water, start/end, state, evidence time and uncertainty. Each deterioration, plateau, residual effect and recovery must cite a driver; preserve arithmetic identities but suppress unsupported decision-grade trajectories."
+    },
+    {
+      "id": "GM0118-OTHER-HAZARDS-001",
+      "severity": "medium",
+      "category": "limitation",
+      "status": "open",
+      "summary": "Weather, cyber and induced-earthquake scenarios run structurally but remain unselected and uncalibrated locally.",
+      "evidence": "VRD specifically records Hoogeveen's 2007 downburst and regional induced-earthquake, cyber, hazardous-material and vital-service risks. Canonical storm/winter/cyber reach 23,428/13,568/18,259 affected, while earthquake reaches 2,554 recovering after an earlier pulse. No issue-valid storm track, local observation surface, declared cyber organization/system boundary, induced-seismic catalogue event/GMPE/site/fragility or hazardous-material scenario governs those outputs. Missing local KNMI/seismic/NDW records are not an all-clear.",
+      "action": "Bind weather exercises to declared synthetic forcing or versioned KNMI issue/valid products; define cyber organization/system boundaries and authorized dependencies; require a selected observed/synthetic seismic event, GMPE, site and fragility. Add hazardous-material scenarios only with REV/source/transport and response evidence. Unsupported dimensions remain Unknown."
+    },
+    {
+      "id": "GM0118-EVIDENCE-UI-001",
+      "severity": "high",
+      "category": "ui",
+      "status": "open",
+      "summary": "Plans, expired notices, current observations and synthetic outputs need adjacent evidence-class and NoData gates.",
+      "evidence": "The interface can combine annual CBS, static combustible/water/road assets, multi-year VRD policy, a concept 72-hour programme, current provider hours, an expired N48 closure, one grid-planning postcode and missing local KNMI/Waterinfo/NDW/acute-SEH matches. None establishes a live event. Coastal direct zero has a narrow physical scope but can be read as general safety; Bethesda's zero RIVM match can be read as no facility. Exact synthetic values do not place all of these caveats beside the headline or export.",
+      "action": "Attach publisher, dataset/version, issue/valid/retrieval time, coverage, licence, evidence class, affectsSimulation, uncertainty and NoData to every layer/value/export. Show flood/reception scope, provider hours/referral and support gates beside operational claims. Expire notices explicitly and render absent records Unknown, never zero/safe."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Separate Hoogeveen direct large-water eligibility from evacuation-reception and cascade effects.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Coastal direct inundation remains scoped zero with a visible 'not a local sea-flood footprint' qualifier, not a general all-clear; reception/care/traffic/supply effects require a selected external event. River exact impacts are suppressed absent a selected local/regional-water footprint. Supported cases retain waterbody, defence/control/failure, arrival/persistence, units/resolution/CRS, probability, NoData, licence, transform hash and reviewer; normalized stress is never labelled metres."
+    },
+    {
+      "summary": "Replace the shared GM0118 neighbourhood seed with source- and mechanism-aware full-polygon allocation.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/geometry.ts",
+        "packages/sim-core/src/model.test.ts",
+        "scripts/fetch-realism-data.mjs"
+      ],
+      "validation": "A source within official Boerveensche Plassen and Verspreide huizen Pesse-Oost responds consistently rather than ranking 17/48; official polygon dates/scope remain visible. Selected rain/water footprints govern pluvial/river ranks, and unrelated hazards cannot silently share a complete order. Missing source or eligible-domain support remains Unknown."
+    },
+    {
+      "summary": "Integrate WDODelta/Vechtstromen water controls, storage, catchments and drought lifecycle without promoting registers to live state.",
+      "files": [
+        "scripts/fetch-water-assets.mjs",
+        "scripts/fetch-realism-data.mjs",
+        "packages/sim-core/src/types.ts",
+        "apps/web/src/data.ts"
+      ],
+      "validation": "HWH and native water-board data retain publisher, feature date, collection, scope, CRS, cadence, licence, coverage and NoData. Catchments, level areas, storage, defences, weirs/pumps, controls and projects remain official context until compatible capacity, power/backup and event-valid state are supplied; dated drought/lock measures activate and expire correctly."
+    },
+    {
+      "summary": "Build typed Hoogeveen road, rail, transit and care-referral routes with valid-time operational state.",
+      "files": [
+        "scripts/fetch-transport-network.mjs",
+        "apps/web/public/data/transport-network.json",
+        "packages/sim-core/src/network.ts",
+        "packages/sim-core/src/network.test.ts",
+        "apps/web/src/data.ts"
+      ],
+      "validation": "A28/A37 junction and N48/N374/N375 sections preserve direction, owner, shared corridor, detour, emergency priority and unit-bearing state; series A28 sections are non-additive. Hoogeveen rail/bus and Bethesda-to-Emmen referral expose time window, destination, accessibility and valid state. The August N48 closure is expired, and absent live status remains Unknown."
+    },
+    {
+      "summary": "Evidence-gate all lifelines, care/exposure and first-72-hour recovery behind topology, occupancy and action/resource support.",
+      "files": [
+        "packages/sim-core/src/network.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/components/OperationsBrief.tsx"
+      ],
+      "validation": "NWB affects Mobility and explicit road-logistics/Supply only. Utilities/care require verified topology, capacity, backup, acceptance/occupancy and restoration or labelled synthetic ranges. Residents stay separate from visitors/workers/patients/responders. Every checkpoint change cites owner, target, prerequisite, resources, access, start/end, state and uncertainty."
+    },
+    {
+      "summary": "Expose evidence class, lifecycle, licence, support and Unknown/NoData beside each operational value and export.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "apps/web/src/components/CausalExplanation.tsx",
+        "apps/web/src/components/OperationsBrief.tsx",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Annual statistics, static registers, multi-year plans, current provider hours, daily phases, expired restrictions, observations and synthetic checkpoints are distinct. Scoped coastal zero and zero acute-SEH matches include their coverage meaning; missing weather, water, road, seismic, care or utility state displays Unknown rather than zero/safe."
+    }
+  ],
+  "residualLimitations": [
+    "Complete physical electricity, gas, drinking-water, sewer/drainage, telecom, care and supply topology, live load, damage, outage, backup, crews, spares, fuel and restoration state are unavailable or security-sensitive. Public geometry, planning points and registers cannot honestly replace them.",
+    "VRD excludes direct sea-flood consequences for Drenthe but assigns reception consequences; this does not prove zero indirect traffic, care, shelter, supply or livestock demand during an external flood.",
+    "No selected LIWO/water-board hydraulic case establishes direct river/canal/regional-defence inundation in GM0118. A scoped unsupported model result is Unknown, not proof that extreme rain, groundwater or local water-system failure cannot flood an area.",
+    "Risicokaart combustible polygons establish old/static eligibility only. They do not establish ignition, moisture, fuel, perimeter, access, visitors or suppression; the controlled Boerveensche Plassen source is an audit fixture.",
+    "CBS residents omit incident-time visitors, workers, pupils, patients, road/rail users and responders. Rounded/suppressed aggregates cannot identify individual medical, mobility or self-reliance needs.",
+    "Treant pages describe normal operating roles/hours, not incident-time acceptance, staffing, occupancy, ambulance access, oxygen/medicine, backup or restoration. GHOR4all information is protected and must not be reconstructed publicly.",
+    "NWB, RWS/provincial pages, ProRail, GTFS and NDW do not prove scenario-time road/rail/transit operation, emergency priority, accessibility, destination or throughput. The August N48 closure is expired evidence, not current state.",
+    "One grid-planning postcode, water objects, antennas and schools have different support, cadence and licences and remain affectsSimulation=false without reviewed causal bindings.",
+    "No locally assigned KNMI, Waterinfo, NDW, PM2.5 or acute-SEH record in a deployment snapshot is a coverage fact, not zero hazard, disruption, pollution or care need.",
+    "Exact hazard, affected-population, service, recovery and person-hour outputs remain synthetic exercise results, not observations, official forecasts, operator commitments or decision-grade advice until critical/high findings are corrected and authorities review the case.",
+    "This audit covers only the first 72 hours. Water-system recovery, displacement, drought, care disruption, infrastructure repair and ecological consequences may continue much longer."
+  ],
+  "provinceReviewFlags": [
+    "Drenthe, VRD, WDODelta and Vechtstromen should define GM0118's valid direct-flood cases and separately specify evacuation-reception consequences, including Hoogeveensche Vaart/regional defences, controls, storage, arrival/persistence, NoData and cross-boundary effects.",
+    "Province/Rijkswaterstaat/ProRail/municipality should review the A28/A37 junction, N48/N374/N375, Hoogeveen station and detours as direction-specific, non-additive, valid-time mobility/care/supply routes.",
+    "VRD, municipality, Het Drentse Landschap and fire partners should establish whether combustible-area, access, extinguishing-water, visitor and exercise/resource data can support Boerveensche Plassen/Spaarbankbos scenarios without exposing sensitive operations.",
+    "Municipality, Treant, GHOR and ambulance partners should review Bethesda operating windows and Emmen referral dependencies with protected acceptance, backup and route-state interfaces.",
+    "Drenthe partners should align the Weerbaar Drenthe cold/within-72/after-72/recovery phases with typed support-point, reception, care, supply, communications and lifeline actions, clearly separating plan, activation, observation, synthetic assumption and Unknown."
+  ]
+}

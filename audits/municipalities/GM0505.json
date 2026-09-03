@@ -1,0 +1,550 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0505",
+    "name": "Dordrecht",
+    "province": "Zuid-Holland",
+    "safetyRegion": "Zuid-Holland-Zuid"
+  },
+  "agent": {
+    "taskName": "municipality_gm0505",
+    "agentId": "/root/nl_realism_audit",
+    "completedAt": "2026-09-02T22:08:22Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "GM0505 passes the complete deterministic execution contract over all ten canonical scenarios, T+0/6/12/24/48/72 and all eight essential services. Its CBS/PDOK identity, 2025 generalized boundary, 122,796 residents, 132 neighbourhoods and Zuid-Holland-Zuid safety-region assignment reconcile. Release remains correction-required. The current model retains an N3 Dordrecht-Papendrecht logical edge while Rijkswaterstaat has the Papendrechtsebrug closed in both directions from 17 July 2026 through 21 April 2027, and that road edge is reused for every service. The river preset reports normalized inundation stress 2.4258, 71,631 affected people-equivalent at T+24 and 74,762 at T+72 without a selected dike-ring-22 breach/overtopping trajectory, LIWO footprint, tidal/river boundary conditions or recession. The coastal preset gives zero direct flood stress despite Dordrecht's official sea/storm-plus-river and tidal outer-dike pathways. Eight nonzero standalone hazards reuse exactly one complete neighbourhood order, and a controlled wildfire source inside the Dordtse Biesbosch neighbourhood ranks that containing neighbourhood 130th of 132. Public registers, provider areas, one current water level, grid-planning values and facility points are valuable typed context but do not validate physical topology, capacity, live state, backup, stock or restoration. Official evacuation, quay, flood-defence and 72-hour preparedness evidence should become optional, time-stamped actions and constraints rather than implied outcomes. The exact scenario numbers remain deterministic exercise outputs, not observations, warnings, forecasts or operator commitments.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek",
+      "title": "Kerncijfers wijken en buurten 2025 — filtered rows for GM0505",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM0505%27%29&%24select=WijkenEnBuurten%2CGemeentenaam_1%2CAantalInwoners_5%2CBevolkingsdichtheid_34%2Ck_65JaarOfOuder_12%2CEenpersoonshuishoudens_30",
+      "accessedAt": "2026-09-02T21:45:10Z",
+      "edition": 2025,
+      "supports": [
+        "Official-context GM0505/Dordrecht identity, population 122,796, density 1,583 residents per square kilometre, 20.2% aged 65 or older and 23,817 one-person households.",
+        "The machine-readable OData table is an annual CC BY 4.0 statistical release. Published neighbourhood counts are rounded and some values are suppressed, unavailable or not applicable; null and Unknown must never become zero.",
+        "CBS aggregates support population reconciliation and vulnerability context, not event-time visitors, medically dependent individuals, evacuation behaviour, household stocks or observed service demand."
+      ]
+    },
+    {
+      "publisher": "PDOK / CBS / Kadaster / Rijkswaterstaat / ProRail",
+      "title": "Gemeente and buurt gegeneraliseerd 2025 with BAG, BRT TOP10NL, NWB and railway context",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_gegeneraliseerd/items?f=json&limit=1000&datetime=2025-07-01T00%3A00%3A00Z",
+      "accessedAt": "2026-09-02T21:45:10Z",
+      "edition": "CBS/BAG 2025; NWB 1 August 2026; BRT collection inspected 2 September 2026",
+      "supports": [
+        "The application consumes CC BY 4.0 generalized CBS municipality/neighbourhood geometry. Generated centre [4.695671418452963, 51.787954663999116] lies inside GM0505; the separately versioned BAG Dordrecht label point lies outside this generalized polygon and is an edition/generalization caveat, not an identity failure.",
+        "BAG woonplaatsen are available through https://api.pdok.nl/kadaster/bag/ogc/v2/collections/woonplaats under Public Domain Mark 1.0. BRT TOP10NL at https://api.pdok.nl/kadaster/brt-top10nl/ogc/v1 is CC BY 4.0 with rotating updates and supplies seven settlement labels and source-scaled terrain context.",
+        "Monthly CC0 NWB geometry is downloadable at https://downloads.rijkswaterstaatdata.nl/nwb-wegen/geogegevens/shapefile/NWB-light/01-08-2026.zip. The generated graph has A16 links toward Moerdijk and Zwijndrecht, N3 toward Papendrecht and N217 toward Hoeksche Waard; scenario units are not measured traffic capacity.",
+        "ProRail OGC https://api.pdok.nl/prorail/spoorwegen/ogc/v1 is CC0 static infrastructure context with manual cadence; three stations are assigned. The national GTFS feed is best-effort schedule context with no operational-service guarantee. Geometry and timetables do not establish incident passability."
+      ]
+    },
+    {
+      "publisher": "Gemeente Dordrecht",
+      "title": "Hoogwater in Dordrecht, Dordtse Omgevingsvisie 2.0 and Water- en Rioleringsprogramma 2026–2030",
+      "url": "https://cms.dordrecht.nl/Inwoners/Overzicht_Inwoners/Natuur_en_milieu/Hoogwater_en_wateroverlast/Hoogwater_in_Dordrecht",
+      "accessedAt": "2026-09-02T21:49:00Z",
+      "edition": "Current high-water guidance inspected 2 September 2026; Omgevingsvisie adopted 23 September 2025; WRP 2026–2030",
+      "supports": [
+        "The current page says tidal high-water peaks last a few hours, occur twice per 24 hours and can recur over one or more days. It identifies low outer-dike streets/quays and polder/nature areas, and notes groundwater can recede later than the river.",
+        "A forecast of +1.80 m NAP triggers the municipal mail warning; at +2.10 m NAP or more the municipality closes threatened quays and offers sandbags, with possible parking bans, a sound truck, current information and island-water-system management. These are conditional triggers, not a forecast or proof of completion.",
+        "The adopted Omgevingsvisie 2.0 is at https://raad.dordrecht.nl/Vergaderingen/Gemeenteraad-Dordrecht-1/2025/23-september/14%3A00/Vaststellen-Dordtse-Omgevingsvisie-2-0-Eiland-met-kwaliteit-Raadsvoorstel/30-1-Dordtse-Omgevingsvisie-2-0-Eiland-met-kwaliteit-Geamendeerd-Vastgesteld.pdf. It treats both river and sea/storm flooding, states roughly 15% can evacuate horizontally in about 48 hours and relies on safe places on the island for others; this is planning context, not observed behaviour or refuge availability.",
+        "The municipal WRP is downloadable at https://raad.dordrecht.nl/Documenten/Wrp-Dordrecht-2026-2030-def-0310-PvE-1.pdf and distinguishes wastewater, rainwater, groundwater and surface water. The documents have no blanket machine-data licence or fixed update cadence; underlying municipal GIS needs an authorized, versioned export."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Zuid-Holland Zuid",
+      "title": "Regionaal Risicoprofiel Zuid-Holland Zuid 2025–2028, Regionaal Crisisplan 2026–2029 and 72-hour guidance",
+      "url": "https://www.zhzveilig.nl/sites/zhzveilig_corporate/files/2024-12/Regionaal%20Risicoprofiel%20Zuid-Holland%20Zuid%202025-2028.pdf",
+      "accessedAt": "2026-09-02T21:49:00Z",
+      "edition": "Risk profile adopted 5 December 2024; crisis plan 2026–2029; guidance inspected 2 September 2026",
+      "supports": [
+        "The profile identifies dike ring 22 Eiland van Dordrecht, managed by Waterschap Hollandse Delta, and river, sea/storm and combined flooding. It also covers extreme rain, heat/drought, snow/ice, storm, long power/digital disruption and drinking-water disruption.",
+        "It describes electricity, gas, drinking water, voice/data, bridges, tunnels and data centres as interdependent and identifies Evides as Dordrecht's drinking-water supplier. Official risk description is not an outage probability, physical network or restoration curve.",
+        "Dordrecht has Seveso establishments and important hazardous-goods road, rail, river and port transport. Large contiguous forest/heath/dune areas over 100 ha are not a dominant regional nature-fire feature; Hollandsche Biesbosch visitors remain locally relevant. Strong damaging earthquake is not a characteristic local scenario, while Doel and Borssele remain radiological planning context outside the municipality.",
+        "The current crisis plan is available at https://www.zhzveilig.nl/sites/zhzveilig_corporate/files/2026-01/regionaal_crisisplan_2026-2029_veiligheidsregio_zuid-holland_zuid.pdf and defines CoPI/ROT, GHOR, police, fire and population-care roles and assembly targets; roles and effort targets are not outcome guarantees. The 72-hour guidance at https://www.zhzveilig.nl/wat-doe-je-bij/weerbaarheid/denk-vooruit-boekje is preparedness advice, not measured household stock. No blanket reuse licence for the PDFs was established."
+      ]
+    },
+    {
+      "publisher": "Waterschap Hollandse Delta / Het Waterschapshuis / PDOK",
+      "title": "Legal water-system registers and harmonized IMWA/DAMO water-object services",
+      "url": "https://api.pdok.nl/hwh/waterschappen-kunstwerken-imwa/ogc/v2",
+      "accessedAt": "2026-09-02T21:49:00Z",
+      "edition": "Live OGC API inspected 2 September 2026; WSHD surface-water register 2023 under revision",
+      "supports": [
+        "The current harmonized API returns 128 points inside the generalized municipality: one RWZI Dordrecht, 44 surface-water pumps and 83 weirs. Contributor coverage is partial; point/register status is not live operational state, topology, capacity, direction, setpoint, backup or restoration.",
+        "Kunstwerken IMWA is a national OGC API with a generally weekly refresh and CC BY-SA 4.0. Waterketen DAMO is available at https://api.pdok.nl/hwh/waterschappen-waterketen-damo/ogc/v1 and Waterbeheergebieden IMWA at https://api.pdok.nl/hwh/waterschappen-waterbeheergebieden-imwa/ogc/v1 under CC BY-SA 4.0; contributor cadence and completeness vary.",
+        "The WSHD surface-water register page https://www.wshd.nl/legger-oppervlaktewaterlichamen-kunstwerken-0 describes legal ditches, pumps, weirs and maintenance obligations and warns the 2023 register is being updated. Regional-defence maps/downloads are at https://www.wshd.nl/legger-regionale-waterkeringen and use AHN4 profiles.",
+        "WSHD's Dordrecht storm/high-water practice includes the Voorstraat primary defence, boards/coupures and exercises. Register geometry and exercises provide context; neither proves event-time closure, pump operation, defence performance or service continuity."
+      ]
+    },
+    {
+      "publisher": "Provincie Zuid-Holland / WMCN Rijkswaterstaat / IPLO / KNMI",
+      "title": "Authoritative extreme-rain, flood-scenario, water-level and weather/seismic integration routes",
+      "url": "https://data.overheid.nl/en/dataset/84352-wateroverlast---waterdiepte-bij-extreme-neerslag-stedelijk--2018-",
+      "accessedAt": "2026-09-02T21:49:00Z",
+      "edition": "PZH 100 mm/2 h scenario circa 2018, catalogue updated 19 August 2026; LIWO release 2025.1.6; live feeds inspected 2 September 2026",
+      "supports": [
+        "The province publishes a 100 mm in two hours static urban-extreme-rain depth scenario, modelled with 3Di/AHN/land/soil and approximately 0.25 square metre source cells, as Public Domain WMS https://geodata.zuid-holland.nl/geoserver/klimaat/wms?service=WMS&version=1.3.0&request=GetCapabilities and GeoTIFF Atom download https://geo.zuid-holland.nl/Data/atom/waterdiepte_bij_extreme_neerslag_stedelijk.xml. Municipal submodels may include sewer effects; model-information and NoData layers must be retained.",
+        "LIWO is documented at https://iplo.nl/thema/water/applicaties-modellen/berichtgeving-crisismanagement/liwo/ and available via https://basisinformatie-overstromingen.nl/geoserver/ows. Release 2025.1.6 is an irregular expert-use scenario library, not a forecast; each integration must retain selected breach/overtopping/defence case, river/sea/tide boundary, probability class, depth, arrival, duration/recession, resolution, licence and NoData.",
+        "RWS Waterinfo supplies observations, forecasts and expectations with distinct valid times. The deployed assignment has one Dordrecht Oude Maas/Beneden Merwede level: 72 cm NAP observed 2 September 2026 17:30Z and retrieved 18:03Z. It is a current point observation, not surface coverage or a T+72 scenario. Waterinfo is commonly ten-minute and CC0 unless a component states otherwise.",
+        "KNMI radar WMS supplies five-minute observed precipitation and KNMI EDR https://developer.dataplatform.knmi.nl/edr-api versioned observations/forecasts under dataset-specific terms, commonly CC BY 4.0. KNMI FDSN https://rdsa.knmi.nl/fdsnws/event/1/ is event-point context and cannot replace selected ShakeMap/ground-motion/site-response data."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / Nationaal Dataportaal Wegverkeer / Wegschap Tunnel Dordtse Kil",
+      "title": "Papendrechtsebrug renovation and valid-time road/crossing context",
+      "url": "https://www.rijkswaterstaat.nl/wegen/projectenoverzicht/n3-renovatie-beweegbare-deel-papendrechtsebrug",
+      "accessedAt": "2026-09-02T21:49:00Z",
+      "edition": "Current project state inspected 2 September 2026; NDW snapshot publication 2 September 2026 15:25Z",
+      "supports": [
+        "Rijkswaterstaat states the N3 Papendrechtsebrug is closed to all road traffic in both directions from 17 July 2026 through 21 April 2027, with 30–60 minutes extra travel time. The Baanhoekbrug path is temporarily reserved for emergency services and two ferries serve cyclists/pedestrians. Planning can change, so valid time and retrieval time are mandatory.",
+        "The official Drechttunnel page https://www.rijkswaterstaat.nl/wegen/wegenoverzicht/a16/drechttunnel-a16 identifies the A16 crossing between Dordrecht and Zwijndrecht. https://kiltunnel.nl/home identifies the N217 Kiltunnel connection between Dordrecht Island and Hoeksche Waard. Static municipal edges do not encode bridge/tunnel state, direction, mode, dangerous-goods restrictions or throughput.",
+        "NDW situation data is CC0 unless stated otherwise and useful only with publication/start/end/last-update semantics. The deployed snapshot intersects one broken-down-vehicle record but does not causally close the N3 edge; no NDW record never means all roads are open and a current snapshot must not be projected silently to T+72.",
+        "A16 Dordrecht-Moerdijk and Dordrecht-Zwijndrecht graph edges share one physical corridor identity on opposite sides and are not independent additive measured capacity. Waterway, ferry and rail alternatives are absent from the municipal transfer graph."
+      ]
+    },
+    {
+      "publisher": "Evides / Stedin / Netbeheer Nederland / RIVM / RDI / DUO / KVK",
+      "title": "Public service territories, planning-capacity and critical-facility/register context for Dordrecht",
+      "url": "https://www.evides.nl/uw-drinkwater/mijn-waterkwaliteit/pfas-en-drinkwater/lokale-situatie-in-dordrecht",
+      "accessedAt": "2026-09-02T21:49:00Z",
+      "edition": "Provider/register snapshots retrieved in 2026; RIVM acute-care v1.1 published 3 July 2026",
+      "supports": [
+        "Evides says Baanhoek supplies Dordrecht and eastern Hoeksche Waard using Brabantse Biesbosch surface water plus deep groundwater from Eiland van Dordrecht. Its July 2026 preparedness account at https://www.zhzveilig.nl/wat-doe-je-bij/stroomuitval/partnerverhaal-0 states operator-level emergency power/diesel preparedness but notes building pumps above the fourth floor can fail during blackout. This is operator guidance, not a municipal availability guarantee.",
+        "Public provider WMS at the sampled municipal centre identifies Stedin electricity (timestamp 24 March 2026), Stedin gas (17 December 2025), Evides water (12 May 2026) and Ziggo media (7 September 2025). Provider-area polygons are Public Domain or publisher-specified context; a centre-point query is not full coverage, topology, capacity or state.",
+        "Netbeheer Nederland's machine planning context for sampled postcode 3319SC reports Dordrecht Centrum en Oost withdrawal existing/required/queue 36.7/85.5/1.6 MW and seven queued requests, with five projects earliest 2027. Capacity/project data are generally quarterly and queue data monthly; the exact reuse licence was not established. One large-user planning polygon cannot drive household outage or restoration.",
+        "RIVM's CC0 acute-care dataset identifies Albert Schweitzer Ziekenhuis with 24/7 emergency and acute-obstetric functions, 24 treatment rooms and 31,736 visits in 2025; these are role/capacity context, not live occupancy, staffing, generator fuel or access. RDI returns 195 antenna-site records, DUO 91 location-use records and KVK 23 government-address records in GM0505. Their machine feeds have differing cadence/licence; locations do not establish coverage/backhaul, shelter, reception, supply, roles or operational state."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "Official code, name, province, safety region and 2025 source editions agree.",
+      "evidenceRefs": [
+        "E01",
+        "E02",
+        "E04"
+      ],
+      "notes": [
+        "Manifest, generated bundle and model all identify GM0505 as Dordrecht in Zuid-Holland and uniquely assign Veiligheidsregio Zuid-Holland-Zuid.",
+        "BoundaryEdition and statisticsEdition are both 2025. Current 2026 observations/registers, 2025/2026 plans and the synthetic scenario clock remain separate time semantics.",
+        "No municipality-code, name, province, safety-region or headline-population mismatch was found."
+      ]
+    },
+    "geography": {
+      "status": "warn",
+      "summary": "The municipal centre is inside the generalized boundary, but island, tidal, dike-ring, crossing and catchment mechanisms require source-resolution geometry.",
+      "evidenceRefs": [
+        "E02",
+        "E03",
+        "E05",
+        "E06",
+        "E07"
+      ],
+      "notes": [
+        "Generated centre [4.695671418452963, 51.787954663999116] lies inside the official generalized GM0505 polygon.",
+        "Dordrecht Island is bounded by major waterways and connected through bridge/tunnel corridors; a generalized land polygon cannot establish hydraulic connectivity, dike compartments, outer-dike exposure, crossing state or water/land separation.",
+        "Static boundaries and registers cannot prove inundation depth, sewer/surface-water direction, live control state, asset ownership, utility topology, emergency access or restoration."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Official 2025 headline statistics agree and rounded neighbourhood populations reconcile within CBS publication semantics.",
+      "evidenceRefs": [
+        "E01"
+      ],
+      "notes": [
+        "Generated and official population is 122,796, density is 1,583 per square kilometre, age65Pct is 20.2 and one-person-household count is 23,817.",
+        "The 132 published neighbourhood rows sum to 122,820, 24 above the official municipality total (+0.020%); deterministic allocation reconciles exactly to 122,796.",
+        "Thirteen official zero-population neighbourhoods remain zero. Aggregate statistics cannot identify residents requiring powered medical equipment, care occupants, visitors/workers, responders, household stocks or event-time presence."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "All 132 neighbourhoods load and public water, provider, care and transport context is rich, but operational fields and several CBS attributes remain incomplete.",
+      "evidenceRefs": [
+        "E01",
+        "E03",
+        "E05",
+        "E06",
+        "E08"
+      ],
+      "notes": [
+        "Core population statistics cover all 132 rows; average home value covers 99, household size 122, cars per household 94, benefit indicators 103, proximity/density 110 and complete housing-percentage pairs 100. District heat and public charging have 0/132 usable values and correctly remain null.",
+        "Largest published neighbourhood populations include Crabbehof-Zuid 5,190, Dubbeldam-Noord 5,145, Dubbeldam-Zuid 5,065 and Sterrenburg 1-Oost 4,085 before total reconciliation.",
+        "Water objects, level observations, provider territories, planning capacity, antennas, education/government locations and acute care are typed context. None automatically becomes a hazard footprint, live topology, outage, available facility or first-72-hour state."
+      ]
+    },
+    "settlements": {
+      "status": "warn",
+      "summary": "Dordrecht and seven BRT settlement labels load, but a separately versioned BAG label point falls outside the generalized CBS polygon.",
+      "evidenceRefs": [
+        "E02"
+      ],
+      "notes": [
+        "BAG assigns one woonplaats, Dordrecht. Its label point [4.752523197196705, 51.7687409147717] is outside the independently generalized 2025 CBS polygon; this is retained as a boundary/version caveat rather than deleting or reassigning the place.",
+        "BRT labels Bovenhoek, De Griend, Dordrecht, Kop van 't Land, Tweede Tol, Wieldrecht and Willemsdorp as three buurtschappen, three deelkernen and one woonkern.",
+        "Label points and place registers do not establish resident count, isolation, refuge capacity, utilities or incident-time service. Full source-resolution containment should be used when administrative membership matters."
+      ]
+    },
+    "transport": {
+      "status": "fail",
+      "summary": "The four-edge graph omits crossing state and currently contradicts the official N3 Papendrechtsebrug closure.",
+      "evidenceRefs": [
+        "E02",
+        "E04",
+        "E07"
+      ],
+      "notes": [
+        "Generated edges are A16 to Moerdijk at 260 scenario units, A16 to Zwijndrecht at 260, N3 to Papendrecht at 150 and N217 to Hoeksche Waard at 150. These are logical bounds, not measured lane/evacuation throughput.",
+        "At audit time the N3 bridge is officially closed in both directions, but the current graph retains the link and supplies no valid-time closure. All services can use it because supportedServices is absent.",
+        "Drechttunnel, Moerdijk bridge, Papendrechtsebrug and Kiltunnel are not represented as stateful assets. Three ProRail stations and 185 GTFS stop areas are static infrastructure/schedule context; rail, waterway and temporary ferry capacity/state are absent.",
+        "One deployed NDW incident is not a complete road-state graph. Absence of a live record cannot mean open, and the current snapshot cannot be advanced to T+72."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "Official warning, evacuation, defence, crisis-role and 72-hour guidance exists, but no event-time action/resource/completion state is modelled.",
+      "evidenceRefs": [
+        "E03",
+        "E04",
+        "E05",
+        "E08"
+      ],
+      "notes": [
+        "Dordrecht has conditional +1.80/+2.10 m NAP municipal actions, an island evacuation/refuge concept, dike and Voorstraat-defence responsibilities, and safety-region CoPI/ROT/GHOR/population-care roles. None is automatically triggered by a normalized model index.",
+        "Planning says only roughly 15% can leave horizontally within about 48 hours and others need safe places on the island. The simulator neither moves population nor records accessible, opened and stocked refuge/reception locations.",
+        "Preparedness guidance and operator statements do not measure household water/food/medication, facility fuel, staff, beds, distribution stocks, pump state, vehicles, crews or restoration. Those states remain Unknown until event-authorized."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten presets produce complete finite deterministic output at all six checkpoints and all eight services; calibration and semantics failures are recorded separately.",
+      "evidenceRefs": [
+        "E03",
+        "E04",
+        "E05",
+        "E06",
+        "E07",
+        "E08"
+      ],
+      "notes": [
+        "The focused gate executed severe storm, pluvial flood, river flood, coastal flood, heatwave, winter storm, cyberattack, earthquake, wildfire and compound at T+0/6/12/24/48/72 for power, water, drainage, gas, telecom, mobility, facilities and supply.",
+        "At T+24 severity / post-network pressure / affected people-equivalent / cumulative local pre-network event-attributable person-hours are storm 0.2311 / 0.2825 / 24,659 / 743,041.44; pluvial 0.5093 / 0.3273 / 32,403 / 657,956.30; river 0.7633 / 0.5540 / 71,631 / 1,123,155.33; coastal 0.0294 / 0.2413 / 17,520 / 67,940.41; heat 0.1136 / 0.2020 / 10,719 / 346,347.97.",
+        "Remaining T+24 values are winter 0.4252 / 0.2962 / 27,023 / 455,115.90; cyber 0.5155 / 0.3377 / 34,200 / 684,699.31; earthquake 0 / 0.0458 / 0 / 11,397.27; wildfire 0.0995 / 0.1407 / 130 / 115,811.70; compound 0.9751 / 0.6072 / 80,833 / 1,376,317.09.",
+        "At T+72 river severity and stress remain 0.7633/2.4258, pressure 0.5721, affected 74,762 and person-hours 4,313,902.42; compound remains severity 0.6715, pressure 0.6282 and affected 84,467. These are exercise outputs, not observations, probabilities, warnings or restoration forecasts."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "The focused gate passes deterministic, finite, zero-intensity, causal, allocation, reconciliation and monotonic-burden contracts.",
+      "evidenceRefs": [],
+      "notes": [
+        "MUNICIPALITY_AUDIT_CODE=GM0505 pnpm audit:model passed both tests on current code across 10 presets × 6 checkpoints × 8 services.",
+        "Every intensity-zero run has exactly zero event severity, affected people-equivalent and event-attributable deprived person-hours at every checkpoint; repeated output and scenario/web preset parity pass.",
+        "All 132 local rows allocate exactly 122,796 residents. Maximum population, demand and delivery reconciliation error is 1.4210854715202004e-13.",
+        "Changing selected service produces maximum local-hazard delta zero; cumulative event-attributable person-hours are monotonic and declared logical-route bounds hold."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "One shared neighbourhood order and a failed local-fire source ranking cannot represent Dordrecht's mechanism-specific geography.",
+      "evidenceRefs": [
+        "E02",
+        "E03",
+        "E04",
+        "E05",
+        "E06"
+      ],
+      "notes": [
+        "At T+24 all eight nonzero standalone presets have the exact same complete 132-neighbourhood order, led by Vogelplein-Aalscholverstraat, Zeehavenlaan, Dordtse Kil III, Heysterbachstraat, Amstelwijck-West, Spaarbekken, Krabbepolder and Dordtse Kil I. Earthquake is an all-zero local tie; compound differs through saturation.",
+        "That equality cannot represent separate outer-dike/tidal, dike-ring, rainfall/terrain/sewer, heat/vulnerability, winter/wind, cyber-target and smoke/fire mechanisms.",
+        "A controlled synthetic wildfire point [4.6869211427584085, 51.75286293610363] lies inside BU05059804 Dordtse Biesbosch and inside a BRT TOP10NL broadleaf-forest polygon, yet that containing neighbourhood ranks 130/132 at local hazard 0.3418 while unrelated neighbourhoods lead near 0.48. BRT's feature source actuality is 2014, so it is aged land-cover context rather than current fuel/moisture evidence."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "All eight service balances are inspectable, but one four-road logical graph cannot represent Dordrecht's physical lifelines or exact 72-hour availability.",
+      "evidenceRefs": [
+        "E03",
+        "E04",
+        "E05",
+        "E07",
+        "E08"
+      ],
+      "notes": [
+        "Every GM0505 route omits supportedServices, so power, water, drainage, gas, telecom, mobility, facilities and supply all reuse A16/N3/N217 road edges; the currently closed N3 edge can therefore affect every service.",
+        "At river T+24 modeled availability is power 0.4451, water 0.4348, drainage 0.2604, gas 0.6953, telecom 0.4683, mobility 0.3910, facilities 0.5024 and supply 0.3647. No cited operator or authority validates those exact percentages, dependencies or repair paths.",
+        "The water inspector shows 89 scenario units/hour demand, 39 delivered, 7.3-hour reserve and reductions of 31.9 percentage points direct inundation, 15.4 power dependency, 6.45 baseline and 2.76 network transfer, with no restoration. Those transparent arithmetic components remain uncalibrated proxies.",
+        "Provider, NBNL, HWH, RDI, care, school and government-register geometry is non-causal context. It does not establish feeder/pipe/sewer/backhaul topology, pressure/quality, load, control, priority, backup, stock, crew or restoration."
+      ]
+    },
+    "causalTrace": {
+      "status": "warn",
+      "summary": "Stage arithmetic and local pre-network versus post-network scope are disclosed, but evidence class, valid time and physical semantics still require persistent machine-readable labels.",
+      "evidenceRefs": [
+        "E05",
+        "E06",
+        "E07",
+        "E08"
+      ],
+      "notes": [
+        "The model quarter-hour-integrates event-attributable local pre-network service shortfall against a matched no-event baseline, then computes current system pressure and affected people-equivalent after service-network transfer. These are intentionally different scopes and are not observed customers.",
+        "Browser inspection at 1440×900 and 390×844 for GM0505 river/water at T+24 and T+72 showed the inspector's official-context/scenario labels, logical-transfer caveat and a live T+24 announcement: 'Drinking water. Dordrecht: critical, 43% available.' No console errors or horizontal overflow occurred.",
+        "Current Waterinfo/NDW/provider snapshots, static registers/planning scenarios, adopted plans and the synthetic T+72 trajectory remain different evidence and time classes. An observation or empty response must not silently initialize or validate a future scenario.",
+        "Hazard, baseline, dependency, backup, intervention, transfer and reconciliation arithmetic closes, but causal auditability does not make unsupported topology or calibration physical."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "Persistent river/compound curves and other recovery paths are deterministic but not calibrated to Dordrecht hydrology, crossings, operators, facilities, supplies or action completion.",
+      "evidenceRefs": [
+        "E03",
+        "E04",
+        "E05",
+        "E06",
+        "E07",
+        "E08"
+      ],
+      "notes": [
+        "River direct severity/stress reaches 0.7633/2.4258 at T+12 and remains identical through T+72; seven services plateau from T+48 to T+72, while facilities declines further. No selected hydrograph, tidal phase, defence state, inundation arrival/recession or operator restoration plan supports the plateau.",
+        "Pluvial rain peaks earlier, direct stress clears by T+48, while heat keeps 26.17 C and drought 0.6314 through T+72. These generic curves are not tied to a versioned PZH rain raster, KNMI issue/valid time, local urban heat exposure or measured drainage/restoration.",
+        "Compound T+48 and T+72 availability is an exact plateau for seven services, with facilities changing from its earlier state; at T+72 availability is power 0.3666, water 0.3634, drainage 0.2684, gas 0.5786, telecom 0.2459, mobility 0.4959, facilities 0.3414 and supply 0.3408. Persistent impact can be a conservative exercise, but these values are unvalidated.",
+        "No current bridge/tunnel graph, utility switching, water quality/pressure, sewer/control telemetry, crew/fuel/spares, hospital acceptance, temporary water/reception point, household stock, evacuation/refuge movement or action-completion evidence is ingested. Seventy-two hours is a planning horizon, not a recovery deadline."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [
+      0,
+      6,
+      12,
+      24,
+      48,
+      72
+    ],
+    "services": [
+      "power",
+      "water",
+      "drainage",
+      "gas",
+      "telecom",
+      "mobility",
+      "facilities",
+      "supply"
+    ]
+  },
+  "findings": [
+    {
+      "id": "GM0505-MOBILITY-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "The current graph keeps a nominal N3 Dordrecht-Papendrecht edge while the Papendrechtsebrug is officially closed in both directions.",
+      "evidence": "E07 states the N3 bridge is closed to all road traffic from 17 July 2026 through 21 April 2027, with 30–60 minutes extra travel time, temporary emergency use of the Baanhoek path and two cyclist/pedestrian ferries. The generated GM0505 graph still includes N3 to GM0590 at 150 nominal scenario units, without valid time, crossing asset or supportedServices; all eight services may use it. The deployed 2 September NDW snapshot has one unrelated broken-down-vehicle record and does not causally apply the planned closure. NWB geometry and absent live incidents do not establish passability.",
+      "action": "Add scenario/reference valid time and a crossing-state layer. In a current-state mode spanning the official interval, close or mark Unknown the N3 road edge and represent Baanhoek emergency access and ferries as separate mode-limited, time-bounded alternatives with capacity Unknown. Never project an NDW snapshot to T+72 or map a road edge onto physical utilities; regression-test both open and closed valid-time cases."
+    },
+    {
+      "id": "GM0505-FLOOD-SCENARIO-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The river preset produces a very large persistent Dordrecht impact without a selected dike-ring-22 flood scenario or hydrodynamic provenance.",
+      "evidence": "River forcing rises from zero at T+0 to severity/stress 0.2687/0.8539 at T+6 and 0.7633/2.4258 at T+12, then remains 0.7633/2.4258 through T+72. Post-network pressure/affected people-equivalent is T+6 0.3531/36,860, T+12 0.5141/64,721, T+24 0.5540/71,631, T+48 and T+72 0.5721/74,762. E03–E06 establish dike ring 22, outer-dike tidal peaks, river/sea/combined mechanisms, defences and multiple official scenario libraries, but the output has no selected breach or overtopping, defence state, Rhine/Meuse discharge, sea/tide boundary, depth units, footprint, arrival, duration/recession, probability class or NoData. A stress value above one is a model index, not observed metres or probability.",
+      "action": "Label the current magnitude and neighbourhood layer unsupported/diagnostic, not forecast or official flood map. Require an authority-selected, versioned LIWO/WSHD/RWS exercise case with scenario ID, defence/breach/overtopping assumptions, water boundary/hydrograph and datum, tide/storm combination, depth/velocity/arrival/recession, probability class, resolution, licence, coverage and NoData before local impact claims. Keep current Waterinfo observations separate."
+    },
+    {
+      "id": "GM0505-COASTAL-SEMANTICS-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Zero direct coastal-flood stress is too narrow for Dordrecht unless the UI explicitly excludes sea/storm-driven tidal and combined pathways.",
+      "evidence": "At coastal T+24 the model reports direct flood stress exactly zero, overall severity 0.0294, wind 17.45 m/s, pressure 0.2413 and 17,520 affected people-equivalent; direct forcing clears by T+72 while residual pressure is 0.1107. E03 says Dordrecht has tidal peaks and low outer-dike quays/polder/nature areas. E04 treats Eiland van Dordrecht flooding from river, sea/storm and their combination. Zero for one unselected synthetic coastal mechanism cannot mean no storm-surge, tide, outer-dike, groundwater or combined exposure.",
+      "action": "Give the coastal preset a precise inclusion/exclusion statement and show local water exposure as Unknown until a selected sea/tide/river/defence scenario is bound. Keep wind as a separate forcing component. If direct water is modelled, use the same versioned LIWO/RWS/WSHD scenario contract as river flooding and test that zero never renders as an all-clear for excluded pathways."
+    },
+    {
+      "id": "GM0505-SPATIAL-001",
+      "severity": "high",
+      "category": "geography",
+      "status": "open",
+      "summary": "Eight unrelated nonzero standalone hazards reuse exactly one complete 132-neighbourhood ranking.",
+      "evidence": "At T+24 severe storm, pluvial flood, river flood, coastal flood, heatwave, winter storm, cyberattack and canonical wildfire rank all 132 neighbourhoods identically, led by Vogelplein-Aalscholverstraat, Zeehavenlaan, Dordtse Kil III, Heysterbachstraat, Amstelwijck-West, Spaarbekken, Krabbepolder and Dordtse Kil I. The equality conflicts with official distinctions among outer-dike quays, dike-ring scenarios, pluvial depths, urban heat/vulnerability, wind, industrial/ICT targets and vegetation. Zero-resident Krabbepolder may legitimately carry business/system demand, but its rank still requires hazard-specific evidence.",
+      "action": "Mark the eight GM0505 neighbourhood hazard layers unsupported until mechanism-specific, coverage-aware inputs replace the common seed. Prefer selected LIWO/WSHD flood surfaces, PZH 100 mm/2 h depth and model-information rasters, KNMI valid-time wind/temperature/radar, selected cyber target sets and source/perimeter-based fire. Preserve CRS, units, edition/valid time, resolution, licence, coverage and NoData and assert unrelated hazards no longer have identical complete ranks."
+    },
+    {
+      "id": "GM0505-FIRE-SOURCE-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "A controlled wildfire source inside Dordtse Biesbosch fails source-containment spatial plausibility by ranking its containing neighbourhood 130th of 132.",
+      "evidence": "The controlled source [4.6869211427584085, 51.75286293610363] is inside official BU05059804 Dordtse Biesbosch and an intersecting BRT TOP10NL terrain_vlak classified broadleaf forest. Municipality direct fire is 0.4010, smoke 0.4065 and drought 0.4730, yet the containing neighbourhood has local hazard 0.3418 and rank 130/132 while Vogelplein and Zeehavenlaan lead near 0.48. BRT's intersecting feature records source actuality 2014, so it proves reproducible topographic containment but not current fuel, moisture or burnability. E04 says a large regional forest/heath/dune fire is not the characteristic dominant risk, which constrains scale but does not excuse inverted source distance.",
+      "action": "Make source containment/distance a release invariant for configured local fire. Combine source/perimeter distance with versioned fuel eligibility, moisture/drought, wind, barriers, smoke transport, suppression-water/access and explicit NoData; do not treat all green terrain as fuel. Preserve a bounded local scenario consistent with VRZHZ risk context and never infer a live incident from BRT geometry."
+    },
+    {
+      "id": "GM0505-LIFELINE-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Exact power, water, drainage, gas, telecom, mobility, facility and supply states are generated from one road-derived transfer graph without physical topology or operator calibration.",
+      "evidence": "At river T+24 availability is power 44.51%, water 43.48%, drainage 26.04%, gas/heating 69.53%, telecom 46.83%, mobility 39.10%, facilities 50.24% and emergency supply 36.47%. All four road links have no supportedServices restriction. E05 identifies 128 legal/register water points; E08 identifies provider areas, one planning-capacity sample, 195 antenna records and one acute hospital. Evides documents source/treatment context and operator-level backup preparedness, including a high-rise building-pump exception. None supplies safe complete feeder, pipe, pressure zone, sewer/catchment, radio/backhaul, hospital dependency, stock, crew or restoration topology, and geometry/register status cannot validate those exact percentages.",
+      "action": "Restrict NWB causality to mobility and explicitly assumed logistics/repair access. Give each non-road service topologySemantics, evidence/version and uncertainty. Use only security-reviewed operator/GHOR/water-board topology; otherwise retain the smallest transparent aggregate synthetic fallback and label exact availability uncalibrated. Split potable quantity/pressure/quality, wastewater and surface-water control, and model building-level pumped-water dependence separately from Evides source resilience."
+    },
+    {
+      "id": "GM0505-RESPONSE-72H-001",
+      "severity": "high",
+      "category": "explainability",
+      "status": "open",
+      "summary": "The first-72-hour simulation omits Dordrecht's constrained evacuation/refuge strategy and has no auditable action, resource or completion state.",
+      "evidence": "E03 says roughly 15% can evacuate horizontally in about 48 hours and others need safe places on the island; its high-water page defines +1.80 and +2.10 m NAP warning/action thresholds. E04/E05 define safety-region teams, municipal population care, GHOR, water-board defences and exercises. The model keeps all 122,796 residents in their neighbourhood allocation, has no opened/accessible refuge or distribution state, and shows no river restoration through T+72. Official plans, team assembly targets, defence exercises, emergency-water guidance and 72-hour kits are preparedness evidence, not guaranteed action completion, capacity, stock or equitable access.",
+      "action": "Add an optional event action ledger with proposed/requested/confirmed/started/completed/failed/cancelled status, responsible authority, trigger and measurement units, issue/valid/expiry time, resource/capacity, dependencies, confidence and source. Model horizontal evacuation and vertical/on-island refuge as explicit choices constrained by crossing state and authorized capacities; keep locations, stocks, household preparedness, hospital acceptance and completion Unknown until confirmed."
+    },
+    {
+      "id": "GM0505-OTHER-HAZARDS-001",
+      "severity": "medium",
+      "category": "limitation",
+      "status": "accepted-limitation",
+      "summary": "Storm, pluvial, heat/drought, winter, cyber, earthquake and canonical wildfire remain generic scenario families rather than locally calibrated Dordrecht forecasts.",
+      "evidence": "The complete matrix is finite and bounded. E04 supports strong-wind, extreme-rain, heat/drought, snow/ice and cyber cascades, while it does not support a characteristic severe local earthquake or a dominant >100 ha nature-fire landscape. At T+24 the model nevertheless gives exact impacts for each family; heat remains 26.17 C with drought 0.6314 through T+72, earthquake direct ground motion is zero, and canonical wildfire has direct fire zero with smoke/drought only. No selected KNMI issue/valid time, PZH rain cell, local heat/vulnerability surface, cyber target, earthquake ShakeMap or current fire perimeter calibrates those outputs.",
+      "action": "Keep exercise/scenario, official static context, current observation, forecast, warning and probability labels distinct. Integrate versioned KNMI EDR/radar only with dataset, issue/valid/lead time, units, quality and licence; use the PZH scenario with its model-info/NoData layer. Require named cyber targets, selected earthquake ground-motion grids and fire sources/perimeters for local claims."
+    },
+    {
+      "id": "GM0505-INDUSTRIAL-SCOPE-001",
+      "severity": "medium",
+      "category": "limitation",
+      "status": "accepted-limitation",
+      "summary": "Dordrecht's Seveso, port, dangerous-goods transport and radiological-planning risks are outside the ten-preset scope.",
+      "evidence": "E04 identifies multiple Seveso establishments in Dordrecht, hazardous-goods movement over A16/N3, rail and the Noord/Merwede/Oude Maas/Dordtsche Kil waterways, a major port/transfer context and emergency planning for Doel/Borssele within the wider distance zone. None of the ten canonical presets represents an industrial release, transport accident, port incident, urban conflagration, pandemic or radiological release. Mapping these onto cyber, wildfire or compound would fabricate mechanism and consequence.",
+      "action": "Disclose these hazards as out of scope. For a future version, create separately governed scenarios using the public Register Externe Veiligheidsrisico's, VRZHZ regional/site plans and incident-authority inputs, with release substance/pathway, weather, protective actions and valid time. Avoid exposing sensitive plant safeguards or inventing inventories/topology."
+    },
+    {
+      "id": "GM0505-NODATA-001",
+      "severity": "informational",
+      "category": "regional-data",
+      "status": "fixed",
+      "summary": "The current data adapters and audit preserve zero, null, NoData and non-causal context distinctions.",
+      "evidence": "Thirteen official zero-population neighbourhoods remain zero while non-residential demand may remain nonzero; district heat and public charging have 0/132 usable values and remain null. Zero RIVM air stations and zero assigned discharge observations do not mean clean air or zero discharge. The one Waterinfo level is an observed point, not a municipality surface or future state. HWH, provider, NBNL, RDI, DUO, KVK, hospital, NWB, ProRail and GTFS records are labelled context and cannot prove live network/state. Browser inspection showed provider/topology and Waterinfo coverage caveats, no horizontal overflow and no console errors at desktop and mobile widths.",
+      "action": "Retain typed Unknown, suppressed, not applicable and NoData states with publisher, edition, retrieval/observation/valid time, coverage, licence and affectsSimulation. Add regressions so empty queries never create zero hazard, zero demand, available service, open road, clean air or future T+72 state."
+    },
+    {
+      "id": "GM0505-CONTRACT-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The ten-scenario deterministic contract, baseline closure, causal arithmetic, population/service reconciliation and selected-layer invariance pass for GM0505.",
+      "evidence": "The focused model gate passes two tests over every preset, checkpoint and service. Zero-intensity event outputs close exactly; all local populations and service demand/delivery totals reconcile within 1.422e-13; repeated frames are deterministic; selected-layer local hazard delta is exactly zero; cumulative event-attributable person-hours are monotonic and route ceilings hold. The inspector exposes scenario evidence class, deterministic-effect text, stage breakdowns and logical-transfer language.",
+      "action": "Preserve these regressions while correcting the current N3 contradiction, flood/coastal event provenance, common spatial seed, failed local-fire containment, non-road lifeline semantics and first-72-hour action/state gaps. Passing arithmetic is not physical calibration or operational validation."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Make Dordrecht crossing and road state valid-time-aware, beginning with the current N3 Papendrechtsebrug closure.",
+      "files": [
+        "apps/web/public/data/transport-network.json",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "At reference times from 17 July 2026 through 21 April 2027, the N3 GM0505-GM0590 road transfer is closed or explicitly Unknown and is never available to non-road utilities. Baanhoek emergency access and ferries are separate mode-limited records with official validity and Unknown capacity. Test before/during/after intervals, retrieval expiry, absent-NDW semantics and T+0/6/12/24/48/72 without projecting a current snapshot."
+    },
+    {
+      "summary": "Bind Dordrecht river and coastal outputs to explicit authority-selected dike-ring, outer-dike and hydrodynamic scenario evidence.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/public/data/hazards/GM0505-water-context.json",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Until selected evidence exists, mark exact river magnitude and coastal water as unsupported/Unknown and show coastal zero as narrowly scoped. A supported run must retain LIWO/WSHD/RWS scenario/release ID, dike ring and defence/breach/overtopping case, river/sea/tide boundary and datum, depth/velocity/arrival/recession, probability class, resolution, licence, coverage and NoData. Current Waterinfo observations remain visually and computationally separate."
+    },
+    {
+      "summary": "Replace the shared GM0505 neighbourhood seed and correct local wildfire source containment.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/public/data/hazards/GM0505-spatial-context.json",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Before correction, all eight nonzero standalone T+24 hazards have one identical complete 132-row order. Integrate mechanism-specific PZH/LIWO/WSHD/KNMI/target inputs with CRS, units, edition/valid time, resolution, licence, coverage and NoData; assert unrelated mechanisms can rank differently. The controlled Dordtse Biesbosch fire source must rank its containing neighbourhood within a defined near-source band while scale remains bounded and aged BRT land cover is labelled context."
+    },
+    {
+      "summary": "Separate physical service systems from NWB mobility and retain unavailable or security-sensitive topology as Unknown or transparently synthetic.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/public/data/public-context/water-assets.geojson.gz"
+      ],
+      "validation": "NWB edges may influence mobility and explicitly assumed logistics/crew access only. Every service carries topologySemantics, source/version, confidence and calibration state; public provider/register/capacity/facility geometry remains affectsSimulation=false unless an authorized causal mapping exists. Test water quantity/pressure/quality, wastewater, surface-water control and building booster pumps separately and prohibit exact operator claims from aggregate synthetic fallback."
+    },
+    {
+      "summary": "Add an auditable first-72-hour action, evacuation/refuge, facility and supply-state contract.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/AnalyticsDrawer.tsx",
+        "apps/web/public/data/public-context/GM0505-response-context.json"
+      ],
+      "validation": "Represent each action with authority, trigger/units, proposed/requested/confirmed/started/completed/failed/cancelled status, issue/valid/expiry time, resource/capacity, dependency, confidence and source. Validate +1.80/+2.10 m NAP as conditional municipal rules, not automatic normalized-index actions. Evacuation/refuge movement respects current crossings and authorized capacities; reception, water, food, medicine, hospital acceptance, staff, backup fuel and household stock stay Unknown until confirmed."
+    },
+    {
+      "summary": "Preserve evidence-class, temporal, metric-scope and NoData semantics in maps, cards, announcements and exports.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "apps/web/src/components/statistics/statisticsCatalog.ts",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/App.tsx"
+      ],
+      "validation": "Every value exposes observed/context/scenario/derived class, issue/observation/valid/retrieval time, units, coverage, uncertainty, licence and affectsSimulation. Current observations cannot initialize a future checkpoint silently; empty queries remain Unknown. Keep local pre-network cumulative person-hours visibly distinct from current post-network pressure/affected people-equivalent, and never announce synthetic availability as observed customers or guaranteed restoration."
+    }
+  ],
+  "residualLimitations": [
+    "This is a deterministic first-72-hour planning-model audit, not a KNMI, Rijkswaterstaat, WMCN, Waterschap Hollandse Delta, Veiligheidsregio Zuid-Holland-Zuid, municipality, province or infrastructure-operator forecast, warning, probability, evacuation order, casualty estimate or restoration commitment.",
+    "The 2025 generalized CBS boundary and neighbourhoods are suitable for overview aggregation, not parcel hydraulics, dike compartments, outer-dike exposure, water/land separation, asset ownership, incident perimeters or emergency routes.",
+    "No selected dike-ring-22 breach/overtopping/defence case, Rhine/Meuse discharge, sea/tide boundary, water-level datum, connected flood footprint, depth/velocity, arrival/recession, probability class or NoData mask drives GM0505.",
+    "The PZH 100 mm/2 h product is a static official planning scenario, not observed rain or a T+72 forecast; municipal submodel/sewer inclusion varies and its model-information/NoData layer must remain attached.",
+    "HWH/WSHD water objects are legal/register geometry without guaranteed live completeness, topology, capacity, flow direction, setpoint, condition, operation, backup or restoration.",
+    "Current Waterinfo, NDW, provider and other snapshots have distinct observation/retrieval/valid times. Missing records mean Unknown, not zero hazard, open road, functioning service or a valid future state.",
+    "NWB, ProRail and GTFS are static geometry/schedule context. They do not establish crossing state, incident-time passability, evacuation throughput, rail/waterway/ferry alternatives or T+72 continuity.",
+    "No complete safe public source supplies Stedin feeder/gas topology, Evides distribution pressure/quality topology, municipal sewer connectivity, water-board live controls, telecom backhaul, facility dependencies, stocks, backups, crews or restoration. Sensitive details were not inferred.",
+    "All eight services currently reuse four road-derived logical links. Those links cannot be interpreted as physical electricity, gas, potable-water, wastewater, surface-water-control, telecom, patient-transfer or stocked-logistics networks.",
+    "RIVM acute-care role and annual volume do not establish live occupancy, staffing, acceptance/diversion, generator fuel, backup endurance or route access. RDI sites do not establish radio coverage, traffic, power/backhaul, availability or restoration; DUO/KVK addresses do not establish reception, shelter or distribution roles.",
+    "The controlled wildfire point is synthetic and tests source containment only; BRT source actuality is aged and no current fuel/moisture, wind, perimeter, suppression-water, access, evacuation or smoke-exposure model is calibrated.",
+    "Cyber lacks a named target, architecture and attack path; earthquake lacks a selected local event and ground-motion/site-response grid; industrial, port, dangerous-goods, radiological, pandemic and major urban-fire events are outside the ten presets.",
+    "Household preparedness, medically dependent residents, visitors/workers, mutual aid, reception/refuge/water points, medicine, food/fuel, staff, vehicles and repair priorities remain assumptions or Unknown. Official 72-hour guidance is not measured readiness or an aid/recovery deadline.",
+    "Affected population is a current post-network people-equivalent threshold metric, while deprived person-hours is a cumulative local pre-network matched-baseline service-pressure proxy. Neither is identified customers, casualties, displacement, welfare loss or economic damage; six-hour checkpoints can miss tidal and fast pluvial changes."
+  ],
+  "provinceReviewFlags": [
+    "Municipality-specific release blocker: apply the official 17 July 2026–21 April 2027 N3 Papendrechtsebrug closure by valid time, separate temporary emergency/ferry modes, and never use that road link as physical utility connectivity.",
+    "Municipality-specific release blocker: require a WSHD/WMCN/RWS-reviewed dike-ring-22/outer-dike river-sea-tide scenario before treating severity 0.7633, stress 2.4258 or 74,762 affected people-equivalent as local flood evidence; coastal zero must remain narrowly scoped/Unknown.",
+    "Municipality-specific release blocker: eight unrelated hazards share one complete neighbourhood order and the controlled Dordtse Biesbosch fire source ranks its containing neighbourhood 130/132. Replace the common seed and enforce source-containment/distance tests.",
+    "Municipality-specific: represent Dordrecht's approximately 48-hour constrained horizontal evacuation, on-island refuge concept, +1.80/+2.10 m NAP actions, Voorstraat defences and water-board/VRZHZ roles only through time-stamped authorized actions and resources, never automatic guarantees.",
+    "Municipality-specific: distinguish drinking-water source/treatment, distribution pressure/quality and high-rise booster pumps; wastewater, groundwater and surface-water control; current observations; and static register objects. Public geometry is context, not live service state.",
+    "Shared/national release blocker: restrict NWB causality to mobility and explicit logistics/repair access. Unavailable or security-sensitive utility, telecom, facility and supply topology/state remains Unknown or visibly aggregate synthetic.",
+    "Shared/national: preserve evidence class, issue/valid/retrieval time, coverage, licence, affectsSimulation and NoData in every map/export. Current observations, official static scenarios, plans and synthetic T+72 output must never be presented as one operational state."
+  ]
+}

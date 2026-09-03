@@ -1,0 +1,664 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0059",
+    "name": "Achtkarspelen",
+    "province": "Fryslân",
+    "safetyRegion": "Fryslân"
+  },
+  "agent": {
+    "taskName": "municipality_gm0059",
+    "agentId": "/root/nl_realism_audit",
+    "completedAt": "2026-09-02T13:08:46+02:00"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "The generated 2025 administrative and demographic context for Achtkarspelen is strong: GM0059, province and safety-region membership, the generalized boundary and centre, 28,200 residents, 24 neighbourhoods, 12 BAG woonplaatsen, 40 TOP10NL settlements, Buitenpost station and the available road/transit context reconcile. The deterministic ten-preset, six-checkpoint, eight-service model gate also passes its numerical, causal, local-allocation and reproducibility contracts. A material hydrological contradiction prevents a locally verified verdict. The reference coastal preset assigns 1.686 m of direct inundation at T+6, T+12 and T+24, about 14,600 affected people-equivalent and failed power/mobility, while the current Veiligheidsregio Fryslân municipality profile does not classify either sea flooding or mainland sea-defence breach as an Achtkarspelen risk; it instead classifies polder flooding and rainfall water nuisance. The simulator therefore needs an official connected coastal footprint and a separate local polder/boezem pathway. Exact earthquake, wildfire, service topology, backup, critical-facility, emergency-supply and restoration outputs remain explicit planning proxies, not local forecasts or operator telemetry.",
+  "evidenceSources": [
+    {
+      "publisher": "PDOK / Centraal Bureau voor de Statistiek",
+      "title": "E01 — CBS Gebiedsindelingen 2025, generalized municipality features",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_gegeneraliseerd/items?f=json&limit=1000&datetime=2025-07-01T00%3A00%3A00Z",
+      "accessedAt": "2026-09-02T12:45:00+02:00",
+      "edition": 2025,
+      "supports": [
+        "GM0059 code and Achtkarspelen name",
+        "Official generalized boundary consumed by the application",
+        "Point-in-polygon verification of the generated centre"
+      ]
+    },
+    {
+      "publisher": "Centraal Bureau voor de Statistiek",
+      "title": "E02 — Kerncijfers wijken en buurten 2025 (86165NED), GM0059 municipality row",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM0059%27%29&%24select=WijkenEnBuurten%2CAantalInwoners_5%2CBevolkingsdichtheid_34%2Ck_65JaarOfOuder_12%2CEenpersoonshuishoudens_30",
+      "accessedAt": "2026-09-02T12:45:00+02:00",
+      "edition": 2025,
+      "supports": [
+        "Population 28,200",
+        "Population density 276 inhabitants per square kilometre",
+        "6,297 residents aged 65 or older and 3,917 one-person households"
+      ]
+    },
+    {
+      "publisher": "PDOK / Centraal Bureau voor de Statistiek",
+      "title": "E03 — CBS Gebiedsindelingen 2025, generalized neighbourhood collection",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/buurt_gegeneraliseerd",
+      "accessedAt": "2026-09-02T12:45:00+02:00",
+      "edition": 2025,
+      "supports": [
+        "Twenty-four generated neighbourhood geometries assigned to GM0059",
+        "Neighbourhood and district identifiers",
+        "Geometry used for the local city view"
+      ]
+    },
+    {
+      "publisher": "PDOK / Kadaster",
+      "title": "E04 — Basisregistratie Adressen en Gebouwen, woonplaats collection",
+      "url": "https://api.pdok.nl/kadaster/bag/ogc/v2/collections/woonplaats",
+      "accessedAt": "2026-09-02T12:45:00+02:00",
+      "edition": "retrieved 2026-08-31",
+      "supports": [
+        "Twelve BAG woonplaatsen assigned to Achtkarspelen",
+        "No assigned BAG woonplaats centre lies outside the generated generalized boundary"
+      ]
+    },
+    {
+      "publisher": "PDOK / Kadaster",
+      "title": "E05 — BRT TOP10NL plaats-vlak collection",
+      "url": "https://api.pdok.nl/brt/top10nl/ogc/v1/collections/plaats_vlak?f=html",
+      "accessedAt": "2026-09-02T12:45:00+02:00",
+      "edition": "source date 2025-07-01 in generated features",
+      "supports": [
+        "Forty settlement polygons assigned to GM0059 by point-in-polygon",
+        "Twelve woonkernen, eighteen buurtschappen and ten gehuchten",
+        "Settlement labels and descriptive source-population metadata"
+      ]
+    },
+    {
+      "publisher": "PDOK / Centraal Bureau voor de Statistiek",
+      "title": "E06 — CBS Gebiedsindelingen 2025, generalized safety-region collection",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/veiligheidsregio_gegeneraliseerd",
+      "accessedAt": "2026-09-02T12:45:00+02:00",
+      "edition": 2025,
+      "supports": [
+        "Unique GM0059 membership of Veiligheidsregio Fryslân",
+        "Official response-region geography used in the interface"
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat",
+      "title": "E07 — Nationaal Wegenbestand",
+      "url": "https://www.rijkswaterstaat.nl/zakelijk/zakendoen-met-rijkswaterstaat/werkwijzen/werkwijze-in-gww/data-eisen-rijkswaterstaatcontracten/nationaal-wegenbestand",
+      "accessedAt": "2026-09-02T12:45:00+02:00",
+      "edition": "NWB-Light 2026-08-01",
+      "supports": [
+        "Official road geometry underlying N355, N358, N369 and N910 boundary links",
+        "NWB is road topology and does not establish utility topology or emergency transfer capacity"
+      ]
+    },
+    {
+      "publisher": "ProRail / PDOK",
+      "title": "E08 — ProRail station OGC collection",
+      "url": "https://api.pdok.nl/prorail/spoorwegen/ogc/v1/collections/station",
+      "accessedAt": "2026-09-02T12:45:00+02:00",
+      "edition": "retrieved 2026-08-31",
+      "supports": [
+        "Buitenpost station point lies inside the GM0059 boundary",
+        "Official station name, code and location context"
+      ]
+    },
+    {
+      "publisher": "OVapi / NDOV-derived operator feeds",
+      "title": "E09 — National Netherlands GTFS aggregate README",
+      "url": "https://gtfs.ovapi.nl/README",
+      "accessedAt": "2026-09-02T12:45:00+02:00",
+      "edition": "feed version 9543, 2026-08-30 through 2026-12-12",
+      "supports": [
+        "Source and best-effort status of the 75 stop areas spatially selected inside GM0059",
+        "GTFS stop and route context does not provide ridership, vehicle capacity, evacuation capacity or disaster availability"
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Fryslân",
+      "title": "E10 — Risico’s in de gemeente Achtkarspelen, Regionaal Risicoprofiel 2026–2029",
+      "url": "https://www.risicosinfryslan.nl/gemeente/achtkarspelen",
+      "accessedAt": "2026-09-02T12:45:00+02:00",
+      "edition": "2026–2029",
+      "supports": [
+        "Achtkarspelen-specific official risk list",
+        "Polder flooding, rainfall water nuisance, cold, heat, drought, vital-service failure, climate and hybrid risks are included",
+        "Sea flooding, mainland coastal-defence breach, nature fire and induced earthquake are not included in the municipality list"
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Fryslân",
+      "title": "E11 — Risk scenario: overstroming vaste wal",
+      "url": "https://www.risicosinfryslan.nl/risico/overstroming-vaste-wal",
+      "accessedAt": "2026-09-02T12:45:00+02:00",
+      "edition": "2026–2029",
+      "supports": [
+        "Catastrophic multi-breach dike-ring-six scenario and its cascading utility impacts",
+        "The published municipality occurrence list excludes Achtkarspelen",
+        "Direct coastal flood consequences must be tied to official breach and inundation geography"
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Fryslân",
+      "title": "E12 — Risk scenario: overstroming polder",
+      "url": "https://www.risicosinfryslan.nl/risico/overstroming-polder",
+      "accessedAt": "2026-09-02T12:45:00+02:00",
+      "edition": "2026–2029",
+      "supports": [
+        "Achtkarspelen is explicitly included for polder flooding",
+        "Reference regional scenario combines prolonged rain, wind-limited discharge, elevated boezem water and a polder-dike breach",
+        "The scenario describes approximately 0.70 m local water depth, fewer than 400 affected and mobility/power disruption"
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Fryslân",
+      "title": "E13 — Risk scenario: wateroverlast",
+      "url": "https://www.risicosinfryslan.nl/risico/wateroverlast",
+      "accessedAt": "2026-09-02T12:45:00+02:00",
+      "edition": "2026–2029",
+      "supports": [
+        "Achtkarspelen is explicitly included for rainfall water nuisance",
+        "Short intense summer rain and longer moderate winter rain cause local street, field, cellar and crawl-space flooding",
+        "Regional reference consequence is local nuisance rather than municipality-wide inundation"
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Fryslân",
+      "title": "E14 — Risk scenario: uitval elektriciteitsvoorziening",
+      "url": "https://www.risicosinfryslan.nl/risico/uitval-elektriciteitsvoorziening",
+      "accessedAt": "2026-09-02T12:45:00+02:00",
+      "edition": "2026–2029",
+      "supports": [
+        "Achtkarspelen is included for power outage risk and Liander is named as the regional distribution operator",
+        "Power loss can disrupt transport, heating, telecom, payment, drinking water and wastewater treatment",
+        "Inspection, repair and cleaning can take several days or more than a week"
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Fryslân",
+      "title": "E15 — Risk scenario: uitval gasvoorziening",
+      "url": "https://www.risicosinfryslan.nl/risico/uitval-gasvoorziening",
+      "accessedAt": "2026-09-02T12:45:00+02:00",
+      "edition": "2026–2029",
+      "supports": [
+        "Achtkarspelen is included for gas-supply failure",
+        "A contaminated neighbourhood gas network may require isolation, house-by-house closure, cleaning and staged reconnection",
+        "Published scenario restoration is eight to ten days and may indirectly endanger care facilities in winter"
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Fryslân",
+      "title": "E16 — Risk scenario: uitval spraak- en datacommunicatie",
+      "url": "https://www.risicosinfryslan.nl/risico/uitval-spraak-en-datacommunicatie",
+      "accessedAt": "2026-09-02T12:45:00+02:00",
+      "edition": "2026–2029",
+      "supports": [
+        "Achtkarspelen is included for telecom/ICT failure",
+        "Cyberattack can disrupt telephone, internet, 112, C2000/P2000, payments, traffic systems and utility operations",
+        "Regional reference scenario restores the telecom disruption after two days"
+      ]
+    },
+    {
+      "publisher": "Gemeente Achtkarspelen",
+      "title": "E17 — College decision: water nuisance at Reitsmastrjitte 63–65, Harkema",
+      "url": "https://www.achtkarspelen.nl/collegebesluiten-week-39-2022",
+      "accessedAt": "2026-09-02T12:45:00+02:00",
+      "edition": "decision of 2022-09-20",
+      "supports": [
+        "Documented local report that the municipal sewer system may not function adequately at a Harkema location",
+        "Municipal investigation and climate-adaptation measures were proposed",
+        "Street-scale pluvial susceptibility cannot be derived from municipality density alone"
+      ]
+    },
+    {
+      "publisher": "Wetterskip Fryslân",
+      "title": "E18 — Power interruption after transformer-building fire at Kootstertille wastewater treatment site",
+      "url": "https://www.wetterskipfryslan.nl/news/stroomstoring-na-brand-in-transformatorhuisje-op-rwzi-terrein-kootstertille",
+      "accessedAt": "2026-09-02T12:45:00+02:00",
+      "edition": "2025-09-09",
+      "supports": [
+        "A real GM0059 wastewater-treatment site experienced a local electricity interruption",
+        "The treatment process was placed on emergency generation",
+        "Power-to-drainage dependency and backup are locally real but the published incident does not validate a generic backup duration"
+      ]
+    },
+    {
+      "publisher": "Wetterskip Fryslân",
+      "title": "E19 — Waterbeheerprogramma 2022–2027",
+      "url": "https://www.wetterskipfryslan.nl/documenten/waterbeheerprogramma.pdf",
+      "accessedAt": "2026-09-02T12:45:00+02:00",
+      "edition": "2022–2027",
+      "supports": [
+        "Fryslân’s managed boezem-polder and free-draining water systems",
+        "Extreme-rain water nuisance, pumping, storage and discharge context",
+        "The north/east water system cannot be represented by distance to Rhine, Meuse or coastline alone"
+      ]
+    },
+    {
+      "publisher": "Koninklijk Nederlands Meteorologisch Instituut",
+      "title": "E20 — ShakeMaps archive and Groningen ground-motion method",
+      "url": "https://www.knmi.nl/nederland-nu/seismologie/shakemaps-archief",
+      "accessedAt": "2026-09-02T12:45:00+02:00",
+      "edition": "current archive accessed 2026-09-02",
+      "supports": [
+        "PGA/PGV representations combine observations and a Groningen-specific ground-motion prediction equation",
+        "A distance-only exponential field without magnitude, event identity or site response is not an official local PGA estimate"
+      ]
+    },
+    {
+      "publisher": "Liander",
+      "title": "E21 — Liander in uw regio",
+      "url": "https://www.liander.nl/regio",
+      "accessedAt": "2026-09-02T12:45:00+02:00",
+      "edition": "accessed 2026-09-02",
+      "supports": [
+        "Liander operates electricity and gas networks in Friesland",
+        "General operator/service-area evidence does not validate the simulator’s six NWB-derived service links or capacities"
+      ]
+    },
+    {
+      "publisher": "Vitens",
+      "title": "E22 — Vitens service-area statement",
+      "url": "https://www.vitens.nl/privacy",
+      "accessedAt": "2026-09-02T12:45:00+02:00",
+      "edition": "accessed 2026-09-02",
+      "supports": [
+        "Vitens supplies drinking water in Friesland",
+        "The public service-area statement does not provide GM0059 pipe, pressure-zone, reserve or backup topology"
+      ]
+    },
+    {
+      "publisher": "Rijksoverheid",
+      "title": "E23 — Wat zit er in een noodpakket?",
+      "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/veiligheidsregios-en-crisisbeheersing/wat-zit-er-in-een-noodpakket",
+      "accessedAt": "2026-09-02T12:45:00+02:00",
+      "edition": "accessed 2026-09-02",
+      "supports": [
+        "The first 72 hours are the national household-preparedness horizon",
+        "Advice includes three litres of water per person per day, food, radio/power, light, first aid, warmth, hygiene, medicines and cash",
+        "National advice is not evidence that each Achtkarspelen household holds those supplies"
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "The generated code, name, province and safety-region assignment agree with the official 2025 CBS/PDOK sources.",
+      "evidenceRefs": ["E01", "E02", "E06"],
+      "notes": [
+        "Municipality feature, regional bundle and manifest all identify GM0059 / Achtkarspelen.",
+        "GM0059 belongs uniquely to Veiligheidsregio Fryslân."
+      ]
+    },
+    "geography": {
+      "status": "pass",
+      "summary": "The application consumes the official 2025 generalized boundary and its generated municipality centre lies inside that geometry.",
+      "evidenceRefs": ["E01", "E03"],
+      "notes": [
+        "Generated centre is [6.1267062872044455, 53.20457239572534].",
+        "The corrected closed-ring point-in-polygon audit returned true.",
+        "Administrative geometry does not verify elevation, hydraulic connectivity, land cover or utility catchments."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "The consumed 2025 municipality population, density, older-population and household values agree with CBS and neighbourhood totals reconcile within CBS rounding.",
+      "evidenceRefs": ["E02", "E03"],
+      "notes": [
+        "Municipality population is 28,200 and the 24 neighbourhood rows sum to 28,190, a ten-person difference (-0.035 percent) consistent with five-person neighbourhood rounding.",
+        "Density is 276 inhabitants/km²; 6,297 residents are aged 65+ (22.3 percent) and one-person households total 3,917.",
+        "Neighbourhood household rows sum to 12,110 and age-65+ rows sum to 6,310."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "All 24 neighbourhoods carry the supported 36-field CBS context, with missing values preserved, but small-area context is not complete and does not locate physical service assets or climate hotspots.",
+      "evidenceRefs": ["E02", "E03", "E17"],
+      "notes": [
+        "Population, households, age, housing and most accessibility fields have complete or near-complete coverage.",
+        "Cars per household is available in 20/24 rows; the four missing rows are the dispersed-house neighbourhoods of Twijzel, Kootstertille, Gerkesklooster and Stroobos.",
+        "District-heating percentage and public-charging-point values are unavailable in all 24 rows and remain null, not fabricated zero.",
+        "No neighbourhood has published population zero; the engine nevertheless retains its national official-zero preservation contract.",
+        "The documented Harkema water-nuisance location is not present as a street-scale exposure input."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "Twelve BAG woonplaatsen and forty TOP10NL settlements are assigned to Achtkarspelen without foreign-centre leakage.",
+      "evidenceRefs": ["E04", "E05"],
+      "notes": [
+        "The BAG woonplaatsen are Augustinusga, Boelenslaan, Buitenpost, Drogeham, Gerkesklooster, Harkema, Kootstertille, Stroobos, Surhuisterveen, Surhuizum, Twijzel and Twijzelerheide.",
+        "TOP10NL types are 12 woonkernen, 18 buurtschappen and 10 gehuchten, source-dated 2025-07-01.",
+        "Settlement population attributes are descriptive metadata and are not expected to sum to municipality population."
+      ]
+    },
+    "transport": {
+      "status": "warn",
+      "summary": "Official roads, Buitenpost station and current GTFS context are spatially plausible, but the simulated service-transfer graph and capacities are not transport or evacuation measurements.",
+      "evidenceRefs": ["E07", "E08", "E09"],
+      "notes": [
+        "Six NWB boundary links use N355, N358, N369 and N910 geometry and connect to Noardeast-Fryslân, Smallingerland and Tytsjerksteradiel.",
+        "All six links have synthetic nominal capacity 150; their 0.100–1.512 km distance values describe selected boundary geometry, not journey distance between municipal centres.",
+        "Buitenpost is the one ProRail station point inside the generalized boundary.",
+        "Seventy-five GTFS stop areas fall inside GM0059, but the feed does not validate ridership, available vehicles, emergency routing, accessibility, road clearance or evacuation throughput."
+      ]
+    },
+    "emergencyContext": {
+      "status": "warn",
+      "summary": "The official Fryslân risk and first-72-hour contexts are available, but the local model has no real command posts, responder resources, shelters, care capacity, emergency-water points or distribution sites.",
+      "evidenceRefs": ["E10", "E14", "E15", "E16", "E18", "E23"],
+      "notes": [
+        "The safety-region profile identifies the relevant local natural, climate, infrastructure and societal risk classes.",
+        "The Kootstertille wastewater-site incident proves a local drainage-power-backup relationship, not a municipality-wide backup duration.",
+        "National 72-hour self-reliance advice supports the simulation horizon but does not establish actual household preparedness in Achtkarspelen.",
+        "Critical-facility and emergency-supply outputs therefore remain generic service indices rather than operational resource plans."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "fail",
+      "summary": "All ten canonical scenarios run across all six checkpoints and eight services, but the coastal reference scenario is spatially contradicted by the current official Achtkarspelen risk classification.",
+      "evidenceRefs": ["E10", "E11", "E12", "E13"],
+      "notes": [
+        "Command MUNICIPALITY_AUDIT_CODE=GM0059 pnpm audit:model passed both dedicated tests; the current national ALL gate also passes 342 municipalities × 10 scenarios × 6 checkpoints × 8 services.",
+        "The web scenario factory is a thin clone of the canonical sim-core presets, so the gate and public UI use the same defaults.",
+        "Coastal-flood produces 1.686 m at T+6, T+12 and T+24, 14,646 affected people-equivalent at T+6, failed power availability 0.174 and failed mobility availability 0.197; E10–E11 exclude this risk class from Achtkarspelen.",
+        "Pluvial-flood produces 0.130 m at T+6 and 0.191 m at T+12/T+24 with a peak 3,355 affected people-equivalent; rainfall nuisance is relevant but those values are uncalibrated.",
+        "The Rhine/Meuse/IJssel river preset correctly produces zero local direct hazard and zero event-attributable deprivation at every checkpoint; this does not cover the distinct local Lauwers/boezem/polder process.",
+        "Storm, heat/drought, winter and cyber are locally relevant scenario classes; earthquake and wildfire outputs remain hypothetical radial tails rather than risk-profile classifications or forecasts."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "The GM0059 gate passes finite bounds, exact causal identities, determinism, event-attributable deprivation and exact local-to-municipality reconciliation.",
+      "evidenceRefs": [],
+      "notes": [
+        "Hazard, service-availability and pressure ledgers close at every scenario/checkpoint; all availability, demand, delivered, reserve, flow and utilization values remain finite and bounded.",
+        "Affected population is integral and bounded; cumulative deprived person-hours are monotonic and quarter-hour integrate event-attributable eight-service pre-network shortfall above a matched no-event baseline.",
+        "At compound T+24, all 24 local regions sum to exactly 28,200 residents and 14,787 affected people-equivalent; all eight demand and delivery totals reconcile within 1e-6.",
+        "Local hazard arrays are identical across all eight service-layer selections and local service arrays vary only through service-specific impact/allocation.",
+        "Repeated T+24 simulation is deterministic."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "Administrative geography is official, but coastal, pluvial, earthquake and wildfire surfaces are analytic distance/density/seed fields rather than authoritative local hazard footprints.",
+      "evidenceRefs": ["E10", "E11", "E12", "E13", "E17", "E19", "E20"],
+      "notes": [
+        "Coastal exposure uses exponential distance to three coast segments with a 35 km cutoff and ignores dikes, elevation and hydraulically connected breach pathways; this admits GM0059 despite the official profile exclusion.",
+        "Achtkarspelen’s supported horizontal-water mechanism is polder/boezem flooding after prolonged rain and restricted discharge, which is neither the coastal nor Rhine/Meuse preset.",
+        "Pluvial depth uses municipality density and deterministic seeds rather than AHN terrain, sewer capacity, soil, local storage or the documented Harkema hotspot.",
+        "Earthquake uses exponential epicentral distance and yields 0.078 g at T+6 without magnitude, event identification, site response or KNMI GMPE; wildfire uses a Veluwe epicentre and yields 0.069 direct intensity plus 0.246 smoke despite not being classified for GM0059 in E10.",
+        "Service-layer-invariant neighbourhood hazard is correct and should be retained when official footprints replace seeded allocation."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "warn",
+      "summary": "The eight-service dependency graph is causally coherent, but six NWB road links are reused as logical transfer proxies for all services and backup/restoration parameters are not operator-calibrated.",
+      "evidenceRefs": ["E14", "E15", "E16", "E18", "E21", "E22"],
+      "notes": [
+        "Modeled power dependencies affect water, drainage, telecom and facilities, while mobility affects emergency supply; E14, E16 and E18 support these directions qualitatively.",
+        "Current explanations explicitly identify NWB connectivity as a logical transfer proxy and never physical utility topology.",
+        "Liander and Vitens service-area evidence does not validate routes, pressure/feed zones, capacities, switching, backup duration or restoration performance inside GM0059.",
+        "The Kootstertille wastewater treatment site and its emergency generator are absent as an actual node; exact generic backup windows remain planning assumptions.",
+        "Gas/heating, telecom, care-facility and last-mile supply topology is unavailable and must not be inferred from roads."
+      ]
+    },
+    "causalTrace": {
+      "status": "pass",
+      "summary": "Hazard forcing, direct damage, recovery, dependencies, backup, interventions and counterfactual deltas are inspectable and algebraically testable.",
+      "evidenceRefs": [],
+      "notes": [
+        "Service explanations expose contribution sign and magnitude and the exact system-pressure identity.",
+        "Local demand, vulnerability and priority remain separate contributions; every neighbourhood has neutral operational priority and no population-derived physical hub.",
+        "Zero river event-attributable person-hours in GM0059 confirm that baseline service shortfall is not misreported as river-hazard deprivation.",
+        "Causal correctness does not establish that coefficients or restoration curves match local operators."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "Recovery trajectories are bounded and retain some tails, but the contradicted 1.686 m coastal event is cleared to operational by T+72 without hydraulic recession or operator damage evidence.",
+      "evidenceRefs": ["E11", "E14", "E15", "E16", "E23"],
+      "notes": [
+        "Coastal depth falls from 1.686 m at T+24 to zero at T+48 and all eight services are operational at T+72; cumulative event-attributable deprivation reaches 560,702 person-hours.",
+        "The official mainland-breach scenario is catastrophic, while the power profile allows inspection/repair/cleaning to take days or more than a week and the gas-outage scenario takes eight to ten days.",
+        "At compound T+72, hazard severity remains 0.280 with 0.202 m modeled water and facilities still recovering, yet affected people-equivalent is zero and the municipality status is operational; thresholded impact must not be read as no residual consequences.",
+        "The national 72-hour preparedness horizon describes household self-reliance and responder prioritisation, not a guarantee of system recovery by 72 hours.",
+        "Crew resources, access constraints, mutual aid, spare parts, facility priorities, emergency water and last-mile supply are not locally calibrated."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": [
+      "power",
+      "water",
+      "drainage",
+      "gas",
+      "telecom",
+      "mobility",
+      "facilities",
+      "supply"
+    ]
+  },
+  "findings": [
+    {
+      "id": "GM0059-H01",
+      "severity": "critical",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The coastal-surge preset creates a high-consequence direct inundation false positive for Achtkarspelen.",
+      "evidence": "The canonical preset returns 1.686 m at T+6/T+12/T+24, about 14,600 affected people-equivalent, failed power and failed mobility. E10 lists the risks applicable to Achtkarspelen without sea or mainland-dike flooding, and E11’s mainland-breach municipality list excludes Achtkarspelen. The model admits GM0059 solely because its centroid is within a 35 km exponential coast-distance field.",
+      "action": "Set direct coastal depth to zero unless an official Rijkswaterstaat/LIWO connected breach footprint intersects the municipality. Preserve only separately supported wind or indirect supply effects, explicitly label them indirect, and add a GM0059 coastal-depth regression at all six checkpoints."
+    },
+    {
+      "id": "GM0059-H02",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The locally supported polder/boezem flood mechanism has no distinct canonical forcing or footprint.",
+      "evidence": "E10 and E12 explicitly include Achtkarspelen for polder flooding driven by prolonged rainfall, wind-limited discharge, rising boezem levels and a local dike breach, with an illustrative 0.70 m local depth. E19 describes the managed boezem-polder system. River-flood correctly remains zero because it is named for Rhine/Meuse/IJssel high water, while pluvial-flood models rainfall runoff rather than a polder-kade breach.",
+      "action": "Create a separately named polder/boezem scenario or hazard component using Wetterskip/LIWO extents, kades, compartments and water levels. Do not repurpose the coastal or Rhine/Meuse output as local water-system flooding."
+    },
+    {
+      "id": "GM0059-H03",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Flood recession and service recovery are not damage-state calibrated for the severe direct inundation shown.",
+      "evidence": "Modeled coastal depth is 1.686 m at T+24, exactly zero at T+48, and all services are operational at T+72. E11 describes catastrophic mainland-breach consequences; E14 says linked electricity/water inspection, repair and cleaning may take several days or more than a week, and E15 gives eight to ten days for a contaminated gas network.",
+      "action": "Couple flood depth to a recession/storage model and derive recovery from persistent asset damage, access, crews and spare parts. Keep the 72-hour window as an observation horizon and permit outages to extend beyond it."
+    },
+    {
+      "id": "GM0059-H04",
+      "severity": "medium",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The Groningen-earthquake layer displays an uncalibrated 0.078 g local proxy and service cascade.",
+      "evidence": "At T+6 the canonical preset gives GM0059 0.07847 g, 3,863 affected people-equivalent and critical emergency-supply availability. E10 does not classify induced earthquake as an Achtkarspelen municipal risk, while E20 explains that official ShakeMaps require observations plus a Groningen-specific GMPE. The model uses only an epicentre, intensity scalar, exponential distance and seed, without magnitude or site response.",
+      "action": "Require a defined hypothetical magnitude/source and official KNMI ground-motion grid or GMPE before presenting local g. Until then retain prominent 'scenario proxy, not hazard estimate' language and uncertainty bounds."
+    },
+    {
+      "id": "GM0059-H05",
+      "severity": "medium",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The wildfire layer assigns a direct radial tail where the current regional municipal profile does not classify nature-fire risk.",
+      "evidence": "The default Veluwe-centred preset gives GM0059 wildfire intensity 0.0686 and smoke 0.2455 at T+12/T+24. E10 omits nature fire from Achtkarspelen’s applicable risk list. The model uses epicentral distance rather than land cover, fuels, soil moisture, wind and accessible fire breaks; the nonzero smoke tail may still be a useful hypothetical if wind transport is sourced.",
+      "action": "Mask direct fire intensity with authoritative land-cover/fuel and regional-risk geography, model smoke separately with meteorology, and distinguish an external-smoke scenario from a local vegetation fire."
+    },
+    {
+      "id": "GM0059-H06",
+      "severity": "medium",
+      "category": "limitation",
+      "status": "accepted-limitation",
+      "summary": "Storm, pluvial, heat/drought, winter and cyber directions are credible but their exact GM0059 values are not forecasts or local calibration.",
+      "evidence": "E10 and E13–E16 support rainfall nuisance, cold, heat, drought, power/gas/water/telecom disruption and hybrid/cyber risk. The model still derives weather from analytic temporal envelopes and deterministic seeds and cyber recovery from generic response coefficients rather than KNMI forcing or operator incident data.",
+      "action": "Keep scenario/not-forecast labelling in V3. Future calibration should ingest KNMI gridded observations/forecasts, municipal stress-test layers and anonymized operator outage/restoration distributions."
+    },
+    {
+      "id": "GM0059-N01",
+      "severity": "high",
+      "category": "network",
+      "status": "accepted-limitation",
+      "summary": "Six NWB road-boundary links are logical transfer proxies for all services, not electricity, water, drainage, gas, telecom, mobility or supply topology.",
+      "evidence": "E07 validates road geometry only; E21 and E22 identify relevant operators at service-area scale but provide no support for the model’s six shared links or capacity 150. Current causal notes correctly disclose logical-proxy semantics, and observed utilization below roughly four percent is a property of synthetic scaling rather than evidence of abundant resilience.",
+      "action": "Retain the disclosure, hide physical-network implications and never call these links cables, pipes, towers or operator flows. Add separate service adapters only where public/operator-approved topology and calibration exist."
+    },
+    {
+      "id": "GM0059-N02",
+      "severity": "medium",
+      "category": "network",
+      "status": "accepted-limitation",
+      "summary": "Official road, rail and GTFS presence does not establish emergency mobility or evacuation capacity.",
+      "evidence": "The generated context has six NWB boundary segments, Buitenpost station and 75 stop areas, but E07–E09 supply no evacuation demand, available vehicles, traffic capacity, closure, bridge, clearance, timetable reliability or responder travel-time model. The six displayed capacities are all synthetic 150-unit service values.",
+      "action": "For mobility, separate observed geometry from scenario throughput. Add NWB road class/closure constraints, timetable service, vehicle assumptions and uncertainty before using the layer for evacuation or response-time decisions."
+    },
+    {
+      "id": "GM0059-S01",
+      "severity": "medium",
+      "category": "service",
+      "status": "open",
+      "summary": "A real local wastewater node and demonstrated emergency generation are absent from the drainage layer.",
+      "evidence": "E18 documents a 2025 transformer-building fire and power interruption at the Kootstertille wastewater treatment site, with the treatment process moved to an emergency generator. The simulator qualitatively models power-to-drainage backup, but distributes drainage as a neighbourhood index and does not represent this public site, its service area, storage or verified endurance.",
+      "action": "Add the public Kootstertille site as contextual infrastructure without exposing sensitive control details. Model catchment, storage, generator runtime and recovery only with Wetterskip-approved data; otherwise label all parameters assumed."
+    },
+    {
+      "id": "GM0059-S02",
+      "severity": "medium",
+      "category": "limitation",
+      "status": "accepted-limitation",
+      "summary": "Electricity, gas/heating, drinking-water and telecom assets, backup windows and restoration performance are unavailable at local topology level.",
+      "evidence": "E14–E16 and E21–E22 validate operator and dependency context, but the model consumes no feeders, pressure zones, masts/backhaul, priority customers, switching, fuel, crew or outage-history data. Generic reserve and recovery numbers cannot be described as operator expectations.",
+      "action": "Keep these layers as synthetic service availability indices with confidence badges. Pursue aggregated/anonymized operator data-sharing rather than reconstructing sensitive networks from roads or public incidents."
+    },
+    {
+      "id": "GM0059-E01",
+      "severity": "medium",
+      "category": "service",
+      "status": "open",
+      "summary": "The facilities layer is not a map of actual emergency, health or public-service facilities and cannot support response-time claims.",
+      "evidence": "No facility points, staffed capacity, catchments, backup systems, occupancy, road turnout or mutual-aid resources are consumed for GM0059. The local detail instead allocates a generic facilities service across all 24 CBS neighbourhoods with neutral priority. Official safety-region geography identifies governance, not local facility capacity.",
+      "action": "Add sourced public facility locations as context and clearly separate presence from operational capacity. Introduce staffing, catchments, travel and mutual aid only with VRF/GHOR/municipality-approved evidence."
+    },
+    {
+      "id": "GM0059-E02",
+      "severity": "medium",
+      "category": "service",
+      "status": "accepted-limitation",
+      "summary": "Emergency-supply and household-preparedness outputs use a national proxy, not an Achtkarspelen stock or readiness measurement.",
+      "evidence": "The canonical default uses householdPreparedness 0.44. E23 defines the national 72-hour kit and three litres of water per person per day, but no local household inventory, retail stock, pharmacy, depot, vulnerable-household need or distribution-point dataset is consumed.",
+      "action": "Expose preparedness as an editable uncertain assumption and split supply need into water, food, medicines, warmth, information/power and cash. Add local distribution sites and last-mile routes only when sourced."
+    },
+    {
+      "id": "GM0059-UI01",
+      "severity": "medium",
+      "category": "ui",
+      "status": "open",
+      "summary": "A zero affected people-equivalent can coexist with persistent hazard or recovering services and must not imply an all-clear.",
+      "evidence": "At compound T+72 the municipality shows zero affected people-equivalent and operational status while hazard severity is 0.280, modeled water depth is 0.202 m, system pressure is about 7.5 percent and facilities remain recovering. The value is thresholded service pressure, not a count of all physically affected residents.",
+      "action": "Label it 'thresholded service-pressure people-equivalent', show residual hazard/service pressure beside it and require multiple conditions for an all-clear/recovered presentation."
+    },
+    {
+      "id": "GM0059-D01",
+      "severity": "low",
+      "category": "regional-data",
+      "status": "accepted-limitation",
+      "summary": "Partial CBS neighbourhood fields and rounding are handled correctly but constrain local vulnerability interpretation.",
+      "evidence": "Neighbourhood populations total 28,190 versus the official 28,200 municipality row; cars per household is missing in four dispersed-house rows and district-heating/public-charging values are unavailable in all 24. No missing value is zero-filled and no household-level conclusion is justified from these aggregates.",
+      "action": "Preserve nulls and official rounding, display field coverage and never infer individual vulnerability or infrastructure presence from aggregate CBS percentages."
+    },
+    {
+      "id": "GM0059-I01",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The current engine closes its deterministic causal, local-allocation and event-attributable deprivation contracts for GM0059.",
+      "evidence": "The dedicated gate passes two tests across the complete matrix. Hazard is service-layer invariant; municipality/local population, affected, demand and delivery totals reconcile; priority defaults neutral; there is no fabricated hub; ledgers close; river baseline deprivation is zero; and T+24 repeats deterministically.",
+      "action": "Retain these invariants in the national release gate and preserve the matched-baseline, pre-network, people-equivalent and logical-proxy terminology."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Replace coastal distance-only exposure with an official hydraulically connected breach/inundation footprint and make reference coastal direct depth zero for GM0059 unless new authoritative evidence supports it.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/public/data/hazards/coastal-flood-footprints.geojson"
+      ],
+      "validation": "Assert GM0059 coastal floodDepthM === 0 at 0/6/12/24/48/72 under the reference preset, keep any wind or indirect regional effects separately attributed, rerun the 342-municipality matrix and compare every boundary transition with Rijkswaterstaat/LIWO and the current safety-region profile."
+    },
+    {
+      "summary": "Add a distinct Achtkarspelen-relevant polder/boezem hazard path rather than relabelling coastal, pluvial or Rhine/Meuse forcing.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/scenarios.ts",
+        "apps/web/public/data/hazards/fryslan-polder-boezem.geojson",
+        "packages/sim-core/src/municipality-coverage.test.ts"
+      ],
+      "validation": "Use Wetterskip/LIWO compartment and inundation evidence; assert GM0059 is eligible for the separately named polder scenario, keep the Rhine/Meuse preset at zero direct depth, test local exposure only within sourced compartments and verify labels describe rain, discharge, boezem level and kade breach."
+    },
+    {
+      "summary": "Make flood recession and post-inundation service damage persistent beyond forcing and calibratable beyond the 72-hour display window.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts"
+      ],
+      "validation": "For a sourced severe inundation case, verify depth decays through an explicit recession state and damaged power/mobility/water/drainage assets cannot automatically become operational at T+72; retain finite bounds, causal ledger closure and monotonic event-attributable person-hours through a longer internal horizon."
+    },
+    {
+      "summary": "Screen direct wildfire and earthquake fields with authoritative local eligibility and require physically defined forcing before showing precise local intensity/PGA.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/components/MapView.tsx",
+        "apps/web/src/components/Inspector.tsx",
+        "packages/sim-core/src/municipality-coverage.test.ts"
+      ],
+      "validation": "Test that direct wildfire uses a land-cover/fuel footprint and smoke remains separately attributable; compare earthquake PGA against a named KNMI grid/GMPE event with magnitude and uncertainty, and snapshot prominent proxy/not-forecast labels when only hypothetical forcing exists."
+    },
+    {
+      "summary": "Clarify thresholded affected population and prevent operational/all-clear wording from masking persistent hazard or recovering services.",
+      "files": [
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/statistics/statisticsCatalog.ts",
+        "packages/sim-core/src/model.ts"
+      ],
+      "validation": "At GM0059 compound T+72, show residual 0.202 m modeled water, approximately 7.5 percent system pressure and recovering facilities alongside zero thresholded people-equivalent; add an accessibility-friendly state explanation and an automated label/state test."
+    }
+  ],
+  "residualLimitations": [
+    "No operator-approved GM0059 electricity feeder, gas pressure-zone, drinking-water network, telecom backhaul/mast, switching, critical-customer, backup-fuel, crew or restoration topology is consumed.",
+    "No public local shelter, emergency-water point, food/medicine depot, staffed responder, care-bed, vulnerable-resident or household emergency-stock inventory is represented.",
+    "NWB, ProRail and GTFS verify transport context only; they do not provide evacuation capacity, road clearance, vehicle availability, disruption likelihood or emergency response time.",
+    "The 24 CBS neighbourhood polygons are administrative areas. Within-neighbourhood terrain, soil, sewer, kade, land-cover and building fragility variation is unresolved.",
+    "BAG/CBS source geometry and generalized-boundary assignment can differ at edges; this audit found no assigned BAG centre outside GM0059 but does not claim cadastral precision.",
+    "The safety-region online municipality page reports a differently dated population figure; the audit uses CBS table 86165NED edition 2025 for demographic truth and the safety-region page only for risk classification.",
+    "Scenario values are deterministic planning outputs, not real-time observations, forecasts, probabilities, casualties, operator commitments or calibrated loss estimates."
+  ],
+  "provinceReviewFlags": [
+    "Coordinate a Fryslân-wide coastal eligibility review: the current 35 km coast-distance cutoff includes GM0059 despite the 2026–2029 safety-region municipality list excluding mainland coastal flooding.",
+    "Define one province-consistent distinction among sea-dike breach, polder/boezem-kade breach, rainfall water nuisance and Rhine/Meuse/IJssel high water; do not collapse them into a generic flood layer.",
+    "Review all Fryslân T+72 flood recovery curves against persistent inundation, access and utility restoration evidence rather than preset duration alone.",
+    "Confirm province-wide treatment of municipality risk-profile exclusions for direct wildfire and earthquake while allowing separately sourced indirect smoke or cross-boundary effects.",
+    "Keep public infrastructure context separate from sensitive or unavailable operator topology and require source/confidence metadata for every service layer."
+  ]
+}

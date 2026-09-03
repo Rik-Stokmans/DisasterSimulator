@@ -1,0 +1,546 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0748",
+    "name": "Bergen op Zoom",
+    "province": "Noord-Brabant",
+    "safetyRegion": "Midden- en West-Brabant"
+  },
+  "agent": {
+    "taskName": "municipality_gm0748",
+    "agentId": "/root/nl_realism_audit",
+    "completedAt": "2026-09-02T16:19:36Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "Bergen op Zoom has coherent generated 2025 administrative inputs: 70,194 residents, 38 neighbourhoods grouped by six district codes, three BAG woonplaatsen, fourteen BRT settlements, one ProRail station, seventy grouped scheduled-transit stop records and four NWB-derived logical road links. The complete ten-preset, six-checkpoint and eight-service deterministic contract passes, including exact zero-event semantics, event-attributable deprived person-hours, service-layer-invariant local hazard and exact population/demand/delivery reconciliation. Release is nevertheless correction-required. The river preset assigns persistent normalized inundation stress 1.07 and 36,633 affected residents at T+72, while the coastal preset assigns zero direct inundation, but neither result selects the locally relevant Scheldt-Rhine/Volkerak-Zoommeer, primary-defence, sea-river transition, polder or extreme-rain mechanism documented by the safety region and water managers. Eight nonzero hazards also reuse exactly the same neighbourhood ranking. The fixed wildfire source is 124.990 km away and cannot exercise the locally material Markiezaat/Brabantse-Wal ignition mechanism. Public HWH water-register, ROR, LIWO, Rijkswaterstaat, KNMI, NDW, RIVM, provider-territory and municipal ArcGIS products offer useful bounded inputs; however, the displayed ROR layer is mislabelled 2022–2027 even though the official API describes a 2018 report for cycle 2016–2021 with no planned update. Electricity, gas, drinking-water, telecom, sewer, facility and emergency-logistics topology, live state, backup and restoration remain unavailable or security-sensitive and must stay unknown or transparently synthetic.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek / PDOK / Kadaster",
+      "title": "E01 — Kerncijfers wijken en buurten 2025 and administrative geometries for GM0748",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM0748%27%29",
+      "accessedAt": "2026-09-02T16:19:36Z",
+      "edition": 2025,
+      "supports": [
+        "The official municipality row identifies GM0748 Bergen op Zoom with 70,194 registered residents, density 878 residents per square kilometre, 23.1% aged 65 or older and 11,653 one-person households.",
+        "The app consumes annual CBS OData and 2025 PDOK municipality, district, neighbourhood and safety-region polygons under CC BY 4.0, plus BAG woonplaatsen under Public Domain Mark 1.0. BAG is continuously maintained; these products are official administrative context, not live presence, hazard or infrastructure observations.",
+        "Thirty-eight published neighbourhood populations sum to 70,185, nine below the municipality row (-0.013%); the official zero-resident Buitengebied-West row and published nulls must remain distinct from missing data and from model allocation."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / PDOK / ProRail / OVapi / NDW",
+      "title": "E02 — Machine-readable road, rail, scheduled-transit and current road-status context",
+      "url": "https://service.pdok.nl/rws/nationaal-wegenbestand-wegen/wfs/v1_0?service=WFS&version=2.0.0&request=GetCapabilities",
+      "accessedAt": "2026-09-02T16:19:36Z",
+      "edition": "NWB-Light 2026-08-01; OVapi snapshot 2026-08-31; NDW publication 2026-09-02T15:25Z",
+      "supports": [
+        "NWB provides national segment/junction road geometry refreshed monthly under CC0. The generated logical graph contains A58 to Roosendaal, A4 to Woensdrecht and Steenbergen, and N286 to Tholen, with nominal scenario capacities 260/150; the short recorded distances are boundary-connector geometry, not end-to-end travel or measured throughput.",
+        "ProRail CC0 geometry identifies Bergen op Zoom station inside GM0748. OVapi scheduled GTFS, retrieved 2026-08-31 under free-use/no-SLA terms, yields seventy grouped stop-area records including Station and Bravis Ziekenhuis. A stop or planned trip is not proof of incident operation, capacity or accessibility.",
+        "NDW's DATEX II current-picture product can update within minutes and is CC0 unless otherwise stated. The deployment snapshot contains one real, unrestricted VehicleObstruction point inside GM0748, certain probability and unknown severity, starting 2026-09-02T15:02:31.686Z. It is observed-context with affectsSimulation=false; it cannot be replayed at an arbitrary scenario clock or treated as a matched road closure without validated direction-aware NWB linkage."
+      ]
+    },
+    {
+      "publisher": "Gemeente Bergen op Zoom",
+      "title": "E03 — Gemeentelijk Waterprogramma 2024–2027, current climate/water guidance and BoZ Atlas",
+      "url": "https://cuatro.sim-cdn.nl/bergenopzoom/uploads/gemeentelijk_waterprogramma_gwp_2024-2027.pdf?cb=-dqLC4D1",
+      "accessedAt": "2026-09-02T16:19:36Z",
+      "edition": "adopted plan 2024–2027, reference dated 2023-09-27; public pages/portal accessed 2026-09-02",
+      "supports": [
+        "The municipality reports about 550 km of gravity sewer and 50 sewer pumping stations, plus 241 small pump units and 82 km of pressure pipes in the outside area; wastewater is treated at RWZI Bath and Halsteren. It also reports 153 external overflows, 56 stormwater outlets, 144 km drainage, 24,118 drains, 139 system measurement points, more than 5,000 m3 infiltration facilities, 5,035 m2 swales/green storage and five settling basins.",
+        "Three groundwater-protection areas—Mondaf, Lievensberg and Halsteren—are identified. The Brabantse Wal high sandy ground, westward groundwater flow and concentration of groundwater-nuisance attention areas near the escarpment require different spatial treatment from lower polders and urban sewer catchments. The municipal groundwater network has 91 measurement points managed/validated with Brabant Water.",
+        "The municipality states at https://www.bergenopzoom.nl/wateroverlast that pipes and pumps cannot immediately process extreme rainfall, sewer water can reach streets and water can remain for days. The programme identifies prolonged power failure or a mass hack as a potentially disruptive water-chain dependency with no realistic alternative and potentially long restoration.",
+        "The 2017 climate stress test and 2023 adaptation strategy identify vulnerable locations for flood/heavy rain, drought and heat; the programme scheduled a new stress test for 2025 and strategy update for 2026. No reviewed public downloadable versioned raster, licence or numerical response curve was found, so policy text cannot calibrate neighbourhood severity.",
+        "The official BoZ Atlas at https://data.bergenopzoom.nl/ is an ArcGIS Hub with public REST Feature Services, including winter gritting routes and salt-box locations and an Enexis small-consumer gas layer. Item metadata exposes modification times but blank reuse-licence fields and no declared update cadence; these are integration candidates only after licence, semantics, geometry quality and completeness are confirmed, and cannot establish live response capacity or utility topology."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Midden- en West-Brabant",
+      "title": "E04 — Regionaal risicoprofiel 2023–2027 and Regionaal Crisisplan 2023–2027",
+      "url": "https://www.vrmwb.nl/media/qnmkutwa/regionaal-risicoprofiel-2023_2027.pdf",
+      "accessedAt": "2026-09-02T16:19:36Z",
+      "edition": "risk profile 2023–2027; crisis plan 2023–2027",
+      "supports": [
+        "The regional priorities include digital disruption of vital infrastructure, extreme weather and nature fire; flooding is the third-highest-impact category and vital-infrastructure disruption fourth. Vital processes explicitly include electricity, gas, drinking water, water quantity, internet/voice/SMS, 112/C2000, roads, rail and shipping, with cascading effects.",
+        "The profile distinguishes flooding from sea, high Rhine/Meuse discharge, polder/dike breach and extreme weather, and further distinguishes coast, river and sea-river transition scenarios. It identifies the Scheldt-Rhine Canal west of the region, Volkerak-Zoommeer low clay/polder terrain and primary-defence failure as mechanisms; this is incompatible with treating one generic straight major-river corridor or distance-to-coast as a selected local hydraulic scenario.",
+        "For an extreme-rain event, the profile places the northwestern marine-clay area along Volkerak-Zoommeer at NAP or lower and describes pumps/weirs, flow toward deeper points, potentially persistent water locally up to about half a metre and impacts to vital infrastructure; urban streets, sewers and buildings also flood. These are regional expert-scenario statements, not an exact GM0748 grid.",
+        "Markiezaat and Brabantse Wal are named among the region's largest nature areas. The profile links heat/drought to fast, unpredictable fire development, difficult firefighting-water access, mobility disruption and risks to less self-reliant people.",
+        "The crisis plan at https://www.vrmwb.nl/media/5j5du0id/regionaal-crisisplan-2023-2027.pdf locates the RCC/ROT at Emplacement 2 in Bergen op Zoom, assigns separate CoPI, ROT, population-care, crisis-communication, health, police and fire processes, and names Rijkswaterstaat, water boards and ProRail as partners. It says the crisis main structure is in principle designed for deployment up to 72 hours and requires a transition decision for longer crises. The plan PDF has no reviewed open-data licence and supplies roles/norm times, not local stocks, crews or restoration coefficients."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / Watermanagementcentrum Nederland / Waterschap Brabantse Delta / PDOK / Het Waterschapshuis",
+      "title": "E05 — Volkerak-Zoommeer operations and integration-ready flood/water-register products",
+      "url": "https://open.rijkswaterstaat.nl/open-overheid/convenanten/2026/waterakkoord-volkerak-zoommeer-2026/",
+      "accessedAt": "2026-09-02T16:19:36Z",
+      "edition": "Waterakkoord 2026; LIWO 2025.1.6; ROR underlying report 2018/cycle 2016–2021; HWH snapshot 2026-09-02",
+      "supports": [
+        "The 2026 Waterakkoord by Rijkswaterstaat and the three water boards governs Volkerak-Zoommeer quantity under normal, wet and dry conditions and formalizes coordinated operational choices. Rijkswaterstaat describes Zoommeer as openly connected to Volkerak through the Scheldt-Rhine Canal; the regional profile additionally describes emergency water storage on Volkerak-Zoommeer during a closed Europoort barrier and high Rhine/Meuse inflow.",
+        "HWH/PDOK Kunstwerken IMWA and Waterketen DAMO expose pumps, weirs, sluices and wastewater assets through OGC APIs/WMS/downloads, generally weekly under CC BY-SA 4.0 with contributor-dependent completeness. The deployment snapshot has 106 points inside GM0748: three sewer pumps, one RWZI, ten surface-water pumps, one sluice and 91 weirs; 95 have no displayed capacity. These features are official-context and affectsSimulation=false, not catchments, connectivity, live state, backup or performance.",
+        "The public HWH/PDOK Waterbeheergebieden and Keringen IMWA products add provider-contributed drainage/supply, level-area and defence geometry, generally weekly under CC BY-SA 4.0. Registered status cannot establish current hydraulic operation or defence performance.",
+        "LIWO at https://iplo.nl/thema/water/applicaties-modellen/berichtgeving-crisismanagement/liwo/ exposes versioned professional flood/waterlogging layers; 2025.1.6 is the listed release and the publisher requires specialist water-manager interpretation. Mechanism, breach/defence state, probability, depth, arrival, duration, native resolution, no-data and reuse terms vary by layer and must be pinned for simulation use.",
+        "The live PDOK ROR OGC API at https://api.pdok.nl/rws/overstromingen-risicogebied/ogc/v1?f=html&lang=en is CC0 and machine-readable but explicitly describes risk areas from the 2018 report for ROR second cycle 2016–2021, with update frequency 'Niet gepland'. It is screening context, not a current selected depth/arrival scenario.",
+        "Rijkswaterstaat Waterinfo continuously measures fixed-site water levels/discharge and publishes model expectations; current observations/boundary forecasts can initialize or replay a 72-hour case when station, issue/valid time, units, validation and uncertainty are retained, but cannot provide a breach footprint or service consequence by themselves."
+      ]
+    },
+    {
+      "publisher": "Koninklijk Nederlands Meteorologisch Instituut",
+      "title": "E06 — Ten-minute in-situ meteorological observations and five-minute radar context",
+      "url": "https://dataplatform.knmi.nl/en/dataset/10-minute-in-situ-meteorological-observations-1-0",
+      "accessedAt": "2026-09-02T16:19:36Z",
+      "edition": "dataset 1.0; deployment radar observation 2026-09-02",
+      "supports": [
+        "KNMI's national station dataset provides temperature, humidity, wind, pressure and precipitation at ten-minute intervals, normally within minutes, under CC BY 4.0; late missing records may be filled for seven days. These are point observations and do not alone resolve a Bergen op Zoom neighbourhood field.",
+        "The app also caches the latest official five-minute radar-reflectivity WMS rendering with observation time, retrieval time, checksum and CC BY 4.0 attribution. It is observed-context and affectsSimulation=false because a current image is neither aligned to an arbitrary scenario clock nor a 72-hour forecast.",
+        "KNMI observations/radar are suitable for event initialization or replay only with product/version, station/grid, issue/valid time, units, quality state, spatial transform and uncertainty. They do not supply flood depth, fire spread, service failure or repair time."
+      ]
+    },
+    {
+      "publisher": "Stichting Mijn Aansluiting / Enexis / Brabant Water",
+      "title": "E07 — Public provider territories and bounded operator responsibility context",
+      "url": "https://wiki.service.mijnaansluiting.nl/wiki/spaces/Wiki/pages/693731329",
+      "accessedAt": "2026-09-02T16:19:36Z",
+      "edition": "live WMS/WFS reference-point query; provider records dated 2025-09-07/2025-12-29",
+      "supports": [
+        "A reproducible provider lookup at [4.2955625892, 51.5046195829] returns Enexis for electricity and gas, Brabant Water for drinking water and Ziggo for fixed media. No sewer polygon is returned. The Public Domain provider-supplied WMS/WFS polygons identify responsibility at one point, not full-boundary coverage, topology, redundancy, quality or live state; the empty sewer result is unknown.",
+        "The municipal water programme also names both Brabant Water and Evides as drinking-water companies, so the centre-point result must not be generalized across GM0748 without polygon intersection and provider verification.",
+        "Liander-only public cable/pipe geometry does not cover the responsible local DSO. Enexis/public municipal consumption aggregates can provide baseline context but not feeders, substations, valves, outage telemetry, available capacity, restoration priority or crew state.",
+        "No reviewed public source supplies safe complete Enexis, Brabant Water/Evides, Ziggo/other telecom or municipal sewer operating topology, switching, pressure, backup, fuel or repair sequence. The smallest fallback is an editable synthetic zonal dependency graph with ranges and visible non-observed provenance."
+      ]
+    },
+    {
+      "publisher": "Rijksinstituut voor Volksgezondheid en Milieu / Bravis ziekenhuis",
+      "title": "E08 — Public acute-care locations/reachability data and current Bergen op Zoom emergency department",
+      "url": "https://datacatalogus.rivm.nl/dataset.xhtml?persistentId=doi%3A10.21945%2FDC78BC85-18BE-4D4E-A107-840EFADAED25",
+      "accessedAt": "2026-09-02T16:19:36Z",
+      "edition": "RIVM acute-care public dataset, modified 2026; Bravis operational page accessed 2026-09-02",
+      "supports": [
+        "RIVM publishes a downloadable CC0 acute-care package containing locations and accessibility of emergency departments, ambulance stations, GP out-of-hours posts and crisis mental-health care. The catalogue is public and machine-readable/downloadable; update cadence is release-based and edition must be pinned rather than assumed live.",
+        "Bravis states at https://www.bravis.nl/afdelingen/spoedeisende-hulp-afdeling that the Bergen op Zoom emergency department at Boerhaaveplein 1 is open 24/7. The app's GTFS stop label corroborates access context but is not a typed critical-facility record.",
+        "Neither RIVM location/accessibility context nor the Bravis public page provides live bed/ED capacity, staffing, power/water/oxygen/telecom dependencies, backup endurance, medicine stock, diversion state or restoration. Those must remain unknown until sourced from an authorized operational feed."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM0748 identity, province and safety-region membership are coherent.",
+      "evidenceRefs": [
+        "E01",
+        "E04"
+      ],
+      "notes": [
+        "Feature id, generated regional bundle and manifest agree on Bergen op Zoom, Noord-Brabant and Veiligheidsregio Midden- en West-Brabant.",
+        "The focused context resolved the expected municipality and no contradictory primary identity."
+      ]
+    },
+    "geography": {
+      "status": "pass",
+      "summary": "The 2025 generalized boundary and label point pass administrative checks but cannot represent local hazard compartments.",
+      "evidenceRefs": [
+        "E01",
+        "E03",
+        "E04",
+        "E05"
+      ],
+      "notes": [
+        "The generated centre [4.2955625892, 51.5046195829] lies inside the generalized municipality polygon.",
+        "GM0748 spans the urban centre, Halsteren/Lepelstraat, high sandy Brabantse-Wal terrain and lower western water/polder systems. A centroid or administrative polygon is not a flood compartment, sewer catchment, groundwater zone, fuel zone, provider territory or access-isolation area.",
+        "The boundary edition is suitable for national context; exact building/road/flood intersection should use full-resolution official geometry and record any generalized-boundary mismatch."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Municipality totals and neighbourhood allocation reconcile within official publication rounding.",
+      "evidenceRefs": [
+        "E01"
+      ],
+      "notes": [
+        "Official 2025 population is 70,194, density 878, age 65+ share 23.1% and one-person households 11,653.",
+        "Published neighbourhood population sums to 70,185, nine below the municipality row (-0.013%); the local model reconciles exactly to 70,194.",
+        "Affected population is a resident-equivalent pressure count, not a count of identified persons and not people present. Visitors, commuters, pupils, patients, workers and evacuees are outside the denominator."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "Core neighbourhood demographics are strong, while several dwelling/access/welfare fields and all transient/facility dimensions remain incomplete.",
+      "evidenceRefs": [
+        "E01",
+        "E03",
+        "E08"
+      ],
+      "notes": [
+        "The bundle contains 38 neighbourhoods under six district codes and 36 statistic fields. Population, age, households, businesses, land/water area and most accessibility fields are present.",
+        "Cars per household are absent in five neighbourhoods; home value and several housing/welfare percentages in two; doctor/supermarket distance, household size, density, urbanity and address density each in one. District-heating share and public-charging counts are null in all 38 and correctly remain unknown, not zero.",
+        "Buitengebied-West is an official zero-resident neighbourhood with 580 ha land and 840 ha water; the model preserves zero population rather than replacing it with one.",
+        "Aggregate age and access indicators do not identify individual medical dependence, household preparedness, occupancy, Bravis patients/staff, institutional continuity or response priority."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "BAG woonplaatsen and BRT settlement concepts are distinct and spatially coherent.",
+      "evidenceRefs": [
+        "E01"
+      ],
+      "notes": [
+        "BAG woonplaatsen Bergen op Zoom, Halsteren and Lepelstraat have no generated centre outside the generalized boundary.",
+        "BRT contains fourteen settlements: four buurtschappen, one deelkern, four gehuchten and five woonkernen. They are descriptive context, not resident totals, hazard zones, service areas or response boundaries."
+      ]
+    },
+    "transport": {
+      "status": "warn",
+      "summary": "National roads, station and scheduled transit are present, but rail, shipping and valid-time road state do not participate in mobility/supply causality.",
+      "evidenceRefs": [
+        "E02",
+        "E04",
+        "E05",
+        "E08"
+      ],
+      "notes": [
+        "The logical graph has four Dutch road records: A58 to Roosendaal, A4 to Woensdrecht and Steenbergen, and N286 to Tholen. Capacities and connector distances are scenario abstractions, not throughput, full trips or guaranteed emergency access.",
+        "Bergen op Zoom station and seventy scheduled stop-area records are rendered, but the service graph does not model rail operations, Bravis access, the Scheldt-Rhine main shipping corridor or port/waterway states.",
+        "The one current NDW vehicle-obstruction record is real and unrestricted but unknown severity and display-only. It must be matched to directional NWB geometry and aligned to scenario time before it can close or degrade a route.",
+        "GM0748 is inside the regional 15 km Belgium risk zone but is not itself a border municipality; cross-border assistance and supply paths require scenario-specific reviewed routing, not invented direct edges."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "Authoritative 72-hour roles and two important Bergen facilities are identifiable, but none is a typed operational state or resource.",
+      "evidenceRefs": [
+        "E04",
+        "E05",
+        "E07",
+        "E08"
+      ],
+      "notes": [
+        "The regional plan places RCC/ROT at Emplacement 2 and explicitly treats the first 72 hours as the normal crisis-main-structure horizon; Bravis has a current 24/7 emergency department. The app exposes a KVK/PDOK public-safety point at Emplacement 2 and a GTFS Bravis stop, but neither is typed to those roles/functions.",
+        "The generated government-service overlay contains five partial points—one administration and four public-order/safety addresses—under Public Domain Mark 1.0 with affectsSimulation=false. Registry addresses cannot establish role, staffing, opening, capacity, backup or incident availability.",
+        "No warning/decision timeline, incident/evacuation/isolation zone, shelter, emergency drinking-water point, care continuity, crew, fuel, medicine, stock, welfare-check, mutual-aid or cross-border liaison state is present.",
+        "The fixed household-preparedness coefficient is synthetic. General 72-hour advice is not a measured Bergen readiness rate or a service-restoration promise."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "The complete deterministic 10 × 6 × 8 contract passes for GM0748.",
+      "evidenceRefs": [
+        "E03",
+        "E04",
+        "E05",
+        "E06"
+      ],
+      "notes": [
+        "MUNICIPALITY_AUDIT_CODE=GM0748 pnpm audit:model passed canonical severe-storm, pluvial-flood, river-flood, coastal-flood, heatwave, winter-storm, cyberattack, earthquake, wildfire and compound at T+0, +6, +12, +24, +48 and +72 for power, water, drainage, gas, telecom, mobility, facilities and supply; web presets remain equal to sim-core presets.",
+        "At T+24 the synthetic/derived screen reports: storm severity 0.0678 and 20,386 affected; pluvial 0.1745 and 14,513; river 0.3334 with inundation stress 1.07 and 35,312; coastal direct inundation zero but 3,775 affected via wind/service effects; heat 0.1166 and 2,639; winter 0.6602 and 20,407; cyber 0.4068 and 21,425; earthquake current motion zero and zero affected; wildfire direct flame zero/smoke 0.2026 and zero affected; compound 0.8000 and 48,286.",
+        "At T+72 river remains degraded with normalized stress 1.07, 36,633 affected and 1,748,017.63 cumulative event-attributable deprived person-hours. Compound remains critical with pressure 0.6283, 48,286 affected and 2,227,722.93 person-hours. Other presets report zero affected; these are deterministic assumptions, not observations, forecasts, official decisions or operator promises."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Determinism, bounds, exact no-event semantics, causal ledgers and local reconciliation pass.",
+      "evidenceRefs": [
+        "E01"
+      ],
+      "notes": [
+        "All tested values are finite and bounded, delivery does not exceed demand, repeated frames are deterministic, and hazard/service/system causal and counterfactual ledgers reconcile.",
+        "Intensity zero yields exact zero event hazard, zero affected population and zero event-attributable deprived person-hours for every preset and checkpoint.",
+        "Every local view contains 38 neighbourhoods and reconciles exactly to 70,194 residents, while preserving the official zero population for Buitengebied-West. Across scenarios/services maximum demand, delivery or local reconciliation error is 5.684341886080802e-14.",
+        "Local hazard is identical across the eight selected service maps, and deprived person-hours quarter-hour-integrate event-attributable all-service availability shortfall against a matched no-event baseline."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "Neighbourhood fields do not follow Bergen op Zoom's distinct hydraulic, urban-water, terrain, heat, fire, winter or cyber mechanisms.",
+      "evidenceRefs": [
+        "E03",
+        "E04",
+        "E05",
+        "E06"
+      ],
+      "notes": [
+        "At T+24 storm, pluvial, river, heat, winter, cyber, wildfire and compound have exactly the same 38-neighbourhood order, led by Verspreide huizen Halsterse Polders, Rode Schouw and Verspreide huizen Vrederust.",
+        "Official evidence instead distinguishes the high sandy Brabantse Wal and edge groundwater zone, lower west/polders and Volkerak-Zoommeer, urban sewer catchments, Markiezaat/Brabantse-Wal fuel and facility/transport networks. Cyber has no physical reason to copy any weather or flood footprint.",
+        "River impact comes from municipality-centroid proximity to hard-coded straight corridors, not a selected Scheldt-Rhine/Volkerak/primary-defence/sea-river-transition/polder scenario, floodplain, depth, arrival or recession. The exact stress 1.07 is normalized and can exceed one; it is not 1.07 metres.",
+        "The canonical wildfire source [5.75, 52.18] lies 124.990 km from the municipal centre and outside GM0748; at T+24 it gives zero direct flame, smoke 0.2026 and drought 0.6215 without a wind-resolved plume. It cannot test a local Markiezaat/Brabantse-Wal ignition. Coastal and earthquake direct local fields are zero at T+24."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "Eight-service cascades are inspectable but not calibrated to responsible providers, water systems, transport modes or critical facilities.",
+      "evidenceRefs": [
+        "E02",
+        "E03",
+        "E04",
+        "E05",
+        "E07",
+        "E08"
+      ],
+      "notes": [
+        "All eight service views receive the same four NWB-derived municipality links. Supplied/NWB connectivity is correctly described as a logical transfer proxy, never physical power, drinking-water, drainage, gas/heating, telecom, facility or supply topology.",
+        "Provider areas identify Enexis, Brabant Water and Ziggo only at the reference point; the municipality also names Evides. The app's Liander-only geometry does not cover Enexis, and the centre lookup, 106 HWH points, municipal asset totals and public aggregates reveal neither connectivity, switching, flow, pressure, capacity, backup nor restoration.",
+        "The public HWH snapshot displays only three sewer pumps against the municipal programme's 50 sewer pumping stations plus 241 small units. This correctly demonstrates partial register coverage, not a contradiction in the causal model; using the point count as network completeness would be materially misleading.",
+        "No typed Bravis/RCC continuity node, water/sewer catchment, rail/shipping state, provider zone, verified facility dependency, emergency distribution point or logistics stock affects availability."
+      ]
+    },
+    "causalTrace": {
+      "status": "warn",
+      "summary": "Causal arithmetic and logical-proxy wording are auditable, but local forcing/evidence labels and service coefficients remain insufficient.",
+      "evidenceRefs": [
+        "E03",
+        "E04",
+        "E05",
+        "E06",
+        "E07"
+      ],
+      "notes": [
+        "Hazard, availability, system-pressure and intervention ledgers reconcile, and service explanations disclose logical connectivity rather than utility topology.",
+        "Coastal T+24 has zero direct inundation while 17.77 m/s wind produces indirect service deprivation and 40,575.12 cumulative person-hours. River stress 1.07 is a non-hydraulic proximity screen. Direct, indirect and cumulative effects need explicit separation.",
+        "The UI's official flood-risk overlay says 'ROR 2022–2027', but the linked live PDOK metadata says 2018 report, second cycle 2016–2021 and no planned update. The layer is non-causal screening context; the incorrect edition nevertheless weakens provenance and recency interpretation.",
+        "Cyber disruption, household readiness, backup, network capacity, repair rates and service recovery have no Bergen operator calibration; role documents and registered assets are governance/context evidence rather than numerical coefficients."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "The first-72-hour window matches the regional crisis horizon, but hazard/status transitions and restoration are not locally calibrated.",
+      "evidenceRefs": [
+        "E03",
+        "E04",
+        "E05",
+        "E06",
+        "E07",
+        "E08"
+      ],
+      "notes": [
+        "River forcing persists through T+72 under the 168-hour preset and standing water prevents recovery, but the unsupported amplitude yields 36,633 affected and 1,748,017.63 person-hours without a selected mechanism, defence/breach state, depth, arrival or recession.",
+        "Compound remains exactly pressure 0.6283, 48,286 affected and identical service availability from T+24 through T+72 even as severity falls from 0.8000 to 0.2854; retained stress blocks recovery, but no local water/road/facility/operator state validates that plateau.",
+        "Heat/drought forcing remains active through T+72 under the 336-hour preset while the municipality becomes operational with zero affected. Storm, pluvial, winter, cyber and wildfire also report operational/zero affected at T+72. These thresholds are not local public-health, drainage or operator evidence.",
+        "The VRMWB plan treats 72 hours as an organizational transition point, not a promise that lifelines recover. It separates CoPI/ROT, population care, communication and partner functions, none of which is represented as time-stamped decisions, resources, shifts, stocks or verified outcomes."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [
+      0,
+      6,
+      12,
+      24,
+      48,
+      72
+    ],
+    "services": [
+      "power",
+      "water",
+      "drainage",
+      "gas",
+      "telecom",
+      "mobility",
+      "facilities",
+      "supply"
+    ]
+  },
+  "findings": [
+    {
+      "id": "GM0748-FLOOD-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Exact river and zero coastal outputs do not select Bergen op Zoom's documented flood mechanism.",
+      "evidence": "At T+24/T+72 the derived river screen reports normalized stress 1.07 with 35,312 then 36,633 affected and 1,748,017.63 event-attributable person-hours by T+72, while coastal direct inundation is zero. E04-E05 distinguish Scheldt-Rhine/Volkerak-Zoommeer primary defences and storage operation, Rhine/Meuse inflow, sea-river transition, polder failure and extreme rain. The model instead uses centroid distance to generic straight river/coast segments and has no selected local mechanism, defence/breach state, depth, arrival or recession.",
+      "action": "Treat both local direct flood results as unsupported/Unknown—not safe—and do not expose exact affected/service totals as calibrated. Integrate an expert-selected LIWO/Waterschap/Rijkswaterstaat scenario tied to Volkerak-Zoommeer/Scheldt-Rhine and current HWH defence geometry/boundary conditions. Persist mechanism, scenario/breach ID, defence edition, probability, depth/stress unit, arrival, duration/recession, native resolution, no-data, licence, transformation hash and reviewer; keep wind, seepage/backwater and indirect regional supply effects separate."
+    },
+    {
+      "id": "GM0748-SPAT-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Eight physically different nonzero hazards reuse one Bergen op Zoom neighbourhood ranking.",
+      "evidence": "The T+24 focused probe gives exactly the same 38-neighbourhood order for storm, pluvial, river, heat, winter, cyber, wildfire and compound, headed by Verspreide huizen Halsterse Polders, Rode Schouw and Verspreide huizen Vrederust. E03-E05 instead distinguish high Brabantse-Wal sands/groundwater edge, lower western polders, urban sewers, named water systems and Markiezaat/Brabantse-Wal fire geography; cyber should follow service/organization zones, not terrain.",
+      "action": "Replace shared seeded modulation with hazard-specific spatial adapters and regression tests. Sample versioned hydraulic/pluvial rasters, AHN/BGT surfaces, groundwater/catchment data, heat/land-cover, fuel/perimeter/weather/plume and explicitly selected cyber/service zones. Retain evidence class, time, native resolution, no-data, licence, transformation hash and uncertainty, and prove distinct mechanisms do not rank every neighbourhood identically solely because they share a seed."
+    },
+    {
+      "id": "GM0748-PLUVIAL-DRAIN-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "open",
+      "summary": "Rich local water-system context does not drive pluvial, drainage or access exposure.",
+      "evidence": "Pluvial T+24 reports stress 0.2417, drainage availability 0.4873 and 14,513 affected through the common neighbourhood seed. E03 reports 550 km gravity sewer, 50 sewer pumps, 241 small pump units, 82 km pressure pipe, 144 km drainage and separate high/low groundwater regimes. The HWH snapshot contains 106 context points but only three sewer pumps and 95 missing capacities; none affectsSimulation. There is no catchment, AHN/BGT surface, sewer response, power/backup state or road/facility intersection.",
+      "action": "Prefer a versioned municipal stress-test/SSW/GWSW export plus HWH Waterbeheergebieden/hydroobject, AHN elevation and BGT surface geometry, with publisher, grid/feature resolution, scenario/date, cadence, licence, no-data and transform. Keep public pumps/weirs/pipes as partial context until catchment, capacity, power/backup and valid-time state are sourced; never infer network completeness or failure merely from registered asset existence."
+    },
+    {
+      "id": "GM0748-WILDFIRE-001",
+      "severity": "medium",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The fixed wildfire preset cannot exercise the locally material Markiezaat/Brabantse-Wal fire mechanism.",
+      "evidence": "The canonical ignition [5.75, 52.18] is 124.990 km from the municipal centre and outside GM0748; T+24 reports zero direct flame, smoke 0.2026, drought 0.6215, water availability 0.6060 and no affected residents through a synthetic field. E04 names Markiezaat/Brabantse Wal among the region's largest nature areas and documents heat/drought, difficult water access, mobility disruption and less-self-reliant populations as relevant consequences. That evidence establishes a local mechanism, not the model's exact plume/service coefficients.",
+      "action": "Keep this preset visibly source-specific and add a municipality-selectable ignition/perimeter. Use daily CC0 BGT terrain/vegetation and Natura 2000 context, KNMI ten-minute wind/humidity and an authority-confirmed incident perimeter when available. If no public live perimeter/fuel product exists, use a small editable synthetic perimeter/fuel class labelled synthetic; retain event/valid times, plume assumptions and uncertainty, and never infer water loss or affected residents from distance alone."
+    },
+    {
+      "id": "GM0748-NET-001",
+      "severity": "medium",
+      "category": "network",
+      "status": "accepted-limitation",
+      "summary": "Four road links are reused as logical transfer proxies for all eight services, not local utility topology.",
+      "evidence": "Every service receives the same A58/A4/N286/A4 records. E07 identifies Enexis, Brabant Water and Ziggo only at one point, while E03 also names Evides; Liander geometry does not cover Enexis. Provider areas, HWH points, BoZ Atlas/Enexis aggregates and road proximity reveal neither feeders, pipes, telecom links, sewer catchments, switching, pressure, capacity, backup nor restoration. Complete operating topology is unavailable or security-sensitive.",
+      "action": "Separate mobility/supply routing from non-mobility service graphs. Keep Mijn Aansluiting WMS/WFS polygons (Public Domain, record-dated), HWH features (generally weekly, CC BY-SA 4.0) and public aggregates as official context only. Where safe topology is unavailable, use the smallest editable synthetic zonal graph with ranges/sensitivity and a visible synthetic label; never infer physical utility links or restoration order from road proximity."
+    },
+    {
+      "id": "GM0748-MOB-001",
+      "severity": "medium",
+      "category": "network",
+      "status": "open",
+      "summary": "Rail, Scheldt-Rhine shipping and current road events are displayed but absent from mobility/supply state.",
+      "evidence": "E02 verifies one ProRail station and seventy GTFS stop-area records, while E04-E05 identify the Scheldt-Rhine route as a main shipping corridor and Volkerak-Zoommeer as actively managed. The graph contains only four road boundary links; every service copies them. The one current NDW VehicleObstruction point has unknown severity and affectsSimulation=false, with no direction-aware match. Thus station, shipping, port and live/valid-time access conditions do not change response or supply.",
+      "action": "Create typed road, rail and waterway mobility/supply graphs from NWB, ProRail, GTFS and reviewed RWS vaarweg/port data. Match NDW events directionally to NWB and enforce publication/valid time and observed-versus-scenario clocks before causal use. Keep scheduled service and shipping capacity/state unknown unless sourced; do not extend rail/waterway edges into power, water, drainage, gas or telecom topology."
+    },
+    {
+      "id": "GM0748-FACILITY-001",
+      "severity": "medium",
+      "category": "regional-data",
+      "status": "open",
+      "summary": "Bravis emergency care and the regional crisis centre are recognizable context, not continuity-critical model nodes.",
+      "evidence": "E04 places RCC/ROT at Emplacement 2; a public-safety registry point exists there. E08 confirms Bravis Bergen op Zoom has a 24/7 emergency department; the GTFS feed has a Bravis Ziekenhuis stop. The simulator has no typed RCC/SEH role, occupancy, patients/staff, power/water/oxygen/telecom dependency, backup endurance, staffing, diversion or access state. Resident-only affected population excludes these transient loads.",
+      "action": "Ingest the version-pinned CC0 RIVM acute-care package and role-confirmed government facilities, deduplicated against BAG/KVK and current authority pages. Preserve function, edition, opening model, evidence class and valid time. Keep live capacity, occupancy, dependencies, backup, staffing, medicine and diversion unknown until authorized operational data exists; represent residents, patients, staff, visitors and evacuees separately."
+    },
+    {
+      "id": "GM0748-72H-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "open",
+      "summary": "The 72-hour window is regionally meaningful, but response and restoration are generic coefficients rather than actor decisions/resources.",
+      "evidence": "E04 says the crisis main structure is designed in principle for deployment up to 72 hours and needs a transition decision if duration is longer; it assigns distinct CoPI, ROT, population-care, communication and partner functions. The model has no source/issue/valid-time warning, activation, decision, team, shift, resource, shelter, emergency-water, care, stock, mutual-aid or cross-border state, and no Bergen evidence for householdPreparedness=0.44. Yet exact recovery states/person-hours are emitted, including operational/zero affected for active heat at T+72 and an exact frozen compound plateau from T+24 to T+72.",
+      "action": "Add a provenance-bearing incident timeline for forecast/warning, role/team activation, decision/incident/evacuation areas, roads/rail/waterway, verified crews/shifts, emergency water, shelters, care, medicines, fuel, stocks, welfare checks, mutual aid and transition at 72 hours. Classify each observed, official-scenario, synthetic or unknown with source and valid time; calibrate restoration separately by service/operator and retain 0.44 only as an editable synthetic assumption."
+    },
+    {
+      "id": "GM0748-ROR-LABEL-001",
+      "severity": "medium",
+      "category": "explainability",
+      "status": "open",
+      "summary": "The official flood-risk overlay is given the wrong ROR edition in the UI and documentation.",
+      "evidence": "MapView, Inspector and PUBLIC_DATA_INTEGRATION label the linked layer 'Rijkswaterstaat / PDOK ROR 2022–2027'. The official live API at E05 states it contains risk areas from the 2018 report for ROR second cycle 2016–2021, has CC0 licence and update frequency 'Niet gepland'. The newer harmonized endpoint works, but endpoint availability does not make the underlying risk edition 2022–2027 or a current hydraulic scenario.",
+      "action": "Replace every 'ROR 2022–2027' label with the exact official source edition/semantics: underlying 2018 report, ROR second cycle 2016–2021, update not planned, accessed date. Keep it risk-screening context only. Add an automated metadata/label check so endpoint migrations or stale edition claims cannot silently drift."
+    },
+    {
+      "id": "GM0748-FLOOD-SEM-001",
+      "severity": "medium",
+      "category": "explainability",
+      "status": "open",
+      "summary": "Direct, indirect, register, operational and defence-conditioned water evidence need stronger separation.",
+      "evidence": "Coastal T+24 has zero direct inundation but 17.77 m/s wind and service deprivation; river 1.07 is normalized proximity stress, not metres. E03's asset totals and E05's HWH points/defences are registers; the Waterakkoord is an operational governance framework; ROR is an old-cycle risk screen; LIWO can provide official scenarios. Without evidence class/mechanism in every map, chart, inspector and export these may be mistaken for live depth, current expected damage, network completeness or guaranteed defence/pump performance.",
+      "action": "Show direct inundation, wind, seepage/backwater, drainage, transport, response and downstream-network contributions separately. Always show evidence class, mechanism/scenario, source edition, issue/valid time, defence assumption, units, uncertainty and affectsSimulation. Never label normalized stress as metres, an asset register as an operating network, a governance agreement as a forecast, or zero direct coastal impact as proof of no indirect disruption."
+    },
+    {
+      "id": "GM0748-INV-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The current deterministic accounting and proxy semantics pass the Bergen op Zoom harness.",
+      "evidence": "The focused matrix passes finite bounds, determinism, exact zero-event behavior, causal/counterfactual reconciliation, event-attributable person-hours, official null/zero preservation, service-invariant local hazard and exact municipality/local population-demand-delivery totals. River forcing persists 168 hours with no recovery under standing water, heat lasts 336 hours, and public water/provider/road/radar assets remain context-only unless explicitly stated.",
+      "action": "Retain these national invariants and add GM0748 regressions for selected hydraulic evidence, hazard-specific neighbourhood fields, source-specific local fire, typed transport/facilities, ROR edition labels, context/topology boundaries and direct-versus-indirect semantics before accepting the open corrections."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Replace Bergen op Zoom's exact generic flood screens with evidence-bearing, mechanism- and defence-conditioned local hydraulic scenarios.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "scripts/fetch-realism-data.mjs (or dedicated LIWO/Volkerak-Zoommeer adapter)",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "GM0748 local river/coastal output is visibly unsupported/Unknown until a reviewer-selected versioned scenario is loaded. A loaded scenario records Scheldt-Rhine/Volkerak/transition/polder mechanism, current defence/breach/storage assumption, probability, depth/stress unit, arrival, persistence/recession, native resolution, no-data, licence, hash and reviewer and samples neighbourhood/road/facility footprints deterministically."
+    },
+    {
+      "summary": "Replace the shared neighbourhood seed with hazard-specific pluvial, heat, wildfire, winter and cyber spatial adapters.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "scripts/fetch-realism-data.mjs",
+        "apps/web/src/data.ts"
+      ],
+      "validation": "Storm, pluvial, river, heat/drought, winter, cyber, wildfire/smoke and compound no longer reproduce one identical 38-neighbourhood order solely from a shared seed. Tests retain service-layer invariance for one hazard while checking source-specific geometry, event time, no-data, provenance and uncertainty."
+    },
+    {
+      "summary": "Integrate municipal/HWH water context at its true completeness without promoting registered assets to operating topology.",
+      "files": [
+        "scripts/fetch-water-assets.mjs",
+        "scripts/fetch-realism-data.mjs (or municipal SSW/GWSW adapter)",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/data.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Version-pinned stress-test/catchment/terrain data can drive pluvial exposure with explicit licence/no-data/provenance. The displayed three sewer-pump records remain visibly partial against 50 municipal sewer pumps plus 241 small units; all 106 HWH points retain publisher, record time, licence, completeness and context/causal status, and missing capacity, power/backup and live state remain unknown."
+    },
+    {
+      "summary": "Correct ROR edition labelling and preserve flood evidence classes end to end.",
+      "files": [
+        "apps/web/src/components/MapView.tsx",
+        "apps/web/src/components/Inspector.tsx",
+        "docs/PUBLIC_DATA_INTEGRATION.md",
+        "tests/e2e/app.spec.ts"
+      ],
+      "validation": "The UI/docs state '2018 report; ROR second cycle 2016–2021; update not planned' beside the live harmonized endpoint and never call it 2022–2027. ROR screening, HWH register, Waterakkoord governance, LIWO official scenario, observed Waterinfo/KNMI/NDW and synthetic simulation remain distinct and expose affectsSimulation/source edition/as-of time."
+    },
+    {
+      "summary": "Separate mobility/supply modes from utility graphs and add typed acute-care/crisis facilities.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "scripts/fetch-realism-data.mjs (or RIVM/transport adapters)",
+        "apps/web/src/data.ts",
+        "apps/web/src/components/MapView.tsx",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Road, rail and waterway states are typed for mobility/supply only; NDW records require direction and valid-time matching. RIVM/Bravis and RCC records expose role/edition but keep occupancy, continuity, backup and live capacity unknown. Provider areas and HWH/municipal aggregates never become physical utility topology."
+    },
+    {
+      "summary": "Make the first 72 hours an actor-, decision- and resource-based incident timeline with calibrated service recovery ranges.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/ScenarioControls.tsx",
+        "apps/web/src/components/OperationsBrief.tsx"
+      ],
+      "validation": "Warnings, CoPI/ROT/population-care/partner activation, incident/evacuation areas, transport states, shifts, emergency water, shelter, care, medicines, fuel, stocks, welfare checks, mutual aid and the 72-hour transition are explicit observed/official-scenario/synthetic/unknown records with source and valid time. Service recovery is calibrated by service/operator and remains separate from hazard duration and household preparedness."
+    }
+  ],
+  "residualLimitations": [
+    "No reviewed public source provides safe complete/current Enexis electricity/gas topology or switching, Brabant Water/Evides pressure/supply topology, municipal sewer control, Ziggo/other telecom control, critical-facility backup, crews, fuel, stock or restoration order for GM0748. These must not be inferred from roads, provider areas, municipal totals or point registers.",
+    "Mijn Aansluiting identifies Enexis, Brabant Water and Ziggo at one reference point, while the municipal programme also names Evides. Point results do not prove full-boundary coverage; the empty sewer response is unknown.",
+    "HWH water/wastewater/defence and municipal ArcGIS registers have variable or unclear completeness. Feature existence/status/timestamps do not prove live operation, condition, available capacity, power, backup, flood performance or failure.",
+    "The BoZ Atlas exposes public ArcGIS REST services, but reviewed item metadata has blank licence fields and no declared cadence. Reuse and source semantics require municipal confirmation before ingestion.",
+    "LIWO requires layer-specific mechanism, defence/breach state, resolution, licence and specialist interpretation. ROR risk areas and defence registers are not selected depth/arrival scenarios, and the public ROR layer is based on an older reporting cycle.",
+    "The 2026 Waterakkoord and regional Volkerak-Zoommeer protocol establish actors and operational coupling, not a public live machine-readable decision feed or hydraulic consequence curve for arbitrary scenarios.",
+    "OVapi GTFS is planned service without an SLA; NDW current situations have finite validity, unknown supplier-validation quality and no causal NWB match. A station/stop or missing incident record does not prove operation/passability.",
+    "RIVM/Bravis and KVK facility data identify locations/functions but not live capacity, occupancy, staffing, dependencies, backup endurance, medicines, diversion or incident availability.",
+    "CBS describes registered residents and rounded annual aggregates, not people present, individual vulnerability, visitors, commuters, patients, facility occupancy or evacuation priority.",
+    "KNMI station/radar and Rijkswaterstaat Waterinfo products are observations/forecasts at their own points/grids and clocks, not neighbourhood flood, smoke, service-failure or restoration products; transformation and uncertainty require validation.",
+    "The induced-earthquake preset is source-specific and produces negligible local motion; the regional profile notes natural tectonic risk mainly in the region's east. Neither statement constitutes a calibrated Bergen op Zoom earthquake damage model.",
+    "Exact hazard intensities, service availabilities, affected totals, backup hours, flows, interventions and deprived person-hours remain synthetic or derived-screening outputs, not operator commitments, observations, forecasts or official emergency decisions."
+  ],
+  "provinceReviewFlags": [
+    "Noord-Brabant/VRMWB reviewers should audit all municipalities around Volkerak-Zoommeer, Hollands Diep and the 'naad van Brabant' with mechanism-specific coast, river, transition, primary/regional-defence, storage, polder and extreme-rain scenarios rather than generic distance screens.",
+    "Correct the shared ROR edition label nationally: the current harmonized PDOK endpoint describes the 2018 report for second cycle 2016–2021 with no planned update, not ROR 2022–2027.",
+    "Review all Noord-Brabant municipality outputs for identical cross-hazard neighbourhood rankings and require hazard-specific hydraulic, urban-water, heat/land-cover, fuel/plume, winter and cyber/service geography.",
+    "Prioritize municipal stress-test/SSW/GWSW/AHN/BGT ingestion for West-Brabant water modelling, but retain HWH/municipal assets as context until catchment, capacity, dependency, backup and state are sourced.",
+    "Review Markiezaat/Brabantse-Wal municipalities jointly with VRMWB and Belgian partners for selectable local nature-fire/perimeter/plume scenarios; remote canonical smoke must not be presented as local fire coverage.",
+    "Keep provider responsibility, physical topology and live operations distinct province-wide. Enexis/Brabant Water/Evides/Ziggo areas and public aggregates cannot be converted to road-shaped utility networks.",
+    "Use the VRMWB 72-hour organizational transition as governance context across the safety region, not a universal service-recovery deadline; source local facilities, roles, shifts and resources separately."
+  ]
+}

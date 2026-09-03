@@ -1,0 +1,522 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0203",
+    "name": "Barneveld",
+    "province": "Gelderland",
+    "safetyRegion": "Gelderland-Midden"
+  },
+  "agent": {
+    "taskName": "municipality_gm0203",
+    "agentId": "/root/nl_realism_audit",
+    "completedAt": "2026-09-02T15:11:27Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "Barneveld's generated identity and 2025 administrative inputs are coherent: 63,152 residents, 47 neighbourhoods in ten districts, ten BAG woonplaatsen, 21 BRT settlements, three ProRail stations, 114 grouped transit-stop areas and ten NWB-derived municipal links. The complete ten-preset, six-checkpoint and eight-service deterministic contract passes, including exact no-event behavior, service-layer-invariant local hazard, event-attributable deprived person-hours and exact population/demand/delivery reconciliation. Release is nevertheless correction-required. The Rhine, Meuse & IJssel preset assigns a critical, persistent direct local stress and 44,113 affected residents at T+72 even though the currently published VGGM risk profile does not mark Barneveld as a source municipality for its location-bound flood type; the value comes only from municipality-centroid distance to three simplified river segments. Seven distinct nonzero hazards also reuse exactly the same neighbourhood rank. Most strikingly, the fixed wildfire epicentre lies inside Buitengebied kootwijk, yet Veller is ranked highest and the containing neighbourhood only seventh. Public water-board scenario rasters, water-system objects, weather/event feeds, road status, crop parcels and bounded operator geometry are available for integration. They must retain official-context, official-scenario or observed provenance; unavailable operational utility topology, capacity, crews, stocks and restoration must remain unknown or transparently synthetic.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek / PDOK / Kadaster",
+      "title": "E01 — Kerncijfers wijken en buurten 2025 and administrative geometries for GM0203",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM0203%27%29",
+      "accessedAt": "2026-09-02T15:01:34Z",
+      "edition": 2025,
+      "supports": [
+        "The official municipality record identifies GM0203 Barneveld with 63,152 registered residents, density 359 residents per square kilometre, 17.8% aged 65 or older and 6,793 one-person households.",
+        "The app consumes annual CBS OData and PDOK 2025 municipality, district, neighbourhood and safety-region data under CC BY 4.0, plus BAG woonplaatsen under Public Domain Mark 1.0. These are official-context data, not live population, hazard or infrastructure observations.",
+        "The bundle contains 47 neighbourhoods; their published population totals 63,160, eight above the municipality row (+0.013%) because official rounded components need reconciliation rather than silent replacement."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / PDOK / ProRail / OVapi / Gemeente Barneveld",
+      "title": "E02 — Machine-readable road, rail, scheduled-transit and planned-closure context",
+      "url": "https://service.pdok.nl/rws/nationaal-wegenbestand-wegen/wfs/v1_0?service=WFS&version=2.0.0&request=GetCapabilities",
+      "accessedAt": "2026-09-02T15:01:34Z",
+      "edition": "NWB-Light 2026-08-01; OVapi GTFS feed 9543",
+      "supports": [
+        "NWB is official-context road geometry refreshed monthly under CC0. The generated snapshot yields ten Barneveld links over A1, A30, N301, N303, N310, N797, N801 and N802, but nominal model capacity is neither observed throughput nor emergency passability.",
+        "ProRail OGC geometry provides three station points—Barneveld Noord, Barneveld Zuid and Barneveld Centrum—as CC0 context. OVapi feed 9543, retrieved 2026-08-31 and valid 2026-08-30 through 2026-12-12 under free-use/no-SLA terms, yields 114 grouped stop areas; neither source establishes live service or evacuation capacity.",
+        "The municipality's current https://www.barneveld.nl/parkeren-en-vervoer/wegwerkzaamheden page identifies Melvin/NDW as the map for dated road disruptions used by real-time navigation. Those records are integration-ready mobility context only after endpoint, direction, validity, licence and stale-state semantics are pinned; they do not describe disaster damage or utility flow."
+      ]
+    },
+    {
+      "publisher": "Veiligheids- en Gezondheidsregio Gelderland-Midden",
+      "title": "E03 — Regionaal Risicoprofiel Gelderland-Midden 2020–2023 and current public policy-document index",
+      "url": "https://cms.vggm.nl/sites/default/files/2025-06/Risicoprofiel%20VGGM%20DEFINITIEF.pdf",
+      "accessedAt": "2026-09-02T15:01:34Z",
+      "edition": "2020–2023, adopted 2019; still linked by VGGM in 2026",
+      "supports": [
+        "Table 7 treats flooding and nature fire as location-bound source risks. It marks Barneveld for nature fire but does not mark Barneveld as a source municipality for flooding; cross-municipality secondary effects are expressly outside that table.",
+        "The official flood scenario is a Rhine–IJssel dike-breach worst case with named breach, dike-ring, depth, arrival, evacuation and persistence uncertainty. It does not publish a calibrated Barneveld municipal depth or affected-resident value.",
+        "The Veluwe nature-fire scenario emphasizes campsites and recreation, vulnerable objects, vital infrastructure, hazardous substances, access, extinguishing water, escape routes, hours-scale evacuation and non-resident self-reliance; these determinants are absent from a resident-only scalar field.",
+        "The profile also covers heat/drought, winter weather, utility failure and cyber cascades. It labels its figures indicative and expert-based, not absolute scientific truth. VGGM's current document page at https://vggm.nl/bestuurlijk/beleidsdocumenten-veiligheid still links this expired profile and a 2020–2023 crisis plan, so both are official-scenario/governance context with a material currency caveat, not 2026 resource state."
+      ]
+    },
+    {
+      "publisher": "Gemeente Barneveld",
+      "title": "E04 — Climate-adaptation plan, dated 2026 drought observations and first-72-hour policy",
+      "url": "https://duurzaam.barneveld.nl/klaar-voor-klimaatverandering/klimaatadaptatieplan",
+      "accessedAt": "2026-09-02T15:01:34Z",
+      "edition": "climate plan adopted 2025; drought page 2026-08-13; social-domain vision 2025",
+      "supports": [
+        "The adopted climate programme distinguishes drought, heat, flooding and pluvial nuisance and aims to keep main roads usable by ambulance and fire services during extreme rain; it is official policy/target context, not proof that a specific storm is safe or that sewer capacity is live.",
+        "The dated observation at https://www.barneveld.nl/nieuws/nieuws-van-de-gemeente/wees-zuinig-met-water-tijdens-droogte reports the upper Hoevelakense Beek near Voorthuizen, parts of the Barneveldse Beek and the Esvelderbeek between Kootwijkerbroek and Stroe running dry, low to very low groundwater and a surface-water abstraction ban. This is observed local context as of 2026-08-13, not a 72-hour forecast or preset calibration.",
+        "The 2025 Social Domain Vision at https://www.barneveld.nl/fileadmin/Barneveld/Producten/Documenten/Visie_Sociaal_Domein_2040_gemeente_Barneveld.pdf sets goals for residents to cope for the first 72 hours and for the municipality to support non-self-reliant residents within 72 hours; its proposed Barneveldse Veiligheidsmonitor indicator is a policy/measurement design, not a published readiness result.",
+        "The mayor's 2025 preparedness page at https://www.barneveld.nl/nieuws/columns-en-toespraken/koffiedik-of-vooruitkijken frames power, water, internet, payment, food and medicines as household-preparedness needs and does not promise restoration within 72 hours."
+      ]
+    },
+    {
+      "publisher": "Waterschap Vallei en Veluwe",
+      "title": "E05 — Open geodata portal, regional climate-impact atlas and water-system register",
+      "url": "https://www.vallei-veluwe.nl/actueel/cijfers-en-meetgegevens/",
+      "accessedAt": "2026-09-02T15:01:34Z",
+      "edition": "public services accessed 2026-09-02; 70 mm model dated 2025-10",
+      "supports": [
+        "The water board publishes downloadable and WFS/REST geodata plus a regional climate-impact atlas. The official-scenario 70 mm in one hour Tygron/Aveco DeBondt water-depth tiles at https://tiles.arcgis.com/tiles/ug8NBKcLHVNmdmdt/arcgis/rest/services/Waterdiepte_Blokbui_70_mm_in_1_uur/MapServer are EPSG:28992 model results dated October 2025 and can replace a municipality-density pluvial proxy after method/no-data validation.",
+        "The atlas also exposes versioned flood-depth/arrival, heat, drought and present/future nature-fire-sensitivity layers. The parent items state CC0 unless otherwise indicated and warn users not to derive rights automatically; individual item licence, source model, native cell size and modification date must therefore be pinned. No guaranteed refresh cadence is published for each raster.",
+        "The public Legger Watersysteem FeatureServer at https://services1.arcgis.com/ug8NBKcLHVNmdmdt/arcgis/rest/services/Legger_Watersysteem/FeatureServer contains formally adopted A/B/C watercourses, structures and maintenance context in EPSG:28992 and is updated when subareas are adopted. It is official context, not live level, capacity, power state or flood routing.",
+        "The water board's regularly updated waterbeeld supplies dated observations. An observation may initialize a scenario but is not automatically a neighbourhood forecast or restoration commitment."
+      ]
+    },
+    {
+      "publisher": "Provincie Gelderland / Nederlands Instituut Publieke Veiligheid / Rijksdienst voor Ondernemend Nederland",
+      "title": "E06 — N797 Garderen firebreak, nature-fire index and annual crop parcels",
+      "url": "https://media.gelderland.nl/221129_203512_Notitie_brandsingel_N797_f6a364ff34.pdf",
+      "accessedAt": "2026-09-02T15:01:34Z",
+      "edition": "province note 2022; current RIN page; BRP annual 15 May snapshot",
+      "supports": [
+        "The province identifies the N797 between Putten and Garderen in Barneveld as a firebreak through mixed Natura 2000 Veluwe forest, with fast-burning conifers to be replaced so spread across the road is slowed. This is authoritative local asset/risk context, not evidence of current suppression success.",
+        "NIPV's current RIN page at https://nipv.nl/informatievoorziening/voorzieningen/risico-index-natuurbranden/ describes 17 parameters on a one-square-kilometre grid for professional fire services, land managers and municipalities. No public bulk API, reuse licence or guaranteed refresh cadence was found, so RIN remains official context requiring an agreement rather than a distributable calibration input.",
+        "RVO/PDOK's machine-readable BRP crop-parcel OGC API at https://api.pdok.nl/rvo/gewaspercelen/ogc/v1/api?f=html is an annual 15 May dataset under Public Domain Mark 1.0. It is integration-ready official context for agricultural drought, fire and supply exposure, not live animals, harvest, stock or emergency demand."
+      ]
+    },
+    {
+      "publisher": "Koninklijk Nederlands Meteorologisch Instituut",
+      "title": "E07 — Near-real-time meteorological observations and seismic APIs",
+      "url": "https://dataplatform.knmi.nl/en/dataset/10-minute-in-situ-meteorological-observations-1-0",
+      "accessedAt": "2026-09-02T15:01:34Z",
+      "edition": "dataset version 1.0; current API catalogue",
+      "supports": [
+        "KNMI station observations are issued every ten minutes, normally within minutes, can receive missing records for seven days and are CC BY 4.0. They are observed-live station-scale inputs without manual validation, not a Barneveld neighbourhood field or 72-hour forecast.",
+        "KNMI also exposes radar/nowcast and FDSN earthquake event, station, waveform and ShakeMap services through https://developer.dataplatform.knmi.nl/apis. Product version, temporal/spatial resolution, validation status, observed/forecast semantics and licence must be retained at ingestion.",
+        "The simulator's current weather, winter, heat and fixed-Groningen earthquake values are synthetic scenario forcing unless explicitly connected to one of these products."
+      ]
+    },
+    {
+      "publisher": "Liander / Het Waterschapshuis / KVK-PDOK / Stichting Mijn Aansluiting",
+      "title": "E08 — Public utility geometry, water assets, governmental-service points and provider areas",
+      "url": "https://www.liander.nl/over-ons/open-data",
+      "accessedAt": "2026-09-02T15:01:34Z",
+      "edition": "current public endpoints accessed 2026-09-02",
+      "supports": [
+        "Liander publishes machine-readable electricity and gas location data through ArcGIS/WFS and points to a public outage API. Current app geometry is official context under CC BY 4.0 with fixed refresh cadence unstated; public location, historic/anonymous loading or congestion data does not prove switching, flow, failure, backup or restoration at T+0 to T+72.",
+        "HWH/PDOK publishes weekly IMWA water structures and DAMO water-chain objects under CC BY-SA 4.0 with manager/source timestamps where supplied; current app pumps, weirs, sluices, sewer pumps and treatment works are bounded display-only official context with partial coverage, not live causal nodes.",
+        "KVK/PDOK governmental-service establishments are machine-readable Public Domain Mark 1.0 official context, but their two coarse classes and registered addresses do not establish a hospital, staffed emergency post, shelter, capacity, backup or open state.",
+        "Mijn Aansluiting WFS provider areas were updated 2026-08-14 under public-domain reuse, but identify where providers offer connections, not physical electricity, gas, drinking-water, sewer, heat or telecom topology. Unpublished feeder, pipe, control, crew, fuel and stock data remains unknown or security-sensitive and must not be inferred from roads."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM0203 identity, province and safety-region membership are coherent.",
+      "evidenceRefs": [
+        "E01",
+        "E03"
+      ],
+      "notes": [
+        "Feature id, regional bundle and manifest agree on Barneveld, Gelderland and Veiligheids- en Gezondheidsregio Gelderland-Midden.",
+        "The focused context resolved the expected municipality artifact and found no contradictory official identity."
+      ]
+    },
+    "geography": {
+      "status": "pass",
+      "summary": "The generalized 2025 municipality geometry and generated label point pass the administrative checks.",
+      "evidenceRefs": [
+        "E01",
+        "E05"
+      ],
+      "notes": [
+        "The generated center [5.6363593758, 52.1623778125] lies inside the generalized municipality boundary.",
+        "The administrative boundary is suitable for selection and aggregation, not a water catchment, hydraulic compartment, forest fuel zone, electricity feeder or response district."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Municipality totals and neighbourhood allocation reconcile within official publication rounding.",
+      "evidenceRefs": [
+        "E01"
+      ],
+      "notes": [
+        "Official 2025 population is 63,152, density is 359, 17.8% are aged 65 or older and there are 6,793 one-person households.",
+        "Published neighbourhood population sums to 63,160, eight above the municipality row (+0.013%); the allocator reconciles local simulation population exactly to 63,152.",
+        "Affected population is a resident-equivalent pressure count and excludes commuters, visitors, tourists, campsite occupants, patients, workers and livestock."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "Neighbourhood coverage is broad, but several official fields are null and activity/vulnerability remain aggregate proxies.",
+      "evidenceRefs": [
+        "E01",
+        "E03",
+        "E06"
+      ],
+      "notes": [
+        "The bundle contains 47 neighbourhoods in ten districts with 36 statistic fields. Population, age, households, businesses, land and basic accessibility are complete.",
+        "Home value, cars per household and housing percentage fields are missing in three neighbourhoods; benefit fields are missing in two; district-heating share and public charging points are null in all 47 and correctly remain unknown rather than zero.",
+        "No neighbourhood has an official zero resident count. Activity demand is a model proxy and does not represent Veluwe recreation/campsites, Harselaar industry, rail occupancy, agricultural animals or critical-facility occupancy."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "BAG woonplaatsen and BRT settlement concepts are retained distinctly.",
+      "evidenceRefs": [
+        "E01"
+      ],
+      "notes": [
+        "Ten BAG woonplaatsen—Achterveld, Barneveld, De Glind, Garderen, Kootwijk, Kootwijkerbroek, Stroe, Terschuur, Voorthuizen and Zwartebroek—have no generated center outside the generalized boundary.",
+        "Twenty-one BRT features comprise nine buurtschappen, three gehuchten and nine woonkernen; these descriptive settlement shapes are not resident totals, hazard zones, service areas or response boundaries."
+      ]
+    },
+    "transport": {
+      "status": "warn",
+      "summary": "Official route/station/schedule geometry is present, but disaster passability and operational multimodal capacity are absent.",
+      "evidenceRefs": [
+        "E02",
+        "E03",
+        "E06"
+      ],
+      "notes": [
+        "Ten road links cross to Apeldoorn, Ede, Amersfoort, Nijkerk, Scherpenzeel and Putten. Nominal capacities 260 and 150 are model classes, not traffic counts or guaranteed evacuation throughput.",
+        "Three station points and 114 grouped transit stop areas are official/scheduled context only. The model omits rail and bus service state, passenger loads, directional closures, local access and the N797's separate firebreak/emergency-access role.",
+        "Melvin/NDW can add source-dated planned or current disruption context; an expired or absent record must become unknown, never automatically open."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "First-72-hour policy and old regional governance context exist, but measurable readiness, roles and resources are not modelled.",
+      "evidenceRefs": [
+        "E03",
+        "E04",
+        "E08"
+      ],
+      "notes": [
+        "Barneveld's official 72-hour statements are preparedness and future-policy goals, not measured household readiness or a service-restoration promise.",
+        "The public VGGM crisis plan currently linked is edition 2020–2023, so current 2026 CoPI/ROT/municipal role and response-time claims cannot be validated from it without authority confirmation.",
+        "The model contains no source-dated warning, incident perimeter, role/team activation, crews, extinguishing water, emergency drinking water, shelter, medicine, backup fuel, supply stock, welfare checks, mutual aid or public-warning reach.",
+        "The fixed 0.44 household-preparedness coefficient is a national editable synthetic scenario value, not the unpublished Barneveldse Veiligheidsmonitor result."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "The complete deterministic 10 × 6 × 8 numerical contract passes for GM0203.",
+      "evidenceRefs": [
+        "E03",
+        "E04",
+        "E07"
+      ],
+      "notes": [
+        "MUNICIPALITY_AUDIT_CODE=GM0203 pnpm audit:model passed all canonical presets at T+0, +6, +12, +24, +48 and +72 for power, water, drainage, gas, telecom, mobility, facilities and supply.",
+        "Selected T+24 synthetic outputs are: storm severity 0.1338 and 20,563 affected; pluvial 0.1632 and 12,814; river 0.3515 and 43,458; coastal direct severity zero and zero affected despite indirect wind/service deprivation; heat 0.0958 and zero affected; winter 0.4341 and 22,919; cyber 0.5129 and 21,714; earthquake current ground motion zero and zero affected; wildfire 0.4145 and zero affected; compound 0.8854 and 46,647.",
+        "At T+72 river remains critical with normalized inundation stress 1.1353, 44,113 affected and service availability power 0.7413, water 0.2093, drainage 0.2232, gas 0.4580, telecom 0.2037, mobility 0.5255, facilities 0.1938 and supply 0.2139. Compound remains critical with 47,381 affected. These are deterministic model outputs, not measurements, forecasts or official decisions."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Determinism, bounds, exact no-event semantics, ledgers and local reconciliation pass.",
+      "evidenceRefs": [
+        "E01"
+      ],
+      "notes": [
+        "All tested values are finite and bounded, delivered service does not exceed demand, repeated frames are deterministic and causal/counterfactual ledgers reconcile.",
+        "Intensity zero yields exact zero event hazard, zero affected population and zero event-attributable deprived person-hours for all ten presets and checkpoints.",
+        "Every local view contains 47 neighbourhoods and reconciles exactly to 63,152 residents. Across services and presets, maximum demand/delivery/reconciliation error is 3.552713678800501e-14.",
+        "Local hazard is exactly identical across the eight service selections, resident values retain official zero/null semantics and deprived person-hours are quarter-hour event-attributable shortfall relative to a matched no-event baseline."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "The neighbourhood fields and named major-river mechanism are not spatially defensible for Barneveld.",
+      "evidenceRefs": [
+        "E03",
+        "E04",
+        "E05",
+        "E06"
+      ],
+      "notes": [
+        "At T+24 severe storm, pluvial flood, river flood, heat, winter, cyber and wildfire have exactly the same rank order across all 47 neighbourhoods because every canonical preset shares one seed and no hazard-specific local footprint is sampled. Compound only differs through saturation/ties.",
+        "The common order begins Veller, De Glind, Stroe, Buitengebied Achterveld, Prinsessenwijk and Norschoten. Official evidence instead distinguishes urban/sewer rainfall exposure, named local dry streams, agricultural drought and forest/recreation nature-fire pathways.",
+        "The fixed wildfire epicentre [5.75, 52.18] lies inside Buitengebied kootwijk, whose source center is 1.061 km away, but that neighbourhood ranks seventh while Veller ranks first. Direct wildfire is allocated as a municipality scalar rather than a propagating ignition/perimeter intersected with vegetation and neighbourhood geometry.",
+        "The river value is calculated from the municipality center's distance to three simplified Rhine/Meuse/IJssel line segments with 50 km support. It has no Barneveld breach, dike ring, catchment, watercourse, elevation, defence, depth, arrival or recession input."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "Eight-service cascades are inspectable but not calibrated to Barneveld assets, operating state or topology.",
+      "evidenceRefs": [
+        "E02",
+        "E03",
+        "E05",
+        "E08"
+      ],
+      "notes": [
+        "All eight services receive the same ten road-derived municipal route records. Supplied/NWB connectivity is correctly disclosed as a logical transfer proxy, never physical electricity, drinking-water, drainage, gas/heating, telecom, facility or supply topology.",
+        "Liander geometry, water-board assets, provider areas and KVK governmental-service points can support bounded official-context overlays, but do not establish flow, switching, capacity, failure, backup autonomy, staffing or restoration.",
+        "The model has no typed Barneveld water catchments/pumps, grid substations/feed zones, gas zones, telecom coverage/control, verified critical-facility dependencies or emergency logistics stock.",
+        "No safe complete public source was found for all feeder, pipe, valve, telecom-control, facility-backup, crew, fuel, stock and restoration relationships. Missing/security-sensitive topology must remain unknown or be the smallest explicit synthetic zonal graph with ranges and sensitivity tests."
+      ]
+    },
+    "causalTrace": {
+      "status": "warn",
+      "summary": "Causal arithmetic is auditable, but local forcing and service coefficients remain mostly synthetic assumptions.",
+      "evidenceRefs": [
+        "E03",
+        "E05",
+        "E07",
+        "E08"
+      ],
+      "notes": [
+        "Hazard, availability, system-pressure and intervention ledgers reconcile and explanations disclose logical road connectivity rather than utility topology.",
+        "For coastal flood at T+24, direct local inundation severity and normalized water stress are zero while 17.37 m/s wind causes indirect service deprivation; the UI and export must keep direct, indirect and cumulative effects separate.",
+        "The field called floodDepthM is presented publicly as normalized inundation stress and must never be interpreted as metres or an LIWO/authority depth.",
+        "The earthquake preset uses a fixed Groningen source rather than a selected KNMI event/ShakeMap; cyber impact, backup, capacity, recovery and household preparedness have no Barneveld operator calibration."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "The first-72-hour window is complete, but unsupported continuing river impact and uncalibrated recovery/status transitions prevent release.",
+      "evidenceRefs": [
+        "E03",
+        "E04",
+        "E07",
+        "E08"
+      ],
+      "notes": [
+        "River forcing correctly persists past 72 hours in the generic preset, but its unsupported Barneveld amplitude holds the municipality critical from T+24 through T+72 and accumulates 1,898,014.92 event-attributable deprived person-hours.",
+        "Heat forcing remains at severity 0.0958 with drought 0.5322 through T+72 under the 336-hour preset, yet the municipality status is operational with zero affected residents; this is possible within the threshold definition but lacks health, drinking-water, agriculture and operator calibration.",
+        "Cyber is recovering at T+72 with residual disruption 0.0602 but zero affected and 1,192,360.04 cumulative person-hours; wildfire returns to operational/zero affected while accumulating 818,704.76 person-hours. Exact response and recovery rates are synthetic, not promises.",
+        "Barneveld's 72-hour policy is preparedness and support intent, not a claim that utilities, mobility, facilities or supply recover in 72 hours. Current warnings, roles, staff, resources, outages and restoration estimates require source-dated inputs."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [
+      0,
+      6,
+      12,
+      24,
+      48,
+      72
+    ],
+    "services": [
+      "power",
+      "water",
+      "drainage",
+      "gas",
+      "telecom",
+      "mobility",
+      "facilities",
+      "supply"
+    ]
+  },
+  "findings": [
+    {
+      "id": "GM0203-RIVER-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The Rhine, Meuse & IJssel preset creates a critical persistent Barneveld inundation claim that official regional source-location evidence does not support.",
+      "evidence": "At T+24 the derived-screening field reports normalized inundation stress 1.1353, critical status and 43,458 affected residents; at T+72 it still reports 1.1353 and 44,113 affected. E03 treats flooding as location-bound, does not mark Barneveld as a flood source municipality and defines a breach-based Rhine–IJssel scenario; the model uses only centroid distance to three simplified river segments and contains no Barneveld hydraulic input.",
+      "action": "Suppress Barneveld's direct named-major-river amplitude and mark it unsupported/unknown—not safe—until an expert-selected, versioned LIWO or WVV scenario mask is intersected with the municipality and neighbourhoods. Preserve indirect regional/network effects separately. Store mechanism, breach/scenario ID, depth/stress unit, probability, arrival, persistence, no-data, edition, hash, resolution, licence and reviewer."
+    },
+    {
+      "id": "GM0203-SPAT-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Seven physically different hazards reuse one seeded Barneveld neighbourhood ranking.",
+      "evidence": "The T+24 probe finds exactly the same 47-neighbourhood rank for severe storm, pluvial, river, heat, winter, cyber and wildfire: Veller first, then De Glind, Stroe, Buitengebied Achterveld, Prinsessenwijk and Norschoten. E04–E06 distinguish local urban-rain, dry-stream/agricultural and forest/fire pathways, and E05 exposes machine-readable hazard-specific rasters.",
+      "action": "Replace shared seeded modulation with disaster-specific spatial adapters and tests. Sample validated WVV pluvial/flood/heat/drought/fire-sensitivity layers, authoritative elevation/land cover and event footprints; model cyber by selected service/control zone rather than random resident geography. Retain source class, timestamp, resolution, transformation hash, no-data, licence and confidence."
+    },
+    {
+      "id": "GM0203-FIRE-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The fixed wildfire source is inside Buitengebied kootwijk, but the local fire map does not follow the source, forest fuels or escape/access pathways.",
+      "evidence": "A closed-ring-safe point-in-polygon check places [5.75, 52.18] inside BU02036265 Buitengebied kootwijk, whose source center is 1.061 km away. At T+24 the model reports wildfire 0.3345, smoke 0.5430 and drought 0.6536, yet ranks Veller first and the containing neighbourhood seventh. E03 identifies Barneveld as a nature-fire source municipality and makes campsites, visitors, vulnerable objects, access, extinguishing water and escape routes decisive; E06 documents the N797 Garderen firebreak.",
+      "action": "Make ignition/perimeter editable and propagate fire/smoke over authoritative vegetation, WVV fire sensitivity, weather/wind and neighbourhood geometry. Pursue licensed NIPV RIN access; until then use a declared synthetic ensemble with uncertainty. Add campsite/recreation occupancy, access, bluswater and evacuation inputs separately from registered residents and prove the ignition-containing polygon receives direct exposure when fuel is present."
+    },
+    {
+      "id": "GM0203-PLUVIAL-001",
+      "severity": "medium",
+      "category": "hazard",
+      "status": "open",
+      "summary": "A current local 70 mm rainfall-depth model is available, but pluvial exposure still comes from municipality density and a shared seed.",
+      "evidence": "E04 defines emergency-road and building-water adaptation objectives. E05 publishes an EPSG:28992 Tygron/Aveco DeBondt 70 mm in one hour water-depth scenario dated October 2025, plus water-system context. The simulator instead reports one municipal stress 0.2259 at T+24 and the same neighbourhood order as fire, cyber and river, without sewer catchments, low points, flow paths or route intersections.",
+      "action": "Build a version-pinned WVV raster adapter with no-data and licence checks, aggregate depth/exposure to neighbourhood and road/facility footprints, and preserve the raster in city view. Treat the layer as official-scenario model output, never an observed flood; validate against municipal hotspots and distinguish sewer capacity/operating state as unknown unless separately sourced."
+    },
+    {
+      "id": "GM0203-FLOOD-SEM-001",
+      "severity": "medium",
+      "category": "explainability",
+      "status": "open",
+      "summary": "Flood labels need an explicit direct-versus-indirect distinction for inland Barneveld.",
+      "evidence": "Coastal T+24 has zero direct local severity and zero normalized inundation stress, but a 17.37 m/s wind field reduces service availability and accumulates 37,552.77 deprived person-hours. River T+24 is a derived proximity screen, not hydraulic depth. Without separate legend/export contributions, users can misread either preset as observed local sea or river inundation.",
+      "action": "Expose direct inundation, wind, upstream/network and supply-chain contributions separately in map legend, inspector, brief and export. Always show the selected mechanism and evidence class, and keep normalized inundation stress distinct from metres."
+    },
+    {
+      "id": "GM0203-NET-001",
+      "severity": "medium",
+      "category": "network",
+      "status": "accepted-limitation",
+      "summary": "The ten NWB links are logical transfer proxies for all eight services, not Barneveld utility topology.",
+      "evidence": "Every service view receives the same ten A/N-road records. E02 supports those roads only. E05 and E08 provide bounded water assets, provider areas and Liander electricity/gas geometry, but not complete live flow, switching, capacity, outage, backup or restoration topology for drinking water, drainage, power, gas/heating, telecom, facilities or supply.",
+      "action": "Separate mobility/supply routing from non-mobility service graphs. Integrate public Liander, HWH, provider-area and aggregate outage/status products only within their semantics; keep unavailable or security-sensitive topology as unknown or minimal editable synthetic zones with ranges. Never infer a feeder, pipe or telecom link from NWB."
+    },
+    {
+      "id": "GM0203-FAC-TRANSIENT-001",
+      "severity": "medium",
+      "category": "regional-data",
+      "status": "open",
+      "summary": "Critical facilities and transient agricultural, industrial and Veluwe recreation loads are not represented as verified first-72-hour nodes.",
+      "evidence": "E03 says nature-fire impact depends on campsites, recreation, vulnerable objects, vital infrastructure and hazardous substances, and identifies Harselaar industrial context elsewhere in the profile. E06 provides crop parcels. The current model uses registered residents and aggregate activity; scheduled stop names and KVK government-service addresses do not establish facility role, occupancy, animals, staffing, backup, shelter or capacity.",
+      "action": "Create a typed, dated facility and transient-exposure registry from KVK/PDOK, RIVM acute-care roles, DUO/BAG and authority-confirmed sites; retain identity, function, occupancy, backup and operational state separately. Add crop/animal/business/recreation scenario loads only from licensed aggregates, never by turning a transit stop or address into a live facility."
+    },
+    {
+      "id": "GM0203-72H-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "open",
+      "summary": "Barneveld's first-72-hour policy goals are represented as a generic preparedness coefficient rather than observable decisions and resources.",
+      "evidence": "E04 sets future goals for household self-reliance and municipal support to non-self-reliant residents and proposes a local monitor indicator, but publishes no value that supports 0.44. E03's currently linked crisis plan is stale. The model has no warnings, incident perimeter, team/role activation, crews, emergency water, medicine, shelter, backup fuel, supply stock, welfare checks or mutual aid.",
+      "action": "Add a provenance-bearing incident timeline and resource contract. Show official observed, official scenario, synthetic or unknown for warning/source time, role activation, closures, verified crews, bluswater/emergency water, shelter, medicine, fuel, stock, vulnerable-person support and mutual aid. Keep 0.44 explicitly synthetic until a source-dated Barneveldse Veiligheidsmonitor value is published and licensed."
+    },
+    {
+      "id": "GM0203-WEATHER-EQ-001",
+      "severity": "medium",
+      "category": "hazard",
+      "status": "accepted-limitation",
+      "summary": "Storm, winter, heat/drought and earthquake are bounded scenarios, but their exact Barneveld values are not tied to KNMI products.",
+      "evidence": "The model reports at T+24 winter wind 16.43 m/s, -5.23 °C, 2.1 cm/h snow, ice 0.3757 and cold stress 0.3903; heat is 24.22 °C with drought 0.5322; earthquake current motion is zero with peak severity 0.0353 from a fixed Groningen source. E07 provides observed/forecast/event products, but none of these precise values selects a KNMI station/radar/forecast/event or ShakeMap.",
+      "action": "Retain scenario labels and add versioned KNMI adapters. Every value must declare observation, forecast, warning, official scenario or synthetic mode with timestamp, resolution, product version, validation status and licence. Use event-specific FDSN/ShakeMap input for earthquakes and do not infer neighbourhood weather from one station without uncertainty."
+    },
+    {
+      "id": "GM0203-RECOVERY-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "open",
+      "summary": "Status, affected-resident and recovery trajectories are not calibrated to Barneveld operators or continuing hazards.",
+      "evidence": "At T+72 heat/drought forcing remains active but status is operational with zero affected; cyber is recovering with residual disruption and zero affected; wildfire is operational/zero affected. Their cumulative event-attributable deprivation is respectively 429,637.82, 1,192,360.04 and 818,704.76 person-hours. E04's 72-hour goals and E08's public geometry do not validate any of these exact transitions or repair rates.",
+      "action": "Calibrate thresholds, backup endurance, health/service effects and recovery by service and incident class with operators/authorities, preserving ranges and uncertainty. Treat current outage/resource feeds as observations only for their validity interval and keep restoration estimates separate from household preparedness and hazard duration."
+    },
+    {
+      "id": "GM0203-INV-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The current deterministic accounting and proxy semantics pass the Barneveld harness.",
+      "evidence": "The full matrix passes finite bounds, determinism, exact zero-event behavior, causal/counterfactual reconciliation, event-attributable person-hours, preserved official null/zero resident semantics, service-invariant local hazard and exact municipality/local population-demand-delivery totals. Public wording identifies NWB connectivity as a logical transfer proxy and normalized inundation stress as non-hydraulic.",
+      "action": "Retain these invariants in the national gate and add Barneveld regressions for an unsupported major-river state, hazard-specific neighbourhood fields, ignition-containing wildfire geometry and direct-versus-indirect flood semantics before accepting the open corrections."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Stop presenting Barneveld's generic Rhine/Meuse/IJssel proximity screen as supported direct inundation.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/MapLegend.tsx"
+      ],
+      "validation": "GM0203 direct major-river output is unsupported/unknown rather than critical or safe until a versioned expert-reviewed hydraulic mask is selected. Diagnostic proximity can remain internal; indirect service effects are separately labelled. The UI/export exposes mechanism, evidence class, scenario/breach, depth-versus-stress unit, arrival, persistence, no-data, edition, hash, resolution, licence and confidence."
+    },
+    {
+      "summary": "Replace Barneveld's shared seeded neighbourhood modulation with source-specific spatial hazard adapters.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "scripts/fetch-realism-data.mjs (or dedicated WVV/land-cover adapters)",
+        "apps/web/src/data.ts"
+      ],
+      "validation": "Pluvial, river/regional water, heat/drought, wildfire/smoke, weather and cyber fields no longer share an identical neighbourhood order solely through one seed. The WVV 70 mm scenario reproduces declared source/no-data semantics. An ignition inside Buitengebied kootwijk yields direct exposure there when authoritative fuel is present, and fire/smoke propagation shows source, wind, time and ensemble uncertainty."
+    },
+    {
+      "summary": "Separate direct inundation from indirect wind/network effects throughout maps and exports.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/components/MapLegend.tsx",
+        "apps/web/src/components/OperationsBrief.tsx"
+      ],
+      "validation": "For GM0203 coastal T+24, direct inundation remains zero while wind and service contributions are shown separately. Named river/regional-water and coastal scenarios cannot be mistaken for measured local depth, and normalized inundation stress is never labelled metres."
+    },
+    {
+      "summary": "Integrate public service context without promoting it to unavailable physical topology or live status.",
+      "files": [
+        "scripts/fetch-realism-data.mjs",
+        "apps/web/src/data.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts"
+      ],
+      "validation": "Liander geometry/status products, HWH/WVV water objects, KVK service locations, provider areas and NDW/Melvin disruptions retain publisher, manager, edition, observed/valid time, cadence, licence, coverage and context-only/causal status. Roads affect mobility/supply but do not silently become power, water, drainage, gas, telecom or facility links. Unknown or security-sensitive values stay unknown or visibly synthetic with ranges."
+    },
+    {
+      "summary": "Add typed transient exposure, facilities and first-72-hour response/resource state with explicit provenance.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/ScenarioControls.tsx",
+        "apps/web/src/components/OperationsBrief.tsx"
+      ],
+      "validation": "Registered residents, visitors/workers/patients and animals remain separate denominators. Transit stops and registered addresses cannot create an operational facility. Warnings, roles, incident perimeter, closures, crews, extinguishing/emergency water, medicine, fuel, shelter, stocks, welfare checks and mutual aid show observed/official-scenario/synthetic/unknown class, source and as-of time."
+    },
+    {
+      "summary": "Connect scenario forcing to versioned KNMI products and calibrate recovery independently from hazard duration and preparedness.",
+      "files": [
+        "scripts/fetch-realism-data.mjs (or dedicated KNMI ingestion)",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/components/ScenarioControls.tsx"
+      ],
+      "validation": "Weather/seismic values declare observation, forecast, warning, official scenario or synthetic mode with product/version, time, resolution, validation and licence. Heat forcing stays active through 72 hours under the 336-hour event; affected/status/recovery transitions cite separate calibrated assumptions and uncertainty rather than implying KNMI observation or a restoration promise."
+    }
+  ],
+  "residualLimitations": [
+    "The currently published VGGM risk profile and crisis plan are both labelled 2020–2023 despite remaining on the 2026 policy-document page; current regional roles, priorities and resource assumptions require confirmation from VGGM.",
+    "No reviewed public source provides safe, complete and current electricity feeder, drinking-water/gas pipe, sewer-control, telecom-control, facility-backup, crew, fuel, stock or restoration topology for Barneveld. It must not be guessed from roads or public points.",
+    "WVV climate rasters are authoritative scenario/model products, not observed floods or street-level guarantees. Individual model, date, native cell size, no-data, licence and modification cadence vary and must be verified per item.",
+    "WVV/HWH water assets are registries with varying completeness. Presence does not establish current condition, capacity, power supply, backup, operating state or failure.",
+    "Liander public geometry and anonymous/historic loading data do not by themselves expose live switching, flow, outage cause or repair time; public outage API licence, retention and update semantics need an adapter review.",
+    "Mijn Aansluiting areas identify providers offering connections, not physical network topology, supply direction, redundancy or outage state.",
+    "NIPV RIN is professional one-square-kilometre risk information; no public bulk API, reuse licence or guaranteed cadence was found during this audit.",
+    "CBS statistics are annual registered-resident/household aggregates and do not identify people present, individual vulnerability, campsite visitors, commuters, patients, facility occupancy, animals or response priority.",
+    "OVapi GTFS describes planned service without an SLA; stops and trips are not actual operations, passenger load, emergency access, facility identity or recovery. Melvin records planned/current disruptions but not disaster damage unless explicitly reported.",
+    "Exact hazard intensities, service availability, affected totals, backup hours, flows, interventions and deprived person-hours remain synthetic or derived-screening outputs, not forecasts, observations, operator commitments or official emergency decisions.",
+    "The audit covers display hours 0–72. Heat/drought, high water, ecological harm, infrastructure repair, displacement, agricultural effects and recovery can extend well beyond that horizon."
+  ],
+  "provinceReviewFlags": [
+    "Audit Gelderland-Midden municipalities against explicit Rhine/IJssel, polder, regional-water and breach pathways; do not substitute centroid distance to three simplified river segments for hydraulic connectivity. Barneveld requires unsupported/unknown direct major-river treatment pending a selected scenario.",
+    "Require distinct pluvial, heat/drought, winter/storm, nature-fire/smoke and cyber neighbourhood fields across Gelderland. The common canonical seed/order is a national model defect, not a Barneveld-only anomaly.",
+    "Coordinate a Veluwe nature-fire review across Barneveld, Ede, Apeldoorn, Putten and adjacent municipalities, including NIPV RIN access, authoritative fuel/land-cover, editable ignition/perimeter, KNMI wind, campsites/visitors, bluswater, access and escape routes.",
+    "Use WVV 70 mm rainfall, flood/arrival, drought, heat and fire-sensitivity services as versioned official-scenario inputs only after licence/no-data/native-resolution validation; compare with municipal climate hotspots and targets.",
+    "Separate NWB/NDW mobility from electricity, drinking-water, drainage, gas/heating, telecom, facilities and emergency-supply topology throughout Gelderland; integrate bounded public context, but keep sensitive/unavailable operating topology explicitly unknown or synthetic.",
+    "Create a province-wide typed critical-facility/transient-demand and first-72-hour resource contract without deriving facilities from GTFS/KVK labels or turning preparedness policy into measured readiness."
+  ]
+}

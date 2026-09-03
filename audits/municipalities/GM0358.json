@@ -1,0 +1,647 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0358",
+    "name": "Aalsmeer",
+    "province": "Noord-Holland",
+    "safetyRegion": "Amsterdam-Amstelland"
+  },
+  "agent": {
+    "taskName": "municipality_gm0358",
+    "agentId": "/root/causal_engine_v3",
+    "completedAt": "2026-09-02T11:04:10Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "Aalsmeer's 2025 identity, boundary, municipality totals and nine-neighbourhood population reconciliation are unusually complete, and the dedicated 10-scenario by 6-checkpoint by 8-service numerical gate passes. The model nevertheless cannot be verified for decision use. A reproducible shared-model defect gives severe-storm and compound scenarios non-zero headline hazard severity at intensity zero even though every physical hazard dimension, affected population and event-attributable person-hour measure is zero; the causal trace then labels that schedule-only remainder as a seasonal baseline. Aalsmeer also exposes material local-calibration gaps: its polders and Westeinderplassen span two water authorities, flood depths are not derived from breach or hydraulic scenarios, direct wildfire exposure ignores burnable land cover, and resident-population demand omits the municipality's exceptional floriculture, greenhouse and logistics activity. Service flows are explicitly marked logical transfer proxies and must not be read as PWN, Liander, telecom, drainage or gas topology. The current build is suitable only as a deterministic, inspectable stress-test prototype after the zero-intensity contradiction is corrected and the remaining proxy semantics are made prominent.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek",
+      "title": "Kerncijfers wijken en buurten 2025 — filtered municipality row GM0358",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM0358%27%29&%24select=WijkenEnBuurten%2CAantalInwoners_5%2CBevolkingsdichtheid_34%2Ck_65JaarOfOuder_12%2CEenpersoonshuishoudens_30",
+      "accessedAt": "2026-09-02T11:04:10Z",
+      "edition": 2025,
+      "supports": [
+        "Official GM0358 population, population density, age 65+ count and one-person-household count.",
+        "Reference totals used to reconcile the generated neighbourhood data."
+      ]
+    },
+    {
+      "publisher": "PDOK / Centraal Bureau voor de Statistiek",
+      "title": "Gemeente gegeneraliseerd 2025",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_gegeneraliseerd/items?f=json&limit=1000&datetime=2025-07-01T00%3A00%3A00Z",
+      "accessedAt": "2026-09-02T11:04:10Z",
+      "edition": 2025,
+      "supports": [
+        "Official GM0358 name, code and generalized administrative geometry.",
+        "Administrative point-in-polygon and province checks."
+      ]
+    },
+    {
+      "publisher": "PDOK / Centraal Bureau voor de Statistiek",
+      "title": "Buurt gegeneraliseerd 2025",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/buurt_gegeneraliseerd",
+      "accessedAt": "2026-09-02T11:04:10Z",
+      "edition": 2025,
+      "supports": [
+        "Nine official neighbourhood geometries and three district groupings in GM0358.",
+        "Spatial basis for aggregate neighbourhood statistics and local allocation."
+      ]
+    },
+    {
+      "publisher": "PDOK / Kadaster",
+      "title": "BAG woonplaats OGC API",
+      "url": "https://api.pdok.nl/kadaster/bag/ogc/v2/collections/woonplaats",
+      "accessedAt": "2026-09-02T11:04:10Z",
+      "edition": 2026,
+      "supports": [
+        "Two active BAG woonplaatsen, Aalsmeer and Kudelstaart, associated with the municipality."
+      ]
+    },
+    {
+      "publisher": "PDOK / Kadaster",
+      "title": "BRT TOP10NL plaats_vlak OGC API",
+      "url": "https://api.pdok.nl/kadaster/brt-top10nl/ogc/v1/collections/plaats_vlak",
+      "accessedAt": "2026-09-02T11:04:10Z",
+      "edition": 2026,
+      "supports": [
+        "Four BRT settlement polygons: Aalsmeer, Kudelstaart, Calslagen and Vrouwentroost.",
+        "Source ontology and settlement-population caveat."
+      ]
+    },
+    {
+      "publisher": "PDOK / Centraal Bureau voor de Statistiek",
+      "title": "Veiligheidsregio gegeneraliseerd 2025",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/veiligheidsregio_gegeneraliseerd",
+      "accessedAt": "2026-09-02T11:04:10Z",
+      "edition": 2025,
+      "supports": [
+        "GM0358 intersects exactly one safety region, Amsterdam-Amstelland."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / PDOK",
+      "title": "Nationaal Wegenbestand wegen WFS capabilities",
+      "url": "https://service.pdok.nl/rws/nationaal-wegenbestand-wegen/wfs/v1_0?service=WFS&version=2.0.0&request=GetCapabilities",
+      "accessedAt": "2026-09-02T11:04:10Z",
+      "edition": "NWB-light 2026-08-01",
+      "supports": [
+        "Source provenance for N201, N231 and N196 road geometry used by the logical municipal graph.",
+        "Road data do not establish utility topology or disaster throughput."
+      ]
+    },
+    {
+      "publisher": "ProRail / PDOK",
+      "title": "ProRail stations OGC API",
+      "url": "https://api.pdok.nl/prorail/spoorwegen/ogc/v1/collections/station",
+      "accessedAt": "2026-09-02T11:04:10Z",
+      "edition": 2026,
+      "supports": [
+        "No ProRail station geometry lies inside the generalized GM0358 boundary."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Amsterdam-Amstelland",
+      "title": "Regionaal Risicoprofiel 2025–2028",
+      "url": "https://veiligheidsregioaa.nl/publish/pages/636/04b_regiorisicoprofiel_25-28_def.pdf",
+      "accessedAt": "2026-09-02T11:04:10Z",
+      "edition": "2025–2028",
+      "supports": [
+        "Regional selection and characterization of polder/dike flooding, extreme precipitation, drought, storm, heat and vital-service disruption.",
+        "Aalsmeer context including extensive water, low-lying territory, Westeinderplassen, Schiphol proximity and dangerous-goods routing.",
+        "Cascading dependencies across electricity, gas, drinking water, cyber and mobility."
+      ]
+    },
+    {
+      "publisher": "Gemeente Aalsmeer",
+      "title": "Algemene toelichting Omgevingsplan gemeente Aalsmeer",
+      "url": "https://documenten.aalsmeer.nl/sites/aalsmeer/files/2025-12/algemene-toelichting-omgevingsplan-gemeente-aalsmeer.pdf",
+      "accessedAt": "2026-09-02T11:04:10Z",
+      "edition": 2025,
+      "supports": [
+        "Aalsmeer spans Hoogheemraadschap van Rijnland and Waterschap Amstel, Gooi en Vecht.",
+        "Kudelstaart, except Westeinder shore areas, is principally in Amstel, Gooi en Vecht; the remaining municipality is principally in Rijnland.",
+        "Municipal water-management responsibilities and climate pressure."
+      ]
+    },
+    {
+      "publisher": "Gemeente Aalsmeer",
+      "title": "Agenda Klimaatadaptatie Aalsmeer — bestuurlijke besluitvorming",
+      "url": "https://aalsmeer.bestuurlijkeinformatie.nl/Agenda/Index/44e25088-398b-495e-9e3b-6fe3b0302b7a",
+      "accessedAt": "2026-09-02T11:04:10Z",
+      "edition": 2024,
+      "supports": [
+        "Local policy scope covers water nuisance, heat stress, drought and flood safety.",
+        "Local bottleneck investigation is necessary rather than assuming a uniform municipal response."
+      ]
+    },
+    {
+      "publisher": "Liander",
+      "title": "Werkzaamheden en energienet in Aalsmeer",
+      "url": "https://www.liander.nl/regio/noord-holland/aalsmeer",
+      "accessedAt": "2026-09-02T11:04:10Z",
+      "edition": 2026,
+      "supports": [
+        "Liander is carrying out electricity-network replacement or reinforcement work in named Aalsmeer areas.",
+        "Public operator information is contextual and does not disclose the physical switching or restoration topology required by the model."
+      ]
+    },
+    {
+      "publisher": "PWN",
+      "title": "Waar levert PWN drinkwater?",
+      "url": "https://www.pwn.nl/veelgestelde-vragen?vraag=waar-levert-pwn",
+      "accessedAt": "2026-09-02T11:04:10Z",
+      "edition": 2026,
+      "supports": [
+        "PWN lists Aalsmeer in its drinking-water service area.",
+        "Service-area evidence does not provide pipe, reservoir, pumping or isolation topology."
+      ]
+    },
+    {
+      "publisher": "Hoogheemraadschap van Rijnland",
+      "title": "Rijnland werkt mee aan waterplannen voor de sierteeltregio van de toekomst",
+      "url": "https://www.rijnland.net/actueel/nieuwsoverzicht/rijnland-werkt-mee-aan-waterplannen-voor-de-sierteeltregio-van-de-toekomst/",
+      "accessedAt": "2026-09-02T11:04:10Z",
+      "edition": 2026,
+      "supports": [
+        "Clean and fresh water is essential to Greenport Aalsmeer.",
+        "The local water system faces drought, heavy rainfall, water nuisance, salinity and water-quality challenges."
+      ]
+    },
+    {
+      "publisher": "Royal FloraHolland",
+      "title": "Reflection on the 2026 spring peak",
+      "url": "https://www.royalfloraholland.com/en/news-2026/week-28/reflection-on-the-2026-spring-peak-2",
+      "accessedAt": "2026-09-02T11:04:10Z",
+      "edition": 2026,
+      "supports": [
+        "The Aalsmeer operation handled about 102000 flower transactions on its peak day and approximately 11000 per hour at maximum.",
+        "Aalsmeer's daytime logistics and service demand cannot be inferred from resident population alone."
+      ]
+    },
+    {
+      "publisher": "Provincie Noord-Holland",
+      "title": "Avond- en nachtafsluiting N201 — Waterwolftunnel",
+      "url": "https://www.noord-holland.nl/Actueel/Archief/2026/Juni_2026/Avond_en_nachtafsluiting_N201_25_28_juni_2026",
+      "accessedAt": "2026-09-02T11:04:10Z",
+      "edition": 2026,
+      "supports": [
+        "The N201 Waterwolftunnel crosses beneath the Ringvaart between Aalsmeer and Haarlemmermeer.",
+        "Tunnel closure diverts traffic via other corridors and therefore represents a real mobility dependency absent from a generic municipal edge."
+      ]
+    },
+    {
+      "publisher": "KNMI",
+      "title": "KNMI'23-klimaatscenario's voor Nederland",
+      "url": "https://www.knmi.nl/kennis-en-datacentrum/publicatie/knmi-23-klimaatscenario-s-voor-nederland",
+      "accessedAt": "2026-09-02T11:04:10Z",
+      "edition": "KNMI'23",
+      "supports": [
+        "Climate-scenario uncertainty and national forcing context for heat, drought and precipitation.",
+        "The simulator presets are not municipal forecasts or observed events."
+      ]
+    },
+    {
+      "publisher": "KNMI",
+      "title": "Natuurbranden",
+      "url": "https://www.knmi.nl/kennis-en-datacentrum/uitleg/natuurbranden",
+      "accessedAt": "2026-09-02T11:04:10Z",
+      "edition": 2026,
+      "supports": [
+        "Wildfire occurrence depends on weather, burnable material and ignition.",
+        "Distance from a national scenario centre alone is not sufficient for local direct-fire exposure."
+      ]
+    },
+    {
+      "publisher": "KNMI",
+      "title": "ShakeMaps archief",
+      "url": "https://www.knmi.nl/nederland-nu/seismologie/shakemaps-archief",
+      "accessedAt": "2026-09-02T11:04:10Z",
+      "edition": 2026,
+      "supports": [
+        "Official Dutch shaking products are event-specific maps based on observations and ground-motion relations.",
+        "The simulator's North-Netherlands earthquake is a synthetic stress test, not an Aalsmeer hazard assessment."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat",
+      "title": "Watermodellen en applicaties — LIWO",
+      "url": "https://www.rijkswaterstaat.nl/zakelijk/open-data/modellen-en-applicaties/watermodellen",
+      "accessedAt": "2026-09-02T11:04:10Z",
+      "edition": 2026,
+      "supports": [
+        "LIWO provides professional flood-information layers and scenario products.",
+        "Hydraulically valid breach, defence and inundation data are available in a different form from the current distance/density proxy."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM0358, Aalsmeer, Noord-Holland and Amsterdam-Amstelland agree across the manifest, generated data and official 2025 sources.",
+      "evidenceRefs": [
+        "E1",
+        "E2",
+        "E6"
+      ],
+      "notes": [
+        "The generated feature id and municipal code both equal GM0358.",
+        "The safety-region point-in-polygon check finds exactly one region, Amsterdam-Amstelland.",
+        "Boundary and municipal-statistics editions are both 2025."
+      ]
+    },
+    "geography": {
+      "status": "pass",
+      "summary": "The official generalized 2025 MultiPolygon and municipal centre are internally coherent; [4.747200090552363, 52.24963657032309] lies inside the geometry.",
+      "evidenceRefs": [
+        "E2",
+        "E3"
+      ],
+      "notes": [
+        "All nine neighbourhood label points and both BAG woonplaats centres lie inside the generalized municipality boundary.",
+        "This verifies administrative geometry only; it does not establish elevation, dikes, polder compartments, sewer catchments or utility geometry."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "The generated municipality values reproduce the official 2025 row: population 33250, density 1654/km², 6437 residents aged 65+ and 4963 one-person households.",
+      "evidenceRefs": [
+        "E1",
+        "E3"
+      ],
+      "notes": [
+        "The nine published neighbourhood populations sum exactly to 33250.",
+        "Neighbourhood age-65+ values sum to 6435, two below the municipality count, and one-person households sum to 4960, three below the municipality count; these small differences are consistent with rounded small-area publications.",
+        "Neighbourhood totals are 14455 households, 17335 cars, 2010 ha land and 1219 ha water."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "All nine official neighbourhoods, three districts and all ten aggregate context inputs consumed by the model are present, but two additional display statistics are unavailable throughout the municipality.",
+      "evidenceRefs": [
+        "E1",
+        "E3"
+      ],
+      "notes": [
+        "Population, age-65 share, one-person share, multi-family share, social-assistance share, cars per household, density, GP distance, supermarket distance and land/water area are available in all 9/9 neighbourhoods; modeled context coverage is 1.000.",
+        "District-heating percentage and public charging points are absent in all 9/9 source records and are preserved as null, not converted to zero.",
+        "The generated data also contain 5460 business units and 2507 non-residential buildings, but these fields are not passed into LocalRegionContext and therefore do not affect service demand.",
+        "All generated local priorities remain neutral at 2 and isHub=false; no population-derived operational hub is asserted."
+      ]
+    },
+    "settlements": {
+      "status": "warn",
+      "summary": "Two BAG woonplaatsen and four BRT settlement polygons are source-valid but represent different ontologies and should not be presented as one count of municipal centres.",
+      "evidenceRefs": [
+        "E4",
+        "E5"
+      ],
+      "notes": [
+        "BAG woonplaatsen are Aalsmeer and Kudelstaart.",
+        "BRT provides Aalsmeer and Kudelstaart as woonkernen and Calslagen and Vrouwentroost as deelkernen.",
+        "BRT settlement populations sum to 33330, 80 above the 2025 municipal total or 0.24%; the products use different concepts and reference dates, so no silent rescaling or equality claim is warranted."
+      ]
+    },
+    "transport": {
+      "status": "warn",
+      "summary": "The road neighbours and public-transport observations are plausible, but the six road links are boundary-crossing abstractions and omit a locally important tunnel dependency.",
+      "evidenceRefs": [
+        "E7",
+        "E8",
+        "E16"
+      ],
+      "notes": [
+        "The graph links Aalsmeer to Haarlemmermeer, Amstelveen and Uithoorn using N201, N231 and N196 names; six boundary links all have nominal scenario capacity 150.",
+        "Reported distances of 0.100-0.704 km describe boundary-link geometries, not end-to-end municipal journeys.",
+        "There is no ProRail station inside the boundary and 37 GTFS stop areas are retained, including Aalsmeer Busstation and FloraHolland stops.",
+        "The real N201 Waterwolftunnel under the Ringvaart and its diversion relationship to adjacent corridors are not represented as an asset or failure dependency."
+      ]
+    },
+    "emergencyContext": {
+      "status": "warn",
+      "summary": "Authoritative local context identifies low polders, extensive surface water, two water authorities, Schiphol proximity, Greenport logistics and vital-service dependencies, but these are context rather than calibrated assets in the model.",
+      "evidenceRefs": [
+        "E9",
+        "E10",
+        "E11",
+        "E12",
+        "E13",
+        "E14",
+        "E15"
+      ],
+      "notes": [
+        "The regional risk profile selects polder/dike failure, extreme precipitation, drought, storm and heat among its natural scenarios; it distinguishes low-probability large sea/river consequences from more probable regional/polder failures.",
+        "Aalsmeer spans Rijnland and Amstel, Gooi en Vecht water-management areas, while PWN supplies drinking water and Liander supplies public electricity/gas context.",
+        "No verified pumps, substations, pipe zones, telecom sites, shelters, hospitals, depots, emergency crews, stocks, switching plans or restoration times are included.",
+        "Royal FloraHolland and the wider horticulture/logistics cluster create substantial daytime and process dependencies not represented by resident population."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "fail",
+      "summary": "All ten canonical presets execute at T+0/6/12/24/48/72 for all eight services, but a zero-intensity control disproves the headline hazard-severity invariant for severe-storm and compound.",
+      "evidenceRefs": [
+        "E9",
+        "E17",
+        "E18",
+        "E19",
+        "E20"
+      ],
+      "notes": [
+        "Peak severities at the required checkpoints are severe-storm 0.4900, pluvial-flood 0.5686, river-flood 0.1525, coastal-flood 0.4360, heatwave 0.4819, winter-storm 0.7768, cyberattack 0.5369, earthquake 0.0169, wildfire 0.2342 and compound 0.9292.",
+        "At T+24, severe-storm has 0.096 m flood; pluvial 0.570 m flood; river 0.490 m flood; coastal 1.487 m flood and 23.71 m/s gust; heatwave 22.53 C and drought 0.425; winter -8.90 C, snow 4.28 cm/h, ice 0.719 and gust 25.79 m/s; cyber disruption 0.458; earthquake current ground acceleration zero after a 0.00333 g T+6 peak; wildfire fire 0.161, smoke 0.287 and drought 0.562; compound rain 51.16 mm/h, flood 0.588 m, wind 24.29 m/s and cyber disruption 0.471.",
+        "T+24 minimum service availabilities are severe-storm facilities 0.3718, pluvial drainage 0.4524, river telecom 0.8837, coastal drainage 0.1855, heatwave facilities 0.3264, winter supply 0.3507, cyber telecom 0.2828, earthquake power 0.8457, wildfire supply 0.6121 and compound telecom 0.1110.",
+        "With intensity explicitly set to zero, severe-storm severity is still 0.228186 at T+6 and 0.268746 at T+12, while rain, flood, wind, cyber, affected population and event-attributable person-hours are all zero. Compound retains false severity 0.068517 at T+6, 0.179628 at T+12, 0.366608 at T+24 and 0.094207 at T+48 under the same zero-intensity control."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "The dedicated GM0358 gate passes bounds, determinism, population/demand/delivery reconciliation, service-invariant local hazard, cumulative-history and causal-ledger assertions.",
+      "evidenceRefs": [],
+      "notes": [
+        "Command run: MUNICIPALITY_AUDIT_CODE=GM0358 pnpm audit:model; result 2 tests passed in 26.53 seconds on 2026-09-02.",
+        "This evaluates 60 municipality frames and 480 service states over the canonical 10 presets, 6 checkpoints and 8 services; the integration root separately reports the national ALL gate green for all 342 municipalities under the same matrix.",
+        "The compound T+24 local detail reconciles population 33250 and affected population 22745 for each service; demand and delivery errors are at or below 3.6e-15 and all nine local regions report official provenance with context coverage 1.000.",
+        "Canonical web preset drift test also passes: pnpm vitest run apps/web/src/scenarios.test.ts; 1 test passed in 135 ms on 2026-09-02.",
+        "A closed ledger is an arithmetic invariant, not evidence that each modeled cause is physically valid; the zero-intensity finding demonstrates that distinction."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "Administrative allocation is coherent, but flood depths and direct wildfire exposure are not safe as physical neighbourhood maps for Aalsmeer.",
+      "evidenceRefs": [
+        "E9",
+        "E10",
+        "E11",
+        "E14",
+        "E18",
+        "E20"
+      ],
+      "notes": [
+        "The model uses municipal label-point distance, density and deterministic local seeds rather than LIWO inundation rasters, breach locations, dikes, elevation, polder compartments or sewer catchments; exact T+24 values of 1.487 m coastal and 0.490 m river depth therefore cannot be interpreted as forecast water depth in Aalsmeer.",
+        "Official local sources distinguish Rijnland from Amstel, Gooi en Vecht water-management areas, while the model gives the municipality one hazard state and seeded neighbourhood multipliers.",
+        "The national wildfire centre near [5.75, 52.18], roughly 69 km east, still yields direct Aalsmeer wildfire intensity 0.161 and smoke 0.287 at T+24 without burnable-land or ignition data; direct fire and transported smoke are not separated spatially.",
+        "Within a municipal frame local hazard is now service-invariant, while service-specific demand and fragility remain inspectable; this is a corrected and passing invariant.",
+        "Heat, winter, storm, cyber and earthquake maps are deterministic stress-test surfaces, not KNMI forecasts, local return-period maps or operator incident feeds."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "warn",
+      "summary": "All eight services have bounded, directionally intelligible dependencies, but local supply, topology and restoration are proxy assumptions rather than Aalsmeer operator models.",
+      "evidenceRefs": [
+        "E9",
+        "E10",
+        "E12",
+        "E13",
+        "E14",
+        "E15",
+        "E16"
+      ],
+      "notes": [
+        "Power and gas include direct hazard, cyber and upstream effects, but no Liander substation, feeder, pressure zone, valve, switching or congestion-capacity asset is represented.",
+        "Water includes power/backup effects, but PWN pipes, storage, pumping, mutual supply and isolation zones are absent.",
+        "Drainage includes rain, flooding and power dependence, but Rijnland and Amstel, Gooi en Vecht boundaries, polder pumps, boezem levels, sewer catchments and discharge constraints are absent.",
+        "Telecom includes power and battery-endurance assumptions, but no mobile sites, exchanges, fibre, radio redundancy or emergency-coverage data are represented.",
+        "Mobility is the strongest geographic layer through NWB and GTFS, but disaster capacity is synthetic and the Waterwolftunnel, Schiphol interaction and FloraHolland freight flows are absent.",
+        "Facilities include power and backup assumptions, but no care, fire, shelter, medical or municipal crisis facility has verified location, capacity or priority.",
+        "Supply depends on mobility, but no supermarket, depot, fuel, auction, greenhouse or emergency distribution inventories are represented.",
+        "At compound T+24 the eight availabilities are power 0.6483, water 0.3736, drainage 0.1931, gas 0.5501, telecom 0.1110, mobility 0.4116, facilities 0.2283 and supply 0.3509; these are scenario-index outputs, not operator outage forecasts."
+      ]
+    },
+    "causalTrace": {
+      "status": "fail",
+      "summary": "Service and system-pressure ledgers reconcile and proxy semantics are exposed, but the hazard ledger gives a causally false label to non-zero severity under zero event intensity.",
+      "evidenceRefs": [
+        "E9",
+        "E10",
+        "E12",
+        "E13"
+      ],
+      "notes": [
+        "Municipal system-pressure weights include all eight services and sum to one: power 0.18, water 0.15, drainage 0.08, gas 0.09, telecom 0.12, mobility 0.12, facilities 0.14 and supply 0.12.",
+        "All route transfers declare transferSemantics logical-proxy, preventing the NWB graph from being presented as physical power, water, drainage, gas or telecom topology.",
+        "The severe-storm severity formula contains an event-envelope term independent of intensity; at intensity zero the entire false remainder is reconciled as hazard:seasonal-baseline with the description 'Modeled severity that remains when event intensity is set to zero.' The arithmetic is exact but the stated cause is not a seasonal observation.",
+        "Local allocations expose CBS context, deterministic service-specific sensitivity and neutral priority rather than claiming operational hubs.",
+        "Generator priority, mutual aid, backup, network capacity and repair capacity are bounded scenario assumptions; they are not verified crews, assets or commitments and should remain labeled as such."
+      ]
+    },
+    "recovery72h": {
+      "status": "warn",
+      "summary": "Cumulative unmet-essential-service pressure is monotonic and event-attributable, but the 72-hour state is generic and can visually conflict with physically worded hazard layers.",
+      "evidenceRefs": [
+        "E9",
+        "E10",
+        "E11",
+        "E20"
+      ],
+      "notes": [
+        "At T+72 the minimum service availability and cumulative event-attributable person-hours are: severe-storm power 0.8662 and 229611; pluvial power 0.8682 and 358352; river power 0.9130 and 308686; coastal supply 0.9095 and 871611; heatwave power 0.8751 and 206867; winter supply 0.7760 and 608813; cyber telecom 0.8116 and 558860; earthquake power 0.8614 and 14698; wildfire power 0.8842 and 286643; compound supply 0.7963 and 971495.",
+        "The compound frame still displays 0.588 m flood depth and current severity 0.4928 at T+72 while affected population is zero; this can be coherent only if affected means current service-pressure threshold rather than flood-exposed residents, so UI and export labels must state that semantic explicitly.",
+        "Restoration is a scenario curve with delayed/ramped intervention effects, not an operator resource schedule. No public source reviewed provides assets, crews, access constraints or repair-time distributions sufficient to validate the municipal recovery trajectory.",
+        "The product horizon covers the requested first 72 hours; it does not model prolonged displacement, reconstruction, insurance, health or economic recovery."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [
+      0,
+      6,
+      12,
+      24,
+      48,
+      72
+    ],
+    "services": [
+      "power",
+      "water",
+      "drainage",
+      "gas",
+      "telecom",
+      "mobility",
+      "facilities",
+      "supply"
+    ]
+  },
+  "findings": [
+    {
+      "id": "GM0358-HAZ-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Shared-model correction: severe-storm and compound report non-zero headline hazard severity when scenario intensity is zero.",
+      "evidence": "Reproduce with createScenarioConfig(preset, { intensity: 0 }) and simulateFrame for GM0358. Severe-storm returns severity 0.228186 at T+6 and 0.268746 at T+12; compound returns 0.068517, 0.179628, 0.366608 and 0.094207 at T+6/12/24/48. All physical hazard dimensions, affected population and event-attributable person-hours remain zero. In packages/sim-core/src/model.ts the severe-storm severity includes event * 0.38 without multiplying by intensity, and explainability assigns the remainder to hazard:seasonal-baseline. This is national/shared, not Aalsmeer-specific.",
+      "action": "Make every event-attributable severity term intensity-dependent or derive severity solely from normalized physical dimensions; reserve seasonal baseline for a separately sourced baseline. Add all-preset intensity-zero assertions for current and peak severity, causal contributions, affected population and event-attributable person-hours."
+    },
+    {
+      "id": "GM0358-FLOOD-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Municipality-specific calibration: exact coastal, river and pluvial depths ignore Aalsmeer's dual water-authority and polder/hydraulic structure.",
+      "evidence": "E9-E11 distinguish low polders, Westeinderplassen, regional/polder flooding and two water authorities; E20 identifies LIWO scenario layers. The model instead produces 1.487 m coastal, 0.490 m river and 0.570 m pluvial T+24 depths from label-point distance, density and deterministic multipliers, without dikes, breach location, elevation, hydraulic connectivity, polder compartments or sewer catchments.",
+      "action": "Ingest public scenario-specific flood masks and waterboard/catchment tags. Until calibrated, rename exact metre outputs to non-spatial flood-stress indices and suppress neighbourhood depth claims. Validate separately for Rijnland and Amstel, Gooi en Vecht areas against an official breach or rainfall scenario."
+    },
+    {
+      "id": "GM0358-FIRE-001",
+      "severity": "medium",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Shared hazard method exposed locally: Aalsmeer receives direct wildfire intensity from a long radial tail without burnable-land or ignition support.",
+      "evidence": "At T+24 the canonical wildfire preset gives GM0358 direct fire 0.161, smoke 0.287 and 3966 affected residents even though its scenario centre is about 69 km east. E18 states that burnable material, weather and ignition jointly determine nature fire; E9 does not select nature fire among the regional natural-risk scenarios. The model uses an exponential distance surface and does not distinguish direct flame exposure from transported smoke.",
+      "action": "Limit direct fire to burnable land-cover/ignition footprints with finite support and wind-aware spread; model smoke transport separately. Add an Aalsmeer regression that permits regional smoke but rejects direct neighbourhood flame intensity without an intersecting footprint."
+    },
+    {
+      "id": "GM0358-DEMAND-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Municipality-specific demand: resident-population allocation omits Aalsmeer's major floriculture, greenhouse and logistics load.",
+      "evidence": "The generated nine-neighbourhood source contains 5460 business units and 2507 non-residential buildings, but apps/web/src/data.ts does not pass them into LocalRegionContext and service demand remains population/context weighted. E14 describes clean/fresh water dependence of Greenport Aalsmeer, while E15 reports about 102000 peak-day transactions and about 11000/hour at Royal FloraHolland Aalsmeer. Thus mobility, supply, power and water pressure can be materially misallocated despite exact resident-population reconciliation.",
+      "action": "Add aggregate, privacy-safe employment/business/non-residential and time-of-day demand inputs with service-specific coefficients. Calibrate them as scenario assumptions rather than inferred physical consumption and retain separate reconciliation for residents, daytime population and economic/process load."
+    },
+    {
+      "id": "GM0358-WATER-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "open",
+      "summary": "Municipality-specific water/drainage allocation collapses PWN supply and two water-management systems into one generic balance.",
+      "evidence": "E10 divides Aalsmeer between Rijnland and Amstel, Gooi en Vecht, E13 places Aalsmeer in PWN's drinking-water area, and E14 documents Greenport freshwater, salinity, drought and heavy-rain constraints. The simulation has one municipal water and drainage balance plus seeded neighbourhood context; it contains no public catchment, pump, storage, boezem, pipe-zone or isolation attributes.",
+      "action": "Represent public waterboard/catchment membership and separate drinking-water from surface-water/drainage context. Keep sensitive physical topology unavailable unless operators authorize it; validate only aggregate service envelopes against public continuity and scenario evidence."
+    },
+    {
+      "id": "GM0358-NET-001",
+      "severity": "medium",
+      "category": "network",
+      "status": "accepted-limitation",
+      "summary": "Shared limitation: all essential-service transfers use the road-derived municipal graph, not physical utility networks.",
+      "evidence": "The six GM0358 links are N201/N231/N196 boundary abstractions with nominal capacity 150. The same connectivity supports power, water, drainage, gas, telecom, facilities and supply transfers. Explanations correctly expose transferSemantics=logical-proxy, while E12-E13 provide only public operator/service-area context and no topology.",
+      "action": "Retain the explicit logical-transfer-proxy label in maps, exports and tooltips; do not display lines as pipes, cables or operator assets. Future topology integration requires operator-supplied, security-reviewed aggregate zones rather than inferred road coincidence."
+    },
+    {
+      "id": "GM0358-MOB-001",
+      "severity": "medium",
+      "category": "network",
+      "status": "open",
+      "summary": "Municipality-specific mobility model omits the Waterwolftunnel and major freight/airport dependencies.",
+      "evidence": "E16 identifies the N201 Waterwolftunnel beneath the Ringvaart and its detour relationship; E15 documents large FloraHolland peak logistics. The model represents N201 as generic municipal boundary links, has no tunnel system or single-point failure, and does not model Schiphol or auction freight. Thirty-seven GTFS areas and no internal station are spatially plausible but insufficient for emergency throughput.",
+      "action": "Add public critical-structure flags and mode-specific detour relationships for the Waterwolftunnel, plus aggregate freight/daytime demand. Validate a tunnel-closure counterfactual against the province's published diversion routes without inventing classified capacity."
+    },
+    {
+      "id": "GM0358-EXP-001",
+      "severity": "high",
+      "category": "explainability",
+      "status": "open",
+      "summary": "Shared explainability correction: a closing causal ledger currently mislabels schedule-only severity as a seasonal baseline.",
+      "evidence": "At zero intensity the severe-storm physical dimensions and impacts are all zero, yet the hazard contribution ledger closes at 0.228186/T+6 and 0.268746/T+12 by assigning the full remainder to hazard:seasonal-baseline. No seasonal observation or climatology enters that term; it comes from the scenario event envelope. An exact ledger therefore creates false causal confidence.",
+      "action": "Rename or remove the term after fixing the severity equation, expose source/provenance and equation class for every baseline, and add a semantic test requiring event-envelope contributions to be zero when intensity is zero."
+    },
+    {
+      "id": "GM0358-REC-001",
+      "severity": "medium",
+      "category": "explainability",
+      "status": "open",
+      "summary": "Shared recovery semantics: physical-sounding depth, affected-population and service-recovery labels can diverge at T+72.",
+      "evidence": "At compound T+72 GM0358 still shows floodDepthM=0.588 and current severity 0.4928, while affectedPopulation=0 and all services are 0.7963-0.965. The cumulative metric reaches 971495 event-attributable person-hours. The values are mathematically deterministic but restoration is generic and affected population is a service-pressure threshold, not the count physically exposed to floodwater.",
+      "action": "State metric semantics in every chart/export, split hazard-exposed from service-deprived population, and gate recovery on current forcing/access where a layer is expressed in physical units. Add T+72 consistency tests for persistent flood forcing."
+    },
+    {
+      "id": "GM0358-SET-001",
+      "severity": "informational",
+      "category": "regional-data",
+      "status": "accepted-limitation",
+      "summary": "BAG woonplaatsen and BRT settlements are valid but non-equivalent Aalsmeer geographies.",
+      "evidence": "E4 yields two woonplaatsen; E5 yields two woonkernen plus two deelkernen. The BRT settlement populations total 33330 versus the CBS municipal 33250, a 0.24% difference consistent with distinct concepts/reference dates rather than a population reconciliation failure.",
+      "action": "Keep source type, edition and ontology visible; do not merge the counts or present BRT population as the CBS municipal total."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Remove non-zero event severity at zero intensity and correct the causal label.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/explainability.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/src/scenarios.test.ts"
+      ],
+      "validation": "For all ten presets and representative municipalities, create intensity-zero configurations and assert zero current/peak event severity, zero physical event dimensions, zero event-envelope contribution, zero affected population and zero event-attributable person-hours. Preserve any explicitly sourced baseline as a separately identified non-event term. Re-run MUNICIPALITY_AUDIT_CODE=GM0358 pnpm audit:model and the national ALL gate."
+    },
+    {
+      "summary": "Replace exact Aalsmeer flood-depth claims with hydraulically valid scenario/catchment data or honest indices.",
+      "files": [
+        "scripts/fetch-realism-data.mjs",
+        "apps/web/src/data.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts"
+      ],
+      "validation": "Add public Rijnland/Amstel-Gooi-en-Vecht catchment tags and at least one official LIWO or local rainfall scenario fixture. Assert that neighbourhood metre-depth claims only appear where the official inundation footprint intersects and document breach/return-period provenance; otherwise assert a unitless flood-stress label."
+    },
+    {
+      "summary": "Separate finite-support direct wildfire exposure from smoke transport.",
+      "files": [
+        "scripts/fetch-realism-data.mjs",
+        "apps/web/src/data.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts"
+      ],
+      "validation": "Use public burnable land cover, ignition footprint and wind inputs; assert zero direct fire outside the footprint/support while permitting separately labeled downwind smoke. Include GM0358 as a low-direct-fire/high-transported-smoke edge case."
+    },
+    {
+      "summary": "Include Aalsmeer's aggregate daytime/business context in service-specific demand without implying exact consumption.",
+      "files": [
+        "apps/web/src/data.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts"
+      ],
+      "validation": "Pass aggregate business/non-residential context into local regions, add time-of-day and day-type service-specific demand terms, and assert separate reconciliation for residents and scenario business load. Document coefficients as assumptions and test that Greenpark/FloraHolland-context demand can change mobility/supply/power without changing the physical hazard field."
+    },
+    {
+      "summary": "Clarify recovery and population semantics for persistent hazards while retaining logical-network caveats.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/explainability.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/src/components/StatsPanel.tsx"
+      ],
+      "validation": "Expose distinct hazard-exposed population, current service-pressure population and cumulative unmet-essential-service person-hours. For a persistent Aalsmeer compound/flood fixture at T+72, assert that recovery is access/forcing constrained or that the physical depth label is suppressed; keep every cross-municipality utility transfer labeled logical-proxy."
+    }
+  ],
+  "residualLimitations": [
+    "The ten presets are deterministic synthetic stress tests, not KNMI forecasts, return-period estimates, current incidents or operator outage predictions.",
+    "No confidential or security-sensitive Liander, PWN, telecom, gas, waterboard or emergency-service topology was available; public service areas and works notices cannot substitute for operational networks.",
+    "Neighbourhood outputs are allocated from aggregate CBS context and deterministic coefficients; they do not resolve buildings, households, people or actual assets.",
+    "Required checkpoints are six-hourly or coarser, so short impulses such as earthquake shaking may occur between displayed times; peak-memory fields partly mitigate but do not create temporal validation.",
+    "Generic repair, backup, mutual-aid and preparedness assumptions are bounded scenario controls, not verified municipal inventories, dispatch times or commitments.",
+    "The first-72-hour horizon excludes longer displacement, health consequences, economic loss, environmental recovery, reconstruction and adaptive behaviour.",
+    "Public CBS percentages and small-area counts are rounded; exact equality should only be required for fields whose source semantics support it.",
+    "The settlement, BAG, CBS neighbourhood and municipal boundary products use different ontologies and sometimes different reference dates.",
+    "Aalsmeer's Schiphol adjacency, air-traffic consequences and dangerous-goods routing are contextual only and are not represented as coupled hazards."
+  ],
+  "provinceReviewFlags": [
+    "Shared/national P0: audit every municipality for non-zero severe-storm/compound severity at intensity zero and the false hazard:seasonal-baseline attribution.",
+    "Shared/national: direct wildfire exposure needs finite footprint and burnable-land support; smoke should remain a separate transported hazard.",
+    "Noord-Holland: distinguish coast/sea, primary-system, regional-water and polder/secondary-dike scenarios before comparing municipal flood depths.",
+    "Aalsmeer-specific: preserve the Rijnland versus Amstel, Gooi en Vecht split and Westeinderplassen/polder context in any local flood or drainage calibration.",
+    "Aalsmeer-specific: incorporate aggregate Greenport/FloraHolland daytime demand into power, water, mobility and supply scenarios.",
+    "Aalsmeer-specific: model the N201 Waterwolftunnel as a public critical mobility structure and detour dependency, without inventing emergency capacity.",
+    "Shared/national: retain logical-transfer-proxy language for road-derived essential-service flows; do not infer physical power, water, drainage, gas or telecom lines.",
+    "Province-level review should not interpret current Liander works or congestion notices as disaster fragility, outage probability or restoration evidence."
+  ]
+}

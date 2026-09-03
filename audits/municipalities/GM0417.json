@@ -1,0 +1,411 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0417",
+    "name": "Laren (NH.)",
+    "province": "Noord-Holland",
+    "safetyRegion": "Gooi en Vechtstreek"
+  },
+  "agent": {
+    "taskName": "municipality_gm0417",
+    "agentId": "/root/municipality_gm0397",
+    "completedAt": "2026-09-03T06:34:27Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "GM0417's identity, Gooi en Vechtstreek safety-region assignment, full 2025 boundary and CBS resident control are coherent. Fresh context reports 11,474 residents; ten published neighbourhood rows sum to 11,470 (-4, -0.035%), a negligible difference that preserves CBS rounding and suppression semantics. The bundle contains one district, ten neighbourhoods, one BAG place and one BRT woonkern. Seven logical motorway records represent portions of only two physical corridors, A1 and A27; these series/junction edges are non-additive. No ProRail station lies inside the municipality and 16 scheduled-transit stop areas are present. All ten presets execute deterministically at T+0/6/12/24/48/72 across eight services and pass structural/numerical contracts. Release is nevertheless correction-required. Official Laren and AGV evidence distinguishes high-area infiltration, low-area street/sewer surcharge and groundwater, the Gooiergracht drainage route toward Eemmeer, and wastewater transfer to RWZI Blaricum. The generic Rhine/Meuse/IJssel preset instead holds 0.446750 normalized inundation stress through T+72, increasing affected residents from 512 to 691 without a named connected water source, boundary/control state, footprint, arrival or recession. Coastal water is zero but only for the configured narrow source, not an all-clear. Eight unrelated non-earthquake presets reuse exactly the same complete neighbourhood order, always led by five-resident Laren-Natuurgebied, including river, heat and cyber. A controlled fire source inside that neighbourhood can create direct flame, but canonical wildfire has zero local flame and unverified transported smoke despite current authoritative heath/woodland and dated drought/fire-risk evidence. Exact mobility, utilities, acute care, wastewater, supply and recovery remain unsupported by live topology, state, capacity, backup, resources and actions. Missing observations, forecasts and local registry matches are Unknown/NoData, never zero, safe, open or available.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek (CBS)",
+      "title": "E01 — Kerncijfers wijken en buurten 2025, table 86165NED, OData API",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM0417%27%29",
+      "accessedAt": "2026-09-03T06:25:00Z",
+      "edition": 2025,
+      "supports": [
+        "The official municipality row identifies GM0417 Laren (NH.) and reports 11,474 residents, density 925 per square kilometre, 32.5% age 65 or older and 1,955 one-person households.",
+        "The ten published neighbourhood rows sum to 11,470 residents (-4, -0.035%), 5,165 households and 3,745 residents aged 65 or older; the negligible difference retains annual rounding and suppression semantics.",
+        "Most fields cover all ten neighbourhoods. Home value, tenure, cars per household, benefits/pensions, doctor/supermarket distance and population density cover nine, while district-heating share and public-charging counts cover zero and must not become zero.",
+        "CBS OData is machine-readable under CC BY 4.0, with quarterly additions described for this annual table. It controls residents, not incident-time visitors, pupils, patients, commuters, responders, individual vulnerability or preparedness."
+      ]
+    },
+    {
+      "publisher": "PDOK / CBS / Kadaster / Rijkswaterstaat / ProRail / OVapi",
+      "title": "E02 — Full municipal geometry, settlement and road, rail and scheduled-transit reference inputs",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_niet_gegeneraliseerd/items?f=json&filter=statcode%3D%27GM0417%27",
+      "accessedAt": "2026-09-03T06:26:00Z",
+      "edition": "2025 boundary/statistics and current generated BAG, BRT, NWB, ProRail and GTFS snapshots",
+      "supports": [
+        "The generated centre [5.216473054119728, 52.24228531527495] lies inside the fresh full-resolution 2025 municipal boundary.",
+        "The bundle retains one district, ten neighbourhoods, one BAG place named Laren and one BRT woonkern; no BAG place centre falls outside the generalized boundary.",
+        "Seven logical road records are portions of only A1 and A27. Four A1 and three A27 records share their respective physical-corridor identities and are boundary/junction series, not seven independent evacuation or supply paths.",
+        "No ProRail station lies inside GM0417 and 16 GTFS stop areas are assigned. Static geometry/timetables do not prove incident-time road/bus operation, local approach access, destination, accessibility or throughput.",
+        "CBS boundary OGC is half-yearly/CC BY 4.0; BAG is daily/Public Domain Mark 1.0; BRT is CC BY 4.0; NWB is monthly/CC0 1.0; ProRail is manually refreshed/CC0 1.0. OVapi GTFS is free-use best-effort context without an operational SLA."
+      ]
+    },
+    {
+      "publisher": "Gemeente Laren",
+      "title": "E03 — Wateroverlast and Laren Regenklaar implementation context",
+      "url": "https://www.laren.nl/wateroverlast",
+      "accessedAt": "2026-09-03T06:26:30Z",
+      "edition": "Current public guidance and programme pages inspected 3 September 2026; Omgevingsvisie Laren 2040 adopted 17 December 2025",
+      "supports": [
+        "Laren says intense rain can exceed sewer capacity. In Hoog Laren the programme redirects roof and street water toward local infiltration, including vertical infiltration; in parts of Laag Laren heavy rain leaves water on streets and can force mainly rainwater from the sewer into gardens/public space through relief points.",
+        "Months of rain can saturate the ground and raise groundwater into older basements/crawl spaces; the municipality continuously measures selected wells but states groundwater is complex, interventions are conditional and responsibilities are shared.",
+        "Laren Regenklaar includes public- and private-space measures whose installation and maintenance state varies. A project or maintenance instruction is not proof of event-time storage, infiltration, inlet/sewer capacity or correct operation.",
+        "The current environmental vision calls for rain/heat-ready neighbourhoods and protection of the green outer area. Planning ambition is not a hazard raster, live observation, probability or T+72 response.",
+        "The inspected web/PDF routes do not expose a stable machine API with guaranteed refresh, blanket reuse licence, native raster metadata and explicit NoData contract."
+      ]
+    },
+    {
+      "publisher": "Waterschap Amstel, Gooi en Vecht / Het Waterschapshuis",
+      "title": "E04 — Gooiergracht drainage, wastewater dependency and public water-asset context",
+      "url": "https://www.agv.nl/werk-in-uitvoering/watergebiedsplan-gooiergracht/",
+      "accessedAt": "2026-09-03T06:27:00Z",
+      "edition": "Project page last updated February 2026; draft plan announced 23 April 2026; HWH snapshot retrieved 3 September 2026",
+      "supports": [
+        "The Gooiergracht borders Laren/Blaricum/Eemnes and carries water from the Gooi toward Eemmeer through five weirs and gemaal Gooiergracht. It is a managed drainage/receiving-water pathway, not the Rhine/Meuse/IJssel preset's generic local depth.",
+        "AGV says the system has longstanding heavy-rain water nuisance, drought/water-shortage, vulnerable banks and maintenance issues. Its 2026 draft plan proposes fixed target levels, controllable replacement weirs, watercourse/culvert widening and nature-friendly banks; draft measures are not completed protection or current operating state.",
+        "AGV states wastewater from Laren, Blaricum and Eemnes is treated at RWZI Blaricum. This creates a real cross-boundary sewer/energy/access dependency absent from a municipal scalar.",
+        "The partial HWH/PDOK registry assigns only one realized weir to GM0417, with null capacity. It is a contributor-dependent national aggregation under CC BY-SA 4.0 and plainly does not represent the complete Gooiergracht, sewer, pump or treatment chain.",
+        "No public page establishes connected catchments, comparable capacity, current level/flow, weir/pump command, blockage, power/backup or T+72 restoration."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Gooi en Vechtstreek / Rijksoverheid",
+      "title": "E05 — Regionaal Risicoprofiel Gooi en Vechtstreek 2024 and first-72-hour preparedness",
+      "url": "https://samen.vrfgv.nl/wp-content/uploads/2024/11/RRP-2024-Gooi-en-Vechtstreek-Definitief.pdf",
+      "accessedAt": "2026-09-03T06:27:30Z",
+      "edition": "Definitive 2024 risk profile, policy basis for 2025–2028; national preparedness guidance current at access",
+      "supports": [
+        "The four-year regional profile prioritizes storm/wind/rain, cold, heat, flooding, nature fire, electricity loss, speech/data loss, cyberattack and transport incidents. Regional eligibility is not a Laren event probability, footprint or magnitude.",
+        "It identifies forests/heath and recreation, hospitals and less-self-reliant facilities, visitor venues, intensive road/rail movement and cross-boundary vital-service effects. It also highlights ageing, one-person households and people living independently whose needs are not known address by address.",
+        "Nature fire became a priority because climate change raises probability and impact; cyber and ICT coupling can propagate service failures. These are planning mechanisms, not a current ignition, target compromise, outage or restoration curve.",
+        "The strategic PDF has no standard machine incident/resource endpoint or stated blanket reuse licence/cadence. It validates preparedness scope, never staffing, stock, dispatch, backup or action completion.",
+        "National guidance advises a 72-hour emergency kit including three litres of water per person per day, food, medicine, radio/power and a personal plan. Guidance does not prove household readiness or local distribution capacity."
+      ]
+    },
+    {
+      "publisher": "Goois Natuurreservaat / Waterschap Amstel, Gooi en Vecht",
+      "title": "E06 — Laren heath, woodland and visitor context with dated 2026 drought/fire-risk state",
+      "url": "https://gnr.nl/gebieden/westerheide/",
+      "accessedAt": "2026-09-03T06:28:00Z",
+      "edition": "Current area pages; GNR drought report 11 August 2026; AGV restriction update 25 August 2026",
+      "supports": [
+        "GNR identifies Westerheide in Hilversum/Laren as 344 hectares of heath and woodland with day recreation, and De Postiljon in Laren as 37 hectares of woodland, inland dunes and heath. This establishes fuel/interface and visitor eligibility, not an ignition or people count.",
+        "GNR reported on 11 August 2026 that prolonged drought affected higher Gooise-ridge soils and nature-fire danger was very high. AGV lifted surface-water and groundwater abstraction bans effective 26/28 August after rain but said the water deficit remained concerning.",
+        "Those dated states must expire at their valid times: they do not prove the current official fire phase on 3 September, fuel moisture, a local ignition/perimeter, smoke plume, access, extinguishing-water availability or suppression resources.",
+        "A controlled T+24 model source at [5.213170057836248, 52.231038038451274] inside Laren-Natuurgebied produces direct fire 0.686123 and smoke 0.533028 and ranks the containing neighbourhood first. This is a synthetic containment test, not validation by the public evidence.",
+        "GNR/AGV pages do not state a stable machine incident API, fixed refresh or blanket data reuse licence."
+      ]
+    },
+    {
+      "publisher": "Provincie Noord-Holland / Rijkswaterstaat / Tergooi MC / RIVM",
+      "title": "E07 — Gooi bus concession, A1/A27 access and cross-boundary acute care",
+      "url": "https://www.noord-holland.nl/Onderwerpen/Verkeer_vervoer/Openbaar_vervoer",
+      "accessedAt": "2026-09-03T06:28:30Z",
+      "edition": "Gooi en Vechtstreek concession current through end-2030; NWB-Light 1 August 2026; RIVM questionnaire 2026 v1.1",
+      "supports": [
+        "Noord-Holland is the competent authority for the Gooi en Vechtstreek bus concession, currently operated by Connexxion/Transdev through end-2030. A concession and GTFS stops do not prove a trip operates or can carry emergency demand at the exercise time.",
+        "The generated graph exposes A1/A27 boundary series but not a complete local N525/urban/nature access network, bus operation, pedestrian/cycle access or incident restrictions. Scenario-unit ceilings 260 are neither measured vehicles/hour nor additive across repeated corridor sections.",
+        "Rijkswaterstaat's A1 Eemnes–Muiderberg closure ended 17 August 2026 and therefore must not affect a 3 September reference run; the published summer-2027 opposite-direction phase likewise cannot be promoted to current restriction. This demonstrates the need for issue/start/end time.",
+        "RIVM assigns no emergency department inside GM0417. Tergooi MC Hilversum is about 6.16 kilometres straight-line from the representative centre; RIVM v1.1 reports 24/7 ED/acute obstetrics, seventeen treatment rooms and 26,161 visits in 2025, and Tergooi confirms a new access road opened 19 June 2026.",
+        "Annual facility facts and completed access works do not establish incident route time, ambulance availability, acceptance/diversion, staffing, occupancy, generator endurance or live capacity. RIVM data are CC0 1.0; project/operation pages do not supply a machine incident contract."
+      ]
+    },
+    {
+      "publisher": "Netbeheer Nederland / RDI / DUO / KNMI / Rijkswaterstaat / RIVM / NDW",
+      "title": "E08 — Public grid-planning, antenna, education, warning, water, care and observation screens",
+      "url": "https://data.partnersinenergie.nl/capaciteitskaart/totaal/afname",
+      "accessedAt": "2026-09-03T06:29:00Z",
+      "edition": "Deployment snapshots retrieved 31 August–3 September 2026",
+      "supports": [
+        "One postcode sample, 1251GB, maps to Liander area OS CRAILO 10-1i: withdrawal existing/required/queue 36/20/0.6 MW with seven queued requests, injection 36/9/7 MW with request count null, and 28 projects from 2026. Null remains Unknown, never zero.",
+        "The sample is large-user planning/queue context, not complete municipality/feeder coverage, live load, reserve, outage, switching or restoration. Capacity/projects update at least quarterly and queues monthly; its frontend endpoint is not a stable API contract and an exact dataset licence identifier was not found.",
+        "The screens contain 21 RDI antenna sites—sixteen mobile, two fixed-link, two amateur and one broadcast—and eleven DUO education records—four primary, four secondary and three other. Registers do not establish coverage/backhaul/power, occupants, shelter role, accessibility, supplies or operation.",
+        "No GM0417 government-service, seismic, NDW situation, RIVM acute-care/PM2.5, KNMI weather-station or Waterinfo observation/forecast point is assigned. The province-level warning record is explicit no-warning at issue time, not gridded local forcing or an all-clear for an arbitrary exercise.",
+        "RDI cadence/licence is unstated; DUO snapshot 31 August is daily under CC Attribution version unspecified; KNMI is CC BY 4.0; Waterinfo/NDW and RIVM acute care are CC0. All public-context sources remain affectsSimulation=false."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM0417, Laren (NH.), Noord-Holland and Veiligheidsregio Gooi en Vechtstreek are internally and officially coherent.",
+      "evidenceRefs": ["E01", "E02", "E05"],
+      "notes": [
+        "Generated municipality, province and exactly one safety-region assignment agree.",
+        "The representative centre lies inside the fresh full-resolution 2025 boundary.",
+        "Annual registers, static plans/assets, timestamped observations, forecasts, official scenarios and synthetic outputs remain distinct evidence classes."
+      ]
+    },
+    "geography": {
+      "status": "fail",
+      "summary": "Administrative geography is coherent, but major-water, pluvial/groundwater, heat, wildfire/smoke and cyber domains do not govern impacts.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E06"],
+      "notes": [
+        "Storm, pluvial, river, coastal, heat, winter, cyber, wildfire and compound share exactly the same complete ten-neighbourhood T+24 severity order; earthquake is exact zero and tied.",
+        "Persistent river output has no selected Rhine/Meuse/IJssel or Eem/Eemmeer/Gooiergracht connection, footprint or control state; zero coastal water is a narrow-source result, not safety.",
+        "Pluvial output has no high/low-Laren terrain, infiltration, groundwater, sewer/relief, street-flow, Gooiergracht/weir/gemaal or receiving-water state.",
+        "Full polygons and mechanism-eligible domains—not a generic municipal seed—must govern containment and ranking."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Official resident controls and neighbourhood aggregates reconcile within negligible CBS rounding/suppression difference.",
+      "evidenceRefs": ["E01", "E05", "E06", "E07"],
+      "notes": [
+        "CBS reports 11,474 residents; ten rows sum to 11,470 (-4, -0.035%), while model allocations reconcile to the municipal control.",
+        "The 32.5% age-65-plus share and 1,955 one-person households inform aggregate heat, outage and welfare pressure but never identify individual need, self-reliance or preparedness.",
+        "Residents remain separate from pupils, patients, care residents, GNR/Singer/sports visitors, workers, commuters, volunteers and responders under CORR-015."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "Ten neighbourhoods support census allocation, while suppressed statistics and all live water, nature-fire and lifeline state remain incomplete.",
+      "evidenceRefs": ["E01", "E03", "E04", "E06", "E08"],
+      "notes": [
+        "Supported CBS fields cover nine to ten rows; district-heating and public-charging cover zero. Missing values remain Unknown/NoData.",
+        "Water projects/objects, nature pages, grid planning, antennas, schools and care records have incompatible coverage, cadence, licence and operational meaning.",
+        "Registered assets and planned/completed projects do not establish connectivity, capacity, occupancy, settings, backup, current state or recovery."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "One BAG place and one BRT woonkern coherently preserve Laren membership.",
+      "evidenceRefs": ["E02", "E03", "E06"],
+      "notes": [
+        "No BAG place centre falls outside the generalized municipal boundary.",
+        "Ten CBS neighbourhoods preserve centre, residential, motorway-edge and nature-area distinctions.",
+        "Place labels and resident rows are reference context, not incident-time presence, route access, drainage connectivity or protection."
+      ]
+    },
+    "transport": {
+      "status": "fail",
+      "summary": "A1/A27 series proxies omit local approaches, operational bus state, nature access and cross-boundary acute-care/supply destinations.",
+      "evidenceRefs": ["E02", "E07", "E08"],
+      "notes": [
+        "Four A1 and three A27 links are series/junction portions of two corridors, not seven independent capacity paths; no rail station lies inside Laren.",
+        "Sixteen static stops and a concession do not prove buses operate, remain accessible, connect to useful destinations or provide emergency throughput.",
+        "Expired A1 works and future phases demonstrate why start/end time matters; zero NDW matches does not prove current roads open.",
+        "Routes to Tergooi Hilversum, RWZI Blaricum, regional supply/repair bases and forest/heath response points lack incident-valid mode, direction, restriction, priority, capacity and destination/acceptance state."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "Official water, drought/fire, warning, mobility, care and preparedness evidence is not selected into incident, action or resource state.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "No selected flood/rain/fire/cyber event, sewer/infiltration/Gooiergracht state, road/bus restriction, hospital acceptance or utility condition drives outputs.",
+        "Draft Gooiergracht measures, completed rain projects and dated drought/fire notices have lifecycle/valid-time meaning and cannot silently become active protection, forcing or action.",
+        "No-warning and empty municipal observation/incident/facility screens cannot validate an arbitrary exercise.",
+        "Seventy-two-hour household guidance supplies a planning target, not measured preparedness, stock or distribution capacity."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten canonical presets execute at all six mandatory checkpoints for all eight services.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "The initial MUNICIPALITY_AUDIT_CODE=GM0417 pnpm audit:model gate passed one file/two tests in 30.17 seconds; structural execution does not establish local calibration.",
+        "Maximum severity / maximum affected / T+72 attributable person-hours are storm 0.334598 / 376 / 77,536.557; pluvial 0.305206 / 66 / 67,517.853; river 0.141538 / 691 / 137,502.852; coastal 0.073856 / 0 / 66,623.967; heat 0.756891 / 1,051 / 96,250.664.",
+        "Remaining values are winter 0.436355 / 430 / 100,508.997; cyber 0.488909 / 2,784 / 175,831.807; earthquake 0.020975 / 0 / 9,752.845; wildfire 0.125776 / 0 / 40,167.654; compound 0.797009 / 5,689 / 398,892.400.",
+        "Deterministic decimals are synthetic exercise outputs, not observations, forecasts, casualties, evacuated people, measured outages or operator commitments."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Outputs are finite, deterministic, exact at zero intensity, selected-layer invariant and locally reconciled.",
+      "evidenceRefs": ["E01", "E02"],
+      "notes": [
+        "All required structural, range, local-sum, causal-ledger and repeatability checks pass under the current contract.",
+        "Every preset's zero-intensity run returns exact-zero event hazard, affected resident-equivalents and event-attributable deprivation.",
+        "Changing the display service does not mutate hazard, pressure or affected population.",
+        "The legacy floodDepthM field is normalized inundation stress under CORR-017, not measured metres; river 0.446750 must never be labelled depth."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "One shared neighbourhood seed overrides distinct water, terrain, heat, weather, fire/smoke, cyber and infrastructure geography.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E06"],
+      "notes": [
+        "Nine non-earthquake presets share the same T+24 order led by Laren-Natuurgebied, Zwarte Berg, Laren-Centrum, Rijksweg-Zuid and Oostereng.",
+        "The common bottom is Steenbergen, Postiljon, Zevenend, Rijksweg-Noord and Omloop; the five-resident nature area leads river, pluvial, heat and cyber despite different mechanisms.",
+        "A controlled fire source in Laren-Natuurgebied ranks the containing neighbourhood first, but the same rank already occurs without that source for every other hazard and therefore does not validate fuel/spread allocation.",
+        "Official evidence differentiates high/low rain pathways, Gooiergracht drainage, elderly heat vulnerability, forest/heath fuels and named cyber/network targets."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "Exact eight-service availability exceeds verified road, sewer/water, utility, telecom, care and supply topology/state evidence.",
+      "evidenceRefs": ["E02", "E04", "E07", "E08"],
+      "notes": [
+        "At compound T+24 availability is Power 0.397506, Water 0.437177, Drainage 0.340210, Gas 0.599488, Telecom 0.234945, Mobility 0.871498, Facilities 0.382337 and Supply 0.862484.",
+        "Only two physical motorway corridors support Mobility and explicit road logistics/Supply; local approaches, bus operation, care/RWZI destinations and nature access are absent, and no physical routes exist for other services.",
+        "One grid-planning sample, one water object, 21 antennas, eleven schools, 16 stops and external care/treatment are not compatible live topology/capacity/backup/restoration evidence.",
+        "The Gooiergracht and external RWZI establish real dependencies but cannot justify exact drainage/water losses without connectivity, power/control, receiving state and incident evidence."
+      ]
+    },
+    "causalTrace": {
+      "status": "warn",
+      "summary": "The numerical causal ledger closes, but authority-selected causes, owners, interventions and resources remain absent.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "Outputs expose hazard, direct-service, interdependency, network, recovery and local-allocation components with matched totals.",
+        "Cumulative person-hours are synthetic no-event counterfactual accounting, not observed outage duration, casualties, displaced people or unmet care.",
+        "No selected water/rain/fire/cyber event, sewer/weir/gemaal/road action, utility network or hospital acceptance explains exact trajectories.",
+        "Each state change requires authority/owner, target, prerequisite, route, crew/material/fuel/water, start/end, state, evidence class/time and uncertainty."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "Persistent river/compound disruption and exact recovery lack incident, action, constraint and resource evidence through T+72.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "River severity/stress and seven services remain fixed from T+24 to T+72, affected rises 512 to 691 and Facilities falls 0.817359 to 0.738428, accumulating 137,502.852 person-hours without a water boundary, recession, access or action.",
+        "Compound severity falls 0.797009 to 0.266121 while pressure, 5,689 affected and all eight service values remain effectively identical; stress barely changes 0.251791 to 0.251778 and cyber declines, accumulating 398,892.400 person-hours without resource evidence.",
+        "Storm/pluvial/winter/wildfire direct effects return to zero by T+72 with exact residual service curves, while heat severity remains 0.117180 but affected falls 1,051 to zero. No clearance, infiltration/sewer recovery, fire response, welfare check, hospital acceptance, utility crew or restocking state explains these values.",
+        "Sustained disruption and recovery can be plausible, but exact first-72-hour values require selected incidents, measured/modelled state, constraints, resources and actions."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": ["severe-storm", "pluvial-flood", "river-flood", "coastal-flood", "heatwave", "winter-storm", "cyberattack", "earthquake", "wildfire", "compound"],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": ["power", "water", "drainage", "gas", "telecom", "mobility", "facilities", "supply"]
+  },
+  "findings": [
+    {
+      "id": "GM0417-RIVER-SCOPE-001",
+      "severity": "critical",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The Rhine/Meuse/IJssel preset fabricates persistent direct Laren inundation without a connected source or footprint.",
+      "evidence": "River T+24/T+72 both report normalized inundation stress 0.446750 and severity 0.141538, with affected residents increasing 512 to 691. No named Rhine/Meuse/IJssel or Eem/Eemmeer/Gooiergracht boundary, terrain-connected footprint, defence/control state, level/datum, arrival or recession is selected. Official local evidence instead distinguishes high/low Laren rainfall/groundwater and managed Gooiergracht drainage to Eemmeer. Coastal water zero is a scoped model result, not an all-clear for other pathways.",
+      "action": "Suppress unsupported local major-river impacts and keep separately typed indirect national-network effects. Enable direct water only for an expert-selected, versioned AGV/WMCN/LIWO case retaining source, boundary/defence/control state, terrain-connected footprint, depth/velocity units/datum, arrival, duration/recession, probability, CRS, resolution, licence and NoData."
+    },
+    {
+      "id": "GM0417-SHARED-SPATIAL-001",
+      "severity": "critical",
+      "category": "geography",
+      "status": "open",
+      "summary": "Nine non-earthquake presets reuse one complete Laren neighbourhood order.",
+      "evidence": "Storm, pluvial, river, coastal, heat, winter, cyber, wildfire and compound all rank five-resident Laren-Natuurgebied first, then Zwarte Berg, Laren-Centrum, Rijksweg-Zuid and Oostereng. The same order cannot represent high/low rain drainage, major water, elderly heat vulnerability, forest/heath fire, smoke plume, cyber targets and A1/A27 infrastructure. A controlled local fire source also ranks the nature area first, but that does not validate the common seed used for every other hazard.",
+      "action": "Replace the common municipality seed with hazard-specific source, eligible-domain, forcing, exposed-object and support adapters over full polygons. Add cross-preset tests that unrelated hazards cannot silently share all ranks; missing compatible spatial evidence renders Unknown rather than precise ordering."
+    },
+    {
+      "id": "GM0417-PLUVIAL-DRAINAGE-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Pluvial and Drainage precision ignores high-area infiltration, low-area sewer surcharge/groundwater and Gooiergracht receiving state.",
+      "evidence": "Laren reports that intense rain exceeds sewer capacity, uses vertical infiltration in Hoog Laren and relief points where low-area sewer water can reach gardens/streets; prolonged rain can saturate groundwater. AGV identifies Gooiergracht/weirs/gemaal and draft changes. The model reports T+24 stress 0.242945, 66 affected and Drainage 0.635912 without a rain surface, AHN/street flow, antecedent moisture/groundwater, sewer/inlet/storage, measure condition, receiving level, weir/gemaal topology, power or operation. The HWH screen contains only one null-capacity weir.",
+      "action": "Integrate a versioned municipal/AGV stress case with hyetograph, AHN/BGT, high/low catchments, sewer-included flag, infiltration/groundwater, street flow, Gooiergracht/receiving state, resolution, units, licence and NoData. Join assets/measures only after authority review of connectivity, capacity, condition, control, power/backup and valid time."
+    },
+    {
+      "id": "GM0417-WILDFIRE-SOURCE-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Canonical wildfire shows synthetic remote smoke but no local ignition despite strong heath/woodland eligibility and dated high-risk evidence.",
+      "evidence": "Canonical T+24 direct fire is zero, smoke 0.329293, affected zero and Water 0.694434, reaching 40,167.654 person-hours without a named plume. GNR maps substantial Laren heath/woodland/recreation and reported very-high danger on 11 August; AGV later lifted abstraction bans after rain but retained drought concern. A controlled source in Laren-Natuurgebied creates direct fire 0.686123/smoke 0.533028, proving the engine can react to location but not that fuels, spread, visitors, access, firewater or suppression are calibrated.",
+      "action": "Require an explicit exercise ignition/perimeter or clearly labelled remote-source plume, current authoritative fire phase, versioned fuels, event-valid weather/moisture/smoke, visitor/presence ranges, access/firewater and suppression state. Expire dated risk notices; absent source is Unknown/no selected event, not zero local risk or observed smoke."
+    },
+    {
+      "id": "GM0417-ROUTE-CARE-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "Two motorway corridor proxies cannot support exact local mobility, bus, nature access, RWZI or Tergooi continuity.",
+      "evidence": "Seven links collapse to A1/A27 series and omit full local/N525 approaches; 16 stops are static, and no rail station is inside Laren. No local ED exists; Tergooi Hilversum is about 6.16 km straight-line with dated 24/7 capacity context. Wastewater goes to RWZI Blaricum. The graph lacks road/bus operation, forest access, incident restrictions, ambulance/repair vehicles, hospital acceptance and RWZI route/power state. Repeated 260-unit motorway ceilings are not additive or observed throughput; zero NDW matches is not open.",
+      "action": "Build an authority-reviewed multimodal graph with physical-corridor identity, local/N525 approaches, mode/direction, restrictions, passability, emergency priority and unit-bearing capacity. Bind valid bus operation and privacy-safe care, RWZI, supply, evacuation and repair destinations/state; expire road works against an explicit exercise clock."
+    },
+    {
+      "id": "GM0417-VULNERABILITY-DEMAND-001",
+      "severity": "high",
+      "category": "demography",
+      "status": "open",
+      "summary": "High aggregate ageing and non-resident destinations are not incident-time people, need or service demand.",
+      "evidence": "CBS reports 32.5% age 65+ and 1,955 one-person households, but these do not locate less-self-reliant individuals or prove preparedness. Laren-Natuurgebied has five residents yet leads nine hazards; GNR recreation, eleven education records and visitor venues identify activity candidates, not event-time occupants. Heat T+24 reports 1,051 affected while its map uses the same ranking as cyber and river.",
+      "action": "Keep official residents and privacy-safe aggregate vulnerability authoritative, never individualize needs. Separate clearly labelled, timestamped non-resident presence/activity demand by service under CORR-015 using official ranges or exercise assumptions; retain Unknown where pupils, patients, visitors, workforce or preparedness are absent."
+    },
+    {
+      "id": "GM0417-LIFELINE-PROVENANCE-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Exact eight-service availability lacks verified utility, telecom, sewer/RWZI, facility and supply topology or live state.",
+      "evidence": "Compound T+24 emits eight exact availability values. One Liander planning sample, one water-control point, 21 antenna sites, eleven schools, 16 stops, two motorway corridors and external care/RWZI do not provide feeder/customer or pipe topology, compatible capacity, current load/pressure/backhaul, damage, priority users, backup, switching, repair crew or restoration commitments. All public-context layers are affectsSimulation=false.",
+      "action": "Integrate authorized operator topology, outage, priority-user, backup and restoration feeds where lawful and safe. Otherwise expose minimal versioned synthetic zones/graphs with ranges and uncertainty. Keep planning/register/observation layers non-causal absent reviewed bindings and suppress operator-looking decimals."
+    },
+    {
+      "id": "GM0417-TEMPORAL-RECOVERY-001",
+      "severity": "critical",
+      "category": "service",
+      "status": "open",
+      "summary": "River and compound plateaus plus exact storm/pluvial/fire/heat recovery lack first-72-hour actions and resources.",
+      "evidence": "River stress/severity and seven services freeze T+24–72 while affected rises and Facilities worsens. Compound severity/cyber decline while pressure, 5,689 affected and every service stay fixed. Storm/pluvial/winter/wildfire direct effects clear with exact residual services, while heat severity remains but affected falls to zero. No water recession, sewer/infiltration/gemaal action, road/nature clearance, hospital/RWZI acceptance, welfare checks, switching, crew, fuel, material, shelter/supply or completion state explains 137,502.852/398,892.400 person-hours.",
+      "action": "Require a typed incident/action/resource ledger at T+0/6/12/24/48/72 with authority/owner, target, prerequisite, route, crew/material/fuel/water, start/end, state, observation/valid time and uncertainty. Each deterioration, plateau, residual and recovery must cite a driver; suppress unsupported decision-grade trajectories."
+    },
+    {
+      "id": "GM0417-EVIDENCE-UI-001",
+      "severity": "high",
+      "category": "ui",
+      "status": "open",
+      "summary": "Plans, dated risk notices, expired/future works, missing screens and synthetic outputs need adjacent evidence and NoData gates.",
+      "evidence": "The UI can combine annual CBS, current/historic water projects, a draft plan, dated drought/fire notices, expired/future A1 works, a grid-planning sample, registers, no local water/weather/road/care/air/seismic/government observations and exact scenario values. None alone establishes an arbitrary exercise. The legacy river 0.446750 field is especially liable to be mistaken for metre depth despite CORR-017.",
+      "action": "Attach publisher, dataset/version, issue/valid/retrieval time, coverage, licence, evidence class, lifecycle, affectsSimulation, uncertainty and NoData to every layer/value/export. Use an explicit reference clock; stale/future state deactivates, missing matches render Unknown, and normalized inundation stress is never labelled depth/metres."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Suppress unsupported direct Rhine/Meuse/IJssel effects and separate Laren pluvial, groundwater, Gooiergracht/Eemmeer and indirect supply pathways.",
+      "files": ["packages/sim-core/src/model.ts", "packages/sim-core/src/types.ts", "apps/web/src/components/Inspector.tsx", "apps/web/src/components/CausalExplanation.tsx"],
+      "validation": "Without an expert-selected compatible event, GM0417 local major-water impact is Unknown/unsupported rather than 0.446750 or a coastal-safe zero. A versioned AGV/WMCN/LIWO case retains source, boundary/control state, terrain-connected footprint, units/datum, arrival/recession, probability, CRS/resolution, licence and NoData at all checkpoints; stress is never metres."
+    },
+    {
+      "summary": "Replace the common GM0417 neighbourhood seed with source-aware hazard-specific allocation and separate resident/activity demand.",
+      "files": ["packages/sim-core/src/model.ts", "packages/sim-core/src/geometry.ts", "packages/sim-core/src/municipality-coverage.test.ts", "packages/sim-core/src/explainability.test.ts"],
+      "validation": "Authorized rain/water, heat/vulnerability, heath/woodland/fire/plume and named cyber/network inputs govern their own ranks. Nine unrelated hazards cannot silently share all ten ranks. Five Laren-Natuurgebied residents remain separate from transparent visitor/activity demand under CORR-015."
+    },
+    {
+      "summary": "Integrate high/low Laren rain, groundwater, sewer/infiltration and Gooiergracht/RWZI dependencies without promoting plans/registers to operation.",
+      "files": ["scripts/fetch-water-assets.mjs", "scripts/fetch-realism-data.mjs", "packages/sim-core/src/model.ts", "apps/web/src/data.ts"],
+      "validation": "Version stress surfaces and AGV catchment/receiving/control exports with event, antecedent state, CRS, units, licence and NoData. One HWH weir and draft/completed measures remain context until topology, capacity, condition, settings, power/backup and live operation are verified."
+    },
+    {
+      "summary": "Add valid-time Laren local/A1/A27/N525, bus, nature-response, care, RWZI and supply route state.",
+      "files": ["scripts/fetch-transport-network.mjs", "apps/web/public/data/transport-network.json", "apps/web/public/data/public-context/transport-restrictions.json", "packages/sim-core/src/network.ts", "packages/sim-core/src/network.test.ts", "apps/web/src/data.ts"],
+      "validation": "A1/A27 repeated sections remain non-additive; local/N525 approaches retain direction, mode, restriction, passability, priority and unit-bearing throughput. Bus, Tergooi/RWZI and nature/supply/repair destinations require valid operation/acceptance. Expired/future works do not affect current runs and empty NDW matches never mean open."
+    },
+    {
+      "summary": "Evidence-gate utilities, wildfire, first-72-hour actions, recovery and UI claims.",
+      "files": ["packages/sim-core/src/network.ts", "packages/sim-core/src/types.ts", "packages/sim-core/src/model.ts", "apps/web/src/components/OperationsBrief.tsx", "apps/web/src/components/Inspector.tsx"],
+      "validation": "Each service/fire state has compatible topology/source/state/backup evidence or a labelled synthetic range, and each temporal change cites owner/action/resource/constraint. Plans, dated notices, observations, forecasts, registers, nulls/missing matches and model outputs display evidence class, validity, licence, affectsSimulation, uncertainty and Unknown/NoData."
+    }
+  ],
+  "residualLimitations": [
+    "Complete electricity, gas, drinking-water, sewer/drainage, telecom, care and supply topology, control logic, live load/outage, backup, crews, spares, fuel and restoration state are unavailable or security-sensitive; public geometry, plans and territories cannot replace them.",
+    "No selected AGV/WMCN/LIWO case establishes a GM0417 Rhine/Meuse/IJssel or Eem/Eemmeer/Gooiergracht boundary, defence/control state, terrain-connected footprint, depth/velocity, arrival or recession. A generic value is not evidence and no selected case is not safe.",
+    "Laren Regenklaar and Gooiergracht products are valuable official programme/scenario evidence but require native machine files, edition, event/antecedent state, CRS, units, licence, lifecycle and explicit NoData before analytical use.",
+    "The HWH screen contains one null-capacity weir despite AGV's broader five-weir/gemaal description. Neither source supplies complete sewer/catchment/RWZI connectivity, settings, maintenance, power/backup, current state or event capacity.",
+    "No local Waterinfo observation/forecast point is assigned. Missing point/horizon coverage cannot be spatialized, held constant or treated as zero through T+72.",
+    "A1/A27 NWB edges, local road omissions, 16 GTFS stops and zero NDW situations do not establish scenario-time operation, passability, emergency priority, detours, destination or throughput. Repeated motorway sections are not independent redundancy.",
+    "RIVM/Tergooi records do not expose incident-time ambulance availability, staffing, dispatch, acceptance/diversion, occupancy, backup or restoration; protected operational information must not be inferred.",
+    "CBS residents omit patients, care residents, pupils, commuters, workers, GNR/Singer/sports visitors, volunteers and responders. Rounded/suppressed aggregates cannot identify individuals, preparedness or event presence.",
+    "The 11 August very-high nature-fire notice and 25 August drought update are dated state, not a current fire phase, ignition, perimeter, spread or smoke forecast. They must expire rather than be projected through an arbitrary scenario.",
+    "One Liander planning sample is neither municipal coverage nor outage evidence. Its null request count is Unknown, not zero; sensitive topology must not be reconstructed publicly.",
+    "Antenna and education registers have different spatial support, cadence and licences and remain affectsSimulation=false without verified causal bindings.",
+    "No-warning and no locally assigned water/weather/road/care/PM2.5/seismic/government point are coverage/time facts, not zero hazard, disruption, pollution, need or service continuity.",
+    "Exact hazard, affected-population, service, recovery and person-hour outputs remain synthetic exercises, not observations, forecasts, operator commitments or decision-grade advice until critical/high findings are corrected and authorities review the case.",
+    "This audit covers only the first 72 hours. Groundwater, wildfire ecosystem effects, wastewater interruption, care disruption and infrastructure recovery can persist much longer."
+  ],
+  "provinceReviewFlags": [
+    "Noord-Holland, VRGV, AGV and GM0417 should define expert selection/versioning for external major water, Eemmeer/Gooiergracht backwater and local pluvial/groundwater cases, including high/low terrain, receiving/control state, units, footprint, arrival/recession, uncertainty and NoData.",
+    "AGV and BEL sewer/water teams should review privacy-safe Gooiergracht, infiltration, sewer-relief, gemaal/weir and RWZI Blaricum dependency contracts, including power/control/manual fallback and first-72-hour actions without exposing sensitive topology.",
+    "Province, Rijkswaterstaat, municipality, Transdev and emergency partners should review A1/A27/N525/local approaches, buses and nature access as direction- and mode-specific, non-additive, valid-time care/supply/evacuation/fire/repair routes.",
+    "Municipality, GNR, fire service, GHOR, ambulance provider and Tergooi should review current fire-phase/source/plume, visitor presence, access/firewater/suppression and privacy-safe care continuity through protected interfaces rather than dated public inference.",
+    "Gooi en Vechtstreek partners should turn 72-hour preparedness into typed but activation-gated warning, household/welfare support, evacuation/shelter, medical, utility, wastewater, supply, fire and recovery actions, separating plan, project, observation, forecast, official scenario, live state, synthetic assumption and Unknown."
+  ]
+}

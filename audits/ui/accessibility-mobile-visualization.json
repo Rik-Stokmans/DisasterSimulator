@@ -1,0 +1,344 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "ui-optimization-audit",
+  "track": "accessibility-mobile-visualization",
+  "agent": {
+    "taskName": "ui_accessibility_mobile_visualization",
+    "agentId": "/root/nl_realism_audit",
+    "completedAt": "2026-09-02T10:43:04Z"
+  },
+  "executiveSummary": "The rendered application has a solid semantic foundation: its primary controls have computed names, layers and playback speeds expose pressed state, the time slider exposes a useful value description, chart data tables exist, Analytics and Advanced dialogs trap and restore keyboard focus, and the existing 10-test Chromium suite passes. It is not yet reliably usable as an accessible mobile emergency dashboard. At short and landscape viewports, fixed panels cover 88–91.2% of the map and overlap; header actions are clipped without a touch-accessible recovery path; seven core selects lose all visible keyboard focus; the map has no nonvisual current-state equivalent; changing time, layer, selection, or playback produces no live announcement; the full analytics view creates 848 tab stops; chart labels render as little as 4 CSS px high; and reduced-motion mode leaves chart entry animations active. This audit made no shared product changes. All corrections are accepted-pending for central cross-review, with mobile geometry, keyboard focus, nonvisual map state, and chart navigation as the first release gates.",
+  "methods": [
+    "Built and exercised the actual Vite preview at http://127.0.0.1:4173 with Playwright 1.62.1 and headless Chromium, using 1440 x 1000, 375 x 812, 320 x 568, and 812 x 375 CSS-pixel viewports.",
+    "Ran the repository's complete Playwright suite, then added read-only inline browser probes for panel geometry, clipped and scroll-recoverable controls, bounding-box union occlusion, target sizes, horizontal overflow, inspector depth, and screenshots.",
+    "Performed 46-step keyboard sweeps at desktop and mobile widths; inspected computed focus indicators; and directly tested initial focus, focus wrapping, Escape dismissal, and opener restoration in both Analytics and Advanced dialogs.",
+    "Inspected Chromium accessibility snapshots before and during dialogs; changed layer, time, playback-related state, and mobile details; and counted names, pressed/value state, live regions, accessible map features, tables, and modal-background exposure.",
+    "Injected axe-core 4.10.3 from a temporary /tmp install and ran WCAG 2 A/AA, 2.1 A/AA, and 2.2 AA rules against base, Analytics, and Advanced states at desktop, 375px, and 320px widths.",
+    "Expanded Analytics to all 60 simulation graphs and measured focusable SVG points, chart/table alternatives, viewBox scaling, rendered text boxes, responsive overflow, and actual contrast tokens.",
+    "Emulated prefers-reduced-motion before application load and measured active animation names and durations for the map, dialogs, modeled line charts, and official-statistic histograms.",
+    "Calculated WCAG relative-luminance ratios for low-contrast text tokens and every pair in the six-state service palette, supplementing cases axe could not resolve over WebGL, gradients, and translucent backdrops."
+  ],
+  "measurements": [
+    {
+      "metric": "Existing end-to-end browser suite",
+      "unit": "passing tests",
+      "environment": "pnpm test:e2e; Chromium production-build preview",
+      "before": "10 of 10",
+      "after": null,
+      "interpretation": "The existing map, scenario, drilldown, analytics, reduced-motion smoke check, and 375 x 812 visibility flows pass. The gaps below are outside or weaker than those current assertions."
+    },
+    {
+      "metric": "Viewport area covered by persistent UI bounding boxes",
+      "unit": "percent of viewport",
+      "environment": "Default Severe windstorm at T+00; union of top bar, layer rail, summary, Scenario Lab, map title/provenance/legend, Details control, and timeline",
+      "before": "38.2% at 1440 x 1000; 62.0% at 375 x 812; 88.0% at 320 x 568; 91.2% at 812 x 375",
+      "after": null,
+      "interpretation": "Short phone and landscape layouts leave only 12.0% and 8.8% of viewport area outside persistent overlays, before opening details."
+    },
+    {
+      "metric": "Landscape Scenario Lab and timeline overlap",
+      "unit": "CSS pixel area and vertical overlap",
+      "environment": "Chromium 812 x 375, default national view",
+      "before": "71,820 px²; 798 x 90 px",
+      "after": null,
+      "interpretation": "Scenario Lab spans y=186–302 while the timeline starts at y=212, so each obscures the other through a 90px band."
+    },
+    {
+      "metric": "Open mobile inspector viewport versus content",
+      "unit": "visible height / scroll height in CSS pixels",
+      "environment": "Details opened at default state",
+      "before": "286 / 1,441 at 375 x 812; 42 / 1,451 at 320 x 568; 30 / 1,346 at 812 x 375",
+      "after": null,
+      "interpretation": "At short and landscape sizes the details surface collapses to a 30–42px scroll slit; at landscape its box also ends 8px beyond the viewport."
+    },
+    {
+      "metric": "Mobile top-bar intrinsic width",
+      "unit": "scroll width / client width in CSS pixels",
+      "environment": "Default state at 375 x 812 and 320 x 568",
+      "before": "455 / 359 at 375px; 455 / 304 at 320px",
+      "after": null,
+      "interpretation": "The header is not a horizontal scroller and the app shell clips overflow. The municipality select ends at x=392 while the National action occupies x=425–463 at 375px."
+    },
+    {
+      "metric": "Core select controls with no visible keyboard focus",
+      "unit": "controls",
+      "environment": "46-step Tab sweep at 1440 x 1000 and 375 x 812; computed outline, shadow, and decoration while focused",
+      "before": 7,
+      "after": null,
+      "interpretation": "Intervention, municipality, disaster, season, climate, horizon, and comparison all receive focus but show no focus indicator at both widths."
+    },
+    {
+      "metric": "axe WCAG 2.2 target-size failures",
+      "unit": "nodes",
+      "environment": "axe-core 4.10.3 on base desktop, 375px, and 320px states",
+      "before": 8,
+      "after": null,
+      "interpretation": "The six 13 x 16px event markers and tightly packed speed controls produce a serious target-size violation. Mobile layer buttons are 42 x 40px and transport buttons are only 31–39px."
+    },
+    {
+      "metric": "Live regions after dynamic simulation changes",
+      "unit": "aria-live, status, or alert nodes",
+      "environment": "375 x 812; changed Overview to Electricity, moved T+00 to T+24, and opened Details",
+      "before": 0,
+      "after": null,
+      "interpretation": "Pressed and slider value semantics update, but no nonfocused announcement communicates the new layer, time, municipality/details context, service state, or playback progress."
+    },
+    {
+      "metric": "Nonvisual national-map feature equivalents",
+      "unit": "DOM feature rows or current-state table rows",
+      "environment": "Chromium accessibility snapshot and DOM inventory, national Overview at T+00",
+      "before": "0 feature nodes and 0 table rows; 1 canvas region named 'Map'; 342 municipality picker options",
+      "after": null,
+      "interpretation": "A keyboard user can choose a known municipality, but cannot inspect, rank, or traverse the values and statuses spatially encoded for all municipalities in the active layer."
+    },
+    {
+      "metric": "Sequential focus stops in all simulation graphs",
+      "unit": "focusable elements",
+      "environment": "Analytics, simulation category All, 60 rendered graph cards",
+      "before": "848 total; 780 individual SVG points; 60 expandable data tables",
+      "after": null,
+      "interpretation": "The existing tables and chart descriptions already provide structured alternatives, while per-point tab stops make sequential keyboard navigation impractical. Even the five-graph default has 78 stops, including 65 points."
+    },
+    {
+      "metric": "Rendered chart-axis label height",
+      "unit": "CSS pixels",
+      "environment": "First 560 x 176 viewBox line chart rendered at desktop, 375px, and 320px widths",
+      "before": "6px at 1440; 5px at 375; 4px at 320",
+      "after": null,
+      "interpretation": "The chart uses 6.5–7px SVG text and scales the entire viewBox down, making labels physically smaller as the card narrows."
+    },
+    {
+      "metric": "Chart animations remaining under reduced motion",
+      "unit": "animated elements and duration",
+      "environment": "prefers-reduced-motion: reduce, Analytics with all 60 modeled graphs and all 36 official statistics",
+      "before": "60 line paths at 0.42s; histogram bars at 0.36s",
+      "after": null,
+      "interpretation": "The media query suppresses dialog and map motion and shortens transitions, but does not override chart animation-duration or animation-name."
+    },
+    {
+      "metric": "Definite axe color-contrast failures in Analytics",
+      "unit": "nodes",
+      "environment": "axe-core 4.10.3 at desktop and 375px after modeled history loaded",
+      "before": "5 nodes; measured ratios 3.68:1 and 3.72:1 versus 4.5:1 required",
+      "after": null,
+      "interpretation": "Context labels, the category label, and group descriptions/counts use #60777e on dark panel backgrounds at only 7px."
+    },
+    {
+      "metric": "Service-palette pair differentiation by relative luminance",
+      "unit": "color pairs below 3:1",
+      "environment": "Operational, Strained, Degraded, Critical, Failed, and Recovering colors from the rendered legend configuration",
+      "before": "11 of 15 total pairs; 4 of 5 adjacent-status pairs",
+      "after": null,
+      "interpretation": "Adjacent ratios include 1.15:1, 1.19:1, 1.54:1, and 2.82:1. Because map marks share the same circular treatment, status identification relies heavily on hue and the separate legend."
+    },
+    {
+      "metric": "Very small visible base-interface text",
+      "unit": "direct-text elements below 10 CSS pixels",
+      "environment": "Chromium 320 x 568, initial visible viewport",
+      "before": "39 of 46; minimum 6.5px",
+      "after": null,
+      "interpretation": "Scenario labels, national KPIs, ticks, provenance, and supporting copy are visually dense enough to impede rapid reading even where they are technically present."
+    },
+    {
+      "metric": "Analytics horizontal reflow",
+      "unit": "scroll width / client width in CSS pixels",
+      "environment": "All 60 simulation graphs at 375 x 812 and 320 x 568",
+      "before": "375 / 375 and 320 / 320",
+      "after": null,
+      "interpretation": "Analytics cards reflow to one column without page-level horizontal overflow. This is a responsive strength to preserve while increasing chart text size."
+    },
+    {
+      "metric": "Modal keyboard focus lifecycle",
+      "unit": "behaviors passed",
+      "environment": "Analytics at 1440 x 1000 and Advanced at 375 x 812",
+      "before": "6 of 6: initial focus, forward wrap, Escape close, and opener restore across both dialogs",
+      "after": null,
+      "interpretation": "Core modal keyboard handling works and should be retained. Chromium's accessibility snapshot nevertheless still exposed the map, timeline, and municipality options behind Analytics."
+    }
+  ],
+  "findings": [
+    {
+      "id": "UI-A11Y-MOB-001",
+      "priority": "high",
+      "status": "accepted-pending",
+      "summary": "Short-phone and landscape layouts collapse the map and make fixed panels overlap.",
+      "evidence": "Persistent UI bounding boxes cover 88.0% of 320 x 568 and 91.2% of 812 x 375. In landscape, Scenario Lab and the timeline overlap across 798 x 90px (71,820 px²), while zoom controls start below the viewport at y=384 and y=413. Opening Details leaves only 42px of a 1,451px inspector at 320 x 568 and 30px of 1,346px at 812 x 375; the latter ends at y=383, outside the 375px viewport.",
+      "recommendation": "Add height-aware responsive modes rather than relying only on max-width breakpoints. At short heights, collapse Scenario Lab to a summary, make the timeline a compact drawer, and implement Details as a bounded bottom sheet with a usable minimum/maximum height. Add 320 x 568 and 812 x 375 visual/geometry regression tests that assert no panel intersections, all map controls in viewport, and a meaningful unobscured map region."
+    },
+    {
+      "id": "UI-A11Y-MOB-002",
+      "priority": "high",
+      "status": "accepted-pending",
+      "summary": "Essential header actions are clipped on phone widths without a touch-accessible recovery path.",
+      "evidence": "At 375px, the top bar has 359px client width but 455px scroll width with overflow visible inside an overflow-hidden app shell. Open municipality occupies x=303–392 and is clipped; Reset national view occupies x=425–463 and is wholly outside the viewport. The same coordinates persist at 320px. Keyboard focus can force internal repositioning, but a pointer or touch user cannot discover or drag the non-scrollable header. The responsive selector intended to hide an intervention control does not match because the analytics button is the first child.",
+      "recommendation": "Define an explicit mobile header hierarchy: keep the current scope/municipality and one menu action visible, move lower-frequency intervention/reset actions into a labeled overflow sheet, and ensure every action's full hit area intersects the viewport. Test touch activation by coordinates—not only Playwright's toBeVisible/auto-scroll behavior—at 320, 360, 375, and 390px."
+    },
+    {
+      "id": "UI-A11Y-KBD-001",
+      "priority": "high",
+      "status": "accepted-pending",
+      "summary": "All seven core select controls lose the visible keyboard focus indicator.",
+      "evidence": "A 46-step Tab sweep at both 1440 x 1000 and 375 x 812 found no computed outline, shadow, or other focus treatment on Intervention, Open municipality, Disaster, Season, Climate, Horizon, or Compare with. The selects receive focus and remain operable, but component rules set outline:0 and override the global select:focus-visible ring. Mobile horizontal auto-scrolling makes the missing indication especially disorienting.",
+      "recommendation": "Apply a clearly visible, high-contrast :focus-visible style to each native select or a :focus-within ring to its full label/card, without removing the native fallback outline. Add browser assertions for focus visibility and 2px minimum perimeter contrast on every control family."
+    },
+    {
+      "id": "UI-A11Y-KBD-002",
+      "priority": "high",
+      "status": "accepted-pending",
+      "summary": "Timeline event and speed controls fail WCAG 2.2 target-size checks and broader mobile touch guidance.",
+      "evidence": "axe-core reports eight serious target-size nodes in base desktop, 375px, and 320px states. All six event buttons are 13 x 16px; the 1x and 4x controls are 21 x 16px and 23 x 16px with insufficient spacing. Mobile layer buttons are 42 x 40px, transport buttons are 31–39px, and range inputs expose only a 10px DOM height, all below the 44px emergency-touch target recommended for reliable use under stress.",
+      "recommendation": "Give every timeline event at least a 24 x 24px non-overlapping activation area for WCAG 2.2 AA and target 44 x 44px for primary mobile actions. Enlarge the invisible hit box independently of the visual dot, space speed choices, increase range-input touch height, and include target geometry in mobile regression tests."
+    },
+    {
+      "id": "UI-A11Y-VIZ-001",
+      "priority": "high",
+      "status": "accepted-pending",
+      "summary": "The full modeled-statistics view creates an impractical 848-stop keyboard sequence.",
+      "evidence": "Selecting All categories renders 60 cards with 848 focusable descendants: 780 individual SVG points plus 60 expandable data-table summaries and eight workspace controls. At only four Tab presses per second, a complete forward traversal takes more than 3.5 minutes. The five-graph default still has 78 stops, including 65 points. Each chart already has a labeled role=img description and a captioned table, so point-by-point Tab stops duplicate rather than complete the alternative.",
+      "recommendation": "Use one focus stop per chart with a concise summary, or a roving-tabindex composite where arrow keys explore points and Escape returns to the chart. Keep the existing expandable data tables, add skip links between toolbar/group/results, and virtualize or progressively render the 60-card catalogue without inflating the tab order."
+    },
+    {
+      "id": "UI-A11Y-MAP-001",
+      "priority": "high",
+      "status": "accepted-pending",
+      "summary": "The canvas map has no equivalent nonvisual view of municipality values and statuses.",
+      "evidence": "The accessibility snapshot exposes one generic region named 'Map', zoom controls, and attribution but no municipal features. DOM inspection finds zero municipality feature nodes and zero current-state table rows. The 342-option municipality select lets a user open a known place, but it does not expose which municipalities are critical, their active-layer values, spatial relationships, or a sortable national picture. axe also reports that 'Interactive map of the Netherlands' is an unsupported aria-label on the unroled map container, so that intended description never becomes the canvas name.",
+      "recommendation": "Treat the canvas as a visual enhancement to a synchronized accessible results region. Provide a virtualized, searchable/sortable municipality table or list for the active layer and time, including status, numeric value, delta, safety region, and selected state; announce selection and allow rows to focus the map. Give the actual map region an informative name and concise keyboard instructions."
+    },
+    {
+      "id": "UI-A11Y-SR-001",
+      "priority": "high",
+      "status": "accepted-pending",
+      "summary": "Core simulation changes are silent when focus is elsewhere.",
+      "evidence": "There are zero aria-live, role=status, or role=alert nodes in the base application before and after switching Overview to Electricity, moving from T+00 to T+24, and opening Details. aria-pressed and the slider's aria-valuetext update correctly when those controls are focused, but autoplay, map selection, external layer actions, status changes, and inspector replacement have no screen-reader-oriented announcement. The Details button has aria-expanded but no aria-controls relationship.",
+      "recommendation": "Add one restrained polite status channel that announces user-initiated layer and place changes, details open/close, play/pause, named 0/6/12/24/48/72-hour checkpoints, and simulation completion. During playback, throttle announcements to operational checkpoints or whole hours rather than all 289 frames. Connect Details with aria-controls and move or offer focus to a clear inspector heading when requested."
+    },
+    {
+      "id": "UI-A11Y-SR-002",
+      "priority": "medium",
+      "status": "accepted-pending",
+      "summary": "Modal focus management works, but background content remains exposed in the accessibility tree.",
+      "evidence": "Analytics and Advanced both set initial focus, wrap forward from the last control, close on Escape, and restore their opener. However, a Chromium accessibility snapshot with Analytics open still contains the Map region, Play simulation, and the full 342-option municipality picker behind the aria-modal dialog. axe likewise continues evaluating underlying controls, showing that the rest of the application is not made inert even though pointer and sequential keyboard access are visually blocked.",
+      "recommendation": "Preserve the current focus lifecycle but make non-dialog siblings inert while either modal is open, with an aria-hidden fallback only where needed and without hiding the dialog from its ancestors. Add an accessibility-tree regression that the open dialog is the only operable top-level surface."
+    },
+    {
+      "id": "UI-A11Y-MOTION-001",
+      "priority": "medium",
+      "status": "accepted-pending",
+      "summary": "Reduced-motion mode suppresses map/dialog motion but leaves every chart entrance animation active.",
+      "evidence": "With prefers-reduced-motion: reduce set before load, the map becomes idle, Analytics and Advanced report animation-name none, and point transitions reduce to 0.01ms. After all graphs render, however, 60 modeled line paths still run stat-viz-line-enter for 0.42s, and official-stat histogram bars still run stat-viz-bar-enter for 0.36s. The chart media query changes transition-duration only, not animation.",
+      "recommendation": "Within the reduced-motion media query, set animation:none !important on chart series, bars, and any future chart entrance effects. Extend the existing reduced-motion test to wait for data, select both analytics tabs, and assert zero-duration/none on actual graph marks."
+    },
+    {
+      "id": "UI-A11Y-VIZ-002",
+      "priority": "medium",
+      "status": "accepted-pending",
+      "summary": "Responsive charts technically reflow but scale their axis text to 4–5px on phones.",
+      "evidence": "The first line chart keeps a 560 x 176 viewBox while rendering at 329px wide on a 375px viewport and 274px on a 320px viewport. Its nominal 7px SVG text produces measured 5px and 4px bounding-box heights respectively (6px even at desktop), and its #677d82 axis fill is approximately 3.99:1 against #101c22. Horizontal overflow is correctly absent and all 60 charts have captioned tables, but the visual graph itself cannot support rapid value reading at these sizes.",
+      "recommendation": "Do not scale microtype with the entire plot. Use a responsive chart layout with a 12–14px effective text floor, fewer ticks at narrow widths, stronger axis contrast, adequate plot height, and optional horizontal detail pan/zoom. Preserve concise chart descriptions and the existing data tables as exact-value alternatives."
+    },
+    {
+      "id": "UI-A11Y-CONTRAST-001",
+      "priority": "medium",
+      "status": "accepted-pending",
+      "summary": "Analytics contains definite small-text contrast failures, with more unresolved cases over translucent and WebGL backgrounds.",
+      "evidence": "axe-core identifies five definite WCAG AA color-contrast failures in both desktop and mobile Analytics: the two context labels, category label, group description, and group count render at 3.68:1 or 3.72:1, versus 4.5:1 required. They are only 7px. axe marked 52–144 base nodes and 78–258 dialog nodes incomplete because WebGL, images, gradients, overlap, or transparency prevented reliable background calculation, so the five failures are a lower bound rather than a whole-app clearance.",
+      "recommendation": "Raise the subtle text token to at least 4.5:1 on every actual panel background and target 7:1 for tiny secondary text in an emergency interface. Add deterministic contrast tests for opaque design-token combinations and a screenshot/pixel review for map overlays, gradients, disabled controls, and all status states."
+    },
+    {
+      "id": "UI-A11Y-VIZ-003",
+      "priority": "medium",
+      "status": "accepted-pending",
+      "summary": "Municipality status remains primarily color-coded despite labeled legends.",
+      "evidence": "The six-state legend itself pairs every swatch with text, which is good. On the spatial marks, however, municipalities use the same circular treatment and must be matched back to color. Relative-luminance comparison shows 11 of 15 palette pairs below 3:1; four of five adjacent status pairs are 1.15:1, 1.19:1, 1.54:1, and 2.82:1. The Operational/Degraded pair is only 1.03:1 by luminance. This makes the overview vulnerable to color-vision differences and monochrome/high-contrast presentation.",
+      "recommendation": "Add redundant status encoding to marks and selections—such as stroke style/width, symbol or hatch, severity icon, and always-available numeric/status labels—and offer a color-vision-safe/high-contrast palette. Validate with grayscale and common color-vision simulations plus user testing; retain text labels in every legend."
+    },
+    {
+      "id": "UI-A11Y-TYPE-001",
+      "priority": "medium",
+      "status": "accepted-pending",
+      "summary": "Microtype dominates the phone interface and weakens emergency readability.",
+      "evidence": "At 320 x 568, 39 of 46 visible direct-text elements render below 10 CSS px, with a 6.5px minimum. This includes national summary labels, scenario labels, timeline ticks, provenance, and secondary operational context. The issue is separate from page reflow: content remains inside the viewport but is too small and dense for fast scanning, magnification, low vision, or use under poor field conditions.",
+      "recommendation": "Establish a mobile type floor around 12px for metadata and 14–16px for controls/body text, then disclose secondary detail progressively instead of shrinking it. Test text spacing and 200–400% zoom/reflow after increasing sizes, including translated and long municipality/service labels."
+    },
+    {
+      "id": "UI-A11Y-SEM-001",
+      "priority": "low",
+      "status": "accepted-pending",
+      "summary": "Several intended labels and structural cues are not represented by valid semantics.",
+      "evidence": "axe marks aria-label as unsupported on three plain divs: the map container, Current simulation scale, and Largest model contributions. The base view begins at h2 and has no h1; Current simulation scale is a labeled div rather than a navigation/group; Details lacks aria-controls. Child controls remain named, so these do not erase all access, but they weaken landmark navigation and context.",
+      "recommendation": "Use a single clear page h1, valid nav/group/region roles with visible or referenced headings, and explicit control relationships. Remove aria-label from generic containers unless they receive a supported role, and verify the resulting accessibility tree rather than attribute presence alone."
+    },
+    {
+      "id": "UI-A11Y-OBS-001",
+      "priority": "low",
+      "status": "observation",
+      "summary": "The existing labeled controls, state semantics, modal focus lifecycle, and data-table alternatives are strong foundations.",
+      "evidence": "The shared 10-test browser suite passes; all core form controls have computed names; the 11 layer buttons and three speed buttons expose aria-pressed; the timeline slider exposes T+time and calendar text; Analytics and Advanced pass initial-focus, wrap, Escape, and restoration checks; every one of the 60 modeled charts has a description and captioned expandable table; and Analytics has no page-level horizontal overflow at 320px or 375px.",
+      "recommendation": "Preserve these behaviors during remediation. Strengthen tests from element presence to viewport intersection, focus appearance, accessibility-tree isolation, reduced graph motion, bounded tab counts, readable chart text, and touch-target geometry."
+    }
+  ],
+  "implementedChanges": [],
+  "rejectedRecommendations": [
+    {
+      "summary": "Announce every 15-minute simulation frame during playback.",
+      "reason": "At up to 12x playback, 289 live messages would overwhelm assistive-technology users and mask important changes. Announcements should be throttled to explicit user actions, whole hours or named operational checkpoints, threshold changes, and completion."
+    },
+    {
+      "summary": "Remove the canvas map and replace the application with a table-only interface.",
+      "reason": "Spatial patterns are central to this simulator and valuable to many users. The correct remedy is a synchronized nonvisual/list view plus redundant map encodings, not loss of the visual map."
+    },
+    {
+      "summary": "Remove chart descriptions and data tables after reducing point tab stops.",
+      "reason": "Those alternatives are the strongest part of the current visualization accessibility. Point navigation should become a compact composite while descriptions and exact-value tables remain available."
+    },
+    {
+      "summary": "Shrink or hide mobile text further to create more map space.",
+      "reason": "The current 6.5–9px microtype is already a readability failure. Space must come from progressive disclosure, drawers, and height-aware composition rather than smaller content."
+    },
+    {
+      "summary": "Rely on hue changes alone to make the six-state palette color-blind safe.",
+      "reason": "Hue-only substitution still conveys status solely by color and can fail across color-vision profiles, grayscale, low-quality displays, or field glare. Redundant shape, stroke, pattern, text, and filtering are required."
+    }
+  ],
+  "validation": [
+    {
+      "command": "pnpm test:e2e",
+      "status": "pass",
+      "result": "10 Chromium tests passed in 53.6 seconds against the production-build preview, including the repository's existing 375 x 812 and reduced-motion smoke checks."
+    },
+    {
+      "command": "node --input-type=module (inline Playwright geometry, target, 46-step Tab, dialog-focus, live-state, accessibility-snapshot, and screenshot probes against http://127.0.0.1:4173)",
+      "status": "pass",
+      "result": "Reproduced desktop/mobile geometry, 62/88/91.2% mobile occlusion, 71,820 px² landscape overlap, clipped header controls, 30–42px short-height inspectors, seven missing select focus indicators, zero base live regions, absent canvas-feature equivalents, and passing modal focus lifecycle."
+    },
+    {
+      "command": "npm install --prefix /tmp/disaster-a11y-deps axe-core@4.10.3; node --input-type=module (inline Playwright injection and WCAG 2 A/AA, 2.1 A/AA, 2.2 AA scans)",
+      "status": "pass",
+      "result": "Scanned base, Analytics, and Advanced states at 1440px, 375px, and 320px. Confirmed eight serious target-size nodes and five definite 3.68–3.72:1 Analytics contrast nodes; recorded unresolved canvas/transparency contrast cases separately rather than treating them as passes."
+    },
+    {
+      "command": "node --input-type=module (inline Playwright Analytics all-category, responsive SVG, data-table, and prefers-reduced-motion probes)",
+      "status": "pass",
+      "result": "Measured 60 cards, 848 focus stops, 780 focusable points, 60 captioned tables, no 320/375px Analytics horizontal overflow, 4–6px rendered axis-label height, 60 active 0.42s line animations, and active 0.36s histogram animations under reduced motion."
+    },
+    {
+      "command": "node (inline WCAG relative-luminance calculation over UI text and service palette hex tokens)",
+      "status": "pass",
+      "result": "Reproduced 3.68:1 subtle text, 3.99–4.05:1 axis text, and 11 of 15 service-palette pairs below 3:1, including four of five adjacent-status pairs."
+    },
+    {
+      "command": "pnpm audit:status",
+      "status": "pass",
+      "result": "Audit manifest reported 342 municipalities, 12 provinces, and 3 municipality audits complete; schema/program validation passed in allow-incomplete mode with 3/342 municipality, 0/12 province, and all 3/3 independent UI tracks present."
+    }
+  ],
+  "residualLimitations": [
+    "This audit used headless Chromium and its accessibility snapshot, not physical iOS/Android devices or observed VoiceOver, TalkBack, NVDA, switch-control, voice-control, or screen-magnifier sessions.",
+    "The responsive checks cover four high-risk viewport sizes and default browser text settings; device safe-area insets, browser chrome, virtual keyboards, 200–400% zoom, text-only enlargement, and Dutch/localized long strings still need cross-browser testing.",
+    "axe could not determine contrast for many elements layered over WebGL, images, gradients, transparency, or overlapping content. Definite failures and deterministic token ratios are reported, but this is not a complete pixel-level contrast clearance for every layer, hazard, time, and status.",
+    "Palette analysis measured luminance contrast and redundant encodings; it did not substitute for testing with people who have different color-vision profiles or for APCA/high-contrast-mode evaluation.",
+    "Occlusion is the union of persistent UI element bounding boxes over the viewport. It is a reproducible spatial-pressure metric, not a claim that every translucent pixel is fully opaque or that all remaining pixels form one usable map region.",
+    "No shared application, model, style, or test code was modified under the independent-audit contract, so all after values are null and every accepted-pending correction requires central integration and post-change measurement."
+  ]
+}

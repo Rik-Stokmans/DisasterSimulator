@@ -1,0 +1,770 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0484",
+    "name": "Alphen aan den Rijn",
+    "province": "Zuid-Holland",
+    "safetyRegion": "Hollands-Midden"
+  },
+  "agent": {
+    "taskName": "municipality_gm0484",
+    "agentId": "/root/nl_realism_audit",
+    "completedAt": "2026-09-02T12:45:59Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "Alphen aan den Rijn's generated 2025 identity, generalized boundary, 115,773 residents, 100 neighbourhoods, eight BAG woonplaatsen, 22 TOP10NL settlements, three stations, 216 transit stop areas and eight NWB-derived boundary links are coherent. The dedicated ten-preset by six-checkpoint by eight-service gate passes, including deterministic causal ledgers, exact intensity-zero behavior, event-attributable deprived person-hours, neutral official-neighbourhood priority, service-layer-invariant local hazard and exact population/demand/delivery reconciliation. The improved activity allocator preserves the official zero residents in Bedrijventerrein De Schans II while assigning non-zero service demand from its 73 non-residential buildings and 45 establishments, but it still has no workers, transient population or typed critical assets. A correction-required verdict is necessary because the sustained 168-hour river scenario labels Alphen 'recovering' at T+48 and T+72 while its inundation stress is unchanged, system pressure is higher than at T+24, affected people-equivalent has risen and all eight service availabilities are identical between T+48 and T+72. The physical flood, drainage and recovery results also remain generic screens rather than Alphen-specific hydraulics: public local evidence distinguishes Oude Rijn levees, subsiding peat and deep pumped droogmakerijen and inventories extensive sewer and pumping systems, while the model uses source-proximity and seeded neighbourhood modulation. Oasen's current De Steeg transport dependency, the PI's reduced-self-reliance context, Alrijne Alphen's non-acute role, the Groene Harttunnel and dynamically announced emergency-water points are not represented. The interface now correctly normalizes generic flood output as inundation stress rather than metres; all exact hazard, network, backup and restoration values remain scenario assumptions, not forecasts, operator topology or commitments.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek",
+      "title": "E01 — Kerncijfers wijken en buurten 2025, municipality row GM0484",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM0484%27%29&%24select=WijkenEnBuurten%2CAantalInwoners_5%2CBevolkingsdichtheid_34%2Ck_65JaarOfOuder_12%2CEenpersoonshuishoudens_30",
+      "accessedAt": "2026-09-02T12:37:02Z",
+      "edition": 2025,
+      "supports": [
+        "Official GM0484 population 115,773 and density 919 residents per square kilometre.",
+        "Official age-65-plus count 23,920 and 17,307 one-person households.",
+        "Reference municipal totals used for generated-data and local-allocation reconciliation."
+      ]
+    },
+    {
+      "publisher": "Centraal Bureau voor de Statistiek",
+      "title": "E02 — Kerncijfers wijken en buurten 2025, Bedrijventerrein De Schans II BU04840812",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=WijkenEnBuurten%20eq%20%27BU04840812%27&%24select=WijkenEnBuurten%2CAantalInwoners_5%2CNietWoningvoorraad_37%2CBedrijfsvestigingenTotaal_95",
+      "accessedAt": "2026-09-02T12:37:02Z",
+      "edition": 2025,
+      "supports": [
+        "BU04840812 has an official resident population of zero.",
+        "The same neighbourhood contains 73 non-residential buildings and 45 business establishments.",
+        "Primary evidence that zero residents must not be converted into either missing population or absence of infrastructure/daytime activity."
+      ]
+    },
+    {
+      "publisher": "PDOK / Centraal Bureau voor de Statistiek",
+      "title": "E03 — CBS Gebiedsindelingen 2025, generalized municipality collection",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_gegeneraliseerd/items?f=json&limit=1000&datetime=2025-07-01T00%3A00%3A00Z",
+      "accessedAt": "2026-09-02T12:37:02Z",
+      "edition": 2025,
+      "supports": [
+        "Authoritative generalized GM0484 code, name and municipal geometry.",
+        "Boundary used for the generated center and local point-in-polygon checks."
+      ]
+    },
+    {
+      "publisher": "PDOK / Centraal Bureau voor de Statistiek",
+      "title": "E04 — CBS Gebiedsindelingen 2025, generalized neighbourhood collection",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/buurt_gegeneraliseerd",
+      "accessedAt": "2026-09-02T12:37:02Z",
+      "edition": 2025,
+      "supports": [
+        "One hundred generated neighbourhood geometries grouped into sixteen districts for GM0484.",
+        "Administrative geometry underlying the local allocation view, not hydraulic or utility-service areas."
+      ]
+    },
+    {
+      "publisher": "PDOK / Kadaster",
+      "title": "E05 — Basisregistratie Adressen en Gebouwen, woonplaats collection",
+      "url": "https://api.pdok.nl/kadaster/bag/ogc/v2/collections/woonplaats",
+      "accessedAt": "2026-09-02T12:37:02Z",
+      "edition": "retrieved 2026-08-31",
+      "supports": [
+        "Eight active BAG woonplaatsen associated with GM0484.",
+        "The generated BAG place centers all fall inside the generalized municipal boundary in this audit."
+      ]
+    },
+    {
+      "publisher": "PDOK / Kadaster",
+      "title": "E06 — BRT TOP10NL plaats_vlak collection",
+      "url": "https://api.pdok.nl/kadaster/brt-top10nl/ogc/v1/collections/plaats_vlak",
+      "accessedAt": "2026-09-02T12:37:02Z",
+      "edition": "source date 2025-07-01 in generated features",
+      "supports": [
+        "Twenty-two generated settlement polygons: ten buurtschappen, four deelkernen and eight woonkernen.",
+        "BRT settlement types are descriptive geography and are not interchangeable with BAG woonplaatsen or CBS population totals."
+      ]
+    },
+    {
+      "publisher": "PDOK / Centraal Bureau voor de Statistiek",
+      "title": "E07 — CBS generalized safety-region collection",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/veiligheidsregio_gegeneraliseerd",
+      "accessedAt": "2026-09-02T12:37:02Z",
+      "edition": 2025,
+      "supports": [
+        "Unique GM0484 membership of Veiligheidsregio Hollands-Midden.",
+        "Official response-region geography, which does not itself provide response capacity or asset status."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / PDOK",
+      "title": "E08 — Nationaal Wegenbestand wegvakken",
+      "url": "https://service.pdok.nl/rws/nationaal-wegenbestand-wegen/wfs/v1_0?service=WFS&version=2.0.0&request=GetCapabilities",
+      "accessedAt": "2026-09-02T12:37:02Z",
+      "edition": "NWB-Light 2026-08-01",
+      "supports": [
+        "Road identities and geometry underlying the generated N11, N207, N209, N231, N455 and N460 boundary links.",
+        "NWB is transport geometry and does not establish power, water, sewer, gas or telecom topology."
+      ]
+    },
+    {
+      "publisher": "ProRail / PDOK",
+      "title": "E09 — ProRail station OGC collection",
+      "url": "https://api.pdok.nl/prorail/spoorwegen/ogc/v1/collections/station",
+      "accessedAt": "2026-09-02T12:37:02Z",
+      "edition": "retrieved 2026-09-02",
+      "supports": [
+        "Station points for Alphen aan den Rijn, Boskoop and Boskoop Snijdelwijk inside GM0484.",
+        "Station presence does not provide usable trains, evacuation capacity, disruption or restoration state."
+      ]
+    },
+    {
+      "publisher": "Gemeente Alphen aan den Rijn",
+      "title": "E10 — Voorbereiden op een noodsituatie",
+      "url": "https://www.alphenaandenrijn.nl/Veiligheid/Voorbereiden_op_een_noodsituatie",
+      "accessedAt": "2026-09-02T12:37:02Z",
+      "edition": 2026,
+      "supports": [
+        "Residents are asked to be self-sufficient for the first 72 hours and use NL-Alert and Omroep West 89.3 FM for information.",
+        "Emergency drinking-water points will be created if required, but their locations are communicated during the incident rather than published as fixed sites.",
+        "The municipality identifies reception, victim/damage registration, building/public-space safety, communication and aftercare roles.",
+        "VRHM is responsible for regional fire, disaster, crisis and medical-aid coordination."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Hollands Midden",
+      "title": "E11 — Municipality risk profile: Alphen aan den Rijn",
+      "url": "https://risicoprofiel.vrhm.nl/gemeenten/alphen-aan-den-rijn.html",
+      "accessedAt": "2026-09-02T12:37:02Z",
+      "edition": "Regionaal Risicoprofiel 2023–2026",
+      "supports": [
+        "Alphen combines urban, industrial and rural areas, so regional risks apply with differing local relevance.",
+        "The Groene Harttunnel and PI Alphen are specifically highlighted; the PI requires attention because of many people with reduced self-reliance and complex governance.",
+        "Greenport Boskoop is a municipality-specific context not represented by resident population alone."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Hollands Midden",
+      "title": "E12 — Regionaal Risicoprofiel 2023–2026",
+      "url": "https://risicoprofiel.vrhm.nl/documenten/regionaal-risicoprofiel/vrhm-regionaal-risicoprofiel.pdf",
+      "accessedAt": "2026-09-02T12:37:02Z",
+      "edition": "2023–2026",
+      "supports": [
+        "Primary-barrier flooding is extremely unlikely but potentially catastrophic, while regional-barrier failure is more likely with a smaller but locally serious footprint.",
+        "Cold/snow/ice, heat/smog, drought, storm and extreme rainfall can have strongly varying local impacts.",
+        "Bentwoud is explicitly identified as nature-fire terrain in Hollands Midden.",
+        "Earthquake impact in the region is assessed as unnoticeable or very light and manageable within regular response capacity.",
+        "Electricity, drinking water, gas, wastewater, telecom and food disruption have cross-service dependencies; the profile does not publish operator control topology or deterministic restoration times."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Hollands Midden",
+      "title": "E13 — Detailed annex to Regionaal Risicoprofiel 2023–2026",
+      "url": "https://risicoprofiel.vrhm.nl/documenten/bijlagen/vrhm-regionaal-risicoprofiel-bijlage.pdf",
+      "accessedAt": "2026-09-02T12:37:02Z",
+      "edition": "2023–2026",
+      "supports": [
+        "Hollands Midden distinguishes primary-water-barrier, regional-barrier, coastal, river and rainfall-water-nuisance mechanisms.",
+        "An extreme coastal scenario can penetrate inland, and river threats are discussed through named water-system mechanisms rather than municipal-centroid distance.",
+        "Flood effects and response depend on breach, water system and locality."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Hollands Midden",
+      "title": "E14 — Regionaal Crisisplan, Deel I",
+      "url": "https://www.vrhm.nl/sites/default/files/2025-06/VRHM%20Regionaal%20Crisisplan%20Deel%201%20%28dec%202024%29.pdf",
+      "accessedAt": "2026-09-02T12:37:02Z",
+      "edition": "2024–2027",
+      "supports": [
+        "The generic crisis plan assigns organization, responsibilities, tasks and authority for multidisciplinary crisis response.",
+        "Seven general processes include notification/alarm, scaling, leadership and coordination, information, resource management, crisis communication and aftermath.",
+        "Risk-specific plans and current incident information supplement the generic organization; a synthetic model status is not an official response phase."
+      ]
+    },
+    {
+      "publisher": "Gemeente Alphen aan den Rijn / Overheid.nl",
+      "title": "E15 — Gemeentelijk Watertaken Programma 2025–2028",
+      "url": "https://lokaleregelgeving.overheid.nl/CVDR733575",
+      "accessedAt": "2026-09-02T12:37:02Z",
+      "edition": "2025–2028",
+      "supports": [
+        "Alphen requires an area-specific water approach across Oude Rijn levees, peat landscapes and deep droogmakerijen with materially different water, soil, subsidence and drought behavior.",
+        "Deep droogmakerijen lie metres below NAP, require continuous polder pumping and can face severe consequences after a barrier failure; peat areas have subsidence, high groundwater and vulnerable fresh-water availability.",
+        "The public municipal inventory includes 105 km combined sewer, 196 km pressure foul sewer, 220 km foul sewer, 330 km stormwater sewer, 150 km drainage, 1,693 mini-pumps and 38 municipal transport pumps.",
+        "It also identifies two treatment works and fourteen Rijnland transport pumps inside the municipality, plus storage, outlets, overflows, monitoring and local system differences."
+      ]
+    },
+    {
+      "publisher": "Hoogheemraadschap van Rijnland",
+      "title": "E16 — What Rijnland does during water nuisance",
+      "url": "https://www.rijnland.net/over-rijnland/wat-doet-rijnland/dossiers/wateroverlast8/wat-doet-rijnland-bij-wateroverlast/",
+      "accessedAt": "2026-09-02T12:37:02Z",
+      "edition": 2026,
+      "supports": [
+        "Operational water management uses pre-lowering, full-capacity pumping, emergency pumps and controlled storage depending on conditions.",
+        "Excess water is discharged toward the North Sea or Hollandsche IJssel through the managed system.",
+        "Actual drainage response is constrained by boezem levels and situation-specific decisions, not a municipality-wide fixed restoration coefficient."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / Informatiepunt Leefomgeving",
+      "title": "E17 — Landelijk Informatiesysteem Water en Overstromingen",
+      "url": "https://iplo.nl/thema/water/applicaties-modellen/berichtgeving-crisismanagement/liwo/",
+      "accessedAt": "2026-09-02T12:37:02Z",
+      "edition": 2026,
+      "supports": [
+        "Flood assessment uses scenario-specific information such as inundation extent, depth and arrival time.",
+        "Products require expert interpretation and scenario/provenance context.",
+        "A proximity-derived stress field cannot be presented as a source-specific local hydraulic result."
+      ]
+    },
+    {
+      "publisher": "Oasen",
+      "title": "E18 — Oasen annual report 2025: robust distribution network",
+      "url": "https://jaarverslag.oasen.nl/jaarverslag-2025/bestuursverslag/onberispelijk-drinkwater/robuust-leidingnet",
+      "accessedAt": "2026-09-02T12:37:02Z",
+      "edition": 2025,
+      "supports": [
+        "Drinking water for approximately 180,000 residents in Alphen aan den Rijn, Kaag en Braassem, Leiderdorp and Zoeterwoude comes from treatment station De Steeg at Langerak.",
+        "Since the 1990s it has travelled north through a steel transport main described publicly as the 'slagader'.",
+        "A second backup transport route is being developed in phases, with realization expected to start at the end of 2026 or beginning of 2027.",
+        "This is aggregate resilience context, not permission to infer valves, pressure zones, customer connections or operational controls."
+      ]
+    },
+    {
+      "publisher": "Liander",
+      "title": "E19 — Location of the planned Hazerswoude-Rijndijk electricity station",
+      "url": "https://www.liander.nl/regio/zuid-holland/hazerswoude-rijndijk/barrepolder/locatie",
+      "accessedAt": "2026-09-02T12:37:02Z",
+      "edition": 2026,
+      "supports": [
+        "A planned TenneT/Liander station has a publicly identified location in the Barrepolder/Groenendijkse polder near the N11 and railway.",
+        "The project addresses future regional transport capacity and spatial constraints.",
+        "A planned station is not current outage probability, feeder topology, backup autonomy or restoration evidence."
+      ]
+    },
+    {
+      "publisher": "Alrijne Ziekenhuis",
+      "title": "E20 — Alrijne location Alphen aan den Rijn",
+      "url": "https://www.alrijne.nl/locaties/alphen/",
+      "accessedAt": "2026-09-02T12:37:02Z",
+      "edition": 2026,
+      "supports": [
+        "The Alphen location provides outpatient diagnostics/treatment, day surgery, rehabilitation, pharmacy and an out-of-hours GP post.",
+        "The provider explicitly states that its only emergency department is at Alrijne Leiderdorp, not Alphen.",
+        "Facility type and cross-municipality acute-care access matter before interpreting a generic facilities score."
+      ]
+    },
+    {
+      "publisher": "Dienst Justitiële Inrichtingen",
+      "title": "E21 — PI Alphen aan den Rijn",
+      "url": "https://www.dji.nl/locaties/penitentiaire-inrichtingen/pi-alphen-aan-den-rijn",
+      "accessedAt": "2026-09-02T12:37:02Z",
+      "edition": 2026,
+      "supports": [
+        "PI Alphen operates at two public-address locations and is one of the country's largest institutions.",
+        "It includes prison, remand, extra-care, repeat-offender, limited-security and intensive-supervision departments.",
+        "The public role and reduced-self-reliance context are relevant, while current occupancy, staffing, secure logistics and resilience must not be invented."
+      ]
+    },
+    {
+      "publisher": "Provincie Zuid-Holland",
+      "title": "E22 — N207 corridor",
+      "url": "https://www.zuid-holland.nl/onderwerpen/verkeer-vervoer/wegverkeer/alle-n-wegen/wegen/n207/",
+      "accessedAt": "2026-09-02T12:37:02Z",
+      "edition": 2026,
+      "supports": [
+        "The N207 is a major corridor linking Alphen, Greenport Boskoop and surrounding regional/main-road connections.",
+        "Current corridor bottleneck and flow context is more specific than a synthetic equal-capacity municipal edge.",
+        "The public page does not establish disaster passability, evacuation throughput or responder travel time."
+      ]
+    },
+    {
+      "publisher": "Rijksoverheid",
+      "title": "E23 — Energy, drinking water, internet, care and accessibility during a crisis",
+      "url": "https://www.rijksoverheid.nl/themas/recht-veiligheid-en-defensie/dreiging-in-nederland/energie-drinkwater-internet-zorg-bereikbaarheid-tijdens-crisis",
+      "accessedAt": "2026-09-02T12:37:02Z",
+      "edition": 2026,
+      "supports": [
+        "Electricity, heating, telecom, payments, water, food logistics, care and mobility are mutually dependent during crises.",
+        "Households are advised to maintain a 72-hour food and water emergency kit, including three litres of water per person.",
+        "The first 72 hours are a preparedness horizon, not a promise that utilities or crisis effects have recovered by T+72."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM0484 identity, name, province and safety-region assignment are coherent.",
+      "evidenceRefs": [
+        "E01",
+        "E03",
+        "E07"
+      ],
+      "notes": [
+        "Feature id/code and regional bundle code/name all identify GM0484 Alphen aan den Rijn.",
+        "The generated province is Zuid-Holland and safety region is uniquely Hollands-Midden."
+      ]
+    },
+    "geography": {
+      "status": "pass",
+      "summary": "The 2025 generalized boundary, center and local label points pass the audit geometry checks.",
+      "evidenceRefs": [
+        "E03",
+        "E04",
+        "E05"
+      ],
+      "notes": [
+        "The generated center [4.6428288478, 52.1142483036] lies inside the municipal polygon.",
+        "All 100 neighbourhood label points and all eight assigned BAG woonplaats centers lie inside the generalized boundary in the current audit.",
+        "The administrative boundary is generalized and must not be treated as a dike compartment, sewer catchment, pressure zone or emergency catchment."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Official municipal demography is preserved and the small CBS neighbourhood-rounding difference reconciles exactly in the model.",
+      "evidenceRefs": [
+        "E01",
+        "E02",
+        "E04"
+      ],
+      "notes": [
+        "Official population is 115,773, density 919 per square kilometre, age-65-plus share 20.7% and one-person households 17,307.",
+        "Published neighbourhood populations sum to 115,795, a difference of +22 (+0.019%); local model allocation reconciles back to 115,773.",
+        "Bedrijventerrein De Schans II's published resident zero is retained. Independently rounded CBS fields must not be forced to arithmetically agree at neighbourhood scale."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "The 100-neighbourhood 36-field bundle is rich and handles zero/null values correctly, but its activity fields are not daytime population, asset criticality or measured utility load.",
+      "evidenceRefs": [
+        "E02",
+        "E04",
+        "E11",
+        "E15"
+      ],
+      "notes": [
+        "Population, businesses, non-residential buildings, households and most core fields cover all 100 neighbourhoods.",
+        "Average home value and several housing/benefit fields cover 92 of 100; cars per household covers 86; doctor/supermarket distance covers 98.",
+        "District-heating percentage and public charging points have zero usable neighbourhood values. These nulls mean unavailable, not zero district heating or zero chargers.",
+        "Business and non-residential-building counts now influence separate service-specific allocation weights, but total municipality demand remains resident-derived and the weights are not workers, occupancy, facility state or operator demand."
+      ]
+    },
+    "settlements": {
+      "status": "warn",
+      "summary": "The generated BAG and BRT settlement sets are plausible but represent distinct official concepts and population metadata.",
+      "evidenceRefs": [
+        "E05",
+        "E06"
+      ],
+      "notes": [
+        "Eight BAG woonplaatsen are Aarlanderveen, Alphen aan den Rijn, Benthuizen, Boskoop, Hazerswoude-Dorp, Hazerswoude-Rijndijk, Koudekerk aan den Rijn and Zwammerdam.",
+        "Twenty-two BRT polygons comprise ten buurtschappen, four deelkernen and eight woonkernen.",
+        "Settlement counts and BRT descriptive population must not be used as shelter, response or municipal-population capacity."
+      ]
+    },
+    "transport": {
+      "status": "warn",
+      "summary": "NWB, station and transit presence is strong context, but the generated graph is not an emergency movement or utility-capacity model.",
+      "evidenceRefs": [
+        "E08",
+        "E09",
+        "E11",
+        "E22"
+      ],
+      "notes": [
+        "Eight NWB-derived links connect six neighbours over N11, N207, N209, N231, N455 and N460; no alias or unknown-neighbour review flag remains.",
+        "Alphen aan den Rijn, Boskoop and Boskoop Snijdelwijk stations and 216 transit stop areas are spatially selected inside the boundary.",
+        "Every generated boundary link has the same synthetic nominal capacity 150, and the same road graph is reused for every service as a disclosed logical proxy.",
+        "No live closure, bridge/tunnel passability, vehicle/timetable availability, evacuation demand, clearance or responder travel-time state is consumed."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "Authoritative local preparedness, governance and critical-facility context exists but is not represented as operational state.",
+      "evidenceRefs": [
+        "E10",
+        "E11",
+        "E14",
+        "E20",
+        "E21",
+        "E23"
+      ],
+      "notes": [
+        "The app contains no typed PI, Alrijne, Groene Harttunnel, municipal reception, dynamically activated drinking-water point, command location or staffed response-resource object for GM0484.",
+        "Alrijne Alphen is outpatient/day-treatment/revalidation with an out-of-hours GP post; the only Alrijne emergency department is in Leiderdorp. A generic facilities score cannot communicate that distinction.",
+        "The PI is explicitly a reduced-self-reliance and governance concern in the official profile.",
+        "Published roles and sites do not establish occupancy, beds, staff, generators, fuel, secure movement, stock or availability; those unknowns must stay unknown."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten canonical presets, six required checkpoints and eight services execute for GM0484 with finite and complete state.",
+      "evidenceRefs": [
+        "E11",
+        "E12",
+        "E13",
+        "E15",
+        "E23"
+      ],
+      "notes": [
+        "MUNICIPALITY_AUDIT_CODE=GM0484 pnpm audit:model passes both dedicated harness tests, covering 480 service-checkpoint cells plus hazard, network and explanation contracts.",
+        "At T+24 the model reports: severe storm severity 0.1774 (peak 0.6693), 27,251 affected; pluvial flood 0.4167, raw flood amplitude 0.577 and 28,433 affected; river flood 0.2835, raw amplitude 0.912 and 45,710 affected; coastal flood 0.4263, raw amplitude 1.406, 24.53 m/s wind and 59,361 affected.",
+        "Also at T+24: heatwave severity 0.0756 with drought 0.4198 and 7,972 affected; winter storm 0.8210 and 37,754; cyberattack 0.4978 and 35,927; earthquake forcing has ended after 0.00252 g at T+6 and has zero affected; wildfire has zero direct flame, 0.3154 smoke and 479 affected; compound is 0.9486 with raw flood amplitude 0.595, 58.488 mm/h rain, 30.58 m/s wind, 0.5126 cyber disruption and 79,653 affected.",
+        "The web factory uses the canonical sim-core presets. These exact numbers are deterministic scenario outputs, not observed Alphen events, probabilities or forecasts."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Bounds, deterministic repeats, causal ledgers, local reconciliation and no-event counterfactuals close.",
+      "evidenceRefs": [],
+      "notes": [
+        "All hazard dimensions, availability, utilization and affected population remain bounded; demand, delivery, reserve and person-hour values are finite and non-negative.",
+        "Hazard, service-availability and municipal-pressure contribution ledgers reconcile, and repeated checkpoints are deterministic.",
+        "Across all ten presets and all six checkpoints, intensity zero produces zero event hazard fields, zero affected people-equivalent and zero event-attributable deprived person-hours.",
+        "At river T+24, all 100 local populations sum to exactly 115,773, affected population to 45,710, and every service's demand and delivered total reconcile to the municipality within at most 5.69e-14.",
+        "The local hazard range 0.2335–0.3333 is identical under all eight service selections; official neighbourhoods have neutral priority and no fabricated local utility links or hub."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "Flood and drainage eligibility is bounded and honestly labelled as stress, but it is not locally hydraulic or catchment-calibrated for Alphen.",
+      "evidenceRefs": [
+        "E12",
+        "E13",
+        "E15",
+        "E16",
+        "E17"
+      ],
+      "notes": [
+        "Current finite river/coastal support eliminates nationwide tails, and user-facing surfaces normalize the legacy raw amplitude as inundation stress rather than metres.",
+        "The municipality river headline nevertheless receives raw amplitude 0.912 (61% displayed stress) continuously from T+12 through T+72 from distance to simplified major-river corridors; coastal receives 1.406 (94% displayed stress) from coastline distance at T+6–T+24.",
+        "No dike/breach id, connected inundation footprint, elevation, compartment, arrival time, drainage route or uncertainty source creates either value.",
+        "Official local evidence requires different behavior for higher Oude Rijn levees, subsiding peat and deep continuously pumped droogmakerijen. Seeded neighbourhood modulation does not encode those landscapes.",
+        "Major-river, primary-barrier, regional-barrier and rainfall-water-nuisance mechanisms must remain distinct even when more than one can affect Alphen."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "Generic cross-service equations work consistently, but important public Alphen dependencies and facility types are absent and all intermunicipal service edges remain logical road proxies.",
+      "evidenceRefs": [
+        "E02",
+        "E11",
+        "E12",
+        "E15",
+        "E18",
+        "E19",
+        "E20",
+        "E21"
+      ],
+      "notes": [
+        "The engine models power dependency for water, drainage, gas, telecom and facilities and mobility dependency for supply, using deterministic scenario backup windows.",
+        "No Oasen feed/backup stage, sewer or polder pump, wastewater treatment, Liander/TenneT aggregate service area, gas/heating distinction, telecom zone, PI, Alrijne facility type or emergency-distribution activation is consumed.",
+        "Oasen's public 2025 account describes a current common De Steeg transport main and a second backup route not expected to begin realization until late 2026/early 2027; the model instead balances water over eight NWB road edges.",
+        "Gas and heating are one service despite zero usable CBS district-heating fields; null coverage cannot establish the absence or geography of non-gas heat.",
+        "Backup hours, priority, repair crews, fuel, isolation, switching and restoration are scenario assumptions rather than operator-verified Alphen parameters."
+      ]
+    },
+    "causalTrace": {
+      "status": "warn",
+      "summary": "The mathematical explanation chain closes and proxy semantics are explicit, while physical attribution remains scenario-level rather than locally observed or operator-calibrated.",
+      "evidenceRefs": [
+        "E12",
+        "E14",
+        "E18",
+        "E23"
+      ],
+      "notes": [
+        "Direct hazard, recovery, power/mobility dependency, intervention and logical-network contributions reconcile numerically.",
+        "Deprived person-hours quarter-hour integrate event-attributable all-service pressure against a matched no-event baseline before network transfers; they are not customer outage-hours or identified deprived residents.",
+        "Every intermunicipal service edge declares logical-proxy transfer semantics, and its explanation says road connectivity is not physical utility topology.",
+        "The flood repair-access guard is labelled a depth-proxy screening rule, not a field access assessment.",
+        "A closed synthetic ledger establishes reproducibility, not the truth of the physical dependency graph."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "The trajectories are numerically stable, but the river status contradicts its own persistent forcing/state and no 72-hour path is locally calibrated to Alphen assets or crisis operations.",
+      "evidenceRefs": [
+        "E10",
+        "E12",
+        "E14",
+        "E15",
+        "E16",
+        "E18",
+        "E23"
+      ],
+      "notes": [
+        "River raw flood amplitude remains 0.912 and displayed stress 61% at T+24, T+48 and T+72. The municipal label changes from degraded at T+24 to recovering at T+48/T+72 even though pressure worsens from 0.4202 to 0.4346 and affected people-equivalent rises from 45,710 to 48,047.",
+        "All eight river service availabilities are identical at T+48 and T+72: power 0.6048, water 0.5516, drainage 0.4869, gas 0.7542, telecom 0.5721, mobility 0.5023, facilities 0.5340 and supply 0.5277. No recovery is occurring in that interval.",
+        "The compound scenario retains raw flood amplitude 0.595, critical status, pressure 0.6361 and identical service states at T+48/T+72, accumulating 4.963 million event-attributable deprived person-hours by T+72.",
+        "Coastal forcing falls to zero by T+48 but 59,314 affected people-equivalent remain at that checkpoint; by T+72 it reports 8,638 and 3.895 million cumulative person-hours. These are generic damage/recovery envelopes, not a named breach recession or operator timeline.",
+        "The municipality's 72-hour guidance concerns household continuity, information and response roles. It is not a restoration deadline or evidence for the model's repair curves."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [
+      0,
+      6,
+      12,
+      24,
+      48,
+      72
+    ],
+    "services": [
+      "power",
+      "water",
+      "drainage",
+      "gas",
+      "telecom",
+      "mobility",
+      "facilities",
+      "supply"
+    ]
+  },
+  "findings": [
+    {
+      "id": "GM0484-STATUS-001",
+      "severity": "high",
+      "category": "explainability",
+      "status": "open",
+      "summary": "The river scenario says Alphen is recovering while persistent forcing and all service states show no recovery.",
+      "evidence": "At T+24 the 168-hour river preset reports degraded status, raw flood amplitude 0.912, pressure 0.4202 and 45,710 affected people-equivalent. At both T+48 and T+72 the same amplitude remains, pressure is worse at 0.4346, affected rises to 48,047 and all eight service availabilities are exactly unchanged, yet the municipal status is 'recovering'. The implementation applies the recovering flag after a fixed elapsed time when weighted availability is below 0.9, rather than proving positive recovery. E14 confirms official crisis phases are organizational processes based on incident state, not a generic elapsed-time label.",
+      "action": "Set 'recovering' only when a defined recent interval shows positive restoration progress or improving service state and current forcing/access does not block that restoration. Add a regression asserting GM0484 river T+48/T+72 cannot be recovering when hazard and every service availability are unchanged; expose 'persistent disruption' or the severity-based status instead."
+    },
+    {
+      "id": "GM0484-FLOOD-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Alphen's river and coastal inundation stress has no named hydraulic scenario, connected footprint or landscape calibration.",
+      "evidence": "The river preset generates raw amplitude 0.912 (61% public stress) from T+12 through T+72 and the coastal preset 1.406 (94% public stress) at T+6–T+24. Both start from municipal proximity fields and seeded local modulation. E12–E13 distinguish primary and regional barriers, named water mechanisms and strongly varying effects; E15 distinguishes higher Oude Rijn levees, peat and deep pumped droogmakerijen; E17 requires scenario-specific inundation, depth/arrival and provenance for hydraulic interpretation.",
+      "action": "Keep the current unitless stress screen as an explicit fallback. Before any local depth, passability or asset-damage claim, ingest licensed LIWO/Rijnland scenario layers with breach/scenario id, connected footprint, depth or stress semantics, arrival/recession, reference date, resolution and uncertainty. Never relabel major-river, coastal and regional-barrier pathways as interchangeable."
+    },
+    {
+      "id": "GM0484-DRAIN-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "The pluvial and drainage layers ignore unusually detailed public Alphen sewer, pump, landscape and water-system context.",
+      "evidence": "The pluvial preset reports raw amplitude 0.577, 28,433 affected people-equivalent and drainage availability 0.5130 at T+24, distributed by generic municipal/seeded coefficients. E15 inventories 105 km combined, 196 km pressure foul, 220 km foul, 330 km stormwater and 150 km drainage systems, 1,693 mini-pumps, 38 municipal transport pumps, two treatment works and fourteen Rijnland transport pumps. It requires different approaches for three landscapes. E16 describes controlled pumping, storage and emergency-pump decisions constrained by the managed water system.",
+      "action": "Add public aggregate sewer-system type, landscape/catchment and pump/treatment dependency context without exposing sensitive controls. Calibrate rainfall-to-stress and power-to-drainage effects per catchment or keep them explicitly unitless; distinguish urban sewer surcharge, groundwater nuisance, polder pumping and regional-water overload."
+    },
+    {
+      "id": "GM0484-WATER-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "The drinking-water model omits Oasen's public regional source/transport and staged-backup context.",
+      "evidence": "E18 says water for roughly 180,000 residents across Alphen and three neighbouring municipalities currently comes from De Steeg through a northbound steel transport main and that a second backup route is still being developed, with construction expected from late 2026/early 2027. The simulator instead distributes water over the same eight NWB edges used by every service and assigns generic backup windows. This cannot validate exact Alphen water availability such as 0.5516 in river flooding or 0.3400 in the compound T+24 state.",
+      "action": "Represent the published De Steeg source/transport dependency and second-route project only as coarse, dated, operator-sourced context. Keep pressure zones, valves, controls and customer topology unknown. Replace road-derived water transfer with an approved aggregate adapter before claiming geographic redundancy, isolation or restoration."
+    },
+    {
+      "id": "GM0484-FAC-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "A generic facilities score hides the PI's reduced-self-reliance population and misstates the role of Alrijne Alphen if read as acute hospital capacity.",
+      "evidence": "E11 specifically flags the Groene Harttunnel and PI and says the PI needs extra attention because of reduced self-reliance and complex governance. E21 confirms two PI locations and multiple regimes/care functions. E20 says Alrijne Alphen is outpatient, day-treatment and rehabilitation with a GP post; the only Alrijne emergency department is in Leiderdorp. No typed object or cross-municipality acute-care dependency appears in the model, which emits one generic facilities availability per neighbourhood.",
+      "action": "Add public typed context nodes for PI Alphen, Alrijne Alphen, the cross-boundary Leiderdorp emergency department and Groene Harttunnel. Model role and access separately from availability; do not infer occupancy, staffing, beds, fuel, secure transport or backup. Ensure UI labels cannot imply an emergency department at Alphen."
+    },
+    {
+      "id": "GM0484-NET-001",
+      "severity": "high",
+      "category": "network",
+      "status": "accepted-limitation",
+      "summary": "Eight road boundary links are correctly disclosed logical transfers but cannot represent any of the seven non-mobility service networks.",
+      "evidence": "E08 verifies N11/N207/N209/N231/N455/N460 road identity and geometry only. The simulator reuses all eight equal-capacity edges for power, water, drainage, gas, telecom, facilities and supply. E18–E19 provide limited public water/electricity context but no compatible graph. No operator-authorized cable, pipe, sewer, backhaul, service-area, switching or restoration topology is consumed, and current transferSemantics correctly remains logical-proxy.",
+      "action": "Preserve prominent logical-proxy wording in every map, legend, tooltip, causal explanation and export. Never draw or name the road edges as physical utilities. Add service-specific aggregate topology only through provider-approved, security-reviewed inputs with source dates and unknown-state handling."
+    },
+    {
+      "id": "GM0484-EQ-001",
+      "severity": "medium",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The remote Groningen earthquake proxy creates a measurable Alphen service-deprivation tail unsupported by the regional assessment.",
+      "evidence": "The canonical earthquake gives GM0484 0.00252 g at T+6 and zero affected people-equivalent at every checkpoint, yet accumulates 37,074.60 event-attributable deprived person-hours by T+72 through small eight-service damage/recovery effects. E12 assesses regional earthquake effects as unnoticeable or very light and within regular response capacity. No named event magnitude, official KNMI ShakeMap, local site response or validated threshold supports the exact service tail.",
+      "action": "Require a named source/magnitude and official or validated ground-motion field before displaying local g or applying service damage. Threshold unsupported remote tails to no operational consequence, or label them purely hypothetical and keep their probability/risk interpretation separate."
+    },
+    {
+      "id": "GM0484-FIRE-001",
+      "severity": "medium",
+      "category": "limitation",
+      "status": "accepted-limitation",
+      "summary": "The default wildfire safely has no direct Alphen flame, but it does not test the officially identified Bentwoud mechanism and its smoke is not a plume forecast.",
+      "evidence": "The default Veluwe-centred preset gives GM0484 zero direct wildfire intensity at all checkpoints, smoke 0.3154 at T+12/T+24, 479 affected people-equivalent at T+24 and 517,773.83 cumulative deprivation hours at T+72. E12 explicitly identifies Bentwoud as local nature-fire terrain. The scenario editor can change epicentre, but no burnable land cover, fuel, access, wind-driven spread, atmospheric dispersion, concentration or health threshold drives local results.",
+      "action": "Retain finite direct-fire support and separate flame from smoke. Add a named Bentwoud test scenario only with land-cover/fuel, ignition, wind, access and response assumptions; calibrate smoke with meteorology/dispersion and exposure thresholds rather than distance alone."
+    },
+    {
+      "id": "GM0484-MET-001",
+      "severity": "medium",
+      "category": "limitation",
+      "status": "accepted-limitation",
+      "summary": "Storm, heat/drought, winter weather and cyber are credible stress directions but their exact Alphen values and restoration curves are uncalibrated.",
+      "evidence": "E12 supports extreme wind, rainfall, heat, drought, cold/snow/ice and vital-service/cyber disruption, with local effects varying strongly. The exact fields in this run—such as winter severity 0.8210 and 37,754 affected at T+24 or cyber disruption 0.4978 and 35,927 affected—come from analytic envelopes and deterministic seeds, not KNMI grids, local observations, operator incident histories or threat intelligence. Winter current event fields correctly return to zero by T+72 after the applied event-attribution correction.",
+      "action": "Keep scenario/not-forecast labeling and expose forcing provenance. Future calibration should ingest time-stamped KNMI observations/forecasts, climate-stress layers and privacy-safe operator restoration distributions with uncertainty; cyber scenarios should remain hypothetical unless tied to an authorized exercise."
+    },
+    {
+      "id": "GM0484-MOB-001",
+      "severity": "medium",
+      "category": "network",
+      "status": "open",
+      "summary": "Transport presence cannot support emergency throughput, evacuation or acute-care access claims.",
+      "evidence": "E08–E09 validate eight road links and three stations, while E22 identifies the N207's role for Alphen and Greenport Boskoop. E11 separately flags the Groene Harttunnel. The generated links all use nominal capacity 150 and lack bridges/tunnels, closure/detour state, traffic demand, train/bus availability, clearance, responder routing and the N11 route to the Alrijne emergency department in Leiderdorp.",
+      "action": "Separate observed transport geometry from synthetic transfer capacity. Add public bridge/tunnel/corridor context, incident-specific closure and passability, alternative routes and uncertainty before using mobility for evacuation, supply throughput or response-time decisions."
+    },
+    {
+      "id": "GM0484-SUP-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "open",
+      "summary": "The emergency-supply layer uses generic household preparedness and cannot represent incident-announced Alphen drinking-water points or separate essential goods.",
+      "evidence": "E10 asks residents to manage for 72 hours and says emergency water-point locations will be announced during an incident. E23 gives national preparedness and cross-service context. The model uses householdPreparedness 0.44 as a scenario parameter, one composite supply index and no activation, site, stock, water volume, medicine, food, charging, cash, vulnerable-person need, vehicle or last-mile resource state.",
+      "action": "Expose preparedness as an editable uncertain assumption rather than an Alphen measurement. Split emergency supply into water, food, medicines, warmth/power, information and payment/cash context. Support incident-time insertion of officially announced points without pre-inventing locations, staffing, stock or throughput."
+    },
+    {
+      "id": "GM0484-ALLOC-001",
+      "severity": "medium",
+      "category": "regional-data",
+      "status": "accepted-limitation",
+      "summary": "Activity-aware allocation fixes the zero-resident service void but still cannot represent workers, visitors or critical assets in De Schans II and other non-residential areas.",
+      "evidence": "E02 reports zero residents, 73 non-residential buildings and 45 establishments in BU04840812. At river T+24 the current model correctly preserves affected residents=0 while allocating non-zero demand/delivery for all eight services: power 0.339400/0.198310, water 0.087106/0.045902, drainage 0.090526/0.041125, gas 0.336782/0.254436, telecom 0.096642/0.055757, mobility 0.197960/0.096487, facilities 0.042676/0.026544 and supply 0.105814/0.051421. These are transparent weights redistributing resident-derived municipal demand, not measured occupancy/load.",
+      "action": "Retain the official resident zero and current activity weights. Add separately sourced privacy-safe daytime-person, transient-population and typed critical-asset ledgers where available; never convert them into resident population or imply the coefficients are utility demand."
+    },
+    {
+      "id": "GM0484-UI-001",
+      "severity": "informational",
+      "category": "ui",
+      "status": "fixed",
+      "summary": "Generic flood output is now presented as normalized inundation stress instead of an exact local metre value.",
+      "evidence": "Current inspector, statistics/history and causal surfaces label the internal legacy amplitude as inundation stress or depth-proxy units, normalize public values, and explicitly state that it is not hydraulic-model or LIWO water-depth observation. This is the applied CORR-017 interim mitigation and prevents the earlier exact-metre claim while source-specific calibration remains absent.",
+      "action": "Retain the wording and regression coverage across map, inspector, charts, operations brief, causal detail, downloads and accessibility text. Only introduce metres for a source-specific layer carrying scenario/provenance metadata."
+    },
+    {
+      "id": "GM0484-DATA-001",
+      "severity": "low",
+      "category": "regional-data",
+      "status": "accepted-limitation",
+      "summary": "CBS rounding and partial field coverage are handled correctly but constrain neighbourhood inference.",
+      "evidence": "Neighbourhood population differs from the municipality row by 22 people; housing/benefit fields cover 92 of 100, cars per household 86, doctor/supermarket distance 98, and district heating/charging none. Published zeroes are retained and nulls remain unavailable rather than being converted to zero.",
+      "action": "Keep field coverage and editions visible, preserve null and rounding semantics, and never infer household-level vulnerability, utility absence or individual circumstances from aggregate neighbourhood fields."
+    },
+    {
+      "id": "GM0484-INV-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The engine closes its deterministic causal, local-allocation and counterfactual contracts for GM0484.",
+      "evidence": "The dedicated two-test gate passes the full 10×6×8 matrix. Service and municipal ledgers close, local totals reconcile, local hazard is service-layer invariant, official regions use neutral priority and no fabricated hub/link graph, intensity zero is exact, person-hours are monotonic/event-attributable and every intermunicipal service edge declares logical-proxy semantics.",
+      "action": "Retain these invariants in the national release gate while adding the recovery-status regression and local calibration adapters identified above."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Make recovery status state-based so persistent river disruption cannot be labelled recovering without actual improvement.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "For GM0484 river-flood, assert T+48 and T+72 are not 'recovering' when raw flood amplitude remains 0.912 and all eight service availabilities are identical; require positive restoration delta/recovery progress for the label. Re-run the complete ten-preset/six-checkpoint/eight-service gate and status accessibility assertions."
+    },
+    {
+      "summary": "Keep generic flood screens unitless and add source-specific Alphen primary/regional-barrier, river and pluvial hydraulic adapters with explicit provenance.",
+      "files": [
+        "apps/web/public/data/hazards/GM0484-flood-context.geojson",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/MapView.tsx",
+        "apps/web/src/components/statistics/statisticsCatalog.ts"
+      ],
+      "validation": "With an approved LIWO/Rijnland fixture, assert only connected scenario cells receive sourced inundation/depth/arrival, Oude Rijn levee/peat/droogmakerij differences are preserved, provenance and uncertainty render, and dry cells remain dry. Without a fixture, assert only normalized stress is shown and no metres, hydraulic passability or depth-derived asset claim appears."
+    },
+    {
+      "summary": "Represent public aggregate drainage landscape/catchment and pump/treatment dependencies without inventing sensitive control topology.",
+      "files": [
+        "apps/web/public/data/services/GM0484-water-context.geojson",
+        "apps/web/src/data.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts"
+      ],
+      "validation": "Test separately named Oude Rijn levee, peat and droogmakerij fixtures; make municipal/sewer/polder/boezem components explicit; verify power dependency and emergency-pump assumptions are sourced; preserve exact local demand/delivery reconciliation and unknown-state semantics."
+    },
+    {
+      "summary": "Add coarse Oasen dependency context and typed public critical facilities/access relationships for GM0484.",
+      "files": [
+        "apps/web/public/data/services/GM0484-drinking-water-context.geojson",
+        "apps/web/public/data/facilities/GM0484.geojson",
+        "apps/web/src/data.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/components/MapView.tsx"
+      ],
+      "validation": "Represent De Steeg/current transport-main and second-route project as dated aggregate context, never road topology. Render PI Alphen, Alrijne Alphen, cross-boundary Leiderdorp SEH and Groene Harttunnel by correct public type/role; assert no inferred occupancy, capacity, backup, staffing, control or availability and provide a keyboard-accessible table alternative."
+    },
+    {
+      "summary": "Remove unsupported remote-earthquake service tails unless a named source and validated ground-motion product exceeds an operational threshold.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/explainability.test.ts"
+      ],
+      "validation": "For the default Groningen-centred fixture, verify GM0484's unsupported 0.00252 g tail does not create deterministic service damage/person-hours unless an explicit sourced threshold says it should. For a sourced event, require magnitude/source, map provenance, site-response/uncertainty semantics and deterministic replay."
+    },
+    {
+      "summary": "Separate transport geometry, emergency mobility, acute-care access and incident-activated supply points from generic network capacity.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/data.ts",
+        "apps/web/src/components/MapView.tsx",
+        "apps/web/src/components/OperationsBrief.tsx"
+      ],
+      "validation": "Keep NWB/ProRail/GTFS presence distinct from capacity. Add scenario passability/closure and explicit unknown values for N11/N207/Groene Harttunnel and cross-boundary acute-care access; allow emergency-water points only when supplied by an incident source, and assert no fixed point, stock, staffing or throughput is fabricated."
+    }
+  ],
+  "residualLimitations": [
+    "The ten presets are deterministic planning stress tests, not current incidents, KNMI forecasts, official probabilities, casualty estimates or operator outage predictions.",
+    "No security-sensitive TenneT/Liander, Oasen, gas, telecom, Rijnland, sewer, hospital, PI or emergency-service topology, controls, switching, isolation, priority-customer or restoration data is consumed.",
+    "The internal floodDepthM field is a legacy depth-like scenario amplitude. Public views now normalize it as stress, but model damage and repair-access relationships are still uncalibrated screens.",
+    "Neighbourhood outputs use aggregate CBS administrative areas and deterministic seeds; they do not resolve buildings, terrain, dike compartments, sewer catchments, pressure zones, workers or visitors.",
+    "The activity allocator redistributes a fixed resident-derived municipal demand total; businesses and non-residential buildings do not provide measured load, employment, occupancy or criticality.",
+    "BAG woonplaatsen, BRT settlements, CBS neighbourhoods, districts and municipality boundaries are different ontologies/reference dates and must remain separately attributed.",
+    "NWB, ProRail and transit data verify transport presence only; they do not establish usable vehicles, service continuity, passenger demand, evacuation capacity, passability, clearance or responder travel time.",
+    "Oasen's public source/main/project information is aggregate context and cannot establish valves, pressure zones, local redundancy, contamination/isolation domains or restoration duration.",
+    "Alrijne and DJI public pages establish facility roles, not current occupancy, staff, beds, secure logistics, generator fuel, medicine stock, mutual aid or incident availability.",
+    "Publicly planned Barrepolder electricity infrastructure is future-capacity context, not current feeder topology, failure probability or restoration evidence.",
+    "The household-preparedness parameter is a scenario assumption rather than a GM0484 survey or inventory, and incident drinking-water point locations are intentionally unknown before official announcement.",
+    "The first-72-hour window excludes long-term displacement, contamination, health surveillance, economic loss, infrastructure reconstruction and recovery beyond the operational checkpoint.",
+    "Six-hour reporting checkpoints can miss short impulses such as earthquake shaking and rapid flash effects; peak memory improves display but is not temporal validation.",
+    "The official VRHM profile is regional and strategic; it establishes relevant mechanisms and governance context but not municipality-specific event probabilities, damage functions or utility recovery curves."
+  ],
+  "provinceReviewFlags": [
+    "Zuid-Holland/Rijnland: replace proximity-only river/coastal eligibility with named primary-barrier, regional-barrier, connected-inundation and arrival-time scenario masks.",
+    "Alphen/Rijnland: distinguish Oude Rijn levees, peat areas and deep droogmakerijen, including public aggregate polder pumping, boezem, sewer and wastewater dependencies.",
+    "Alphen/Holland Rijnland: treat Oasen's De Steeg transport dependency and staged second-route project as dated aggregate context, never infer secure pipe or control topology.",
+    "Hollands-Midden: review every municipality's status logic so 'recovering' requires measured model improvement and is blocked by persistent forcing/access constraints.",
+    "Hollands-Midden: add correctly typed PI, hospital/GP, tunnel and other public critical-facility context while leaving capacity, staffing and resilience unknown without provider data.",
+    "Alphen/Zuid-Holland: review N11/N207 and Groene Harttunnel access, bridge/tunnel passability and cross-boundary acute-care routes separately from synthetic service transfer.",
+    "Hollands-Midden: test a separately named Bentwoud fire scenario with land-cover and weather eligibility; do not reinterpret the default Veluwe smoke screen as local fire risk.",
+    "Hollands-Midden: threshold remote Groningen earthquake service consequences against a named KNMI/validated ground-motion product and the regional very-low-impact assessment.",
+    "Shared/national: all NWB-derived service transfers must remain labelled logical proxies and never be presented as physical electricity, drinking-water, drainage, gas/heating or telecom topology.",
+    "Shared/national: preserve incident-time/unknown semantics for emergency water and support points; 72-hour preparedness is not a guaranteed restoration or all-clear deadline."
+  ]
+}

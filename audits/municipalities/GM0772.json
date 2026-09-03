@@ -1,0 +1,549 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0772",
+    "name": "Eindhoven",
+    "province": "Noord-Brabant",
+    "safetyRegion": "Brabant-Zuidoost"
+  },
+  "agent": {
+    "taskName": "municipality_gm0772",
+    "agentId": "/root/nl_realism_audit",
+    "completedAt": "2026-09-03T00:13:48Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "Eindhoven's official 2025 identity, generalized boundary, population, 116 neighbourhoods and safety-region assignment reconcile, and the focused deterministic harness passes all ten presets, six checkpoints and eight services. The current output is not release-safe as a locally realistic first-72-hour layer. The Rhine/Meuse/IJssel preset assigns Eindhoven an internal inundation stress of 1.001528 continuously from T+12 through T+72, 93,919 modeled people under pressure at T+24 and 102,139 at T+72, contrary to the adopted Brabant-Zuidoost profile's explicit statement that this high-lying region has no direct sea or large-river flood danger. The profile instead identifies local Dommel/Aa/smaller-stream flooding and an indirect blocked-drainage pathway when northern Brabant floods. The UI turns that unsupported proximity value into a prominent 67% local inundation-stress headline without the local contradiction. Eight unrelated hazards reuse exactly the same complete neighbourhood order, and a controlled fire source inside a current official forest polygon in Gennep ranks Gennep only 112th of 116 neighbourhoods. Eindhoven already publishes integration-ready runoff, watercourse and sewer geometry, but those layers do not drive the model and the national HWH point bundle returns no local assets; no-data is not absence. The 72-hour services, backups, restoration and interventions remain transparent exercise assumptions rather than operator, hospital or municipal commitments. Current observations, provider areas, registers and planning maps are context only, never a T+72 forecast or live operational topology.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek / PDOK / Kadaster",
+      "title": "E01 — Official 2025 municipality, neighbourhood, settlement and demographic inputs",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_gegeneraliseerd/items?f=json&limit=1000&datetime=2025-07-01T00%3A00%3A00Z",
+      "accessedAt": "2026-09-02T23:59:51Z",
+      "edition": 2025,
+      "supports": [
+        "GM0772 identity, generalized boundary, centre containment, province and safety-region assignment",
+        "CBS OData 86165NED reports 249,035 residents, density 2,829 per km², 16.4 percent aged 65 or older and 65,371 one-person households",
+        "The app contains all 116 official neighbourhoods and 20 districts; published neighbourhood populations sum to 248,990 because small-area values are rounded, while the engine reconciles to the municipality total",
+        "CBS municipality and neighbourhood sources are annual editions under CC BY 4.0; BAG place data is Public Domain Mark 1.0 and BRT TOP10NL is CC BY 4.0"
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Brabant-Zuidoost",
+      "title": "E02 — Regionaal Risicoprofiel 2025–2028",
+      "url": "https://www.vrbzo.nl/wp-content/uploads/2025/04/Regionaal-Risicoprofiel-2025-2028.pdf",
+      "accessedAt": "2026-09-03T00:00:00Z",
+      "edition": "definitive version 1.0, 2025–2028",
+      "supports": [
+        "The profile states that relatively high-lying Brabant-Zuidoost has no direct flood danger and lies outside direct large-river influence; northern large-river flooding can instead block drainage from southern Brabant",
+        "Local high-water pathways concern smaller rivers and streams such as the Dommel and Aa under prolonged rain, saturation and high groundwater; roads, bridges, wastewater treatment and utilities can be affected",
+        "The profile covers extreme rain, regional-dike failure, nature fire, cold/snow/ice, heat, storm, electricity, gas/heat, data/telecom, drinking water, wastewater, chemical/biological/radiological events, road/rail/air incidents, pipelines, buildings, events and cyber",
+        "It describes Eindhoven Airport as a major civil/military risk object with dedicated plans and on-site fire response, and identifies Brainport, A2/A67, rail, hospitals and wastewater facilities as locally important dependencies",
+        "For extended power loss, municipalities determine emergency-generator connection priority while Enexis coordinates; health/public order come before other vital infrastructure. For an illustrative drinking-water outage, municipality and Brabant Water designate emergency-water locations and target three litres per person per day",
+        "This is a qualitative, static regional profile updated on a four-year plan cycle, not a numeric municipal calibration, live incident feed, probability forecast or proof that an intervention occurred; no blanket machine-data licence is stated"
+      ]
+    },
+    {
+      "publisher": "Gemeente Eindhoven",
+      "title": "E03 — Integration-ready Eindhoven water, sewer, groundwater and climate-adaptation layers",
+      "url": "https://data.eindhoven.nl/api/explore/v2.1/catalog/datasets/watervisiekaarten-oppervlakkige-afstromingsroute-bij-klimaat-bui",
+      "accessedAt": "2026-09-03T00:00:00Z",
+      "edition": "source-dated municipal snapshots inspected 2026-09-03",
+      "supports": [
+        "The Opendatasoft API and ArcGIS MapServer publish 253 desired surface-runoff LineStrings for an extreme climate shower, processed 2026-08-28, Public Domain; they describe a future water-system vision rather than current inundation or capacity",
+        "Riolering en aansluitingen is available through https://data.eindhoven.nl/api/explore/v2.1/catalog/datasets/riolering-en-aansluitingen/records, ArcGIS and the linked WFS https://data.riox.online/eindhoven/wfs: 147,118 records processed 2026-08-05, Public Domain, with explicit incomplete house-connection coverage and zero diameter meaning unknown",
+        "Waterlopen en sloten is available at https://data.eindhoven.nl/api/explore/v2.1/catalog/datasets/blauw/records: 8,642 Polygon/MultiPolygon records processed 2026-08-31, public domain; duplicated A/B water-board features and the broader Noord-Brabant territory require spatial/provenance filtering",
+        "GHG/GLG groundwater is served by https://gisservice.eindhoven.nl/arcgis/rest/services/WTR_Grondwaterstanden/MapServer and was processed 2024-09-04; it combines measured and calculated averages and identifies old stream valleys in Tongelre, Gestel and the centre, but states no reuse licence or fixed cadence and is not a live groundwater surface",
+        "The catalogue leaves update_frequency null, so every integration must retain source processing time rather than imply daily or real-time freshness"
+      ]
+    },
+    {
+      "publisher": "Gemeente Eindhoven / Nationaal Coördinator Terrorismebestrijding en Veiligheid",
+      "title": "E04 — Eindhoven emergency preparation and national first-72-hour guidance",
+      "url": "https://www.eindhoven.nl/stad-en-wonen/veiligheid/voorbereiden-op-noodsituatie",
+      "accessedAt": "2026-09-03T00:00:00Z",
+      "edition": "current municipal page and 2025–2026 national campaign",
+      "supports": [
+        "Eindhoven directs incident communication through BrabantAlert, 87.6 FM regional emergency radio and NL-Alert",
+        "The city says national government advises one emergency support point per 5,000 residents, that Eindhoven intends to establish them, and explicitly that the support points do not yet exist because suitable neighbourhood locations still need preparation",
+        "The national first-72-hour advice is available at https://www.rijksoverheid.nl/vraag-en-antwoord/veiligheidsregios-en-crisisbeheersing/wat-zit-er-in-een-noodpakket and includes three litres of water per person per day, durable food, radio, power bank and medicines",
+        "Preparedness advice, a national survey or a planned support-point ratio is not observed Eindhoven household stock, a shelter designation, distribution capacity, an activation or a restoration commitment"
+      ]
+    },
+    {
+      "publisher": "WMCN / Rijkswaterstaat / KNMI / Waterschap De Dommel",
+      "title": "E05 — Flood-scenario, water-level, weather and seismic integration routes",
+      "url": "https://iplo.nl/thema/water/applicaties-modellen/berichtgeving-crisismanagement/liwo/",
+      "accessedAt": "2026-09-03T00:00:00Z",
+      "edition": "LIWO 2025.1.6; live services inspected 2026-09-02/03",
+      "supports": [
+        "LIWO release 2025.1.6 is an irregular expert-use scenario library served at https://basisinformatie-overstromingen.nl/geoserver/ows; a causal run must retain selected scenario, source water body, defence/failure state, boundary level and datum, connected depth/velocity/arrival/recession footprint, probability, resolution, licence and NoData, and must not present it as a forecast",
+        "RWS Waterinfo generally updates LMW points every ten minutes under CC0 unless a component states otherwise. The deployed snapshot has three Eindhoven discharge points observed 2026-09-02 17:10Z: Blaarthem Dommel 0 m³/s, Stuw Blaarthem kanaal 0 m³/s and Gender 0.02 m³/s. A valid measured zero is distinct from absent coverage, and three points are not a municipal hydraulic surface or T+72 prediction",
+        "Waterschap De Dommel says its Dommelportaal allows current groundwater and surface-water measurements to be filtered, graphed and downloaded at https://www.dommel.nl/waterdata-openbare-gegevens-over-water; service stability, machine API, licence detail and cadence must be verified before production use",
+        "KNMI 10-minute observations v1.0 are CC BY 4.0; station 06370 Eindhoven Airport observed 17.9 °C, 3.46 m/s gust and 0 mm preceding-hour rain at 2026-09-02 23:30Z. The province warning product has a 48-hour horizon. Observations and issued warnings retain observation/issue/valid time and never propagate automatically through the scenario clock",
+        "KNMI FDSN is an automatically updated event catalogue. No event assigned to GM0772 in the 365-day deployment window is no local catalogue record, not zero ground-motion hazard, a forecast or building-damage evidence"
+      ]
+    },
+    {
+      "publisher": "Nederlands Instituut Publieke Veiligheid / Kadaster / PDOK",
+      "title": "E06 — Nature-fire risk method and public land-cover fallback",
+      "url": "https://nipv.nl/informatievoorziening/voorzieningen/risico-index-natuurbranden/",
+      "accessedAt": "2026-09-03T00:00:00Z",
+      "edition": "RIN current page; BRT source actuality 2023, registered 2024-09-01",
+      "supports": [
+        "NIPV's RIN uses seventeen parameters to assess, per one-square-kilometre cell, whether an ignited nature fire can become uncontrollable and supports area-specific preparedness; no public bulk API, fixed cadence or redistribution licence was found",
+        "BRT TOP10NL OGC at https://api.pdok.nl/kadaster/brt-top10nl/ogc/v1 provides normally annual CC BY 4.0 land-cover geometry. Polygon f7e53f52-5577-5e85-9860-d4e01b03fb3a at [5.47460, 51.41974] is classified bos: loofbos, has source actuality 2023 and lies in CBS neighbourhood BU07727260 Gennep",
+        "BRT land cover can bound eligible fuels and verify source containment, but cannot provide fuel moisture, ignition, perimeter, spread, wind, visitors, access, extinguishing water, suppression or live fire state"
+      ]
+    },
+    {
+      "publisher": "Netbeheer Nederland / Stichting Mijn Aansluiting / RDI / RIVM / DUO",
+      "title": "E07 — Electricity planning, provider territories, telecom and facility context",
+      "url": "https://data.partnersinenergie.nl/capaciteitskaart/totaal/afname",
+      "accessedAt": "2026-09-03T00:00:00Z",
+      "edition": "public snapshots retrieved 2026-09-02",
+      "supports": [
+        "One public capacity-map sample at Eindhoven Noord reports Enexis large-user planning context: withdrawal 111.1 MW existing, 126 MW required, 98.3 MW queue and 163 requests; injection 108.9/44.8/35.7 MW and 38 requests, with nineteen projects. Capacity/projects update at least quarterly and queues monthly; the product is described as open data but an exact licence ID was not found. One sample is not municipal coverage, current load, outage state or emergency reserve",
+        "The public-domain Stichting Mijn Aansluiting WMS/WFS queried at the municipal reference point returns Enexis electricity/gas, Brabant Water drinking water and Ziggo fixed media, with provider timestamps, and no drainage polygon. Provider territory is responsibility context, not complete topology, pressure, capacity, coverage quality, redundancy or incident state; no returned polygon remains Unknown",
+        "RDI WFS https://antenneregister.nl/mapserver/wfs/ contributes 402 registered Eindhoven installation sites and 852 antennas, including 222 mobile-communication sites/638 antennas and 70 fixed-link sites/91 antennas. The register states no fixed cadence or reuse-licence version and proves neither coverage, backhaul, traffic, power/backup nor live availability",
+        "RIVM acute-care v1.1, published 2026-07-03 under CC0 at https://datacatalogus.rivm.nl/dataset.xhtml?persistentId=doi:10.21945/8E767B2D-9CED-4A85-A95D-3AC1A608C663, identifies Catharina Ziekenhuis as a 24/7 emergency and acute-obstetric site with 18 reported rooms and 30,000 2025 visits; it is a static questionnaire, not live occupancy, staffing, diversion or generator endurance",
+        "DUO RIO daily CC BY (licence version unspecified) contributes 197 registered education locations. No KVK government point is assigned locally in the partial bundle. Neither result establishes shelter, support-point, command, care or distribution role or capacity"
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / ProRail / Nationaal Dataportaal Wegverkeer / OVapi",
+      "title": "E08 — Road, rail, transit and timestamped mobility context",
+      "url": "https://api.pdok.nl/rws/nationaal-wegenbestand-wegen/ogc/v1?f=html&lang=nl",
+      "accessedAt": "2026-09-03T00:00:00Z",
+      "edition": "NWB snapshot 2026-08-01; current OGC and NDW snapshot inspected 2026-09-03",
+      "supports": [
+        "NWB national road geometry is available by OGC/download, generally monthly under CC0; it supports route identity and geometry but not lanes, measured throughput, emergency access or operational capacity. ProRail OGC https://api.pdok.nl/prorail/spoorwegen/ogc/v1 is manually updated CC0 geometry, and GTFS is schedule context only",
+        "The graph has twelve logical road edges, seven neighbouring municipalities, Eindhoven Centraal/Strijp-S/Stadion and 284 GTFS stop areas, but no internal bottleneck, aviation operation, train/bus vehicle state, ambulance/evacuation routing or repair access",
+        "Raw current NWB records wvk_id 325158020 and 326158032 behind generated nwb-link-378 both identify wegnr_hmp=A2, wegnr_aw=RW2 and bst_code=OPR while exposing numeric wegnummer=002; the generated graph instead displays an ambiguous regional route named 002 with 150 synthetic units alongside A2 and N2",
+        "Rijkswaterstaat describes N2 as the parallel carriageway of Randweg Eindhoven and A2 as the other signed route; the relevant official page is https://www.rijkswaterstaat.nl/nieuws/archief/2026/03/n2-afsluiting-randweg-eindhoven-30-maart-1-april-2026",
+        "NDW DATEX current situations are a live CC0-unless-stated feed at https://opendata.ndw.nu/actueel_beeld.xml.gz. The cached 72-hour snapshot has no record assigned to GM0772, which means no qualifying cached intersection, never that every route is open"
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "The generated identifier, name, province and safety-region assignment match official 2025 sources.",
+      "evidenceRefs": [
+        "E01",
+        "E02"
+      ],
+      "notes": [
+        "Feature id, municipality bundle code and bundle name all equal GM0772 / Eindhoven.",
+        "CBS safety-region geometry assigns GM0772 uniquely to Brabant-Zuidoost."
+      ]
+    },
+    "geography": {
+      "status": "pass",
+      "summary": "The app consumes the official 2025 generalized municipality boundary and its reference centre lies inside it.",
+      "evidenceRefs": [
+        "E01",
+        "E03"
+      ],
+      "notes": [
+        "Generated centre is [5.452815044037293, 51.450260009765756].",
+        "Administrative containment does not validate stream catchments, terrain, flood footprints, heat, forest fuels, utility territories, airport zones or operational assets."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Municipality totals and neighbourhood population reconcile under documented CBS small-area rounding.",
+      "evidenceRefs": [
+        "E01"
+      ],
+      "notes": [
+        "Official population is 249,035; 116 published neighbourhood values sum to 248,990, a difference of minus 45 (-0.018 percent), and the engine allocates the exact municipality total.",
+        "Density is 2,829 people/km², 16.4 percent are aged 65 or older, one-person households number 65,371 and rounded neighbourhood age-65-plus values sum to 40,795.",
+        "Aggregates support planning only and do not identify individuals, visitors, students, patients, language needs, household stock or dependency."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "All 116 official neighbourhood rows and 36 fields load, but missing values remain null and none is a local hazard surface.",
+      "evidenceRefs": [
+        "E01",
+        "E03"
+      ],
+      "notes": [
+        "Population and core age/household counts have 116/116 coverage; average home value has 101/116, cars per household 98/116, doctor/supermarket distance and density 111/116, and housing-percentage pairs 102/116.",
+        "District-heating percentage and public-charging-point fields have 0/116 usable values and remain Unknown rather than zero.",
+        "Eindhoven's official water/sewer/groundwater layers are not ingested into the local allocator, while zero national HWH point assets in the municipality is explicitly incomplete coverage rather than no managed water system."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "One BAG place and nine BRT settlement labels resolve without place-centre leakage from the generalized boundary.",
+      "evidenceRefs": [
+        "E01"
+      ],
+      "notes": [
+        "The BAG place is Eindhoven; BRT labels are 't Coll, Acht, Bokt, Eindhoven, Gennep, Nieuw Acht, Riel, Tegenbosch and Urkhoven.",
+        "BRT classes are two buurtschappen, four deelkernen, one gehucht and two woonkernen.",
+        "Settlement labels and source population metadata are descriptive and need not sum to the CBS municipality total."
+      ]
+    },
+    "transport": {
+      "status": "fail",
+      "summary": "Road, rail and transit context loads, but one A2 access-ramp source is exposed as a separate ambiguous route named 002 with unsupported logical capacity.",
+      "evidenceRefs": [
+        "E02",
+        "E08"
+      ],
+      "notes": [
+        "Twelve logical NWB edges connect seven neighbours; three ProRail stations and 284 GTFS stop areas lie inside GM0772.",
+        "Generated nwb-link-378-GM0772-GM0866 is named 002, mode regional and 150 scenario-units, while both raw NWB source sections identify A2/RW2 and access-ramp class OPR. A2 and N2 are legitimate distinct main/parallel routes, but 002 is not an evidenced third signed corridor or measured additive capacity.",
+        "Static road, rail and timetable geometry establishes no closure, traffic, aviation, ambulance, evacuation, supply, crew access or incident-time state; empty local NDW context remains Unknown."
+      ]
+    },
+    "emergencyContext": {
+      "status": "warn",
+      "summary": "Official first-72-hour communication and role context is available, but local support points, decisions and scarce resources are not modeled.",
+      "evidenceRefs": [
+        "E02",
+        "E04",
+        "E07"
+      ],
+      "notes": [
+        "Eindhoven publishes BrabantAlert, 87.6 FM and NL-Alert channels and explicitly says planned emergency support points do not yet exist.",
+        "VRBZO distinguishes water-board, municipality, Rijkswaterstaat, KNMI, operator, airport, emergency-service and public-order responsibilities; responsibilities are not proof of activation or capacity.",
+        "Catharina Ziekenhuis, 197 DUO records and zero partial-register government points are dated context, not verified shelters, support points, command posts, distribution hubs or live care capacity."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "fail",
+      "summary": "All required combinations execute, but the major-river preset contradicts official regional scope and every exact magnitude remains an exercise output.",
+      "evidenceRefs": [
+        "E02",
+        "E03",
+        "E05",
+        "E06"
+      ],
+      "notes": [
+        "The matrix ran severe storm, pluvial flood, river flood, coastal flood, heatwave, winter storm, cyberattack, earthquake, wildfire and compound at T+0/6/12/24/48/72 across power, water, drainage, gas, telecom, mobility, facilities and supply.",
+        "At T+24 modeled severity/pressure/affected/event-attributable local pre-network person-hours are: storm 0.1493/0.3704/80,832/1,250,321.13; pluvial 0.2242/0.2394/34,874/826,488.21; river 0.3103/0.4077/93,919/1,568,835.75; coastal 0.0038/0.0515/0/19,546.61; heat 0.1140/0.2103/24,654/775,054.62.",
+        "The remaining T+24 values are winter 0.5220/0.3274/65,767/1,220,424.81; cyber 0.3902/0.3423/70,982/1,174,355.13; earthquake 0/0.0433/0/18,832.38; wildfire 0.1241/0.1325/0/331,710.45; compound 0.8776/0.6116/165,471/2,322,988.78.",
+        "River inundation stress reaches 1.001527915 at T+12 and remains exactly unchanged through T+72. These values are deterministic model outputs, not observations, forecasts, warnings, probabilities, casualties or customer outage-hours."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "The focused gate passes the complete deterministic, bounded, causal, exact-zero, reconciliation and layer-invariance contract.",
+      "evidenceRefs": [],
+      "notes": [
+        "MUNICIPALITY_AUDIT_CODE=GM0772 pnpm audit:model passed both tests across ten presets × six checkpoints × eight services against the current model.",
+        "Intensity-zero scenarios preserve exact zero current/peak severity, affected population and event-attributable person-hours at every checkpoint; population, local demand/delivery, causal ledgers and route ceilings reconcile.",
+        "Switching service/map layers leaves the local hazard field invariant; event-attributable person-hours are monotonic and compare against a matched no-event baseline."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "A shared neighbourhood seed replaces hazard physics, and an explicit forest ignition does not control local fire ranking.",
+      "evidenceRefs": [
+        "E02",
+        "E03",
+        "E05",
+        "E06"
+      ],
+      "notes": [
+        "At T+24 severe storm, pluvial flood, river flood, coastal flood, heatwave, winter storm, cyberattack and wildfire have the identical complete order of all 116 neighbourhoods (rank hash e48aa81ed49b), beginning Wielewaal, Woenselse Heide, Sintenbuurt, Flight Forum and Oude Gracht-West.",
+        "The allocator samples no stream/catchment, AHN depression, sewer/runoff path, paving/shade, eligible fuel, wind direction, infrastructure asset, airport/hazmat zone or declared cyber target.",
+        "With a controlled wildfire source [5.47460, 51.41974] inside official 2023 BRT broadleaf forest and BU07727260 Gennep, T+24 municipal direct fire is 0.492859, smoke 0.506613 and severity 0.507148.",
+        "Gennep nevertheless ranks 112/116 at 0.431952 while Wielewaal, about 5.16 km from the source reference point, ranks first at 0.598159. The canonical wildfire has zero local flame and only remote smoke/drought; neither run is an observed incident."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "warn",
+      "summary": "All eight balances are inspectable, but no physical Eindhoven utility, drainage, telecom, care or supply topology calibrates the exact service curves.",
+      "evidenceRefs": [
+        "E02",
+        "E03",
+        "E07",
+        "E08"
+      ],
+      "notes": [
+        "Current NWB edges support only mobility and explicitly assumed road logistics/supply; they no longer carry power, water, drainage, gas, telecom or facilities, which correctly avoids pretending roads are utility topology.",
+        "Provider territories, one electricity planning sample, antennas, a hospital questionnaire, education locations, roads and sewer geometry do not establish connected networks, compatible capacity, live state, backup, priority customers, crews or restoration.",
+        "At river T+72 the exact synthetic availabilities are power 0.5837, water 0.5836, drainage 0.3974, gas 0.7630, telecom 0.5504, mobility 0.6155, facilities 0.5073 and supply 0.5407. None is an operator forecast or service-level promise."
+      ]
+    },
+    "causalTrace": {
+      "status": "warn",
+      "summary": "The arithmetic trace and metric scope are explicit, but unsupported local hazard evidence still drives precise impacts and response assumptions.",
+      "evidenceRefs": [
+        "E02",
+        "E04",
+        "E07"
+      ],
+      "notes": [
+        "Browser inspection at 1440×1000 showed the complete contribution, counterfactual, dependency and evidence panels without console or local-response failures; 375×812 had no horizontal overflow and the inspector remained scrollable.",
+        "Analytics correctly labels 9,081,954 compound T+72 person-hours as cumulative event-attributable local pre-network burden that excludes intermunicipal logical transfers.",
+        "The facilities screen nevertheless assigns exact direct-damage and power/backup deltas and 1.4 hours of remaining backup at river T+24 without a named facility, authorized inventory, scenario-time decision or owner; the panel labels operations as assumptions, which reduces but does not resolve the calibration gap."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "T+72 remains dominated by an unsupported persistent major-river event and an uncalibrated critical compound state.",
+      "evidenceRefs": [
+        "E02",
+        "E03",
+        "E04",
+        "E05",
+        "E07"
+      ],
+      "notes": [
+        "At river T+72, internal inundation stress remains 1.001528, severity 0.310293, pressure 0.431107, 102,139 modeled people under pressure and 6,409,564.42 cumulative event-attributable local pre-network person-hours; standing water intentionally blocks recovery, but the initiating local event is not evidenced.",
+        "At compound T+72, severity is 0.390253, pressure 0.611723, 165,511 modeled people are under pressure and local burden is 9,081,953.99 person-hours; power/water/drainage/gas/telecom/mobility/facilities/supply availabilities are 0.3218/0.4341/0.2869/0.5888/0.2613/0.4496/0.3639/0.4419.",
+        "Heat forcing remains active at T+72 because the canonical heatwave lasts 336 hours, while storm, pluvial, winter and wildfire direct forcing has ended and service state follows generic repair curves. No curve is calibrated to Eindhoven crews, access, spares, hospital operations, water controls or support-point activation."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [
+      0,
+      6,
+      12,
+      24,
+      48,
+      72
+    ],
+    "services": [
+      "power",
+      "water",
+      "drainage",
+      "gas",
+      "telecom",
+      "mobility",
+      "facilities",
+      "supply"
+    ]
+  },
+  "findings": [
+    {
+      "id": "GM0772-RIVER-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The named Rhine/Meuse/IJssel preset creates sustained direct local inundation contrary to the adopted Brabant-Zuidoost risk profile.",
+      "evidence": "E02 explicitly says the high-lying region has no direct flood danger and is outside direct large-river influence. It identifies an indirect pathway—northern Brabant flooding can block southern drainage—and separate local Dommel/Aa/smaller-stream pathways under rain, saturation and high groundwater. The current centre-to-three-line corridor rule nevertheless gives GM0772 internal inundation stress 1.001527915 at T+12/T+24/T+48/T+72, severity 0.310292803, 93,919 affected and 1,568,835.75 event-attributable local person-hours at T+24, increasing to 102,139 and 6,409,564.42 at T+72. No selected source river, boundary hydrograph/datum, defence failure, connected footprint, local depth, arrival or recession supports that value.",
+      "action": "Before release, add GM0772 to the independently audited direct-major-river suppression and mark the local result unavailable/Unknown until the proximity rule is replaced. Preserve Dommel, Tongelreep, Gender, local/regional dike, groundwater, pluvial, sewer and indirect blocked-drainage pathways as unresolved—not safe. Durable integration must sample an authority-selected, versioned LIWO/De Dommel event with source water, boundary conditions, controls/defences, connected footprint, depth/velocity/arrival/recession, probability, resolution, licence and NoData."
+    },
+    {
+      "id": "GM0772-RIVER-UI-001",
+      "severity": "high",
+      "category": "ui",
+      "status": "open",
+      "summary": "The browser promotes the unsupported major-river proximity scalar to a local 67% inundation-stress headline without the official regional contradiction.",
+      "evidence": "In a reproducible 1440×1000 Chromium check at river T+24 on the Hazard layer, the hero reads '67% inundation stress' and 'evidence class derived-screening'; the model trace attributes +31.0 percentage points to inundation and all service screens use it. Only the generic statement that failures/capacity/response are model assumptions is visible. There is no Eindhoven-specific note that E02 excludes direct large-river flooding or that the retained internal flood value is a normalized stress index rather than measured metres. The same screen displays official ROR/defence/terrain context that does not drive this amplitude.",
+      "action": "Render 'Local major-river result unavailable' for GM0772 until a selected hydraulic event exists. Show the E02 scope statement and list local/indirect water pathways separately. Keep official overlays visibly non-causal, disclose the precise sampled source and units when one exists, and regression-test that a generic proximity value cannot appear as a quantitative local inundation headline."
+    },
+    {
+      "id": "GM0772-SPATIAL-SEED-001",
+      "severity": "high",
+      "category": "geography",
+      "status": "open",
+      "summary": "Eight unrelated hazards reuse one exact 116-neighbourhood ranking instead of Eindhoven-specific mechanisms.",
+      "evidence": "At T+24 severe storm, pluvial, river, coastal, heatwave, winter, cyber and wildfire share exact rank hash e48aa81ed49b and begin Wielewaal, Woenselse Heide, Sintenbuurt, Flight Forum and Oude Gracht-West. E03 identifies distinct runoff, sewer, groundwater and old-stream-valley patterns; E06 provides fuel eligibility, while E02 identifies airport, road, rail, high-rise, industrial, utility and regional-water mechanisms. None controls this shared order.",
+      "action": "Label all neighbourhood values synthetic/unsupported and prohibit address, evacuation or dispatch inference. Replace the common seed with hazard-specific versioned evidence: municipal stress-test/hydraulic data plus AHN for water, event-valid KNMI fields and exposed assets for wind/winter, surface temperature/shade/buildings/vulnerability for heat, explicit targets for cyber, and source/perimeter/fuels/weather for fire. Retain publisher, edition, valid time, units, resolution, licence, uncertainty and NoData, while preserving exact service-layer invariance."
+    },
+    {
+      "id": "GM0772-FIRE-SPAT-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "An explicit ignition inside official Gennep forest ranks the source neighbourhood 112th of 116.",
+      "evidence": "E06 verifies [5.47460, 51.41974] inside BRT broadleaf-forest polygon f7e53f52-5577-5e85-9860-d4e01b03fb3a (source actuality 2023) and CBS BU07727260 Gennep. A controlled synthetic wildfire at T+24 produces direct fire 0.492858851, smoke 0.506613068 and municipal severity 0.507148143. Gennep is only rank 112 at 0.431952; Wielewaal about 5.16 km away ranks first at 0.598159. The canonical run has zero direct local flame, smoke 0.267217 and drought 0.589013 at T+24, so it is a remote-smoke exercise rather than a local Eindhoven nature fire.",
+      "action": "Make an explicit ignition/perimeter intersect and prioritize eligible fuel cells before distance, wind and suppression effects. Prefer an authorized NIPV RIN export; if unavailable, use BRT TOP10NL annual CC BY 4.0 fuel eligibility plus event-aligned KNMI wind/rain, with explicit moisture, visitors, access, extinguishing-water and suppression assumptions. Expose Unknown when ignition, fuel or operational evidence is absent."
+    },
+    {
+      "id": "GM0772-COASTAL-LABEL-001",
+      "severity": "medium",
+      "category": "explainability",
+      "status": "open",
+      "summary": "The inland coastal preset displays a zero-looking inundation headline while its wind component creates nonzero burden.",
+      "evidence": "At coastal T+24 direct flood is exactly zero, wind is 15.3187 m/s, severity is 0.00382453, affected population is zero and cumulative event-attributable local person-hours are 19,546.61, rising to 74,106.20 at T+72. Chromium renders '0% inundation stress', 'FLOOD STRESS 0%' and 'LOCAL SEVERITY 0%' while the trace correctly says wind is the largest contributor at +0.38 percentage points. E02 supports no direct sea flooding but does not turn this preset into an all-hazard all-clear.",
+      "action": "Split direct coastal inundation from inland wind and remote dependencies in title, hero, legend and analytics. Preserve small nonzero values with adequate precision or an explicit below-one-percent label; never let a zero-rounded inundation headline obscure event-attributable service burden. Add a regression tying every nonzero burden pathway to a named visible component."
+    },
+    {
+      "id": "GM0772-WATER-DATA-001",
+      "severity": "medium",
+      "category": "regional-data",
+      "status": "open",
+      "summary": "Available municipal water and sewer geometry is omitted while an empty national point subset leaves exact drainage output entirely synthetic.",
+      "evidence": "E03 exposes 147,118 sewer/connection records, 8,642 watercourse polygons, 253 desired extreme-rain runoff routes and a GHG/GLG MapServer. The app's HWH point aggregation returns zero assets in GM0772 and the provider-area query returns no drainage polygon; both correctly mean incomplete/no returned coverage, not absence. Three E05 discharge observations are non-causal points. Yet pluvial T+24 drainage availability is 0.596552 and river T+24 0.397444 without catchment, inlet, sewer, storage, pump/weir, receiving level, direction, blockage, backup or wastewater topology.",
+      "action": "Integrate E03 as typed context now: sewer and watercourse geometry may affect display only, with completeness flags, source processing time and Public Domain terms; diameter zero must remain Unknown. Seek municipality/De Dommel GWSW, controls and hydraulic topology for causal use. Add live Dommel observations only with observation time, quality, datum/unit and scenario-time matching. Never infer capacity, connectivity, passability or recovery from geometry alone."
+    },
+    {
+      "id": "GM0772-NWB-A2-001",
+      "severity": "medium",
+      "category": "network",
+      "status": "open",
+      "summary": "An A2/RW2 access-ramp crossing is mislabeled as an ambiguous regional route 002 with a separate synthetic ceiling.",
+      "evidence": "Generated nwb-link-378-GM0772-GM0866 uses source ids NWB-325158020 and NWB-326158032, name 002, physicalCorridorId NWB-road-2--002, regional mode and 150 scenario-units. E08's raw OGC records identify both as wegnr_hmp=A2, wegnr_aw=RW2 and bst_code=OPR; RWS separately describes N2 as the Randweg parallel carriageway. Because the fetch omits wegnr_hmp and road-part class, it cannot distinguish an A2 access ramp from a third signed corridor and the graph may expose its ceiling as additive alongside A2 and N2.",
+      "action": "Fetch and retain wegnr_hmp, wegnr_aw, bst_code, direction and valid date. Display this geometry as an A2 access ramp or connector, not route 002; do not give it an independent transfer ceiling unless audited junction topology and capacity semantics require one. Keep A2 and N2 separately because they are real main/parallel routes, and regression-test the GM0772–GM0866 source ids."
+    },
+    {
+      "id": "GM0772-LIFELINE-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "accepted-limitation",
+      "summary": "Public responsibility, planning and antenna data cannot calibrate Eindhoven's eight exact service curves.",
+      "evidence": "E07 identifies Enexis, Brabant Water and Ziggo at one reference point, a congested Eindhoven-Noord planning sample, 402 antenna sites/852 antennas and Catharina Ziekenhuis. These sources establish context, not electrical switching, drinking-water pressure zones, sewer/wastewater connectivity, gas pressure districts, telecom coverage/backhaul, live load/outage, backup endurance, crews, spares or restoration. The model correctly confines NWB transfer to mobility/supply, but all non-road service values remain municipal synthetic indices.",
+      "action": "Keep provider areas, NBNL, RDI and RIVM context affectsSimulation=false. Request security-reviewed exercise topology/state, priority users, backup, crews, spares and restoration from the responsible operators and GHOR/ROAZ; if unavailable, retain the smallest transparent synthetic topology and sensitivity ranges. Every exact percentage must remain labeled scenario index rather than observed coverage, customer outage or operator forecast."
+    },
+    {
+      "id": "GM0772-FACILITY-RESPONSE-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "accepted-limitation",
+      "summary": "Named hospital, airport and planned support-point roles are not connected to facility, supply or intervention behavior.",
+      "evidence": "E02 identifies Eindhoven Airport's civil/military plans, on-site fire response and regional importance; E07 identifies Catharina's static acute-care offer; E04 explicitly says emergency support points do not yet exist. In the river T+24 Facilities screen the model reports 67 percent operational capacity, 85 of 126 units delivered and exactly 1.4 backup hours remaining without naming a facility or inventory. The interface labels these as model assumptions, but it has no patients, staffing, acceptance/diversion, ambulance routes, airport operations, generators/fuel, pharmacies, shelters, support sites, stocks or distribution vehicles.",
+      "action": "Keep controls hypothetical. Add named nodes only with authorized role, accessibility, capacity, state and owner; never reinterpret 197 DUO locations as support points. Build a first-72-hour operations timeline separating observation/confidence, authority, requested versus confirmed action, prerequisite, quantity, dispatch/travel time, effect and recovery handover. Explicitly scope aviation and hazardous-material incidents outside the ten canonical presets or add separately governed scenarios."
+    },
+    {
+      "id": "GM0772-HAZARD-SCOPE-001",
+      "severity": "medium",
+      "category": "limitation",
+      "status": "accepted-limitation",
+      "summary": "The remaining hazard magnitudes are bounded exercises, not Eindhoven observations, probabilities or a complete regional risk register.",
+      "evidence": "E02 supports local relevance of extreme rain/high regional water, wind, heat/drought, winter, nature fire, cyber and lifeline cascades, while also listing aviation, hazardous substances, rail/road, pipelines, building/high-rise and event risks omitted from the ten presets. T+24 heat uses 26.21 °C and drought 0.6333; winter uses -5.86 °C and 18.95 m/s wind; cyber disruption is 0.3902 without a named target; earthquake current severity is zero but retains 18,832.38 event-attributable person-hours from an earlier remote synthetic pulse without event/local site-response/fragility calibration; compound dependence is assumed. E05's current station, warning, water and seismic context is not aligned to these scenario times and does not drive them.",
+      "action": "Label every run deterministic exercise scenario, never current event, forecast, probability or complete risk register. Require named event, issue/observation/valid time and spatial matching before observed data can affect forcing. Declare cyber target/system boundary, earthquake event/ground-motion/site response/fragility, fire source/perimeter and compound dependence; keep omitted aviation/hazmat/high-rise/event pathways visible as out of scope."
+    },
+    {
+      "id": "GM0772-DATA-001",
+      "severity": "informational",
+      "category": "regional-data",
+      "status": "fixed",
+      "summary": "Identity, population, neighbourhood, place, settlement and public-context provenance are inspectable and null-safe.",
+      "evidence": "E01 matches GM0772/Eindhoven and official 2025 totals. All 116 neighbourhoods, one BAG place and nine BRT settlements load; the 45-person CBS rounding difference is disclosed. Missing district heat/public charging, absent drainage territory, zero HWH point assets, empty NDW/KVK/RIVM-air/local-seismic subsets and missing source variables remain null/Unknown. Public observations and registers retain publisher, URL, time/edition and licence caveats and do not affect simulation unless explicitly declared.",
+      "action": "Retain edition, observation/retrieval/valid time, licence, coverage, NoData and affectsSimulation semantics. Refresh each adapter only at publisher cadence and rerun generated-data, focused and national gates after every snapshot."
+    },
+    {
+      "id": "GM0772-CONTRACT-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The complete deterministic and layer-invariance contract passes despite the identified evidence and calibration defects.",
+      "evidence": "The focused harness passes ten presets × six checkpoints × eight services; intensity-zero output is exact zero; population, local demand/delivery and causal arithmetic reconcile; local hazard is invariant across map/service layers; event-attributable person-hours use a matched no-event baseline and are explicitly local pre-network; route flows stay within declared logical ceilings and NWB is limited to mobility/supply.",
+      "action": "Retain these regression contracts while fixing major-river scope, local allocation, A2 provenance and public-data integration. Do not weaken exact-zero, determinism, reconciliation, monotonic-person-hours, layer-invariance or logical-topology labels to hide data gaps."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Suppress GM0772's false direct Rhine/Meuse/IJssel proximity forcing and expose honest local/indirect water scope.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/src/components/Inspector.tsx",
+        "tests/e2e/app.spec.ts",
+        "audits/correction-ledger.json"
+      ],
+      "validation": "Before correction, river T+12/T+24/T+48/T+72 internal inundation stress is exactly 1.0015279151438343; T+24 severity/affected/person-hours are 0.3102928034/93,919/1,568,835.75 and T+72 are 0.3102928034/102,139/6,409,564.42. Require numerical neutrality plus an explicit Unknown/local-pathways note for the generic named-major-river preset until a selected LIWO/De Dommel event exists. Browser hero must say local result unavailable rather than 67% inundation stress; rerun GM0772 and national gates."
+    },
+    {
+      "summary": "Replace Eindhoven's common neighbourhood seed and source-insensitive fire allocation with hazard-specific evidence.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/src/data.ts",
+        "apps/web/public/data/hazards/gm0772-spatial-context.geojson",
+        "audits/correction-ledger.json"
+      ],
+      "validation": "Before correction, eight T+24 presets share complete rank hash e48aa81ed49b. A controlled source [5.47460,51.41974] inside BRT forest and BU07727260 yields direct fire 0.492858851 but Gennep ranks 112/116; Wielewaal about 5.16 km away ranks first. Mark current ranks unsupported, then require source-intersecting eligible fuel to rank ahead of non-source cells absent an explicit spread/mitigation reason, allow hazard-specific orders and preserve exact service-layer invariance and NoData."
+    },
+    {
+      "summary": "Make inland coastal wind attribution visible instead of a zero-rounded inundation headline.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/AnalyticsDrawer.tsx",
+        "tests/e2e/app.spec.ts"
+      ],
+      "validation": "Before correction, coastal T+24 flood=0, wind=15.3187107 m/s, severity=0.003824529, affected=0 and event-attributable person-hours=19,546.61, but Chromium headlines 0% inundation stress while the trace names +0.38 pp wind. Show direct coastal water, inland wind and remote effects separately and assert that every nonzero burden has a named visible component."
+    },
+    {
+      "summary": "Integrate Eindhoven public water/sewer context and preserve physical-lifeline Unknowns.",
+      "files": [
+        "scripts/fetch-water-assets.mjs",
+        "apps/web/src/data.ts",
+        "apps/web/src/components/Inspector.tsx",
+        "packages/sim-core/src/types.ts",
+        "apps/web/public/data/public-context/water-assets.geojson.gz"
+      ],
+      "validation": "Ingest the E03 API/MapServer/WFS layers as context with Public Domain terms where stated, exact source processing times, coverage/completeness flags, diameter-zero-as-Unknown, and affectsSimulation=false. Zero HWH points/no provider polygon must remain NoData. A causal drainage/hydraulic change requires connected catchment/topology, compatible units, state/controls, event boundary and validated NoData; provider, NBNL, antenna and facility context remains non-causal."
+    },
+    {
+      "summary": "Correct the GM0772–GM0866 A2 access-ramp identity without collapsing the real N2 parallel carriageway.",
+      "files": [
+        "scripts/fetch-realism-data.mjs",
+        "scripts/validate-generated-data.mjs",
+        "apps/web/public/data/transport-network.json",
+        "packages/sim-core/src/model.test.ts"
+      ],
+      "validation": "Fetch wegnr_hmp/wegnr_aw/bst_code for source wvk_id 325158020 and 326158032; both must retain A2/RW2/OPR provenance. Generated output must not present signed route 002 or unverified independent additive capacity. Preserve A2 and N2 as distinct where official source attributes support main and parallel carriageways; all ceilings remain scenario-units, never vehicles/hour."
+    },
+    {
+      "summary": "Represent Eindhoven's first-72-hour facilities, support points and actions as authorized state rather than generic quantities.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/AnalyticsDrawer.tsx"
+      ],
+      "validation": "Do not create emergency support nodes from DUO/KVK/BAG records; E04 says Eindhoven sites do not yet exist. Separate named facility/airport context, observed state, authority, request/confirmation, quantity, generator/fuel endurance, travel/access, effect and handover. At T+72 show residual forcing, service availability, post-network people under pressure and local pre-network burden together, with every number visibly marked scenario unless time-matched operational evidence authorizes it."
+    }
+  ],
+  "provinceReviewFlags": [
+    "Apply the adopted Brabant-Zuidoost no-direct-large-river scope consistently across all 21 municipalities while preserving Dommel/Aa/smaller-stream, regional-dike, groundwater, pluvial and indirectly blocked-drainage pathways as Unknown until selected hydraulic events exist.",
+    "Replace the shared Noord-Brabant neighbourhood seed with hazard-specific municipal stress-test, AHN, water-board, KNMI, BRT/RIN, asset and target evidence while retaining units, editions, licences and NoData masks.",
+    "Audit Eindhoven/Best/Veldhoven/Waalre A2–N2 main, parallel and access-ramp identities together; do not expose numeric NWB wegnummer aliases or ramp ceilings as independent signed-road capacity.",
+    "Integrate municipality-published sewer/runoff/watercourse data where available instead of interpreting incomplete national HWH/provider subsets as absence; geometry remains non-operational until connectivity, controls and capacity are validated.",
+    "Keep Enexis, Brabant Water and telecom topology, backups, priority users, crews, spares and restoration Unknown until publisher-confirmed public or security-reviewed exercise data is supplied.",
+    "Treat Eindhoven Airport, Brainport, A2/A67, rail, hazardous materials, high-rise/events, acute care and planned emergency support points as explicitly typed regional dependencies or documented out-of-scope risks, not generic facility multipliers."
+  ],
+  "residualLimitations": [
+    "The simulator is a deterministic planning stress test, not a KNMI forecast, official warning, probability estimate, live incident picture, casualty model or operator outage forecast.",
+    "No selected hydraulic source, boundary condition, defence/failure state, connected footprint, water-level/depth datum, arrival, duration, recession or dewatering grid is ingested for GM0772; internal inundation stress is not measured metres.",
+    "The adopted regional profile excludes direct large-river flooding while confirming local Dommel/Aa/smaller-stream and indirect blocked-drainage mechanisms; it does not validate any exact Eindhoven amplitude or availability curve.",
+    "CBS neighbourhoods and deterministic seeds do not resolve catchments, depressions, buildings, paving, shade, fuel, households, patients, students, workers, airport passengers or individual vulnerability.",
+    "Municipal runoff routes are a desired future system, sewer/connection data is explicitly incomplete, diameter zero can mean unknown, GHG/GLG is average measured-plus-modeled context and none is current incident state.",
+    "The HWH national aggregation is provider-dependent and partial; zero point assets in GM0772 does not mean no weir, pump, sewer, wastewater or managed water dependency.",
+    "Three current Waterinfo discharge points do not establish municipal water levels, hydraulic connectivity, thresholds, flood depth, control state or T+72 behavior; a valid zero is local to its station and time.",
+    "No public causal Enexis feeder/switching, Brabant Water pipe/pressure-zone/reserve, gas pressure-district, municipal sewer, De Dommel control, Ziggo/mobile backhaul or operator restoration topology is authorized in the model.",
+    "Provider polygons identify responsibility at one reference point, not complete coverage, connectivity, capacity or state; the absent drainage polygon remains Unknown.",
+    "RDI antenna records do not establish operator, radio coverage, backhaul, traffic, power/backup, damage, congestion, availability or restoration.",
+    "NWB is restricted to mobility and assumed road logistics/supply, but static NWB/ProRail/GTFS cannot establish live road, rail, bus, airport, ambulance, evacuation, supply or repair operation.",
+    "An empty local NDW snapshot does not prove every road open; source validity, geometry, supplier quality and scenario-time alignment are required before a record can affect a route.",
+    "RIVM acute-care values are a dated questionnaire, not live patient load, acceptance, staffing, treatment, diversion, ambulance time or generator endurance.",
+    "DUO education and partial KVK government records do not establish emergency-support, shelter, command, care or distribution roles; Eindhoven says support points do not yet exist.",
+    "Wildfire lacks a local canonical ignition/perimeter, fuel/moisture surface, wind-aware spread, visitor/access state, extinguishing water and suppression; the Gennep reproduction is explicitly synthetic.",
+    "Earthquake lacks a selected event, local ground-motion field, site response and asset fragility; no local catalogue record is not a zero-hazard conclusion.",
+    "Cyberattack lacks a named target, attack path, detection/containment evidence and authorized dependency topology; generic Brainport context cannot calibrate exact loss.",
+    "Aviation, hazardous-material, high-rise/building, pipeline, event and public-order risks in E02 are outside the ten canonical presets.",
+    "Generic preparedness, demand, backup, repair and intervention multipliers are scenario controls rather than observed GM0772 resources, inventories or commitments.",
+    "Event-attributable essential-service person-hours is a matched-no-event local pre-network availability proxy; affected population is a modeled people-equivalent threshold, not customer outage-hours, casualties, displacement or welfare loss.",
+    "Six-hour checkpoints can miss cloudbursts, local water-level/control changes, closures, fire spread and dispatch; 72 hours excludes prolonged high water, contamination, care effects, displacement, ecological loss and reconstruction."
+  ]
+}

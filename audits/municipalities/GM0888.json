@@ -1,0 +1,477 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0888",
+    "name": "Beek (L.)",
+    "province": "Limburg",
+    "safetyRegion": "Limburg-Zuid"
+  },
+  "agent": {
+    "taskName": "municipality_gm0888",
+    "agentId": "/root/municipality_gm0518",
+    "completedAt": "2026-09-02T15:23:35Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "Beek's generated identity, Limburg-Zuid membership and 2025 CBS totals are coherent: 16,251 residents, eight neighbourhoods, three BAG woonplaatsen and nine BRT settlements are present, with only an eleven-person (-0.068%) published neighbourhood rounding difference. All ten canonical scenarios execute deterministically at T+0/6/12/24/48/72 across all eight services, and numerical, causal, allocation and no-event invariants pass. The audit is nevertheless correction-required. The major-river scenario sustains an internal 2.063493 flood-pressure value, 64.287% severity and critical service conditions through T+72 without a selected hydraulic footprint; focused checks of five official LIWO maximum-depth classes found nodata at all eleven generated settlement/place label points and all 187 sampled points inside the full-resolution municipality, which does not prove zero risk but makes municipality-wide numerical precision unsupported. Waterschap Limburg instead documents local hillside runoff, brook and sewer mechanisms, including roughly 450 buildings insufficiently protected by 2050 and distinct flow paths in Beek, Neerbeek and Spaubeek. Eight active presets reuse exactly one seeded neighbourhood ranking, so the model does not reproduce those mechanisms. Maastricht Aachen Airport is officially in Beek and has a statutory emergency plan, yet it appears only as place/stop context and not as an aggregate facility, dependency or response context. Public water assets remain correctly display-only; physical electricity, drinking-water, wastewater, gas, telecom, airport-response and restoration topology is unavailable or security-sensitive and is not fabricated. Official context, scenario forcing, observed feeds, derived screening, synthetic allocation and unknown topology must remain visibly distinct.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek (CBS)",
+      "title": "Kerncijfers wijken en buurten 2025, table 86165NED, OData API",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM0888%27%29",
+      "accessedAt": "2026-09-02T14:55:00Z",
+      "edition": 2025,
+      "supports": [
+        "Official GM0888 population 16,251, density 771 per square kilometre, 4,563 residents aged 65+ and 2,631 one-person households.",
+        "Municipality, district and neighbourhood attributes and CBS rounding, suppression and null semantics used for reconciliation.",
+        "Machine-readable OData; annual 2025 edition, reusable under CC BY 4.0."
+      ]
+    },
+    {
+      "publisher": "PDOK / Centraal Bureau voor de Statistiek",
+      "title": "CBS Gebiedsindelingen 2025, non-generalized municipality and neighbourhood OGC API Features",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_niet_gegeneraliseerd/items?f=json&limit=100&datetime=2025-07-01T00%3A00%3A00Z&bbox=5.70,50.87,5.90,51.00",
+      "accessedAt": "2026-09-02T14:56:00Z",
+      "edition": 2025,
+      "supports": [
+        "Official full-resolution 2025 GM0888 and neighbourhood boundaries used for identity, containment and LIWO sampling.",
+        "The non-generalized municipality has one exterior ring with 1,343 coordinate positions; the generated generalized boundary has one ring with 65 positions and is suitable for overview rather than hydraulic intersection.",
+        "Vector OGC API, annual administrative edition, CC BY 4.0; it is not cadastral, hydraulic or incident-time jurisdiction data."
+      ]
+    },
+    {
+      "publisher": "Waterschap Limburg / Gemeente Beek",
+      "title": "Aanpak wateroverlast Beek en Neerbeek and Water in Balans participatieplan",
+      "url": "https://www.waterschaplimburg.nl/projecten/aanpak-wateroverlast-beek-neerbeek/",
+      "accessedAt": "2026-09-02T14:58:00Z",
+      "edition": "Participatieplan definitive 1.0, 12 March 2024; project pages current in 2026",
+      "supports": [
+        "Official project evidence says about a quarter of buildings in Beek, Neerbeek and Spaubeek have elevated heavy-rain flooding risk and about 450 buildings may remain insufficiently protected from rural surface runoff by 2050.",
+        "The study identifies roughly five eastern flow paths into Beek, several in Neerbeek and five major southern paths into Spaubeek, with named buffering at Schoolstraat and Pluimendaal and a Grindakker impact pathway.",
+        "Existing buffers and Keutelbeek/sewer works do not make every location meet provincial water-nuisance standards; exact location and degree remain study subjects.",
+        "The linked municipal page https://www.gemeentebeek.nl/keutelbeek and Waterschap page https://www.waterschaplimburg.nl/projecten/opnieuw-inrichten-keutelbeek-neerbeek/ document the planned 1.2-kilometre open Keutelbeek route, stormwater disconnection and buffers.",
+        "These are official documentary/project sources, not a machine depth grid or live sewer state; no standard reuse licence or fixed update cadence is stated."
+      ]
+    },
+    {
+      "publisher": "Waterschap Limburg",
+      "title": "Overstromingskaarten regionaal watersysteem and ArcGIS water-register services",
+      "url": "https://www.waterschaplimburg.nl/over-ons/kaarten-en-data/overstromingskaarten-regionaal-watersysteem/",
+      "accessedAt": "2026-09-02T15:00:00Z",
+      "edition": "T100-2100 release 2025/2026; services inspected 2 September 2026",
+      "supports": [
+        "The official map separates pluvial and fluvial T100-2100 depth/safety layers and says fluvial layers, including the Geleenbeek system, must be used for brook or watercourse flooding.",
+        "Machine-ready 1 metre RD New raster endpoints include https://tiledimageservices.arcgis.com/pCDwdQn0AhSP66VA/arcgis/rest/services/T100_2100Waterdiepte_Totaal_10122025Water/ImageServer and https://tiledimageservices.arcgis.com/pCDwdQn0AhSP66VA/arcgis/rest/services/T100_2100waterdiepte_Fluviaal_V2_17_12_2025Water/ImageServer; the Web Map was modified 27 January 2026.",
+        "Machine vector registers at https://maps.waterschaplimburg.nl/arcgis/rest/services/Kernregistratie/Watergangen/MapServer/0 and https://maps.waterschaplimburg.nl/arcgis/rest/services/Kernregistratie/Kern_Kunstwerken/MapServer expose watercourses, names, widths, dates and structures in RD New.",
+        "Release notes describe Geleenbeek model and road-underpass improvements and false-inundation filtering. No standard licence or guaranteed refresh cadence is stated for these services; owner permission/terms must be confirmed before redistribution.",
+        "Raster scenarios and register geometry are official context/scenario data, not live depth, sewer capacity, pump status, flow direction, backup or restoration topology."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / WMCN",
+      "title": "Landelijk Informatiesysteem Water en Overstromingen (LIWO)",
+      "url": "https://iplo.nl/thema/water/applicaties-modellen/berichtgeving-crisismanagement/liwo/",
+      "accessedAt": "2026-09-02T15:02:00Z",
+      "edition": "LIWO 2025.1.6; dataset 2025_0_1",
+      "supports": [
+        "LIWO provides professional flood-scenario layers and explicitly requires specialist interpretation.",
+        "The public configuration https://www.basisinformatie-overstromingen.nl/config/webconfig.json identifies application 2025.1.6 and dataset projects/deltares-rws/liwo/2025_0_1; machine services are exposed through https://basisinformatie-overstromingen.nl/api/liwo.ws and https://basisinformatie-overstromingen.nl/geoserver/ows.",
+        "Maximum-depth classes use 5 metre rasters for five probability bands from large to extreme; layer metadata identify Deltares work commissioned by Rijkswaterstaat and a 4 April 2025 update.",
+        "Focused GetFeatureInfo checks returned nodata in all five classes at eight neighbourhood label points, three BAG place centres and 187 sampled full-resolution municipality points. This is a screening result, not proof of absence or a substitute for full-polygon zonal analysis.",
+        "LIWO is release-versioned rather than guaranteed-cadence data and no general redistribution licence was found in the inspected layer metadata; terms and scenario choice require source-owner review."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Limburg-Noord / Veiligheidsregio Zuid-Limburg",
+      "title": "Provinciaal Risicoprofiel Limburg 2023–2027 and Maastricht Aachen Airport emergency planning",
+      "url": "https://www.vrln.nl/sites/vrln/files/2024-04/Veiligheidsregio_LN-ZL_Provinciaal_risicoprofiel.pdf",
+      "accessedAt": "2026-09-02T15:04:00Z",
+      "edition": "2023–2027, valid from 2024; MAA draft plan 2026–2029",
+      "supports": [
+        "The profile treats Maastricht Aachen Airport, Chemelot, A2/A76 bottlenecks, dangerous-goods road/rail/pipeline transport, Maas and tributary flooding, extreme weather, nature fire, earthquake, cyber and vital-infrastructure failures as regional emergency context.",
+        "The profile emphasizes Belgium/Germany dependencies, cross-border mutual assistance and possible road/rail obstruction in compact Zuid-Limburg.",
+        "The current VRZL notice https://www.vrzl.nl/actueel/rampbestrijdingsplan-maastricht-aachen-airport-ter-inzage and official publication https://zoek.officielebekendmakingen.nl/bgr-2026-1610.html document formal consideration of the 2026–2029 MAA plan; the prior public plan identifies the airport in Beek and fire-risk class 7.",
+        "The risk profile is a statutory four-year documentary cycle with dynamic review, not a machine event feed; the PDF restricts reproduction and operational/security-sensitive plan content must not be inferred or republished."
+      ]
+    },
+    {
+      "publisher": "Luchtverkeersleiding Nederland (LVNL)",
+      "title": "Aeronautical Information Publication downloads and EHBK Maastricht Aachen aerodrome data",
+      "url": "https://www.lvnl.nl/diensten/aip/downloads",
+      "accessedAt": "2026-09-02T15:05:00Z",
+      "edition": "AIRAC amendment 06-2026, effective 11 June 2026",
+      "supports": [
+        "The official EHBK record identifies Maastricht Aachen as an international/national civil aerodrome at approximately 50°54'57N 5°46'37E with IFR/VFR operations.",
+        "LVNL publishes downloadable eAIP HTML/XML/ZIP on the 28-day AIRAC cycle, making it integration-ready for aerodrome identity, runway and validity context.",
+        "AIP content is governed by LVNL copyright/terms; it does not provide incident probability, live airport-fire staffing, passenger occupancy, security posture or service restoration."
+      ]
+    },
+    {
+      "publisher": "Koninklijk Nederlands Meteorologisch Instituut (KNMI)",
+      "title": "Seismische en akoestische data-tools: FDSN Event, Station and DataSelect services",
+      "url": "https://www.knmi.nl/kennis-en-datacentrum/dataset/seismische-en-akoestische-data-tools",
+      "accessedAt": "2026-09-02T15:06:00Z",
+      "edition": "Current FDSN services inspected 2 September 2026",
+      "supports": [
+        "KNMI exposes standardized, keyless machine endpoints including https://rdsa.knmi.nl/fdsnws/event/1/query?format=text for observed event time, location, magnitude, depth and type.",
+        "The catalogue is updated as observations are processed; current services use CC BY 4.0 by default and old earthquake datasets were deprecated in January 2025.",
+        "Observed events support provenance and replay but do not themselves supply a future local earthquake probability, mine-water scenario or building-damage model."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM0888, Beek (L.), Limburg and safety region Limburg-Zuid agree across the manifest, generated bundles and official 2025 records.",
+      "evidenceRefs": ["E01", "E02"],
+      "notes": [
+        "Generated feature id, bundle code, name, province and exactly one safety-region membership agree.",
+        "The generated centre [5.805940301089856, 50.93234346749146] lies inside the generalized boundary.",
+        "The 2025 source-edition invariant and municipality/region references pass."
+      ]
+    },
+    "geography": {
+      "status": "warn",
+      "summary": "The single-component geometry is coherent, but overview generalization is too coarse for hydraulic and airport-zone intersection.",
+      "evidenceRefs": ["E02", "E04", "E05", "E07"],
+      "notes": [
+        "Generated and official non-generalized GM0888 each have one polygon component and the generated centre is contained; no component or ring-topology contradiction was found.",
+        "The operational bundle reduces the exterior from 1,343 to 65 coordinate positions, so river/brook raster intersection and airport emergency-zone clipping should use the non-generalized OGC feature.",
+        "BAG/settlement label containment is a context check and cannot validate flow paths, runway safety zones or parcel-level incident command."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Generated municipal totals reproduce official 2025 CBS values and neighbourhood population reconciles within normal publication rounding.",
+      "evidenceRefs": ["E01", "E02"],
+      "notes": [
+        "Official/generated population is 16,251, density 771/km², age 65+ is 4,563 or 28.1%, households are 7,686 and one-person households are 2,631.",
+        "Published neighbourhood population sums to 16,240, eleven below the municipality total or -0.068%; household and age-65+ sums are 7,680 and 4,555.",
+        "The allocator reconciles to the municipal population without rewriting published source observations."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "Eight official neighbourhoods retain broad 2025 context, with unsupported indicator pairs preserved as null rather than zero.",
+      "evidenceRefs": ["E01", "E02", "E03"],
+      "notes": [
+        "All 36 declared fields are represented; core statistics cover 8/8 neighbourhoods and housing/value fields 7/8, while district heating and public charging are unavailable for all eight and correctly remain null.",
+        "Largest published populations are Beek 8,415, Spaubeek 3,360, Neerbeek 2,345, Grootgenhout 950 and Verspreide huizen Vliegbasis Zuid-Limburg 485.",
+        "CBS social context does not locate Waterschap flow paths, transient airport users, live vulnerable occupants or response priority."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "Three BAG woonplaatsen and nine BRT settlements are structurally coherent and remain non-causal context.",
+      "evidenceRefs": ["E02", "E07"],
+      "notes": [
+        "Active BAG woonplaatsen are Beek, Maastricht-Airport and Spaubeek; none of their generated label points lies outside the generalized boundary.",
+        "BRT contains one buurtschap, two deelkernen and six woonkernen: Beek, Genhout, Geverik, Groot-Genhout, Kelmond, Klein-Genhout, Neerbeek, Oude Kerk and Spaubeek.",
+        "Place names and labels do not provide population, present occupancy, airport passenger demand, hazard footprint or facility capacity."
+      ]
+    },
+    "transport": {
+      "status": "warn",
+      "summary": "Road, rail and public-transport context is present, but capacities and service transfer remain synthetic and airport operations are not represented.",
+      "evidenceRefs": ["E06", "E07"],
+      "notes": [
+        "Logical route degree is four: A76 links to Sittard-Geleen and Beekdaelen and A2 links to Meerssen and Sittard-Geleen; every nominal capacity 260 is synthetic rather than a measured event capacity.",
+        "Two ProRail stations, Beek-Elsloo and Spaubeek, and 16 GTFS stop areas including Maastricht-Aachen Airport and Bedrijvenpark are captured.",
+        "NWB August 2026/ProRail reference data are CC0 1.0; OVapi/NDOV GTFS is best-effort under OVapi terms. Neither source provides passenger loads, disruption, evacuation throughput or live closures.",
+        "The regional risk profile confirms A2/A76, rail, dangerous-goods and airport dependencies, but those operational relations are absent from current transfer state."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "The statutory Maastricht Aachen Airport context and locally documented water-response mechanisms are absent from operational model state.",
+      "evidenceRefs": ["E03", "E04", "E06", "E07"],
+      "notes": [
+        "The current model gives all eight official neighbourhoods neutral priority 2 and isHub=false and contains no airport, airport-fire, runway-zone, GRIP or cross-border-response variable.",
+        "Official sources place Maastricht Aachen Airport in Beek, maintain a dedicated multi-year emergency plan and provide AIRAC aerodrome data. Those sources support aggregate exercise context, not live or security-sensitive staffing/capacity.",
+        "The generated display layer contains two sewer pumps, 27 weirs and two government-service registry points inside the generalized footprint, all correctly non-causal.",
+        "No complete public source supplies current crews, appliances, airport occupancy, feeder switching, pressure zones, sewer controls, gas districts, telecom backhaul, facility beds/staff, stocks, backup autonomy or restoration priority."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten canonical presets execute at T+0/6/12/24/48/72 across all eight services with complete finite output.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E08"],
+      "notes": [
+        "Reproduction: MUNICIPALITY_AUDIT_CODE=GM0888 pnpm audit:model; one file and two tests passed in 27.06 seconds on 2 September 2026, with test execution 26.88 seconds. The national harness is recorded green for 342 municipalities × 10 scenarios × 6 checkpoints × 8 services.",
+        "Peak checkpoint severity / maximum affected / T+72 attributable deprived person-hours are: severe storm 0.444864 / 4,504 / 155,876.954; pluvial 0.375165 / 4,822 / 133,437.037; river 0.642871 / 9,537 / 615,815.847; coastal 0 / 0 / 74,836.639; heat 0.511413 / 1,766 / 97,477.725.",
+        "The remaining values are winter 0.529816 / 5,620 / 193,217.884; cyber 0.475356 / 6,340 / 236,771.585; earthquake 0.001029 / 0 / 678.717; wildfire 0.087957 / 1,330 / 46,752.203; compound 0.846900 / 13,180 / 598,426.450.",
+        "Coastal direct hazard is exactly zero for this inland municipality but its preset retains indirect wind/dependency burden. Wildfire has no direct flame at T+24 but retains smoke/drought context; the earthquake is the remote Groningen exercise, not a Zuid-Limburg event.",
+        "The values are deterministic exercise pressure and people-equivalent allocation, not observations, probabilities, forecasts, measured depth or casualty estimates."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Determinism, finite bounds, exact no-event behavior, local allocation, reconciliation, ledger monotonicity and selected-layer invariance pass.",
+      "evidenceRefs": [],
+      "notes": [
+        "All service availability remains in [0,1]; hazard dimensions, demand, delivery, affected people-equivalent and attributable deprived person-hours are non-negative and cumulative ledgers never decrease.",
+        "Every scenario/checkpoint/service contains all eight local rows, which reconcile exactly to 16,251 municipal residents and the municipal affected/demand/delivery values within numerical tolerance.",
+        "At zero intensity all event dimensions, event severity, affected people-equivalent and event-attributable deprived person-hours are exactly zero; ambient seasonal temperature remains separately labelled context.",
+        "Repeated T+24 frames are identical and switching the selected display layer cannot alter simulation state."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "Official runoff/brook geography is absent and eight unrelated active hazards reuse one synthetic neighbourhood ranking.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05"],
+      "notes": [
+        "Severe storm, pluvial flood, river flood, heatwave, winter storm, cyberattack, wildfire and compound all rank Neerbeek, Beek, Grootgenhout, Verspreide huizen Vliegbasis Zuid-Limburg, Spaubeek, Kleingenhout, Geverik and Kelmond in exactly that order at T+24.",
+        "Code inspection traces this to one region-id seed multiplier; hazard type, catchment, slope, land cover, runway zone and network exposure do not change the rank.",
+        "Waterschap evidence instead distinguishes eastern flow paths to Beek, separate Neerbeek routes and five southern paths into Spaubeek, with local buffers and a Grindakker pathway.",
+        "The official non-generalized boundary and 1 metre flood raster services are available for source-specific overlays, subject to terms review; generic municipal precision should remain labelled synthetic until integrated."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "Eight aggregate cascades calculate coherently, but exact local service pressure is driven by unsupported river forcing and a road-derived all-service proxy.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07"],
+      "notes": [
+        "At river T+72 availability is power 0.599210, water 0.389248, drainage 0.300234, gas 0.680207, telecom 0.428840, mobility 0.120766, facilities 0.480106 and supply 0.590609; the frame remains critical with 9,260 affected people-equivalent.",
+        "At compound T+72 availability is power 0.441472, water 0.165230, drainage 0.160857, gas 0.416423, telecom 0.187699, mobility 0.272133, facilities 0.274004 and supply 0.381944; the frame remains critical with 12,960 affected people-equivalent.",
+        "The only intermunicipal transfer context consists of four logical A2/A76 edges, while documented Keutelbeek/sewer relations and airport response/facility dependencies are absent. Public water points and transit stops are correctly non-causal.",
+        "Aggregate coefficients and a logical-proxy disclosure avoid claiming real operator topology, but the exact availability values cannot be attributed to Enexis, WML, Waterschap Limburg, Gasunie/local gas operators, telecom providers, facilities, the airport or transport operators."
+      ]
+    },
+    "causalTrace": {
+      "status": "fail",
+      "summary": "Ledgers close, but the interface labels an unsupported generic river screen as scenario evidence with exact inundation stress.",
+      "evidenceRefs": ["E04", "E05"],
+      "notes": [
+        "The model harness verifies hazard, direct-service, dependency, intervention, network, allocation and reconciliation closure, changed-driver explanations and matched zero-intensity accounting.",
+        "A reproducible headless Chromium path selected GM0888, river flood, Hazard layer and T+72 in four operator activations with no console or page errors.",
+        "The inspector displayed 64% scenario severity, 100% inundation stress, 'Scenario · evidence class scenario', 46% weighted essential service and mobility failed at 12% availability.",
+        "The same view did not identify a LIWO/Waterschap layer, raster version, resolution, no-data state or the fact that the direct value is a derived proximity screen, so official context, scenario data and synthetic output are not adequately distinguished."
+      ]
+    },
+    "recovery72h": {
+      "status": "warn",
+      "summary": "Sustained-water recovery guards work, but the continuing river and compound forcing is not locally calibrated.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06"],
+      "notes": [
+        "River retains internal flood pressure 2.063493 at T+24 and T+72, remains critical and reaches 615,815.847 attributable deprived person-hours, correctly blocking generic recovery while modeled water persists.",
+        "Compound retains flood pressure 0.348995 at T+72, remains critical and reaches 598,426.450 attributable deprived person-hours; cyber forcing falls to 0.054239 but standing water continues.",
+        "Storm, pluvial, winter, cyber and wildfire clear their direct forcing and become operational by T+72 without reducing cumulative harm; heat retains a low forcing within its 336-hour duration.",
+        "These mechanics are internally conservative but are not a local recession curve, Keutelbeek/sewer response, airport continuity plan, crew mobilization or operator restoration forecast."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": ["power", "water", "drainage", "gas", "telecom", "mobility", "facilities", "supply"]
+  },
+  "findings": [
+    {
+      "id": "GM0888-DATA-001",
+      "severity": "informational",
+      "category": "identity",
+      "status": "fixed",
+      "summary": "Generated identity, regional membership, settlement context and official demographic totals are coherent.",
+      "evidence": "Code, name, province, safety region and 2025 edition agree. CBS gives 16,251 residents and neighbourhood rows sum to 16,240, a normal -0.068% publication difference reconciled without altering source observations; all BAG place label points are contained.",
+      "action": "Retain source edition, retrieval time, null semantics and published-versus-allocated reconciliation on every refresh."
+    },
+    {
+      "id": "GM0888-RIVER-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "A generic major-river proximity screen is presented as precise, sustained municipality-wide inundation pressure.",
+      "evidence": "River T+24 and T+72 both carry internal flood pressure 2.063493 and severity 0.642871; T+72 reports 9,260 affected people-equivalent, critical status and 615,815.847 attributable deprived person-hours. The UI calls this 100% inundation stress. E05 returned nodata in all five LIWO maximum-depth classes at eleven labels and 187 full-resolution polygon samples. Sampling cannot prove an empty footprint, and E04 documents regional Geleenbeek flooding, but no selected hydraulic layer supports this municipal constant.",
+      "action": "Classify direct river output as unsupported/unknown until an expert-selected LIWO or Waterschap fluvial scenario is intersected over full-resolution GM0888. Preserve separately evidenced indirect effects and never translate the current pressure value into metres, probability or an all-clear."
+    },
+    {
+      "id": "GM0888-PLUVIAL-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The pluvial scenario does not reproduce Beek's documented hillside runoff, brook and building-risk pattern.",
+      "evidence": "At T+24 the model produces flood pressure 0.337614, 4,585 affected people-equivalent and degraded status, led by Neerbeek through a generic seed. E03 reports about 450 buildings insufficiently protected by 2050 and distinguishes eastern Beek, multiple Neerbeek and five southern Spaubeek paths, while E04 exposes current 1 metre pluvial/fluvial rasters and water-system vectors. None enters exposure or drainage causality.",
+      "action": "Integrate the versioned Waterschap T100-2100 raster appropriate to the exercise and watercourse/structure context, with units, no-data mask, uncertainty, licence review and full-resolution polygon aggregation. Keep PDF/project evidence qualitative and do not digitize it into invented depths."
+    },
+    {
+      "id": "GM0888-SPATIAL-001",
+      "severity": "high",
+      "category": "geography",
+      "status": "open",
+      "summary": "Eight unrelated active hazards reuse exactly one synthetic neighbourhood ordering.",
+      "evidence": "Severe storm, pluvial, river, heat, winter, cyber, wildfire and compound all rank Neerbeek through Kelmond in the same order at T+24. Code uses the same region-id multiplier rather than hazard-specific flood, wind, heat, fuel, seismic, cyber-network or airport exposure. This conflicts directly with E03's distinct local flow paths and gives false neighbourhood precision even where the municipal aggregate is a valid exercise.",
+      "action": "Replace the common seeded order with source-specific exposure adapters; until then label every neighbourhood allocation synthetic, suppress hotspot language and keep municipal totals independently reconcilable."
+    },
+    {
+      "id": "GM0888-AIRPORT-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Maastricht Aachen Airport is present as a label and transit stop but absent from facility, continuity and aggregate response context.",
+      "evidence": "E06 identifies the airport as a material Limburg-Zuid risk and confirms the 2026–2029 emergency-plan cycle; E07 supplies current AIRAC aerodrome data. The bundle contains the BAG woonplaats Maastricht-Airport and a GTFS stop, yet all neighbourhoods remain neutral non-hubs and the model has no airport facility, runway-zone, airport-fire, GRIP or continuity dependency. This omission affects storm, winter, cyber, mobility, supply and compound interpretation even though aviation accident is outside the ten canonical presets.",
+      "action": "Add a versioned public aggregate airport-context fixture from LVNL AIP and the public emergency plan, limited to aerodrome/runway validity, plan roles and non-sensitive exercise relations. Do not infer live staffing, passenger occupancy, security posture, dispatch or guaranteed response capacity."
+    },
+    {
+      "id": "GM0888-WATERCTX-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "open",
+      "summary": "Named Keutelbeek, sewer, buffers and registered structures remain display-only and cannot shape drainage or recovery.",
+      "evidence": "E03 documents clean Keutelbeek water entering the combined sewer at Oude Pastorie, a planned open 1.2-kilometre route through Neerbeek, stormwater disconnection and buffers. The current public layer contains two named sewer pumps and 27 weirs, but the model reduces drainage to generic coefficients and has no evidenced catchment or control relation. Keeping these points non-causal is correct because geometry alone supplies no live state or capacity.",
+      "action": "Use the Waterschap watercourse/structure services and authorized GWSW/DAMO catchment relations where licensing and access permit. Preserve topology, pump capacity/status, sewer controls, backup and restoration as unknown unless supplied by the owner; any fallback must be explicitly synthetic."
+    },
+    {
+      "id": "GM0888-NETWORK-001",
+      "severity": "medium",
+      "category": "network",
+      "status": "accepted-limitation",
+      "summary": "Logical A2/A76 links and public-transport points are useful context but not physical multi-service or event-capacity topology.",
+      "evidence": "Four logical route records, two stations and 16 GTFS stop areas agree with Beek's regional connectivity, and E06 independently identifies A2/A76, rail and cross-border bottlenecks. Capacities 260 are synthetic; GTFS is display-only; current closures, dangerous-goods loads, airport access, passengers and utility transfer are not observed. No public source establishes service-wide transfer over the road graph.",
+      "action": "Keep road/rail/GTFS provenance visible and restrict their causal use to explicitly modeled mobility/supply exercises. Use NDW/RWS event feeds only when pinned with validity and licence; require separate public aggregate or authorized operator topology for each utility."
+    },
+    {
+      "id": "GM0888-SEISMIC-001",
+      "severity": "medium",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The canonical Groningen earthquake is not a local Zuid-Limburg seismic or former-mining exercise.",
+      "evidence": "The earthquake preset peaks at severity 0.001029, affects zero residents and creates 678.717 attributable deprived person-hours because its remote synthetic source is in Groningen. E06 identifies geological faults/earthquake in the regional risk context and E08 supplies observed KNMI event data. The present result is valid for the selected remote event but cannot validate local shaking, mine-related ground movement or building damage in Beek.",
+      "action": "Offer a separately named Zuid-Limburg exercise with expert-reviewed source, attenuation and vulnerability assumptions. Use KNMI FDSN observations for provenance/replay under CC BY 4.0, never as a forecast or as an automatic future probability."
+    },
+    {
+      "id": "GM0888-EXERCISE-001",
+      "severity": "medium",
+      "category": "limitation",
+      "status": "accepted-limitation",
+      "summary": "Storm, heat, winter, cyber, wildfire and compound forcing is deterministic exercise data rather than local observations, forecasts or threat intelligence.",
+      "evidence": "All branches are finite and repeatable. Severe storm, heatwave, winter storm and cyber generate plausible exercise pressure but no event-valid field or threat feed is selected; wildfire has zero direct flame and only remote smoke/drought at T+24; coastal direct hazard is correctly zero. Compound persistence is mechanically consistent but inherits the unsupported water footprint. E06 is qualitative regional context, not numerical calibration.",
+      "action": "Where operational replay is intended, permit pinned KNMI/authorized observations with issue time, valid time, units, uncertainty and missing-data behavior; retain transparent deterministic scenarios for cyber and other unavailable hazards and never call them forecasts."
+    },
+    {
+      "id": "GM0888-TOPOLOGY-001",
+      "severity": "medium",
+      "category": "limitation",
+      "status": "accepted-limitation",
+      "summary": "Physical utility, facility and restoration topology remains unavailable or security-sensitive.",
+      "evidence": "No consumed public source provides feeder/switch state, drinking-water pressure zones, sewer controls, gas districts, telecom backhaul, airport systems, beds/staff, fuel/stocks, crews, backups or restoration priorities. E04 offers water geometry but not live causal topology; E06/E07 describe plan/aerodrome context but not availability. Exact modeled service values are therefore synthetic pressure indices, not operator forecasts.",
+      "action": "Integrate public aggregate zones and authorized owner data when available; otherwise preserve unknown fields, uncertainty and explicitly synthetic fallback without operator attribution or reverse-engineering sensitive infrastructure."
+    },
+    {
+      "id": "GM0888-CONTRACT-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The complete numerical, causal, allocation and checkpoint contract passes for GM0888.",
+      "evidence": "The focused gate passed one file/two tests in 27.06 seconds over all ten presets, six checkpoints and eight services. Values are finite and deterministic, zero intensity is exact, local totals reconcile, causal ledgers close, cumulative harm is monotone and continuing flood pressure blocks premature repair. A current browser path reached river T+72 without runtime errors.",
+      "action": "Keep GM0888 and national ALL coverage in regression and add source-class, airport-context, LIWO no-data and hazard-specific neighbourhood assertions."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Replace GM0888's generic direct river pressure with a versioned, expert-selected hydraulic footprint and explicit unsupported/no-data semantics.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/public/data/hazards/GM0888-river-context.json",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Preferred national source: Rijkswaterstaat/WMCN LIWO API https://basisinformatie-overstromingen.nl/api/liwo.ws and WMS https://basisinformatie-overstromingen.nl/geoserver/ows, current configuration 2025.1.6/dataset 2025_0_1, 5 metre maximum-depth layers with release-versioned rather than guaranteed cadence; no general redistribution licence was found, so record layer id, LDO scenario, version, probability class, resolution, units, no-data, retrieval and terms review. Preferred regional fluvial source: Waterschap Limburg 1 metre RD New ImageServer https://tiledimageservices.arcgis.com/pCDwdQn0AhSP66VA/arcgis/rest/services/T100_2100waterdiepte_Fluviaal_V2_17_12_2025Water/ImageServer, data release December 2025/Web Map modified January 2026, no standard licence or fixed cadence stated. Intersect the full-resolution PDOK CC BY 4.0 polygon, require expert review of connected pathways, and make no-data/unsupported distinct from zero. Until approved, direct river severity must not appear as 100% stress or a depth-like number; indirect wind/network exercise effects may remain separately labelled."
+    },
+    {
+      "summary": "Calibrate pluvial and drainage exposure to Beek's official flow paths and regional flood grids without converting planning documents into false precision.",
+      "files": [
+        "scripts/fetch-realism-data.mjs",
+        "apps/web/public/data/hazards/GM0888-pluvial-context.json",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Use Waterschap Limburg's 1 metre RD New T100-2100 pluvial ImageServer https://tiledimageservices.arcgis.com/pCDwdQn0AhSP66VA/arcgis/rest/services/T100_2100Waterdiepte_Totaal_10122025Water/ImageServer, release December 2025 and map modification January 2026, plus the vector watercourse/structure MapServers at https://maps.waterschaplimburg.nl/arcgis/rest/services/Kernregistratie/Watergangen/MapServer/0 and https://maps.waterschaplimburg.nl/arcgis/rest/services/Kernregistratie/Kern_Kunstwerken/MapServer. Resolution is 1 metre for the raster and feature-level for vectors; no standard licence or guaranteed cadence was published, so obtain terms before caching/redistribution and preserve vintage, CRS, units, no-data and uncertainty. E03 documents about 450 at-risk buildings and named flow directions but has no machine geometry, licence or cadence, so use it only to review that Beek/Neerbeek/Spaubeek patterns are qualitatively reproduced. Never infer sewer/pump capacity or live operation from point geometry."
+    },
+    {
+      "summary": "Replace the common seeded neighbourhood ordering with hazard-specific exposure adapters and honest synthetic fallback labels.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "For water hazards use the Waterschap/LIWO datasets and terms above; for land eligibility use PDOK BRT TOP10NL OGC API https://api.pdok.nl/brt/top10nl/ogc/v1 (1:10,000 vector, annual, CC BY 4.0); for event-valid weather use KNMI Data Platform/EDR https://api.dataplatform.knmi.nl/edr/v1/docs (station/grid dependent, continual/ten-minute products where available, CC BY 4.0, subject to delay/missingness); for observed earthquakes use KNMI FDSN Event https://rdsa.knmi.nl/fdsnws/event/1/query (event-driven observations, CC BY 4.0). Cyber and unavailable infrastructure exposure remain explicit synthetic/unknown, not inferred from demographics. Assert that distinct source footprints can change neighbourhood rank, that every source class is displayed, and that zero intensity/reconciliation remain exact."
+    },
+    {
+      "summary": "Add non-sensitive Maastricht Aachen Airport facility, dependency and emergency-plan context to relevant canonical scenarios.",
+      "files": [
+        "apps/web/public/data/emergency-context/GM0888-airport.json",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/MapView.tsx"
+      ],
+      "validation": "Use LVNL eAIP downloads https://www.lvnl.nl/diensten/aip/downloads for EHBK identity/runway/validity at AIRAC 28-day cadence and aeronautical resolution, subject to LVNL copyright/terms; pair only public aggregate roles and plan validity from VRZL's 2026–2029 plan notice https://www.vrzl.nl/actueel/rampbestrijdingsplan-maastricht-aachen-airport-ter-inzage, a documentary multi-year source with no machine API or standard reuse licence. Validate storm, winter, cyber, mobility, supply and compound relationships without adding aviation accident to the canonical ten. Treat live passenger counts, airport-fire crews, appliance readiness, security information and response timing as unknown unless explicitly authorized, and never expose sensitive plan detail."
+    },
+    {
+      "summary": "Represent only evidenced public water-system relations and keep physical utility/service restoration topology unknown unless an owner authorizes it.",
+      "files": [
+        "scripts/fetch-realism-data.mjs",
+        "apps/web/public/data/water-infrastructure.json",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Preferred public context is Waterschap Limburg's feature-level RD New Watergangen and Kern_Kunstwerken ArcGIS MapServers listed in E04; attributes include names, widths, dates and structure types, but no standard licence/cadence was stated and terms must be confirmed. Request authorized GWSW/DAMO catchment/relationship exports from Gemeente Beek/Waterschap Limburg because the public project documents have no machine API, licence or fixed cadence. Tests may encode a versioned Keutelbeek-to-combined-sewer planning relation only as documentary context and must never derive direction, catchment, capacity, pump status, backup or recovery from geometry. For electricity, drinking water, gas, telecom, facilities and stocks, use authorized aggregate zones when available; otherwise retain explicitly synthetic/unknown pressure with no operator attribution."
+    },
+    {
+      "summary": "Provide a separately named Zuid-Limburg seismic exercise instead of treating the remote Groningen preset as local validation.",
+      "files": [
+        "packages/sim-core/src/scenarios.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/scenarios.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Use KNMI's FDSN Event/Station/DataSelect services documented at https://www.knmi.nl/kennis-en-datacentrum/dataset/seismische-en-akoestische-data-tools for observed-event provenance and replay; event catalogue/stream resolution varies by station/event, updates occur as observations are processed and CC BY 4.0 applies by default. A future or hypothetical Zuid-Limburg source, mine-water contribution, attenuation field and building vulnerability require expert-reviewed assumptions and versioned scenario metadata; observations must not be transformed into forecast probability. The original Groningen exercise remains selectable and accurately labelled remote."
+    }
+  ],
+  "residualLimitations": [
+    "This is a deterministic exercise-model audit of the first 72 hours, not a forecast, emergency instruction, flood assessment, airport safety case or operator commitment.",
+    "CBS 2025 values are rounded/suppressed and neighbourhood totals need not exactly equal the municipality total; null district-heating and charging values are unknown, not zero.",
+    "The generalized municipality is coherent for overview but full-resolution PDOK geometry is required for hydraulic, runway-zone and operational intersection.",
+    "Waterschap project documents and measure maps are planning evidence, not a live machine depth, sewer-state or implementation-completion feed.",
+    "Waterschap raster/register licensing and refresh commitments were not explicit; cache or redistribution requires owner/terms confirmation and preserved release metadata.",
+    "LIWO no-data samples do not prove that no flood footprint exists; full-polygon zonal analysis and expert scenario selection are required, and no-data must not be interpreted as zero.",
+    "LVNL AIP supports aerodrome identity and validity, not incident likelihood, passenger demand, fire staffing, security posture or restoration capacity.",
+    "The VR risk profile and airport plan are qualitative/plan sources with reuse and security constraints, not machine event or live resource feeds.",
+    "BAG woonplaatsen, BRT settlements, ProRail stations and GTFS stops do not provide present occupancy, passenger loads, evacuation demand or disruption.",
+    "Public water points and government-service registry points are partial context and do not establish live operation, capacity, catchment, priority, staffing or backup.",
+    "No complete public physical electricity, drinking-water, wastewater, gas, telecom, airport-system, facility, fuel, stock, staff, repair or restoration topology is consumed; sensitive gaps remain explicitly unknown or synthetic.",
+    "NWB logical connections and nominal capacities are not incident closures, measured throughput or utility topology, and road adjacency cannot stand in for all services.",
+    "KNMI seismic observations are not forecasts; the remote Groningen exercise does not validate local faults, former-mining effects or building vulnerability.",
+    "Transient airport/work populations, tourists, cross-border assistance time, household stocks, care needs, warning compliance, public health and recovery beyond T+72 remain outside validated scope."
+  ],
+  "provinceReviewFlags": [
+    "Limburg/Waterschap Limburg/Rijkswaterstaat: replace generic major-river proximity pressure with expert-selected LIWO and regional fluvial layers, preserving no-data and source-class semantics for municipalities along tributary systems.",
+    "Limburg/Waterschap Limburg/municipalities: integrate licensed T100-2100 pluvial/fluvial grids and catchment context so hillside runoff and brook valleys can replace shared seeded neighbourhood ranks.",
+    "Limburg-Zuid/VRZL/LVNL/airport municipalities: define a non-sensitive regional schema for airport facilities, public emergency-plan roles, cross-border dependencies and continuity without exposing live/security-sensitive response capacity.",
+    "Limburg/KNMI/mining authorities: distinguish remote Groningen and local Zuid-Limburg seismic/former-mining exercises, with observations used only for provenance and expert-reviewed future scenarios.",
+    "Limburg utility and mobility operators: publish or authorize safe aggregate service zones, outage/restoration and event-capacity interfaces where possible; retain unavailable physical topology as unknown rather than deriving it from roads or registry points."
+  ]
+}

@@ -1,0 +1,463 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM1945",
+    "name": "Berg en Dal",
+    "province": "Gelderland",
+    "safetyRegion": "Gelderland-Zuid"
+  },
+  "agent": {
+    "taskName": "municipality_gm1945",
+    "agentId": "/root/municipality_gm0518",
+    "completedAt": "2026-09-02T16:03:39Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "Berg en Dal's generated identity, Gelderland-Zuid membership and 2025 CBS totals are coherent: 35,558 residents, 41 neighbourhoods, 11 BAG woonplaatsen and 24 BRT settlements are present, with a thirteen-person (-0.037%) published neighbourhood rounding difference. All ten canonical scenarios execute deterministically at T+0/6/12/24/48/72 across all eight services, and no-event, numerical, causal, allocation and reconciliation invariants pass. Release remains correction-required because local spatial claims are not defensible. The municipality spans the low Waal/Ooijpolder system and the high, wooded Nijmegen moraine; sampled official LIWO maximum-depth classes sharply distinguish those areas, while the river preset applies one 2.633537 municipality-level pressure and a shared seeded neighbourhood order, reporting 23,833 people-equivalent under pressure and critical services at T+72. The same order recurs for nine active hazards despite documented Groesbeek/Breedeweg runoff paths and high-risk forest around Groesbeek. The only logical edge is an N325 link to Nijmegen and is reused for every service; it omits the German border and cannot represent the official Groesbeek-to-Germany-to-Ooijpolder water path, evacuation branches or physical utility networks. Public water, provider-area, Liander, road, transit and government-register layers remain correctly non-causal. Physical electricity, drinking-water, wastewater, gas, telecom, facility, stock, backup and restoration topology is unavailable or security-sensitive and is not fabricated.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek (CBS)",
+      "title": "Kerncijfers wijken en buurten 2025, table 86165NED, OData API",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM1945%27%29",
+      "accessedAt": "2026-09-02T15:36:00Z",
+      "edition": 2025,
+      "supports": [
+        "Fresh official row GM1945 gives 35,558 residents, density 412 per square kilometre, 9,539 residents aged 65+, 16,388 households and 5,951 one-person households.",
+        "Municipality, district and neighbourhood attributes and CBS rounding, suppression and null semantics used for reconciliation.",
+        "Machine-readable OData; annual 2025 edition with additions when data become available, reusable under CC BY 4.0. It is demographic context, not present occupancy, hazard exposure or response priority."
+      ]
+    },
+    {
+      "publisher": "PDOK / CBS / Rijkswaterstaat",
+      "title": "CBS Gebiedsindelingen 2025 non-generalized geometry and national transport APIs",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_niet_gegeneraliseerd/items?f=json&limit=100&datetime=2025-07-01T00%3A00%3A00Z&bbox=5.70,51.70,6.20,51.95",
+      "accessedAt": "2026-09-02T15:38:00Z",
+      "edition": "2025 boundaries; NWB August 2026",
+      "supports": [
+        "Official full-resolution GM1945 is one MultiPolygon component with one ring and 2,091 coordinate positions; the generated overview geometry preserves component/ring topology but reduces it to 159 positions.",
+        "The generated centre [5.924543724729695, 51.820851807754494] and all eleven BAG woonplaats labels are contained; overview generalization is not suitable for hydraulic or operational intersection.",
+        "CBS boundary OGC data are annual and CC BY 4.0. The consumed NWB service at https://api.pdok.nl/rws/nationaal-wegenbestand-wegen/ogc/v1 is monthly and CC0 1.0; NWB describes Dutch roads, not incident throughput, closures, German roads or utility topology.",
+        "BRT TOP10NL at https://api.pdok.nl/brt/top10nl/ogc/v1 is 1:10,000 vector, annual and CC BY 4.0, suitable for land-cover and route context but not a fire-spread, evacuation-capacity or live-state source."
+      ]
+    },
+    {
+      "publisher": "Gemeente Berg en Dal",
+      "title": "Gemeentelijk rioleringsplan Berg en Dal 2021–2025",
+      "url": "https://www.bergendal.nl/gemeentelijk-rioleringsplan-2021-2025",
+      "accessedAt": "2026-09-02T15:40:00Z",
+      "edition": "Definitive 2 October 2020; plan period 2021–2025",
+      "supports": [
+        "The municipality distinguishes a sloping, sandy moraine area in the centre/south from a flat, clay polder in the north and explicitly does not use one municipality-wide rainfall-processing norm.",
+        "The sewer design reference is about 20 millimetres per hour; excess rain must be retained, routed above ground, infiltrated or discharged in a controlled way.",
+        "Beek and Ubbergen source streams run downslope into the polder, river seepage passes below dikes, and limited discharge makes storage important; Millingen has a seepage-water sewer for high Rhine conditions.",
+        "The plan records a municipality-wide light stress test based on 30 May 2016 and deeper tests for Breedeweg, Beek and Ubbergen. It is now outside its stated plan period, has no public machine grid, fixed refresh cadence or standard reuse licence, and supports qualitative review rather than numeric calibration."
+      ]
+    },
+    {
+      "publisher": "Waterschap Rivierenland",
+      "title": "Streefpeilenplan Groesbeek & Ooijpolder, Breedeweg measures and open water-system maps",
+      "url": "https://www.waterschaprivierenland.nl/streefpeilenplan-groesbeek-ooijpolder",
+      "accessedAt": "2026-09-02T15:42:00Z",
+      "edition": "Target-level plans established 19 September 2023; water ledgers established 2 September 2025",
+      "supports": [
+        "Groesbeek is a roughly 4,417-hectare hilly, wooded catchment between the Nijmegen moraine and Germany's Reichswald; it drains through Germany and the Meertje/Ooijpolder to the Waal. Ooijpolder drains through the Hollands-Duitsch pumping station and cannot always maintain target levels because external water cannot be supplied.",
+        "The official Breedeweg page https://www.waterschaprivierenland.nl/breedeweg documents 2016/2017 flooding, seven natural flow lanes and more than 40 measures completed during 2022–2025, including nine infiltration basins; that is mechanism evidence, not a live guarantee.",
+        "A 24 July 2026 notice at https://www.waterschaprivierenland.nl/waterschap-rivierenland-stelt-onttrekkingsverbod-in-voor-ooijpolder-groesbeek-en-de-bruuk records an observed surface-water abstraction ban for Ooijpolder/Groesbeek and groundwater restriction around De Bruuk because no extra river-water intake was possible. It does not establish conditions on the audit date or calibrate the heat preset.",
+        "Integration-ready feature sources include the current peil-area ArcGIS layer https://portal.wsrl.nl/kaarten/rest/services/Waterkwantiteit/Gebieden_oppervlaktewater/MapServer/2 and 2025 water/water-defence GeoPackages linked from https://www.waterschaprivierenland.nl/kaarten. They are feature-level legal/context data, not telemetry, flow, capacity or control state; no standard reuse licence or guaranteed refresh cadence was stated, so terms must be confirmed."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / Watermanagementcentrum Nederland",
+      "title": "Landelijk Informatiesysteem Water en Overstromingen (LIWO)",
+      "url": "https://iplo.nl/thema/water/applicaties-modellen/berichtgeving-crisismanagement/liwo/",
+      "accessedAt": "2026-09-02T15:44:00Z",
+      "edition": "LIWO 2025.1.6; project dataset 2025_0_1",
+      "supports": [
+        "LIWO exposes professional flood-scenario and derived maximum-depth layers and explicitly requires specialist interpretation.",
+        "The public configuration identifies application 2025.1.6 and project dataset projects/deltares-rws/liwo/2025_0_1; machine access is exposed through https://basisinformatie-overstromingen.nl/api/liwo.ws and https://basisinformatie-overstromingen.nl/geoserver/ows.",
+        "Focused GetFeatureInfo screening across all five 5-metre maximum-depth probability-band layers returned non-nodata extreme-band cells at the Millingen, Erlecom, Kekerdom, Leuth, Ooij and Persingen labels, while Groesbeek, Berg en Dal, Heilig Landstichting and Ubbergen labels were nodata. Kaart5 screening of all 41 neighbourhood label points likewise found non-nodata cells across much of the low polder/riverside area but nodata at all twelve Groesbeek neighbourhood labels. Beek sits on the transition and produced mixed label results.",
+        "Point sampling is not a zonal flood assessment, nodata is not zero, and maximum composites are not one selected event. LIWO is release-versioned rather than guaranteed-cadence data; no general redistribution licence was found in inspected metadata, so scenario choice, terms, units, no-data and uncertainty need owner/expert review before causal use."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Gelderland-Zuid (VRGZ)",
+      "title": "Regionaal Beleidsplan 2024–2027 and Zorgrisicoprofiel Gelderland-Zuid 2024",
+      "url": "https://www.vrgz.nl/media/3718/03a-regionaal-beleidsplan-2024-2027-vrgz.pdf",
+      "accessedAt": "2026-09-02T15:46:00Z",
+      "edition": "2024–2027; established 21 December 2023",
+      "supports": [
+        "The current regional plan includes Berg en Dal and treats high-river flooding, nature fire near vulnerable objects, heat, electricity disruption and telecom/ICT disruption as material regional risks.",
+        "The linked 2024 care-risk profile https://www.vrgz.nl/media/3889/zorgrisicoprofiel-2024-ghor-gelderland-zuid-spreads.pdf explicitly records that Berg en Dal borders Kreis Kleve/Bezirksregierung Düsseldorf and prioritises high-river flooding, drinking-water contamination, power outage, ICT/telecom outage and toxic-shipping incidents for care continuity.",
+        "These are statutory multi-year documentary sources, not machine incident feeds, local probabilities, staffing rosters, dispatch promises, facility capacities or restoration telemetry; no standard reuse licence is stated."
+      ]
+    },
+    {
+      "publisher": "VRGZ / Brandweer Nederland / Provincie Gelderland",
+      "title": "Dekkingsplan 2024–2027 and authoritative nature-fire context",
+      "url": "https://www.vrgz.nl/media/3727/05-on-dekkingsplan-2024-2027.pdf",
+      "accessedAt": "2026-09-02T15:48:00Z",
+      "edition": "VRGZ 2024–2027; Gelderland Natuurbeheerplan management year 2026",
+      "supports": [
+        "VRGZ plans to move a large water tender from Ubbergen to Groesbeek because Groesbeek best serves the forest area with the region's highest Risk Index Nature Fire exposure; this is planned aggregate capability, not live availability.",
+        "Brandweer Gelderland-Zuid's 11 September 2025 notice https://www.brandweer.nl/nieuws/aftrap-bewonersbijeenkomsten-natuurbrandbeheersing-in-nijmegen/ identifies vulnerable regional forest, heath and grass and explicitly schedules local outreach in Berg en Dal.",
+        "The current public phase page https://www.brandweer.nl/natuurbrandrisico/ reported Gelderland-Zuid phase 1 when accessed and may change at most daily after expert review. It is observed regional context, not a municipality ignition, perimeter or forecast; no documented machine API or reuse licence was found.",
+        "Province Gelderland's polygon service https://geoportaal.gelderland.nl/gisserver/rest/services/Natuurbeheerplan/Natuurbeheerplan_2026/MapServer/11 exposes feature-level RD New nature-management classes as JSON/GeoJSON/PBF for management year 2026, states no use restrictions and follows an annual plan cycle. It can bound land/fuel eligibility but not fuel moisture, ignition, spread, occupancy, access or suppression-water state."
+      ]
+    },
+    {
+      "publisher": "Koninklijk Nederlands Meteorologisch Instituut (KNMI)",
+      "title": "Environmental Data Retrieval API and open observation services",
+      "url": "https://developer.dataplatform.knmi.nl/edr-api",
+      "accessedAt": "2026-09-02T15:50:00Z",
+      "edition": "Current v1 services inspected 2 September 2026",
+      "supports": [
+        "The versioned EDR API at https://api.dataplatform.knmi.nl/edr/v1 supports spatiotemporal station and gridded queries in GeoJSON, CoverageJSON or JSON.",
+        "The near-real-time station collection reports temperature, humidity, wind, pressure and precipitation every ten minutes, is continually updated and CC BY 4.0; station coverage and missing/delayed records must be preserved.",
+        "KNMI also publishes 5-minute radar rainfall grids and observations through the Open Data API, and observed seismic events/waveforms through FDSN services such as https://rdsa.knmi.nl/fdsnws/event/1/query under CC BY 4.0.",
+        "These can support replay, provenance and validation; observations are not forecasts, future probabilities, wildfire perimeters, local cyber threat intelligence or infrastructure-damage models."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM1945, Berg en Dal, Gelderland and safety region Gelderland-Zuid agree across the manifest, generated bundles and official 2025 records.",
+      "evidenceRefs": ["E01", "E02", "E06"],
+      "notes": [
+        "Generated feature id, bundle code, name, province and exactly one safety-region membership agree.",
+        "The generated centre lies inside the generalized boundary; the 2025 source-edition and municipality/region reference checks pass.",
+        "VRGZ's current plan and care-risk profile both include Berg en Dal in Gelderland-Zuid."
+      ]
+    },
+    "geography": {
+      "status": "warn",
+      "summary": "Administrative topology is coherent, but the 159-position overview boundary is too coarse for flood, runoff, forest-edge or cross-border operational intersection.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E07"],
+      "notes": [
+        "Generated and fresh non-generalized GM1945 each have one component and one ring; no component/topology contradiction was found.",
+        "The full-resolution exterior contains 2,091 positions versus 159 in the generated overview geometry.",
+        "Hydraulic raster clipping, moraine flow paths, forest interfaces, roads crossing Germany and assets near the boundary require the non-generalized polygon and source CRS, no-data and precision controls."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Generated municipal totals reproduce official 2025 CBS values and neighbourhood population reconciles within normal publication rounding.",
+      "evidenceRefs": ["E01", "E02"],
+      "notes": [
+        "Official/generated population is 35,558, density 412/km², age 65+ is 9,539 or 26.8%, households are 16,388 and one-person households are 5,951.",
+        "Published neighbourhood population sums to 35,545, thirteen below the municipality total or -0.037%; neighbourhood households sum to 16,395 and age 65+ to 9,550.",
+        "The allocator reconciles to 35,558 without rewriting published source observations; rounded area totals are not silently treated as exact census microdata."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "All 41 official neighbourhoods and 36 declared statistic fields are represented, with material publication gaps retained as null.",
+      "evidenceRefs": ["E01", "E02", "E03"],
+      "notes": [
+        "Core demographics cover 41/41 neighbourhoods; home value and cars per household cover 29/41; several housing/social fields cover 32/41; density, doctor and supermarket measures cover 39/41.",
+        "District heating and public charging cover 0/41 and correctly remain unavailable rather than zero.",
+        "Largest published neighbourhoods are Millingen aan de Rijn-West 2,915, Millingen aan de Rijn-Oost 2,765, Groesbeek Stekkenberg 2,585, Groesbeek Centrum-Noord 2,310 and Ooij 2,180.",
+        "CBS neighbourhood context does not locate LIWO cells, overland flow paths, forest fuel, live vulnerable occupants or service priority."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "Eleven BAG woonplaatsen and 24 BRT settlements are structurally coherent and remain non-causal label context.",
+      "evidenceRefs": ["E02", "E04"],
+      "notes": [
+        "BAG woonplaatsen are Beek, Berg en Dal, Erlecom, Groesbeek, Heilig Landstichting, Kekerdom, Leuth, Millingen aan de Rijn, Ooij, Persingen and Ubbergen; no generated label lies outside the generalized boundary.",
+        "BRT contains eight buurtschappen, one deelkern, three gehuchten and twelve woonkernen.",
+        "Labels and place centres do not provide population, flood-zone membership, evacuation demand, present occupancy or jurisdiction across Germany."
+      ]
+    },
+    "transport": {
+      "status": "fail",
+      "summary": "The one-edge Dutch logical graph cannot represent Berg en Dal's internal, Waal-side or German cross-border mobility and evacuation dependencies.",
+      "evidenceRefs": ["E02", "E04", "E06"],
+      "notes": [
+        "The graph has degree one: N325 connects only to GM0268 Nijmegen with 0.1-kilometre logical distance and synthetic nominal capacity 150.",
+        "There is no German external node despite the official Kreis Kleve border, and no branch topology for Groesbeek, Ooijpolder or the Waal-side villages.",
+        "No ProRail station lies inside the boundary; 95 GTFS stop areas are retained as schedule/label context, not passenger loads, accessible vehicles, disruption, evacuation throughput or live capacity.",
+        "NWB August 2026 and ProRail are CC0 reference geometry; OVapi/NDOV GTFS is best-effort. None supports copying one road edge into every physical service network."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "Current official river, cross-border water and nature-fire planning context does not enter operational model state.",
+      "evidenceRefs": ["E03", "E04", "E06", "E07"],
+      "notes": [
+        "All 41 neighbourhoods have neutral priority 2 and isHub=false; no high-ground assembly, forest interface, water-system relation, German partner, evacuation branch or response asset is represented.",
+        "VRGZ's planned Groesbeek water-tender placement is relevant aggregate exercise context but is not live staffing, dispatch or guaranteed suppression capacity.",
+        "The current public context contains 92 HWH points inside the generated footprint: ten sewer pumps, two wastewater treatment plants, three surface-water pumps and 77 weirs. Five KVK/PDOK government-service points are coarse public-order/safety context. All correctly have non-causal/display semantics.",
+        "A live Public Domain provider-area lookup at the municipal reference point returned Liander for electricity/gas, Vitens for drinking water, Ziggo for fixed media and no sewer polygon. These are responsibility hints at one point, not complete coverage, topology, capacity or state; the empty sewer result is unknown.",
+        "No complete public source supplies crews, appliances, evacuation capacity, feeder switching, pressure zones, sewer controls, gas districts, telecom backhaul, facility beds/staff, stocks, backups or restoration priorities."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten canonical presets execute at T+0/6/12/24/48/72 across all eight services with complete finite output.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "Reproduction: MUNICIPALITY_AUDIT_CODE=GM1945 pnpm audit:model; one file and two tests passed in 28.54 seconds on 2 September 2026, with test execution 28.33 seconds. A focused one-file reproduction passed in 24.12 seconds and emitted every local/service invariant. The national harness is recorded green for 342 municipalities × 10 scenarios × 6 checkpoints × 8 services.",
+        "Peak severity / maximum affected / T+72 attributable deprived person-hours are: severe storm 0.432921 / 7,687 / 155,618.923; pluvial 0.267747 / 4,559 / 169,402.332; river 0.823777 / 23,833 / 1,321,813.923; coastal 0.004426 / 0 / 169,720.545; heat 0.639526 / 1,360 / 283,369.210.",
+        "The remaining values are winter 0.810856 / 12,797 / 642,206.040; cyber 0.552822 / 11,703 / 594,949.561; earthquake 0.018020 / 0 / 16,176.510; wildfire 0.144822 / 1,828 / 194,623.916; compound 0.797361 / 24,256 / 1,243,985.631.",
+        "Coastal direct depth is exactly zero for this inland municipality, with only a small indirect wind screen at T+24. The earthquake is the remote Groningen exercise. Wildfire has zero direct flame and only smoke/drought at T+24 despite local forest exposure. Storm, heat, winter and cyber are deterministic synthetic forcing, not current KNMI observations or threat intelligence.",
+        "At T+24 river is critical with pressure 2.633537, severity 0.823777 and 22,662 affected people-equivalent; compound is critical with rain 33.859951 mm/h, flood pressure 0.183486, wind 21.765638 m/s, cyber disruption 0.484990 and 24,021 affected. Values are exercise indices, not forecasts, measured depths, casualties or probabilities."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Determinism, finite bounds, exact no-event behavior, local allocation, reconciliation, ledger monotonicity and selected-layer invariance pass.",
+      "evidenceRefs": [],
+      "notes": [
+        "All service availability stays in [0,1]; hazard dimensions, demand, delivery, affected people-equivalent and attributable deprived person-hours are non-negative and cumulative ledgers never decrease.",
+        "At compound T+24 each of power, water, drainage, gas, telecom, mobility, facilities and supply contains 41 local rows summing to 35,558 residents and 24,021 affected people-equivalent; maximum observed floating reconciliation error is 7.1×10^-15.",
+        "For every preset/checkpoint, intensity zero produces exactly zero event dimensions, event severity, affected people and event-attributable deprived person-hours while ambient seasonal temperature remains separate context.",
+        "Repeated frames are identical and all eleven selected map layers return the same hazard, system pressure and affected-population state."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "The municipal river scalar and one shared seeded neighbourhood order contradict the municipality's low-polder/high-moraine and hazard-specific exposure patterns.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E07", "E08"],
+      "notes": [
+        "At representative T+24 frames, severe storm, pluvial, river, coastal wind, heat, winter, cyber, wildfire and compound all rank Bedrijventerrein De Bouwkamp first, Groesbeek De Drul-West second, Buitengebied Kekerdom third and Ubbergen fourth; only the zero-current earthquake falls back to source order.",
+        "Code inspection traces this to the same local multiplier 0.82 + seededUnit(city.seed xor scenario.seed, hash(region.id)) × 0.36. No flood raster, flow lane, land cover, local weather field, seismic surface, cyber asset or service topology can change the order.",
+        "LIWO screening separates low polder/riverside cells from high Groesbeek/moraine labels, while municipal and Waterschap evidence identifies distinct hillside flow paths and forest interfaces. The shared ordering therefore creates false local precision even where a municipal aggregate is a useful exercise.",
+        "Generated overview geometry is adequate for selection and broad display, but full-resolution PDOK geometry is required before any source footprint is assigned to a neighbourhood."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "All eight aggregate cascades calculate coherently, but one N325 logical road proxy is the only transfer edge for every service and omits documented cross-border relations.",
+      "evidenceRefs": ["E02", "E03", "E04", "E06", "E07"],
+      "notes": [
+        "River T+72 availability is power 0.429144, water 0.406511, drainage 0.215239, gas 0.684060, telecom 0.421523, mobility 0.234020, facilities 0.347968 and supply 0.332325.",
+        "Compound T+72 availability is power 0.358996, water 0.367932, drainage 0.291909, gas 0.587184, telecom 0.238585, mobility 0.473918, facilities 0.351898 and supply 0.375278.",
+        "For every service, the sole edge is N325 to Nijmegen with transferSemantics logical-proxy and effective capacity 150. Baseline flows differ by service, including zero for telecom/facilities, but no operator source establishes those transfers or the capacity.",
+        "Official sources instead document a water path through Germany and Ooijpolder, a Waal outlet, local seepage/sewer mechanisms, forest response and the international border. Public assets and provider areas remain non-causal, which is safer than inventing their operation.",
+        "Exact availability must not be attributed to Liander, Vitens, Waterschap Rivierenland, telecom providers, facilities, transport operators or German partners."
+      ]
+    },
+    "causalTrace": {
+      "status": "fail",
+      "summary": "The numerical causal ledger closes, but the interface relabels the derived river screen as generic scenario evidence and presents unsupported local certainty.",
+      "evidenceRefs": ["E04", "E05", "E06"],
+      "notes": [
+        "The model harness verifies hazard, direct-service, dependency, intervention, network, allocation and reconciliation closure, changed-driver explanations and exact zero-intensity accounting.",
+        "A reproducible headless Chromium path at 1440×1000 selected Berg en Dal, river flood, T+72 and the hazard layer in four operator activations, then switched all eleven layers with no console, page or same-origin response error.",
+        "The river HazardState correctly records spatialEvidence derived-screening, but the T+72 inspector shows '100% inundation stress' and 'Scenario · evidence class scenario' because it displays the limiting service confidence; it provides no missing-local-scenario warning.",
+        "The same inspector reports drainage network flow, exact units/hour and one municipal gateway without surfacing the missing Waal/LIWO footprint, German water relation or single-road-proxy limitation at the point of decision."
+      ]
+    },
+    "recovery72h": {
+      "status": "pass",
+      "summary": "Continuing river and compound water pressure correctly blocks generic repair through T+72, although local recession and restoration remain uncalibrated.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06"],
+      "notes": [
+        "The 168-hour river forcing holds flood pressure 2.633537 and severity 0.823777 at T+24 and T+72; all eight service recoveryProgress values remain zero and the municipality remains critical.",
+        "Compound retains flood pressure 0.181793 and cyber disruption 0.063078 at T+72, remains critical, reaches 24,256 affected people-equivalent and keeps all eight recovery progress values at zero.",
+        "Storm, pluvial, winter, earthquake and wildfire event forcing is zero and municipality status operational by T+72 without reducing cumulative deprived person-hours; heat and cyber retain weak forcing under their longer schedules.",
+        "These are conservative deterministic mechanics, not local Waal recession, polder drainage, cross-border coordination, repair crew, backup, facility continuity or operator restoration forecasts."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": ["power", "water", "drainage", "gas", "telecom", "mobility", "facilities", "supply"]
+  },
+  "findings": [
+    {
+      "id": "GM1945-DATA-001",
+      "severity": "informational",
+      "category": "identity",
+      "status": "fixed",
+      "summary": "Generated identity, regional membership, settlements and official demographic totals are coherent.",
+      "evidence": "Code, name, province, safety region and 2025 edition agree. CBS gives 35,558 residents and neighbourhood rows sum to 35,545, a normal -0.037% publication difference reconciled without altering source observations; all eleven BAG label points are contained.",
+      "action": "Retain source edition, retrieval time, null semantics, full-resolution boundary access and published-versus-allocated reconciliation on every refresh."
+    },
+    {
+      "id": "GM1945-RIVER-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "A generic centre-distance river screen is presented as precise sustained inundation across a municipality split between Waal floodplain and high moraine.",
+      "evidence": "River T+24/T+72 holds pressure 2.633537 and severity 0.823777; T+72 reports 23,833 affected people-equivalent, critical status and 1,321,813.923 attributable deprived person-hours. E05 label screening finds non-nodata LIWO extreme-band cells in much of the low Ooijpolder/riverside area but nodata at all twelve Groesbeek neighbourhood labels. The model selects no breach, defence state, connected footprint, arrival, probability band or recession, and the UI displays 100% inundation stress as evidence class scenario.",
+      "action": "Require an expert-selected, versioned LIWO/LDO scenario intersected with full-resolution GM1945 before direct river depth or exposed population is shown. Until then mark direct river impact unsupported/unknown; keep separately evidenced indirect supply effects and never interpret nodata as zero."
+    },
+    {
+      "id": "GM1945-PLUVIAL-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The pluvial scenario omits the documented moraine-to-polder flow paths, different terrain regimes and completed Breedeweg measures.",
+      "evidence": "At T+24 the model reports flood pressure 0.176830, 4,559 affected people-equivalent and drainage availability 0.591431 through a generic seed. E03 explicitly rejects one municipal rainfall norm and distinguishes sloping sand from flat clay; E04 documents seven Breedeweg flow lanes, 40+ measures, cross-border Groesbeek drainage and constrained Ooijpolder water management. No terrain, catchment, measure or stress-test layer enters exposure or drainage causality.",
+      "action": "Use authorized municipal stress-test output where available; otherwise build a clearly derived screen from current AHN terrain plus Waterschap water/peil geometry, then validate against the official qualitative flow lanes. Preserve vintage, units, no-data and measure state and never infer sewer or pump capacity from geometry."
+    },
+    {
+      "id": "GM1945-SPATIAL-001",
+      "severity": "high",
+      "category": "geography",
+      "status": "open",
+      "summary": "Nine unrelated active hazards reuse exactly one synthetic neighbourhood ranking.",
+      "evidence": "At representative T+24 frames, storm, pluvial, river, coastal wind, heat, winter, cyber, wildfire and compound rank De Bouwkamp, De Drul-West, Buitengebied Kekerdom and Ubbergen first through fourth. Code applies one region-id multiplier independent of hazard type. That ordering conflicts with the sharply different LIWO, runoff, forest, weather, cyber and population-vulnerability mechanisms in E03–E08 and gives false neighbourhood precision.",
+      "action": "Replace the shared seed with hazard-specific spatial adapters. Until each adapter is sourced, label neighbourhood values synthetic, suppress hotspot language and preserve independent municipal reconciliation."
+    },
+    {
+      "id": "GM1945-WILDFIRE-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The remote wildfire preset produces only smoke/drought in Berg en Dal and does not represent its officially recognised high-risk Groesbeek forest area.",
+      "evidence": "At T+24 direct flame is zero, smoke is 0.372259, drought 0.586418, severity 0.144822 and 1,828 people-equivalent are affected. E07 says the forest area best served from Groesbeek has the region's highest nature-fire risk and documents ongoing Berg en Dal outreach, yet exposure still follows the common seed and contains no forest edge, ignition, wind-spread, access, escape or suppression-water variable.",
+      "action": "Keep the existing preset explicitly labelled as a remote smoke exercise and add a separately named local hypothetical exercise using official land/fuel eligibility plus weather. If no authorized perimeter/spread model exists, use the smallest versioned synthetic ignition/perimeter and say so; do not turn the daily regional phase into local flame intensity."
+    },
+    {
+      "id": "GM1945-NETWORK-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "One N325-to-Nijmegen logical edge omits the German border and is reused as if it could transfer every essential service.",
+      "evidence": "The only edge has synthetic capacity 150 and appears under power, water, drainage, gas, telecom, mobility, facilities and supply. E06 confirms the Kreis Kleve border, and E04 documents water routing through Germany before Ooijpolder/Waal discharge. The graph contains no German node, internal branch, evacuation path or water relation; 95 GTFS stops and current registry layers remain non-causal.",
+      "action": "Integrate Dutch/German public road context for mobility/supply and represent only non-sensitive, source-backed water relations. Prohibit road-derived edges from physical utility/facility transfer unless a service-specific source or transparent aggregate assumption explicitly authorizes them."
+    },
+    {
+      "id": "GM1945-DROUGHT-001",
+      "severity": "medium",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Heat/drought pressure omits the locally documented inability to import water and nature-area abstraction constraints.",
+      "evidence": "The heat preset retains drought severity 0.560503 at T+72 but has no surface/groundwater balance, target-level area, De Bruuk dependency or restriction state. E04 documents that target levels cannot always be maintained without external inflow and records a July 2026 abstraction restriction. That observed notice cannot be assumed active at the audit date or used as preset calibration.",
+      "action": "Add versioned peil-area and water-balance context and an explicit observed-restriction overlay with issue/end validity. Only a calibrated scenario adapter may affect simulated water availability; historical notices and target levels remain context, not automatic forcing."
+    },
+    {
+      "id": "GM1945-TOPOLOGY-001",
+      "severity": "medium",
+      "category": "limitation",
+      "status": "accepted-limitation",
+      "summary": "Physical utility, facility, stock, backup and restoration topology remains unavailable or security-sensitive.",
+      "evidence": "The HWH water points, Liander geometry and provider territories are official context, but none supplies live flow, switching, pressure, connectivity, redundancy, occupancy, stocks, crews, backups or restoration priority. The model's eight exact availability values and logical transfers therefore remain synthetic pressure indices rather than operator forecasts.",
+      "action": "Use public aggregate zones and authorized owner interfaces where safe; otherwise preserve unknown fields and an explicitly synthetic aggregate fallback without operator attribution or reverse-engineering sensitive infrastructure."
+    },
+    {
+      "id": "GM1945-EXERCISE-001",
+      "severity": "medium",
+      "category": "limitation",
+      "status": "accepted-limitation",
+      "summary": "Storm, heat, winter, cyber, coastal wind and remote earthquake forcing is deterministic exercise data rather than local observation, forecast or threat intelligence.",
+      "evidence": "All branches are finite and repeatable. Coastal depth is correctly zero; the earthquake is the remote Groningen preset; storm/heat/winter lack an event-valid KNMI field and cyber lacks an authorized threat feed. The compound remains mechanically consistent but inherits synthetic water and cyber components. E06 supplies qualitative regional risk, not numeric calibration.",
+      "action": "For replay, allow pinned KNMI and authorized operational inputs with issue time, valid time, units, uncertainty and missing-data behavior. Retain transparent deterministic scenarios when current data or threat/topology sources are unavailable, and never call them forecasts."
+    },
+    {
+      "id": "GM1945-CONTRACT-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The complete numerical, causal, allocation, recovery and checkpoint contract passes for GM1945.",
+      "evidence": "The focused gate passes all ten presets, six checkpoints and eight services. Values are finite and deterministic, zero intensity is exact, local totals reconcile, causal ledgers close, cumulative harm is monotone, layer selection is invariant and continuing flood pressure blocks premature repair. A current browser path reaches river T+72 and all eleven layers without runtime errors.",
+      "action": "Keep GM1945 and national ALL coverage in regression and add LIWO source-class, terrain-specific rank, local nature-fire and cross-border network assertions."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Replace GM1945's generic direct river scalar with a versioned hydraulic footprint and show its true evidence class at the decision point.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/public/data/hazards/GM1945-river-context.json",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/MapView.tsx"
+      ],
+      "validation": "Preferred public source is Rijkswaterstaat/WMCN LIWO API https://basisinformatie-overstromingen.nl/api/liwo.ws and WMS https://basisinformatie-overstromingen.nl/geoserver/ows, configuration 2025.1.6/project dataset 2025_0_1, 5-metre derived maximum-depth rasters and release-versioned rather than guaranteed cadence. No general redistribution licence was found, so record source owner, layer/scenario/LDO id, probability class, version, resolution, units, CRS, no-data, retrieval and terms approval. Clip/intersect with the non-generalized annual PDOK CBS polygon (CC BY 4.0), require water-manager review of connected Waal/dike pathways, and distinguish no-data/unsupported from zero. The selected scenario may then causally affect flood exposure; composite maximum layers remain screening context. Until approved, direct river depth, exposed population and '100% inundation stress' must be unknown, while independently sourced indirect effects may remain labelled. Assert that the UI reads HazardState.spatialEvidence rather than service confidence."
+    },
+    {
+      "summary": "Build a terrain- and catchment-aware pluvial/drought adapter for the moraine, Groesbeek/Breedeweg flows and Ooijpolder water balance.",
+      "files": [
+        "scripts/fetch-realism-data.mjs",
+        "apps/web/public/data/hazards/GM1945-pluvial-context.json",
+        "apps/web/public/data/hazards/GM1945-drought-context.json",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Use Rijkswaterstaat/AHN DTM WCS https://service.pdok.nl/rws/ahn/wcs/v1_0?SERVICE=WCS&request=GetCapabilities (0.5-metre terrain raster, CC0 1.0, refreshed by area/acquisition rather than as a live feed) together with Waterschap Rivierenland's feature-level current peil-area layer https://portal.wsrl.nl/kaarten/rest/services/Waterkwantiteit/Gebieden_oppervlaktewater/MapServer/2 and the 2025 Legger Wateren GeoPackage https://waterschaprivierenland.gemeentedocumenten.nl/Opendata/Watersysteem/VastgesteldeLegger-GEOPACKAGE/Vastgesteld_LeggerWateren2025.gpkg. The ledger is a legally established edition, not telemetry; its public page states no standard licence/cadence, so confirm terms before caching. Request the municipality's original light/deep stress-test grids and completed-measure geometry because E03/E04 PDFs/pages have no machine exposure layer or standard licence. If unavailable, a slope/catchment result must be labelled derived-screening, not official depth. Validate low-polder/high-moraine and seven-flow-lane patterns without hard-coding prose, retain observed restriction issue/end validity, and never infer sewer/pump capacity, flow, backup or live status from geometry."
+    },
+    {
+      "summary": "Replace the common seeded neighbourhood order with hazard-specific public exposure adapters and honest synthetic fallback semantics.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "For river/pluvial use the LIWO/AHN/Waterschap sources and terms above. For forest/land eligibility use PDOK BRT TOP10NL https://api.pdok.nl/brt/top10nl/ogc/v1 (1:10,000 vector, annual, CC BY 4.0) and Province Gelderland Natuurbeheerplan layer 11 https://geoportaal.gelderland.nl/gisserver/rest/services/Natuurbeheerplan/Natuurbeheerplan_2026/MapServer/11 (feature polygons in RD New, annual management plan, no use restrictions stated). For observed weather use KNMI EDR https://api.dataplatform.knmi.nl/edr/v1 (station/grid dependent; ten-minute continual observations and gridded products, CC BY 4.0, subject to delay/missingness); for observed earthquakes use KNMI FDSN Event https://rdsa.knmi.nl/fdsnws/event/1/query (event-driven, CC BY 4.0). These sources may causally drive only a named replay/scenario adapter after unit/valid-time validation. Cyber and unavailable infrastructure exposure stay explicitly synthetic/unknown; CBS demographics may modify vulnerability but not invent hazard. Assert that different footprints can change local rank and that zero intensity, totals and ledgers remain exact."
+    },
+    {
+      "summary": "Add a separately named local Berg en Dal nature-fire exercise without converting land cover or a regional daily phase into a fire perimeter.",
+      "files": [
+        "apps/web/public/data/hazards/GM1945-wildfire-context.json",
+        "packages/sim-core/src/scenarios.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/scenarios.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Use Province Gelderland's Natuurbeheerplan 2026 layer 11 (feature-level annual polygons, RD New, no use restrictions stated) and PDOK BRT TOP10NL (1:10,000 annual CC BY 4.0) only to delimit plausible forest/heath/grass eligibility. Use KNMI event-valid wind/humidity where a named replay requires it. Brandweer Nederland's https://www.brandweer.nl/natuurbrandrisico/ is region-level, expert-reviewed and changes at most daily; no documented machine API or reuse licence was found, so it remains timestamped observed context, never municipality flame intensity. No public authoritative source reviewed provides an incident perimeter, fuel moisture, ignition or spread forecast for the hypothetical event. The smallest fallback is therefore a versioned synthetic ignition/perimeter plus disclosed wind/spread assumptions, with the existing preset retained as remote smoke. Test forest-edge sensitivity, zero direct flame outside the chosen perimeter, source class, expiry and no claim about live Groesbeek staffing or the planned water tender."
+    },
+    {
+      "summary": "Separate cross-border mobility/supply context from physical service topology and represent only source-backed non-sensitive service relations.",
+      "files": [
+        "scripts/fetch-realism-data.mjs",
+        "scripts/apply-audited-lifelines.mjs",
+        "apps/web/public/data/transport-network.json",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/MapView.tsx"
+      ],
+      "validation": "For mobility/supply, combine RWS NWB OGC https://api.pdok.nl/rws/nationaal-wegenbestand-wegen/ogc/v1 (road sections, monthly, CC0 1.0, Netherlands only) with Landesbetrieb Straßenbau NRW WFS https://www.wfs.nrw.de/wfs/strassen_nrw?REQUEST=GetCapabilities&SERVICE=WFS (classified road sections/nodes/traffic-count attributes, quarterly catalog cadence, Datenlizenz Deutschland Namensnennung 2.0, NRW coverage) and timestamped NDW DATEX II events (publication/event validity, CC0 unless stated). These may affect only explicitly modeled mobility/supply routes after border-node matching; counts are not evacuation throughput. For drainage, use the WSRL feature sources above only after terms/topology review. For power/gas, Liander ArcGIS Feature Services linked from https://www.liander.nl/over-ons/open-data are current street-level geometry in Liander territory, CC BY 4.0 with no fixed refresh stated; they may support exposed-asset context but not flow/switch/outage/restoration. For water/telecom, Stichting Mijn Aansluiting WMS/WFS is Public Domain, live provider-supplied territory context (Vitens/Ziggo at one reference point; variable timestamps and incomplete/overlapping coverage), not topology. For facilities, KVK/PDOK government-service PDM 1.0 points are partial registry context without role/capacity. No public reviewed source supplies safe physical topology, backup, staffing, stocks or restoration for all eight services, so those fields remain unknown and any aggregate fallback must be explicitly synthetic. Assert no road proxy appears on power, water, drainage, gas, telecom or facilities unless a service-specific adapter authorizes it."
+    }
+  ],
+  "residualLimitations": [
+    "This is an audit of a deterministic first-72-hour exercise model, not a forecast, emergency instruction, flood assessment, evacuation plan, wildfire forecast or operator commitment.",
+    "CBS 2025 values are rounded/suppressed and neighbourhood totals need not equal the municipality total; null district-heating and charging indicators are unknown, not zero.",
+    "The generalized boundary is coherent for overview selection, but full-resolution PDOK geometry is required for hydraulic, terrain, forest-edge, route and asset intersection.",
+    "LIWO label-point samples are a screening test, not a full-polygon zonal assessment; maximum-depth composites combine scenarios/probability bands, nodata is not zero and specialist scenario selection is mandatory.",
+    "The municipal sewer plan ended in 2025 and its stress-test grids were not publicly machine-readable; its mechanisms remain qualitative until the current owner supplies versioned data.",
+    "Waterschap public vectors describe legal/context geometry and target levels, not live depth, flow, pump status, sewer capacity, cross-border controls or restoration; reuse terms/cadence were not explicit.",
+    "The July 2026 abstraction notice is an observed dated restriction, not evidence that the restriction remains active on 2 September or a calibration of the heat scenario.",
+    "The Brandweer daily phase is region-level operational context and the VRGZ coverage plan is multi-year planning; neither supplies ignition, perimeter, fuel moisture, live appliance readiness or guaranteed response.",
+    "BAG/BRT places, GTFS stops, NWB/NRW roads and ProRail data do not provide present occupancy, passenger loads, closures, accessible vehicles, evacuation demand or throughput.",
+    "The NDW snapshot is time-bounded, partial and display-only; zero intersecting current records is not proof of unrestricted roads.",
+    "Public water/government points, Liander geometry and provider territories are partial official context and do not establish physical connectivity, capacity, operating state, redundancy or priority.",
+    "No complete public physical electricity, drinking-water, wastewater, gas, telecom, facility, fuel, stock, staff, backup, repair or restoration topology is consumed; security-sensitive gaps remain explicitly unknown or synthetic.",
+    "KNMI observations support provenance/replay but are not forecasts; the remote Groningen earthquake exercise does not validate a local seismic event or building vulnerability.",
+    "German emergency coordination, transient visitors, tourists, care needs, warning compliance, household stocks and recovery beyond T+72 remain outside validated scope."
+  ],
+  "provinceReviewFlags": [
+    "Gelderland/Waterschap Rivierenland/Rijkswaterstaat: replace centre-distance major-river pressure with expert-selected LIWO/LDO footprints and explicit no-data/source-class semantics for Waal municipalities spanning high and low terrain.",
+    "Gelderland/municipalities/water boards: publish or authorize versioned climate-stress-test grids and completed-measure metadata so moraine runoff, polder storage and drought water balance can replace common seeded rankings.",
+    "Gelderland-Zuid/VRGZ/Province/land managers: define a public, non-sensitive nature-fire exercise adapter using land eligibility and event-valid weather without exposing response tactics or treating the daily regional phase as a local perimeter.",
+    "Gelderland/Kreis Kleve/RWS/Straßen.NRW: establish cross-border mobility and public water-relation identifiers for Berg en Dal while keeping legal jurisdiction, incident capacity and live controls explicit.",
+    "Gelderland utility, water, telecom, health and logistics operators: publish or authorize safe aggregate service zones, outage/restoration and continuity interfaces where possible; retain unavailable physical topology as unknown rather than deriving it from roads or registry points."
+  ]
+}

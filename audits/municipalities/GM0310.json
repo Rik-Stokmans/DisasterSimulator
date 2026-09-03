@@ -1,0 +1,489 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0310",
+    "name": "De Bilt",
+    "province": "Utrecht",
+    "safetyRegion": "Utrecht"
+  },
+  "agent": {
+    "taskName": "municipality_gm0310",
+    "agentId": "/root/nl_realism_audit",
+    "completedAt": "2026-09-02T20:04:45Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "De Bilt's generated 2025 identity, population, neighbourhood, place and safety-region inputs reconcile, and the focused deterministic gate passes all ten presets, six checkpoints and eight services. Release remains correction-required. At T+24, nine nonzero presets reuse exactly the same complete 24-neighbourhood ranking, although official provincial rain, heat, drought and flood layers distinguish urban De Bilt/Bilthoven, low-lying Westbroek/Maartensdijk and wooded Heuvelrug areas. A controlled wildfire source inside Ridderoordsche Bossen ranks that source neighbourhood only 14th. The major-river preset reports persistent legacy internal inundation stress 0.8804, 10,345 affected people-equivalent at T+24 and 8,880 at T+72 without a selected Lek/regional-water event, defence state, footprint, arrival or recession. All eight services also reuse nine NWB municipal road links, so public HDSR wastewater assets, Stedin/Vitens/Ziggo provider areas, RDI antennas and facilities remain context rather than physical topology or live state. Public Province Utrecht, KNMI, HWH, NWB, ProRail, NDW, RIVM, DUO and provider-area feeds can materially improve typed context and selected scenarios. Unavailable or security-sensitive utility topology, operating state, backups, stocks, crews and restoration must remain Unknown or explicitly synthetic.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek / PDOK / Kadaster",
+      "title": "E01 — Official 2025 municipality, neighbourhood, safety-region and settlement inputs",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM0310%27%29",
+      "accessedAt": "2026-09-02T19:58:30Z",
+      "edition": 2025,
+      "supports": [
+        "GM0310 identity, province Utrecht, generalized boundary, 43,792 residents, density 662/km², 24.8% aged 65+ and 7,319 one-person households",
+        "Twenty-four neighbourhoods, BAG woonplaatsen Bilthoven, De Bilt, Groenekan, Hollandsche Rading, Maartensdijk and Westbroek, and ten BRT settlement labels; published neighbourhood population sums to 43,795, three above the municipal total because CBS small-area values are rounded or suppressed",
+        "CBS municipality/neighbourhood and safety-region OGC/OData are annual CC BY 4.0; BAG woonplaatsen are Public Domain Mark 1.0; BRT TOP10NL is CC BY 4.0 and updated by rotating delivery areas during the year: https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1 and https://api.pdok.nl/brt/top10nl/ogc/v1",
+        "Generalized boundaries support overview selection and aggregation, not parcel-, waterboard-, woodland-, facility- or hydraulic-precision intersections"
+      ]
+    },
+    {
+      "publisher": "Gemeente De Bilt",
+      "title": "E02 — Local climate adaptation, drainage works and first-72-hour preparedness",
+      "url": "https://www.debilt.nl/duurzaamheid/wat-kan-ik-doen/klimaatbestendig-thuis-en-verduurzaming/klimaatadaptatie",
+      "accessedAt": "2026-09-02T19:58:30Z",
+      "edition": "Water- and sewer-plan period 2022–2026; current pages and 2024 annual report",
+      "supports": [
+        "The municipality identifies extreme precipitation, prolonged drought and heat stress and states that most of GM0310 is managed by HDSR, Westbroek by Amstel, Gooi en Vecht and a small north-east Bilthoven area by Vallei en Veluwe",
+        "Official local project evidence records recurring heavy-rain water in streets, gardens, crawl spaces and cellars in Maartensdijk because the sewer was not designed for such events, and climate-adaptive works in La Plata and other streets: https://www.debilt.nl/wonen-en-bouwen/projecten/herinrichting-planetenlaan-maartensdijk and https://www.debilt.nl/nieuwsoverzicht/start-met-klimaatadaptief-maken-van-de-wijk-la-plata-in-de-week-van-22-april-2024",
+        "The 2024 annual report records maintenance of roughly 550 pumps/gemalen, replacement of twelve controllers, inspection/cleaning of 30 km of sewer, 190 blockages and 3.5 km replacement. These are dated management totals, not connected topology, event-time capacity, state or guaranteed performance: https://www.debilt.nl/fileadmin/bestanden/Bestuur_en_organisatie/Financi%C3%ABn/Jaarstukken_2024_v2.pdf",
+        "The municipality's 3 December 2025 preparedness page uses the national 72-hour horizon, three litres of water per person per day, and says emergency support points in the cores are still being prepared and will be published when details are known: https://www.debilt.nl/denk-vooruit-en-bereid-u-goed-voor",
+        "Municipal webpages/PDFs have policy/project-specific dates, no stable machine API or guaranteed refresh cadence, and no open-data licence identified; they support context and response requirements, not numeric simulation calibration"
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Utrecht",
+      "title": "E03 — Regional Risk Profile 2023 and Crisis Plan 2024–2027",
+      "url": "https://vru.nl/documents/4/Regionaal_Risicoprofiel_2023.pdf",
+      "accessedAt": "2026-09-02T19:58:30Z",
+      "edition": "Risk Profile 2023; Crisis Plan 2024–2027",
+      "supports": [
+        "The profile treats the roughly 22,000-hectare Utrechtse Heuvelrug forest/heath system as a connected nature-fire risk with vital infrastructure, recreation and more than 150 care locations region-wide; a major fire can be hard to control, produce smoke for days and require evacuation and prolonged crisis/medical response",
+        "The 2023 profile separately identifies Utrecht Science Park Bilthoven as a risk focus involving biological agents and limited hazardous substances, vaccine production, an on-site emergency organization and about 2,100 workers at that edition; responders and site parties maintain information agreements. This is dated planning context, not a current headcount or incident state",
+        "The regional high-water scenario is explicitly tied to the Lek and a breach near Amerongen, with prolonged coordination/evacuation implications. It does not validate a municipality-centre distance field or a specific GM0310 inundation result",
+        "The Crisis Plan describes incident-dependent police, fire, GHOR and municipal population-care roles, forward looks of four-to-twelve and more than twelve hours, continuity/scarcity decisions and municipality leadership in recovery with VRU support: https://vru.nl/documents/864/AB20230703-22-4_Bijlage_C_-_Regionaal_Crisisplan_VRU_2024-2027.pdf",
+        "These strategic PDFs are authoritative but qualitative, edition-bound, non-machine-readable and have no open-data licence or guaranteed refresh cadence; they do not provide automatic checkpoint actions, resource counts or restoration curves"
+      ]
+    },
+    {
+      "publisher": "Provincie Utrecht",
+      "title": "E04 — Climate-adaptation raster services for rain, flood probability, drought and urban heat",
+      "url": "https://gis.provincie-utrecht.nl/server/rest/services/Water/w01_7_Klimaatadaptatie_raster/MapServer",
+      "accessedAt": "2026-09-02T19:58:30Z",
+      "edition": "Current ArcGIS service accessed 2026-09-02; underlying layer editions vary",
+      "supports": [
+        "The integration-ready ArcGIS MapServer exposes province-wide raster layers for HDSR and AGV 75 mm/one-hour and multi-hour rain, flood probability, drought stress, warm nights, urban heat island and above-regional 2025 stress tests through REST identify/exportImage operations",
+        "Point diagnostics at official neighbourhood reference points differ materially: Maartensdijk Kern returns HDSR 75 mm/one-hour water depth 0.08 m and urban-heat value 0.667; De Bilt West returns 0.10 m, urban heat 1.058 and flood-probability class 3; Westbroek Buitengebied returns flood-probability class 4 but NoData in the sampled HDSR/AGV rain cells; Beerschoten-Oostbroek returns high drought stress. Point samples are diagnostics, not zonal means or observed events",
+        "Raster value 255/blank and cells outside a source waterboard coverage are NoData/Unknown, never zero exposure or safety; source-native masks, class legends, units, spatial reference and edition must be retained",
+        "The MapServer itself does not state a standard reuse licence or guaranteed physical-data refresh cadence. Related province records for 70 mm/one-hour road water depth and road passability are WMS/TIFF and WMS/WFS/download, Public Domain, with catalogue updates 2026-08-17 and 2026-04-23 respectively: https://data.overheid.nl/dataset/82761-maximale-waterdiepte-op-en-langs-de-weg-na-bui-van-70-mm-in-1-uur and https://data.overheid.nl/dataset/69171-begaanbaarheid-van-wegen-na-bui-van-70-mm-in-1-uur",
+        "Catalogue update dates are metadata dates, not a claim that the physical stress-test raster is observed or refreshed at that cadence; every layer remains official scenario/context until its provenance says otherwise"
+      ]
+    },
+    {
+      "publisher": "Hoogheemraadschap De Stichtse Rijnlanden / Amstel, Gooi en Vecht / Het Waterschapshuis",
+      "title": "E05 — De Bilt wastewater chain, documented failures and public water-management assets",
+      "url": "https://www.hdsr.nl/werk/werken-we-samen/rioolwaterzuivering/artikel/",
+      "accessedAt": "2026-09-02T19:58:30Z",
+      "edition": "Current asset snapshots 2026-09-02; documented incidents 2023 and 2024",
+      "supports": [
+        "HDSR states that RWZI De Bilt treats wastewater from De Bilt, Groenekan, Maartensdijk, Westbroek, Hollandsche Rading, Bilthoven and Den Dolder and discharges to the Biltse Grift",
+        "HDSR documents a July 2023 treatment/control failure that discharged untreated sewage, depleted oxygen and killed thousands of fish; the initiating cause of the control-system failure was not established, and watchdog, alarm, protocol and training measures followed: https://www.hdsr.nl/%40179653/geleerde-lessen-calamiteit/",
+        "HDSR also documents September 2024 heavy-rain sewer overflows in Groenekan and De Bilt and downstream effects through the Biltsche Grift toward Utrecht, demonstrating a distinct precipitation–sewer–surface-water pathway: https://www.hdsr.nl/%40189960/riooloverstortingen-bilt-zorgen/",
+        "The cached municipality intersection has 74 HWH points: four sewer pumps, two sluices, ten surface-water pumps, one wastewater-treatment plant and 57 weirs, attributed across HDSR, AGV and other/unknown records. HWH IMWA is a weekly CC BY-SA 4.0 OGC API; DAMO water-chain is CC BY-SA 4.0 with contributor-dependent completeness and no guaranteed common refresh cadence: https://api.pdok.nl/hwh/waterschappen-kunstwerken-imwa/ogc/v2 and https://api.pdok.nl/hwh/waterschappen-waterketen-damo/ogc/v1",
+        "AGV's Westbroek sluice page describes polder-level control and a reserve pump as static context: https://www.agv.nl/recreatie/watererfgoed/sluizen/sluisjes-buitenweg-en-westbroek/. Asset points and numeric registry fields do not establish connected catchments, flow direction, compatible capacity units, present state, backup power or restoration"
+      ]
+    },
+    {
+      "publisher": "Koninklijk Nederlands Meteorologisch Instituut",
+      "title": "E06 — De Bilt station observations, radar/nowcast and HARMONIE forecast services",
+      "url": "https://developer.dataplatform.knmi.nl/edr-api",
+      "accessedAt": "2026-09-02T19:58:30Z",
+      "edition": "Current KNMI Data Platform services accessed 2026-09-02",
+      "supports": [
+        "KNMI's EDR API supports spatiotemporal point/cube queries and separates ten-minute near-real-time observations from hourly/daily validated series; station 260 De Bilt is available through the official hourly observation service: https://daggegevens.knmi.nl/klimatologie/uurgegevens",
+        "National radar/gauge grids are available at five-minute resolution, including a two-hour nowcast; operational HARMONIE Cy43 files are produced continuously with hourly forecast steps. These are integration-ready through the KNMI Open Data API/EDR/WMS or download services, generally CC BY 4.0 with dataset-specific metadata and API-key requirements",
+        "Issue time, valid time, processing status, grid, unit, lead time and uncertainty must be retained. Ten-minute near-real data, validated climate observations, nowcasts, forecasts and a deterministic exercise are different evidence classes",
+        "Weather observations/forecasts can drive or initialize a separately selected valid-time mode but cannot silently replace a canonical exercise or calibrate local fire, flood or service consequences on their own"
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / PDOK / ProRail / Nationaal Dataportaal Wegverkeer",
+      "title": "E07 — Road, rail, transit and current-road context",
+      "url": "https://api.pdok.nl/rws/nationaal-wegenbestand-wegen/ogc/v1?f=html&lang=nl",
+      "accessedAt": "2026-09-02T19:58:30Z",
+      "edition": "NWB-Light 2026-08-01; ProRail, GTFS and NDW snapshots 2026-08-31 to 2026-09-02",
+      "supports": [
+        "The generated GM0310 municipal-node graph contains nine NWB-derived border links to Utrecht, Zeist and Hilversum along A27, A28, N417, N234, N412 and N237, with 1,790 synthetic nominal units. NWB OGC/download is monthly CC0 and preserves source geometry/road identity, not incident-time throughput",
+        "All current physicalCorridorId aliases resolve, including A27 and A28. This closes an earlier national route-identity defect but does not make municipal links physical utility networks",
+        "ProRail's CC0 OGC context places Bilthoven station inside the generalized boundary; Hollandsche Rading station lies just outside it because of border/generalization geometry. There are 121 static GTFS stop areas. ProRail data are manually updated and GTFS is best-effort context, neither proving scenario-time rail/bus operation or capacity: https://api.pdok.nl/prorail/spoorwegen/ogc/v1",
+        "The NDW DATEX snapshot published 2026-09-02T15:25:00Z contains three qualifying VehicleObstruction records in GM0310. It is current observed context, CC0 unless a component states otherwise, with publication/validity time; it is not causal input for an arbitrary 72-hour scenario and does not prove all unreported roads are open: https://opendata.ndw.nu/actueel_beeld.xml.gz"
+      ]
+    },
+    {
+      "publisher": "Stichting Mijn Aansluiting / RDI / RIVM / DUO / KVK / Rijksoverheid",
+      "title": "E08 — Provider, telecom, care, education, government and emergency-supply context",
+      "url": "https://wiki.service.mijnaansluiting.nl/wiki/spaces/Wiki/pages/693731329",
+      "accessedAt": "2026-09-02T19:58:30Z",
+      "edition": "Provider records dated 2025-09-07 to 2026-03-24; register/questionnaire snapshots 2026-08-31 to 2026-09-02",
+      "supports": [
+        "Live public provider-area WMS/WFS at the municipality reference point returns Stedin for electricity (record date 2026-03-24) and gas (2025-12-17), Vitens for drinking water and Ziggo for media (both 2025-09-07), and no drainage polygon. It is Public Domain provider-supplied territory context with provider-variable dates and possible incomplete/overlapping sewer/media coverage, not full-boundary responsibility, topology, telemetry or outage state: https://public.geodata.mijnaansluiting.nl/geoserver/mijnaansluiting_open/ows",
+        "RDI WFS returns 78 antenna sites and 153 antenna registrations inside GM0310, including 34 mobile sites/102 mobile antennas and 22 fixed-link sites. The service states no standard reuse licence or fixed refresh cadence; points do not establish coverage, operator, backhaul, traffic, power/backup, damage, congestion or availability: https://antenneregister.nl/mapserver/wfs/",
+        "RIVM 2026 v1.1 is a dated national CC0 acute-care questionnaire. It lists no acute hospital inside GM0310; from the municipal centre UMC Utrecht is 5.75 km and Diakonessenhuis 6.36 km straight-line, both reporting 24/7 emergency care at the questionnaire edition. This is role context, not travel time, acceptance, staffing, occupancy, diversion or generator endurance: https://datacatalogus.rivm.nl/dataset.xhtml?persistentId=doi%3A10.21945%2F8E767B2D-9CED-4A85-A95D-3AC1A608C663",
+        "DUO's daily RIO snapshot contains 47 education-location records; metadata says Creative Commons Attribution with version unspecified. Seven KVK public-administration/order/safety addresses are partial Public Domain Mark 1.0 context. Neither establishes a shelter, support-point or operational role: https://onderwijsdata.duo.nl/dataset/c416acd1-e083-4ec6-9203-3b20f98fe143 and https://api.pdok.nl/kvk/overheidsdiensten-geharmoniseerd/ogc/v1",
+        "No RIVM PM2.5 station and no Waterinfo observation point intersect the generalized boundary. Those are no local sensor/point records, not zero pollution, zero high water or an all-clear",
+        "Rijksoverheid's current guidance uses the first 72 hours and three litres of water per person per day and describes national continuity priorities; guidance is not observed household stock, local aid arrival or a restoration promise: https://www.rijksoverheid.nl/themas/recht-veiligheid-en-defensie/dreiging-in-nederland/energie-drinkwater-internet-zorg-bereikbaarheid-tijdens-crisis"
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "The generated code, name, province and safety-region assignment agree with official 2025 inputs.",
+      "evidenceRefs": ["E01", "E03"],
+      "notes": [
+        "Feature id, municipality bundle code and bundle name all equal GM0310 / De Bilt.",
+        "The official safety-region layer assigns GM0310 uniquely to Veiligheidsregio Utrecht.",
+        "Boundary and statistics editions are both 2025 and are surfaced separately from newer public-context snapshots."
+      ]
+    },
+    "geography": {
+      "status": "warn",
+      "summary": "The generalized boundary and centre are coherent for overview selection but do not resolve the municipality's lowland, waterboard, urban and wooded Heuvelrug systems.",
+      "evidenceRefs": ["E01", "E02", "E04", "E05"],
+      "notes": [
+        "Generated centre [5.162992905185682, 52.13669597402878] lies inside the 2025 generalized municipality polygon.",
+        "Official evidence distinguishes Westbroek/AGV, most of the municipality/HDSR, a small north-east Bilthoven/Vallei en Veluwe area, urban De Bilt/Bilthoven, low-lying drainage areas and wooded eastern terrain.",
+        "Use full-resolution geometry plus source-native no-data masks before intersecting rain, flood, heat, drought, woodland, water-system, building, road or facility exposure."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Municipal totals match CBS 2025 and neighbourhood population reconciles within documented publication rounding.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "Official/generated population is 43,792, density 662/km², age 65+ is 24.8% and one-person households number 7,319.",
+        "Published neighbourhood population sums to 43,795, three above the municipal total (+0.007%); the deterministic allocator reconciles exactly to 43,792 and preserves Larenstein as an official zero-population neighbourhood.",
+        "Resident aggregates do not identify people present at incident time, care-home residents, commuters, USPB workers, visitors, individual health vulnerability or emergency stocks."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "All 24 neighbourhood rows load, but district-heating and charging fields remain Unknown and no statistic is a hazard footprint or live service state.",
+      "evidenceRefs": ["E01", "E02", "E04"],
+      "notes": [
+        "Largest published neighbourhoods are Brandenburg 5,710, De Leijen 4,815, De Bilt West 4,785, Maartensdijk Kern 4,480 and De Bilt Oost 4,390.",
+        "Cars per household is available for 20/24 neighbourhoods; district-heating percentage and public-charging fields have 0/24 usable values. These remain null and must never be rendered as zero.",
+        "Province Utrecht's source-specific rain, heat, drought and flood rasters can add regional detail, but cells must retain unit, edition and NoData and remain official scenario/context unless explicitly selected as model input."
+      ]
+    },
+    "settlements": {
+      "status": "warn",
+      "summary": "Six BAG places and ten BRT settlements are retained, with a documented generalized-boundary caveat at Hollandsche Rading.",
+      "evidenceRefs": ["E01", "E07"],
+      "notes": [
+        "BAG woonplaatsen are Bilthoven, De Bilt, Groenekan, Hollandsche Rading, Maartensdijk and Westbroek; the BRT layer provides ten named settlement labels.",
+        "The BAG Hollandsche Rading centre and ProRail station point fall just outside the independently generalized CBS boundary. This is a border/generalization mismatch, not evidence that the place or station belongs to another response system.",
+        "Labels and resident totals are descriptive and do not establish event-time occupants, mobility demand, isolation or service availability."
+      ]
+    },
+    "transport": {
+      "status": "warn",
+      "summary": "Public road, rail, stop and current-incident context is present, but the municipal-node graph cannot represent internal route state, evacuation, care access or live operation.",
+      "evidenceRefs": ["E07", "E08"],
+      "notes": [
+        "The graph exposes nine NWB links and 1,790 total synthetic nominal units to Utrecht, Zeist and Hilversum along A27, A28 and five N-road identities; physical corridor aliases now resolve.",
+        "Bilthoven station and 121 GTFS stop areas are static context. Hollandsche Rading's border position needs full-resolution ownership/route handling rather than deletion.",
+        "Three current NDW VehicleObstruction messages are observed at a 2026-09-02 publication time. They are not aligned to an arbitrary scenario clock, and missing messages never prove passability."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "Official crisis roles and useful public locations exist, but event-time warnings, decisions, verified roles, occupants, stocks, crews and continuity state are absent.",
+      "evidenceRefs": ["E02", "E03", "E08"],
+      "notes": [
+        "VRU's structure and municipality recovery role are incident-dependent; they do not validate automatic simulator status labels, interventions, evacuations or restoration at a checkpoint.",
+        "The municipality says emergency support points in its cores are still in preparation. Seven KVK and 47 DUO records are not substitutes for published/confirmed locations, staffing, accessibility, stocks or capacity.",
+        "The 2023 USPB risk focus and external acute-care facilities require typed roles and valid-time context. Neither dated headcounts nor straight-line distance establishes incident-state exposure, ambulance time or hospital acceptance.",
+        "Preparedness for 72 hours is guidance, not measured local household supply, self-reliance, aid arrival or a service-recovery deadline."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten canonical presets produce complete finite output at every required checkpoint and service, with evidential defects recorded separately.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E06"],
+      "notes": [
+        "The focused matrix executed severe storm, pluvial flood, river flood, coastal flood, heatwave, winter storm, cyberattack, earthquake, wildfire and compound at T+0/6/12/24/48/72 across power, water, drainage, gas, telecom, mobility, facilities and supply.",
+        "At T+24 severity / system pressure / affected people-equivalent / cumulative event-attributable service person-hours are storm 0.0719 / 0.3391 / 12,282 / 131,683; pluvial 0.1960 / 0.3310 / 11,781 / 128,677; river 0.2734 / 0.3077 / 10,345 / 231,171; coastal 0.0548 / 0.2259 / 5,301 / 41,838; heat 0.1003 / 0.1925 / 3,240 / 129,463.",
+        "Remaining T+24 values are winter 0.6089 / 0.4321 / 18,020 / 230,846; cyber 0.3749 / 0.3521 / 13,084 / 186,886; earthquake 0 / 0.0910 / 0 / 14,266; wildfire 0.1728 / 0.1170 / 0 / 98,712; compound 0.8153 / 0.6404 / 30,875 / 360,081.",
+        "At T+72 river remains at severity 0.2734, pressure 0.2839, 8,880 affected and 932,471 cumulative service person-hours; compound remains at severity 0.3048, pressure 0.5813, 27,230 affected and 1,392,406 cumulative service person-hours. These are deterministic exercise estimates, never observations, probabilities, warnings or operator forecasts.",
+        "Coastal has zero direct sea-inundation component but retains wind/current severity; earthquake has zero current local severity at T+24 but nonzero residual pressure. Those narrowly scoped calculated zeros do not imply all-hazard safety or observed normal operation."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "The focused gate passes deterministic, finite, exact-zero, causal, allocation, reconciliation and monotonic-burden contracts.",
+      "evidenceRefs": [],
+      "notes": [
+        "MUNICIPALITY_AUDIT_CODE=GM0310 pnpm audit:model passed both tests on current code across 10 presets × 6 checkpoints × 8 services.",
+        "All intensity-zero runs have exactly zero current/peak severity, affected people-equivalent and event-attributable person-hours at every checkpoint.",
+        "Every local map allocates exactly 43,792 residents and all 24 neighbourhoods, preserves Larenstein at zero population, and closes reconciliation, demand and delivery within 1.4210854715202004e-14.",
+        "Changing the selected service layer leaves every local hazard value exactly invariant, cumulative event-attributable person-hours are monotonic and matched to the no-event baseline, and route flows remain within declared logical capacity."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "The shared neighbourhood seed does not represent De Bilt's distinct rain, flood, heat, drought, fire, winter, earthquake or cyber geographies.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E06"],
+      "notes": [
+        "At T+24 storm, pluvial, river, coastal, heat, winter, cyber, wildfire and compound have the exact same complete 24-neighbourhood order, beginning Noord Houdringe, Maartensdijk Buitengebied, Bilthoven Noord II and Groenekan Kern.",
+        "E04 instead distinguishes rain depths, urban heat, drought and flood-probability classes and contains real NoData masks. E02/E03/E05 distinguish urban/sewer, lowland/waterboard, wooded Heuvelrug, USPB and wastewater-chain mechanisms.",
+        "A controlled T+24 wildfire source at [5.209254193102569, 52.15733101665542] falls in BU03100603 Ridderoordsche Bossen and gives municipality direct fire 0.5560, but the containing neighbourhood has local hazard 0.5577 and ranks 14/24 while Noord Houdringe ranks first at 0.6722.",
+        "Canonical T+24 wildfire is a remote-smoke exercise with direct fire 0, smoke 0.4463 and drought 0.6959. Neither run samples a source-aware perimeter, fuel/moisture, valid-time wind, access, suppression water or care/evacuation geography.",
+        "No selected hydraulic footprint, source-native province stress-test surface, KNMI apparent-temperature field, named cyber target or event-specific ground-motion grid controls the local ranking."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "All eight balances are inspectable, but one nine-road graph cannot represent physical utilities, water chains, telecom, facilities or stocked logistics.",
+      "evidenceRefs": ["E05", "E07", "E08"],
+      "notes": [
+        "Power, water, drainage, gas, telecom, mobility, facilities and supply all reuse the same nine NWB links and 1,790 abstract capacity units because routes have no supportedServices. The model correctly calls them logical transfer proxies, but exact local values remain visually precise.",
+        "At compound T+24 modeled availability is power 0.1664, water 0.5023, drainage 0.1848, gas 0.4013, telecom 0.5010, mobility 0.2032, facilities 0.2075 and supply 0.7487; no cited operator, water manager, care authority or logistics source validates these exact values.",
+        "Public context identifies likely Stedin/Vitens/Ziggo responsibility at one point, 74 water-management assets and 78 RDI sites, but not complete topology, flow/pressure, switching, water quality, backhaul, stock, priority users, backup or current state.",
+        "The HDSR 2023 control failure and 2024 heavy-rain overflow show that wastewater controls, treatment, sewer surcharge and surface-water quality are separate causal states. One drainage and one water availability score cannot safely collapse them.",
+        "The empty drainage-provider polygon is incomplete/Unknown provider-area coverage, never evidence of no responsible sewer/water organization or no drainage service."
+      ]
+    },
+    "causalTrace": {
+      "status": "fail",
+      "summary": "Arithmetic closes, but local river/fire evidence and physical-network meaning do not; causal labels overstate generic screens and roads.",
+      "evidenceRefs": ["E03", "E04", "E05", "E07", "E08"],
+      "notes": [
+        "Service-stage deltas, weighted pressure, local demand/delivery and matched-no-event person-hour arithmetic reconcile for the full matrix.",
+        "The major-river preset uses municipality-centre distance to schematic national river lines. For GM0310 it selects no Lek event, regional-water path, defence/breach/overtopping state, connected footprint, terrain, arrival or recession, yet reports derived-screening rather than unsupported local evidence.",
+        "The legacy internal floodDepthM value 0.8804 is displayed as normalized inundation stress, not observed metres. It is unsupported as a local intensity without a selected source scenario and no-data mask.",
+        "NWB geometry supports mobility context and potentially repair/logistics access. It cannot causally establish cable, pipe, sewer, gas, radio-backhaul, patient-transfer or inventory connectivity.",
+        "Observed NDW/KNMI context, official provincial stress tests, strategic VRU context and synthetic scenario outputs remain different evidence classes and must not be blended into one operational-looking state."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "The 72-hour curves are numerically coherent but not calibrated to local water, fire, operator, care, access, support-point or public-action timelines.",
+      "evidenceRefs": ["E02", "E03", "E05", "E06", "E08"],
+      "notes": [
+        "River forcing remains exactly severity 0.2734 and legacy internal stress 0.8804 at T+12/24/48/72; T+72 power, water, drainage, gas, telecom, mobility and supply equal their T+24 values while facilities alone improves from 0.5980 to 0.7676. No selected event validates that plateau or facility-only recovery.",
+        "Compound remains degraded at T+72 with 27,230 affected and 1,392,406 cumulative service person-hours; no confirmed event warning, cyber target, storm footprint or operator state supports the exact result.",
+        "Heat retains severity 0.1003 and drought 0.5571 at T+72 while affected people-equivalent is zero. That threshold outcome cannot be interpreted as no residual health, water, vegetation, care or supply burden.",
+        "No confirmed warning, pump/RWZI/road/rail state, utility switching, crew/fuel/spares, hospital acceptance, published emergency support point, household stock or action completion is ingested. A 72-hour preparedness and exercise horizon is not a promise that services recover by T+72."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": ["power", "water", "drainage", "gas", "telecom", "mobility", "facilities", "supply"]
+  },
+  "findings": [
+    {
+      "id": "GM0310-SPATIAL-001",
+      "severity": "high",
+      "category": "geography",
+      "status": "open",
+      "summary": "Nine unrelated nonzero hazards reuse the exact same full neighbourhood ranking rather than hazard-specific official evidence.",
+      "evidence": "At T+24 severe storm, pluvial flood, river flood, coastal flood, heatwave, winter storm, cyberattack, wildfire and compound all order the 24 neighbourhoods identically, beginning Noord Houdringe, Maartensdijk Buitengebied, Bilthoven Noord II and Groenekan Kern. E02–E06 identify distinct sewer/catchment, flood-probability, urban-heat, drought, woodland/fire, weather, facility and cyber-target mechanisms. E04 point diagnostics are already spatially different and include real NoData cells, so the shared seed cannot be interpreted as calibrated exposure for any hazard.",
+      "action": "Replace the shared seed with hazard-specific, source-backed eligibility and susceptibility surfaces plus explicit Unknown masks. Integrate source-native Province Utrecht rain/road-passability/UHI/drought/flood layers only with layer id, unit, edition and licence, and use selected hydraulic, KNMI weather, woodland/fuel, named cyber-target and event-specific earthquake inputs. Add regression tests requiring materially different ranks for different mechanisms while preserving exact hazard invariance across all eight selected service layers."
+    },
+    {
+      "id": "GM0310-FIRE-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "A Ridderoordsche Bossen ignition ranks its own source neighbourhood only 14th despite the official Heuvelrug fire-risk context.",
+      "evidence": "E03 describes the connected Utrechtse Heuvelrug forest/heath landscape, difficult multi-day fire response, smoke, care locations and evacuation implications. A controlled T+24 scenario places the source at [5.209254193102569, 52.15733101665542] inside BU03100603 Ridderoordsche Bossen and produces direct fire 0.5560, but that neighbourhood has local hazard 0.5577 and ranks 14/24; Noord Houdringe ranks first at 0.6722. Canonical GM0310 wildfire has no direct flame and is a remote smoke/drought exercise.",
+      "action": "Mark local wildfire spatial output unsupported. For a direct exercise require a named source/perimeter, public BRT/IPO woodland eligibility or authorized NIPV RIN, event-valid wind/humidity/moisture, access and suppression-water assumptions; verify the containing/overlapping source area is eligible and spatially controlling. Static forest or RIN context is not an ignition probability or live spread forecast. If operational layers are unavailable, use a clearly synthetic perimeter and uncertainty, never the common neighbourhood seed."
+    },
+    {
+      "id": "GM0310-RIVER-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The major-river preset reports a persistent precise De Bilt impact without selecting a local hydraulic and defence pathway.",
+      "evidence": "E03's regional scenario is a Lek breach near Amerongen, while E04/E05 distinguish flood-probability, waterboard and regional-water contexts. Canonical river instead uses centre distance to schematic national river lines and reports legacy internal stress 0.8804, severity 0.2734, 10,345 affected people-equivalent at T+24 and 8,880 at T+72, unchanged forcing through T+72. It selects no boundary water level, Lek/regional-water connection, defence/breach/overtopping state, terrain, footprint, arrival, duration or recession, yet labels the result derived-screening.",
+      "action": "Keep the nonzero amplitude only as an internal diagnostic and expose the local result as Unknown/numerically neutral until WMCN, HDSR/AGV and VRU select a versioned LIWO/LDO event. Retain source class, boundary condition, defence state, connected footprint, depth/stress unit, arrival/recession, probability/scenario class, uncertainty, no-data, licence and expert approval. Never turn absent scenario coverage into zero risk or an all-clear."
+    },
+    {
+      "id": "GM0310-WATERCHAIN-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "The model omits De Bilt's three-waterboard context and the distinct sewer–RWZI–Biltse Grift control and quality chain.",
+      "evidence": "E02 assigns territory among HDSR, AGV and a small Vallei en Veluwe area. E05 identifies RWZI De Bilt's served cores and Biltse Grift discharge, 74 public HWH asset points, a real 2023 treatment/control failure with untreated discharge and a 2024 rain-driven sewer overflow. These demonstrate distinct electricity/control, wastewater conveyance/treatment, surface-water operation and quality pathways. Current water/drainage percentages and a common road graph use none of that connectivity, unit, state or backup evidence.",
+      "action": "Separate potable quantity/pressure, potable quality/advisory, wastewater conveyance/treatment and surface-water drainage. Ingest HWH/HDSR/AGV/Vallei en Veluwe objects as context only until catchment, direction, unit compatibility, operating state and backup are validated; use operator-authorized aggregate chain/state data for causality. Add explicit cross-municipal downstream effects and failure-mode provenance. Missing drainage-provider coverage and asset state remain Unknown, not zero or normal."
+    },
+    {
+      "id": "GM0310-LIFELINE-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "One road-derived logical graph is cloned into all eight lifelines and lacks operator-calibrated topology, state, backup and restoration.",
+      "evidence": "All eight service views reuse nine NWB municipal links and 1,790 abstract capacity units because no route declares supportedServices. E08 identifies Stedin/Vitens/Ziggo at one reference point, 78 RDI sites, acute-care/education/government context and an empty drainage polygon, but no complete connectivity, physical capacity, switching, pressure/quality, backhaul, stock, priority users, backup or live state. At compound T+24 the model gives eight exact availabilities from power 0.1664 to supply 0.7487, none validated by a cited operator.",
+      "action": "Keep NWB for mobility and eligible logistics/repair access only. Build separate privacy/security-safe aggregate service zones with ranges, or ingest authorized operator aggregates with explicit topology semantics and units. Every layer must expose source/version/valid time, official-context versus observed versus scenario versus synthetic, completeness and affectsSimulation. Unavailable/security-sensitive topology and state must remain Unknown; the minimum fallback is a documented aggregate synthetic dependency graph, never roads presented as utilities."
+    },
+    {
+      "id": "GM0310-FACILITY-RISK-001",
+      "severity": "high",
+      "category": "regional-data",
+      "status": "open",
+      "summary": "The official USPB risk focus and care/evacuation context are not represented as typed facilities or explicit scenario scope.",
+      "evidence": "E03's 2023 profile treats Utrecht Science Park Bilthoven as a specific risk focus involving biological agents, limited hazardous substances, vaccine production, an on-site operational emergency organization and roughly 2,100 workers at that edition. The simulator exposes generic KVK/DUO/facility context and the national REV overlay but no typed USPB role, incident state, information agreement, population-at-time, protective action or evacuation path. None of the ten canonical presets is a biological or hazardous-release scenario.",
+      "action": "Add a typed official risk-focus layer with publisher, edition, scope, currentness and noncausal semantics; never infer live headcount, hazardous inventory or incident state. Surface biological/industrial release as explicitly out of canonical scope until an authority-approved scenario exists. For any exercise, require a named incident, affected zone, protective-action/evacuation assumptions, VRU/site information provenance and accessible care/transport dependencies. Keep sensitive details out and Unknown."
+    },
+    {
+      "id": "GM0310-MOBILITY-CARE-001",
+      "severity": "medium",
+      "category": "network",
+      "status": "open",
+      "summary": "Static A27/A28/N-road, station and hospital context does not establish first-72-hour access, evacuation or patient-transfer capacity.",
+      "evidence": "E07 provides resolved NWB identities, Bilthoven and border-adjacent Hollandsche Rading station context, 121 GTFS stops and three time-stamped NDW obstructions. E08 lists no RIVM acute hospital inside GM0310 and places UMC Utrecht and Diakonessenhuis roughly 5.75 km and 6.36 km straight-line from the municipal centre. None of these inputs proves road/rail operation, travel time, accessible vehicles, emergency priority, hospital acceptance, staffing, occupancy or diversion for a scenario checkpoint.",
+      "action": "Use NWB/ProRail/GTFS as static network/context and NDW only in an explicitly time-aligned observed/replay mode. Add internal route/critical-crossing state and time-dependent reachability for mobility, evacuation, care, logistics and repair access. Treat hospital role, acceptance, occupancy and generator endurance as separate dated/authorized states; display Unknown when absent."
+    },
+    {
+      "id": "GM0310-METEO-001",
+      "severity": "medium",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Station 260 De Bilt and current KNMI APIs are not used to distinguish exercise, observed replay, nowcast and forecast modes.",
+      "evidence": "E06 offers unusually strong local meteorological context: station 260, ten-minute near-real observations, validated hourly/daily series, five-minute radar/gauge grids, a two-hour nowcast and hourly HARMONIE forecast steps. Canonical wind, rain, heat, winter, drought, smoke and fire forcings remain deterministic synthetic curves and do not retain issue/valid time, lead, processing status or uncertainty from these products. A cached radar layer is visual current context and does not affect the scenario.",
+      "action": "Preserve the canonical exercise as a clearly synthetic mode. Add separately selected observed/replay and forecast modes that pin KNMI dataset/version, issue and valid time, station/grid method, unit, processing status, uncertainty and retrieval time. Let event-valid meteorology drive hazard forcing only in that mode; never silently blend today's radar or station observation into an arbitrary exercise clock."
+    },
+    {
+      "id": "GM0310-72H-001",
+      "severity": "medium",
+      "category": "explainability",
+      "status": "open",
+      "summary": "The first-72-hour dashboard lacks a validated decision/action ledger and could turn preparedness guidance into operational certainty.",
+      "evidence": "E02 and current national guidance consistently use 72 hours and three litres of water per person per day, while E02 explicitly says De Bilt's emergency support points are still being prepared and details will follow. E03 assigns incident-dependent response and recovery roles. None validates the model's preparedness coefficient, automatic intervention, evacuation, aid arrival or restoration at any checkpoint. No confirmed warning, support-point opening, stock, crew, request, decision or operator restoration estimate is ingested.",
+      "action": "Add a separate first-72-hour action ledger with proposed/requested/confirmed/completed/cancelled state, responsible authority/operator, source, timestamp, expiry, geography and confidence. At each checkpoint show current hazard, all eight availabilities, affected people-equivalent, cumulative event-attributable service person-hours and unresolved inputs. Publish support points only after municipal confirmation, and label 72 hours as preparedness/exercise horizon, never recovery guarantee."
+    },
+    {
+      "id": "GM0310-HAZARDS-001",
+      "severity": "medium",
+      "category": "hazard",
+      "status": "accepted-limitation",
+      "summary": "Storm, pluvial, coastal, heat, winter, cyber and earthquake outputs are coherent stress tests but lack De Bilt event and asset calibration.",
+      "evidence": "E02–E06 support local extreme rain, wind, heat/drought, water, fire and critical-infrastructure concerns but no exact preset curve. Coastal has zero direct sea flooding but a 19.56 m/s wind component at T+24; this does not address pluvial or regional-water effects. Cyber has no named target, architecture or attack path. Earthquake has no selected KNMI event, local ground-motion/site-response field or asset fragility and reports zero current T+24 severity with nonzero residual service pressure. No authoritative source validates the exact T+24 storm 0.0719, pluvial 0.1960, heat 0.1003, winter 0.6089 or cyber 0.3749 severities.",
+      "action": "Retain these only as visibly synthetic stress tests with parameters, sensitivity and uncertainty. For observed replays pin KNMI meteorology/radar and earthquake event/ShakeMap plus NDW/water data to valid time and edition. Require a named cyber target and attack/containment path, and event-specific ground motion plus asset fragility before claiming direct local effects. Preserve calculated zero, Unknown and not applicable as different states."
+    },
+    {
+      "id": "GM0310-NODATA-001",
+      "severity": "medium",
+      "category": "ui",
+      "status": "open",
+      "summary": "Several empty, null or masked public-data inputs can be mistaken for zero infrastructure, zero risk or normal operation.",
+      "evidence": "GM0310 has no drainage-provider polygon, no RIVM acute hospital, no in-boundary Waterinfo or PM2.5 point, no district-heating/charging statistic and four missing cars-per-household values. Province raster diagnostics also return NoData in some HDSR/AGV or warm-night cells. These mean incomplete provider mapping, no listed SEH/point/station in-boundary and unavailable/suppressed/out-of-coverage cells, not no service, hazard or outage. In contrast, Larenstein population and coastal direct sea-inundation are explicit scoped zeros; three NDW records are time-stamped observed positives, not scenario input.",
+      "action": "Use a three-state contract across maps, legends, tables, tooltips, APIs and exports: measured/modeled zero, Unknown/not covered, and not applicable. Show publisher, edition, issue/valid/retrieval time, unit, completeness, licence, confidence and affectsSimulation next to every layer. Add regressions that empty provider/facility/incident/station intersections and masked raster cells cannot render as safe, normal, no infrastructure or zero service."
+    },
+    {
+      "id": "GM0310-INVARIANTS-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The focused numerical and semantic invariants pass for GM0310 on the audited build.",
+      "evidence": "The focused harness passes two tests covering all ten presets, six checkpoints and eight services. Outputs are finite and bounded, intensity-zero semantics are exact, 43,792 residents reconcile in every local map, Larenstein remains official zero population, demand/delivery closes within 1.4210854715202004e-14, service-layer selection cannot change local hazard, route flow stays within declared logical capacity, and cumulative event-attributable person-hours are monotonic and matched to the no-event baseline.",
+      "action": "Retain the focused municipality gate in CI and add regressions for unsupported local river output, distinct hazard rankings, Ridderoordsche Bossen source containment, three-waterboard and wastewater-chain semantics, service-specific topology and no-data rendering."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Retire the shared De Bilt neighbourhood seed and correct source-aware wildfire allocation.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/public/data/hazards/GM0310-spatial-context.json"
+      ],
+      "validation": "Before correction, nine nonzero T+24 presets share the exact complete 24-neighbourhood order. The controlled Ridderoordsche Bossen source ranks containing BU03100603 14/24. Require source-specific surfaces/Unknown masks, materially different ranks for distinct mechanisms, direct-fire source/perimeter containment, source-native Province Utrecht units/NoData, deterministic regeneration and exact hazard invariance across all eight selected service layers."
+    },
+    {
+      "summary": "Replace the generic major-river screen with an authority-selected hydraulic and defence-aware evidence contract.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/public/data/hazards/GM0310-water-context.json",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Before correction, river severity and legacy internal stress are exactly 0.2734 and 0.8804 at T+12/T+24/T+48/T+72, with 10,345 affected people-equivalent at T+24 and 8,880 at T+72. Mark local output unsupported/Unknown while retaining diagnostic amplitude internally. Require a versioned WMCN/HDSR/AGV/VRU-selected LIWO/LDO event with source class, boundary condition, defence state, connected footprint, true units, arrival/duration/recession, probability/scenario class, uncertainty, no-data, licence and approval."
+    },
+    {
+      "summary": "Separate the De Bilt wastewater/surface-water chain and all physical lifelines from the NWB logical transfer graph.",
+      "files": [
+        "scripts/fetch-water-assets.mjs",
+        "apps/web/public/data/public-context/water-assets.geojson.gz",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Preserve the three-waterboard context, RWZI De Bilt/Biltse Grift chain and 74 HWH objects as context until catchment, direction, compatible units, present state and backup are validated. Split potable pressure/quantity, quality/advisory, wastewater and surface-water drainage. Enforce service-specific topologySemantics, publisher/version/valid time/completeness and affectsSimulation. NWB applies to mobility/logistics/repair access only; unavailable or sensitive utility topology remains Unknown or clearly aggregate synthetic."
+    },
+    {
+      "summary": "Add typed USPB/care/logistics context and an auditable first-72-hour decision/action ledger.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/AnalyticsDrawer.tsx",
+        "apps/web/public/data/public-context/GM0310-response-context.json"
+      ],
+      "validation": "Keep USPB and REV as dated noncausal risk context and expose biological/hazardous-release scenario scope; do not publish sensitive inventories or infer a live event. DUO/KVK points remain context unless VRU/Gemeente De Bilt confirms role, time, accessibility, staffing and capacity. External hospital acceptance and local stocks remain Unknown. Add proposed/requested/confirmed/completed/cancelled actions with owner, source, valid time, expiry, area and confidence, including unpublished support-point state."
+    },
+    {
+      "summary": "Add valid-time KNMI modes and make evidence class, data absence and uncertainty explicit for every map and export.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "apps/web/src/data.ts",
+        "apps/web/src/components/MapView.tsx",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/AnalyticsDrawer.tsx"
+      ],
+      "validation": "Canonical exercises remain synthetic. Optional observed/replay/forecast modes retain KNMI dataset/version, issue and valid time, lead, grid/station method, unit, processing status, retrieval and uncertainty. Every metric/layer/export distinguishes observed, official context, official scenario and synthetic; exposes source, licence, completeness and affectsSimulation; and renders modeled zero, Unknown and not-applicable distinctly. Add regressions for empty drainage-provider, acute-care, Waterinfo, PM2.5, CBS and masked Province Utrecht inputs."
+    }
+  ],
+  "residualLimitations": [
+    "This is a deterministic first-72-hour planning stress test, not a KNMI/Rijkswaterstaat/waterboard forecast, official warning, probability estimate, evacuation order, casualty model or operator outage/restoration forecast.",
+    "No expert-selected Lek/regional-water/LIWO/LDO event, boundary water level, defence or breach/overtopping state, connected footprint, arrival/recession, verified depth unit or no-data mask is ingested for GM0310; normalized inundation stress is not observed metres.",
+    "The generalized CBS boundary and shared neighbourhood seed do not resolve waterboard boundaries, catchments, terrain, sewers, buildings, paving, shade, woodland fuel, facilities, households, commuters or individual vulnerability.",
+    "CBS neighbourhood values are rounded/suppressed; the +3 population difference is publication semantics, Larenstein's published zero is preserved, and null district-heat/charging/car fields are Unknown rather than zero.",
+    "The Hollandsche Rading BAG/station reference-point mismatch is caused by independent generalized geometry and must not be treated as absence or reassignment without full-resolution verification.",
+    "Province Utrecht raster point diagnostics are neither zonal summaries nor observed events; layer value 255/blank and waterboard-outside cells require source-native NoData interpretation.",
+    "NWB and ProRail are physical transport context but do not establish incident-time passability, rail/bus operation, traffic, emergency throughput, evacuation, clearance or repair access; GTFS carries no operating guarantee.",
+    "Three NDW records are a time-stamped present-day snapshot, not causal scenario input, and unreported roads are not proven open.",
+    "HWH's national aggregation is contributor-dependent; 74 points and numeric fields do not define a connected drainage/sewer network, unit-compatible capacity, present operating state or backup.",
+    "The 2023 and 2024 wastewater incidents are causal examples, not predictions that the same failure will recur or calibration of probability, extent or duration.",
+    "No complete public causal Stedin feeder/switching, Vitens pipe/pressure/quality, gas pressure-district, municipal sewer, Ziggo/mobile backhaul or operator restoration topology is authorized in the model.",
+    "Provider territories identify likely responsibility at one reference point, not full-boundary coverage, connectivity, capacity or state; absent drainage mapping remains Unknown.",
+    "RDI antenna records do not establish coverage, operator, backhaul, traffic, power/backup, damage, congestion, availability or restoration; the WFS states no reuse licence or cadence.",
+    "All eight services currently reuse nine road-derived logical corridors and cannot be interpreted as physical utility, wastewater, telecom, patient-transfer or stocked-logistics networks.",
+    "No RIVM acute hospital is inside GM0310 in the dated layer; straight-line distance to Utrecht hospitals does not establish ambulance time, route reachability, acceptance, staffing, occupancy, diversion or backup endurance.",
+    "DUO/KVK points do not establish command, care, shelter, support-point or distribution roles; facilities/supply lack verified care-home, pharmacy, stock, depot, vehicle and staff state.",
+    "USPB workforce and risk statements are edition-2023 planning context; current headcount, inventory and operating/incident state are not public simulation inputs, and biological/hazardous-release scenarios are outside the canonical ten.",
+    "Wildfire lacks a canonical local ignition/perimeter, authorized RIN surface, fuel/moisture, wind-aware spread, access and suppression water; the regional risk profile is eligibility/response context, not a future prediction.",
+    "Cyber lacks a named target, architecture, attack path, detection/containment evidence and operator state; earthquake lacks a selected event, local ground motion/site response and asset fragility.",
+    "Generic preparedness, backup, demand, repair and intervention multipliers are exercise controls rather than observed GM0310 resources or commitments; emergency support-point details are not yet published.",
+    "Event-attributable essential-service person-hours is a matched-no-event weighted availability proxy, not customer outage-hours, casualties, displacement or welfare loss; six-hour checkpoints can miss rapid changes and 72 hours excludes prolonged fire, high water, contamination and reconstruction."
+  ],
+  "provinceReviewFlags": [
+    "Utrecht/Province/waterboards/WMCN: select and version local pluvial/regional-water/Lek flood evidence, retain waterboard and NoData masks, and replace centre-distance precision with explicit Unknown until a defensible hydraulic pathway exists.",
+    "Utrecht/VRU/NIPV/terrain managers: replace the shared neighbourhood order with source/perimeter- and fuel/weather-aware Heuvelrug fire evidence; validate care-location, evacuation, smoke, access and suppression-water workflows without exposing sensitive detail.",
+    "Utrecht/HDSR/AGV/Vallei en Veluwe/municipality: validate the sewer–RWZI De Bilt–Biltse Grift and surface-water chains, units, controls, overflow/quality state, backup and cross-boundary consequences; keep public assets context-only until then.",
+    "Utrecht/VRU/USPB/Gemeente De Bilt: maintain a privacy/security-safe typed USPB risk-focus and first-72-hour action/support-point contract, separating dated context, confirmed actions and unknown operational state.",
+    "Utrecht/operators/KNMI: use Province Utrecht, KNMI, HWH, Mijn Aansluiting, RDI, RIVM, DUO, KVK, NWB, ProRail and NDW data where licensed as typed context or explicitly selected valid-time input; keep unavailable/security-sensitive topology, capacity, backup and restoration Unknown or transparently synthetic."
+  ]
+}

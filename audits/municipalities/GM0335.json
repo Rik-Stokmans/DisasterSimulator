@@ -1,0 +1,421 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0335",
+    "name": "Montfoort",
+    "province": "Utrecht",
+    "safetyRegion": "Utrecht"
+  },
+  "agent": {
+    "taskName": "municipality_gm0335",
+    "agentId": "/root/municipality_gm0244",
+    "completedAt": "2026-09-03T09:03:23Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "GM0335's 2025 identity, generalized boundary, reference point, 13,772 residents, twelve neighbourhoods, two BAG places, nine BRT settlements and five logical road-border links are internally coherent; all ten canonical presets also execute deterministically at T+0/6/12/24/48/72 across eight services. Release is nevertheless correction-required. Montfoort and Linschoten sit in a low clay-and-peat landscape organized around the Gekanaliseerde Hollandsche IJssel (GHIJ), Montfoortse Vaart, Lange and Korte Linschoten, Oude Rijn boezem and pumped polders. The regional authority identifies multiple Lek-dike failure as its worst-case river flood and explicitly calls a Lopik breach nationally maatgevend, while Montfoort's planning atlas says parts of the municipality can flood after failure of the Lopiker- en Krimpenerwaard dike ring and that higher oeverwal areas are not immediately affected. The simulator instead publishes one persistent generic river value—legacy internal field 1.224089 and user-facing 82% inundation stress—at both T+24 and T+72, with 1,490 rising to 2,152 residents under pressure and 107,156 rising to 431,736 person-hours, without choosing a Lek breach, GHIJ/regional-kade event, defence state, compartment, terrain-connected footprint, arrival, velocity or recession. A blanket zero would also be wrong. Pluvial T+24 similarly shows legacy 0.404885/27% stress, zero people under pressure and 56,891 person-hours while rainfall is already zero, without binding the earlier rain to terrain, sewer, polder, boezem or pump state. HDSR's public register contributes 154 partial water/wastewater points, but these are not live topology or operating state. Nine active preset/component families reuse one exact twelve-neighbourhood hazard ordering because local forcing is a common seeded hash rather than mechanism geometry. Current UI wording correctly calls flood output an inundation stress proxy rather than metres, but exact local affected, service and recovery values remain visible before GM0335 has reviewed spatial evidence. A12, N204 and N228 are real access corridors, yet five logical edges represent only three physical road families; the paired N204 and N228 records are series links, not independent capacity. There is no rail station and acute hospitals are cross-boundary. Provider territories, a Stedin capacity-planning sample, antenna and education registers, nearby observations and route geometry do not establish live availability, occupancy, backup or restoration. No inspected authority source publishes a governed municipality-wide emergency-support-site, stock, staffing or completed-action ledger. Exact first-72-hour results must therefore remain synthetic or Unknown until a selected event, mechanism-specific footprint, operational lifeline state and confirmed actions/resources exist; absent public points and nulls are never zero, safe, open or recovered.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek / PDOK / Kadaster",
+      "title": "E01 — GM0335 official 2025 identity, neighbourhood, place and settlement inputs",
+      "url": "https://api.pdok.nl/cbs/wijken-en-buurten-2025/ogc/v1?f=html&lang=nl",
+      "accessedAt": "2026-09-03T08:58:00Z",
+      "edition": "CBS Wijken en buurten 2025; generated municipality and regional snapshots retrieved 31 August 2026; safety-region snapshot retrieved 2 September 2026",
+      "supports": [
+        "Annual CBS/PDOK inputs identify GM0335 as Montfoort in Utrecht and Veiligheidsregio Utrecht, with 13,772 residents, density 366/km², 21.8% aged 65 or older and 1,724 one-person households. The reference point [4.942766530983154,52.04584897833026] lies inside the generalized 2025 boundary.",
+        "Twelve neighbourhoods in three districts sum to 13,770 residents, two below the municipal control (-0.015%); published households total 5,765 and rounded age-65-plus rows total 3,010. Deterministic allocation reconciles to 13,772 without rewriting published observations.",
+        "Montfoort and Linschoten are the two BAG places and neither retained centre lies outside the generalized boundary. Nine BRT features comprise three buurtschappen, two deelkernen, one gehucht and three woonkernen; they are descriptive settlement geometry, not separate population controls or emergency facilities.",
+        "District-heating and public-charging fields are null in 12/12 neighbourhoods; cars per household is null in three, housing-tenure/value fields in two and benefit fields in one. These nulls remain NoData rather than numeric zero."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Utrecht",
+      "title": "E02 — Regionaal Risicoprofiel 2023",
+      "url": "https://vru.nl/documents/676/AB20230206-05-2_Bijlage_A_-_Regionaal_risicoprofiel_VRU_2023.pdf",
+      "accessedAt": "2026-09-03T08:58:00Z",
+      "edition": "Regionaal Risicoprofiel 2023, authority document current link inspected 3 September 2026; blanket reuse licence not stated",
+      "supports": [
+        "The VRU states that multiple failure of the northern Lek dike between Amerongen and Krimpen aan den IJssel is its worst-case river flood, that a single breach near Amerongen is the regional maatgevend case and that a river flood near Lopik is nationally maatgevend. It also says flood consequences concern every Utrecht municipality. These are scenario families, not a selected GM0335 breach or footprint.",
+        "The profile distinguishes smaller sea-flood consequences and coastal evacuation traffic through Utrecht from river inundation. Direct coastal depth zero in GM0335 is therefore a narrow source result, not proof that reception, wind, access or river/regional-water risks are absent.",
+        "Extreme rain and downbursts can restrict emergency access; heat can pressure drinking-water demand and movable road infrastructure; drought can affect water quality, firewater and peat dikes. Digital disruption at water boards, drinking-water and energy providers can cause societal disruption through IT/OT dependence.",
+        "Flood response can require continuous operations, evacuation, external assistance and scarce staff/resources while access becomes difficult or impossible. A large Utrechtse Heuvelrug fire can last multiple days and exhaust resources; for Montfoort it is regional smoke/assistance context unless a local source and fuel footprint are selected."
+      ]
+    },
+    {
+      "publisher": "Hoogheemraadschap De Stichtse Rijnlanden",
+      "title": "E03 — Watergebiedsplan Linschoterwaard, system description and appendices",
+      "url": "https://www.hdsr.nl/publish/pages/113728/linschoterwaard_bijlagenrapport_1.pdf",
+      "accessedAt": "2026-09-03T08:58:00Z",
+      "edition": "Watergebiedsplan Linschoterwaard planning/system record; current authority-hosted PDF inspected 3 September 2026; blanket reuse licence not stated",
+      "supports": [
+        "The Linschoterwaard water system forms part of the Oude Rijn boezem. Lange and Korte Linschoten and Montfoortse Vaart connect through locks at Oudewater and Montfoort to the GHIJ; water is supplied from the Hollandse IJssel and conveyed toward the Oude Rijn.",
+        "Polder drainage areas pump to boezem level and use separate inlets during dry periods. The plan describes Rapijnen and Overvliet among the local pumped areas, with design capacities 100 and 9 m³/min respectively. These plan values are not audit-time flow, remaining capacity, power or availability.",
+        "The system can be constrained when receiving Oude Rijn levels are high; historical planning added an alternative discharge route toward the GHIJ. Pluvial drainage, regional-water flooding, drought supply and major-river breach must therefore remain distinct but coupled event mechanisms.",
+        "A system description and design capacity cannot be converted to municipal Water or Drainage availability without connected catchments, rainfall, storage, receiving levels, control mode, blockage, power/backup, crew and valid-time action state."
+      ]
+    },
+    {
+      "publisher": "Hoogheemraadschap De Stichtse Rijnlanden",
+      "title": "E04 — Dijkverbetering GHIJ-Noord current project lifecycle",
+      "url": "https://www.hdsr.nl/buurt/gekanaliseerde/dijken/dijkverbetering-ghij-noord/",
+      "accessedAt": "2026-09-03T08:58:00Z",
+      "edition": "Current project page inspected 3 September 2026; execution began July 2026 and completion is expected at the end of 2027; blanket reuse licence not stated",
+      "supports": [
+        "HDSR is strengthening the north-side GHIJ dike between Montfoort and Hekendorp and renewing about eight kilometres of kades. Some double-defence locations will transfer the regional-water-retaining role to the upgraded waterside defence.",
+        "The current page states that works began in July 2026, continue east toward Montfoort and include vegetation clearance near IJsselveld before new sheet piling from December 2026. Construction lifecycle and access effects require valid time; they are not timeless route or defence state.",
+        "The project is intended to meet future water-safety requirements and improve inspection/maintenance. Need for improvement is not evidence of an active breach, and planned completion is not evidence of current or future incident performance.",
+        "The GHIJ also carries recreation traffic and fresh-water conveyance. Water-safety, drought-supply, navigation and works-access states must not be collapsed into one generic flood scalar."
+      ]
+    },
+    {
+      "publisher": "Gemeente Montfoort",
+      "title": "E05 — Atlas Montfoort, building blocks for the environmental vision",
+      "url": "https://www.montfoort.nl/dsresource?objectid=b8a499db-32c6-496f-8608-a8515a34f7e5&type=PDF",
+      "accessedAt": "2026-09-03T08:58:00Z",
+      "edition": "Municipal planning inventory predating the 2022 intended Omgevingswet start; current hosted copy inspected 3 September 2026; document and blanket reuse licence undated/unstated",
+      "supports": [
+        "The municipal atlas says parts of Montfoort can flood if the Lek dike ring along Lopiker- en Krimpenerwaard fails, and lower areas are protected by dikes along the Hollandse IJssel. It also says much urban area occupies a higher natural levee, so not all urban locations are immediately affected.",
+        "The atlas identifies mainly urban pluvial nuisance and mainly rural drought consequences, including fresh-water shortage, crop impacts, peat shrinkage and subsidence. It calls for retention, storage, separate water chains and strengthened regional defences along named waterways.",
+        "This planning evidence contradicts one municipality-wide depth-like field and one common neighbourhood order. It does not itself provide a current hydraulic event, street-depth surface, evacuation order or asset operating state.",
+        "The municipal LAS pages separately confirm current objectives for extreme-rain water nuisance, prolonged drought, heat and climate-resilient nature, but strategy and works are not incident-time performance or completed T+72 actions."
+      ]
+    },
+    {
+      "publisher": "Het Waterschapshuis / Dutch water boards",
+      "title": "E06 — Partial IMWA water-control and DAMO wastewater registers",
+      "url": "https://api.pdok.nl/hwh/waterschappen-kunstwerken-imwa/ogc/v2",
+      "accessedAt": "2026-09-03T08:58:00Z",
+      "edition": "Deployment snapshot retrieved 2026-09-03T01:38:15Z; CC BY-SA 4.0; completeness varies by contributing water board",
+      "supports": [
+        "Full-resolution CBS polygon containment assigns 154 register points to GM0335: 136 weirs, twelve surface-water pumps, four sewer pumps, one sluice and RWZI Montfoort.",
+        "All 154 records carry register status 'gerealiseerd', but this denotes registered existence rather than operating, powered, available or correctly controlled state. Only fifteen records have a non-null capacity field; the other 139 remain null.",
+        "Named context includes pumps Rapijnen and Overvliet, Montfoort Sluis and sewer pumps at Mastwijk, Linschoten, Julianalaan and Industrieterrein Montfoort. Point presence does not supply full connectivity, comparable capacity units, direction, catchment, control, backup or restoration.",
+        "Contributor coverage is explicitly partial. An unlisted asset remains Unknown/NoData, and no register point may drive a service score until its event, valid time, topology and semantics are governed."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / PDOK, ProRail, OVapi and RIVM",
+      "title": "E07 — Static road/transit geometry and cross-boundary acute-care context",
+      "url": "https://api.pdok.nl/rws/nationaal-wegenbestand-wegen/ogc/v1?f=html&lang=nl",
+      "accessedAt": "2026-09-03T08:58:00Z",
+      "edition": "NWB-light 2026-08-01 and transport snapshot retrieved 2026-09-03, CC0; OVapi schedule 2026-08-30 through 2026-12-12; RIVM acute-care questionnaire v1.1 published 2026-07-03, CC0",
+      "supports": [
+        "Five logical links reach four neighbours through only three physical road families: A12 to Woerden; N204 toward Lopik and Woerden; N228 toward Oudewater and Utrecht. The paired N204 and N228 boundary records are series links and non-additive.",
+        "Distances 0.100–2.389 km and nominal values 150/260 are boundary-derived geometry and scenario-unit ceilings, not lanes, vehicles/hour, bridge capacity, evacuation throughput or travel time. The GHIJ crossings, A12 gateway and internal urban bridge states are not separately causal.",
+        "There is no ProRail station inside GM0335; 22 GTFS stop areas are scheduled context only. Geometry and timetable do not prove available vehicles, drivers, accessible transport, live operation, fuel or evacuation capacity.",
+        "No RIVM acute-care location lies inside. Straight-line distance from the municipal reference point is about 9.7 km to St Antonius Nieuwegein and 10.1 km to St Antonius Utrecht; annual reported offers/rooms and distance do not prove a usable route, acceptance, staffing, surge or backup state."
+      ]
+    },
+    {
+      "publisher": "Stichting Mijn Aansluiting, Netbeheer Nederland, RDI, DUO, KNMI, RIVM, Rijkswaterstaat and NDW",
+      "title": "E08 — Public utility planning/register layers and scoped observation NoData",
+      "url": "https://data.partnersinenergie.nl/capaciteitskaart/totaal/afname",
+      "accessedAt": "2026-09-03T08:58:00Z",
+      "edition": "Deployment and live public queries retrieved 2–3 September 2026; licences/cadence remain source-specific",
+      "supports": [
+        "A live provider-territory query at the municipal reference point identifies Stedin for power/gas, Vitens for water and Ziggo for media, with no drainage feature. Public-Domain provider polygons are responsibility context, not topology, service quality, outage or restoration; no drainage match is NoData, not no sewer system.",
+        "One postcode sample 3417HL maps to Stedin area CM57 Montfoort and reports planning fields: withdrawal existing 27 MW, required 46.4 MW, queue 12.2 MW/17 requests; injection fields partly null with 1.6 MW/11-request queue; 28 projects, earliest 2029. It is neither current load/reserve nor a municipal total, and the exact dataset licence identifier was not found.",
+        "RDI assigns 27 sites/54 antennas, including eleven mobile and nine fixed-link sites; DUO assigns thirteen education locations. Registers do not establish coverage, backhaul, power/backup, occupancy, shelter role, staffing, stocks or live availability. RDI reuse terms are unstated; DUO labels CC BY without a version.",
+        "The deployment assigns zero local KNMI fixed stations, RIVM PM2.5 stations, RWS Waterinfo observations/forecasts, acute-care locations, governmental-service points and 365-day seismic origins. Nearby Cabauw and Nieuwegein/Schoonhoven points retain their own time/location only; absence inside GM0335 is scoped NoData, never normal, dry, clean, open or safe."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM0335, Montfoort, Utrecht and Veiligheidsregio Utrecht agree across generated and official 2025 sources.",
+      "evidenceRefs": ["E01", "E02"],
+      "notes": [
+        "Feature ID, bundle code/name, province and safety-region membership are coherent.",
+        "The municipality reference point lies inside the generalized 2025 geometry.",
+        "Annual administrative edition, planning-document lifecycle, register retrieval, observation validity and synthetic scenario time remain separate."
+      ]
+    },
+    "geography": {
+      "status": "warn",
+      "summary": "Administrative geometry is coherent, but Montfoort's levee, defended waterway, boezem and polder compartments are absent from the model footprint.",
+      "evidenceRefs": ["E01", "E02", "E03", "E04", "E05"],
+      "notes": [
+        "Use full-resolution geometry for evidence containment; generalized boundary and centre are overview controls only.",
+        "Lek breach, GHIJ/regional-defence failure, boezem/polder filling, urban rain and drought supply are distinct mechanisms.",
+        "Higher natural-levee areas and lower defended areas must not receive one municipality-wide local stress or arrival state."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Resident population reconciles within normal CBS rounding and deterministic allocation preserves the municipal control.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "Published neighbourhood population is 13,770, two below the 13,772 control (-0.015%).",
+        "Reconciliation allocates two residents deterministically without changing source rows.",
+        "Resident data still exclude visitors, workers, road/water users, responders and dynamic care or shelter occupancy."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "All twelve neighbourhoods are retained, but partial statistics and source-blind local hazard allocation limit operational use.",
+      "evidenceRefs": ["E01", "E05", "E06"],
+      "notes": [
+        "District heating and charging are null in every row; several housing, transport and benefit fields are partially missing.",
+        "Published nulls remain NoData and must not be imputed as zero or absence.",
+        "Water assets, terrain/defence context and urban/rural climate mechanisms do not drive local hazard ordering."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "Two BAG places and nine BRT settlements preserve Montfoort's town, village and dispersed-rural structure without assigning emergency roles.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "BAG place centres for Montfoort and Linschoten are inside the generalized boundary.",
+        "BRT types are three buurtschappen, two deelkernen, one gehucht and three woonkernen.",
+        "A place, school or public building is not an operational support point; no governed public site/capacity catalogue was found."
+      ]
+    },
+    "transport": {
+      "status": "warn",
+      "summary": "Road and bus context is traceable, but common corridors, crossing state, destinations and live throughput are unresolved.",
+      "evidenceRefs": ["E02", "E04", "E07", "E08"],
+      "notes": [
+        "Five logical edges reduce to A12, N204 and N228 physical families; N204/N228 paired records are non-additive series links.",
+        "No local rail station and external acute care increase dependence on road/bus and cross-boundary acceptance.",
+        "Static geometry, scheduled stops and empty local record matches cannot prove an open bridge, route, available vehicle or destination capacity."
+      ]
+    },
+    "emergencyContext": {
+      "status": "warn",
+      "summary": "Regional plans define credible flood, extreme-weather, nature-fire and vital-infrastructure response demands, but no selected incident or complete GM0335 T0–T+72 resource state exists.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E08"],
+      "notes": [
+        "VRU planning anticipates prolonged operations, evacuation, inaccessible areas, mutual aid and resource exhaustion; it is not a current activation or outcome.",
+        "Current dike works and municipal adaptation strategy are lifecycle/planning records, not failure, protection, staffing or completed actions.",
+        "Emergency-support sites, stocks, fuel, staff, evacuation transport, shelter capacity, care acceptance and confirmed restoration actions remain Unknown."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten presets execute at six checkpoints across all eight services for GM0335.",
+      "evidenceRefs": [],
+      "notes": [
+        "Initial focused audit:model passed one file/two tests in 31.35 seconds, tests 31.10 seconds.",
+        "Diagnostic all-preset run passed in 13.95 seconds, tests 13.72 seconds; controlled Blokland ignition executed in 0.40 seconds.",
+        "Final focused audit:model passed one file/two tests in 30.36 seconds, tests 30.14 seconds.",
+        "Execution coverage is not physical, spatial, network, operational or recovery calibration."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Bounds, resident/demand/delivery reconciliation, deterministic arithmetic and cumulative-burden invariants hold.",
+      "evidenceRefs": [],
+      "notes": [
+        "All numeric outputs are finite and bounded; affected population is integral and no greater than 13,772.",
+        "Neighbourhood population reconciles exactly to the municipality and service demand/delivery sums reconcile at every tested frame.",
+        "Cumulative deprived person-hours are non-decreasing, but numerical validity does not make their local cause or magnitude observed."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "One seeded twelve-neighbourhood surface replaces mechanism-specific Montfoort flood, rain, wind, heat, cyber and smoke geometry.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05"],
+      "notes": [
+        "Nine active preset/component families share the same local hazard-seed ordering because the seed samples only municipality/scenario seed and neighbourhood ID.",
+        "The river preset selects neither the maatgevend Lek breach nor a GHIJ/regional-defence case and ignores high natural-levee versus low defended areas.",
+        "A controlled source placed in Blokland creates city fire intensity 0.546104 and smoke 0.452258, but Blokland receives no affected residents and its local branch is not source-contained; the point itself is only a diagnostic, not proof of eligible fuel or ignition."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "Exact service percentages are synthetic and omit Montfoort's water, road/crossing, care and operator-state dependencies.",
+      "evidenceRefs": ["E03", "E04", "E06", "E07", "E08"],
+      "notes": [
+        "The 154 public water/wastewater points remain display context; they do not drive pump, sewer, boezem, receiving-level, backup or dewatering state.",
+        "NWB edges can balance only logical Mobility and Supply; capacity is generalized and does not encode bridge direction, blockage, emergency access, bus availability or hospital acceptance.",
+        "Provider areas, capacity planning, antenna and school registers do not calibrate outage, pressure/quality, coverage, occupancy, reserve or restoration."
+      ]
+    },
+    "causalTrace": {
+      "status": "warn",
+      "summary": "Arithmetic contribution ledgers reconcile, but local evidence and operational action provenance do not support the displayed precision.",
+      "evidenceRefs": ["E02", "E03", "E06", "E07", "E08"],
+      "notes": [
+        "Hazard and service contribution sums reconcile to their modeled stages and driver/counterfactual records remain inspectable.",
+        "At T+24 river output reports internal 1.224089 stress, 1,490 residents under pressure and 107,156 person-hours; this is deterministic scenario arithmetic, not an HDSR/VRU observation or forecast.",
+        "The Groningen earthquake shows zero local ground motion/severity/affected but 2,716 person-hours at T+24 and 4,835 at T+72; any remaining burden is indirect synthetic network scope and must never be shown as local earthquake damage."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "T+72 plateaus, deterioration and recovery are not driven by a confirmed Montfoort action/resource ledger.",
+      "evidenceRefs": ["E02", "E03", "E04", "E07", "E08"],
+      "notes": [
+        "River stress remains 1.224089 while affected residents rise 1,490→2,152 and burden 107,156→431,736 from T+24 to T+72; no selected arrival surface, evacuation, isolation, dewatering or relief action explains the evolution.",
+        "Compound water stress remains 0.417883 and seven services retain identical T+24/T+72 availability while Facilities falls 0.795595→0.404628; affected residents rise 2,868→3,930 and burden 144,685→541,698 without a local action or capacity constraint.",
+        "No governed public record establishes support-site opening, pump switching, generator/fuel deployment, road priority, care acceptance, sheltering, resupply or verified restoration completion. Unknown actions/resources must not be inferred from generic preparedness."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": ["power", "water", "drainage", "gas", "telecom", "mobility", "facilities", "supply"]
+  },
+  "findings": [
+    {
+      "id": "GM0335-DATA-001",
+      "severity": "informational",
+      "category": "identity",
+      "status": "fixed",
+      "summary": "Official 2025 identity, centre containment, regional membership and resident reconciliation are coherent.",
+      "evidence": "E01 plus audit:context verify GM0335/Montfoort/Utrecht/VRU, the contained reference point and a two-resident (-0.015%) neighbourhood rounding difference reconciled deterministically.",
+      "action": "Retain the 2025 source edition, exact official nulls, deterministic reconciliation and separate BAG/BRT semantics."
+    },
+    {
+      "id": "GM0335-SPATIAL-001",
+      "severity": "critical",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Nine active hazard/component families reuse one complete twelve-neighbourhood ordering.",
+      "evidence": "Focused diagnostics and model inspection show one common scenario seed and ID hash drive local hazardSeverity regardless of flood compartment, rain, wind, heat, cyber source or smoke pathway; a controlled Blokland ignition does not control its containing neighbourhood.",
+      "action": "Suppress GM0335 local consequence maps until each hazard samples a governed event footprint; then test source containment, terrain/defence compartments and cross-hazard rank divergence."
+    },
+    {
+      "id": "GM0335-FLOOD-001",
+      "severity": "critical",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Persistent generic river stress omits Montfoort's selected Lek/GHIJ breach and compartment mechanics.",
+      "evidence": "E02/E05 establish real Lek-breach relevance and heterogeneous exposure. The model reports internal 1.224089/user-facing 82% inundation stress at T+24 and T+72, 1,490→2,152 affected and 107,156→431,736 person-hours without hydrograph/datum, defence state, breach, footprint, arrival or recession.",
+      "action": "Require a VRU/HDSR-selected LIWO or equivalent Lek/GHIJ/regional-kade event with full geometry, time, units, uncertainty, licence and NoData. Do not blanket-zero a real mechanism and do not promote the proximity proxy to local consequence."
+    },
+    {
+      "id": "GM0335-PLUVIAL-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Pluvial stress and service burden are not tied to Montfoort's urban rain and managed-polder pathways.",
+      "evidence": "At T+24 the model has zero current rainfall, internal residual water 0.404885/user-facing 27% stress, zero people under pressure and 56,891 person-hours. E03/E05 distinguish urban nuisance, polder drainage, boezem receiving level and rural drought/subsidence; none drives the output.",
+      "action": "Bind a versioned rainfall event to AHN/BGT flow, sewer/street storage, peilgebieden, pumps/inlets, boezem/GHIJ level and recession; publish Unknown when a required field or horizon is absent."
+    },
+    {
+      "id": "GM0335-WATERCHAIN-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "A dense but partial water/wastewater register is visible yet non-causal.",
+      "evidence": "E06 provides 154 points, including Rapijnen/Overvliet pumps, Montfoort Sluis, four sewer pumps and RWZI Montfoort; 139 capacities are null and 'gerealiseerd' is not live operation. Exact Water/Drainage availability ignores connectivity, controls, receiving level, backup and restoration.",
+      "action": "Integrate authority-approved GWSW/HDSR topology and valid-time control state where publishable; otherwise expose register context and transparent synthetic dependencies without implying measured performance."
+    },
+    {
+      "id": "GM0335-TRANSPORT-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "Three physical road families and critical water crossings are reduced to five static logical links.",
+      "evidence": "E07 shows A12, N204 and N228; the two N204 and two N228 edges are series links, not parallel capacity. No station lies inside, and the graph has no causal GHIJ crossing, urban bridge, bus vehicle, direction, accessibility, incident or destination state.",
+      "action": "Model physical corridor/crossing identity, direction and common-cause closure once; gate Mobility/Supply transfers on valid-time NDW/operator evidence or explicitly synthetic state, never on an empty record match."
+    },
+    {
+      "id": "GM0335-CARE-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Facilities availability hides cross-boundary acute-care route and acceptance dependence.",
+      "evidence": "E07 finds no acute hospital inside and nearest annual questionnaire records about 9.7–10.1 km straight-line away in Nieuwegein/Utrecht. The model has no route-specific travel, diversion, staffing, surge, backup or acceptance state.",
+      "action": "Represent care as a time-valid origin-route-destination workflow with emergency transport, crossing/access state and hospital acceptance/capacity; keep unavailable fields Unknown."
+    },
+    {
+      "id": "GM0335-UTILITY-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Provider territories, planning capacity and antenna registers cannot calibrate exact utility availability.",
+      "evidence": "E08 identifies Stedin/Vitens/Ziggo responsibility, one CM57 planning sample and 27 antenna sites, but no operational topology, current load/outage, pressure/quality, backhaul, backup or restoration. The public drainage territory query returned no feature despite real sewer/water assets.",
+      "action": "Label exact service percentages as synthetic; ingest only authorized timestamped aggregate outage/restoration data, otherwise use documented scenario assumptions and preserve Unknown topology/state."
+    },
+    {
+      "id": "GM0335-OBS-NODATA-001",
+      "severity": "medium",
+      "category": "regional-data",
+      "status": "open",
+      "summary": "Missing local observation points can be mistaken for normal or safe conditions.",
+      "evidence": "E08 records zero GM0335 KNMI fixed stations, RIVM PM2.5 stations, RWS Waterinfo observations/forecasts, government-service points and seismic origins. Nearby points belong to other locations/times and do not fill a municipal surface or T+72 horizon.",
+      "action": "Render scoped NoData/Unknown explicitly, retain nearest-point distance/time, prohibit interpolation by default and never convert no-match to zero rain, clean air, normal water, open roads or safety."
+    },
+    {
+      "id": "GM0335-HAZARD-SCOPE-001",
+      "severity": "medium",
+      "category": "explainability",
+      "status": "open",
+      "summary": "Correct narrow zeros and remote effects still need explicit direct-versus-indirect scope.",
+      "evidence": "Canonical coastal and Groningen-earthquake direct GM0335 forcing are zero; the wildfire preset provides remote Heuvelrug-area smoke but no local flame. The earthquake nevertheless accumulates 2,716→4,835 person-hours through synthetic wider-network effects.",
+      "action": "Retain supported direct zeros only within their named source scope; label remote smoke/network consequences separately and never imply zero local water risk, local shaking damage or an observed plume."
+    },
+    {
+      "id": "GM0335-RECOVERY-72H-001",
+      "severity": "critical",
+      "category": "explainability",
+      "status": "open",
+      "summary": "First-72-hour deterioration and recovery lack accountable local actions and resources.",
+      "evidence": "River and compound results plateau or worsen through T+72 while VRU anticipates evacuation, inaccessible areas, continuous operations and scarce assistance. No inspected source confirms support sites, staff, stocks, fuel, pump actions, generator deployment, shelter, care acceptance, resupply or restoration completion.",
+      "action": "Add a timestamped action/resource/constraint ledger for T0–6–12–24–48–72; suppress recovery attribution and operational site/count claims where authority state is unavailable."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Replace GM0335's generic river/pluvial consequence with selected Lek, GHIJ/regional-defence and rain–polder–boezem events while retaining narrow direct-coastal zero.",
+      "files": ["packages/sim-core/src/model.ts", "packages/sim-core/src/municipality-coverage.test.ts", "apps/web/src/components/Inspector.tsx", "apps/web/public/data/public-context"],
+      "validation": "For every selected event assert source/defence/catchment identity, geometry containment, units/datum, issue/valid time, arrival/recession, uncertainty/licence and NoData; unsupported local affected/service/recovery values render Unknown."
+    },
+    {
+      "summary": "Replace the shared local seed with mechanism-specific footprints and test controlled source containment.",
+      "files": ["packages/sim-core/src/model.ts", "packages/sim-core/src/model.test.ts", "packages/sim-core/src/municipality-coverage.test.ts"],
+      "validation": "Lek/GHIJ, pluvial, wind, heat, smoke and cyber use distinct evidence-backed surfaces; a controlled source affects its containing eligible neighbourhood before unrelated areas, and cross-service physical hazard remains invariant."
+    },
+    {
+      "summary": "Govern Montfoort's water/drainage chain without converting static HWH records into live performance.",
+      "files": ["scripts/fetch-water-assets.mjs", "apps/web/src/data.ts", "packages/sim-core/src/model.ts", "apps/web/src/components/Inspector.tsx"],
+      "validation": "Register source/version/licence/coverage and capacity nulls persist; only connected, unit-compatible, valid-time pump/sluice/RWZI/control/backup state affects services, and missing state remains Unknown."
+    },
+    {
+      "summary": "Represent A12/N204/N228, GHIJ crossings, bus and external acute-care access as non-additive time-valid workflows.",
+      "files": ["apps/web/public/data/transport-network.json", "packages/sim-core/src/model.ts", "packages/sim-core/src/model.test.ts", "apps/web/src/components/OperationsBrief.tsx"],
+      "validation": "N204/N228 series edges never add capacity; one crossing closure propagates once to eligible Mobility/Supply and care routes; destination acceptance and absent live state remain Unknown."
+    },
+    {
+      "summary": "Make first-72-hour service and recovery changes depend on confirmed or explicitly synthetic actions, resources and blockers.",
+      "files": ["packages/sim-core/src/types.ts", "packages/sim-core/src/model.ts", "apps/web/src/components/Timeline.tsx", "apps/web/src/components/OperationsBrief.tsx"],
+      "validation": "Every T0/6/12/24/48/72 change cites incident, action, actor, resource, valid time and constraint; absent support-site, stock, staff, fuel, shelter, care or restoration evidence is displayed as Unknown rather than zero or completion."
+    }
+  ],
+  "residualLimitations": [
+    "Sensitive electricity, gas, drinking-water, telecom, sewer, bridge-control and cyber/OT topology or live state is not comprehensively public; provider polygons and registers cannot substitute for operator evidence.",
+    "No inspected authoritative public source supplies a current municipality-wide emergency-support-point catalogue, site opening state, stocks, staff, fuel, shelter capacity or first-72-hour completed-action ledger.",
+    "The HWH aggregation is partial and most local capacity fields are null; registered existence is not operating state and no unlisted asset may be inferred absent.",
+    "The municipal planning atlas is a planning inventory with an unstated document date/licence; it supports mechanism selection, not incident probability, current depth or response state.",
+    "No fixed KNMI, RIVM air, Waterinfo observation/forecast or acute-care point lies inside the generalized municipality polygon; nearest points remain point context, not municipal interpolation.",
+    "Dynamic workers, visitors, bus/road users, care/shelter occupants and responders are absent from resident exposure; annual registers cannot supply simultaneous occupancy.",
+    "NWB nominal capacities are generalized scenario units; no conclusion about real bridge, road, evacuation or supply throughput is supported.",
+    "Exact local hazard, affected, service, person-hour and recovery values remain synthetic until an authority-reviewed event and operational action ledger are bound."
+  ],
+  "provinceReviewFlags": [
+    "Coordinate one versioned Lek-dike breach family across Montfoort, Lopik, Oudewater, Woerden, IJsselstein and other affected Utrecht municipalities; do not independently calibrate inconsistent municipal fragments.",
+    "Review GHIJ regional-defence, Montfoortse Vaart/Lange-Korte Linschoten, Oude Rijn boezem and Linschoterwaard polder dependencies across HDSR boundaries and both flood/drought modes.",
+    "Retain GHIJ-Noord construction and defence-role transfer as valid-time lifecycle state through expected end-2027 completion, never timeless failure or protection.",
+    "Audit A12/N204/N228 and GHIJ crossings once as shared physical corridors; deduplicate series edges and propagate common-cause closure to road, bus, supply and acute-care workflows.",
+    "Coordinate St Antonius Nieuwegein/Utrecht and other acute-care origin-route-destination capacity across Utrecht municipalities rather than assigning generic local Facilities percentages.",
+    "Require province-wide NoData rules for sparse KNMI/RIVM/RWS observations and provider/register layers; nearest or empty coverage is never a municipal value, zero or all-clear.",
+    "Review the shared seeded neighbourhood surface and unsupported T+72 action/recovery assumptions as national issues rather than accepting municipality-specific tuning."
+  ]
+}

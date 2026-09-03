@@ -1,0 +1,491 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0148",
+    "name": "Dalfsen",
+    "province": "Overijssel",
+    "safetyRegion": "IJsselland"
+  },
+  "agent": {
+    "taskName": "municipality_gm0148",
+    "agentId": "/root/nl_realism_audit",
+    "completedAt": "2026-09-02T19:47:04Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "Dalfsen's generated 2025 identity, population, neighbourhood, place and safety-region inputs reconcile, and the focused deterministic gate passes all ten presets, six checkpoints and eight services. Release remains correction-required. The major-river preset gives Dalfsen a persistent municipality-wide result from a schematic Rhine/Meuse/IJssel centre-distance field without selecting the Overijsselse Vecht, IJssel influence, unprotected areas, Vechtdikes, breach or overtopping state, terrain, arrival or recession. It reports normalized inundation stress from the legacy internal value 1.1659, 12,453 affected people-equivalent at T+24 and 10,327 at T+72. Eight unrelated hazards also reuse exactly the same complete 36-neighbourhood ranking. A controlled wildfire source placed inside Verspreide huizen Hessum-Rechteren ranks that source neighbourhood only 32nd of 36 despite official forest/heath context and documented fires at Rechteren. The municipal-node road graph cannot represent the Dalfsen Vecht bridge or north/south isolation, while every service reuses the same eleven NWB road links and 1,650 abstract capacity units. Public WDODelta/HWH, Waterinfo, LIWO, KNMI, NWB, RDI, RIVM, DUO and provider-area sources can materially improve context and selected scenarios. Live utility topology, operating state, backup, stocks, crews and restoration remain unavailable or security-sensitive and must stay Unknown or explicitly synthetic.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek / PDOK / Kadaster",
+      "title": "E01 — Official 2025 municipality, neighbourhood, safety-region and settlement inputs",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM0148%27%29",
+      "accessedAt": "2026-09-02T19:32:42Z",
+      "edition": 2025,
+      "supports": [
+        "GM0148 identity, province Overijssel, generalized boundary, 30,047 residents, density 182/km², 23.1% aged 65+ and 3,529 one-person households",
+        "Thirty-six neighbourhoods, BAG woonplaatsen Dalfsen, Lemelerveld and Nieuwleusen, and 24 BRT settlement labels; published neighbourhood population sums to 30,030, seventeen below the municipal total because CBS small-area values are rounded or suppressed",
+        "CBS municipality/neighbourhood and safety-region OGC/OData are annual CC BY 4.0; BAG woonplaatsen are Public Domain Mark 1.0; BRT TOP10NL is CC BY 4.0 and updated by rotating delivery areas during the year: https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1 and https://api.pdok.nl/brt/top10nl/ogc/v1",
+        "Generalized boundaries support overview selection and aggregation, not asset-, dike-, bridge- or hydraulic-precision intersections"
+      ]
+    },
+    {
+      "publisher": "Gemeente Dalfsen",
+      "title": "E02 — Local climate, high-water access, sewer and Rechteren/Hessum landscape evidence",
+      "url": "https://www.dalfsen.nl/veilige-vecht",
+      "accessedAt": "2026-09-02T19:32:42Z",
+      "edition": "Climate-adaptation plan 2021–2025; bridge answer 2021; planning evidence 2023–2025",
+      "supports": [
+        "The municipal climate-adaptation plan identifies IJssel flood risk in the west, higher-water inundation for parts along the Vecht outside the dikes, extreme-rain water nuisance, heat and drought, while stating that Dalfsen has no direct sea-level inundation: https://ris.dalfsen.nl/Raadsinformatie/4-1-Beleidsplan-klimaatadaptatie-Klimaatrobuust-Dalfsen-2021-2025-Klimaatadaptatieplan.pdf",
+        "Dated 2021 technical answers state that the province tested the Dalfsen Vecht bridge for high-water structural safety and found it strong enough, but explicitly leave open how Dalfsen remains reachable if the bridge is under water: https://ris.dalfsen.nl/Raadsinformatie/Technische-vragen/Beantwoording-Technische-vragen-PPN-2022-2025-20210624.pdf",
+        "The official Rechteren/Hessum planning document describes closed forest in the Rechterense and Hessumse Veld, heath/open patches, partly paved lanes and recreation dwellings in woodland: https://ris.dalfsen.nl/Raadsinformatie/Bijlage/Raadsmemo-Ontwerpbestemmingsplan-recreatieterreinen-en-recreatiewoningen-20231214.pdf",
+        "An official police annual report documents several deliberately started forest fires on Landgoed Rechteren during the very dry 2018 summer and joint police/fire/landowner/municipality response; it is historical evidence of local eligibility, not a current warning or event forecast: https://ris.dalfsen.nl/Raadsinformatie/9-3-Veiligheidsstrategie-en-Meerjarenbeleidsplan-2019-2022-Politie-Oost-Nederland-Concept-Jaarverslag-2018-Politie-Eenheid-Oost-Nederland.pdf",
+        "The municipality publishes its 2022–2026 sewer plan and local separated-sewer works, but no stable live sewer-state, capacity, pump-control or incident API and no reuse licence/cadence were identified: https://www.dalfsen.nl/riolering"
+      ]
+    },
+    {
+      "publisher": "Waterschap Drents Overijsselse Delta / Het Waterschapshuis",
+      "title": "E03 — Veilige Vecht, water-system open data and Dalfsen wastewater assets",
+      "url": "https://veiligevecht.wdodelta.nl/over%2Bhet%2Bproject/vragen_en_antwoorden/default.aspx",
+      "accessedAt": "2026-09-02T19:32:42Z",
+      "edition": "Current project pages; public-context snapshot 2026-09-02",
+      "supports": [
+        "Veilige Vecht covers 30 km of north and south Vechtdikes between Dalfsen and Zwolle, beginning at Dalfsen town hall and Rechterensedijk; the Dalfsen town quay meets current legal requirements, while the dikes are described as safe now but vulnerable in extremes and not meeting future statutory requirements after the latest assessment",
+        "The project distinguishes upper sandy and lower delta reaches, piping/erosion/height mechanisms, and event-specific water-system measures; construction for the Dalfsen reach is planned from 2027. This is defence and project context, not a declaration of current failure or a breach scenario",
+        "The cached HWH intersection contains 198 points: 22 surface-water pumps, 167 weirs, seven sewer pumps, one sluice and one wastewater-treatment plant; HWH IMWA and DAMO OGC APIs are CC BY-SA 4.0 national aggregations with contributor-dependent completeness and no guaranteed common refresh cadence: https://api.pdok.nl/hwh/waterschappen-kunstwerken-imwa/ogc/v2 and https://api.pdok.nl/hwh/waterschappen-waterketen-damo/ogc/v1",
+        "WDODelta's open GIS portal exposes dikes, primary watercourses, level areas, weirs and pumps for reuse/visualization; layer licences and refresh dates must be retained individually: https://www.wdodelta.nl/kaarten",
+        "The direct WDODelta RWZI FeatureServer identifies Dalfsen and is integration-ready monthly CC0, updated 2026-05-05, with CSV/KML/SHP alternatives: https://services6.arcgis.com/BZiPrSbS4NknjGsQ/arcgis/rest/services/RWZI_opendata/FeatureServer and https://data.overheid.nl/en/dataset/rwzi-",
+        "Points and published numeric fields do not by themselves establish connected catchments, flow direction, compatible capacity units, current pump state, backup power, storage, exceedance or restoration"
+      ]
+    },
+    {
+      "publisher": "Watermanagementcentrum Nederland / Rijkswaterstaat / KNMI",
+      "title": "E04 — LIWO flood scenarios, Waterinfo observations and event-time precipitation",
+      "url": "https://iplo.nl/thema/water/applicaties-modellen/berichtgeving-crisismanagement/liwo/",
+      "accessedAt": "2026-09-02T19:32:42Z",
+      "edition": "LIWO 2025.1.6; Waterinfo snapshot 2026-09-02; KNMI current services",
+      "supports": [
+        "LIWO is professional preparation data whose correct interpretation requires water-manager expertise; its scenario catalogue separates unprotected flooding, primary-defence breach, non-primary-defence breach and regional-water flooding and can include depth, arrival, rise, velocity, warning, duration and evacuation products",
+        "The public LIWO geoserver exposes WMS/WFS capability at https://basisinformatie-overstromingen.nl/geoserver/ows, but a specific scenario/version, terms, boundary condition and expert approval must be pinned before it changes simulation; a guaranteed release cadence and standard reuse licence were not established",
+        "The cached Waterinfo layer contains one fresh GM0148 point observation: Dalfsen, Vechterweerd at -18 cm NAP at 2026-09-02T17:30:00Z. Waterinfo latest values are generally produced every ten minutes and CC0 unless a component says otherwise, but the public service is non-mission-critical and a point is not a flood footprint, warning threshold, breach or scenario forecast: https://www.rijkswaterstaat.nl/water/waterdata",
+        "KNMI radar/gauge precipitation provides five-minute national grids via Open Data API/notification/WMS under CC BY 4.0; WDODelta rain-gauge deliveries are available after KNMI quality control every five minutes under CC BY 4.0: https://dataplatform.knmi.nl/catalog/datasets/index.html?x-dataset=waterboard_raingauge_quality_controlled_wdodelta&x-dataset-version=1.0",
+        "Observed water level/rainfall, an official scenario and a synthetic exercise are different evidence classes and must never silently overwrite one another"
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio IJsselland",
+      "title": "E05 — Crisisplan 2023–2026, population-care roles and continuous risk monitoring",
+      "url": "https://www.vrijsselland.nl/crisisplan-2023-2026/",
+      "accessedAt": "2026-09-02T19:32:42Z",
+      "edition": "Crisisplan 2023–2026 with addendum adopted 2025-12-10",
+      "supports": [
+        "The current plan defines responsibilities, authority, information lines and flexible CoPI/ROT/GBT/RBT composition for acute and non-acute crises; incident conditions determine structure and expertise rather than a fixed automatic time sequence",
+        "Municipalities transferred communication, acute population care and aftercare to the safety region; concrete population-care processes include public information, reception/care, aftercare and victim/damage registration: https://www.vrijsselland.nl/crisisbeheersing-en-rampenbestrijding/",
+        "The current strategic agenda replaces a once-per-four-year snapshot with continuous risk signalling and monitoring: https://www.vrijsselland.nl/strategische-beleidsagenda-2023-2026/",
+        "The dated 2018 regional profile marks Dalfsen as having potential flood areas and nature-fire areas above 100 ha and identifies critical-infrastructure, road, rail and waterway vulnerabilities; this is planning context, not current asset state or a prediction: https://www.vrijsselland.nl/wp-content/uploads/2018/09/Veiligheidsoverleg-3-oktober-2018.pdf",
+        "No public plan provides checkpoint-specific local teams, vehicles, shelters, stocks, warnings, decisions or guaranteed service restoration"
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / PDOK / ProRail / Nationaal Dataportaal Wegverkeer",
+      "title": "E06 — Road, rail, station, transit and current-road context",
+      "url": "https://api.pdok.nl/rws/nationaal-wegenbestand-wegen/ogc/v1?f=html&lang=nl",
+      "accessedAt": "2026-09-02T19:32:42Z",
+      "edition": "NWB-Light 2026-08-01; ProRail and NDW snapshots 2026-09-02; OVapi GTFS 2026-08-31",
+      "supports": [
+        "The generated GM0148 municipal-node graph contains eleven NWB-derived border links to Zwolle, Staphorst, Hardenberg, Raalte and Ommen, each with 150 synthetic nominal units; NWB OGC/download is monthly CC0 and preserves junction/source geometry but not incident-time throughput",
+        "ProRail's CC0 OGC context places station Dalfsen inside the boundary and is manually updated; 54 OVapi GTFS stop areas are static best-effort context without live trips, capacity, ridership, incidents or a service-level agreement: https://api.pdok.nl/prorail/spoorwegen/ogc/v1",
+        "The NDW DATEX snapshot published 2026-09-02T15:25:00Z is CC0 unless stated and contains zero qualifying records intersecting GM0148; no record means no intersecting message in one filtered snapshot, not an all-clear or proof of passability: https://opendata.ndw.nu/actueel_beeld.xml.gz",
+        "NWB roads, ProRail geometry and GTFS stops are useful public physical/context layers but do not encode the Dalfsen bridge's flood passability, evacuation throughput, emergency priority, clearance, train/bus operation or repair access"
+      ]
+    },
+    {
+      "publisher": "Stichting Mijn Aansluiting / Vitens / RDI / RIVM / DUO / KVK",
+      "title": "E07 — Public provider, drinking-water, telecom, acute-care, education and government context",
+      "url": "https://wiki.service.mijnaansluiting.nl/wiki/spaces/Wiki/pages/693731329",
+      "accessedAt": "2026-09-02T19:32:42Z",
+      "edition": "Provider records dated 2025-09-07; register/questionnaire snapshots 2026-08-31 to 2026-09-02",
+      "supports": [
+        "Live public provider-area WMS/WFS at the municipality reference point returns Enexis for electricity and gas, Vitens for drinking water and Ziggo for media; no drainage polygon is returned. It is Public Domain provider-supplied territory context with provider-variable dates and possible incomplete/overlapping sewer/media coverage, not full-boundary responsibility, topology or state: https://public.geodata.mijnaansluiting.nl/geoserver/mijnaansluiting_open/ows",
+        "Vitens advises nine litres per person for three days and states it is prepared to keep supplying water for ten days without electricity, while warning that a high-rise building's own pressure system can fail; this is operator preparedness context, not proof of GM0148 pressure, quality or universal continuity: https://www.vitens.nl/over-water/drinkwater-in-uw-noodpakket",
+        "RDI WFS returns 65 antenna sites and 148 antennas inside GM0148, including 32 mobile sites/96 mobile antennas and 16 fixed-link sites. The service states no reuse licence or fixed cadence; deployment points do not establish coverage, operator, backhaul, traffic, power/backup, damage, congestion or availability: https://antenneregister.nl/mapserver/wfs/",
+        "RIVM 2026 v1.1 is an annual national CC0 acute-care questionnaire. It lists no acute hospital inside GM0148; nearest Isala Zwolle is 10.31 km straight-line from the municipality centre and reports 24/7 SEH, acute obstetrics and 20 rooms. This is dated role context, not travel time, acceptance, staffing, occupancy, diversion or generator endurance: https://datacatalogus.rivm.nl/dataset.xhtml?persistentId=doi%3A10.21945%2F8E767B2D-9CED-4A85-A95D-3AC1A608C663",
+        "DUO's daily RIO snapshot contains 22 education-location records in GM0148 (17 WPO, one WVO and four blank-framework registered-use records). Dataset metadata says Creative Commons Attribution with version unspecified, while DUO's general reuse page says CC0; resolve the licence record before redistribution. Locations are not verified shelters or live occupants: https://onderwijsdata.duo.nl/dataset/c416acd1-e083-4ec6-9203-3b20f98fe143",
+        "The KVK/PDOK INSPIRE subset contains four public-order/safety or administration addresses and is partial Public Domain Mark 1.0 context; a registered address is not an emergency role, opening, staffing or capacity: https://api.pdok.nl/kvk/overheidsdiensten-geharmoniseerd/ogc/v1"
+      ]
+    },
+    {
+      "publisher": "Rijksoverheid / KNMI / NIPV / Brandweer Nederland",
+      "title": "E08 — First-72-hour preparedness and event-specific weather, earthquake and nature-fire evidence",
+      "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/veiligheidsregios-en-crisisbeheersing/wat-zit-er-in-een-noodpakket",
+      "accessedAt": "2026-09-02T19:32:42Z",
+      "edition": "Current official guidance and data services accessed 2026-09-02",
+      "supports": [
+        "Rijksoverheid advises household preparation for the first 72 hours, including three litres of water per person per day, food, radio/power bank, first aid and medicines. It is guidance, not observed local stock, self-reliance, aid arrival or a restoration deadline",
+        "Rijksoverheid states that drinking-water companies use delivery plans, reserves and self-generation and that priority electricity decisions may concern hospitals, sluices and dams; these are national continuity principles, not GM0148 operator telemetry or commitments: https://www.rijksoverheid.nl/themas/recht-veiligheid-en-defensie/dreiging-in-nederland/energie-drinkwater-internet-zorg-bereikbaarheid-tijdens-crisis",
+        "NIPV's professional RIN evaluates 17 parameters per square kilometre for the chance of an uncontrolled nature fire; no public bulk API, standard reuse licence or fixed refresh cadence was established: https://nipv.nl/informatievoorziening/voorzieningen/risico-index-natuurbranden/",
+        "Brandweer Nederland says the regional nature-fire phase is assessed daily using index values, KNMI/other meteorology, terrain-manager information, fire-service expertise and observations; a current phase is decision context, never the canonical scenario clock: https://www.brandweer.nl/natuurbrandrisico/",
+        "KNMI FDSN event services are automatically updated when earthquakes are published, and reviewed ShakeMap NetCDF grids for qualifying events are CC BY 4.0; event identity, ground motion, site response and asset fragility must be selected before local damage is claimed: https://rdsa.knmi.nl/fdsnws/event/1/query?format=text and https://rdsa.knmi.nl/shakemaps/2/"
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "The generated code, name, province and safety-region assignment agree with official 2025 inputs.",
+      "evidenceRefs": ["E01", "E05"],
+      "notes": [
+        "Feature id, municipality bundle code and bundle name all equal GM0148 / Dalfsen.",
+        "The official safety-region layer assigns GM0148 uniquely to Veiligheidsregio IJsselland.",
+        "Boundary and statistics editions are both 2025 and are surfaced separately from newer public-context snapshots."
+      ]
+    },
+    "geography": {
+      "status": "warn",
+      "summary": "The generalized boundary and centre are coherent for overview selection but do not resolve Vecht/IJssel, dike, outside-dike, forest or drainage geography.",
+      "evidenceRefs": ["E01", "E02", "E03", "E04"],
+      "notes": [
+        "Generated centre [6.274735572844502, 52.52602404225478] lies inside the 2025 generalized municipality polygon.",
+        "Official evidence distinguishes the Vecht, western IJssel influence, unprotected river margins, current quay, future dike-strengthening reach, water-control assets and higher wooded ground; a single centre and generalized polygon cannot represent those mechanisms.",
+        "Use full-resolution geometry plus source-native no-data masks and one authority-selected event before intersecting flood, terrain, defence, bridge, building, road or facility exposure."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Municipal totals match CBS 2025 and neighbourhood population reconciles within documented publication rounding.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "Official/generated population is 30,047, density 182/km², age 65+ is 23.1% (published neighbourhood age-65+ sum 6,910), and one-person households number 3,529.",
+        "Published neighbourhood population sums to 30,030, seventeen below the municipal total (-0.057%); the deterministic allocator reconciles exactly to 30,047 without creating zero-population neighbourhoods.",
+        "Resident aggregates do not identify who is present at an incident, care-home occupancy, commuters, visitors, recreation guests, individual health vulnerability or household emergency stocks."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "All 36 neighbourhood rows load, but six car fields and all district-heating/charging fields remain Unknown and none is a hazard footprint.",
+      "evidenceRefs": ["E01", "E02"],
+      "notes": [
+        "Largest published neighbourhoods are Polhaar 2,135, Nieuwleusen Noord 2,035, Ankummer Es 2,020, Nieuwleusen Centrum-zuid 2,000 and Gernermarke-Oosterdalfsen 1,980.",
+        "Cars per household is available for 30/36 neighbourhoods; district-heating percentage and public-charging fields have 0/36 usable values. These remain null and must never be rendered as zero.",
+        "CBS doctor/supermarket distances and demographic values are planning indicators, not live facility availability, mobility, supply stock, outage or evacuation need."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "BAG places and BRT settlements resolve without label-centre leakage and preserve Dalfsen's dispersed communities.",
+      "evidenceRefs": ["E01", "E02"],
+      "notes": [
+        "BAG woonplaatsen are Dalfsen, Lemelerveld and Nieuwleusen; 24 BRT settlements include Ankum, Hessum, Hoonhorst, Oudleusen, Rechteren, Ruitenveen and Welsum.",
+        "No BAG place centre lies outside the generalized municipality boundary.",
+        "Labels and published resident totals are descriptive and do not establish incident-time population, woodland occupancy, isolated households or service demand."
+      ]
+    },
+    "transport": {
+      "status": "fail",
+      "summary": "Public road/rail/transit inputs are present, but the municipal-node graph cannot represent the Dalfsen Vecht bridge, internal isolation or live operation.",
+      "evidenceRefs": ["E02", "E03", "E06"],
+      "notes": [
+        "The graph exposes eleven NWB boundary links with 1,650 total synthetic nominal units to five neighbouring municipalities; all physical corridor ids resolve, but the values are generalized exercise capacity rather than lane, vehicle or emergency throughput.",
+        "E02's dated official answer confirms the bridge structure was checked for high water yet explicitly leaves access unresolved if the bridge is under water. A one-node municipality cannot distinguish north/south Dalfsen or route emergency/logistics traffic around that crossing.",
+        "Station Dalfsen and 54 GTFS stop areas are static context. No train/bus run, occupancy, timetable adherence, accessible vehicle, incident capacity or emergency priority is ingested.",
+        "Zero intersecting NDW situations is no record in one time-filtered snapshot, not proof that every road, bridge, rail service or path is open."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "Official crisis roles and useful public locations exist, but warnings, decisions, verified roles, occupants, stocks, crews and continuity state are absent.",
+      "evidenceRefs": ["E05", "E07", "E08"],
+      "notes": [
+        "VR IJsselland's structure is incident-driven; it does not validate automatic status labels, fixed interventions or restoration at a checkpoint.",
+        "Four KVK public-order/safety or administration addresses and 22 DUO education records are context only, not verified command posts, reception centres, shelters, distribution points, staffing or live capacity.",
+        "No RIVM acute hospital lies inside GM0148; nearest Isala Zwolle is 10.31 km straight-line from the municipal centre. This says nothing about ambulance route/time, bridge dependence, acceptance, staffing, occupancy, diversion or generator state.",
+        "Preparedness for 72 hours and Vitens' published continuity statement are guidance/operator context, not observed local household supplies or a service guarantee."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten canonical presets produce complete finite output at every required checkpoint and service, with evidential defects recorded separately.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E08"],
+      "notes": [
+        "The focused matrix executed severe storm, pluvial flood, river flood, coastal flood, heatwave, winter storm, cyberattack, earthquake, wildfire and compound at T+0/6/12/24/48/72 across power, water, drainage, gas, telecom, mobility, facilities and supply.",
+        "At T+24 severity / system pressure / affected people-equivalent / cumulative event-attributable service person-hours are storm 0.0561 / 0.3388 / 8,416 / 69,084.51; pluvial 0.2943 / 0.2797 / 5,916 / 102,607.77; river 0.3628 / 0.4342 / 12,453 / 188,411.58; coastal 0.0658 / 0.0761 / 0 / 33,098.05; heat 0.0861 / 0.2084 / 2,894 / 62,215.62.",
+        "Remaining T+24 values are winter 0.4263 / 0.4136 / 11,580 / 92,307.28; cyber 0.4899 / 0.2764 / 5,773 / 153,263.74; earthquake 0 / 0.1691 / 1,229 / 48,761.64; wildfire 0.1289 / 0.2217 / 3,459 / 39,355.53; compound 0.8671 / 0.4405 / 12,724 / 275,387.61.",
+        "At T+72 river remains degraded at severity 0.3628, pressure 0.3839 and 10,327 affected, while compound remains degraded at severity 0.3912, pressure 0.4541 and 13,296 affected. These are deterministic exercise estimates, never observations, probabilities, warnings or operator forecasts.",
+        "Coastal produces zero direct inundation but a 20.49 m/s wind component at T+24; zero is scoped to the sea-inundation screen and does not imply safety from Vecht/IJssel, pluvial, drainage or wind effects."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "The focused gate passes deterministic, finite, exact-zero, causal, allocation, reconciliation and monotonic-burden contracts.",
+      "evidenceRefs": [],
+      "notes": [
+        "MUNICIPALITY_AUDIT_CODE=GM0148 pnpm audit:model passed both tests on current code across 10 presets × 6 checkpoints × 8 services.",
+        "All intensity-zero runs have exactly zero current/peak severity, affected people-equivalent and event-attributable person-hours at every checkpoint.",
+        "Every local map allocates exactly 30,047 residents and all 36 neighbourhoods; maximum reconciliation, demand and delivery error is 1.4210854715202004e-14.",
+        "Changing the selected service layer leaves every local hazard value exactly invariant, cumulative event-attributable person-hours are monotonic and matched to the no-event baseline, and route flows remain within declared logical capacity."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "The national flood screens and shared neighbourhood seed do not represent Dalfsen's river, drainage, terrain, heat, fire or cyber geography.",
+      "evidenceRefs": ["E02", "E03", "E04", "E08"],
+      "notes": [
+        "At T+24 storm, pluvial, river, coastal, heat, winter, cyber and wildfire have the exact same complete 36-neighbourhood order, beginning Gernermarke-Oosterdalfsen, Bedrijventerrein De Evenboer, Nieuwleusen Centrum-noord and Lemelerveld kern oost.",
+        "The river range 0.3018–0.4267, pluvial range 0.2448–0.3461, heat range 0.0716–0.1013 and wildfire range 0.1073–0.1517 are scaled variants of one seed, not selected Vecht/IJssel, sewer/catchment, shade/building/vulnerability or forest/fuel footprints.",
+        "A controlled T+24 wildfire source at [6.315564174394882, 52.49855405887393] falls in BU01480112 Verspreide huizen Hessum-Rechteren and gives municipality direct fire 0.4418, but the containing neighbourhood ranks 32/36 at 0.3868 while Gernermarke-Oosterdalfsen ranks first at 0.5403.",
+        "The canonical wildfire is instead a remote-smoke exercise in Dalfsen: direct fire 0, smoke 0.3176 and drought 0.5452 at T+24. Neither run samples RIN/fuel, vegetation moisture, wind-aware spread, access or suppression water.",
+        "No full-resolution LIWO/WDODelta event, AHN/catchment surface, KNMI apparent-temperature field, named cyber target or KNMI event-specific ground-motion grid controls local ranking."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "All eight balances are inspectable, but one eleven-road graph cannot represent physical utilities, drainage, telecom, facilities or stocked logistics.",
+      "evidenceRefs": ["E03", "E06", "E07", "E08"],
+      "notes": [
+        "Power, water, drainage, gas, telecom, mobility, facilities and supply all reuse the same eleven NWB links and 1,650 abstract capacity units. The model correctly calls them logical transfer proxies, but exact local values remain visually precise.",
+        "At river T+24 modeled availability is power 0.3570, water 0.8255, drainage 0.5280, gas 0.8936, telecom 0.7937, mobility 0.3564, facilities 0.3720 and supply 0.5415; no cited water manager, operator, care authority or logistics source validates these exact values.",
+        "Public context identifies Enexis electricity/gas, Vitens water and Ziggo media at one point, 198 water-management assets and 65 RDI antenna sites, but not complete topology, flow/pressure, switching, water quality, backhaul, stock, priority users, backup or live state.",
+        "Vitens' ten-day electricity-loss preparedness statement is materially different from a universal guaranteed pressure/quality outcome. Canonical storm water availability falls to 0.3426 at T+12 while power is 0.2535, then water returns to 0.8585 at T+24 with power still 0.2535; the exact trajectory has no local operator calibration.",
+        "The empty drainage-provider polygon is incomplete/Unknown provider-area coverage, never evidence of no responsible water/sewer organization or no drainage service."
+      ]
+    },
+    "causalTrace": {
+      "status": "fail",
+      "summary": "Arithmetic closes, but local river/fire evidence and physical-network meaning do not; causal labels overstate generic screens and roads.",
+      "evidenceRefs": ["E02", "E03", "E04", "E06", "E07"],
+      "notes": [
+        "Service-stage deltas, weighted pressure, local demand/delivery and matched-no-event person-hour arithmetic reconcile for the full matrix.",
+        "The Rhine, Meuse & IJssel preset uses municipality-centre distance to three schematic national line segments. For GM0148 it selects no Overijsselse Vecht/IJssel boundary condition, current defence state, breach/overtopping, unprotected footprint, bridge passability, terrain, arrival or recession, yet spatial evidence remains derived-screening rather than unsupported.",
+        "The legacy internal field floodDepthM is displayed as normalized inundation stress divided by 1.5; T+24 river internal value 1.1659 is not observed metres and is unsupported as a local fraction without a selected scenario.",
+        "NWB geometry supports mobility context and potentially repair/logistics access. It cannot causally establish cable, pipe, sewer, gas, radio-backhaul, patient-transfer or inventory connectivity."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "The 72-hour curves are numerically coherent but not calibrated to Vecht duration, bridge access, operator restoration, care continuity or public actions.",
+      "evidenceRefs": ["E03", "E04", "E05", "E07", "E08"],
+      "notes": [
+        "River forcing and internal inundation stress remain exactly 0.3628 and 1.1659 at T+12/24/48/72; T+72 power, drainage, mobility and supply remain exactly 0.3570, 0.5280, 0.3564 and 0.5415, with 759,013.82 cumulative event-attributable service person-hours. No selected Vecht/IJssel scenario validates that plateau or recession.",
+        "Compound remains degraded at T+72 with 13,296 affected and 1,024,258.56 cumulative service person-hours; no confirmed compound-event warning, cyber target, storm footprint or operator state supports the exact result.",
+        "Heat retains severity 0.0861 and drought 0.4783 at T+72 while affected people-equivalent is zero. That threshold outcome cannot be interpreted as no residual health, water, vegetation, care or supply burden.",
+        "No warning, bridge/road closure, dike/pump state, switching, crew/fuel/spares, hospital acceptance, verified reception point, household stock or action confirmation is ingested. A 72-hour preparedness horizon is not a promise that services recover by T+72."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": ["power", "water", "drainage", "gas", "telecom", "mobility", "facilities", "supply"]
+  },
+  "findings": [
+    {
+      "id": "GM0148-RIVER-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The major-river preset reports a persistent precise Dalfsen impact without selecting the local Vecht/IJssel/defence pathway.",
+      "evidence": "E02–E04 distinguish western IJssel influence, Vecht outside-dike inundation, Vechtdikes, the current Dalfsen quay, defence weaknesses, water-control assets and multiple LIWO flood classes. Canonical river instead uses centre distance to schematic Rhine/Meuse/IJssel lines and reports internal stress 1.1659, severity 0.3628, 12,453 affected at T+24 and 10,327 at T+72, unchanged forcing through T+72. It selects no Vecht or IJssel water level, defence/breach/overtopping state, connected footprint, terrain, arrival, duration or recession, yet labels the result derived-screening.",
+      "action": "Keep the nonzero amplitude only as an internal diagnostic and expose local result as Unknown until WDODelta/WMCN select a versioned LIWO/LDO event. Add distinct source classes for Vecht high water, IJssel/backwater influence, unprotected areas, primary/regional defence failure and pluvial/regional-water surcharge. Retain boundary condition, defence state, depth/stress unit, connected footprint, arrival/recession, probability/scenario class, uncertainty, no-data, licence and expert approval. Never convert absent coverage to zero or an all-clear."
+    },
+    {
+      "id": "GM0148-BRIDGE-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "The municipal-node graph cannot represent high-water loss of the Dalfsen Vecht bridge or resulting internal isolation.",
+      "evidence": "E02's dated official answer says the bridge was found structurally adequate for the tested high-water level but explicitly leaves reachability open if it is under water. The simulator reduces GM0148 to one node with eleven municipal-border links. It cannot split north/south settlements, close the bridge, choose an alternative path, or route emergency response, Isala access, evacuation, supplies and repair crews around it. NWB/NDW do not currently supply a scenario-time bridge passability state.",
+      "action": "Add typed internal critical crossings and municipal subnodes for Dalfsen/Ankum/Hessum-Rechteren versus the opposite Vecht side, preserving NWB/bridge source ids. Model structure condition separately from deck/approach inundation and traffic restriction. Link only mobility, evacuation, care travel, logistics and repair access; never imply utility failure. Until a selected hydraulic footprint and current authority decision are present, bridge passability and alternative-route capacity remain Unknown."
+    },
+    {
+      "id": "GM0148-SPATIAL-001",
+      "severity": "high",
+      "category": "geography",
+      "status": "open",
+      "summary": "Eight unrelated hazards reuse the exact same full neighbourhood ranking rather than hazard-specific evidence.",
+      "evidence": "At T+24 storm, pluvial, river, coastal, heat, winter, cyber and wildfire all order the 36 neighbourhoods identically, starting Gernermarke-Oosterdalfsen, Bedrijventerrein De Evenboer, Nieuwleusen Centrum-noord and Lemelerveld kern oost. E02–E08 identify distinct river/defence, rain/sewer, shade/vulnerability, ice/road, forest/fire, telecom/power and cyber-target mechanisms. The shared seed therefore cannot be interpreted as a calibrated local exposure map for any of them.",
+      "action": "Replace the shared seed with hazard-specific, source-backed eligibility and susceptibility surfaces plus explicit Unknown masks. Use selected LIWO/WDODelta water footprints, KNMI precipitation/temperature, AHN and water-system context, BRT vegetation/land cover, authorized RIN and a named cyber target. Add regression tests requiring materially different ranks for different mechanisms while preserving hazard invariance across the eight selected service layers."
+    },
+    {
+      "id": "GM0148-FIRE-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "A Hessum-Rechteren ignition ranks its own source neighbourhood 32nd despite official forest/heath and historical fire evidence.",
+      "evidence": "E02 describes the Rechterense and Hessumse Veld as forest with heath/open patches, partly paved access and recreation dwellings, and documents multiple 2018 Rechteren forest fires. A controlled T+24 scenario places the source at [6.315564174394882, 52.49855405887393] inside BU01480112 Verspreide huizen Hessum-Rechteren and produces direct fire 0.4418, but the source neighbourhood has local hazard 0.3868 and ranks 32/36; Gernermarke-Oosterdalfsen ranks first at 0.5403. Canonical Dalfsen wildfire has no direct flame and is only remote smoke/drought.",
+      "action": "Mark Dalfsen wildfire spatial output unsupported. For a direct exercise require a named source/perimeter, BRT or authorized NIPV fuel/vegetation layer, event-valid wind/humidity/moisture, access and suppression-water assumptions; verify the containing/overlapping source area is eligible and spatially controlling. RIN is professional 1-km susceptibility context, not an ignition probability or live spread forecast. If RIN is unavailable, use a clearly synthetic perimeter over public woodland geometry and show uncertainty."
+    },
+    {
+      "id": "GM0148-LIFELINE-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "One road-derived logical graph is cloned into all eight lifelines and lacks operator-calibrated topology, state, backup and restoration.",
+      "evidence": "All eight service views reuse the same eleven NWB routes and 1,650 abstract units. E03/E07 identify 198 public water objects, Enexis/Vitens/Ziggo responsibility at one point and 65 antenna sites, but not complete connectivity, unit-correct capacity, switching, pressure, water quality, backhaul, stock, priority users, backup or live state. At river T+24 exact availability ranges from facilities 0.3720 and mobility 0.3564 to gas 0.8936, none validated by an operator. The model disclaimer is correct, but the displayed precision is not local evidence.",
+      "action": "Keep NWB for mobility and eligible logistics/repair access only. Build separate, privacy/security-safe aggregate service zones and uncertainty ranges, or ingest authorized operator aggregates with explicit units and topology semantics. Every layer must show source/version/valid time, official-context versus observed versus scenario versus synthetic, completeness and affectsSimulation. Unavailable or security-sensitive topology/state must remain Unknown; the smallest fallback is a documented synthetic aggregate dependency graph, never cloned roads presented as assets."
+    },
+    {
+      "id": "GM0148-WATERCHAIN-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "open",
+      "summary": "Public water-system assets are useful context, but drainage, potable volume/pressure and water quality remain causally unresolved.",
+      "evidence": "E03 provides 198 HWH points, including seven sewer pumps and RWZI Dalfsen, while the direct WDODelta RWZI feed is monthly CC0; completeness, topology, direction, capacity units, state and backup remain unresolved. E07 returns Vitens at the centre, no drainage provider polygon, and a ten-day electricity-loss preparedness statement. Canonical severe storm nevertheless drops water availability to 0.3426 at T+12 and restores it to 0.8585 at T+24 while power stays 0.2535. One water score cannot distinguish pressure/volume, contamination/boil advice or a building's own pressure system, and one drainage score cannot distinguish sewer from surface-water control.",
+      "action": "Separate potable quantity/pressure, quality/advisory, wastewater conveyance and surface-water drainage. Keep HWH/WDODelta points visual/context-only until catchment, direction, compatible units, operating state and backup are validated; use direct monthly WDODelta feeds for provenance checks. Add explicit provider-coverage Unknown and water-quality state. Calibrate only against authorized operator aggregate continuity data, preserving Vitens' published statement as preparedness context rather than a guaranteed local curve."
+    },
+    {
+      "id": "GM0148-FACILITY-SUPPLY-001",
+      "severity": "medium",
+      "category": "regional-data",
+      "status": "open",
+      "summary": "External acute care, schools, public-service addresses and household supply guidance are not modeled as verified operational capacity.",
+      "evidence": "E07 lists no RIVM acute hospital in GM0148 and places Isala Zwolle 10.31 km straight-line from the centre; 22 DUO locations and four KVK public-service addresses are present but not shelters, reception centres, distribution hubs or staffed capacity. E08 advises 72-hour household stocks, including nine litres of water per person, but no GM0148 household, care-home, pharmacy, food/fuel depot, vehicle or staff inventory is observed. The generic facilities and supply curves therefore cannot be read as actual care acceptance or stock delivery.",
+      "action": "Add privacy-safe, officially role-verified classes for care homes, primary care/pharmacies, reception/support points and food/water/fuel logistics only where public or authorized. Couple the Vecht bridge and live road state to travel/logistics/repair paths, not automatic facility closure. Treat education/government points as context until the responsible authority confirms role, valid time, accessibility, staffing and capacity; keep Isala acceptance, occupancy and generator endurance Unknown without authorized feeds."
+    },
+    {
+      "id": "GM0148-72H-001",
+      "severity": "medium",
+      "category": "explainability",
+      "status": "open",
+      "summary": "The first-72-hour dashboard lacks a validated decision/action ledger and risks turning preparedness into restoration certainty.",
+      "evidence": "E05 assigns incident-driven roles and decision structures; E08 provides household and continuity guidance. Neither validates a fixed preparedness coefficient, automatic intervention, evacuation, aid arrival or service restoration at any checkpoint. The simulator shows exact statuses, affected people-equivalent and cumulative service person-hours but ingests no confirmed warning, dike/pump/bridge decision, requested/accepted assistance, reception point, fuel/water/food stock, crew assignment or operator estimated restoration time.",
+      "action": "Add a separate first-72-hour action ledger with proposed/requested/confirmed/completed/cancelled state, responsible authority/operator, source, timestamp, expiry, geography and confidence. At each checkpoint show current hazard, all eight availabilities, affected people-equivalent, cumulative event-attributable service person-hours and unresolved data. Label 72 hours as the exercise and preparedness horizon, never a recovery guarantee."
+    },
+    {
+      "id": "GM0148-HAZARDS-001",
+      "severity": "medium",
+      "category": "hazard",
+      "status": "accepted-limitation",
+      "summary": "Storm, pluvial, coastal, heat, winter, cyber and earthquake outputs are coherent stress tests but lack Dalfsen event and asset calibration.",
+      "evidence": "E02/E05 support local extreme rain, wind, heat/drought, winter disruption, flood and critical-infrastructure concerns but no exact preset curve. Coastal correctly produces zero direct sea inundation while retaining wind, yet that zero does not address river/regional water. Cyber has no named target, architecture or attack path. Earthquake has no selected KNMI event or local ground-motion/site/fragility method and shows residual service pressure after current forcing reaches zero. No authoritative source validates exact T+24 winter severity 0.4263, cyber 0.4899, heat 0.0861, coastal 0.0658 or earthquake recovery.",
+      "action": "Retain these only as visibly synthetic stress tests with parameters, sensitivity and uncertainty. For observed replays pin KNMI radar/meteorology/FDSN/ShakeMap and Waterinfo/NDW data to valid time and edition. Require a named cyber target and attack/containment path, and an event-specific earthquake ground-motion grid plus asset fragility before claiming direct local impact. Preserve calculated zero, Unknown and not-applicable as different states."
+    },
+    {
+      "id": "GM0148-NODATA-001",
+      "severity": "medium",
+      "category": "ui",
+      "status": "open",
+      "summary": "Several empty or null public-data intersections can be mistaken for zero infrastructure, zero risk or normal operation.",
+      "evidence": "GM0148 has no drainage-provider polygon, no RIVM acute hospital, no intersecting NDW situation, no in-boundary RIVM PM2.5 station, no district-heating/charging statistic and six missing cars-per-household values. These mean incomplete provider mapping, no listed SEH in-boundary, no record in a filtered snapshot, no station, and unavailable/suppressed CBS values—not absence of service, hazard or outage. In contrast, coastal direct inundation is a calculated scenario zero. HWH has 198 points, KVK four and DUO 22, but positive counts still do not confer emergency roles or operation.",
+      "action": "Use a three-state data contract across maps, legends, tables, tooltips, APIs and exports: measured/modeled zero, Unknown/not covered, and not applicable. Show source edition, valid/retrieval time, completeness, licence and affectsSimulation next to each layer. Add tests that empty provider/facility/incident/station intersections cannot render as safe, normal, no infrastructure or zero service."
+    },
+    {
+      "id": "GM0148-INVARIANTS-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The focused numerical and semantic invariants pass for GM0148 on the audited build.",
+      "evidence": "The focused harness passes two tests covering all ten presets, six checkpoints and eight services. Outputs are finite and bounded, intensity-zero semantics are exact, 30,047 residents reconcile in every local map, demand/delivery closes within 1.4210854715202004e-14, service-layer selection cannot change local hazard, route flow stays within declared logical capacity, and cumulative event-attributable person-hours are monotonic and matched to the no-event baseline.",
+      "action": "Retain the focused municipality gate in CI and add regressions for unsupported Vecht/IJssel output, distinct hazard rankings, a Hessum-Rechteren source-containment rule, bridge-state Unknown, service-specific topology semantics and no-data rendering."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Replace Dalfsen's generic named-river screen with an authority-selected Vecht/IJssel and defence-aware evidence contract.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/public/data/hazards/GM0148-water-context.json",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Before correction, river severity and internal stress are exactly 0.3628 and 1.1659 at T+12/T+24/T+48/T+72, with 12,453 affected at T+24 and 10,327 at T+72. Mark local output unsupported/Unknown while retaining any diagnostic value internally. Require a versioned WDODelta/WMCN-selected LIWO/LDO event with flood class, boundary condition, defence/breach/overtopping state, connected footprint, true units, arrival/duration/recession, probability/scenario class, no-data, uncertainty, licence and approval; never infer safety from missing coverage."
+    },
+    {
+      "summary": "Retire the shared neighbourhood seed and correct source-aware wildfire allocation.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/public/data/hazards/GM0148-spatial-context.json"
+      ],
+      "validation": "Before correction, eight T+24 hazards share the exact complete 36-neighbourhood order. The controlled Hessum-Rechteren fire source ranks its containing BU01480112 32/36. Require mechanism-specific spatial evidence/Unknown masks, materially different rankings for distinct hazards, source/perimeter containment for direct fire, deterministic regeneration and exact hazard invariance across all eight selected service layers."
+    },
+    {
+      "summary": "Represent the Dalfsen Vecht bridge and internal access separately from municipality-border routes.",
+      "files": [
+        "scripts/apply-audited-lifelines.mjs",
+        "apps/web/public/data/transport-network.json",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts"
+      ],
+      "validation": "Add a source-preserving typed bridge/internal-crossing representation with north/south municipal subnodes. Separately test structure integrity, approach/deck inundation, authority restriction and alternative-route reachability. Apply it only to mobility, care travel, evacuation, logistics and repair access. Without a selected hydraulic event and live decision, passability/capacity remains Unknown and does not trigger utility outages."
+    },
+    {
+      "summary": "Separate public water/drainage context and all physical lifelines from the NWB logical transfer graph.",
+      "files": [
+        "scripts/fetch-water-assets.mjs",
+        "apps/web/public/data/public-context/water-assets.geojson.gz",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Preserve all 198 HWH objects and direct WDODelta monthly RWZI provenance as context until catchment, direction, unit compatibility, operating state and backup are validated. Split potable quantity/pressure, quality/advisory, wastewater and surface-water drainage. Enforce service-specific topologySemantics, source/version/valid time/completeness and affectsSimulation; unavailable or sensitive power/gas/water/telecom topology stays Unknown or uses a clearly labelled aggregate synthetic fallback with ranges."
+    },
+    {
+      "summary": "Add verified facility/logistics roles and an auditable first-72-hour decision/action ledger.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/AnalyticsDrawer.tsx",
+        "apps/web/public/data/public-context/GM0148-response-context.json"
+      ],
+      "validation": "DUO/KVK points remain context unless VR IJsselland/Gemeente Dalfsen confirms role, time, accessibility, staffing and capacity. External Isala acceptance/occupancy and local stocks remain Unknown. Add proposed/requested/confirmed/completed/cancelled actions with owner, source, valid time, expiry, area and confidence. At every checkpoint show all eight services, affected people-equivalent, cumulative event-attributable service person-hours and unresolved inputs; never treat 72 hours as guaranteed recovery."
+    },
+    {
+      "summary": "Make evidence class, data absence and uncertainty explicit for every operational-looking map and export.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "apps/web/src/data.ts",
+        "apps/web/src/components/MapView.tsx",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/AnalyticsDrawer.tsx"
+      ],
+      "validation": "Every metric/layer/export distinguishes observed, official context, official scenario and synthetic exercise; exposes source, edition, valid/retrieval time, unit, completeness, licence, confidence and affectsSimulation; and renders modeled zero, Unknown and not-applicable distinctly. Add regressions for empty drainage-provider, SEH, NDW, PM2.5, district-heating and charging inputs."
+    }
+  ],
+  "residualLimitations": [
+    "This is a deterministic first-72-hour planning stress test, not a KNMI/Rijkswaterstaat/WDODelta forecast, official warning, probability estimate, evacuation order, casualty model or operator outage/restoration forecast.",
+    "No expert-selected Vecht/IJssel/LDO/LIWO event, boundary water level, defence or breach/overtopping state, connected footprint, arrival/recession, verified depth unit or no-data mask is ingested for GM0148; normalized inundation stress is not observed metres.",
+    "The generalized CBS boundary and shared neighbourhood seed do not resolve dikes, outside-dike areas, catchments, terrain, bridge decks/approaches, buildings, paving, shade, fuel, households, visitors or individual vulnerability.",
+    "CBS neighbourhood values are rounded/suppressed; the -17 population difference is publication semantics, and null district-heat/charging/car fields are Unknown rather than zero.",
+    "The bridge evidence is an official 2021 planning answer, not current telemetry; structural adequacy, inundation/passability, traffic controls and alternative routes are separate states.",
+    "NWB and ProRail are physical network context but do not establish incident-time passability, train/bus operation, traffic, emergency throughput, evacuation, clearance or repair access; static OVapi GTFS carries no operating guarantee.",
+    "No intersecting NDW situation in one 2026-09-02 snapshot is not an all-clear, and some NDW supplier messages are unvalidated.",
+    "HWH's national aggregation is contributor-dependent; 198 points and published capacities do not define a connected drainage/sewer network, unit-compatible live capacity, operating state or backup.",
+    "The one Vechterweerd Waterinfo observation is time-stamped point context, not a municipality-wide water surface, threshold, breach, warning or forecast; public Waterinfo is non-mission-critical.",
+    "No complete public causal Enexis feeder/switching, Vitens pipe/pressure/quality, gas pressure-district, sewer, Ziggo/mobile backhaul or operator restoration topology is authorized in the model.",
+    "Provider territories identify likely responsibility at one reference point, not full-boundary coverage, connectivity, capacity or state; absent drainage mapping remains Unknown.",
+    "RDI antenna records do not establish coverage, operator, backhaul, traffic, power/backup, damage, congestion, availability or restoration; the WFS states no reuse licence or cadence.",
+    "All eight services currently reuse eleven road-derived logical corridors and cannot be interpreted as physical utility, wastewater, telecom, patient-transfer or stocked logistics networks.",
+    "No RIVM acute hospital is inside GM0148 in the dated layer; straight-line distance to Isala Zwolle does not establish ambulance time, bridge/road reachability, acceptance, staffing, occupancy, diversion or backup endurance.",
+    "DUO/KVK points do not establish command, care, shelter or distribution roles; facilities/supply lack verified care-home, pharmacy, support-point, stock, depot, vehicle and staff state.",
+    "Wildfire lacks a canonical local ignition/perimeter, authorized RIN surface, fuel/moisture, wind-aware spread, access and suppression water; the historical 2018 fires are eligibility evidence, not a future prediction.",
+    "Cyber lacks a named target, architecture, attack path, detection/containment evidence and operator state; earthquake lacks a selected event, local ground motion/site response and asset fragility.",
+    "Generic preparedness, backup, demand, repair and intervention multipliers are exercise controls rather than observed GM0148 resources or commitments.",
+    "Event-attributable essential-service person-hours is a matched-no-event weighted availability proxy, not customer outage-hours, casualties, displacement or welfare loss; six-hour checkpoints can miss rapid changes and 72 hours excludes prolonged high water, contamination and reconstruction."
+  ],
+  "provinceReviewFlags": [
+    "Overijssel/WDODelta/WMCN: distinguish Vecht high water, IJssel/backwater influence, unprotected areas, primary/regional defence failure and regional-water/pluvial surcharge; replace generic centre-distance precision with one selected source-native event and explicit Unknown coverage.",
+    "Overijssel/Dalfsen/road managers: verify the Dalfsen Vecht bridge's structure, deck/approach inundation, authority restriction and alternative-route semantics, and represent internal north/south access without converting it into utility topology.",
+    "Overijssel/VR IJsselland: validate first-72-hour warning, reception/care, evacuation, vulnerable-population, bridge/road, fuel/water/food and public-information workflows as decisions/actions rather than automatic simulator facts.",
+    "Overijssel/operators: use WDODelta/HWH, Mijn Aansluiting, Vitens, RDI, RIVM, DUO, KVK, NWB, ProRail, NDW and KNMI data as typed context where licensed; keep unavailable/security-sensitive topology, capacity, backup and restoration Unknown or transparently synthetic.",
+    "Overijssel/NIPV/KNMI: replace the shared neighbourhood order with mechanism-specific water, rain/drainage, heat, winter-access, fire/fuel/weather, named cyber-target and event-specific earthquake evidence, each with source, valid time, completeness and no-data."
+  ]
+}

@@ -1,0 +1,503 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0779",
+    "name": "Geertruidenberg",
+    "province": "Noord-Brabant",
+    "safetyRegion": "Midden- en West-Brabant"
+  },
+  "agent": {
+    "taskName": "municipality_gm0779",
+    "agentId": "/root/causal_engine_v3",
+    "completedAt": "2026-09-03T01:27:37Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "GM0779 passes the deterministic execution contract for all ten canonical presets, T+0/6/12/24/48/72 and all eight essential services. Its 2025 identity, generalized boundary, 21,944 residents, eleven neighbourhoods, three BAG places, six settlement labels and four A27/A59 border links are internally coherent. Current NWB semantics are also correct: the four road corridors affect only Mobility and road-logistics Supply, never the other six services. Release is nevertheless correction-required. The river preset reports 1.807937 normalized inundation stress, 12,716 affected people-equivalent and exact eight-service availability at T+24 without selecting an Amer/Bergsche Maas/Donge hydrograph, defence state, breach/overtopping mode, connected footprint, depth, arrival or recession; at T+72 flood stress and severity remain unchanged while affected population increases to 13,667. Eight unrelated hazard families reuse one exact neighbourhood ranking and GM0779 has no municipality-specific unsupported-spatial guard, so the browser presents precise neighbourhood patches as derived-screening. Live official HWH/DAMO queries find thirteen surface-water pumps, twenty-one weirs, four sluices and four sewer pumps inside the full boundary while the deployment cache assigns zero water assets. Current REV data find thirty-nine regulated activities inside the boundary, including VARO Energy Terminal and RWE Generation as Seveso activities, yet there is no industrial-release mechanism. The model also omits Amercentrale's regional electricity, heat and inland-shipping dependencies, the external RWZI, incident-time A27/A59/Keizersveer access and out-of-municipality acute care. Public registers and observations can improve typed context, but they do not disclose live utility topology, state, capacity, backup or resources. Current observations, planning records, official scenarios and synthetic T+72 output must remain distinct, and NoData must never become zero or safe.",
+  "provinceReviewFlags": [
+    "Municipality-specific release blocker GM0779-FLOOD-001: select an authority-reviewed Amer/Bergsche Maas/Donge boundary condition and connected hydraulic footprint before presenting local depth, impact or first-72-hour recovery.",
+    "Municipality-specific release blocker GM0779-WATERCHAIN-001: the deployed public water-assets cache returns zero while live HWH/DAMO point-in-polygon queries find material managed-water objects; zero is a contributor/refresh gap, not absence.",
+    "Municipality-specific release blocker GM0779-INDUSTRIAL-001: two Seveso activities and the wider Amer/Dombosch hazardous-activity context have no industrial-release, toxic-cloud, contaminated-fire-water or conditional-response pathway.",
+    "Municipality-specific release blocker GM0779-ENERGY-HEAT-001: Amercentrale electricity, Amer heat-network and inland-shipping dependencies are absent from the causal graph and recovery narrative.",
+    "Shared/national release blocker GM0779-SPATIAL-001: unrelated hazard families reuse a municipality/region hash rather than hazard-specific surfaces or source containment, while selected GM0779 lacks an unsupported-spatial guard.",
+    "Noord-Brabant/Benedenrivieren: do not treat direct coastal zero as an all-clear for combined surge, river discharge, canal/polder water, defence and drainage pathways.",
+    "Shared/national correction confirmed: unqualified NWB roads now support only Mobility and road-logistics Supply and remain explicitly logical transfer proxies.",
+    "Shared/national: public observations, registers, provider territories and planning layers must retain source, edition/valid time, cadence, licence, completeness and affectsSimulation=false unless explicitly selected and transformed for a scenario."
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM0779, Geertruidenberg, Noord-Brabant and safety region Midden- en West-Brabant are internally and officially coherent.",
+      "evidenceRefs": ["E01", "E02"],
+      "notes": [
+        "The generated municipality id/name, province, safety region, 2025 boundary edition and 2025 statistical edition agree.",
+        "Reference point [4.878371243973133, 51.69717799549355] lies inside the generalized boundary; the current full PDOK boundary is one MultiPolygon component with 684 coordinate positions and bounding box [4.823610411152654, 51.67183546130774, 4.933169421303784, 51.72014879368784].",
+        "CBS reports 21,944 residents, density 825 residents/km², 23.1 percent age 65 or older and 3,194 one-person households.",
+        "No identity, province or safety-region contradiction was found."
+      ]
+    },
+    "geography": {
+      "status": "warn",
+      "summary": "Administrative geography is coherent, but it is not hydraulic, industrial-effect, utility, heat-network or emergency-access geography.",
+      "evidenceRefs": ["E01", "E02", "E03", "E04", "E05", "E06", "E07"],
+      "notes": [
+        "Eleven CBS neighbourhoods and three districts support aggregation; three BAG places and six BRT settlement labels preserve Geertruidenberg, Raamsdonksveer, Raamsdonk and smaller-place context.",
+        "Official sources distinguish the Bergsche Maas/Amer, Donge, Wilhelminakanaal/Amertak, primary and regional defences, polders, industrial terrains, Amercentrale, Hooipolder and Keizersveer. Those mechanisms cannot be derived from a municipality centroid or neighbourhood hash.",
+        "The overview boundary has 48 positions versus 684 in the current full boundary. It is appropriate for national selection, not parcel hydraulics, exact water-object inclusion, plume modelling or route passability.",
+        "HWH/DAMO points, REV activity points, flood/terrain rasters, roads, waterways and provider polygons each have different scale, time and completeness; one source never establishes another source's topology or state."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Headline population and aggregate vulnerability inputs agree with CBS 2025 and neighbourhood totals reconcile within publication rounding.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "Eleven independently rounded neighbourhood rows sum to 21,940 residents, four below the municipality total (-0.018 percent); they sum to 9,835 households and 5,065 residents aged 65 or older.",
+        "Largest neighbourhoods are Raamsdonksveer 6,790, Hooipolder en De Hoeven 5,615, Geertruidenberg-Kom 2,985, Geertruidenberg-West 2,415 and Raamsdonk 2,105.",
+        "Age, household form, car access, density and GP/supermarket distance are aggregate context, not individual medical dependence, daytime presence, evacuation need, preparedness or priority.",
+        "Workers at Amer/Dombosch, commuters, visitors, care recipients, responders and displaced people are not represented by resident allocation."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "Eleven neighbourhoods provide useful context, but partial fields and hazard-independent allocation prevent operational prioritization.",
+      "evidenceRefs": ["E01", "E03", "E04", "E06"],
+      "notes": [
+        "All eleven rows carry core population, household, address-density, land/water and proximity inputs. Average home value covers 9/11, cars per household 7/11, disability/old-age/social-assistance shares 8/11 and housing/tenure 10/11.",
+        "District-heating share and public-charging count cover 0/11 and correctly remain null. Missing, suppressed, unavailable and not-applicable values are not calculated zeros.",
+        "Official context distinguishes heat stress in parts of Raamsdonksveer and Geertruidenberg, primary-defence projects and industrial activities, but none drives local allocation.",
+        "Population, affected population and every service demand/delivery total reconcile, yet eight unrelated nonzero hazards retain the same exact eleven-neighbourhood order."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "Three BAG woonplaatsen and six BRT settlement labels preserve municipal place context without fabricating service districts.",
+      "evidenceRefs": ["E01", "E02"],
+      "notes": [
+        "BAG places are Geertruidenberg, Raamsdonk and Raamsdonksveer; BRT labels additionally include De Bergen, De Laan and Het Broek.",
+        "The municipality's three principal places and industrial/water-edge areas remain distinguishable at reference level.",
+        "Settlement labels are not evacuation zones, shelters, pressure zones, sewer catchments, heat-network service areas or resource bases."
+      ]
+    },
+    "transport": {
+      "status": "warn",
+      "summary": "Physical A27/A59 identities and road-only service scope are coherent, but internal crossings, waterways, transit operation and incident-time continuity are absent.",
+      "evidenceRefs": ["E02", "E05", "E07", "E08"],
+      "notes": [
+        "Four generated links connect GM0779 to Altena, Oosterhout and Waalwijk: A27 to Altena, A27 to Oosterhout and A59 to Oosterhout/Waalwijk. All sixteen source wvk ids are unique and physicalCorridorId resolves to NWB-road-27 or NWB-road-59.",
+        "The engine exposes these routes only to Mobility and Supply, and zero to power, water, drainage, gas, telecom and facilities. This is the correct NWB semantic safeguard.",
+        "The official regional profile identifies Hooipolder as the A27/A59 junction and warns that bridge incidents affect diversions and emergency access. The current A27 Houten-Hooipolder works include Hooipolder and Keizersveer-related structures, but a project or past closure is not current incident state.",
+        "No ProRail station lies inside the boundary and 24 scheduled transit stop areas do. Static road, GTFS and waterway geometry does not establish service, vehicle/vessel availability, evacuation throughput, passability or repair access.",
+        "The deployed NDW snapshot has no assigned GM0779 record. That is a filtered no-match, never proof that the A27, A59, bridges, local streets or approaches are open now or through T+72."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "Strong public water, energy, industrial, provider and telecom context exists, but the deployment omits material water objects and no source supplies complete live topology or resources.",
+      "evidenceRefs": ["E02", "E03", "E05", "E06", "E08"],
+      "notes": [
+        "Live full-boundary HWH queries find thirteen surface-water pumps, twenty-one weirs and four sluices; DAMO finds four sewer pumps. The deployment water-assets cache assigns zero objects to GM0779, which is a refresh/contributor/geometry gap rather than absence.",
+        "No RWZI falls inside the exact boundary in the live DAMO check; RWZI Dongemond lies outside in Oosterhout. This establishes a possible cross-boundary water-chain dependency for investigation, not a proven flow connection or operational state.",
+        "The live REV WFS returns thirty-nine regulated activities inside the boundary, including VARO Energy Terminal Geertruidenberg and RWE Generation NL B.V. as Seveso activities, five natural-gas treatment/control/measurement activities, LPG and propane activities. Register presence is not a current incident, material inventory, plume or failure probability.",
+        "Mijn Aansluiting identifies Enexis electricity/gas, Brabant Water and Ziggo at the reference point; drainage has no feature. Provider polygons are responsibility context, not complete coverage, topology, capacity, outage or restoration.",
+        "One NBNL sample describes GT Geertruidenberg planning constraints/queues and nineteen projects; one fresh Keizersveer Waterinfo level observation is 31 cm NAP at 2026-09-02T17:30:00Z. Neither is live load/topology or a municipality-wide hydraulic surface/T+72 forecast.",
+        "The deployment assigns 46 RDI antenna installations, ten DUO education records and no RIVM acute-care location to GM0779. Counts do not establish coverage, emergency role, staffing, stock, backup, access or availability; zero acute care means no listed in-boundary record, not no care dependency."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": ["power", "water", "drainage", "gas", "telecom", "mobility", "facilities", "supply"]
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "warn",
+      "summary": "All ten presets execute at all six checkpoints for all eight services, but completion and boundedness are not local calibration.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "Peak municipal severities are storm 0.700678, pluvial 0.358358, river 0.560720, coastal 0.038400, heat 0.632125, winter 0.708095, cyber 0.592870, earthquake 0.007478, wildfire 0.099758 and compound 0.934601.",
+        "At T+24 severity/pressure/affected people-equivalent are storm 0.198690/0.400725/8,060; pluvial 0.217676/0.268571/3,975; river 0.560720/0.551269/12,716; coastal 0.038400/0.106375/0; heat 0.099278/0.199457/1,838; winter 0.703034/0.403680/8,152; cyber 0.505170/0.407072/8,257; earthquake 0/0.050538/0; wildfire 0.099758/0.117721/0; and compound 0.923867/0.656698/15,975.",
+        "River T+24 flood stress is 1.807937 and remains 1.807937 at T+72; current severity also stays 0.560720 while pressure rises to 0.582062 and affected population to 13,667.",
+        "Compound T+24 carries 56.419378 mm/h rain, 0.400168 flood stress, 31.803034 m/s wind and 0.520124 cyber disruption. At T+72 current severity is 0.437714 while flood stress, pressure, affected population and all eight availability values remain exactly unchanged.",
+        "Coastal T+24 has zero direct flood and 18.19999 m/s wind. That scoped zero is not an all-clear for Amer/Bergsche Maas surge-discharge interaction, canal/polder water or drainage; it is an indirect generic wind exercise.",
+        "Canonical wildfire has zero direct flame at T+24 with smoke 0.218174 and drought 0.467694; canonical earthquake has zero current shaking at T+24. Those zeros do not test another local source or unmodelled hazard.",
+        "All outputs are deterministic exercise assumptions, not observations, warnings, probabilities, industrial intelligence, outages or forecasts."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Finite bounds, determinism, exact no-event behavior, cumulative burden, road-service scope, local reconciliation and layer invariance pass.",
+      "evidenceRefs": [],
+      "notes": [
+        "MUNICIPALITY_AUDIT_CODE=GM0779 pnpm audit:model passed both focused tests across 10 presets × 6 checkpoints × 8 services; the initial run completed in 35.46 seconds with 35.26 seconds of test execution.",
+        "Every zero-intensity preset produces exact zero current severity, peak severity, affected population and event-attributable essential-service person-hours at every checkpoint.",
+        "Repeated frames are deterministic; values are finite and bounded; cumulative event-attributable essential-service person-hours are monotonic; logical route flow stays within effective capacity.",
+        "T+24 local population, affected population and every service demand/delivery ledger reconcile. Maximum observed local, demand and delivery floating-point discrepancy is 7.105427357601002e-15.",
+        "Changing among all eleven map layers leaves hazard/pressure/affected output unchanged; maximum local layer hazard delta is zero.",
+        "All eight pressure weights participate and sum to one; operations multipliers and household preparedness remain bounded scenario assumptions rather than inferred public facts."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "A shared neighbourhood hash, unselected river field and absent GM0779 support guard create false local precision.",
+      "evidenceRefs": ["E02", "E03", "E04", "E06"],
+      "notes": [
+        "At audit time packages/sim-core/src/model.ts:4361 derives hazardSeed from city seed, scenario seed and region id; packages/sim-core/src/model.ts:4373 applies it locally. Hazard family, source containment, terrain, land cover, water pathway and selected public surface are absent.",
+        "Severe storm, pluvial, river, coastal, heat, winter, cyber and wildfire all rank Industrieterrein Dombosch, Raamsdonksveer and Geertruidenberg-West first through third at T+24; Dombosch has only 35 residents. Compound retains the same ordering with clipping; earthquake is zero at T+24.",
+        "A deliberately artificial wildfire source [4.856814, 51.710617] lies in Industrieterrein Dongeoever Amerkant. At T+24 it produces 0.487591 direct fire, but its containing neighbourhood ranks seventh at 0.461019 while Dombosch ranks first at 0.546846. This proves the source coordinate does not control local ordering; it is not evidence of an actual or eligible ignition.",
+        "The public combustible-nature WFS bbox query returns neighbouring Drimmelen/Oosterhout polygons but no GM0779-held polygon. Absence in this coverage is Unknown, not proof of no fuel or zero wildfire risk; canonical smoke can also be indirect.",
+        "GM0779 has no entry in auditedUnsupportedSpatialNotes, so the browser shows exact local polygons under evidence class derived-screening rather than a selected-municipality unsupported warning.",
+        "Official flood, defence, climate, industrial and elevation layers are rendered as non-causal context and are not sampled by local allocation."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "Service ledgers are inspectable and road scope is corrected, but precise values omit the reviewed water, energy, heat, industrial and cross-boundary systems.",
+      "evidenceRefs": ["E02", "E03", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "Current source applicability yields four NWB logical corridors for Mobility and Supply and zero for power, water, drainage, gas, telecom and facilities. packages/sim-core/src/model.ts:2913 enforces declared service scope and this road-only safeguard is correct.",
+        "River T+24 availability is power 0.366348, water 0.408527, drainage 0.260527, gas 0.663190, telecom 0.391858, mobility 0.305075, facilities 0.558702 and supply 0.659415. At T+72 seven stay identical while facilities falls to 0.338749, without a selected local mechanism or resource state.",
+        "Compound T+24/T+72 availability remains exactly power 0.230748, water 0.334353, drainage 0.271362, gas 0.525903, telecom 0.211088, mobility 0.414284, facilities 0.292759 and supply 0.554526.",
+        "Live HWH/DAMO registers expose managed-water objects and a likely external treatment dependency for investigation, but not catchment connectivity, flow direction, compatible units, controls, usable capacity, power/backup or restoration.",
+        "RWE describes Amercentrale electricity production, regional heat supply and biomass delivery/storage by inland ship. The current model has no electricity-generation, district-heat, fuel-port, shipping or cross-boundary heat consumer node.",
+        "Provider territories, one NBNL sample, RDI sites, DUO records, REV points and Waterinfo are context only and correctly do not affect simulation. No safe physical feeder, pipe, sewer, backhaul, stock or live state is inferred from roads or points."
+      ]
+    },
+    "causalTrace": {
+      "status": "warn",
+      "summary": "Cause contributions, dependencies, counterfactuals and logical-proxy metadata reconcile, but local driver magnitudes and interventions remain unvalidated assumptions.",
+      "evidenceRefs": ["E02", "E03", "E05", "E06", "E08"],
+      "notes": [
+        "Municipal pressure uses transparent weights power 0.18, water 0.15, drainage 0.08, gas 0.09, telecom 0.12, mobility 0.12, facilities 0.14 and supply 0.12; focused tests close the ledger.",
+        "The UI identifies scenario evidence and calls road-based transfers logical proxies rather than physical utility topology.",
+        "An internally exact causal trace explains model arithmetic; it cannot validate an omitted Amer/Donge water path, pumping catchment, generation/heat dependency, industrial release, bridge access, external care or restoration resource.",
+        "The VRMWB plans identify conditional decisions such as source/effect-zone assessment, weather and safe access, water/soil/air contamination, water-intake protection, logistics, open-water firefighting, contaminated fire-water management and possible pump/shipping measures. These are doctrine, not confirmed actions or inventories for this exercise.",
+        "Demand, capacity, backup, repair, preparedness, generator priority and mutual-aid effects remain bounded/time-gated scenario assumptions and must never be described as actual crews, assets, operator commitments or household behavior."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "The T+0–72 paths present exact persistence, recovery or deterioration without event-specific hydraulics, actions, access, resources or operator commitments.",
+      "evidenceRefs": ["E02", "E03", "E05", "E07", "E08"],
+      "notes": [
+        "River T+24 to T+72 keeps severity 0.560720 and flood stress 1.807937; seven service availabilities remain exact while facilities drops, pressure rises 0.551269 to 0.582062, affected population rises 12,716 to 13,667 and cumulative unmet essential-service burden rises 216,963.86 to 865,421.14 person-hours.",
+        "Compound T+24 to T+72 keeps pressure 0.656698, affected population 15,975 and every availability value exact while severity declines 0.923867 to 0.437714; cumulative burden reaches 950,883.50 person-hours.",
+        "No selected hydrograph, defence/breach state, pump/control state, plume, A27/A59/bridge/waterway access, heat contingency, acute-care destination, shelter/supply stock, crew/material, backup endurance or restoration schedule supports those exact paths.",
+        "The regional crisis and Seveso plans establish roles and conditional actions. Waterboard projects, RWE plans, NBNL projects and road works are dated planning context, not proof an action is available, dispatched, effective or complete at a scenario checkpoint.",
+        "Current Waterinfo, KNMI and NDW records must remain observation/replay context at their own valid time; none may be extrapolated into T+72 without an explicit forecast or scenario transformation."
+      ]
+    }
+  },
+  "evidenceSources": [
+    {
+      "publisher": "Statistics Netherlands (CBS), Kadaster and PDOK",
+      "title": "Wijken en buurten 2025, bestuurlijke gebieden and BAG woonplaatsen",
+      "url": "https://api.pdok.nl/kadaster/bestuurlijkegebieden/ogc/v1",
+      "accessedAt": "2026-09-03T01:02:00Z",
+      "edition": "2025; current full-boundary query valid at 2025-07-01",
+      "supports": [
+        "Machine-readable CBS OData https://opendata.cbs.nl/ODataApi/OData/86165NED and PDOK OGC services; CBS data are CC BY 4.0, and BAG is Public Domain Mark 1.0.",
+        "GM0779 identity, 21,944 residents, density 825/km², 23.1 percent age 65+, 3,194 one-person households, eleven neighbourhoods, three BAG places and six BRT settlement labels.",
+        "Neighbourhood rows sum to 21,940, four below the municipality total because published values are independently rounded.",
+        "Current full boundary feature 98c51b72-dced-5a01-b52f-d1f7332cd441 contains 684 coordinate positions; the generated overview has 48 and is explicitly generalized.",
+        "Administrative geometry and aggregate attributes support aggregation only; null/suppressed values remain Unknown and do not establish exposure or individual vulnerability."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Midden- en West-Brabant",
+      "title": "Regionaal Risicoprofiel 2023–2027, Regionaal Crisisplan 2023–2027 and Generiek RBP Seveso v7.0",
+      "url": "https://www.vrmwb.nl/media/qnmkutwa/regionaal-risicoprofiel-2023_2027.pdf",
+      "accessedAt": "2026-09-03T01:08:00Z",
+      "edition": "Risk/crisis plans 2023–2027; Seveso plan v7 adopted 2024-07-04 and valid through 2027",
+      "supports": [
+        "Primary planning PDFs, not machine event APIs; no standard reuse licence is stated. The crisis plan is reviewed at least every four years and may be updated sooner.",
+        "The profile prioritizes digital/vital-infrastructure disruption, extreme weather and wildfire and distinguishes sea, river, polder/dike and extreme-rain flooding in the Benedenrivieren system.",
+        "River waves can persist for days and flood consequences cascade into power, gas, drinking/surface water, telecom, road, rail, shipping and industrial processes.",
+        "Hooipolder is a major A27/A59 junction; bridge incidents can constrain diversions and emergency access. Geertruidenberg industrial terrains and dangerous-goods road/water/pipeline context are explicitly relevant.",
+        "The crisis plan https://www.vrmwb.nl/media/5j5du0id/regionaal-crisisplan-2023-2027.pdf defines organization, not a live resource inventory.",
+        "The Seveso plan https://www.vrmwb.nl/media/nuldigkr/generiek-rbp-seveso-v70.pdf lists VARO Geertruidenberg and conditional source/effect, safe-access, contamination, water-intake, firefighting-water, pump, shipping and logistics decisions; it does not prove an incident, asset availability or action commitment."
+      ]
+    },
+    {
+      "publisher": "Waterschap Brabantse Delta and Het Waterschapshuis via PDOK",
+      "title": "GENDO/WAD water-safety projects and IMWA/DAMO managed-water OGC APIs",
+      "url": "https://www.brabantsedelta.nl/projecten-in-jouw-buurt/dijkversterking-geertruidenberg-noord-dombosch/",
+      "accessedAt": "2026-09-03T01:12:00Z",
+      "edition": "Project pages current 2026-09-03; HWH collections updated 2026-09-02",
+      "supports": [
+        "GENDO concerns about 3 km of primary defence north of Geertruidenberg/Dombosch against Bergsche Maas/Amer. The latest assessment says it does not meet the future standard but is currently safe enough; preparation runs 2025–2032 with construction expected around 2030. Planning must not be portrayed as a present failure.",
+        "WAD covers primary defences along Wilhelminakanaal, Amertak and Donge across Geertruidenberg and neighbouring municipalities: https://www.brabantsedelta.nl/projecten-in-jouw-buurt/waterveiligheidsproject-wilhelminakanaal-amertak-en-donge/",
+        "Live IMWA API https://api.pdok.nl/hwh/waterschappen-kunstwerken-imwa/ogc/v2 exact full-boundary containment returns thirteen gemaal, twenty-one stuw and four sluis points. The non-harmonized water-board register is CC BY-SA 4.0; contributor completeness/cadence varies, so objects are context rather than live state.",
+        "Live DAMO API https://api.pdok.nl/hwh/waterschappen-waterketen-damo/ogc/v1 exact full-boundary containment returns four sewer pumps and no RWZI; the API advertises CC BY-SA 4.0. A nearby external RWZI record does not itself prove the connected catchment.",
+        "Objects and projects can seed authority review, catchment selection and dependency hypotheses. They do not supply compatible capacity units, flow direction, current controls, reserve, backup, defence performance or T+72 restoration."
+      ]
+    },
+    {
+      "publisher": "Gemeente Geertruidenberg and Rijkswaterstaat/PDOK",
+      "title": "Omgevingsvisie climate context, national 70 mm/2 h cloudburst scenario and AHN4 DTM",
+      "url": "https://omgevingsvisie.geertruidenberg.nl/gebieden/gebieden-amergebied/thema-s/klimaat/detail",
+      "accessedAt": "2026-09-03T01:10:00Z",
+      "edition": "Municipal vision adopted 2021-06-03; climate-atlas catalogue updated 2026-08-05; AHN4 acquired 2020–2022/catalogue updated 2025-07-23",
+      "supports": [
+        "The municipality describes flood sensitivity along the Bergsche Maas, primary-defence protection, layered safety and higher heat stress in parts of Raamsdonksveer and Geertruidenberg. The page is static planning context with no machine raster, fixed cadence or standard licence stated.",
+        "RWS national cloudburst WMS https://geo.rijkswaterstaat.nl/services/ogc/gdr/klimaat_effect_atlas/ows?service=WMS&version=1.3.0&request=GetMap&layers=bij_70mm_per_2uur is a CC0 modeled 70 mm/two-hour depth scenario, not an observation, forecast or selected local event.",
+        "AHN4 DTM is a 0.5 m CC0 terrain raster. It can support hydraulic preparation, but is not water depth, connectivity, defence state or current passability.",
+        "Raster NoData/transparency and areas outside model coverage must remain Unknown; neither context layer currently affects the simulator."
+      ]
+    },
+    {
+      "publisher": "RWE Generation NL",
+      "title": "Amercentrale and Amer heat-network operator context",
+      "url": "https://benelux.rwe.com/locaties-en-projecten/amercentrale/",
+      "accessedAt": "2026-09-03T01:09:00Z",
+      "edition": "Current operator pages accessed 2026-09-03; heat-network release dated 2025-03-28",
+      "supports": [
+        "RWE describes Unit 9 as biomass-fired since early 2025, electricity production equivalent to roughly 800,000 households and heat supply to Geertruidenberg, Breda, Tilburg and Drimmelen greenhouses. These are operator context/estimates, not current generation, availability or black-start capability.",
+        "Biomass is delivered by inland vessel and stored/handled at the site, creating waterway/fuel-logistics context without proving stock or incident-time access.",
+        "RWE says Amernet serves roughly 51,000 households and more than 350 companies and discusses e-boilers/buffer and a TenneT connection: https://benelux.rwe.com/pers/nieuwsplatform/2025-03-28-rwe-werkt-samen-met-ennatuurlijk-aan-amer-warmtenet/",
+        "The heat arrangement and planned assets are dated commercial/planning context. No machine operational API, fixed refresh cadence or standard reuse licence is stated; they must not become live service values or guaranteed recovery."
+      ]
+    },
+    {
+      "publisher": "Register Externe Veiligheidsrisico's (REV) / Rijkswaterstaat and Provincie Noord-Brabant",
+      "title": "REV public hazardous-activity WFS and Powerport regio Moerdijk context",
+      "url": "https://rev-portaal.nl/geoserver/wfs?service=WFS&version=2.0.0&request=GetCapabilities",
+      "accessedAt": "2026-09-03T01:13:00Z",
+      "edition": "Live WFS queried 2026-09-03; records carry individual registration timestamps; Powerport page current July 2026",
+      "supports": [
+        "Exact full-boundary containment of the live qS external-safety activities returns thirty-nine records: two Seveso activities, five natural-gas treatment/control/measurement activities, propane/LPG and other regulated activities.",
+        "The two Seveso labels are VARO Energy Terminal Geertruidenberg and RWE Generation NL B.V. The WFS registration timestamps are register metadata, not incident time, operating state, inventory or probability.",
+        "REV WFS/WMS is machine-readable national official context. The service states no fixed refresh cadence or reuse-licence version; confirm terms and pin retrieval/record time before caching. It provides locations/attention context, not a live release, damage report or plume.",
+        "The province describes Geertruidenberg as part of Powerport regio Moerdijk with crucial existing and planned energy infrastructure: https://www.brabant.nl/onderwerpen/ruimtelijke-ontwikkeling/powerportregio-moerdijk/",
+        "Powerport plans, converter/battery/hydrogen proposals and station descriptions are planning context and must not be promoted to current assets, capacity, outage or restoration without operator confirmation."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat, Nationaal Dataportaal Wegverkeer and public-transport publishers",
+      "title": "NWB A27/A59, Houten–Hooipolder works, NDW DATEX and FIS/GTFS transport context",
+      "url": "https://www.rijkswaterstaat.nl/wegen/projectenoverzicht/a27-verbetering-snelweg-houten-hooipolder",
+      "accessedAt": "2026-09-03T01:11:00Z",
+      "edition": "NWB-Light 2026-08-01; NDW/GTFS deployment snapshots 2026-09-02/2026-08-31; project page current 2026-09-03",
+      "supports": [
+        "NWB monthly CC0 data preserve four physical border links and sixteen unique wvk ids on A27/A59; the generated nominal 260-unit values are synthetic and not lane, traffic, evacuation or emergency throughput.",
+        "RWS says A27 Houten–Hooipolder construction began in 2024 and includes major bridges/structures and work around Hooipolder/Keizersveer. Schedules and closures can change; project context is not incident-time passability.",
+        "NDW DATEX https://opendata.ndw.nu/actueel_beeld.xml.gz is CC0 unless a contributing record states otherwise and is valid-time observation/replay context. Zero assigned GM0779 records is a filtered no-match, not an all-clear.",
+        "RWS FIS waterways/bridges/locks are CC0 static geometry (catalogue updated 2026-04-15); OVapi GTFS supplies schedules/geometry. Neither proves actual road, bus, bridge, lock, vessel, evacuation, clearance or repair operation through T+72.",
+        "NWB may drive Mobility and explicitly assumed road logistics/repair access only. It must never be treated as electricity, drinking-water, sewer, gas, telecom or facilities topology."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat Waterinfo, Netbeheer Nederland, Stichting Mijn Aansluiting, RDI, RIVM and DUO",
+      "title": "Timestamped observations and public service/facility context used by the deployment",
+      "url": "https://waterinfo.rws.nl/",
+      "accessedAt": "2026-09-03T01:14:00Z",
+      "edition": "Deployment observations/context retrieved 2026-09-02; provider records carry provider-specific update dates",
+      "supports": [
+        "Waterinfo latest endpoints are generally ten-minute observations with five-minute API cache and CC0 unless a component says otherwise. Keizersveer's 31 cm NAP value at 2026-09-02T17:30:00Z is a fresh point observation, not a continuous surface, threshold, forecast or T+72 input.",
+        "Netbeheer Nederland public frontend APIs https://data.partnersinenergie.nl/api/servicearea/find and /get provide a single GT Geertruidenberg large-user planning sample: Enexis, withdrawal existing/required/queue 134.9/84.3/58.4 MW, injection 127.7/89.1/86.1 MW and nineteen projects. Capacity/project data are at least quarterly and queue data monthly; the product is described as open data but no exact licence identifier or stable API contract was found. It is not outage/load/topology telemetry.",
+        "Mijn Aansluiting OGC https://public.geodata.mijnaansluiting.nl/geoserver/mijnaansluiting_open/ows is Public Domain provider-supplied responsibility context with provider-dependent cadence; a no-match is incomplete mapping, never no service.",
+        "RDI WFS https://antenneregister.nl/mapserver/wfs/ returns 46 GM0779 antenna-installation records. No fixed cadence or reuse licence is stated; installations do not establish operator, coverage, backhaul, traffic, power/backup, congestion, availability or restoration.",
+        "RIVM acute-care and DUO education downloads are registry context. Zero in-boundary acute-care records and ten education records do not establish emergency roles, access, opening, occupancy, staff, stock, backup or capacity.",
+        "Every record remains official/observed context with affectsSimulation=false unless a documented scenario transformation is explicitly selected."
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "id": "GM0779-CONTRACT-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The complete deterministic municipality contract, reconciliation and road-only service-scope safeguards pass.",
+      "evidence": "The focused gate executes 10 presets × 6 checkpoints × 8 services, checks exact zero-intensity behavior, determinism, bounds, monotonic event-attributable burden, local demand/delivery reconciliation, all eight pressure contributions and layer invariance. Four A27/A59 NWB links appear only for Mobility and Supply; all six other route sets are empty and every transfer is labelled logical-proxy.",
+      "action": "Retain the focused gate, exact physical corridor/wvk provenance, service-specific supportedServices rule, logical-proxy wording and the distinct scenario/official-context/observed evidence classes in all future corrections."
+    },
+    {
+      "id": "GM0779-GEOGRAPHY-001",
+      "severity": "medium",
+      "category": "geography",
+      "status": "accepted-limitation",
+      "summary": "The generalized overview boundary and neighbourhoods are valid aggregation geography but unsuitable for local hydraulics or asset containment.",
+      "evidence": "E01's current full boundary has 684 coordinate positions versus 48 in the overview. Full-boundary point-in-polygon changes water/industrial inclusion at the Amer, Donge, canals and municipal edges. Administrative polygons carry no water connectivity, defence, industrial effect, heat-service or road-passability semantics.",
+      "action": "Keep the overview for selection and aggregation. Use versioned full official geometry for audit/asset containment and authority-supplied hydraulic/effect/service geometries for scenario computation. Show boundary edition/generalization and never infer state from polygon membership alone."
+    },
+    {
+      "id": "GM0779-FLOOD-001",
+      "severity": "critical",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The river and coastal screens do not select the locally controlling Amer/Bergsche Maas/Donge water system, yet the UI presents exact local inundation stress and T+72 impacts.",
+      "evidence": "River T+24 shows 1.807937 stress, 0.560720 severity and 12,716 affected; stress/severity remain exact at T+72 while affected increases to 13,667. E02 describes multi-day Benedenrivieren discharge/surge and cascading systems; E03 identifies GENDO and WAD primary defences. No gauge hydrograph/datum, surge-discharge combination, defence state, breach/overtopping, connected footprint, depth, arrival, duration, recession or pump/dewatering state is selected. Direct coastal zero tests only one generic source and cannot clear the combined system.",
+      "action": "Release gate: mark GM0779 river/coastal local output unsupported until an authority-reviewed versioned event selects Amer/Bergsche Maas/Donge/Wilhelminakanaal boundary conditions, defence and failure state, connected footprint, depth units, arrival/duration/recession and NoData. Integrate HWH defence context, Waterinfo valid-time gauges and licensed LIWO/water-manager surfaces only under explicit scenario selection; otherwise show ranges/Unknown rather than precise neighbourhood impacts."
+    },
+    {
+      "id": "GM0779-SPATIAL-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Eight unrelated hazard families reuse one exact neighbourhood order and ignore an explicitly supplied source coordinate.",
+      "evidence": "Storm, pluvial, river, coastal, heat, winter, cyber and wildfire rank Dombosch, Raamsdonksveer and Geertruidenberg-West first through third. model.ts:4361/4373 uses a shared seeded regional perturbation rather than hazard-specific surfaces. An artificial source inside Dongeoever Amerkant produces direct flame but ranks that containing neighbourhood seventh, proving source containment does not control allocation. The selected municipality has no unsupported-spatial note.",
+      "action": "Release gate: add a GM0779 support guard for every uncalibrated local hazard view. Replace the common rank with family-specific samplers: selected hydraulic/cloudburst surface, wind field/exposure, heat/land-cover/building surface, cyber service domain, fire eligibility/source/spread/smoke and event-specific ground motion. Validate rank divergence, source containment where physically applicable, conservation and explicit unsupported fallbacks."
+    },
+    {
+      "id": "GM0779-PLUVIAL-HEAT-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Pluvial and heat maps do not sample the public depth, terrain or municipal heat-stress evidence they display.",
+      "evidence": "E04 distinguishes local heat-stress areas and supplies a national 70 mm/two-hour depth raster plus AHN4 terrain. At T+24 the pluvial and heat presets nonetheless reuse exactly the storm/river/cyber neighbourhood order, with Dombosch first. Raster overlays are context-only and NoData is not sampled, so precise local values cannot be validated from the displayed evidence.",
+      "action": "Use the RWS CC0 70 mm/two-hour WMS and AHN4 only as a documented national screening baseline, preserving depth units, acquisition/model edition, transparency/NoData and affectsSimulation. Prefer a municipality/water-board licensed local stress-test surface when available. Add heat exposure from authoritative land-cover/shade/building and vulnerability aggregates, and display uncertainty instead of an unsupported exact rank."
+    },
+    {
+      "id": "GM0779-FIRE-001",
+      "severity": "medium",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Wildfire smoke may be a valid indirect exercise, but local ignition eligibility, spread and source containment are unsupported.",
+      "evidence": "Canonical wildfire T+24 has zero direct flame, 0.218174 smoke and 0.467694 drought, so it should be described as indirect transported smoke rather than local burning. The current public combustible-nature bbox query has no GM0779-held polygon, but that is incomplete/threshold coverage and not no fuel. A deliberately artificial local source ranks its containing neighbourhood seventh because allocation ignores source distance and fuel.",
+      "action": "Keep canonical direct flame zero narrowly scoped and label smoke origin/transport as synthetic. For a local-fire exercise require an eligible official fuel/land-cover polygon or explicitly user-drawn source, weather/fuel valid time, spread/perimeter and smoke model; enforce source containment/propagation tests. Missing public polygons remain Unknown."
+    },
+    {
+      "id": "GM0779-INDUSTRIAL-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Material local industrial and dangerous-substance mechanisms are visible as context but absent from scenario forcing, dependencies and response.",
+      "evidence": "E06's live full-boundary REV query finds thirty-nine activities including VARO and RWE as Seveso, five gas treatment/control/measurement activities, LPG and propane. E02's official plan lists VARO and conditional toxic/fire/explosion, contamination, firefighting-water, sewer/RWZI, water-intake, shipping and logistics actions. The ten presets contain no industrial release, facility damage/material inventory, attention-area exposure, contaminated runoff or coupled water/air model; REV WMS points do not affect simulation.",
+      "action": "Add an explicitly selected industrial/technology scenario family or declare it out of scope above every relevant map. Use REV WFS locations/categories/attention areas as versioned official context, then require operator/authority-reviewed generic material, source term, weather, effect model and action assumptions without exposing sensitive inventory. Never turn a register point into a current release or probability."
+    },
+    {
+      "id": "GM0779-ENERGY-HEAT-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Amercentrale's regional electricity, district-heat and waterborne-fuel dependencies are missing from all eight service and recovery ledgers.",
+      "evidence": "E05 identifies electricity generation, heat supplied to Geertruidenberg and multiple neighbouring municipalities, an approximately 51,000-household/350-company heat network, biomass delivery by inland vessel and planned changes. E06 separately places the municipality in the Powerport energy programme. The model contains no generator, heat network, port/fuel stock, shipping, TenneT/Enexis interconnection or cross-boundary heat consumer node; gas & heating is therefore not locally calibrated.",
+      "action": "Create typed electricity-generation, district-heat and fuel-logistics dependencies at safe aggregate resolution. Use operator publications only as dated context; seek authorized aggregate status/capacity/backup/restoration feeds before causal use. Represent planned assets as planned, preserve contract/transition dates, and use explicit synthetic capacity/ramp/stock ranges where live or sensitive information is unavailable."
+    },
+    {
+      "id": "GM0779-WATERCHAIN-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "The deployment says zero managed-water assets while current official APIs contain material objects, and exact water/drainage values omit catchments and external treatment.",
+      "evidence": "The deployed water-assets cache assigns zero to GM0779. E03's live full-boundary queries find thirteen surface-water pumps, twenty-one weirs, four sluices and four sewer pumps; no RWZI is inside, while a nearby external Dongemond treatment record requires connectivity confirmation. Register points establish asset/mechanism context, not current operation, catchment, direction, compatible capacity, reserve or backup. River T+24 exact water/drainage availability is 0.408527/0.260527 without those inputs.",
+      "action": "Fix scripts/fetch-water-assets.mjs contributor/pagination/geometry coverage and regenerate the licensed HWH cache with source ids, publisher, collection version/retrieval time, status and full-boundary assignment. Add quality tests against live-count floors without freezing volatile totals. Keep potable water, wastewater and surface-water control separate; add authority-reviewed catchment/direction/control/backup only when available, and otherwise expose Unknown or transparent synthetic zones."
+    },
+    {
+      "id": "GM0779-CONTINUITY-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "The municipal-node graph cannot represent Hooipolder/Keizersveer, waterways, internal access, external care or multimodal recovery logistics.",
+      "evidence": "Four correct A27/A59 border links lead to three municipalities, but the graph has no bridge/junction/internal subnode, FIS waterway/lock state, bus operation, ambulance destination or response route. E02 identifies Hooipolder/bridge disruption; E05 identifies inland-shipping fuel dependence; E07 documents ongoing A27 works. Zero NDW and zero in-boundary acute-care records are no-match semantics, not open roads or no care dependence.",
+      "action": "Build typed internal critical crossings and cross-boundary mobility/care/supply/repair nodes from NWB/BGT/FIS/GTFS and authorized facility context. Apply NDW only in time-aligned observed/replay mode and never extrapolate to T+72. Scenario passability, vehicle/vessel availability, alternative-route throughput, care acceptance and repair priority remain explicit assumptions/Unknown unless confirmed."
+    },
+    {
+      "id": "GM0779-RECOVERY-001",
+      "severity": "high",
+      "category": "explainability",
+      "status": "open",
+      "summary": "Exact first-72-hour persistence and recovery are not tied to local actions, access, resources, controls or operator commitments.",
+      "evidence": "River flood stress and severity are frozen T+24–72, seven availabilities remain exact, facilities alone falls and cumulative burden quadruples. Compound keeps pressure, affected population and all eight availability values exact while severity decays. E02's response decisions, E03's dike projects, E05's energy plans, E07's road works and E08's capacity projects are doctrine/planning/context—not dispatched actions, usable assets, restoration progress or promises.",
+      "action": "Add a checkpointed action/resource ledger with proposed/requested/confirmed/dispatched/active/completed/cancelled states; owner, source, geography, valid/expiry time, delay, ramp, capacity, dependencies, access and uncertainty. Show baseline/no-action counterfactual and sensitivity. Generic mutual aid, generators, backup and repair multipliers remain scenario assumptions and cannot imply actual deployment."
+    },
+    {
+      "id": "GM0779-NODATA-UX-001",
+      "severity": "high",
+      "category": "ui",
+      "status": "open",
+      "summary": "The UI labels evidence classes well, but selected GM0779 still appears locally supported and empty public records can be mistaken for absence.",
+      "evidence": "Chromium at 1440×1000 and 390×844 selected GM0779, checked all eleven layer buttons and river T+72. The UI exposed descriptive pressed labels, retained the inspector heading, had no horizontal overflow and used a mobile Details control. It labelled Waterinfo/AHN/ROR/REV as non-causal context and NWB as logical. Yet river T+72 displayed '100% inundation stress', 56% local severity and exact neighbourhood patches as 'derived-screening'; only a national '69 municipal hazard results unsupported' aggregate appears, with no selected GM0779 warning. Water cache, drainage provider, NDW, acute-care, PM2.5, KNMI in-boundary and district-heat/charging empties have different coverage meanings. One separate run had a transient ERR_NETWORK_CHANGED on a REV tile and no bad HTTP status.",
+      "action": "Add a selected-municipality support banner and suppress precise local comparison when the chosen hazard/service lacks its required evidence contract. For every metric/layer/export show modeled zero, Unknown, not-applicable and no-record separately, plus publisher, edition/valid/retrieval time, coverage/completeness, licence, unit, confidence and affectsSimulation. Keep mobile Details keyboard/focus behavior and announce scenario/time/layer changes; isolate external overlay failures as Unknown context without changing simulation."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Guard GM0779 local output and replace the shared neighbourhood hash with hazard-specific, source-aware spatial allocation.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "GM0779 receives an explicit unsupported state until the selected family has a versioned surface/source contract. Tests require rank divergence across unrelated families, source containment/decay where applicable, conservation, deterministic fallback and exact zero behavior. Unsupported local views show ranges/Unknown rather than precise patches."
+    },
+    {
+      "summary": "Bind river/coastal/pluvial exercises to authority-reviewed Amer/Bergsche Maas/Donge and rain surfaces while preserving event, units, time and NoData.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/public/data/regions/GM0779.json",
+        "apps/web/src/components/MapView.tsx",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "A selected event records publisher, dataset/version, issue/valid time, gauge/hydrograph and datum, defence/failure state, footprint, depth unit, arrival/duration/recession, controls, coverage, licence and uncertainty. Direct coastal zero remains narrowly scoped; absent/transparent raster cells are Unknown. T+0/6/12/24/48/72 spatial and service trajectories respond to the selected local surface and retain reconciliation."
+    },
+    {
+      "summary": "Refresh and quality-gate official HWH/DAMO context, then separate potable water, wastewater and surface-water causal models.",
+      "files": [
+        "scripts/fetch-water-assets.mjs",
+        "apps/web/public/data/public-context/water-assets.geojson.gz",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts"
+      ],
+      "validation": "Fresh full-boundary queries retain official source ids and nonzero GM0779 pump/weir/sluis/sewer-pump context with CC BY-SA 4.0, contributor and retrieval metadata; a volatile-count floor catches accidental zero. Context stays affectsSimulation=false until catchment, direction, compatible units, state, reserve, backup and authority approval exist. NWB never supplies these services."
+    },
+    {
+      "summary": "Add explicit industrial/technology scope and safe aggregate Amer electricity, heat and waterborne-fuel dependencies.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/scenarios.ts",
+        "apps/web/src/scenarios.test.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "REV activities remain versioned official context and never imply a current incident. Any industrial exercise requires explicit source/material/effect assumptions and conditional response. Generation, heat, fuel/port and consumer nodes carry observed/context/scenario/synthetic provenance; planned assets remain planned, sensitive topology stays Unknown and no operator claim becomes live capacity or restoration."
+    },
+    {
+      "summary": "Represent Hooipolder/Keizersveer, waterways, transit, external care and recovery access as typed cross-boundary lifelines.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/MapView.tsx"
+      ],
+      "validation": "NWB physical wvk ids remain exact and only drive Mobility/eligible road logistics. Internal crossing and multimodal nodes preserve source/type; NDW observations expire at valid time; no record is Unknown. Tests vary bridge/junction/waterway/access state and show causal changes to mobility, supply, repair and care reachability without fabricating utility topology or facility acceptance."
+    },
+    {
+      "summary": "Make first-72-hour actions, resources, evidence class and NoData semantics explicit in model, UI and exports.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/App.tsx",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Each action has state, owner, source, geography, issue/valid/expiry time, delay/ramp, capacity, dependencies, access and confidence; counterfactuals reconcile at all checkpoints. Every metric distinguishes modeled zero, no record, Unknown and not applicable, and shows evidence class/completeness/affectsSimulation. Desktop/mobile keyboard and screen-reader checks announce municipality, scenario, time, layer and support state without horizontal overflow."
+    }
+  ],
+  "residualLimitations": [
+    "VRMWB plans establish regional risk mechanisms, roles and doctrine, not a current incident, forecast, probability, resource inventory or municipality-specific loss calibration.",
+    "No reviewed source selects an Amer/Bergsche Maas/Donge hydrograph, datum-aligned threshold, defence/failure state, connected inundation footprint, arrival, duration, recession or dewatering path for this exercise.",
+    "HWH/DAMO and REV object counts are retrieval-time register results and can change; contributors may be incomplete or non-harmonized, and geometry membership does not establish function, connectivity or operating state.",
+    "The GENDO page says the segment is currently safe enough despite not meeting a future standard; the project must not be shown as an existing failure or guaranteed future schedule.",
+    "RWE and Powerport sources are operator/planning context. Published household equivalents, network size and proposed assets are not live load, physical topology, black-start capability, fuel stock, outage or restoration promise.",
+    "Provider polygons identify responsibility at one query point only. No reviewed public source supplies safe, complete and current feeder, pipe/valve, pressure-zone, sewer-catchment, heat-network, telecom-backhaul, backup, stock, crew or restoration topology.",
+    "The single Keizersveer Waterinfo value is timestamped point context, not a continuous hydraulic surface, threshold outside the named point, breach, depth, forecast or T+72 input; Waterinfo is not mission-critical.",
+    "NBNL capacity data are one large-user planning sample and cannot be extended to household service, live load, outage, switching, emergency reserve or recovery. Its exact dataset licence/API stability remain unresolved.",
+    "RDI antenna, DUO education and RIVM care records do not establish operator/service coverage, emergency role, occupancy, staff, stock, backup, access, state or restoration.",
+    "NWB, FIS and GTFS are physical/scheduled context and do not establish incident-time road, bridge, lock, bus, vessel, evacuation, ambulance, clearance or repair operation. Zero NDW records is no all-clear.",
+    "The combustible-nature WFS returning no GM0779-held polygon is a coverage result, not proof of no fuel or zero fire risk; an artificial source test is diagnostic and not an event claim.",
+    "The one transient REV tile network error was not reproducible in the first browser run and produced no bad HTTP status; external overlay availability must remain separate from simulation status."
+  ]
+}

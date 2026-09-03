@@ -1,0 +1,469 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0784",
+    "name": "Gilze en Rijen",
+    "province": "Noord-Brabant",
+    "safetyRegion": "Midden- en West-Brabant"
+  },
+  "agent": {
+    "taskName": "municipality_gm0784",
+    "agentId": "/root/municipality_gm0518",
+    "completedAt": "2026-09-03T01:46:55Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "GM0784's 2025 identity, full PDOK boundary, province, safety-region assignment, four BAG places and 26-neighbourhood population allocation are coherent. Fresh CBS reports 28,531 residents; published neighbourhood rows sum to 28,525 (-6, -0.021%), and the simulator reconciles them exactly. All ten canonical presets execute deterministically at T+0/6/12/24/48/72 across Power, Water, Drainage, Gas, Telecom, Mobility, Facilities and Supply; finite bounds, exact-zero intensity, selected-layer invariance, arithmetic ledgers and the current restriction of unqualified NWB roads to Mobility and explicit road-logistics/Supply pass. Release is nevertheless correction-required. The official Hart van Brabant stress test identifies Broekakkers water nuisance, drought near the Grote Lei and heat at Vliegveld Gilze-Rijen, while its enumerated Maas-breakthrough municipalities do not include Gilze en Rijen. The model instead assigns 2.008424 normalized major-river inundation stress, 15,532 affected resident-equivalents and a frozen eight-service state through T+72 without a selected river, defence, breach, hydraulic footprint, arrival or recession. Eight unrelated presets reuse one complete neighbourhood order. In a controlled audit run, an explicit official nature-fire source inside Boswachterij Dorst (Militair Oefenterrein Heiningen) falls in Buitengebied Molenschot, yet that containing neighbourhood ranks 24th of 26. Compound severity declines while all eight services, 17,962 affected and zero recovery remain frozen. Nine logical road links, one station and 31 GTFS stops do not prove local passability, evacuation, supply or external acute-care continuity. Public registers expose water assets, provider areas, antennas, education, roads and current observations, but none proves physical utility topology, live capacity/state, backup or restoration. Observed/context data remain separate from simulated output, and missing coverage never means zero or safe.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek (CBS)",
+      "title": "E01 — Kerncijfers wijken en buurten 2025, table 86165NED, OData API",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM0784%27%29",
+      "accessedAt": "2026-09-03T01:30:00Z",
+      "edition": 2025,
+      "supports": [
+        "The fresh official municipality row identifies GM0784 Gilze en Rijen and reports 28,531 residents, density 436 per square kilometre, 6,220 residents aged 65 or older, 11,749 households and 3,725 one-person households.",
+        "The 26 generated neighbourhood rows sum to 28,525 residents (-6, -0.021%), 6,220 residents aged 65 or older, 11,730 households and 3,705 one-person households. Small differences retain randomized rounding, suppression and incomplete-value semantics.",
+        "The app's 21.8% age-65-plus control is material to heat, warning, evacuation, care and supply planning, but is not an incident-time needs or presence register.",
+        "CBS OData is machine-readable under CC BY 4.0; CBS describes quarterly additions for this annual table. Null, suppressed, rounded and incomplete values remain publisher states and never become zero.",
+        "Simulation role is official demographic/context and a reconciled allocation control only, not observed exposure, evacuation, injury, service deprivation or customer topology."
+      ]
+    },
+    {
+      "publisher": "PDOK / CBS / Kadaster / Rijkswaterstaat / ProRail / OVapi",
+      "title": "E02 — Full municipality geometry, settlements and national road, rail and scheduled-transit references",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_niet_gegeneraliseerd/items/64ecdc90-0147-5a72-b06b-87338136444a?f=json",
+      "accessedAt": "2026-09-03T01:31:00Z",
+      "edition": "2025 full boundary; current generated BAG, NWB, ProRail and GTFS reference editions",
+      "supports": [
+        "Fresh full-resolution GM0784 is one Polygon component with one exterior ring, 1,709 positions and bbox [4.829084664107743, 51.510081285567914, 4.979565147844995, 51.61629452940702]. Generated centre [4.9045728422636055, 51.554153068377275] lies inside.",
+        "The regional bundle contains four districts, 26 neighbourhoods and BAG places Gilze, Hulten, Molenschot and Rijen. Sixteen BRT labels preserve four woonkernen and twelve smaller named settlements.",
+        "Nine logical boundary roads connect toward Tilburg, Breda, Alphen-Chaam, Oosterhout and Dongen via A58, N282, N260, N631 and N632. Opposite A58, N282 and N260 records share corridor identifiers and are series sections, not independent additive capacity.",
+        "ProRail identifies station Gilze-Rijen and the bundle contains 31 GTFS stop areas. Machine routes are https://service.pdok.nl/rws/nationaal-wegenbestand-wegen/wfs/v1_0, https://api.pdok.nl/prorail/spoorwegen/ogc/v1/collections/trace, https://api.pdok.nl/prorail/spoorwegen/ogc/v1/collections/station and https://gtfs.ovapi.nl/nl/gtfs-nl.zip.",
+        "CBS boundary OGC is half-yearly/CC BY 4.0; BAG is daily/Public Domain Mark 1.0; NWB is monthly/CC0 1.0; ProRail reference geometry is manually refreshed/CC0 1.0. OVapi GTFS is free-use best-effort context without an operational SLA.",
+        "These registers support official location and Mobility/Supply reference connectivity only. They do not prove live direction-specific passability, throughput, utility topology, service state, occupancy or restoration."
+      ]
+    },
+    {
+      "publisher": "Provincie Noord-Brabant / Regio Hart van Brabant",
+      "title": "E03 — Klimaatstresstest regio Hart van Brabant and explanatory map report",
+      "url": "https://www.klimaatadaptatiebrabant.nl/voorbeelden/voorbeelden-detail/420/Klimaatstresstest-regio-Hart-van-Brabant",
+      "accessedAt": "2026-09-03T01:32:00Z",
+      "edition": "Stress-test note dated 7 February 2020; page added 6 July 2020",
+      "supports": [
+        "The official regional stress test covers Gilze en Rijen and identifies bedrijventerrein Broekakkers as vulnerable to heavy-rain water nuisance, the area near the Grote Lei as already drought-vulnerable, and Vliegveld Gilze-Rijen as heat-sensitive.",
+        "For Maas-dike breakthrough it enumerates Waalwijk, Heusden, northern Dongen, eastern Haaren and north-western Loon op Zand; it does not identify Gilze en Rijen. This contradicts a decision-ready generic direct major-river footprint here, but omission is not an all-clear for regional water, pluvial, groundwater or indirect disruption.",
+        "The test records the 40.7 degrees Celsius temperature measured in Gilze en Rijen on 25 July 2019. A historic observation is not current weather or a scenario-time T+72 forecast.",
+        "The page exposes a PDF download and online ArcGIS viewer, but no standard reusable-data licence, fixed update cadence, stable WMS/WFS or explicit raster NoData contract was found. The best integration path is the native map service/export after the publisher confirms layer URL, CRS, event, units, edition, licence and NoData.",
+        "These are awareness/scenario and policy-context products, not observed current inundation, operational asset state or causal service restoration."
+      ]
+    },
+    {
+      "publisher": "Gemeente Gilze en Rijen / Water- en Klimaatkring De Baronie",
+      "title": "E04 — Duurzaam Broekakkers and Gilze en Rijen climate portal",
+      "url": "https://www.gilzerijen.nl/duurzaambroekakkers",
+      "accessedAt": "2026-09-03T01:33:00Z",
+      "edition": "Current municipal web page and regional climate portal inspected September 2026",
+      "supports": [
+        "The municipality says changing climate causes heat, drought and water nuisance or damage at Broekakkers, Midden-Brabant Poort and De Haansberg, begins with a Broekakkers pilot and intends to expand to other business parks toward 2030.",
+        "The official partnership portal at https://www.klimaatportaalbaronie.nl/gemeente/gilze-en-rijen/ describes heat, drought and water nuisance as the main municipal challenges, with Rijen already experiencing nuisance under heavy rain and cores/business parks sensitive to heat.",
+        "The portal exposes an end report for the spatial-adaptation risk dialogue and named areas. Policy/project status must be editioned: a planned opportunity map or adaptation measure is neither a resolved hazard nor live protection.",
+        "The HTML/PDF routes have policy/event-driven revision and no declared standard machine-data licence, API, WMS/WFS or guaranteed cadence. Request the native municipal rain/heat/drought surfaces, sewer/catchment model and intervention status with explicit licensing and no-data semantics.",
+        "The material is local official/context evidence; it does not itself supply a current event, asset telemetry, exact affected population, service percentage or T+72 restoration curve."
+      ]
+    },
+    {
+      "publisher": "Waterschap Brabantse Delta / Het Waterschapshuis / Rijkswaterstaat",
+      "title": "E05 — Brabantse Delta legger/beheerregister, IMWA/DAMO objects and Waterinfo",
+      "url": "https://www.brabantsedelta.nl/over-ons/organisatie/regels-en-handhaving/legger/geodata-via-webservices/",
+      "accessedAt": "2026-09-03T01:34:00Z",
+      "edition": "Current public services and deployment snapshot inspected 3 September 2026",
+      "supports": [
+        "Brabantse Delta publishes analysis-ready WFS/FeatureServer/download and visualization WMS routes and says web services expose the latest legger data. The data.overheid catalogue declares CC0 1.0.",
+        "Integration-ready endpoints include the daily beheerregister at https://geoservices.brabantsedelta.nl/arcgis/rest/services/EXTERN/WEB_Beheerregister_Waterlopen_en_Kunstwerken/FeatureServer and versioned legger services linked from the publisher page.",
+        "The deployment's full-boundary point-in-polygon screen returns 69 registered objects: 66 weirs, sewer pumps rg. Molenschot and rg. Gilze, and RWZI Rijen. Named entries include Grote Ley; record status 'gerealiseerd' is register context, not proof of live operation.",
+        "National machine APIs at https://api.pdok.nl/hwh/waterschappen-kunstwerken-imwa/ogc/v2 and https://api.pdok.nl/hwh/waterschappen-waterketen-damo/ogc/v1 are CC BY-SA 4.0, partial national aggregation with weekly or contributor-dependent updates. Prefer the water board's local daily source where semantically compatible.",
+        "No Waterinfo observation point intersects GM0784; the nearest displayed point is Tilburg sluis 2 about 7.64 km from the centre. Waterinfo observations are generally ten-minute CC0 point measurements, not a municipal surface or scenario forecast; no local point is Unknown, not zero or safe.",
+        "Asset/register data support static hydrologic context. They do not establish connectivity, catchment, gate/pump position, spare capacity, power/backup, condition, flood footprint, passability or T+72 operation."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Midden- en West-Brabant (VRMWB)",
+      "title": "E06 — Regionaal Risicoprofiel 2023–2027 and ramp-response planning",
+      "url": "https://www.vrmwb.nl/media/qnmkutwa/regionaal-risicoprofiel-2023_2027.pdf",
+      "accessedAt": "2026-09-03T01:35:00Z",
+      "edition": "Regional risk profile 2023–2027; current planning page inspected September 2026",
+      "supports": [
+        "VRMWB identifies infection, digital vital-infrastructure disruption, extreme weather, social unrest and nature fire as priority regional risks and deliberately uses qualitative analysis where quantitative evidence is insufficient.",
+        "Its aviation section covers fire or accident on an airfield and crashes outside, especially around take-off, landing and low-flight routes; it identifies two military airfields and describes Gilze-Rijen as mainly helicopter operations.",
+        "The profile says nature-fire areas combine forest/heath, recreation and military use; drought/heat increase risk and suppression-water, vulnerable-person and mobility constraints matter.",
+        "The current policy page at https://backend.vrmwb.nl/organisatie/beleid-en-planvorming links a generic ramp-response plan for the Gilze-Rijen and Woensdrecht air bases. Planning documents are preparedness context, not a current aviation incident, activated resource or achieved response time.",
+        "The profile is multi-year with an intended small annual review; no live machine incident/resource API or standard reuse licence is declared. It must not be converted to municipal probability, exact availability or restoration."
+      ]
+    },
+    {
+      "publisher": "Ministerie van Defensie / IPO Risicokaart",
+      "title": "E07 — Vliegbasis Gilze-Rijen operational context and official nature-fire polygons",
+      "url": "https://www.defensie.nl/organisatie/luchtmacht/vliegbases-en-luchtmachtonderdelen/gilze-rijen",
+      "accessedAt": "2026-09-03T01:36:00Z",
+      "edition": "Current Defensie pages; Risicokaart metadata updated 19 February 2026",
+      "supports": [
+        "Defensie identifies Gilze-Rijen as the Air Force helicopter base for Apache, Chinook and Cougar operations; transport helicopters can also support large-fire suppression. Its environment page places the base in the heart of the municipality and reports more than 1,600 workers.",
+        "Static base presence and routine operating context establish a material cross-service facility and aviation scenario scope, not an incident, aircraft movement, occupancy at exercise time, emergency capability or availability.",
+        "IPO Risicokaart WFS at https://servicespub.risicokaart.nl/geoserver/ISOR_RK/wfs exposes three municipality-intersecting registered nature-fire areas after full-polygon clipping: Boswachterij Ulvenhout en Chaam (Prinsenbos), Boswachterij Dorst (Militair Oefenterrein Heiningen) and Boswachterij Dorst (De Vijf Eiken).",
+        "Risicokaart nature-fire geometry is Public Domain, with publisher metadata updated 19 February 2026. Bbox results include neighbouring features, so source containment requires full GM0784 polygon intersection and must preserve feature date and geometry.",
+        "Registered eligible forest is official context, not fuel moisture, ignition, wind, perimeter, smoke, access, suppression-water state or forecast. No selected incident remains Unknown rather than no risk."
+      ]
+    },
+    {
+      "publisher": "KNMI / NDW / Stichting Mijn Aansluiting / Netbeheer Nederland / RIVM / RDI / DUO / KVK-PDOK",
+      "title": "E08 — Timestamped observation, provider, grid-planning and facility context",
+      "url": "https://api.dataportal.nl/v1/knmi/observations/10-minute-in-situ-meteorological-observations/versions/1.0/files",
+      "accessedAt": "2026-09-03T01:37:00Z",
+      "edition": "Deployment snapshots 2–3 September 2026; RIVM acute care 2026 v1.1",
+      "supports": [
+        "KNMI station 06350 Gilze-Rijen Airport lies inside GM0784. The deployment observation at 2026-09-02T23:30:00Z records 18.8°C, gust 5.07 m/s and zero rainfall in the preceding hour. KNMI ten-minute data are CC BY 4.0; a timestamped point zero is not municipality-wide zero or a future T+72 scenario.",
+        "Three NDW real records intersect the boundary: one rerouting-management record with a defined validity window and two vehicle-obstruction records with no end time. NDW DATEX is near-real-time mobility context under open terms; records are not coupled to model routes and absence or expiry never proves passability.",
+        "Public-domain provider WMS/WFS at https://public.geodata.mijnaansluiting.nl/geoserver/mijnaansluiting_open/ows returns Enexis electricity/gas, Brabant Water and Ziggo at the centre, but no drainage provider. Provider dates vary; territory identifies responsibility, not topology, pressure, load, outage or restoration. Empty drainage lookup remains Unknown.",
+        "One NBNL planning sample postcode 5126ND maps to Enexis service area TBZ Tilburg Zuid and reports queue/capacity/projects. Capacity/projects update at least quarterly and queues monthly, but the exact licence and frontend API stability are not documented. One postcode is not full-boundary coverage or outage telemetry.",
+        "RIVM 2026 v1.1 acute-care data are CC0 and contain no emergency department inside GM0784; Amphia Breda is about 8.03 km straight-line from the centre. This is dated questionnaire/context, not route time, live acceptance, staffing, occupancy, diversion or backup endurance.",
+        "RDI WFS contributes 60 antenna installations, DUO's daily CC BY API 13 education locations and KVK/PDOK five government-service points. Registration geometry does not prove communications coverage/backhaul, shelter activation, response resource, capacity or operating state.",
+        "Simulation role is non-causal official/observed/planning context with affectsSimulation=false. Complete physical lifeline topology and live state remain unavailable or security-sensitive; use authorized feeds or a clearly versioned synthetic fallback with uncertainty."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM0784, Gilze en Rijen, Noord-Brabant and Veiligheidsregio Midden- en West-Brabant are internally and officially coherent.",
+      "evidenceRefs": ["E01", "E02", "E06"],
+      "notes": [
+        "Generated municipality, regional bundle, province and exactly one safety-region assignment agree.",
+        "The generated centre lies inside both generated and freshly fetched full-resolution 2025 PDOK geometry.",
+        "Annual boundary/statistics, fixed policy/registers, timestamped observations and synthetic exercise time remain distinct."
+      ]
+    },
+    "geography": {
+      "status": "fail",
+      "summary": "Administrative geography is sound, but river, rain, heat, drought and fire allocation contradict source-specific local evidence.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E07"],
+      "notes": [
+        "The full 2025 polygon, not a bbox or generalized overview, should drive source containment and intersections.",
+        "Eight unrelated presets share the same complete 26-neighbourhood rank despite official Broekakkers, Grote Lei, airfield and forest source distinctions.",
+        "A controlled explicit source inside Heiningen's registered nature-fire polygon falls in Buitengebied Molenschot, which ranks only 24th of 26."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Official municipal controls and neighbourhood aggregates reconcile within CBS rounding and suppression semantics.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "CBS reports 28,531 residents; 26 neighbourhood rows sum to 28,525 (-6, -0.021%), while model detail rescales and reconciles exactly to 28,531.",
+        "Official controls are 6,220 age-65-plus residents, 11,749 households and 3,725 one-person households; rows sum to 6,220, 11,730 and 3,705.",
+        "Resident-equivalent affected counts exclude incident-time workers at the airbase/business parks, pupils, passengers, visitors, patients and responders."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "Twenty-six neighbourhoods support census allocation, but several attributes and every live physical lifeline state remain incomplete.",
+      "evidenceRefs": ["E01", "E04", "E05", "E08"],
+      "notes": [
+        "Average home value is present for 21/26 rows, household size 25/26, cars per household 19/26 and disability/doctor/supermarket/AOW/assistance metrics 24/26.",
+        "District-heating share and public-charging count are null in all 26 rows and must not be presented as zero.",
+        "Water assets, antenna, education, government, provider, grid and observation layers have different licences, coverage, cadence and operational meaning."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "BAG and BRT retain the four principal places and dispersed smaller settlement labels.",
+      "evidenceRefs": ["E02"],
+      "notes": [
+        "Gilze, Hulten, Molenschot and Rijen are retained as BAG places; sixteen BRT labels cover woonkernen, buurtschappen and gehuchten.",
+        "Settlement names and resident aggregates are reference geography, not current occupancy, warning reach, evacuation demand or service zones.",
+        "The airbase, business parks and rural forests need separately typed daytime/activity populations and access states."
+      ]
+    },
+    "transport": {
+      "status": "fail",
+      "summary": "Nine logical roads, one station and 31 scheduled stops do not establish first-72-hour local access, evacuation, supply or external-care continuity.",
+      "evidenceRefs": ["E02", "E03", "E06", "E08"],
+      "notes": [
+        "A58/N-road records omit local roads, bridges, level crossings, direction-specific restrictions, fire/flood footprints, emergency priority and links from villages/airbase/business parks to safe destinations.",
+        "GTFS and ProRail describe reference stops, schedules and rail geometry, not incident-time trains, buses, platform access, capacity or evacuation suitability.",
+        "Current code correctly restricts unqualified NWB links to Mobility and explicitly assumed road-logistics/Supply. Nominal 150/260 units are not vehicles, evacuees, freight or repair throughput."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "Official sources establish local climate, nature-fire, aviation and vital-infrastructure mechanisms, but no authority-approved incident/resource state drives the simulator.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "Broekakkers rain, Grote Lei drought, the heat-sensitive airfield and registered forests need selected footprints and event-valid forcing; none is integrated causally.",
+        "The VRMWB airbase plan and Defensie base establish aviation preparedness and a material facility, but the ten presets contain no aviation accident/fire or mass-casualty family.",
+        "No confirmed activated shelter, distribution point, local acute-care capacity, warning action, response resource, road restriction or operator restoration state is integrated. Registers cannot be promoted to operational roles."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten canonical presets execute at all six mandatory checkpoints for all eight services.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "MUNICIPALITY_AUDIT_CODE=GM0784 pnpm audit:model passed one file/two tests in 43.54 seconds (43.24 seconds test time).",
+        "A private focused reproduction passed one file/one test in 40.76 seconds and recorded 10 presets × 6 checkpoints × 8 services, routes, ranks, local balances, zero intensity and invariants.",
+        "At T+24 modeled severity / affected resident-equivalents / cumulative local pre-network person-hours are storm 0.068974 / 5,284 / 96,311.831010; pluvial 0.372137 / 7,505 / 127,789.696001; river 0.634732 / 15,532 / 260,373.628864; coastal 0.071045 / 583 / 40,486.608780; heat 0.090013 / 1,438 / 59,439.204394.",
+        "Remaining T+24 values are winter 0.790316 / 9,884 / 213,474.862876; cyber 0.511532 / 9,520 / 161,137.413082; earthquake 0 / 0 / 1,876.651086 after an earlier 0.003010 pulse; wildfire 0.112281 / 0 / 31,802.792699; compound 0.910083 / 17,962 / 302,067.325527.",
+        "At T+72 direct severity is zero for storm, pluvial, coastal, winter, earthquake and wildfire; river remains 0.634732, heat 0.090013, cyber 0.060034 and compound 0.471029. Structural execution does not establish local physical accuracy.",
+        "Headless Chromium at 1440×900 and 390×844 selected GM0784, River flood, Mobility and T+24/T+72 without page/console/local-resource errors or horizontal overflow. Desktop drilldown selected Buitengebied Molenschot."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Outputs are finite, bounded, deterministic, exact at zero intensity, selected-layer invariant and locally reconciled.",
+      "evidenceRefs": ["E01", "E02"],
+      "notes": [
+        "Every preset's zero-intensity run returns exact zero event hazard, affected resident-equivalents and cumulative deprived person-hours at every mandatory checkpoint.",
+        "Changing selected display service leaves hazard, pressure and affected-population results exactly identical.",
+        "Every local detail has 26 rows summing to 28,531; maximum reconciliation error is 1.4210854715202004e-14.",
+        "Shared A58/N282/N260 corridor sections retain corridor identity and are not summed as independent physical capacity. Arithmetic consistency is not empirical calibration."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "Local allocation ignores verified mechanism-specific hotspots and can rank an explicit nature-fire source near the bottom.",
+      "evidenceRefs": ["E02", "E03", "E04", "E07"],
+      "notes": [
+        "Storm, pluvial, river, coastal, heat, winter, cyber and wildfire share one complete rank led by Vliegende Vennen, Midden-Brabant Poort, Centrumgebied Zuid Gilze, Grote Spie and Haansberg. Compound only swaps the first two; earthquake has a separate order.",
+        "The allocator does not sample the official Broekakkers heavy-rain, Grote Lei drought or Vliegveld Gilze-Rijen heat geometry and reports no unsupported dimension for compound.",
+        "A controlled explicit wildfire source at [4.881460000000001, 51.585495] lies in both the official Heiningen nature-fire polygon and Buitengebied Molenschot, but that neighbourhood ranks 24/26.",
+        "The controlled source is an audit fixture, not an observed ignition. It falsifies source containment behavior without claiming a current fire."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "Exact eight-service availability exceeds verified local topology, capacity, state, backup and reachability evidence.",
+      "evidenceRefs": ["E02", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "At compound T+24 and T+72 availability is identically Power 0.416320, Water 0.406515, Drainage 0.290434, Gas 0.510880, Telecom 0.229750, Mobility 0.370533, Facilities 0.352096 and Supply 0.722498.",
+        "There are zero modeled physical routes for Power, Water, Drainage, Gas, Telecom and Facilities; nine NWB links support Mobility and nine explicitly assumed road-logistics/Supply links.",
+        "Provider territories, grid planning, 69 water objects, 60 antenna installations, 13 schools, five government points, one station and the airbase are context, not compatible topology/state/capacity/backup/restoration inputs.",
+        "No complete safe public live topology/state source was found. Use authorized operator data where possible; otherwise label a minimal versioned synthetic exercise graph with ranges and uncertainty."
+      ]
+    },
+    "causalTrace": {
+      "status": "warn",
+      "summary": "Causal, population and service ledgers close arithmetically, but operational cause, ownership, resources and evidence lineage remain absent.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E08"],
+      "notes": [
+        "Outputs contain hazard, direct-service, interdependency, network, recovery and local-allocation records with matched totals.",
+        "Cumulative person-hours reconcile to a no-event local pre-network counterfactual and exclude intermunicipal transfers; this is an accounting identity, not observed outage duration.",
+        "Explanations identify deterministic pressure weights but attach no incident ID, authority-selected local surface, operator topology, calibration, activated intervention or resource state.",
+        "Each deterioration, plateau or restoration needs owner, action, target, prerequisite, crew/material/fuel, access, start/end, state, evidence class and uncertainty."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "Persistent river and compound service plateaus are not tied to a selected event, blocking state, actions, resources or observations.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E08"],
+      "notes": [
+        "River severity 0.634732, internal normalized inundation-stress field 2.008424, 15,532 affected and all eight availabilities remain exactly fixed from T+24 through T+72 with every recovery field zero.",
+        "Compound severity falls 0.910083 to 0.471029 as cyber forcing decays, but 17,962 affected and all eight service availabilities remain fixed; every recovery field is zero and person-hours rise from 302,067.325527 to 1,108,015.795706.",
+        "Storm, pluvial, heat and wildfire expose numerical recovery without named crews, routes, water, fuel, spares, completed actions or observed restoration.",
+        "Sustained forcing may legitimately prevent restoration, but it must be an explicit selected scenario condition with access/resource states rather than an unexplained municipality-wide numerical freeze."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": ["power", "water", "drainage", "gas", "telecom", "mobility", "facilities", "supply"]
+  },
+  "findings": [
+    {
+      "id": "GM0784-RIVER-SCOPE-001",
+      "severity": "critical",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Unsupported generic major-river stress drives a severe, frozen municipality-wide result despite contrary regional screening evidence.",
+      "evidence": "The official Hart van Brabant stress test enumerates Waalwijk, Heusden, northern Dongen, eastern Haaren and north-western Loon op Zand for Maas-breakthrough exposure, not Gilze en Rijen. The current river preset nevertheless holds severity 0.634732, 2.008424 normalized inundation stress in the legacy internal floodDepthM field, 15,532 affected and all eight service availabilities unchanged from T+24 to T+72. It selects no river, water level, defence/breach/overtopping condition, connected footprint, arrival, duration or recession. This does not prove zero local water risk; Broekakkers/regional-water/pluvial pathways remain separate.",
+      "action": "Mark GM0784 direct major-river amplitude, local allocation and dependent services unsupported/Unknown. Only enable quantitative flood output after a water-manager-selected, versioned LIWO/LDO or Brabantse Delta event provides source water, defence state, footprint, depth/stress units, arrival, persistence/recession, probability, CRS, NoData, licence and expert review. Never label the legacy scalar as metres."
+    },
+    {
+      "id": "GM0784-FIRE-SOURCE-001",
+      "severity": "critical",
+      "category": "geography",
+      "status": "open",
+      "summary": "An explicit official nature-fire source does not control its containing neighbourhood's rank.",
+      "evidence": "IPO Risicokaart contains three clipped GM0784 nature-fire areas. A controlled T+24 source at [4.881460000000001, 51.585495] is inside Boswachterij Dorst (Militair Oefenterrein Heiningen), inside GM0784 and inside CBS Buitengebied Molenschot, yet that containing neighbourhood ranks 24th of 26. The top remains Vliegende Vennen, Midden-Brabant Poort, Centrumgebied Zuid Gilze, Grote Spie and Haansberg. The source is an audit fixture, not a current ignition; its purpose is to test source containment.",
+      "action": "Block local wildfire rankings from operational use. Intersect the full boundary and explicit source/perimeter with eligible Risicokaart/BRT/BGT vegetation, then use issue-valid KNMI wind/humidity, fuel/moisture, access, suppression-water and response assumptions. Add a regression requiring an eligible source-containing region to respond consistently; preserve no selected ignition/perimeter as Unknown."
+    },
+    {
+      "id": "GM0784-SHARED-SPATIAL-SEED-001",
+      "severity": "critical",
+      "category": "geography",
+      "status": "open",
+      "summary": "Eight unrelated hazard families reuse one complete neighbourhood order despite explicit local pathway differences.",
+      "evidence": "Storm, pluvial, river, coastal, heat, winter, cyber and wildfire use the same 26-row order; compound differs only by swapping the first two leaders. Official sources distinguish Broekakkers rain, Grote Lei drought, the airfield heat hotspot and three nature-fire polygons. Cyber has no defensible reason to share a flood/heat/fire order, and compound unsupportedDimensions is empty.",
+      "action": "Replace the common municipality seed with hazard-specific eligible-domain, source, forcing and exposed-object adapters plus a support gate. Integrate native local stress surfaces where licensed, Brabantse Delta water layers, full official fire polygons and issue-valid weather. Require unrelated presets not to silently share a complete rank and render unsupported local allocation Unknown."
+    },
+    {
+      "id": "GM0784-CLIMATE-WATER-CHAIN-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Named rain, drought and heat hotspots are not connected to forcing, terrain, drainage or affected services.",
+      "evidence": "At T+24 pluvial reports flood stress 0.515267, 7,505 affected and Drainage 0.484254; heat reports drought 0.500070, 1,438 affected, Water 0.644783 and Facilities 0.700512. Official evidence names Broekakkers, Midden-Brabant Poort, Haansberg, Rijen, Grote Lei and Vliegveld Gilze-Rijen. The allocator samples none of those native footprints, while 66 weirs, two sewer pumps and RWZI Rijen remain non-causal register points without catchment, topology, state or backup.",
+      "action": "Request licensed native municipal/regional rain-depth, heat, drought, sewer/catchment and intervention GIS with CRS, event, units, edition and NoData. Combine only compatible sources with Brabantse Delta daily CC0 and HWH CC BY-SA context. Connect rainfall/heat/drought forcing to relevant exposed populations/assets and retain registered versus operational state separation."
+    },
+    {
+      "id": "GM0784-COMPOUND-RECOVERY-001",
+      "severity": "critical",
+      "category": "service",
+      "status": "open",
+      "summary": "All eight compound services remain numerically frozen through T+72 without a traceable blocking state or action/resource ledger.",
+      "evidence": "From T+24 to T+72 compound severity falls 0.910083 to 0.471029, but affected remains 17,962 and availability stays exactly Power 0.416320, Water 0.406515, Drainage 0.290434, Gas 0.510880, Telecom 0.229750, Mobility 0.370533, Facilities 0.352096 and Supply 0.722498. Every recovery field is zero while person-hours rise 302,067.325527 to 1,108,015.795706. No authority/owner, crews, material, fuel, access, switching, repair or observation explains the plateau.",
+      "action": "Require a typed incident/action/resource ledger with authority, owner, target, prerequisite, crew/material/fuel, access, start/end, state, evidence time and uncertainty. At each mandatory checkpoint require deterioration, plateau and restoration to cite a causal condition while retaining arithmetic reconciliation and exact-zero behavior."
+    },
+    {
+      "id": "GM0784-LIFELINE-PROVENANCE-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Exact eight-service availability has no verified physical utility/facility topology or live operator state.",
+      "evidence": "Power, Water, Drainage, Gas, Telecom and Facilities have no modeled physical routes; only nine NWB proxies support Mobility and explicit road-logistics/Supply. Enexis/Brabant Water/Ziggo territories, NBNL planning, 69 water objects, 60 antennas, 13 education locations and government/care registers are context, not customer connectivity, compatible capacity, switching, pressure, backhaul, backup, damage or restoration. Drainage provider lookup is empty and therefore Unknown.",
+      "action": "Integrate authorized operator topology, outage, backup, priority-user and restoration feeds where security agreements permit. Keep public provider, water, grid, antenna, education, care and office layers labelled affectsSimulation=false absent verified bindings. Otherwise publish minimal versioned synthetic service zones/graphs with ranges and uncertainty rather than operator-validated-looking decimals."
+    },
+    {
+      "id": "GM0784-ACCESS-CARE-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "Village, airbase, rail and external acute-care continuity are not modeled through the first 72 hours.",
+      "evidence": "The bundle has nine road proxies, station Gilze-Rijen and 31 GTFS stop areas, but no local-road/level-crossing closure, direction, train/bus operation, emergency priority, airbase access, evacuation destination or supply/repair throughput. RIVM assigns no emergency department inside GM0784; Amphia Breda is about 8.03 km straight-line from the centre. Under the unsupported river run the UI reports Mobility 81% at both T+24 and T+72 without route-level depth/passability or hospital acceptance.",
+      "action": "Build an authority-reviewed multimodal graph from monthly CC0 NWB, local roads/structures/level crossings, valid GTFS/operational feeds and explicit external-hospital/safe-destination routes. Bind event-valid restrictions and emergency priority; register care, shelter, airbase support and distribution roles only with activation, capacity, accessibility, backup, owner and valid-time state."
+    },
+    {
+      "id": "GM0784-AIRBASE-SCOPE-001",
+      "severity": "high",
+      "category": "limitation",
+      "status": "open",
+      "summary": "A material military airbase and dedicated ramp plan are visible but no aviation incident family can be assessed.",
+      "evidence": "Defensie places the helicopter base in the municipal heart, reports more than 1,600 workers and identifies Apache, Chinook and Cougar operations. VRMWB describes airfield fire/crash and off-site crash mechanisms and links a dedicated ramp-response plan for Gilze-Rijen/Woensdrecht. None of the ten canonical presets represents an aviation accident, base fire, mass casualty, off-site impact or protected operational dependency; static facility presence is not an incident.",
+      "action": "Add only an authority-approved optional aviation exercise family with selected source/event, privacy/security-safe occupancy, impact zone, hazardous materials where relevant, access, response and hospital/shelter capacity. Preserve Defensie/VRMWB pages as preparedness context and no selected event as Unknown, never infer incident probability or state from the register."
+    },
+    {
+      "id": "GM0784-OTHER-HAZARDS-001",
+      "severity": "medium",
+      "category": "limitation",
+      "status": "open",
+      "summary": "Storm, winter, cyber, earthquake, coastal and canonical wildfire execute but remain uncalibrated or narrowly scoped.",
+      "evidence": "At T+24 storm reports 5,284 affected, winter 9,884 and cyber 9,520 with exact service effects but no issue-valid forecast/exposed objects or cyber target/system boundary. Earthquake peaks at severity 0.003010 from a fixed Groningen event rather than a selected local event/GMPE/site/fragility. Coastal direct flood is zero at T+72 but accumulated wind-driven burden remains; canonical wildfire has zero direct fire locally and does not test GM0784's registered forests. The inside-airport KNMI point is a current observation, not the synthetic exercise clock.",
+      "action": "Bind weather exercises to declared synthetic forcing or versioned KNMI issue/valid products; define cyber organization/system boundaries and authorized dependencies; require a selected seismic source/event/GMPE/site/fragility; and use an explicit fire source/perimeter. Label coastal direct-water zero by its narrow scope and all omitted pathways Unknown."
+    },
+    {
+      "id": "GM0784-TEMPORAL-UI-001",
+      "severity": "high",
+      "category": "ui",
+      "status": "open",
+      "summary": "Responsive evidence labels are strong, but unsupported river mobility still appears as decision-ready exact municipal and neighbourhood state.",
+      "evidence": "Desktop/mobile required municipality, disaster, service and T+24 controls, plus a mobile details action; one more checkpoint action reached T+72. Both views headline 81% Accessible capacity, strained for GM0784 River/Mobility at T+24 and T+72. General evidence correctly labels CBS/BGT/BAG/NWB context, NDW observations and simulation assumptions, but the missing selected river/footprint, contrary local evidence, route passability, physical topology and recovery cause are not adjacent to the hero. Desktop drilldown selected Buitengebied Molenschot. Both layouts had no runtime error or horizontal overflow.",
+      "action": "Gate exact status, availability, causal bars and exports by municipality-hazard-service support. Place the missing hydraulic event, source containment, route/topology, recovery, valid-time and NoData warnings beside the hero and distinguish municipal versus selected-neighbourhood scope. Preserve responsive named controls/context caveats and add keyboard/screen-reader regression checks for scenario, service, six checkpoints and details."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Suppress GM0784's unsupported generic direct major-river result and require an evidence-bearing hydraulic event.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Until an authority-selected event is loaded, GM0784 river stress, affected counts and downstream service impacts render unsupported/Unknown. A loaded case records river/system, defence/breach assumption, footprint, native units/resolution, arrival, duration/recession, probability, NoData, edition, licence, transform hash and expert reviewer; no normalized scalar is described as metres."
+    },
+    {
+      "summary": "Replace the shared GM0784 neighbourhood seed with mechanism- and source-aware adapters.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/geometry.ts",
+        "packages/sim-core/src/model.test.ts",
+        "scripts/fetch-realism-data.mjs",
+        "apps/web/src/data.ts"
+      ],
+      "validation": "Use the full 2025 polygon; source/intersect the native Broekakkers/Grote Lei/airfield layers and clipped Risicokaart forests after licence/version/NoData resolution. Tests prove the Heiningen source-containing Buitengebied Molenschot responds consistently, official local hotspots are sampled, and unrelated hazards cannot silently share a complete rank."
+    },
+    {
+      "summary": "Integrate public water/climate data without promoting register geometry to live causal topology.",
+      "files": [
+        "scripts/fetch-water-assets.mjs",
+        "scripts/fetch-realism-data.mjs",
+        "packages/sim-core/src/types.ts",
+        "apps/web/src/data.ts"
+      ],
+      "validation": "Version Brabantse Delta daily CC0 FeatureServers and HWH CC BY-SA OGC coverage separately from native municipal rain/heat/drought/sewer data. Preserve event, CRS, units, cadence, licence, feature dates and NoData. Weirs, pumps and RWZI stay official-context until connectivity, control state, capacity semantics, power/backup and authorization are supplied."
+    },
+    {
+      "summary": "Evidence-gate all eight lifelines and add typed cross-boundary mobility, care, supply and facility roles.",
+      "files": [
+        "packages/sim-core/src/network.ts",
+        "packages/sim-core/src/types.ts",
+        "apps/web/src/data.ts",
+        "apps/web/src/components/OperationsBrief.tsx"
+      ],
+      "validation": "NWB/NDW govern Mobility and explicit road-logistics/Supply only; utility views require distinct topology/state/capacity/backup evidence or versioned synthetic ranges. External Amphia/ETZ access, rail/transit, villages, business parks and the airbase expose route, role, activation, staffing/capacity, validity and uncertainty. Empty provider/sensor/facility coverage displays Unknown."
+    },
+    {
+      "summary": "Make first-72-hour service evolution conditional on a traceable incident/action/resource ledger.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "apps/web/src/components/CausalExplanation.tsx",
+        "apps/web/src/components/OperationsBrief.tsx"
+      ],
+      "validation": "At T+0/6/12/24/48/72 each deterioration, plateau and restoration cites incident driver, owner/authority, action, target, prerequisite, crew/material/fuel, access, start/end, state and uncertainty. Prevent GM0784's compound/river all-service freeze from appearing decision-grade without causes while preserving numerical reconciliation."
+    },
+    {
+      "summary": "Expose support, observation time, spatial scope and NoData beside operational values and add an authority-approved aviation option.",
+      "files": [
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/OperationsBrief.tsx",
+        "apps/web/src/components/CausalExplanation.tsx",
+        "packages/sim-core/src/types.ts"
+      ],
+      "validation": "At 1440×900 and 390×844, GM0784 River/Mobility T+24/T+72 and Buitengebied Molenschot drilldown place unsupported-event/source/topology/recovery warnings next to exact values. Static, observed, forecast, official-scenario, synthetic and unknown classes retain issue/valid/retrieval times and NoData. Any aviation exercise requires VRMWB/Defensie-approved source, impact and privacy/security-safe response inputs."
+    }
+  ],
+  "residualLimitations": [
+    "Complete physical electricity, gas, drinking-water, sewer/drainage, telecom, care and supply topology, control logic, live load, damage, outage, backup, crews, spares, water, fuel and restoration state are unavailable or security-sensitive. Public geometry, provider territory and registers cannot honestly replace them.",
+    "The official 2020 Hart van Brabant stress test is strong local scenario evidence but not a current observation or forecast. Its public summary/viewer does not state a stable analytical API, blanket licence, fixed cadence or complete raster NoData contract.",
+    "The stress-test omission of GM0784 from enumerated Maas-breakthrough municipalities contradicts the current generic direct-major-river precision but does not prove zero risk from regional water, groundwater, pluvial rain or indirect national service disruption.",
+    "Brabantse Delta/HWH expose extensive water geometry, but registered status and capacity fields do not establish current condition, connectivity, catchment, control position, defence strength, spare capacity or backup power. National aggregation is partial.",
+    "Risicokaart polygons establish eligible nature-fire context, not fuel/moisture, ignition, spread, smoke, suppression water, access or current incident. Controlled audit source points are fixtures, not observations.",
+    "Defensie/VRMWB publications establish an airbase and preparedness scope, not occupancy, movement, incident probability, impact zone, activated resources or current operating state. Security and privacy constraints apply.",
+    "CBS residents omit incident-time airbase/business workers, pupils, road/rail users, visitors, patients and responders. Rounded/suppressed aggregates cannot identify individual self-reliance, mobility or medical need.",
+    "NWB, ProRail, GTFS and NDW do not establish scenario-time road/rail/transit operation, emergency priority, hospital acceptance, evacuation suitability or throughput. A missing or expired record is not an open route.",
+    "The inside-municipality KNMI observation and nearby Waterinfo/RIVM points are timestamped point context, not municipal surfaces or arbitrary T+72 forecasts. Zero rainfall in one hour, no local station or no local acute-care point is not zero hazard, need or service.",
+    "Exact hazard, affected-population, service availability, flow, recovery and person-hour values remain synthetic/derived exercise outputs, not observations, official forecasts, operator commitments or decision-grade advice until critical/high findings are corrected and authorities review the scenario.",
+    "The audit covers the first 72 hours only. Flooding, displacement, heat/drought, ecological effects, infrastructure repair and recovery may continue longer."
+  ],
+  "provinceReviewFlags": [
+    "Noord-Brabant/VRMWB/Brabantse Delta should review suppression of GM0784's generic major-river amplitude and define whether any selected LIWO/LDO or regional-water scenario belongs in the exercise, with defence, footprint, arrival, recession and NoData.",
+    "Province, municipality, Hart van Brabant and De Baronie should agree a reusable machine route for Broekakkers/Midden-Brabant Poort/Haansberg rain, Grote Lei drought and Vliegveld Gilze-Rijen heat evidence, including licence, edition, CRS, event, units, cadence and no-data meaning.",
+    "VRMWB/Defensie should decide the privacy/security-safe scope of an optional aviation/airbase exercise and the typed operational dependencies that may be exposed; facility presence and a ramp plan must never imply a current incident or capacity.",
+    "Noord-Brabant should require hazard-specific neighbourhood fields and full-polygon source containment. A common rank across storm, rain, river, coastal, heat, winter, cyber and fire is a shared model defect, not municipal uncertainty.",
+    "VRMWB municipalities need a shared first-72-hour mobility, evacuation, external acute-care, activated-facility and lifeline evidence contract separating public context, current observations, forecasts, official scenarios, synthetic assumptions and Unknown state."
+  ]
+}

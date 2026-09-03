@@ -1,0 +1,501 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0246",
+    "name": "Heerde",
+    "province": "Gelderland",
+    "safetyRegion": "Noord- en Oost-Gelderland"
+  },
+  "agent": {
+    "taskName": "municipality_gm0246",
+    "agentId": "/root/municipality_gm0396",
+    "completedAt": "2026-09-03T04:03:11Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "GM0246 passes the complete deterministic execution contract for all ten canonical presets, T+0/6/12/24/48/72 and all eight essential services. Its 2025 CBS/PDOK identity, 19,305 residents, fifteen neighbourhoods, four BAG places, thirteen BRT settlement labels, 22 scheduled-transit stop areas and three A50/N794 municipal-border links are coherent. Current NWB semantics correctly limit roads to Mobility and assumed road-logistics Supply. Release is nevertheless correction-required. Heerde has a genuine, operationally specific IJssel pathway: the eight-kilometre Veessen–Wapenveld high-water channel is activated above 5.65 m NAP at Veessen, temporarily makes the area between channel and IJssel an island, changes the state of inlet/outlet works and Gemaal Doornbos and is expected to remain active for about 1.5 months. LIWO also exposes two primary candidate breach locations inside GM0246. The model selects none of these states while assigning 2.708946 normalized river inundation stress from T+12 through T+72, 9,224 affected people-equivalent at T+24 and 9,805 at T+72. Eight unrelated nonzero hazard families reuse one exact neighbourhood order, and a controlled ignition inside both official Heerde186 mixed-forest eligibility and current TOP10NL conifer forest leaves its source neighbourhood sixth. The graph omits Kerkdijk over the inlet, the east-side village access/islanding problem, Wapenveld drainage, external acute-care routes and the water-control sequence. Public registers, policies, observations and official scenarios can improve fidelity, but they remain distinct from event state. NoData, no selected event and a filtered no-match never mean zero, open or safe.",
+  "evidenceSources": [
+    {
+      "publisher": "Statistics Netherlands (CBS), Kadaster and PDOK",
+      "title": "E01 — Wijken en buurten 2025, full administrative geometry, BAG places and BRT settlements",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_niet_gegeneraliseerd/items?f=json&limit=100&datetime=2025-07-01T00%3A00%3A00Z&bbox=5.90%2C52.30%2C6.20%2C52.50",
+      "accessedAt": "2026-09-03T04:03:11Z",
+      "edition": "2025 administrative/statistical editions; generated sources retrieved 2026-08-31 to 2026-09-02",
+      "supports": [
+        "Fresh CBS OData row GM0246 reports Heerde, 19,305 residents, density 246/km², 4,926 residents age 65+ and 2,254 one-person households. CBS cells are independently rounded/suppressed and nulls are not zeros.",
+        "The current non-generalized GM0246 MultiPolygon has 1,179 coordinate positions and bbox [5.951004803613642, 52.3565124388522, 6.130552872730786, 52.45480644058709], versus 69 positions in the generated overview geometry.",
+        "The consumed regional data contain fifteen neighbourhoods, four active BAG places (Heerde, Veessen, Vorchten and Wapenveld) and thirteen BRT settlements. Administrative geography is not a hydraulic compartment, evacuation zone or utility topology.",
+        "CBS/administrative data are CC BY 4.0 and BAG/PDOK is Public Domain Mark 1.0. Edition, retrieval time, generalized/full-resolution role and missing-value semantics must remain visible."
+      ]
+    },
+    {
+      "publisher": "Gemeente Heerde",
+      "title": "E02 — Omgevingsvisie Heerde, adopted 27 May 2024",
+      "url": "https://omgevingsvisie.heerde.nl/4-keuzes-voor-onze-gebieden/",
+      "accessedAt": "2026-09-03T04:03:11Z",
+      "edition": "Adopted 2024-05-27; current web publication retrieved 2026-09-03",
+      "supports": [
+        "The municipality distinguishes the Veluwe, IJssel uiterwaarden/high-water channel, wet Weteringengebied and village areas. It names IJssel, high-water channel, Apeldoorns Kanaal, streams, springs, ditches and weteringen as different water systems.",
+        "Kerkdijk is the principal connection between Veessen/Vorchten and Heerde and crosses the high-water-channel inlet. The wet Weteringengebied drains north toward a pump at Wapenveld and has IJssel seepage risk.",
+        "The Veluwe portion is crossed by A50 and local roads and contains forests/heath, Renderklippen and busy Heerderstrand recreation. Municipal climate adaptation addresses cloudbursts, drought, heat and nature fire as distinct risks.",
+        "The adopted vision is policy/planning evidence with no live event API, fixed machine cadence or standard reuse licence stated. It does not prove current route, visitor, water, fire or response state."
+      ]
+    },
+    {
+      "publisher": "Waterschap Vallei en Veluwe and Rijkswaterstaat",
+      "title": "E03 — Hoogwatergeul Veessen–Wapenveld operating and drainage context",
+      "url": "https://www.vallei-veluwe.nl/van-water-genieten/veessen-wapenveld/",
+      "accessedAt": "2026-09-03T04:03:11Z",
+      "edition": "High-water channel constructed 2012–2017; current operator page retrieved 2026-09-03",
+      "supports": [
+        "The eight-kilometre, 550–1,500 m wide channel is activated when the IJssel reaches 5.65 m+NAP at Veessen; sixty 12 m × 1.05 m inlet flaps are opened in stages and about 40% of IJssel flow can use the channel.",
+        "Activation can lower IJssel level by roughly 71 cm at Veessen, temporarily makes the land between channel and IJssel an island and is expected to last about 1.5 months. These are design/operating semantics, not a current activation.",
+        "Gemaal Doornbos normally uses three pumps with joint capacity 175 m³/min; it is switched off while the channel is active, then free drainage, an outlet sluice and later Doornbos restore levels according to stated thresholds.",
+        "The operator page provides thresholds and sequence but not live flap/pump state, telemetry licence, current capacity, failure, forecast hydrograph or guaranteed restoration. Rijkswaterstaat separately describes the channel as a Ruimte voor de Rivier bypass."
+      ]
+    },
+    {
+      "publisher": "WMCN / Rijkswaterstaat, Deltares and IPLO",
+      "title": "E04 — LIWO 2025.1.6 primary breach catalogue and flood-scenario contract",
+      "url": "https://basisinformatie-overstromingen.nl/geoserver/ows?service=WFS&version=2.0.0&request=GetFeature&typeNames=LIWO_Basis%3Agebiedsindeling_doorbraaklocaties_primair&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=5.9510048%2C52.3565124%2C6.1305529%2C52.4548064%2CEPSG%3A4326",
+      "accessedAt": "2026-09-03T04:03:11Z",
+      "edition": "LIWO application 2025.1.6; dataset projects/deltares-rws/liwo/2025_0_1",
+      "supports": [
+        "The public bbox returns four primary candidates. Exact containment against GM0246 places candidate 2 (52a-01_0172_1_IJ_km0962 at [6.0838, 52.3818]) and candidate 602 (DeNijenstee at [6.0736, 52.3639]) inside Heerde; Wijhe and Windesheim lie across/outside and must not be assigned by bbox alone.",
+        "No regional, regional-water-system or outside-dike candidate point is returned in the same envelope. No-record is a scoped catalogue result, not proof that those mechanisms are impossible or safe.",
+        "A candidate point and frequency flags do not select a breach, defence/control state, hydrograph, probability, connected footprint or consequence grid.",
+        "IPLO requires specialist water-management expertise. Causal use must pin release, scenario/model dates, source water, breach/overtopping/control variant, native CRS/resolution/units/NoData, depth, velocity, arrival, duration, recession and scenario-clock mapping. Exact redistribution terms for persisted LIWO products require confirmation."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Noord- en Oost-Gelderland (VNOG)",
+      "title": "E05 — Regionaal Risicoprofiel and Dekkingsplan 2025–2028",
+      "url": "https://www.vnog.nl/sites/default/files/2024-06/14.2%20Concept%20RRP%20en%20RDP.pdf",
+      "accessedAt": "2026-09-03T04:03:11Z",
+      "edition": "Adopted 2024-12-12 for 2025–2028",
+      "supports": [
+        "The adopted regional programme covers Heerde and identifies flooding, nature fire, prolonged heat/drought, extreme weather, electricity, drinking-water and telecom/ICT failure, care concentrations and municipal cyber incidents as material crisis scenarios.",
+        "The region is approximately 25% forest/heath and receives about 1.4 million recreational visitors at regional scale. Nature-fire consequences depend on ignition, wind, terrain, fuel, vulnerable objects, evacuation and scarce specialist capacity.",
+        "Flood planning requires named source/defence, lead time, footprint, warning/evacuation decision and cross-agency coordination; a generic centroid-distance field does not supply these.",
+        "This is strategic four-year planning evidence with no live machine event feed or standard data-reuse licence stated. It does not establish current probability, resources, coverage, utility state or checkpoint completion."
+      ]
+    },
+    {
+      "publisher": "IPO Risicokaart and Kadaster/PDOK",
+      "title": "E06 — Heerde combustible-nature eligibility and TOP10NL land cover",
+      "url": "https://servicespub.risicokaart.nl/geoserver/ISOR_RK/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ISOR_RK%3Aisor_brandbaar_natuurgebied&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=5.95%2C52.35%2C6.13%2C52.46%2CEPSG%3A4326",
+      "accessedAt": "2026-09-03T04:03:11Z",
+      "edition": "Risicokaart metadata current at retrieval; Heerde features valid from 2006-04-04; TOP10NL source actuality 2021 at controlled point",
+      "supports": [
+        "The public WFS bbox returns nine polygons from multiple municipalities. Only Heerde185 and Heerde186 have Heerde as source holder; bbox results from Epe, Hattem and Oldebroek must not be silently assigned to GM0246.",
+        "Controlled point [5.995555761808197, 52.402957904474626] is inside Heerde186 mixed-forest eligibility and CBS BU02460009. A TOP10NL point query independently returns conifer forest feature cd1b7c3a-ae38-5ec1-9dbb-bd854194e3e2 with source actuality 2021 and registration 2022-02-01.",
+        "Risicokaart is Public Domain and TOP10NL is 1:10,000, normally annual and CC BY 4.0. Old/missing geometry and null risk/person fields remain Unknown, never safe or zero.",
+        "Eligibility/land cover does not establish ignition, live fuel/moisture, perimeter, wind, smoke, recreation occupancy, access, extinguishing water, crews or suppression state."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / PDOK, OVapi and Gemeente Heerde",
+      "title": "E07 — NWB roads, scheduled transit and Mobiliteitsplan Heerde 2025",
+      "url": "https://www.heerde.nl/dsresource?objectid=9dafa9c4-0ecc-4f03-b18b-044f600db1aa&type=pdf",
+      "accessedAt": "2026-09-03T04:03:11Z",
+      "edition": "Municipal mobility plan January 2025; NWB-light 2026-08-01; deployed OVapi schedule snapshot 2026-08-30 through 2026-12-12",
+      "supports": [
+        "The mobility plan says Veessen strongly depends on IJsseldijk–Kerkdijk, Keuterstraat and Eperweg, while Wapenveld uses Groteweg toward Heerde/Hattem and Molenweg toward A28/A50.",
+        "The generated graph contains two A50 border links and one N794 link only toward Hattem/Epe. It omits the inlet-crossing Kerkdijk, the east-side isolation problem, Veessen–Wijhe ferry and explicit hospital destinations.",
+        "There is no ProRail station in GM0246. The deployed transit reference has 22 stop areas across Heerde, Wapenveld, Veessen and Vorchten; scheduled points do not prove service, passenger presence, accessible vehicles or evacuation capacity.",
+        "NWB is monthly CC0 road geometry and OVapi is best-effort schedule context; the municipal PDF states policy, not live passability. Mode, issue/valid time, incident restriction, emergency exemption and NoData must remain explicit."
+      ]
+    },
+    {
+      "publisher": "Het Waterschapshuis, Waterschap Vallei en Veluwe, Netbeheer Nederland, RIVM, RDI and DUO",
+      "title": "E08 — Public water, electricity-planning, care, telecom, education and observation context",
+      "url": "https://api.pdok.nl/hwh/waterschappen-kunstwerken-imwa/ogc/v2",
+      "accessedAt": "2026-09-03T04:03:11Z",
+      "edition": "Deployed context snapshots 2026-08-31 to 2026-09-03; individual source records retain their own dates",
+      "supports": [
+        "The deployed HWH cache assigns 106 objects using full-boundary containment: 92 weirs, seven surface-water pumps, four sluices, two sewer pumps and RWZI Heerde. Only the two sewer pumps expose normalized capacity values; cross-object units are not established.",
+        "Waterschap Vallei en Veluwe confirms Heerde as one of sixteen RWZI locations and states the regional total receives about 340 million litres/day. A regional total cannot be allocated into invented local live throughput.",
+        "One NBNL postcode sample names OS HATTEM 10-1i and Liander with planning/queue values and projects starting no earlier than 2028. It is not complete municipality coverage, current load, topology, outage, reserve or restoration.",
+        "The caches contain 38 antenna installations and fifteen education locations, but no in-boundary surveyed acute emergency department. Nearest surveyed 24/7 facility is Isala Zwolle about 13.33 km straight-line from the municipal reference point; annual capacity does not guarantee acceptance or access.",
+        "One Waterinfo observation at Veessen–Wapenveld is 16 cm NAP, observed 2026-09-02T17:30Z and labelled lowered water level. It is a point observation at that valid time, not the scenario's high-water hydrograph, municipality surface or future T+72 state.",
+        "Current assigned KNMI weather, NDW situation, PM2.5 and seismic records are zero. Those are scoped snapshot no-matches, never normal weather, open roads, clean air, impossible shaking or safety.",
+        "HWH derivatives are CC BY-SA 4.0, RIVM care is CC0, DUO education is CC BY and individual NBNL/RDI/Waterinfo terms and cadence must remain source-specific. None supplies complete safe physical topology or resource state."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM0246, Heerde, Gelderland and Veiligheidsregio Noord- en Oost-Gelderland agree across generated and primary 2025 sources.",
+      "evidenceRefs": ["E01", "E05"],
+      "notes": [
+        "The municipality id/name, province, safety region, boundary/statistics edition and official center are coherent.",
+        "The generated center [6.040865974686189, 52.404736050520114] lies inside both generated and full-resolution municipality geometry.",
+        "Source edition/retrieval time, observation valid time, official scenario/model date and synthetic exercise clock remain separate."
+      ]
+    },
+    "geography": {
+      "status": "warn",
+      "summary": "Administrative containment is coherent, but Heerde spans distinct Veluwe, villages, wet weteringen, IJssel floodplain and controlled high-water-channel domains.",
+      "evidenceRefs": ["E01", "E02", "E03", "E04", "E06"],
+      "notes": [
+        "The 69-position overview is suitable for selection and aggregation only; the 1,179-position full boundary is required even for preliminary intersection.",
+        "The IJssel/high-water channel, inlet/outlet, island area, Wapenveld pump/weteringen, local sewer, Apeldoorns Kanaal, streams/springs, forest/heath and built villages have different causal boundaries.",
+        "Two contained LIWO candidate points, high-water-channel infrastructure, HWH points and forest polygons are context layers until a named event and connected model are selected.",
+        "BBox matches from Wijhe/Windesheim and adjacent forest-source municipalities were explicitly rejected rather than assigned to Heerde."
+      ]
+    },
+    "demography": {
+      "status": "warn",
+      "summary": "Resident totals reconcile within CBS rounding, but ageing, recreation, care and event-time presence require separate evidence.",
+      "evidenceRefs": ["E01", "E02", "E05", "E08"],
+      "notes": [
+        "Published neighbourhood cells sum to 19,315 residents, ten above the municipality control (+0.052 percent), and sum to 8,045 households and 4,925 residents age 65+; differences are consistent with independent rounding.",
+        "Largest neighbourhoods are Heerde (9,125), Wapenveld (4,150), Wapenveld-Zuid (1,275), Heerde-Noord/Hoorn (1,270) and Heerde-Zuid (1,070).",
+        "The municipality has 25.5 percent residents age 65+, but this aggregate does not identify individual mobility, medical dependence, vehicle access, evacuation need or warning compliance.",
+        "Veluwe/Renderklippen/Heerderstrand visitors and people on the east side during high-water-channel activation are not represented by registered-resident allocation; regional visitor totals must not be downscaled into invented occupancy."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "Fifteen official neighbourhoods provide useful aggregate context, but partial attributes and one shared hazard ordering cannot support operational prioritization.",
+      "evidenceRefs": ["E01", "E02", "E03", "E06"],
+      "notes": [
+        "Core population, age, household, density, business, buildings, land/water and access-distance fields cover all fifteen neighbourhoods. Housing-value and several ownership/building-form fields cover 14/15, while car/benefit fields cover 13/15.",
+        "District-heating percentage and public-charging count cover 0/15 and correctly remain null; missing/suppressed/not-applicable values are not calculated zeros.",
+        "Veessen, Vorchten, Lage Land, two bosgebied areas and main Heerde/Wapenveld centers have materially different hydraulic, fire, access and demand semantics not expressed by the common rank.",
+        "All local regions correctly remain neutral operational priority and non-hubs; CBS aggregates do not designate response priority, shelters, pumps or service nodes."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "Four BAG places and thirteen BRT settlement labels preserve Heerde's dispersed multi-village context.",
+      "evidenceRefs": ["E01", "E02"],
+      "notes": [
+        "BAG contains Heerde, Veessen, Vorchten and Wapenveld; BRT contains six woonkernen, six buurtschappen and one gehucht.",
+        "All active BAG label points lie within the independently versioned generalized municipality geometry.",
+        "Place labels are not high-water compartments, island/contact zones, evacuation areas, shelter catchments, utility zones or incident-time population."
+      ]
+    },
+    "transport": {
+      "status": "fail",
+      "summary": "A50/N794 border identities are traceable and correctly scoped, but the high-water-channel access topology and external care routes are missing.",
+      "evidenceRefs": ["E02", "E03", "E07", "E08"],
+      "notes": [
+        "Three generated logical routes connect GM0246 to Hattem/Epe: two A50 links and one N794 link backed by twelve unique NWB source ids.",
+        "All three correctly appear only for Mobility and road-logistics Supply; six physical utility/facility services have zero NWB routes.",
+        "Kerkdijk crosses the inlet and is the main connection for Veessen/Vorchten; activation creates an island area. None of this topology, nor Wapenveld Molenweg/Groteweg, Veessen ferry or hospital destinations appears in the graph.",
+        "There is no ProRail station and there are 22 scheduled stop areas. Static/scheduled context does not prove service, route safety, vehicles, passenger loads or evacuation capacity.",
+        "Zero assigned NDW situations is NoData/no-match for the cached validity filter, not proof that routes or structures are open."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "Substantial public flood-control, water, nature, transport and facility context exists but does not form a live first-72-hour dependency/resource model.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "Public evidence identifies high-water-channel controls, Gemaal Doornbos, Wapenveld drainage, 106 HWH water objects, RWZI Heerde, two contained LIWO candidates, combustible nature, 38 antenna sites and fifteen education locations.",
+        "These layers have different publishers, dates, coverage, licences and evidence classes. Register/planning presence is never live state, connected capacity, backup, staffing, stock or restoration.",
+        "The one current Waterinfo point predates this audit by hours and is not aligned to the synthetic scenario clock; zero weather/NDW/air/seismic features remain Unknown.",
+        "No surveyed acute hospital lies in GM0246, making route/acceptance outside the municipality material. Isala's annual survey is context, not guaranteed beds/staffing or travel time.",
+        "No complete public physical electricity, gas, drinking-water, sewer, telecom, facility, fuel, emergency logistics or supply topology was identified; security-sensitive gaps are not fabricated."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "warn",
+      "summary": "All canonical scenarios execute across every checkpoint and service, but outputs are synthetic screens rather than Heerde calibration.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "Peak municipal severities are storm 0.696961, pluvial 0.472595, river 0.838222, coastal 0.049770, heat 0.610107, winter 0.535052, cyber 0.468044, earthquake 0.088823, wildfire 0.161100 and compound 0.928484.",
+        "At T+24 severity/pressure/affected people-equivalent are storm 0.198629/0.335505/5,317; pluvial 0.303295/0.240016/2,721; river 0.838222/0.479144/9,224; coastal 0.049770/0.083816/0; heat 0.096879/0.170004/816; winter 0.529426/0.260677/3,283; cyber 0.398809/0.298319/4,306; earthquake 0/0.080871/0; wildfire 0.161100/0.171545/858; and compound 0.921492/0.521386/10,373.",
+        "River stress remains 2.708946 from T+12 to T+72 while affected people increase to 9,805 and cumulative event-attributable burden reaches 717,104.09 person-hours.",
+        "Compound T+72 retains 0.433353 flood stress, pressure 0.555988, 11,315 affected and 741,335.06 person-hours after wind reaches zero.",
+        "Coastal direct flood is zero while generic wind/service effects accumulate 63,668.61 person-hours. Retain it only as a narrow direct North-Sea screen, never an all-water all-clear.",
+        "Canonical wildfire is remote-smoke only at T+24: zero flame, smoke 0.429819 and 858 affected. It does not test Heerde forest/heath ignition."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Determinism, finite bounds, zero-event behavior, cumulative burden, local reconciliation, layer invariance and road-service scope pass.",
+      "evidenceRefs": ["E01", "E07"],
+      "notes": [
+        "MUNICIPALITY_AUDIT_CODE=GM0246 pnpm audit:model passed one file and both tests across ten presets × six checkpoints × eight services in 30.48 seconds.",
+        "Repeated frames are deterministic; values are finite/bounded; causal ledgers close; cumulative event-attributable person-hours are monotonic; exact zero intensity removes event effects.",
+        "Every local detail contains fifteen official rows summing exactly to 19,305 allocated residents, and all affected, demand and delivery totals reconcile within tolerance.",
+        "Changing any of the eleven selected layers leaves municipality/local hazards unchanged; current NWB links appear only in Mobility/Supply and flows remain within effective scenario capacity.",
+        "The web scenario factory parity contract remains enforced."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "A generic river screen and one shared local seed replace high-water-channel hydraulics, rain routing, fire containment and other mechanism-specific evidence.",
+      "evidenceRefs": ["E02", "E03", "E04", "E06"],
+      "notes": [
+        "Storm, pluvial, river, coastal, heat, winter, cyber and wildfire have the exact T+24 order led by Verspreide huizen Vorchten, Heerde, Verspreide huizen Lage Land, Heerde-Noord/Hoorn, Vorchten and bosgebied.",
+        "The river order samples neither LIWO depth/arrival nor channel/inlet/outlet/defence/control/terrain compartments; Heerde urban center ranks second without source evidence.",
+        "A controlled ignition at [5.995555761808197, 52.402957904474626] inside official Heerde186 and TOP10NL conifer forest produces flame 0.556765, smoke 0.541149, severity 0.561966 and 4,932 affected, but the source-containing neighbourhood ranks sixth/15 while Vorchten dispersed houses rank first.",
+        "The ignition is a deterministic falsification fixture, not an incident. Its public polygons do not supply current fuel, weather, perimeter, people, access or suppression.",
+        "GM0246 has no municipality-specific unsupported-spatial note, so exact local polygons remain available without a source/footprint gate."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "Service arithmetic is inspectable, but exact values omit channel controls, water-chain topology, eastern access, external care and live operator state.",
+      "evidenceRefs": ["E02", "E03", "E07", "E08"],
+      "notes": [
+        "Compound T+24 availability is exactly power 0.415509, water 0.410923, drainage 0.234394, gas 0.581283, telecom 0.218757, mobility 0.817760, facilities 0.554886 and supply 0.575428.",
+        "No value is driven by inlet/outlet state, Doornbos operating sequence, Wapenveld pump/weteringen, 106 registered water objects, RWZI Heerde, seepage, route islanding or current Waterinfo level.",
+        "Three NWB corridors are correctly limited to Mobility/Supply but omit locally decisive Kerkdijk/island, east-side villages, ferry and external-care branches.",
+        "One OS HATTEM 10-1i planning sample, antenna/school points and annual hospital survey do not establish customer connectivity, current load/coverage, priority, backup, acceptance or restoration.",
+        "The safe fallback is a versioned synthetic exercise graph with scenario-unit ranges and Unknown state, never public-register points or roads misrepresented as physical lifelines."
+      ]
+    },
+    "causalTrace": {
+      "status": "fail",
+      "summary": "Arithmetic ledgers close, but the trace omits the selected river case, control transitions, isolation, resources and owner decisions.",
+      "evidenceRefs": ["E03", "E04", "E05", "E07", "E08"],
+      "notes": [
+        "Hazard contributions sum to severity, service deltas sum to availability and weighted service losses sum to municipal pressure.",
+        "No trace records LIWO scenario/candidate selection, Veessen water level, inlet flap sequence, channel/island extent, Doornbos stop/restart, outlet/free drainage, defence inspection or recession.",
+        "No trace records Kerkdijk/ferry/A50 status, east-side contact or evacuation, hospital acceptance, water/RWZI protection, telecom, stock delivery, crews/materials or owner clearance.",
+        "The current Waterinfo point is observed context outside the scenario clock and must not silently drive the synthetic high-water run.",
+        "Preparedness, reserve and repair remain transparent assumptions, not agency/operator commitments."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "Persistent river/compound states and other exact recovery paths lack event-specific hydraulics, access, operational resources and clearance evidence.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E07", "E08"],
+      "notes": [
+        "River forcing and severity remain exactly fixed from T+12 through T+72; affected rises 7,931 → 9,224 → 9,805 and pressure 0.431577 → 0.479144 → 0.500518 without a selected hydrograph or channel/control state.",
+        "A real high-water-channel activation may last about 1.5 months, so lack of recovery by T+72 can be directionally plausible; the exact plateau and service values remain unsupported.",
+        "Compound flood 0.433353 persists while every service/pressure/affected value freezes T+48–72. No measured recession, dewatering, inspections, route reopening, care, supply or restoration action explains it.",
+        "A defensible trace gates T+0–6 source/forecast/defence/control confirmation and east-side contact; T+6–24 warning, access/isolation, evacuation/shelter, water/RWZI/telecom and care/supply continuity; T+24–72 measured channel/recession/drainage, inspections and owner-cleared restoration.",
+        "Unknown duration and resource readiness must remain ranges/censored state, and planned projects must never auto-activate."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": ["power", "water", "drainage", "gas", "telecom", "mobility", "facilities", "supply"]
+  },
+  "findings": [
+    {
+      "id": "GM0246-DATA-001",
+      "severity": "informational",
+      "category": "identity",
+      "status": "fixed",
+      "summary": "Heerde's 2025 identity, full boundary, neighbourhoods, settlements and demographic controls are coherent.",
+      "evidence": "E01 confirms the full 1,179-position geometry, in-boundary center, 19,305 residents, fifteen neighbourhoods, four BAG places and thirteen BRT settlements; neighbourhood population differs by only ten from the independently rounded municipality control.",
+      "action": "Retain annual source edition/retrieval, full-versus-generalized role, published-versus-allocated totals, rounding/suppression and explicit null semantics on every refresh."
+    },
+    {
+      "id": "GM0246-FLOOD-001",
+      "severity": "critical",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Genuine IJssel/high-water-channel exposure is converted into unsupported exact local consequences without selecting an event or control state.",
+      "evidence": "E03/E04 establish threshold-controlled Veessen–Wapenveld operation and two contained primary LIWO candidates. The model selects none while fixing 2.708946 river stress T+12–72, reporting 9,224 affected at T+24 and 9,805 at T+72 and publishing exact service/recovery values without hydrograph, defence/breach/overtopping, flap/channel/outlet/pump state, connected depth/arrival/duration/recession or NoData.",
+      "action": "Retain Heerde's real river eligibility and generic amplitude only as an internal non-operational diagnostic. Suppress decision-facing inundation percentage, neighbourhood ranks, affected counts and dependent service/recovery precision until a water-manager-selected LIWO/channel case supplies the complete causal contract. Keep coastal zero narrow and other water pathways separately Unknown."
+    },
+    {
+      "id": "GM0246-CONTROL-001",
+      "severity": "critical",
+      "category": "network",
+      "status": "open",
+      "summary": "The model omits the high-water channel's state machine and resulting east-side isolation/access consequences.",
+      "evidence": "Official operation changes at 5.65 m+NAP: inlet flaps open in stages, land becomes an island, Doornbos stops, outlet/free-drainage states change and recovery follows thresholded recession. Kerkdijk crosses the inlet and is the main Veessen/Vorchten–Heerde connection. None appears in hazard, mobility, drainage or action traces.",
+      "action": "Implement an explicit, expert-reviewed state machine tied to a named hydrograph and actual structures, with Unknown live state by default. Couple only validated accessibility/drainage consequences and preserve separate observation, forecast, scenario and control-command evidence."
+    },
+    {
+      "id": "GM0246-SPATIAL-001",
+      "severity": "critical",
+      "category": "geography",
+      "status": "open",
+      "summary": "Eight unrelated hazards reuse one exact fifteen-neighbourhood ranking.",
+      "evidence": "Storm, pluvial, river, coastal, heat, winter, cyber and wildfire all rank dispersed Vorchten first, Heerde second and Lage Land third. No LIWO/channel footprint, sewer/terrain surface, wind field, heat surface, cyber boundary or fire geometry determines this order.",
+      "action": "Replace the shared seed with hazard-family-specific eligible domains and event-valid surfaces. Add GM0246 unsupported notes now and regress that unrelated hazard families cannot silently reuse an exact local ordering."
+    },
+    {
+      "id": "GM0246-FIRE-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "A controlled source inside two official forest datasets does not control local fire allocation.",
+      "evidence": "The source [5.995555761808197, 52.402957904474626] lies inside Risicokaart Heerde186, TOP10NL conifer forest and BU02460009. It produces flame 0.556765, smoke 0.541149 and severity 0.561966 at T+24, yet the containing neighbourhood ranks sixth behind dispersed Vorchten, Heerde, Lage Land, Heerde-Noord/Hoorn and Vorchten core.",
+      "action": "Require selected ignition/perimeter intersected with versioned eligible vegetation plus fuel/moisture, event-valid wind/smoke, recreation, access, firewater and suppression assumptions. Enforce source containment for direct flame and keep absence of ignition Unknown."
+    },
+    {
+      "id": "GM0246-PLUVIAL-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Exact pluvial output ignores Veluwe runoff, villages, weteringen, seepage, sewer and pump catchments.",
+      "evidence": "The preset reports 0.419947 stress and 2,721 affected at T+24 with the shared rank. E02/E03 distinguish streams/springs, Apeldoorns Kanaal, wet Weteringengebied, IJssel seepage, northern drainage toward Wapenveld, urban sewer responsibilities and channel-specific Doornbos operation.",
+      "action": "Obtain governed municipal/water-board stress grids and a named rainfall case with terrain, buildings, sewer/wetering/pump assumptions, units, native resolution, valid time, licence and NoData. Until then suppress local depth/rank/affected precision and never infer connectivity or capacity from register points."
+    },
+    {
+      "id": "GM0246-MOBILITY-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "The road graph omits locally decisive inlet, island, ferry and external-care access.",
+      "evidence": "Three A50/N794 municipality-border links are valid logical proxies but omit Kerkdijk over the inlet, Veessen/Vorchten isolation, Wapenveld approaches, Veessen ferry and routes to surveyed acute hospitals. There is no rail station. Zero current NDW assignment does not prove open roads.",
+      "action": "Retain NWB only for Mobility/Supply. Add audited internal/cross-river branches with structure, mode, scenario/valid-time restriction and emergency-exemption semantics; keep passability and capacity Unknown without dated evidence."
+    },
+    {
+      "id": "GM0246-WATERCHAIN-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Public water assets and RWZI Heerde do not drive drainage, wastewater, water quality or recovery.",
+      "evidence": "The cache contains 92 weirs, seven surface-water pumps, four sluices, two sewer pumps and RWZI Heerde. E03 provides Doornbos design capacity and state transitions. Model values have no catchment/connectivity, receiving level, compatible units, control, power/backup, overflow, quality or restoration.",
+      "action": "Keep HWH/DAMO objects versioned partial context. Seek governed catchments and security-reviewed aggregate owner states; bind explicit controls, compatible units, power/backup, water quality and owner actions before causal use."
+    },
+    {
+      "id": "GM0246-UTILITIES-CARE-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Precise utility and facility availability exceeds public planning, provider and care evidence.",
+      "evidence": "One OS HATTEM 10-1i postcode planning sample, 38 antenna registrations, fifteen schools and no internal surveyed acute hospital do not establish power/gas/water/sewer/backhaul topology, current state, priority, backup, shelter use or hospital acceptance. Isala Zwolle is 13.33 km straight-line, not a guaranteed route/time.",
+      "action": "Keep context affectsSimulation=false. Seek authorized aggregate exercise zones, live outage/quality state, backup bands, facility acceptance and milestones; otherwise expose synthetic sensitivity ranges and Unknown operator state."
+    },
+    {
+      "id": "GM0246-OBSERVATION-001",
+      "severity": "medium",
+      "category": "explainability",
+      "status": "open",
+      "summary": "Current public observation/no-match context is not aligned to the synthetic 72-hour scenario clock.",
+      "evidence": "The Veessen–Wapenveld Waterinfo point was 16 cm NAP at 2026-09-02T17:30Z and labeled lowered water level, while no KNMI weather, NDW, PM2.5 or seismic feature is assigned. The river scenario simultaneously assumes severe high water without a declared replay date or observation transform.",
+      "action": "Show observation valid/retrieval time and affectsSimulation=false by default. Permit causal forcing only through an explicit named replay/forecast transform; never map no-match to zero, normal, open or safe."
+    },
+    {
+      "id": "GM0246-RECOVERY-001",
+      "severity": "high",
+      "category": "explainability",
+      "status": "open",
+      "summary": "River and compound T+72 states lack selected hydraulics, control actions, access checks, resources and owner clearance.",
+      "evidence": "River holds 2.708946 stress through T+72 and reaches 717,104.09 person-hours; compound freezes service/pressure/affected state T+48–72 and reaches 741,335.06. A 1.5-month channel activation makes quick recovery implausible, but no actual hydrograph, control, dewatering, inspection, route, care, crew, material or stock state supports exact values.",
+      "action": "Add first-72-hour action/resource/state ledgers. Prevent restoration until event-specific threshold and owner-clearance conditions are satisfied; express unknown duration as ranges/censored state and never activate plan text or future projects automatically."
+    },
+    {
+      "id": "GM0246-CONTRACT-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The complete deterministic municipality contract and current NWB service-scope safeguard pass.",
+      "evidence": "The focused gate passes ten presets, six checkpoints and eight services with exact zero-event behavior, finite bounds, replay determinism, causal closure, monotonic person-hours, local reconciliation, layer invariance and road links only under Mobility/Supply.",
+      "action": "Retain GM0246 in focused/national regression and add tests for LIWO/channel gating, control transitions, source-contained fire, observation-time separation, eastern access and Unknown state."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Gate Heerde river output on a selected LIWO/high-water-channel event and suppress unsupported local consequences while retaining real IJssel eligibility.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/public/data/hazards/GM0246-river-context.json",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/MapView.tsx"
+      ],
+      "validation": "Use LIWO 2025.1.6 through https://basisinformatie-overstromingen.nl/geoserver/ows and water-manager evidence for candidates 2/602 plus Veessen–Wapenveld operation. Persist release/scenario/model dates, source water/hydrograph, defence/breach/overtopping and inlet/control variant, native CRS/resolution/units/NoData, depth, velocity, arrival, duration, recession/dewatering and T+0–72 mapping. Confirm licence before persistence. Without a selected event, local depth/affected/service claims are suppressed; coastal zero remains narrow and transparent/missing cells remain Unknown."
+    },
+    {
+      "summary": "Implement the Veessen–Wapenveld control/access/drainage state machine as expert-reviewed scenario logic.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/public/data/infrastructure/GM0246-high-water-channel.json",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/MapView.tsx"
+      ],
+      "validation": "Represent 5.65 m+NAP activation, staged 60-flap inlet, channel/island footprint, Doornbos off-state, outlet/free-drainage/restart thresholds and control provenance from https://www.vallei-veluwe.nl/van-water-genieten/veessen-wapenveld/. Treat published dimensions/capacity as design context and live state Unknown absent operator telemetry. Couple only sourced access/drainage consequences. Assert no observation or scenario automatically issues a control command and no planned/nominal state equals verified operation."
+    },
+    {
+      "summary": "Replace shared local ranks with source-contained river, pluvial and dune-fire domains.",
+      "files": [
+        "apps/web/public/data/hazards/GM0246-local-context.json",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "For fire use Public Domain Risicokaart Heerde185/186 and TOP10NL 1:10,000 CC BY 4.0 only as eligibility, then explicit ignition/perimeter, fuel/moisture, event-valid KNMI weather, recreation, access, firewater and suppression assumptions. The controlled Heerde186 source area must govern direct flame or a sourced spread model explain otherwise. For pluvial request a governed municipality/Vallei en Veluwe stress export with event, terrain, sewer/wetering/pump assumptions, units, resolution, licence and NoData. River uses only selected LIWO/channel cells. Assert unrelated hazards do not reuse a full order."
+    },
+    {
+      "summary": "Add high-water-sensitive internal mobility, ferry, contact and external-care branches without converting reference geometry into live capacity.",
+      "files": [
+        "scripts/apply-audited-lifelines.mjs",
+        "apps/web/public/data/transport-network.json",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/MapView.tsx",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Use current RWS NWB monthly CC0 and municipal transport evidence for Kerkdijk/inlet, IJsseldijk/Keuterstraat/Eperweg, Wapenveld Groteweg/Molenweg and verified cross-river/ferry geometry; use NDW/ProRail/GTFS only according to mode and valid time. Model island/contact/evacuation and destinations separately. Keep all routes Mobility/Supply only, prevent duplicate A50 capacity, and retain passability, vehicles, evacuation throughput and hospital acceptance as Unknown without dated state."
+    },
+    {
+      "summary": "Build safe aggregate service dependencies for channel controls, Wapenveld drainage, RWZI, utilities, telecom and care while preserving unknown topology.",
+      "files": [
+        "scripts/fetch-realism-data.mjs",
+        "apps/web/public/data/service-context/GM0246.json",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Use HWH IMWA/DAMO CC BY-SA 4.0 objects only as partial register context until catchment/connectivity, compatible units, controls, power/backup and current state are authorized. NBNL sample remains planning-only; RDI/DUO/RIVM points remain non-causal. Seek safe owner aggregate interfaces. Otherwise use small versioned synthetic service nodes with scenario-unit ranges and Unknown live state; roads must never become physical utilities."
+    },
+    {
+      "summary": "Expose observation/replay separation and explicit first-72-hour action gates.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Waterinfo observations retain point, parameter, unit/datum, observed/retrieved time, quality and affectsSimulation=false; zero assigned KNMI/NDW/air/seismic features remain NoData. A named replay/forecast transform is required before use. Gate T+0–6 forecast/defence/control confirmation and contact, T+6–24 warning/isolation/evacuation/water-care-supply continuity and T+24–72 measured channel/recession/drainage/inspection/owner clearance. Unconfirmed actions/resources cannot display complete, ready or recovered."
+    }
+  ],
+  "residualLimitations": [
+    "This audits a deterministic first-72-hour exercise model, not a forecast, warning, flood assessment, evacuation plan, wildfire prediction, public-health instruction or operator commitment.",
+    "CBS values are rounded/suppressed and neighbourhood totals need not equal the municipality total; null heating/charging and absent operational records remain Unknown.",
+    "The overview boundary is selection/aggregation geometry only; full-resolution and native infrastructure/hazard geometry is required for channel, flood, fire, road and asset intersection.",
+    "LIWO candidates and scenario rasters are modeled planning evidence requiring expert selection and complete release/model/spatial/NoData provenance; candidate presence is not breach or probability.",
+    "Published Veessen–Wapenveld thresholds, dimensions and Doornbos capacity are design/operation context, not current flap/pump state, structural condition, command or guaranteed performance.",
+    "HWH/DAMO objects do not establish connected catchments, compatible throughput, live controls, power/backup, water quality, overflow or restoration.",
+    "Risicokaart/TOP10NL forest identifies old/current eligibility context, not ignition, fuel/moisture, perimeter, smoke, visitors, access, firewater or suppression.",
+    "NWB/NDW/GTFS and municipal plans do not establish incident-time route passability, transport vehicles, emergency exemptions, evacuation capacity or hospital reachability.",
+    "Waterinfo's 16 cm observation is a point/time value outside the synthetic scenario clock; it does not calibrate the river run or prove later safety.",
+    "No complete public physical electricity, gas, drinking-water, wastewater, telecom, facility, fuel, stock, staff, backup, repair or restoration topology is consumed; sensitive gaps remain Unknown or synthetic.",
+    "Resident allocation omits Veluwe/Heerderstrand visitors, workers, patients, responders and actual people east of the channel at activation time.",
+    "Earthquake, cyber, weather and remote-smoke presets remain generic exercises unless a named event/target and valid-time forcing are selected.",
+    "A 1.5-month channel design-duration context extends beyond T+72; long-duration flooding, recovery and cross-boundary effects into Hattem/Epe/Olst-Wijhe/Isala remain outside validated scope."
+  ],
+  "provinceReviewFlags": [
+    "Municipality release blocker GM0246-FLOOD-001: retain real IJssel/high-water-channel eligibility but suppress exact local consequences until a named LIWO/water-manager event supplies hydrograph, defence/control, footprint, arrival, duration and recession.",
+    "Municipality release blocker GM0246-CONTROL-001: model the 5.65 m+NAP inlet, staged flaps, islanding, Doornbos/off, outlet/free-drainage/restart sequence as explicit scenario state with live state Unknown by default.",
+    "Municipality release blocker GM0246-SPATIAL-001/GM0246-FIRE-001: eight hazards reuse one local order and a source inside Heerde186/TOP10NL conifer forest leaves its neighbourhood sixth.",
+    "Gelderland/Vallei en Veluwe/RWS: reconcile LIWO candidates 2/602, IJssel defences, Veessen–Wapenveld controls, Wapenveld weteringen/pump, RWZI and sewer/pluvial systems without treating register/design state as live performance.",
+    "Gelderland/VNOG/Heerde: require first-72-hour contact, warning, island/access, evacuation/shelter, water/RWZI/telecom, external care/supply, dewatering and owner-clearance actions with timestamps and Unknown unconfirmed state.",
+    "RWS/NDW/transport operators: add Kerkdijk/inlet, east-side villages, Wapenveld approaches, ferry and external-care destinations with mode/time semantics; no-match is not open and nominal road capacity is not evacuation throughput.",
+    "Shared/national: every official context, observation, register and scenario exposes publisher, version/edition, valid/retrieval time, coverage/resolution, licence, NoData/evidence class and affectsSimulation; missing is Unknown.",
+    "Shared/national: provider territory, one planning sample and static assets do not establish topology, customer binding, capacity, backup, live outage or restoration; unavailable/security-sensitive detail remains Unknown or explicitly synthetic."
+  ]
+}

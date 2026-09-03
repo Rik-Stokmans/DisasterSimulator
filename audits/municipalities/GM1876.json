@@ -1,0 +1,477 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM1876",
+    "name": "Bronckhorst",
+    "province": "Gelderland",
+    "safetyRegion": "Noord- en Oost-Gelderland"
+  },
+  "agent": {
+    "taskName": "municipality_gm1876",
+    "agentId": "/root/municipality_gm0518",
+    "completedAt": "2026-09-02T18:19:39Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "Bronckhorst's generated identity, 2025 CBS totals, Noord- en Oost-Gelderland safety-region membership, 45 neighbourhoods, 17 BAG woonplaatsen, 48 BRT settlements, Vorden station and 112 GTFS stop areas are coherent. The neighbourhood population rows total 36,035, only 23 above the official 36,012 residents (+0.064%), consistent with independent CBS publication rounding; unavailable district-heating and charging fields remain null rather than zero. All ten canonical presets execute deterministically at T+0/6/12/24/48/72 across all eight services, with exact-zero, finite-bound, causal-ledger, local allocation, reconciliation, cumulative-burden and selected-layer invariants passing. Release remains correction-required because the locally operational spatial claims are unsupported. The river preset applies a municipality-centre corridor scalar, reports raw flood stress 1.847343 (displayed as 100%), reaches 22,445 affected people-equivalent and 1,339,279.032 T+72 deprived person-hours without selecting the VNOG Hackfort breach, a LIWO/WRIJ footprint, depth, arrival or duration. Pluvial, river, heat and wildfire reuse the same synthetic neighbourhood order: Hummelo leads while the wooded Linde/Mossel/Wildenborch countryside ranks near the bottom. Official IPO polygons instead place six combustible-nature features in that rural neighbourhood and none at the Hummelo built-up centroid. The wildfire preset has zero direct flame and is only a remote synthetic smoke/drought exercise. Eleven N-road border links with nominal 150-unit capacities are copied into every lifeline, not physical power, water, drainage, gas, telecom, facility or supply topology. Public asset/register data remain non-causal context; unavailable or security-sensitive connectivity, capacity, telemetry, backup, staffing, stock and restoration are not fabricated.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek (CBS)",
+      "title": "Kerncijfers wijken en buurten 2025, table 86165NED, OData API",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=WijkenEnBuurten%20eq%20%27GM1876%20%20%20%20%27&%24select=WijkenEnBuurten%2CGemeentenaam_1%2CAantalInwoners_5%2CBevolkingsdichtheid_34%2Ck_65JaarOfOuder_12%2CEenpersoonshuishoudens_30",
+      "accessedAt": "2026-09-02T17:49:00Z",
+      "edition": 2025,
+      "supports": [
+        "A fresh official GM1876 row gives Bronckhorst, 36,012 residents, density 127 per square kilometre, 10,467 residents aged 65+ and 4,661 one-person households.",
+        "The OData API supplies municipality/neighbourhood attributes and explicit rounding, suppression and null semantics; generated neighbourhood rows reconcile within publication precision without replacing observations.",
+        "CBS publishes the table under CC BY 4.0, labels it 2025 data and adds source variables quarterly where available. The spatial unit is CBS municipality/buurt, not a parcel or present-person observation.",
+        "Simulation role is official demographic/context and allocation denominator only; it is not live occupancy, hazard exposure, vulnerability of an individual or response priority."
+      ]
+    },
+    {
+      "publisher": "PDOK / CBS / Kadaster / Rijkswaterstaat / ProRail",
+      "title": "CBS Gebiedsindelingen 2025 non-generalized geometry and national reference APIs",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_niet_gegeneraliseerd/items?f=json&limit=100&datetime=2025-07-01T00%3A00%3A00Z&bbox=6.05%2C51.88%2C6.6%2C52.2",
+      "accessedAt": "2026-09-02T17:50:00Z",
+      "edition": "2025 boundaries; current generated BAG/NWB/ProRail editions",
+      "supports": [
+        "Fresh full-resolution GM1876 is one MultiPolygon component and one ring with 5,178 positions. The generated overview preserves that topology with 277 positions; approximate areas are 286.424 and 286.512 square kilometres, a +0.031% overview difference.",
+        "The generated centre and all 17 BAG woonplaats centres are contained. The bundle represents Vorden station, 112 GTFS stop areas and eleven N314/N315/N316/N317/N319/N330/N338/N814 logical border links.",
+        "CBS boundary OGC is annual/CC BY 4.0; BAG is daily/Public Domain Mark; NWB OGC is monthly/CC0 1.0 with a daily public-domain GeoPackage; ProRail reference data are editioned/CC0. GTFS has a feed-validity window and best-effort publication rather than a live-service SLA.",
+        "Simulation role is administrative geometry and reference transport context. Use the non-generalized polygon for WRIJ/LIWO raster, nature, defence, road and asset intersections; none of these references proves a current closure, passenger load, evacuation throughput or utility connection."
+      ]
+    },
+    {
+      "publisher": "Gemeente Bronckhorst",
+      "title": "Klimaatatlas, frequently asked questions and municipal water/climate programme",
+      "url": "https://www.bronckhorst.nl/klimaatatlas",
+      "accessedAt": "2026-09-02T17:51:00Z",
+      "edition": "Current public atlas and 2026 programme; underlying stress-test inputs described as 2013 with KNMI-2023 update under way",
+      "supports": [
+        "The municipality and Waterschap Rijn en IJssel publish parcel-oriented screening for pluvial water depth, long-duration rain, road passability, heat and drought/groundwater effects, covering cores, traffic, agriculture, nature and health.",
+        "The FAQ says the analysis is renewed about every six years and explicitly calls the maps model estimates/theoretical future extremes rather than observations. Regional worst-case maps omit sewer drainage while the local 3Di map includes it; uncertainties and omissions remain.",
+        "The current programme names work around St Jansstraat Keijenborg, Smidsstraat/Magnoliaweg Zelhem and the Baakse Beek landgoederen zone and says the older basis is being updated with Water Achterhoek+ and KNMI 2023.",
+        "Access is a public web atlas/PDF rather than a documented municipal download API; parcel/cell resolution, stable refresh SLA and standard reuse licence are not stated. Simulation role should be a versioned scenario/context adapter only, never observed T+0 water or heat."
+      ]
+    },
+    {
+      "publisher": "Waterschap Rijn en IJssel",
+      "title": "Klimaateffectatlas Bronckhorst (KEA_DATA ArcGIS REST MapServer)",
+      "url": "https://opengeo.wrij.nl/arcgis/rest/services/Klimaat/KEA_DATA/MapServer",
+      "accessedAt": "2026-09-02T17:52:00Z",
+      "edition": "Public service inspected 2 September 2026; story item modified 9 October 2025",
+      "supports": [
+        "The machine-readable ArcGIS REST service exposes GM1876 short/long T100 and T1000 water-depth rasters (layers 114, 106, 117 and 127), duration rasters, road-passability features and vulnerable-object layers in EPSG:28992 over approximately x=201,260–231,684 and y=439,548–464,346.",
+        "The service supplies separate modeled return-period scenarios and avoids deriving pluvial exposure from one municipality scalar. Raster native cell size/positional accuracy is not advertised in the inspected metadata and must not be invented.",
+        "The associated WRIJ story item was modified in 2025 and the municipality describes a roughly six-year analysis cycle, but neither guarantees layer refresh. MapServer copyright/licence fields are blank, so written reuse terms must be resolved before bundling.",
+        "Simulation role is expert-selected screening or exercise forcing with layer id, design event, unit, CRS, no-data, source edition and uncertainty retained. It is not an observed rain event, current road closure or asset failure."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Noord- en Oost-Gelderland (VNOG)",
+      "title": "Regionaal Risicoprofiel 2025–2028 and appendix scenario book",
+      "url": "https://www.vnog.nl/sites/default/files/2025-03/Regionaal-risicoprofiel_2025-2028_bijlagenboek.pdf",
+      "accessedAt": "2026-09-02T17:53:00Z",
+      "edition": "Adopted 12 December 2024 for 2025–2028",
+      "supports": [
+        "VNOG describes a specific dijkring-50 flood after a breach at Stroomkanaal Hackfort affecting Bronckhorst: 33.5 square kilometres, 0.5–1 metre water, one-to-six-month duration and evacuation beginning 72 hours before inundation in its planning scenario.",
+        "The appendix assumes vital infrastructure within that selected flood footprint can fail long-term while infrastructure outside generally does not; this is materially different from municipality-wide scalar cascading.",
+        "VNOG records about 3,450 hectares of nature in Bronckhorst and explains that vegetation, drought, temperature, humidity, wind, terrain, access and extinguishing-water availability determine nature-fire development. It also covers severe weather, drinking-water contamination, power, ICT/telecom, municipal cyber and transport cascades.",
+        "This fixed four-year planning profile/PDF has no live API, fine spatial resolution, operational refresh cadence or explicit standard reuse licence. Simulation role is scenario selection and consequence logic, not present incident, probability, staffing, evacuation order or operator restoration promise."
+      ]
+    },
+    {
+      "publisher": "Interprovinciaal Overleg / Risicokaart",
+      "title": "Natuurbranden — brandbaar natuurgebied WFS/WMS",
+      "url": "https://data.overheid.nl/dataset/13235-natuurbranden",
+      "accessedAt": "2026-09-02T17:54:00Z",
+      "edition": "Metadata updated 19 February 2026; public WFS queried 2 September 2026",
+      "supports": [
+        "The integration-ready OGC WFS/WMS at servicespub.risicokaart.nl delineates forest, heath and dune areas where a nature fire can arise. A GM1876 source-holder query returned 16 features; six mixed-forest polygons intersect Verspreide huizen Linde, Mossel en Wildenborch, while the Hummelo built-up centroid intersects none.",
+        "The records are vector area geometry; positional accuracy/source scale is not advertised in the inspected metadata. Feature validity begins in 2006 for the returned records, so current land-cover validation is still required.",
+        "Data.overheid identifies IPO/provinces as owner, Public Domain as licence and 19 February 2026 as metadata update; no guaranteed operational feature refresh interval is stated.",
+        "Simulation role is combustible-area eligibility/context only. It is not an ignition, incident perimeter, fuel/moisture grid, spread forecast, evacuation zone or response state, and absent geometry is unknown rather than proof of safety."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / Watermanagementcentrum Nederland",
+      "title": "Waterinfo and Landelijk Informatiesysteem Water en Overstromingen (LIWO)",
+      "url": "https://www.rijkswaterstaat.nl/water/waterdata",
+      "accessedAt": "2026-09-02T17:55:00Z",
+      "edition": "Current services inspected 2 September 2026",
+      "supports": [
+        "Waterinfo provides parameter/location-specific current, expected and historical water data; many LMW water-level/discharge observations are produced every ten minutes and API responses are cached briefly. The application snapshot assigns zero level and zero discharge stations to the GM1876 polygon.",
+        "LIWO is the professional flood-planning system used by VNOG and exposes named scenario layers for depth, duration, arrival/warning and other consequences. Grid resolution, issue/version, probability, units and no-data semantics are layer-specific and must travel with any extract.",
+        "Waterinfo is generally CC0 unless a component states otherwise; no guaranteed LIWO refresh cadence or explicit standard redistribution licence was established from the public service, so terms must be captured per layer.",
+        "Simulation role is time-stamped observation/replay context for Waterinfo and expert-selected scenario forcing for LIWO. Zero local stations means no local mapped observation, never zero water or flood risk; neither source by itself asserts a current breach."
+      ]
+    },
+    {
+      "publisher": "Het Waterschapshuis / Dutch water boards via PDOK",
+      "title": "Waterschappen Kunstwerken IMWA and Waterketen DAMO OGC APIs",
+      "url": "https://api.pdok.nl/hwh/waterschappen-kunstwerken-imwa/ogc/v2?f=html",
+      "accessedAt": "2026-09-02T17:56:00Z",
+      "edition": "Application snapshot inspected 2 September 2026",
+      "supports": [
+        "The generated official-context intersection contains 246 water objects: 16 sewer pumps, one RWZI at Olburgen, eight surface-water pumps and 221 weirs. Named sewer-pump context covers Hoog-Keppel, Zelhem, Halle, Velswijk, Wichmond, Baak, Vorden, Laag-Keppel, Hengelo, Hummelo, Keijenborg, Steenderen, Drempt and Toldijk.",
+        "The machine-readable OGC APIs are reusable under CC BY-SA 4.0. Objects carry contributor/source timestamps, but completeness and delivery cadence vary and no single contractual national refresh interval is promised.",
+        "Points and register geometry do not establish catchment connectivity, capacity, control logic, current status, backup power, interdependency or repair time. The application correctly sets public context affectsSimulation=false.",
+        "Simulation role is responsibility/asset context and a candidate scope for authorised enrichment; physical drainage and drinking/wastewater topology remains unknown unless the responsible board/operator supplies safe aggregate connectivity."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM1876, Bronckhorst, Gelderland and safety region Noord- en Oost-Gelderland are internally and officially coherent.",
+      "evidenceRefs": ["E01", "E02", "E05"],
+      "notes": [
+        "Generated feature id, municipality bundle code/name, province and exactly one safety-region membership agree.",
+        "Boundary and statistics editions are 2025; the generated centre lies inside both overview and fresh full-resolution geometry.",
+        "VNOG's adopted profile covers Bronckhorst and supplies municipality-specific flood/nature-fire planning context."
+      ]
+    },
+    "geography": {
+      "status": "warn",
+      "summary": "Administrative topology is coherent, but a 277-position overview and municipality centre cannot resolve flood compartments, wooded estates, low points, roads or assets.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E06"],
+      "notes": [
+        "Generated and fresh non-generalized GM1876 each have one component/one ring; the +0.031% approximate area difference reveals no material component loss.",
+        "The full boundary has 5,178 positions and is required for WRIJ/LIWO raster, nature, road, defence and asset intersections.",
+        "IJssel-edge/floodable areas, built villages, low-lying roads and the eastern wooded/sandy countryside require different spatial mechanisms that one centre cannot assign."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Generated municipality totals reproduce official 2025 CBS values and neighbourhood totals reconcile within publication precision.",
+      "evidenceRefs": ["E01", "E02"],
+      "notes": [
+        "Official/generated population is 36,012, density 127/km², age 65+ is 10,467–10,470 depending on summed rounded rows (29.1%), and one-person households total 4,661.",
+        "Published neighbourhood population sums to 36,035, 23 above the municipality total (+0.064%); households sum to 15,795. The allocator reconciles to 36,012 without rewriting source rows.",
+        "The largest neighbourhoods are Zelhem, Vorden and Hengelo; CBS resident rows do not represent present commuters, school populations, visitors, farm workers or emergency displacement."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "All 45 neighbourhoods and available statistics are retained, but publication gaps and neutral synthetic priorities limit operations use.",
+      "evidenceRefs": ["E01", "E02", "E03", "E04"],
+      "notes": [
+        "All 45 neighbourhoods are present. Cars per household is available for 39/45; district-heating share and charging counts are unavailable for 45/45 and correctly remain null.",
+        "Compound T+24 has 45 local rows and reconciles 36,012 residents, 26,277 affected people-equivalent and all eight service demand/delivery totals.",
+        "Official context cannot by itself determine household vulnerability, farm/nature water demand, flood/fire exposure, evacuation need or restoration priority."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "Seventeen BAG woonplaatsen and 48 BRT settlement labels represent Bronckhorst's dispersed settlement structure without substituting for physical footprints.",
+      "evidenceRefs": ["E02", "E03", "E05"],
+      "notes": [
+        "All BAG centres—Baak, Bronkhorst, Drempt, Halle, Hengelo, Hoog-Keppel, Hummelo, Keijenborg, Laag-Keppel, Olburgen, Rha, Steenderen, Toldijk, Vierakker, Vorden, Wichmond and Zelhem—lie inside the overview polygon.",
+        "BRT represents 22 woonkernen, 19 buurtschappen, five gehuchten and two deelkernen, supporting the dispersed-rural context.",
+        "Labels do not define a flood compartment, woodland/fire perimeter, sewer catchment, facility service area or present population."
+      ]
+    },
+    "transport": {
+      "status": "warn",
+      "summary": "Official road/rail/scheduled-transit context is rich, but logical edges do not model passability, rural response access or evacuation throughput.",
+      "evidenceRefs": ["E02", "E04", "E05"],
+      "notes": [
+        "Eleven logical border links use N314/N315/N316/N317/N319/N330/N338/N814 and connect Doesburg, Berkelland, Doetinchem, Oude IJsselstreek and Zutphen; all have nominal capacity 150 scenario units.",
+        "Vorden station and 112 GTFS stop areas are schedule/reference context without passenger counts, accessible vehicles, live operation, flood passability or evacuation capacity.",
+        "WRIJ exposes scenario-specific road-passability features and VNOG's Hackfort scenario starts evacuation 72 hours before inundation, neither of which changes the current causal route state."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "Authoritative flood, pluvial, nature-fire, water-asset and access context is available but does not drive incident state, exposure or response prioritisation.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "Generated context contains 246 public water objects, six government points, 23 education locations and zero RIVM acute-care locations; these correctly remain non-causal registers.",
+        "The VNOG Hackfort footprint/duration logic, WRIJ T100/T1000 rasters and IPO combustible-nature polygons do not change neighbourhood rank, route passability, service state or restoration.",
+        "No reviewed public source supplies live crews, shelter activation/capacity, facility occupancy, grid switching, drinking-water pressure, sewer control, telecom backhaul, stocks, backups or repair commitments."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten canonical presets execute at all six checkpoints across all eight services with complete finite output.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "MUNICIPALITY_AUDIT_CODE=GM1876 pnpm audit:model passed one file/two tests in the final current-code run (29.19 seconds; 28.99 seconds in tests). A separate focused 10×6×8 reproduction completed in 29.14 seconds and headless browser workflows passed.",
+        "Peak severity / maximum affected / T+72 attributable deprived person-hours are storm 0.514310 / 11,331 / 358,476.644; pluvial 0.298025 / 10,077 / 207,962.211; river 0.577119 / 22,445 / 1,339,279.032; coastal 0.015496 / 0 / 41,135.250; heat 0.548243 / 2,354 / 236,238.381.",
+        "The remaining values are winter 0.471049 / 16,152 / 352,343.823; cyber 0.475147 / 13,941 / 519,708.062; earthquake 0.025192 / 0 / 36,231.568; wildfire 0.130822 / 1,809 / 160,883.920; compound 0.817323 / 26,277 / 1,261,593.993.",
+        "At T+24 river has severity 0.577119, raw flood stress 1.847343 and about 18,780 affected people-equivalent. Compound has rain 44.690481 mm/h, standing-water stress 0.222232, gust 26.322354 m/s, cyber disruption 0.416846 and 26,277 affected.",
+        "Coastal has zero direct local flood exposure and only remote/indirect system burden; earthquake is a remote Groningen exercise; wildfire has zero direct flame and is a remote smoke/drought exercise. Storm, pluvial, heat, winter, cyber and compound are deterministic synthetic exercises, not observations, warnings or forecasts."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Determinism, finite bounds, exact no-event semantics, local allocation, reconciliation, monotone burden and layer invariance pass.",
+      "evidenceRefs": [],
+      "notes": [
+        "All service availability stays in [0,1]; hazard dimensions, demand, delivery, affected people-equivalent and event-attributable person-hours are finite and non-negative.",
+        "For every preset/checkpoint, intensity zero gives exactly zero current/peak event severity, affected population and event-attributable essential-service person-hours.",
+        "Compound T+24 local rows sum to 36,012 residents and 26,277 affected people-equivalent; all eight demand/delivery totals reconcile with maximum floating discrepancy 3.55×10^-15.",
+        "Repeated frames are deterministic, cumulative event-attributable burden never decreases, route flow respects effective capacity, and all eleven layer selections leave hazard, pressure and affected population invariant."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "One shared synthetic neighbourhood order contradicts flood-scenario and combustible-nature geography.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E06"],
+      "notes": [
+        "At T+24 pluvial, river, heat and wildfire all rank Hummelo first, followed by Verspreide huizen noord van Drempt, Laag-Keppel, Baak, Bronkhorst and Wichmond; Linde/Mossel/Wildenborch is around rank 40 and Olburgen last.",
+        "Wildfire local severity is 0.153979 at Hummelo but 0.113652 in Verspreide huizen Linde, Mossel en Wildenborch, although six IPO combustible-nature polygons intersect the latter and none intersects the Hummelo built-up centroid.",
+        "The same inversion repeats for river (Hummelo 0.679274, Linde/Mossel/Wildenborch 0.501374) because a scenario-shared seeded multiplier, not selected hydraulic/fire geometry, distributes municipality severity.",
+        "WRIJ T100/T1000 depth/passability layers and VNOG's Hackfort scenario are available but unused; hotspot precision must remain suppressed until event-specific spatial adapters exist."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "All eight service balances calculate coherently, but identical road proxies replace physical sector topology.",
+      "evidenceRefs": ["E02", "E04", "E05", "E07", "E08"],
+      "notes": [
+        "Compound T+24 availability is power 0.328196, water 0.441729, drainage 0.130967, gas 0.476236, telecom 0.216294, mobility 0.206655, facilities 0.206544 and supply 0.697882.",
+        "Every service exposes the same eleven N-road route IDs, nominal capacity 150 and transferSemantics logical-proxy. Flow differs, but no source establishes those roads as electricity, drinking-water, drainage, gas, telecom or facility edges.",
+        "River T+72 keeps every recoveryProgress at zero, mobility availability 0.144853 and facilities availability 0.203036 while the generic flood scalar remains; no footprint decides which public water/power/telecom/facility asset is inside or outside.",
+        "Public pump, cable/provider, antenna, station, facility and transit geometry can scope responsibility/context but does not safely provide connectivity, capacity, current state, backup or restoration."
+      ]
+    },
+    "causalTrace": {
+      "status": "pass",
+      "summary": "Hazard, service and municipality ledgers close, and the UI distinguishes scenario/derived-screening/synthetic evidence from non-causal public context.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "Hazard contributions sum to headline severity; each service baseline plus ordered stage deltas sums to availability; eight weighted pressure contributions sum to municipality system pressure.",
+        "Drivers, dependencies, interventions, local demand/vulnerability terms and restoration counterfactuals are finite and arithmetically closed. Preparedness changes consequences after physical pressure rather than changing hazard fragility.",
+        "At river T+24 the browser displays 58% severity, 100% inundation stress and 'Scenario · evidence class derived-screening'; wildfire displays 0% direct flame and 'synthetic'. It says zero assigned Waterinfo/RIVM stations means no data, never zero/safe.",
+        "A 1440×1000 Chromium path loaded the app, selected Bronckhorst, river and wildfire T+24 and drilled into Hummelo/Wildenborch. Initial readiness was 0.98 s, municipality 0.09–0.11 s, scenario 0.15–0.27 s and checkpoint 1.05–1.95 s. One rerun encountered transient KNMI-radar fetch console errors while the first had none; timings and UI fetch state are diagnostics, not hazard evidence."
+      ]
+    },
+    "recovery72h": {
+      "status": "warn",
+      "summary": "Sustained-water repair gating works, but footprint, dewatering and all precise operator recovery magnitudes remain uncalibrated.",
+      "evidenceRefs": ["E03", "E04", "E05", "E07", "E08"],
+      "notes": [
+        "River retains raw stress 1.847343 at T+72, affects 22,445 people-equivalent, remains critical and holds all eight recoveryProgress values at zero. VNOG's selected Hackfort scenario lasts one to six months, so no recovery by T+72 is directionally plausible only inside its footprint.",
+        "Compound retains standing-water stress 0.222232 and cyber disruption 0.054215 at T+72, affects 25,991 and likewise blocks all eight recoveries.",
+        "Storm, pluvial, winter, earthquake and wildfire forcing schedules end or recede without decreasing cumulative burden; heat/cyber follow their preset schedules.",
+        "Corrected zero-intensity and standing-water mechanics work, but no source validates exact GM1876 availability, flood coverage, breach closure, drainage/dewatering, access or operator repair percentage/timing."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": [
+      "power",
+      "water",
+      "drainage",
+      "gas",
+      "telecom",
+      "mobility",
+      "facilities",
+      "supply"
+    ]
+  },
+  "findings": [
+    {
+      "id": "GM1876-DATA-001",
+      "severity": "informational",
+      "category": "identity",
+      "status": "fixed",
+      "summary": "Generated identity, regional membership, settlements and 2025 demographic totals are coherent.",
+      "evidence": "Code, name, province, safety region and editions agree. CBS gives 36,012 residents; 45 neighbourhood rows sum to 36,035 (+0.064%), a normal publication difference reconciled without changing observations. All 17 BAG centres are contained.",
+      "action": "Retain source edition, retrieval time, null semantics, full-resolution geometry access and published-versus-allocated reconciliation on every refresh."
+    },
+    {
+      "id": "GM1876-NODATA-001",
+      "severity": "informational",
+      "category": "regional-data",
+      "status": "fixed",
+      "summary": "Unavailable statistics and absent local observation stations remain unknown rather than false zero observations.",
+      "evidence": "District-heating/charging are null for 45/45 neighbourhoods; the UI says zero Waterinfo or RIVM stations assigned to GM1876 means no mapped local station, not zero water, pollution or risk. Public context does not affect simulation.",
+      "action": "Keep availability/completeness, issue time and no-data metadata through adapters, aggregation, UI and exports; never coerce absent feature/station/field to safe or zero."
+    },
+    {
+      "id": "GM1876-RIVER-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "A centre-distance river scalar is presented as municipality-wide inundation without selecting the locally documented Hackfort/LIWO scenario.",
+      "evidence": "At T+24/T+72 the model reports raw flood stress 1.847343, severity 0.577119, 100% stress in the UI, up to 22,445 affected and 1,339,279.032 person-hours. VNOG instead defines a dijkring-50 Hackfort breach with a 33.5-km² footprint, 0.5–1 m depth, evacuation from T-72 and one-to-six-month duration; infrastructure consequences are footprint-bounded.",
+      "action": "Require an expert-selected, versioned LIWO/VNOG hydraulic event intersected with full-resolution GM1876 and WRIJ/defence context. Until then mark direct local stress/exposure unknown and keep only separately supported indirect exercise effects."
+    },
+    {
+      "id": "GM1876-SPATIAL-001",
+      "severity": "high",
+      "category": "geography",
+      "status": "open",
+      "summary": "Pluvial, river, heat and wildfire reuse one seeded neighbourhood order that contradicts local hydraulic and nature geometry.",
+      "evidence": "All four T+24 maps rank Hummelo first and Linde/Mossel/Wildenborch about 40th. Wildfire severity is 0.153979 versus 0.113652 even though six official combustible-nature polygons intersect the latter and none intersects Hummelo's built-up centroid. The same ordering cannot represent T100/T1000 low points, a Hackfort flood compartment, heat and ignition/smoke simultaneously.",
+      "action": "Replace the shared seed with hazard-specific, versioned spatial adapters. Suppress hotspot/rank language and label neighbourhood values synthetic until each adapter retains source, event, resolution, units, no-data and uncertainty."
+    },
+    {
+      "id": "GM1876-WILDFIRE-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The canonical wildfire is a remote smoke/drought exercise and does not test Bronckhorst's 3,450-hectare nature-fire pathway.",
+      "evidence": "At T+24 direct flame is zero, drought 0.526010, smoke 0.338504 and about 1,203 people-equivalent are affected; maximum affected reaches 1,809. VNOG highlights vegetation/weather/terrain/access/extinguishing-water controls and IPO provides combustible polygons, but the wooded Wildenborch countryside remains low-ranked.",
+      "action": "Keep this preset labelled remote smoke and add a separately named local nature-fire exercise using IPO eligibility and event-valid KNMI weather; where no authorised incident/spread feed exists, use the smallest transparent versioned synthetic ignition/perimeter and never imply observation."
+    },
+    {
+      "id": "GM1876-NETWORK-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "Eleven road-border links are copied into all eight services and cannot support exact outage or restoration claims.",
+      "evidence": "The same N-road IDs and nominal 150-unit capacities appear for power, water, drainage, gas, telecom, mobility, facilities and supply. No evidence maps them to Liander, Vitens, WRIJ/sewer, gas, telecom, facility or stock connectivity, while exact compound T+24 availability ranges from drainage 0.130967 to supply 0.697882.",
+      "action": "Use NWB/NDW/ProRail/GTFS only for matched mobility/supply and create separate safe aggregate sector adapters. Keep logical-proxy labels and never attribute exact state/recovery to an operator without authorised evidence."
+    },
+    {
+      "id": "GM1876-MOBILITY-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "Flood road passability, sparse rural access and pre-impact evacuation are absent from T+0–72 mobility.",
+      "evidence": "WRIJ exposes scenario road-passability features and VNOG's Hackfort exercise starts evacuation at T-72. The current model instead uses eleven border links at generic capacity; river mobility falls to 0.144853 at T+72 without matching flooded segments, local access, closures, station/bus availability, origins or destinations.",
+      "action": "Match expert-selected WRIJ/LIWO depth/passability to full-resolution NWB, timestamped NDW/provenance and feed-valid GTFS. Model an explicit pre-impact phase or state that T-72 evacuation lies outside the canonical window; keep throughput synthetic unless calibrated."
+    },
+    {
+      "id": "GM1876-FACILITY-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "open",
+      "summary": "Facility continuity and shelter/care roles remain synthetic despite an older, dispersed population.",
+      "evidence": "Age 65+ is 29.1%. Context has zero RIVM acute-care points, 23 DUO education uses and six government points, but none supplies shelter role, activation, attendance, staffing, accessibility, generator endurance, supplies or patient transfer. Compound T+24 facilities availability 0.206544 is therefore an index, not operational capacity.",
+      "action": "Keep RIVM/DUO/KVK/BAG registers non-causal; request authorised municipality/VNOG safe aggregate shelter, care and continuity data. Preserve occupancy, staffing, backup and accessible-transfer capacity as unknown otherwise."
+    },
+    {
+      "id": "GM1876-RECOVERY-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "open",
+      "summary": "Standing water correctly pauses recovery, but precise all-municipality restoration is not locally calibrated.",
+      "evidence": "River and compound keep all eight recoveryProgress values at zero through T+72 while water stress persists. This is directionally consistent with VNOG's one-to-six-month Hackfort duration inside the selected footprint, but there is no breach closure, dewatering, access, operator resource, switching or asset-state evidence for exact service availability.",
+      "action": "Retain the conservative water gate but apply it only to selected exposed assets/zones and publish scenario assumptions. Use authorised aggregate operator restoration bands where available; otherwise keep a versioned synthetic recovery range without operator attribution."
+    },
+    {
+      "id": "GM1876-TOPOLOGY-001",
+      "severity": "medium",
+      "category": "limitation",
+      "status": "accepted-limitation",
+      "summary": "Complete physical utility, telecom, facility, stock, backup and restoration topology is unavailable or security-sensitive.",
+      "evidence": "HWH water assets, Liander geometry, RDI antenna points, provider areas, DUO/RIVM/KVK facilities and transport references do not safely supply end-to-end connectivity, pressure/flow, redundancy, telemetry, staffing, stocks, backups or repair resources. Exact service values remain synthetic indices.",
+      "action": "Use public aggregate zones and authorised owner interfaces where safe; otherwise retain unknown fields and service-specific synthetic aggregate fallback, without reconstructing sensitive topology or claiming operator accuracy."
+    },
+    {
+      "id": "GM1876-CONTRACT-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The complete numerical, causal, allocation, checkpoint and sustained-flood contract passes for GM1876.",
+      "evidence": "The focused gate covers ten presets, six checkpoints and eight services. Values are finite/deterministic, zero intensity is exact, local totals reconcile, causal ledgers close, cumulative burden is monotone, layer selection is invariant and continuing water blocks premature restoration.",
+      "action": "Keep GM1876 and national ALL coverage in regression and add Hackfort-footprint, WRIJ road-passability, hazard-specific neighbourhood rank, remote-wildfire and sector-network assertions."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Replace GM1876's generic river scalar with an expert-selected, footprint-aware flood scenario and local pluvial adapters.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/public/data/hazards/GM1876-flood-context.json",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/MapView.tsx"
+      ],
+      "validation": "Best public inputs are WRIJ KEA ArcGIS REST https://opengeo.wrij.nl/arcgis/rest/services/Klimaat/KEA_DATA/MapServer (GM1876 T100/T1000 short/long depth rasters 114/106/117/127, duration rasters and road-passability/vulnerable-object features; EPSG:28992; municipal roughly six-year analysis, story modified 2025; source cell size and licence blank/unknown) and RWS/WMCN LIWO OGC https://basisinformatie-overstromingen.nl/geoserver/ows (named depth/duration/arrival/flow scenarios; layer-specific resolution/version; no guaranteed cadence or standard redistribution licence established). Clip with annual non-generalized PDOK CBS geometry (CC BY 4.0). Require event/layer id, Hackfort/defence state, probability, unit, CRS, native resolution, no-data, issue/valid time, arrival/recession and terms. Until approved, direct local depth/stress/exposure is unknown."
+    },
+    {
+      "summary": "Remove the shared neighbourhood rank and add a separately named Bronckhorst nature-fire exercise.",
+      "files": [
+        "apps/web/public/data/hazards/GM1876-wildfire-context.json",
+        "packages/sim-core/src/scenarios.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/scenarios.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Use IPO/Risicokaart WFS https://servicespub.risicokaart.nl/geoserver/ISOR_RK/wfs?service=WFS&request=GetCapabilities (forest/heath polygons, Public Domain, metadata updated 19 February 2026, feature scale/guaranteed cadence unstated) only as an eligibility mask. Use KNMI Data Platform https://dataplatform.knmi.nl/dataset (event-valid 5-/10-minute radar/weather products, product-specific grid/cadence, CC BY 4.0) for a named replay. No reviewed public source supplies local ignition, perimeter, fuels/moisture, spread, evacuation or resources; fallback must be a minimal versioned synthetic ignition/perimeter. Validate Hummelo/Wildenborch differentiation, zero flame outside the footprint and no-data != non-burnable."
+    },
+    {
+      "summary": "Integrate scenario road passability and separate mobility/supply from physical utility-service proxies.",
+      "files": [
+        "scripts/fetch-realism-data.mjs",
+        "scripts/apply-audited-lifelines.mjs",
+        "apps/web/public/data/transport-network.json",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/MapView.tsx"
+      ],
+      "validation": "For mobility/supply use RWS NWB OGC https://api.pdok.nl/rws/nationaal-wegenbestand-wegen/ogc/v1 (monthly, CC0 1.0; daily GeoPackage/Public Domain), WRIJ passability features (event-specific; terms unresolved), timestamped NDW DATEX II observations (record/availability-specific cadence and licence) and ProRail/GTFS reference schedules; none alone gives evacuation capacity. For water/drainage use HWH IMWA/DAMO OGC https://api.pdok.nl/hwh/waterschappen-waterketen-damo/ogc/v1 (point/asset register, CC BY-SA 4.0, provider timestamps/variable completeness) only as context until connectivity/capacity is authorised. Test flooded-edge matching and explicit T-72 versus T+0 semantics."
+    },
+    {
+      "summary": "Create safe aggregate power, gas and telecom adapters without inferring topology or state from public geometry.",
+      "files": [
+        "scripts/fetch-realism-data.mjs",
+        "apps/web/public/data/lifelines/GM1876-context.json",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Liander open-data ArcGIS/WFS https://www.liander.nl/over-ons/open-data supplies public grid geometry under CC BY 4.0 at object/line scale with no fixed geometry refresh SLA; the Dale congestion page was updated 24 October 2025 and describes connection/growth constraint through at least Q3 2033, not a current outage. RDI Antenneregister WFS https://data-over-antenne-installaties-rdi.opendata.arcgis.com/ exposes 111 GM1876 installation points in the inspected snapshot, but licence/cadence were not stated and points are not coverage, backhaul, power or status. Use only responsibility/aggregate context; request authorised safe zones/restoration bands and keep all unavailable topology/current state unknown."
+    },
+    {
+      "summary": "Add safe facility-role and continuity context for dispersed/older residents without inventing live capacity.",
+      "files": [
+        "scripts/fetch-public-facilities.mjs",
+        "apps/web/public/data/facilities/GM1876-context.json",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Retain RIVM 2026 acute-care questionnaire locations (annual dated release, CC0), daily DUO RIO education uses (Creative Commons Attribution), KVK/PDOK government points (Public Domain Mark) and daily BAG buildings (Public Domain Mark) as context only: current GM1876 intersection is zero acute-care, 23 education and six government locations. Zero local acute-care is no local point in that register, not zero care demand or access. Request authorised Bronckhorst/VNOG aggregate shelter, care, cooling, staffing, generator/fuel, supply and transfer interfaces; if absent, preserve those fields unknown and keep facilities explicitly synthetic."
+    }
+  ],
+  "residualLimitations": [
+    "This audits a deterministic first-72-hour exercise model, not a forecast, warning, emergency instruction, flood assessment, evacuation plan, wildfire forecast or operator commitment.",
+    "CBS 2025 values are rounded/suppressed and neighbourhood totals need not equal the municipality total; null district-heating, charging and car fields are unknown, not zero.",
+    "Resident population excludes present school, work, visitor, station, agricultural and event populations; no authoritative timestamped occupancy is consumed.",
+    "The overview boundary is suitable for selection, not for flood raster, defence, nature, road, catchment or asset intersection; use full-resolution PDOK geometry.",
+    "WRIJ/LIWO layers are modeled scenarios and require expert selection, version, units, native resolution, probability, no-data, licence and local validation before causal use.",
+    "VNOG's Hackfort and nature-fire narratives are planning scenarios, not current breach, incident perimeter, evacuation order, crews or resource inventory.",
+    "Waterinfo/KNMI/RIVM observations can support provenance or a named replay but do not create continuous local surfaces, an arbitrary T+72 forecast, flood/fire footprints, outages or repair paths.",
+    "IPO combustible-nature polygons identify eligibility, not ignition, live fuels/moisture, spread, evacuation or response; absent geometry is not safety.",
+    "IMWA/DAMO assets, Liander geometry, provider/antenna areas, RIVM/DUO/KVK points, GTFS, NWB and ProRail are partial context and do not establish connectivity, capacity, live state, backups or priority.",
+    "No complete public physical electricity, drinking-water, wastewater, gas, telecom, facility, fuel, stock, staff, backup, repair or restoration topology is consumed; security-sensitive gaps remain unknown or synthetic.",
+    "The coastal and Groningen-earthquake presets are remote exercises for Bronckhorst; wildfire is remote smoke/drought, and cyber/weather forcing remains synthetic unless explicitly replayed.",
+    "Recovery beyond T+72, one-to-six-month flood duration, intermunicipal evacuation/mutual aid, agriculture/ecology impacts and operator resource contention remain outside locally validated scope."
+  ],
+  "provinceReviewFlags": [
+    "Gelderland/VNOG/Rijkswaterstaat/WRIJ: require an expert-selected, versioned Hackfort/LIWO event and footprint-bounded infrastructure logic before releasing direct Bronckhorst river depth/exposure.",
+    "Gelderland/Bronckhorst/WRIJ: resolve machine-export terms, native resolution, edition, refresh and no-data semantics for the local T100/T1000 depth/duration/passability layers before ingestion.",
+    "Gelderland/VNOG/IPO: define a separate Bronckhorst nature-fire scenario; combustible-area geometry is not an incident perimeter and remote smoke is not local flame.",
+    "Gelderland/RWS/NDW/ProRail/transit: represent WRIJ flood passability, sparse rural access and T-72 evacuation without converting reference roads, stops or current observations into throughput.",
+    "Gelderland utility, water, telecom, health, facility and logistics operators: publish or authorise safe aggregate continuity/outage/restoration interfaces where possible; retain unavailable topology/state as unknown rather than deriving it from roads or registries."
+  ]
+}

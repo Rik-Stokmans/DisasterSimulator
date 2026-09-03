@@ -1,0 +1,480 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0556",
+    "name": "Maassluis",
+    "province": "Zuid-Holland",
+    "safetyRegion": "Rotterdam-Rijnmond"
+  },
+  "agent": {
+    "taskName": "municipality_gm0556",
+    "agentId": "/root/municipality_gm0397",
+    "completedAt": "2026-09-03T07:49:30Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "GM0556 passes the complete deterministic execution contract across all ten canonical presets, T+0/6/12/24/48/72 and all eight essential services. Its 2025 CBS/PDOK identity, generalized boundary, 36,436 residents, 19 neighbourhoods, one BAG place, one BRT woonkern and Rotterdam-Rijnmond safety-region assignment reconcile. Release remains correction-required. The generated municipality has zero logical transport links despite the CC0 NWB A20 corridor crossing it and 29 GTFS stop areas including metro context. Eight unrelated non-earthquake single-hazard presets reuse exactly the same complete T+24 neighbourhood order; even river and coastal flooding rank the waterfront neighbourhood Nieuwe waterweg only ninth. The river preset exposes 2.04095 metres of local 'flood depth' unchanged from T+12 through T+72, while the coastal preset exposes 1.87653 metres at T+24, but neither is bound to a selected Nieuwe Waterweg water-level series, tidal/rhine discharge combination, outer/inner harbour split, primary/secondary defence state or Maeslantkering state. Official Maassluis evidence instead distinguishes water level relative to NAP from local inundation depth, four forecast-triggered outer-harbour action phases, and a separate extreme-rain inner-harbour pathway. One current Waterinfo observation and forecasts only through T+48 are valuable time-stamped context, not calibration for a canonical event or T+72 state. Active Kortebuurt defence work, 60 public water assets, external acute care, air quality, utilities and first-72-hour actions remain absent from the causal model. Unknown and NoData must not be converted to zero, safety, passability, capacity or recovery.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek",
+      "title": "Kerncijfers wijken en buurten 2025 — filtered rows for GM0556",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM0556%27%29&%24select=WijkenEnBuurten%2CGemeentenaam_1%2CAantalInwoners_5%2CBevolkingsdichtheid_34%2Ck_65JaarOfOuder_12%2CEenpersoonshuishoudens_30",
+      "accessedAt": "2026-09-03T07:35:28Z",
+      "edition": 2025,
+      "supports": [
+        "Official GM0556/Maassluis identity, population 36,436, density 4,315 residents per square kilometre, 22.8% aged 65 or older and 5,584 one-person households.",
+        "The annual machine-readable OData release is CC BY 4.0. Neighbourhood values are rounded and some fields are suppressed or not applicable; null, Unknown and NoData must never become zero.",
+        "CBS supports transparent aggregate demand and vulnerability context, not named vulnerable people, institutional occupants, event-time commuters, household emergency stocks, observed customers or casualties."
+      ]
+    },
+    {
+      "publisher": "PDOK / CBS / Kadaster / Rijkswaterstaat / ProRail / OVapi",
+      "title": "Generalized areas 2025 with BAG, BRT TOP10NL, NWB, rail and public-transport context",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_gegeneraliseerd/items?f=json&limit=1000&datetime=2025-07-01T00%3A00%3A00Z",
+      "accessedAt": "2026-09-03T07:35:28Z",
+      "edition": "CBS/BAG/BRT 2025 context; NWB 1 August 2026 edition",
+      "supports": [
+        "The application consumes the 2025 CC BY 4.0 generalized municipality and 19-neighbourhood geometry. Reference point [4.252811358931954, 51.92212986714131] and the one BAG place centre are inside GM0556.",
+        "BAG woonplaatsen are Public Domain Mark 1.0 at https://api.pdok.nl/kadaster/bag/ogc/v2/collections/woonplaats. BRT TOP10NL is CC BY 4.0 with rotating updates and retains Maassluis as one woonkern.",
+        "Monthly CC0 NWB geometry is downloadable at https://downloads.rijkswaterstaatdata.nl/nwb-wegen/geogegevens/shapefile/NWB-light/01-08-2026.zip. Its aggregated ##020/A20 line runs through the Maassluis extent, yet the generated logical graph contains zero GM0556 edges or neighbours.",
+        "ProRail OGC is CC0 static infrastructure context; zero ProRail stations is expected for the converted line but is not zero public transport. Twenty-nine GTFS stop areas include Maassluis Centrum, Maassluis West and Steendijkpolder/metro-labelled context; schedules and stop points do not prove incident operation or capacity."
+      ]
+    },
+    {
+      "publisher": "Gemeente Maassluis",
+      "title": "Hoogwater page, Action plan high water unembanked Maassluis area v1.1, and Ramp or crisis guidance",
+      "url": "https://www.maassluis.nl/hoogwater",
+      "accessedAt": "2026-09-03T07:45:00Z",
+      "edition": "Web page modified 21 April 2026; action plan v1.1 definitive May 2021; crisis page modified 23 June 2026",
+      "supports": [
+        "The harbour is openly connected to the Nieuwe Waterweg. After the keersluis in the Delflandsedijk closes, the outer harbour remains connected and can flood; the inner harbour is then separated from the Nieuwe Waterweg but can rise during extreme rain. The 2021 action plan expressly excludes inner-harbour rain measures.",
+        "Nieuwe Waterweg high water combines tide and river discharge; the peak arrives in Maassluis about 45 minutes after Hoek van Holland. The action plan records at least 12 hours' WMCN notification before the expected NAP +2.00 m pre-warning level, but forecast and actual peaks can differ.",
+        "Four outer-harbour phases use forecast water level, not local flood depth: NAP +2.00–2.20, +2.20–2.80, +2.80–3.10 and above +3.10 m. Named consequences include Burgemeester De Jonghkade, Govert van Wijnkade, the Nieuwe Waterweg business-area stormwater system from +2.70, the boulevard cycleway/ferry landing from +2.90 and residential 't Hoofd above +3.10.",
+        "Named actions include notifying municipal operations, police, Delfland, harbour businesses and resident contacts, publishing warnings, closing the loswal/barriers and warning vehicle/vessel owners. These are plan tasks, not evidence that an action is currently triggered, resourced or complete.",
+        "The current crisis page directs shelter-in-place, ventilation shutdown, NL-Alert/Rijnmondveilig information, police-directed evacuation and institutional transport for people needing assistance. It also notes regional production, storage and transport of dangerous substances. No blanket machine-data licence or fixed update cadence was established; the older action-plan roles and contacts require operational revalidation."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat",
+      "title": "Maeslantkering operation and public Waterinfo Maassluis observation/forecast point",
+      "url": "https://www.rijkswaterstaat.nl/water/waterbeheer/bescherming-tegen-het-water/waterkeringen/deltawerken/maeslantkering",
+      "accessedAt": "2026-09-03T07:45:00Z",
+      "edition": "Maeslantkering page modified 22 May 2026; Waterinfo observation retrieved 2 September 2026 and forecasts 3 September 2026",
+      "supports": [
+        "The automated Maeslantkering is a forward defence against sea high water and forms the Europoortkering with the Hartelkering and Rozenburg dike widening. The official closure levels are a forecast NAP +3.0 m at Rotterdam or +2.9 m at Dordrecht; RWS says it can withstand a 5 m NAP surge and experts monitor expected closures.",
+        "Closure protects against sea surge but does not erase upstream river discharge, inner-system rainfall, local defence or unembanked exposure. Maintenance/testing and a closure threshold are not an event-time reliability guarantee or local depth surface.",
+        "The CC0 Waterinfo snapshot contains one Maassluis observation: 122 cm NAP at 2026-09-02T17:30Z, classified normal and fresh at retrieval. It is a point water level, not local inundation depth, breach, probability or defence state.",
+        "Rolling public forecasts return Maassluis values through T+48: 127, 5, 51, 25 and 6 cm NAP at requested T+1/+6/+12/+24/+48 windows. No T+72 point is returned. Coverage declines by horizon; the public frontend JSON is not documented as a stable external API, and empty T+72 is NoData rather than zero water.",
+        "Observation, issued forecast, historical replay, official scenario and canonical deterministic forcing are different evidence classes and must retain retrieval, issue/valid time, station/datum, quality flag and licence."
+      ]
+    },
+    {
+      "publisher": "Gemeente Rotterdam / Rijkswaterstaat",
+      "title": "Public Hoogwaterkaart Rotterdam web application referenced by Maassluis",
+      "url": "https://www.arcgis.com/sharing/rest/content/items/3ce1ddfc071e4551821400df2b5f10ff?f=json",
+      "accessedAt": "2026-09-03T07:45:00Z",
+      "edition": "Application modified 23 June 2025; linked web map inspected 3 September 2026",
+      "supports": [
+        "The public application is explicitly linked by Maassluis for address-and-expected-water-level exploration and identifies Gemeente Rotterdam/Rijkswaterstaat provenance and CC BY 4.0 reuse.",
+        "Its own description says the map concerns unembanked area, does not state flood probability and is indicative; reality can differ through wind, waves and backwater. The app must not be treated as observed flood depth or guaranteed protection.",
+        "The linked web map exposes queryable high-water polygons, AHN terrain, defences and water-level sites through ArcGIS services. Before simulation use, province review must verify GM0556 spatial coverage, source date, threshold units, vertical datum, resolution and NoData rather than inheriting the application's Rotterdam-labelled extent."
+      ]
+    },
+    {
+      "publisher": "Hoogheemraadschap van Delfland / Het Waterschapshuis",
+      "title": "Kortebuurt Maassluis dike strengthening and public water-control/wastewater objects",
+      "url": "https://www.hhdelfland.nl/werk-in-uitvoering/dijkversterking-kortebuurt-maassluis/",
+      "accessedAt": "2026-09-03T07:45:00Z",
+      "edition": "Project page last modified 18 November 2025; HWH deployment snapshot retrieved 3 September 2026",
+      "supports": [
+        "Delfland says parts of the Kortebuurt dike are too low or insufficiently robust, the current embankment is in poor condition and extra measures are being taken while a nature permit is awaited. Planned phases include damming a Boonervliet branch with a closable culvert to limit inflow after breach, berms and later raising. Planned/completed work is not live defence state.",
+        "The deployed partial HWH CC BY-SA 4.0 snapshot intersects 60 GM0556 features: two sewer pumps, ten surface-water pumps, four sluices and 44 weirs. Fifty capacities are null; geometry/status labels do not establish hydraulic connectivity, setpoint, telemetry, backup or restoration.",
+        "Named objects include Rg Maassluis, Rg Merellaan, Dijkpolder/Wilgenrijk and Foppenpolder Zuid pumps, Wateringsesluis, Monstersche Sluis, Keersluis Maassluis and Deltakering Boonerhaven. Contributor-dependent coverage and record presence are static context, not proof of complete assets or operation."
+      ]
+    },
+    {
+      "publisher": "RIVM / DCMR / Netbeheer Nederland / RDI / DUO / NDW",
+      "title": "Acute care, indicative air quality, grid planning, telecom, education and road situations",
+      "url": "https://datacatalogus.rivm.nl/dataset.xhtml?persistentId=doi%3A10.21945%2F8E767B2D-9CED-4A85-A95D-3AC1A608C663",
+      "accessedAt": "2026-09-03T07:45:00Z",
+      "edition": "RIVM acute-care questionnaire 2026 v1.1; deployment snapshots inspected 3 September 2026",
+      "supports": [
+        "The versioned national RIVM acute-care questionnaire is CC0 and has no hospital point inside GM0556. Straight-line reference-point distances are about 8.72 km to non-24/7 Franciscus Vlietland in Schiedam and 10.20 km to 24/7 Reinier de Graaf in Delft; distances and reported roles/rooms/2025 visits are not ambulance travel, acceptance, staffing, occupancy or backup.",
+        "DCMR station Maassluis-Kwartellaan reported indicative PM2.5 2.6 micrograms per cubic metre for 2026-09-02T16:00–17:00Z. Luchtmeetnet measurements can be revised and have no standard reuse licence stated; one hourly point is not a smoke plume, exposure surface, source attribution or forecast.",
+        "The one NBNL postcode sample 3142NX assigns Stedin area Maassluis 1 but reports null existing/required capacity, zero queued values and no projects. The product is planning context from public frontend JSON with exact licence/stability unstated; null and sampled zero do not mean zero capacity, no grid risk, live state or restoration.",
+        "The deployed context contains 34 RDI sites and 19 DUO locations but no GM0556 government-service, weather-observation/warning/seismic or NDW situation record. Antennas and schools do not establish coverage, backup, shelter or distribution roles; empty current feeds are coverage NoData, not safety, open roads or future state."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM0556, Maassluis, Zuid-Holland and Rotterdam-Rijnmond agree across generated and official 2025 inputs.",
+      "evidenceRefs": ["E01", "E02", "E03"],
+      "notes": [
+        "Feature id, bundle code and bundle name all equal GM0556 / Maassluis; the safety-region layer assigns it uniquely to Rotterdam-Rijnmond.",
+        "BoundaryEdition and statisticsEdition are 2025. Later operational pages, 2026 observations/registers and synthetic scenario time retain separate semantics.",
+        "No code, name, province, safety-region or edition mismatch was found."
+      ]
+    },
+    "geography": {
+      "status": "warn",
+      "summary": "The reference point lies inside the generalized municipality, but high-water modelling needs explicit unembanked/embanked, harbour, defence and cross-boundary water geometry.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E06"],
+      "notes": [
+        "Generated centre [4.252811358931954, 51.92212986714131] and the Maassluis BAG place centre lie inside the 2025 generalized polygon.",
+        "The Nieuwe Waterweg, Maeslantkering, tide/river boundary conditions, Delflandsedijk/keersluis, unembanked harbour and Delfland polder/boezem systems cross municipal and authority boundaries.",
+        "Generalized geometry cannot establish local water level/depth, defence state, stormwater/sewer connectivity, pump/sluice control, route passability or asset ownership."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Official 2025 headline statistics agree and rounded neighbourhood population reconciles within publication semantics.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "Generated/official population is 36,436, density 4,315 per square kilometre, age65Pct 22.8 and one-person-household count 5,584.",
+        "Nineteen neighbourhood rows sum to 36,425, eleven below the municipality total (-0.03%); deterministic allocation reconciles exactly to 36,436. Published households sum to 16,245 and age65+ to 8,300.",
+        "Largest neighbourhoods are Vogelbuurt 3,620, Sluispolder Oost 3,360, Taanschuurpolder 3,125, Burgemeesterswijk 2,965 and Vertobuurt 2,830.",
+        "Aggregates cannot identify residents at 't Hoofd, harbour workers, hospital patients, medically dependent people, school occupants, commuters, responders or evacuation assistance needs at event time."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "All 19 neighbourhoods load, but missing attributes and public assets/observations retain source-specific coverage and non-causal semantics.",
+      "evidenceRefs": ["E01", "E03", "E04", "E06", "E07"],
+      "notes": [
+        "Most statistical fields cover 19/19 neighbourhoods. Home-value, housing/tenure and selected benefit fields cover 18/19; cars per household covers 17/19. District heating and public charging cover 0/19 and correctly remain null.",
+        "The Nieuwe waterweg neighbourhood has only 105 published residents but 145 non-residential buildings and 110 businesses, showing why population alone cannot allocate harbour operational exposure.",
+        "Water objects, Waterinfo, PM2.5, grid-planning, antennas, schools and care sites are typed context. They cannot be promoted to live topology, observed consequence, capacity or T+72 state."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "One BAG woonplaats and one BRT woonkern named Maassluis are retained without a boundary mismatch.",
+      "evidenceRefs": ["E02"],
+      "notes": [
+        "The municipality has one BAG woonplaats and BRT settlement label, both Maassluis.",
+        "The 19 neighbourhoods preserve waterfront, polder, old-centre and residential labels needed for aggregation.",
+        "Administrative/topographic labels do not establish event-time population, isolation, refuge capacity or service availability."
+      ]
+    },
+    "transport": {
+      "status": "fail",
+      "summary": "The logical graph isolates Maassluis despite A20 geometry and metro/ferry/urban-road dependencies.",
+      "evidenceRefs": ["E02", "E03", "E07"],
+      "notes": [
+        "logicalRouteDegree is zero: there are no neighbours, route names, service links or inbound/outbound transfer edges for any hazard.",
+        "The deployed monthly NWB layer contains the ##020/A20 corridor across the Maassluis extent. Twenty-nine GTFS areas include metro-labelled stations, and the action plan identifies a ferry landing that begins flooding from NAP +2.90 m.",
+        "No graph path represents Vlaardingen/Schiedam/Rotterdam, Midden-Delfland/Westland, A20, metro, ferry, harbour access, bridge/barrier closure or route-dependent external care.",
+        "Zero NDW situations is a deployment-time empty assignment, not proof every road is open and never a forecast to T+72."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "Official four-phase high-water tasks exist, but no trigger, action, resource, facility, evacuation or household-readiness state enters the simulation.",
+      "evidenceRefs": ["E03", "E04", "E06", "E07"],
+      "notes": [
+        "The public action plan ties outer-harbour consequences and named municipal/police/Delfland communications and closures to forecast NAP thresholds, with WMCN warning context about 12 hours before +2.00 m.",
+        "The model has no issued forecast binding, threshold transition, action owner, requested/confirmed/completed state, resource constraint, expiry or result.",
+        "Crisis guidance, school/institutional transport and shelter-in-place are instructions or plan roles, not automatically completed actions. Household supplies and ability to receive SMS/NL-Alert remain Unknown.",
+        "Zero local acute hospitals and external questionnaire records do not establish route access, ambulance time, acceptance, occupancy, staffing, generator/fuel or continuity."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten presets produce complete finite deterministic outputs at six checkpoints and eight services; physical and evidence contradictions are recorded separately.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07"],
+      "notes": [
+        "The focused gate executed severe storm, pluvial flood, river flood, coastal flood, heatwave, winter storm, cyberattack, earthquake, wildfire and compound at T+0/6/12/24/48/72 for power, water, drainage, gas, telecom, mobility, facilities and supply.",
+        "Maximum severity / maximum affected people-equivalent / T+72 cumulative local pre-network event-attributable person-hours are storm 0.327252 / 5,994 / 290,135.719; pluvial 0.515986 / 12,305 / 474,169.410; river 0.637333 / 23,340 / 1,293,988.661; coastal 0.583452 / 22,256 / 1,187,399.919; heat 0.564006 / 2,313 / 225,347.600.",
+        "Remaining values are winter 0.532879 / 8,280 / 401,142.040; cyber 0.531370 / 10,421 / 478,946.867; earthquake 0.003083 / 0 / 3,992.919; wildfire 0.124672 / 1,182 / 197,309.444; compound 0.938131 / 25,896 / 1,440,153.730.",
+        "These are exercise outputs, not measurements, probabilities, warnings, casualties, identified customers, damage assessments or restoration forecasts."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "The focused gate passes deterministic, finite, exact-zero, causal, allocation, reconciliation and monotonic-burden contracts.",
+      "evidenceRefs": [],
+      "notes": [
+        "MUNICIPALITY_AUDIT_CODE=GM0556 pnpm audit:model passed both tests on current code across 10 presets × 6 checkpoints × 8 services.",
+        "Every intensity-zero run has exactly zero event severity, affected people-equivalent and event-attributable deprived person-hours; repeated output and web/core preset parity pass.",
+        "All local rows allocate exactly 36,436 residents and service demand/delivery totals reconcile within floating-point tolerance.",
+        "Selected display service creates zero local-hazard delta, cumulative event-attributable person-hours are monotonic and declared logical-route ceilings hold vacuously for the zero-edge graph."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "A shared neighbourhood ordering cannot represent outer-harbour high water, pluvial drainage, heat, winter, cyber, smoke and other local mechanisms.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07"],
+      "notes": [
+        "At T+24 storm, pluvial, river, coastal, heat, winter, cyber and canonical wildfire have exactly the same complete 19-neighbourhood order: Steendijkpolder Zuid, Vertobuurt, Taanschuurpolder, Binnenstad and Burgemeesterswijk lead.",
+        "The waterfront Nieuwe waterweg neighbourhood ranks ninth for every one of those presets despite E03's phase-specific outer-harbour sites and its 145 non-residential buildings. Compound differs mainly through saturation; earthquake has a zero-hazard baseline order.",
+        "No official outer-harbour contour, high-water map, current Waterinfo boundary, Delfland rain/asset system, valid-time weather/air field, cyber target or selected ground-motion grid controls local allocation.",
+        "Canonical wildfire has zero local direct fire and only smoke/drought. That is a remote-source scenario result, not evidence that urban/industrial or nature fire is impossible."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "Eight service scores remain precise even though Maassluis has no logical network edge and no validated physical lifeline topology.",
+      "evidenceRefs": ["E02", "E03", "E06", "E07"],
+      "notes": [
+        "The city-detail graph has links=[] and therefore represents no intermunicipal mobility, logistics, care or utility transfer; each service still reports an exact synthetic Maassluis gateway and restoration path.",
+        "At compound T+24 availability is power 0.439922, water 0.333193, drainage 0.213601, gas 0.576094, telecom 0.259668, mobility 0.373562, facilities 0.482933 and supply 0.309384. At T+72 facilities alone worsens to 0.316619 while all other values remain exactly fixed.",
+        "HWH objects, one NBNL sample, antenna/school points and external hospital records are contextual. They do not establish feeder, pipe, sewer, pump/sluice, backhaul, route, customer load, backup, stock, priority, crew or restoration state.",
+        "Drinking-water quantity/quality, wastewater, stormwater, surface-water control, marine/river level and flood defence are distinct systems and cannot safely collapse into water and drainage scores."
+      ]
+    },
+    "causalTrace": {
+      "status": "fail",
+      "summary": "Stage arithmetic closes, but metres of flood depth are not tied to NAP water level, inundation footprint or defence state and are operationally misleading.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06"],
+      "notes": [
+        "River forcing reaches 2.040950 m flood depth at T+12 and remains exactly unchanged through T+72; affected rises from 19,959 to 23,340 and person-hours to 1,293,988.661. No selected Rhine discharge/tide series, local level-depth transform, defence or footprint supports it.",
+        "Coastal T+24 exposes 1.876526 m depth, 22,256 affected and 0.573542 pressure; direct depth is zero at T+72 but 4,447 remain affected and person-hours reach 1,187,399.919. No Maeslantkering/keersluis state or action explains the transition.",
+        "Official thresholds are water surface elevation relative to NAP and local contour consequences; simulated floodDepthM denotes local depth. These quantities cannot be compared or substituted without terrain/datum and connected inundation logic.",
+        "Current point observation/forecast, older action plan, active dike project, official indicative map and synthetic scenario remain separate evidence classes."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "The first-72-hour trajectories ignore published trigger actions, current forecast coverage limits, transport isolation, facility state and operator restoration evidence.",
+      "evidenceRefs": ["E03", "E04", "E06", "E07"],
+      "notes": [
+        "The river scenario is a complete plateau from T+12 through T+72 for hazard depth and seven services, with facilities degrading later; no selected event, tide, defence, closure, repair or response explains that persistence.",
+        "Current Waterinfo data supports Maassluis only through requested T+48; no T+72 record exists. Forecast gaps cannot be filled with zero or canonical exercise values.",
+        "Compound severity declines to 0.602236 at T+72 while affected increases to 25,896, pressure reaches 0.644458 and seven service values are frozen from T+24; no recorded intervention or resource state explains the curve.",
+        "No WMCN alert receipt, barrier/loswal/keersluis closure, resident/business message, vehicle movement, evacuation, pump/sluice operation, hospital acceptance, utility switching, crew/fuel/spares, household stock or action completion drives the result. Seventy-two hours is a preparedness horizon, not a recovery promise."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": ["power", "water", "drainage", "gas", "telecom", "mobility", "facilities", "supply"]
+  },
+  "findings": [
+    {
+      "id": "GM0556-WATER-001",
+      "severity": "critical",
+      "category": "hazard",
+      "status": "open",
+      "summary": "River and coastal presets expose unsupported metre-precision without a Nieuwe Waterweg boundary, defence state or level-to-depth transform.",
+      "evidence": "River floodDepthM is exactly 2.040950 from T+12 through T+72; coastal is 1.876526 at T+24. E03 defines a different physical contract: water level in metres NAP, tide plus river discharge, an outer/inner harbour split, a 45-minute Hoek van Holland lag and four consequence contours. E04 adds Maeslantkering closure semantics and a current level series. No selected boundary event, local terrain/depth surface, defence/keersluis state, failure mode, arrival/recession or uncertainty supports the outputs.",
+      "action": "Build one Nieuwe Waterweg compound boundary adapter with explicit tide, surge and upstream discharge components, then derive separate local surface elevation/depth footprints for embanked and unembanked areas. Keep river and coastal views as decompositions of the same selected event, preserve datum/units/defence state/validity/uncertainty/NoData and never equate NAP elevation with flood depth."
+    },
+    {
+      "id": "GM0556-ACTIONS-001",
+      "severity": "critical",
+      "category": "service",
+      "status": "open",
+      "summary": "The simulator omits Maassluis's public four-phase high-water triggers and first-72-hour action ledger.",
+      "evidence": "E03 defines action phases at expected NAP +2.00–2.20, +2.20–2.80, +2.80–3.10 and above +3.10 m, WMCN notification context at least 12 hours before +2.00 m, affected locations and named municipal/police/Delfland communications and closures. The model records none of the alert, owner, action, resource, status or outcome fields and instead advances exact service/recovery values. The plan is v1.1 May 2021 even though still linked from a page updated April 2026, so operational confirmation is required.",
+      "action": "Ingest a municipality-authorized current phase/action table. Track proposed/requested/confirmed/completed/cancelled tasks with trigger, owner, source, issued/valid/expiry time, resource need, dependency, confidence and outcome. Do not infer completion from the model clock or a forecast threshold alone."
+    },
+    {
+      "id": "GM0556-TRANSPORT-001",
+      "severity": "critical",
+      "category": "network",
+      "status": "open",
+      "summary": "Maassluis is an isolated zero-edge node despite A20, metro, ferry and external-care dependencies.",
+      "evidence": "audit:context reports logicalRouteDegree 0, no neighbours and no routes. E02's deployed CC0 NWB layer contains the A20/##020 corridor across the municipal extent and 29 GTFS areas include metro-labelled stops. E03 says the ferry landing floods from NAP +2.90 m. E07 places the nearest listed acute care outside the municipality. Static geometry does not prove operation, but zero topology is a reproducible omission.",
+      "action": "Generate audited A20/local-road, metro, ferry/harbour and route-dependent care/logistics edges with authority, mode, direction, topology semantics and non-additive capacity. Apply event-valid NDW/operator/municipal restrictions separately; Unknown current state never means open."
+    },
+    {
+      "id": "GM0556-SPATIAL-001",
+      "severity": "critical",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Eight unrelated hazard presets reuse one neighbourhood rank and under-specify the official waterfront mechanism.",
+      "evidence": "Storm, pluvial, river, coastal, heat, winter, cyber and wildfire share exactly the same full T+24 order, led by Steendijkpolder Zuid. Nieuwe waterweg ranks ninth even though E03 names its business-area drainage and adjacent harbour sites in threshold consequences and the CBS row contains 145 non-residential buildings. No selected official contour, high-water map, rain/depth, weather, cyber-target, smoke or seismic surface drives the order.",
+      "action": "Replace the shared seed with mechanism-specific, coverage-aware fields and explicitly mark unsupported layers. Preserve source geometry, CRS, vertical datum, units, edition, issue/valid time, resolution, licence and NoData. Test that selected outer-harbour high-water contours drive the appropriate waterfront cells without using population alone."
+    },
+    {
+      "id": "GM0556-PLUVIAL-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Extreme-rain inner-harbour, stormwater, sewer and Delfland polder mechanisms are absent from the pluvial output.",
+      "evidence": "Pluvial T+24 reports 0.714442 m depth, 12,305 affected and drainage availability 0.378191 without a source-native depth/flow surface. E03 explicitly says the closed inner harbour can rise during extreme rain and that its action plan excludes those measures; from NAP +2.70 the business-area stormwater system can also become submerged. E06 supplies 60 partial water objects, but 50 capacities are null and none is connected or live.",
+      "action": "Create a separate pluvial/inner-water pathway using a selected rainfall hyetograph, terrain/imperviousness, municipal sewer/stormwater, Delfland polder/boezem, pump/sluice and receiving-water boundary data. Preserve source coverage/NoData and keep static register objects non-causal until connectivity, capacity and state are authorized."
+    },
+    {
+      "id": "GM0556-DEFENCE-001",
+      "severity": "high",
+      "category": "regional-data",
+      "status": "open",
+      "summary": "Active local defence condition and planned works are not represented and cannot be assumed complete.",
+      "evidence": "E06 says Kortebuurt is in poor condition, locally too low or insufficiently robust, has extra interim measures and awaits a nature permit; planned work includes a closable-culvert dam to limit Boonervliet inflow after a breach. E03/E04 identify the local keersluis and Maeslantkering. The model exposes no defence reach, owner, edition, inspection/works state, closure threshold, reliability or failure mode.",
+      "action": "Add a time-stamped, authority-reviewed defence layer with reach, owner, function, condition/works state, threshold, actual closure and failure/uncertainty semantics. Planned, under-construction and operational states remain distinct; never infer protection from an asset point or project page."
+    },
+    {
+      "id": "GM0556-LIFELINE-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "Exact service trajectories have neither physical topology nor event-authorized operator evidence.",
+      "evidence": "With links=[], compound T+24 availability ranges from drainage 0.213601 to gas 0.576094 and seven services remain exactly unchanged through T+72 while facilities worsens. E06/E07 provide water objects, a null-heavy one-postcode grid sample, antennas, schools and external hospitals only. No source validates physical feeders/pipes/sewers/backhaul, dependency direction, backup, stock, switching, crew or restoration.",
+      "action": "Give each service explicit topologySemantics/evidence/version/coverage fields. Use only security-reviewed operator or authority state; otherwise keep physical topology and live availability Unknown or use the smallest transparently aggregate synthetic exercise fallback. NWB/GTFS may support mobility and assumed logistics only."
+    },
+    {
+      "id": "GM0556-FORECAST-001",
+      "severity": "high",
+      "category": "regional-data",
+      "status": "open",
+      "summary": "Current Maassluis Waterinfo data ends at T+48 and must not be blended into the canonical T+72 scenario.",
+      "evidence": "E04 records one observation and station forecasts at requested +1/+6/+12/+24/+48 windows, all in cm NAP, but no +72 record. The simulator river and coastal outputs run to T+72 without referencing station, issue/valid time or datum. Current normal classification is only for the retrieved observation and cannot certify later safety or a synthetic event.",
+      "action": "Add a governed current-data mode that binds station, issue/valid time, horizon, datum, quality and stale/NoData status. Stop or mark Unknown beyond the source forecast horizon; keep canonical exercises and historical replays separate and never fill missing T+72 with zero."
+    },
+    {
+      "id": "GM0556-CONTINUITY-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "External care, assisted evacuation, shelter/communications and industrial continuity remain Unknown.",
+      "evidence": "There is no acute-hospital point in GM0556. The nearest questionnaire locations are about 8.72 km straight-line to non-24/7 Franciscus Vlietland and 10.20 km to 24/7 Reinier de Graaf, which are not incident travel or acceptance. E03 assigns special transport to institutions and identifies dangerous-substance activity; E07 contributes 34 antennas and 19 schools but no live capability. The simulator has no route, staff, occupancy, backup, reception, distribution, ventilation or assisted-transport state.",
+      "action": "Separate time-dependent route/ambulance reachability from facility capability and industrial/shelter-in-place actions. Accept only event-authorized municipality, GHOR, facility, operator and school states with owner, validity, expiry and confidence; all other capacity and completion remain Unknown."
+    },
+    {
+      "id": "GM0556-NODATA-001",
+      "severity": "high",
+      "category": "regional-data",
+      "status": "open",
+      "summary": "Null and empty public-source results need stronger protection against zero/safe interpretation.",
+      "evidence": "District heat and public charging are 0/19 usable; the NBNL sample has null capacity fields alongside zeros; 50/60 water-asset capacities are null; Waterinfo T+72 is empty; weather/warning/seismic/government-service/NDW assignments are zero. These mean suppressed, unsupported, not sampled or NoData—not no assets, zero capacity, normal weather, open roads, no warning need or restored service.",
+      "action": "Retain typed Unknown, suppressed, not-applicable and NoData with publisher, version, retrieval, issue/valid/expiry time, coverage, licence, quality and affectsSimulation. Add regression tests preventing empty/null results from generating zero hazard, safety, passability, service or future recovery."
+    },
+    {
+      "id": "GM0556-OTHER-HAZARDS-001",
+      "severity": "medium",
+      "category": "limitation",
+      "status": "accepted-limitation",
+      "summary": "Storm, heat, winter, wildfire/smoke, cyber, earthquake and dangerous-substance events are scenario families, not calibrated Maassluis forecasts.",
+      "evidence": "The matrix is bounded, but there is no selected local KNMI field, ignition/perimeter, smoke plume, cyber target/architecture or seismic event/grid. Canonical wildfire has zero local flame and PM2.5 2.6 at one current DCMR station is only an indicative historical hour. The current municipal crisis page documents dangerous-substance production/storage/transport context, which is outside the ten presets.",
+      "action": "Require a selected versioned event/target and relevant local surface before operational claims, retain observation/forecast/scenario distinctions and disclose hazardous-material/industrial incidents as omitted rather than silently mapping them onto another preset."
+    },
+    {
+      "id": "GM0556-CONTRACT-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The deterministic ten-scenario contract, arithmetic, reconciliation and selected-layer invariance pass for GM0556.",
+      "evidence": "The focused gate passes two tests over every required preset, checkpoint and service. Zero-intensity outputs close exactly; all local populations and service demand/delivery totals reconcile within floating-point tolerance; repeated frames are deterministic; selected-layer hazard delta is zero; cumulative event-attributable person-hours are monotonic and the zero-edge route bounds hold.",
+      "action": "Retain these regressions while correcting water/defence semantics, transport isolation, shared spatial allocation, lifeline evidence, forecast horizon and action/NoData gaps. Passing arithmetic is not local calibration."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Replace independent generic river/coastal depth claims with an evidence-bound Nieuwe Waterweg compound boundary and defence-aware local depth model.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/public/data/hazards/GM0556-water-context.json",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "A selected GM0556 event retains tide/surge/river components, station/datum, Maeslantkering/local-keersluis/defence state, unembanked/embanked scope, surface elevation, derived local depth, footprint, arrival/recession, issue/valid time, uncertainty, licence and NoData. Without these, exact river/coastal metres are withheld. Test that NAP water level is never labelled flood depth and that current Waterinfo stops visibly at T+48 when T+72 is absent."
+    },
+    {
+      "summary": "Repair zero-edge Maassluis transport and external-care continuity with typed modal and valid-time state.",
+      "files": [
+        "scripts/build-national-context.mjs",
+        "apps/web/public/data/transport-network.json",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "GM0556 no longer has degree zero: audited A20/local-road and appropriate metro/ferry/logistics/care dependencies carry source, authority, mode, direction, topology semantics and non-additive capacity. Static NWB/GTFS do not establish current operation. Event restrictions/closures have issue/valid/expiry time and Unknown state; no mobility edge is automatically power, water, gas, drainage, telecom or facility topology."
+    },
+    {
+      "summary": "Replace the shared neighbourhood seed with official high-water, pluvial and other mechanism-specific context.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/public/data/hazards/GM0556-spatial-context.json",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Before correction, eight non-earthquake single hazards share one complete 19-neighbourhood T+24 order and Nieuwe waterweg ranks ninth. Ingest authority-reviewed outer-harbour contours/high-water service only after GM0556 coverage and terms verification; add selected pluvial/weather/smoke/seismic/cyber inputs separately. Preserve geometry, CRS, datum, units, scenario, edition/valid time, resolution, licence and NoData and assert distinct mechanisms can create distinct ranks."
+    },
+    {
+      "summary": "Represent Delfland/municipal water systems and defence works without promoting static objects or plans to live protection.",
+      "files": [
+        "scripts/fetch-water-assets.mjs",
+        "apps/web/public/data/public-context/water-assets.geojson.gz",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Retain and reproduce 60 HWH intersections with 50 null capacities and contributor-partial coverage. Add source/owner/reach/condition/works/closure-state semantics for Kortebuurt, Maeslant/local keersluis and polder/boezem controls only from authorized snapshots. Planned, completed and operational remain distinct; object geometry is non-causal until connectivity, capacity, control, backup and valid-time state are verified."
+    },
+    {
+      "summary": "Add Maassluis's forecast-triggered action phases and service-specific first-72-hour evidence ledger.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/AnalyticsDrawer.tsx",
+        "apps/web/public/data/public-context/GM0556-response-context.json"
+      ],
+      "validation": "After municipal operational revalidation, encode the four NAP phase thresholds and named tasks as proposed/requested/confirmed/completed/cancelled records with trigger, owner, source, issued/valid/expiry time, resource/dependency, confidence and outcome. Keep water quantity/quality, wastewater, stormwater, surface-water control, defences, all utilities, care and supply distinct. Exact action completion, hospital acceptance, household stock, shelter/water point, crew and restoration remain Unknown without current authority evidence."
+    },
+    {
+      "summary": "Strengthen provenance and Unknown/NoData guards across Waterinfo, grid, water, weather, road, care, air, telecom and education context.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/statistics/statisticsCatalog.ts",
+        "packages/sim-core/src/model.test.ts"
+      ],
+      "validation": "Every displayed/public field carries publisher, dataset/version, retrieval, issue/valid/expiry time, coverage, licence, quality/evidence class and affectsSimulation. Regression: null NBNL/water capacity, empty T+72 forecast, zero current situations and 0/19 CBS availability never become zero capacity, safety, open routes, no need, no hazard or future recovery."
+    }
+  ],
+  "residualLimitations": [
+    "This is a deterministic first-72-hour planning-model audit, not a Rijkswaterstaat, WMCN, Maassluis, Delfland, Veiligheidsregio Rotterdam-Rijnmond, KNMI, RIVM, DCMR or infrastructure-operator forecast, warning, probability, closure decision, evacuation order, casualty estimate or restoration commitment.",
+    "The 2025 generalized CBS boundary and neighbourhoods support overview aggregation, not parcel hydraulics, outer/inner harbour separation, defence reaches, sewer/polder catchments, asset ownership, incident perimeters or emergency routes.",
+    "No selected Nieuwe Waterweg tide, surge and river-discharge boundary, station/datum, Maeslant/local-keersluis state, defence condition, connected footprint, terrain transform, arrival/recession or uncertainty drives GM0556.",
+    "Official NAP water elevation and simulated local floodDepthM are distinct quantities. Neither the municipal phase table nor Waterinfo values directly validate modeled depth.",
+    "The municipal action plan is v1.1 May 2021 although still linked from a page modified April 2026; roles, contacts, resources and trigger operations require current municipal authorization before live use.",
+    "The public high-water map is indicative, says nothing about probability and may differ through wind, waves and backwater. Machine-service coverage, date, units, datum and NoData for GM0556 require review.",
+    "Waterinfo provides one point observation and rolling forecasts only through T+48 in the snapshot. A point is not an inundation surface or defence state; missing T+72 is NoData rather than zero.",
+    "HWH water assets have partial contributor coverage and mostly null capacities. Geometry/status labels do not establish hydraulic connectivity, setpoint, telemetry, backup or restoration.",
+    "Active Kortebuurt work and planned controls do not establish completion, event-time condition, closure or protection; sensitive inspection/operation details were not inferred.",
+    "No complete public safe source provides Stedin electricity/gas topology, Evides drinking-water pressure/quality topology, municipal sewer network, Delfland live control logic, telecom backhaul, facility dependencies, food/fuel stock, backup endurance, crews or restoration.",
+    "GM0556 currently has zero logical graph links, so no intermunicipal mobility, logistics, care or utility transfer is modeled even though A20 and transit context exist.",
+    "NWB, ProRail and GTFS are static geometry/schedule context; NDW is a current Dutch situation feed. None establishes event-time passability, metro/ferry operation, evacuation throughput or future T+72 state.",
+    "RIVM hospital roles and straight-line distances do not establish ambulance time, reachability, acceptance, staffing, occupancy, diversion, generator/fuel or backup endurance.",
+    "RDI sites do not establish operator, coverage, traffic, backhaul, backup, congestion or restoration. DUO locations do not establish shelter, reception, transport or distribution roles.",
+    "One indicative DCMR hourly PM2.5 value is not a smoke plume, population exposure, source attribution or forecast. No local wildfire perimeter/fuel/spread model is calibrated.",
+    "Cyber has no named target/architecture/attack path; earthquake has no selected event/ground-motion/site-response surface; industrial/hazardous-material incidents documented as regional context lie outside the ten presets.",
+    "Household preparedness, medically dependent people, harbour workers, visitors, mutual aid, school/institutional transport, water/reception points, medicine, food/fuel, staff, vehicles and repair priorities remain assumptions or Unknown. Seventy-two hours is preparedness scope, not a recovery deadline.",
+    "Affected population is a current post-network people-equivalent threshold metric, while deprived person-hours is a cumulative local pre-network matched-baseline service-pressure proxy. Neither is identified customers, casualties, displacement, welfare loss or economic damage; six-hour checkpoints can miss tidal peaks and rapid closures."
+  ],
+  "provinceReviewFlags": [
+    "Municipality-specific release blocker: require one RWS/WMCN/Maassluis/Delfland-reviewed Nieuwe Waterweg compound boundary with tide, sea surge, river discharge, NAP datum, Maeslant/local-keersluis and defence state, unembanked/embanked footprints, depth transform, arrival/recession, uncertainty and NoData.",
+    "Municipality-specific release blocker: restore A20/local-road and appropriate metro/ferry/external-care topology; the current zero-edge GM0556 graph is false, while static geometry still cannot prove operational state.",
+    "Municipality-specific release blocker: replace the common eight-hazard neighbourhood rank and test official waterfront contours; Nieuwe waterweg currently ranks ninth for both river and coastal flooding.",
+    "Municipality-specific: operationally revalidate the public May 2021 four-phase action plan and encode forecast NAP thresholds, named locations, owners and actions without presuming resources or completion.",
+    "Municipality-specific: review Kortebuurt poor-condition/works state, Boonervliet measure, 60 HWH objects, inner-harbour extreme rain and business-area stormwater submergence as distinct defence/drainage mechanisms.",
+    "Municipality-specific: use the Maassluis Waterinfo point with issue/valid time and datum only in current-data mode; the snapshot ends at T+48 and empty T+72 is NoData.",
+    "Shared/national release blocker: exact service scores with links=[] have no physical topology. Utilities, telecom, care, supplies, backup, stock, crews and restoration remain Unknown or transparently aggregate synthetic.",
+    "Shared/national release blocker: null/empty grid, water, weather, warning, seismic, road, care and T+72 forecast results must never render as zero capacity, safety, open routes, no need or recovery.",
+    "Shared/national: add a status-bearing first-72-hour action ledger and preserve static context, current observation, issued forecast, official scenario, historical replay and synthetic model as separate evidence classes."
+  ]
+}

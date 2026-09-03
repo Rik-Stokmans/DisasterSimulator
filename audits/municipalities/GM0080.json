@@ -1,0 +1,470 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0080",
+    "name": "Leeuwarden",
+    "province": "Fryslân",
+    "safetyRegion": "Fryslân"
+  },
+  "agent": {
+    "taskName": "municipality_gm0080",
+    "agentId": "/root/municipality_gm0396",
+    "completedAt": "2026-09-03T06:39:38Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "GM0080 is identity-correct and its deterministic numerical contract passes across ten presets, six checkpoints and eight services, but it is not a calibrated Leeuwarden first-72-hour forecast. The coastal preset reports legacy flood amplitude 1.595320, 73,356 affected people-equivalent and critical status at T+24 without selecting a Wadden Sea boundary condition, primary-defence failure, boezem/polder pathway, inundation footprint, arrival or recession. Conversely, the named Rhine/Meuse/IJssel river preset correctly has scoped zero direct impact, but that zero must not hide unmodelled Friese boezem, polder and regional-water flooding. Eight unrelated nonzero presets start with exactly the same seven neighbourhoods, including sparse Feinsum, Leons and Buitengebied Jorwert, despite official Leeuwarden evidence distinguishing about 75 water-nuisance interventions, 50 warm areas, peat/groundwater foundation risks, nature fire, dense inner-city access and vulnerable facilities. All eight services reuse eleven road-derived logical edges, while 661 public water assets, Liander planning, 267 antenna registrations, Frisius MC, four stations and 255 transit stops remain non-causal context. Suppress unsupported local flood and service precision; retain scoped model zero separately from Unknown/NoData; and require authority-confirmed actions, operating state and valid-time evidence before they alter any 0–72-hour result.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek / PDOK / Kadaster",
+      "title": "E01 — Official 2025 municipality, neighbourhood, safety-region and settlement inputs",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM0080%27%29",
+      "accessedAt": "2026-09-03T06:22:00Z",
+      "edition": "CBS 2025; BAG/BRT and generated deployment snapshots retrieved 31 August 2026",
+      "supports": [
+        "Annual CC BY 4.0 CBS inputs identify GM0080 as Leeuwarden in Fryslân and report 129,973 residents, density 547/km², 19.8% aged 65 or older and 33,042 one-person households. The official municipality household total is 67,494.",
+        "The reference point [5.797157898073078, 53.15078285717361] lies inside the 2025 generalized polygon. All 136 neighbourhoods and 22 districts load; neighbourhood population sums to 129,970, three below the municipal total because small-area values are rounded or suppressed, while household rows sum to 67,510, sixteen above the official total.",
+        "BAG supplies 36 woonplaatsen and BRT supplies 66 settlement labels: 34 woonkernen, one deelkern, sixteen gehuchten and fifteen buurtschappen. No BAG place centre falls outside the generalized municipal boundary. BAG is Public Domain Mark 1.0 and BRT TOP10NL is CC BY 4.0; labels are not event-time occupancy or separate resident totals.",
+        "CBS/BAG/BRT do not measure commuters, students, patients, visitors, event crowds, boat users, care dependency, evacuation need, household emergency stocks or incident-time presence. Generalized geometry does not resolve dikes, polders, peilgebieden, sewer catchments, bridges, buildings, peat or nature fuels."
+      ]
+    },
+    {
+      "publisher": "Gemeente Leeuwarden",
+      "title": "E02 — Local climate adaptation, water nuisance, foundation damage, heat and 72-hour guidance",
+      "url": "https://www.leeuwarden.nl/wp-content/uploads/2025/02/Uitvoeringsprogramma-Vergroening.pdf",
+      "accessedAt": "2026-09-03T06:23:00Z",
+      "edition": "Greening programme 2025–2035; current municipal pages and 2026 local heat-plan notice inspected 3 September 2026",
+      "supports": [
+        "Leeuwarden aims to be climate-adaptive by 2035 and states that measures are needed at about 75 water-nuisance locations. Programmaplan Volhoudbaar 2.0 specifies 65,000 m³ storage across roughly 75 projects and green/shade measures for 50 warm areas: https://www.leeuwarden.nl/wp-content/uploads/2025/12/Bijlage-9-Programmaplan-Volhoudbaar-2.0.pdf",
+        "The earlier implementation agenda names distinct water-nuisance work in the southern villages, Grou, Stiens, Sonneborg, Rengerspark, Oud-Oost, Binnenstad and De Zwette and separately lists heat-stress areas: https://www.leeuwarden.nl/wp-content/uploads/import/uitvoeringsagenda_klimaatadaptatie.pdf. These are dated planning/hotspot signals, not a live rain footprint or complete current susceptibility layer.",
+        "The municipality says heavy rain/high water can affect streets, fields, basements, sewers and toilet discharge and that it monitors waterways, sewers and water levels: https://www.leeuwarden.nl/natuur-en-milieu/wateroverlast/. Stiens work includes a rain sewer and enlarged industrial sewer, which demonstrates local drainage variation rather than uniform capacity.",
+        "The foundation page identifies falling groundwater and soil subsidence in peat meadow areas, especially for older wooden-pile or shallow foundations: https://www.leeuwarden.nl/duurzaam-wonen-en-leven/funderingsschade/. This is a slow groundwater/subsidence mechanism, not evidence of earthquake ground motion.",
+        "The 30 June 2026 local heat-plan notice says municipal, GGD, Red Cross and social partners coordinate target-group actions, but explicitly says it is not a crisis or disaster plan: https://www.leeuwarden.nl/nieuws/zo-blijft-u-koel-hij-hitte/. The emergency page says a kit prepares residents for the first 72 hours: https://www.leeuwarden.nl/onze-gemeente/een-ramp-of-crisis-ga-naar-fryslanveilig-nl/. Neither source measures household preparedness, action completion or recovery.",
+        "The official pages/PDFs have document-specific publication dates but no stable machine incident API, blanket open-data licence or guaranteed update cadence identified in this audit."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Fryslân",
+      "title": "E03 — Current Leeuwarden risk image and official regional flood/access scenarios",
+      "url": "https://www.risicosinfryslan.nl/gemeente/leeuwarden",
+      "accessedAt": "2026-09-03T06:24:00Z",
+      "edition": "Current public risk pages inspected 3 September 2026; municipal image values and incident history are edition-bound",
+      "supports": [
+        "The current Leeuwarden page lists fixed-mainland and polder flooding, water nuisance, nature fire, cold, heat and drought; inner-city, vulnerable-object, event, aviation, professional/recreational navigation, road, explosion and toxic incidents; power, gas, drinking-water, wastewater and communications failure; crowd, cyber/geopolitical and health risks.",
+        "The dated municipal image records polders below NAP, flood exposure, nature, vulnerable objects, an old city centre, defence airfield, canals/lakes, national/provincial roads, multiple rail lines and events: https://www.risicosinfryslan.nl/static/documents/upload/5-bijlage-c-gemeentebeelden.pdf. Its older population is not a conflict with CBS 2025; validity dates differ.",
+        "The official polder scenario describes days of storm/rain, a rising boezem when wind constrains discharge, polder-dike failure, possible time to move to higher ground, road unavailability and power loss: https://www.risicosinfryslan.nl/risico/overstroming%20polder. It is regional scenario planning, not a uniform Leeuwarden depth or forecast.",
+        "The fixed-mainland scenario describes warning time and multiple failures in the sixth dike ring with extensive regional consequences: https://www.risicosinfryslan.nl/risico/overstroming%20vaste%20wal. A scenario class and qualitative applicability cannot validate the simulator's exact footprint, affected count, service loss or timing.",
+        "The inner-city fire page documents narrow-street access constraints and historical Leeuwarden GRIP incidents: https://www.risicosinfryslan.nl/risico/brand-in-dichte-binnenstad. The risk pages are authoritative qualitative planning/context with no machine feed, live incident state or blanket reuse licence identified."
+      ]
+    },
+    {
+      "publisher": "Wetterskip Fryslân / Het Waterschapshuis",
+      "title": "E04 — Friese boezem and polder mechanisms plus public water-control and wastewater assets",
+      "url": "https://api.pdok.nl/hwh/waterschappen-kunstwerken-imwa/ogc/v2",
+      "accessedAt": "2026-09-03T06:25:00Z",
+      "edition": "HWH deployment snapshot retrieved 3 September 2026; Wetterskip climate vision 2023 and current water-management programme",
+      "supports": [
+        "The GM0080 intersection contains 661 public HWH points: 521 weirs, 113 surface-water pumps, 25 sewer pumps and two wastewater-treatment plants. HWH IMWA is weekly CC BY-SA 4.0; DAMO water-chain completeness and cadence depend on contributing water boards, also under CC BY-SA 4.0: https://api.pdok.nl/hwh/waterschappen-waterketen-damo/ogc/v1",
+        "Wetterskip describes the Friese boezem as the connected canal/lake system used for wet- and dry-period transport, recreation and shipping; wet periods require storage/discharge and dry periods can depend on IJsselmeer intake: https://www.wetterskipfryslan.nl/documenten/waterbeheerprogramma.pdf",
+        "The 2023 climate vision says sea level and storm can constrain discharge to sea, raise boezem levels and force storage or a pumping stop where polders cannot discharge into an already-full boezem; it also treats peat oxidation/subsidence and salt groundwater: https://www.wetterskipfryslan.nl/documenten/visie_fryslan_klimaatbestendig_2050-versie-20-juli-2023.pdf",
+        "Asset points and strategic descriptions do not establish connected catchments, flow direction, compatible capacity, condition, power dependency, backup, current operation, defence state, water quality or restoration. Null capacity and missing topology remain Unknown, never zero."
+      ]
+    },
+    {
+      "publisher": "Watermanagementcentrum Nederland / IPLO / Provincie Fryslân",
+      "title": "E05 — LIWO and Friese Klimaatatlas official flood-scenario services",
+      "url": "https://iplo.nl/thema/water/applicaties-modellen/berichtgeving-crisismanagement/liwo/",
+      "accessedAt": "2026-09-03T06:26:00Z",
+      "edition": "LIWO release 2025.1.6; Friese Klimaatatlas sea/IJsselmeer web map published 2022",
+      "supports": [
+        "LIWO is an official WMCN scenario library for professional flood preparation with a public OGC route at https://basisinformatie-overstromingen.nl/geoserver/ows; IPLO states that correct interpretation requires specialist water-manager knowledge.",
+        "The Friese Klimaatatlas separates flood depth from sea or IJsselmeer and exposes a public LIWO-derived ArcGIS item: https://www.arcgis.com/home/item.html?id=e8cc7671136a48dba45073070c895b26. Its machine tile service is https://tiles.arcgis.com/tiles/L6oyL38cimu38LLx/arcgis/rest/services/overstroming_zee_IJsselmeer/MapServer",
+        "These are official scenario/context products, not observations. The 2022 ArcGIS item states no reuse licence or refresh cadence and contains multiple scenarios; LIWO is irregularly released. A governed simulation must retain selected scenario, water body, boundary condition, dike ring/section and failure mode, true unit/datum, probability/context, resolution, coverage, NoData, licence and expert approval.",
+        "No selected footprint or event in the audited simulator supports treating legacy floodDepthM as local observed metres or projecting it through the first 72 hours."
+      ]
+    },
+    {
+      "publisher": "Koninklijk Nederlands Meteorologisch Instituut / Rijkswaterstaat",
+      "title": "E06 — Valid-time weather and Waterinfo observation/forecast semantics",
+      "url": "https://dataplatform.knmi.nl/dataset/10-minute-in-situ-meteorological-observations-1-0",
+      "accessedAt": "2026-09-03T06:27:00Z",
+      "edition": "KNMI observation ending 2 September 2026 23:30 UTC; Waterinfo snapshots retrieved 2–3 September 2026",
+      "supports": [
+        "The CC BY 4.0 ten-minute KNMI station record for Leeuwarden Airport reported 16.4 °C, gust 8.39 m/s, 0 mm rain in the preceding hour and precipitation intensity 0 at 23:30 UTC. This is an observed interval at one point, not municipality-wide weather or a T+72 forecast.",
+        "KNMI EDR, radar/gauge nowcast and HARMONIE products can support explicit observed/replay/forecast modes, but issue time, valid time, lead, processing status, station/grid method, unit and uncertainty must remain distinct: https://developer.dataplatform.knmi.nl/edr-api",
+        "No public Waterinfo observation or forecast point is assigned inside GM0080 in the deployment snapshots. Waterinfo is generally ten-minute CC0 public guidance, not mission-critical, and forecast coverage declines by horizon: https://www.rijkswaterstaat.nl/water/waterdata. Empty local intersection is NoData/coverage, not zero level, zero discharge, normal operation or safety.",
+        "A valid-time station observation cannot be mixed with older planning documents, an official hydraulic scenario or a synthetic exercise clock as if all described one event."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / ProRail / OVapi / Nationaal Dataportaal Wegverkeer",
+      "title": "E07 — Road, rail and scheduled transit context for city and villages",
+      "url": "https://downloads.rijkswaterstaatdata.nl/nwb-wegen/geogegevens/shapefile/NWB-light/01-08-2026.zip",
+      "accessedAt": "2026-09-03T06:28:00Z",
+      "edition": "NWB-Light 1 August 2026; ProRail, GTFS and NDW deployment snapshots retrieved 31 August–3 September 2026",
+      "supports": [
+        "Monthly CC0 NWB geometry generates eleven logical border edges: A32 south; N31 east and west; N393, N359, N398 and N384 west; N355 east; N357 north-east; and N354/N384 south-west. Repeated N31 and N384 edges share physicalCorridorIds and are series/boundary relations, not additive independent capacity.",
+        "Four ProRail stations fall inside GM0080: Mantgum, Grou-Jirnsum, Leeuwarden and Leeuwarden Camminghaburen. The static GTFS snapshot contains 255 stop areas across the city and dispersed villages. ProRail OGC and NWB are CC0; GTFS is free-use best-effort/no-SLA context. Geometry and schedules do not prove event operation, capacity, staffing or evacuation throughput.",
+        "Westward access can connect onward toward the Afsluitdijk and A32 is the principal modeled southward trunk, but the graph does not represent internal bridges, tunnels, rail junctions, bus continuity, waterway crossings, incident travel time or destination acceptance.",
+        "No qualifying NDW record is assigned to GM0080 in the bounded snapshot published 2 September 2026 15:25 UTC. NDW DATEX is CC0 unless stated otherwise; an empty intersection means no matching published message, never that every road, bridge or crossing is open."
+      ]
+    },
+    {
+      "publisher": "RIVM / DUO / RDI / Netbeheer Nederland / Liander / KVK-PDOK",
+      "title": "E08 — Acute care, education, telecom, grid-planning and government-register context",
+      "url": "https://datacatalogus.rivm.nl/dataset.xhtml?persistentId=doi%3A10.21945%2F8E767B2D-9CED-4A85-A95D-3AC1A608C663",
+      "accessedAt": "2026-09-03T06:29:00Z",
+      "edition": "RIVM acute-care v1.1 published 3 July 2026; other deployment snapshots retrieved 2 September 2026; Liander project update 11 June 2026",
+      "supports": [
+        "RIVM's national CC0 questionnaire assigns Frisius MC Leeuwarden to GM0080 and records 24/7 emergency and acute-obstetric services, 27 reported treatment rooms and 28,567 2025 emergency visits. These are dated questionnaire facts, not live occupancy, acceptance/diversion, staffing, medicines, oxygen, generator/fuel endurance or incident capacity.",
+        "Daily DUO RIO under Creative Commons Attribution (version unspecified) returns 113 registered education records: 52 primary, 18 secondary, seven special, three higher-education and 33 other. They are not verified shelters, reception points, staffed facilities or incident-time populations.",
+        "RDI's public WFS returns 267 antenna registrations: 107 mobile, 58 fixed-link, 86 radio-amateur, nine broadcast and seven other-mobile. No reuse licence or fixed refresh cadence is stated; points do not establish operator, radio coverage, backhaul, traffic, power/backup, damage, availability or restoration.",
+        "The one-point NBNL sample at postcode 9088AS maps to Liander area OS LEEUWARDEN 10-4i and reports planning quantities and queues, six projects and earliest project year 2027. It is an at-least-quarterly/monthly large-user planning sample, not current load, outage telemetry, topology, emergency reserve or T+72 restoration; an exact dataset licence identifier was not found: https://data.partnersinenergie.nl/capaciteitskaart/totaal/afname",
+        "Liander/TenneT's June 2026 page says construction preparation for a new Boksumerdyk station supports future capacity, with planned commissioning in 2029–2030: https://www.liander.nl/regio/friesland/leeuwarden/boksumerdyk. A capacity project is not evidence of a current outage or fragility.",
+        "The KVK-PDOK partial Public Domain Mark 1.0 government-services subset returns no assigned GM0080 point. That is a scoped registry no-match, not absence of municipal, provincial, judicial, emergency or public-service functions."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "Code, name, province, safety region, centre and 2025 headline statistics agree with official inputs.",
+      "evidenceRefs": ["E01", "E03"],
+      "notes": [
+        "Feature id and municipality bundle equal GM0080 / Leeuwarden, and the municipality belongs uniquely to Veiligheidsregio Fryslân.",
+        "The reference point is contained by the 2025 generalized polygon; the full CBS geometry is substantially more detailed and should drive fine intersections.",
+        "Annual boundaries/statistics, older policy/scenario editions, 2026 point observations and the synthetic exercise clock remain separate evidence classes."
+      ]
+    },
+    "geography": {
+      "status": "warn",
+      "summary": "The administrative geography is coherent, but city, villages, boezem, polders, peat, sewers and nature require mechanism-specific source geometry.",
+      "evidenceRefs": ["E01", "E02", "E03", "E04", "E05"],
+      "notes": [
+        "GM0080 combines the dense city with Stiens, Grou and many small villages across managed water and peat landscapes; municipal risk evidence explicitly names polders below NAP and canals/lakes.",
+        "A generalized polygon, municipality-centre distance or shared neighbourhood seed cannot establish Wadden/boezem connectivity, dike failure, pluvial ponding, groundwater/foundation susceptibility or nature-fire fuels.",
+        "Require full-resolution water/land and NoData masks, selected hydraulic scenario, AHN/BGT/soil/peat and hazard-appropriate spatial evidence before claiming local exposure."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Official 2025 totals agree and small-area publication rounding is explicitly reconciled.",
+      "evidenceRefs": ["E01", "E08"],
+      "notes": [
+        "Population 129,973, density 547/km², 19.8% aged 65+ and 33,042 one-person households agree with the generated municipality input.",
+        "Neighbourhood population totals 129,970 (-3) and household rows total 67,510 versus the official municipal 67,494 (+16); neither difference is missing population or an error to distribute as measured precision.",
+        "Resident totals do not identify incident-time students, patients, visitors, events, commuters, self-reliance, health vulnerability or required assistance."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "All 136 neighbourhood rows load, but many socioeconomic fields and all operational hazard/service states are incomplete.",
+      "evidenceRefs": ["E01", "E02", "E04", "E08"],
+      "notes": [
+        "Largest published neighbourhoods are Stiens 7,530, Bilgaard 6,355, Grou 5,560, Zuiderburen 5,430 and Camminghaburen-Noord 4,040.",
+        "District heating and charging are missing for 136/136 neighbourhoods; cars per household for 45; home value for 29; housing/tenure for 27; benefit fields for 24; doctor/supermarket/density for 15. Null or suppressed remains Unknown, never zero.",
+        "The municipal list of roughly 75 rain interventions and 50 warm areas is strong local planning evidence but needs a versioned machine layer, feature definitions, coverage and licence before it can drive exposure."
+      ]
+    },
+    "settlements": {
+      "status": "warn",
+      "summary": "Thirty-six BAG woonplaatsen and 66 BRT settlements are retained, but dispersed-core occupancy and access are not measured.",
+      "evidenceRefs": ["E01", "E02", "E07"],
+      "notes": [
+        "No BAG place centre/generalized-boundary mismatch was found; Leeuwarden, Stiens, Grou and 33 other woonplaatsen are legitimate municipal members.",
+        "BRT's 34 woonkernen, sixteen gehuchten, fifteen buurtschappen and one deelkern are cartographic settlement semantics, not independent population or service-availability records.",
+        "Village isolation, transient populations, waterway/bridge dependence and time-dependent reachability remain Unknown."
+      ]
+    },
+    "transport": {
+      "status": "warn",
+      "summary": "Road identities, four stations and 255 transit stops load, but eleven border edges omit internal and event-time multimodal access.",
+      "evidenceRefs": ["E03", "E07", "E08"],
+      "notes": [
+        "A32, N31, N393, N359, N355, N398, N357, N384 and N354 connect five municipalities; repeated N31/N384 border records share corridor identity and cannot be summed as independent throughput.",
+        "NWB is valid for mobility and eligible repair/logistics access only. It is not electricity, drinking-water, sewer, gas, telecom, hospital or inventory topology.",
+        "Static rail/GTFS context does not prove operation. Empty NDW is NoData for unreported routes, not all-open; Frisius acceptance and ambulance/rail/bus/bridge access remain Unknown."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "Authoritative risks, preparedness guidance and critical public context exist, but no incident-time action/resource ledger supports the first 72 hours.",
+      "evidenceRefs": ["E02", "E03", "E04", "E06", "E07", "E08"],
+      "notes": [
+        "Required decision classes include warning, dike/boezem/polder control, drainage and wastewater, welfare/evacuation, dense-centre access, nature fire/smoke, roads/rail/bus/waterway control, hospital continuity, temporary water, reception, food/fuel/medicine, utility repair and mutual aid.",
+        "No selected warning, water-control operation, road/bridge/rail state, hospital acceptance, reception opening, crew, stock, generator, fuel or confirmed action is ingested.",
+        "The local heat plan is explicitly not a crisis plan, and household 72-hour guidance is not a measurement of readiness or a recovery promise.",
+        "Zero KVK government points is a partial-registry no-match; it cannot erase Leeuwarden's municipal, provincial and public-service roles."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten presets return finite deterministic output at all six checkpoints and eight services; local-evidence failures are recorded separately.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E06", "E08"],
+      "notes": [
+        "The focused gate covered severe storm, pluvial flood, river flood, coastal flood, heatwave, winter storm, cyberattack, earthquake, wildfire and compound at T+0/6/12/24/48/72 across power, water, drainage, gas, telecom, mobility, facilities and supply.",
+        "At T+24 legacy flood amplitude / severity / affected people-equivalent / cumulative event-attributable service person-hours are storm 0.091998 / 0.050953 / 15,813 / 359,577; pluvial 0.337052 / 0.243426 / 13,605 / 464,347; river 0 / 0 / 0 / 0; coastal 1.595320 / 0.483653 / 73,356 / 1,435,701; compound 0.348287 / 0.843511 / 76,290 / 1,279,916.",
+        "Other T+24 severity / affected / person-hours are heat 0.117127 / 12,833 / 409,998; winter 0.590800 / 33,966 / 753,751; cyber 0.463420 / 38,618 / 706,405; earthquake 0 / 5,177 / 410,598; wildfire 0.112360 / 0 / 172,304.",
+        "At T+72 compound still reports legacy flood amplitude 0.348287, severity 0.339032, 82,239 affected and 4,862,775 cumulative person-hours. Coastal direct amplitude returns to zero but retains 17,926 affected and 4,588,156 cumulative person-hours. These are synthetic exercise indices, not observed people, casualties, customer outages or official forecasts."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Determinism, bounds, exact zero-event behavior, reconciliation and cumulative-burden contracts pass.",
+      "evidenceRefs": [],
+      "notes": [
+        "Initial MUNICIPALITY_AUDIT_CODE=GM0080 pnpm audit:model passed one file and two tests in 30.35 seconds, with 30.11 seconds test execution; the final current-code rerun also passed in 29.38 seconds, with 29.17 seconds test execution.",
+        "Intensity-zero event runs are exact zero, all results are finite/bounded, repeat runs and UI/core presets agree, and selected service leaves local physical hazard invariant.",
+        "Every local map reconciles all 129,973 residents and 136 neighbourhoods; demand, delivery and causal ledgers close, logical route ceilings hold, and event-attributable person-hours are monotonic against the matched baseline.",
+        "Arithmetic correctness does not establish local causal calibration or make a missing input safe."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "A common neighbourhood seed and unsupported coastal amplitude contradict Leeuwarden's distinct water, heat, peat and nature mechanisms.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E06"],
+      "notes": [
+        "At T+24 storm, pluvial, coastal, heat, winter, cyber, wildfire and compound begin with exactly Huizum-Bornia, Feinsum, Transvaalwijk, Camminghaburen-Midden, Leons, Buitengebied Jorwert and Grote Kerkbuurt. River and earthquake instead use the no-event/base order.",
+        "Sparse Feinsum, Leons and Buitengebied Jorwert leading both heat and cyber while the same sequence leads pluvial and coastal impact is not supported by the municipality's distinct rain, warm-area, urban and peat evidence.",
+        "Coastal T+24 legacy amplitude 1.595320 produces 73,356 affected without a selected Wadden boundary, dike failure, boezem/polder pathway or footprint. It must not be displayed as measured metres.",
+        "River's exact zero is appropriate only for the named Rhine/Meuse/IJssel direct pathway; it is not evidence that boezem, polder, lake, canal or pluvial flooding is zero.",
+        "Canonical wildfire lacks a local ignition/perimeter, fuel/moisture, valid-time wind, suppression-water or plume field; nature-fire inclusion in E03 does not validate the shared ranking."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "Eight exact service layers reuse road-derived transfers and are not calibrated to Leeuwarden's water, utility, telecom, transport, care or supply systems.",
+      "evidenceRefs": ["E04", "E07", "E08"],
+      "notes": [
+        "The same eleven NWB border edges support all eight service calculations despite repeated N31/N384 identities and no supportedServices declarations. Their nominal 150/260-unit ceilings are synthetic, not measured capacity.",
+        "HWH identifies 661 managed-water/wastewater assets, NBNL one Liander planning sample, RDI 267 registrations, RIVM Frisius MC and DUO 113 locations, but none supplies complete topology, flow, current state, backup, switching, inventory, staffing or restoration.",
+        "Surface-water level control, sewer conveyance/treatment, drinking-water quantity/pressure and drinking-water quality/advisory are separate causal chains and must not collapse into generic water/drainage scores.",
+        "Unavailable or security-sensitive lifeline detail must remain Unknown or use a documented aggregate synthetic graph with ranges; roads must never be presented as physical utilities."
+      ]
+    },
+    "causalTrace": {
+      "status": "fail",
+      "summary": "The arithmetic closes, but flood source, spatial allocation, cyber target, fire source and physical-network provenance do not.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "Service-stage deltas, local demand/delivery and matched-baseline person-hour arithmetic reconcile across the matrix.",
+        "Coastal and compound effects omit selected source water body, boundary condition, defence/breach/overtopping state, connected footprint, arrival, duration, recession/dewatering and expert approval. Legacy floodDepthM is normalized screening amplitude, not verified physical depth.",
+        "Cyber has no named target, architecture, attack path or detection/containment state; wildfire has no source/perimeter or plume model; earthquake has no selected KNMI event, site-response surface or asset fragility.",
+        "Current KNMI observation, empty current Waterinfo/NDW/air-quality records, official plans/scenarios, capacity projects and synthetic checkpoint outputs must remain different evidence classes."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "The 72-hour curves are numerically coherent but lack local water-control, operator, access, care, stock and action evidence.",
+      "evidenceRefs": ["E02", "E03", "E04", "E06", "E07", "E08"],
+      "notes": [
+        "Compound retains exactly 0.348287 legacy flood amplitude at T+24 and T+72 while affected people-equivalent grows from 76,290 to 82,239 and cumulative person-hours to 4,862,775. No selected hydrograph, pump/dike state or restoration action supports that trajectory.",
+        "Coastal direct amplitude becomes zero at T+72 but 17,926 affected remain; storm, pluvial, heat, winter, cyber and wildfire reach zero direct affected at T+72 while cumulative burden remains. Scoped current zero and residual consequences must both be shown.",
+        "No warning, dike/boezem/polder/pump/RWZI decision, route or crossing reopening, utility switching/repair, Frisius acceptance, reception, temporary water, household stock, fuel, food or medicine delivery is ingested.",
+        "The municipality's first-72-hour preparedness advice is a planning horizon, not evidence that services recover, residents have supplies or authorities have completed actions by T+72."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": ["power", "water", "drainage", "gas", "telecom", "mobility", "facilities", "supply"]
+  },
+  "findings": [
+    {
+      "id": "GM0080-F01",
+      "severity": "critical",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The coastal preset exposes a precise catastrophic local result without a selected Wadden–defence–boezem–polder event.",
+      "evidence": "At T+24 it reports legacy flood amplitude 1.595320, severity 0.483653, 73,356 affected people-equivalent and 1,435,701 cumulative person-hours. E03–E05 distinguish fixed-mainland dike failure, boezem high water, polder failure and LIWO sea/IJsselmeer scenarios, but the run records no source water body, water level, dike ring/section or failure, connected footprint, arrival/recession, true depth unit or expert selection.",
+      "action": "Suppress direct local coastal severity, affected population and service consequences until a versioned authority-selected scenario intersects full-resolution GM0080 geometry. Retain diagnostic amplitude only behind unsupported evidence state; preserve indirect regional supply effects separately and show unmodelled pathways as Unknown, not zero."
+    },
+    {
+      "id": "GM0080-F02",
+      "severity": "high",
+      "category": "geography",
+      "status": "open",
+      "summary": "Eight unrelated hazards reuse one Leeuwarden neighbourhood order.",
+      "evidence": "Storm, pluvial, coastal, heat, winter, cyber, wildfire and compound start at T+24 with Huizum-Bornia, Feinsum, Transvaalwijk, Camminghaburen-Midden, Leons, Buitengebied Jorwert and Grote Kerkbuurt. E02 separately identifies urban rain and warm-area programmes, Stiens/Grou/local drainage work and peat-groundwater issues; E03–E05 add nature and source-specific managed-water mechanisms. One common ranking cannot represent them.",
+      "action": "Retire the shared multiplier. Use hazard-specific, versioned eligibility/susceptibility surfaces with explicit coverage and NoData; otherwise render unresolved local distribution uniformly or Unknown. Add tests that pluvial, heat, large-water, wildfire/smoke and cyber target maps differ when their causal evidence differs."
+    },
+    {
+      "id": "GM0080-F03",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Pluvial depth and impact precision lack rainfall, terrain, sewer and groundwater calibration.",
+      "evidence": "Pluvial T+24 reports legacy amplitude 0.337052, 13,605 affected and 464,347 cumulative person-hours. The municipality identifies roughly 75 interventions and named programme areas, while HWH lists only partial control assets and no connected sewer catchment or comparable capacity. No hyetograph, AHN/BGT surface, sewer-included flag, saturation/groundwater state, model edition, resolution or NoData mask supports the exact output.",
+      "action": "Integrate a governed municipal/Wetterskip climate-stress or hydraulic result with rainfall event, terrain, imperviousness, sewer assumptions, groundwater/saturation, edition, resolution, licence, coverage and NoData. Until then label amplitude, ranking and affected count synthetic/unsupported rather than local prediction."
+    },
+    {
+      "id": "GM0080-F04",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Scoped zero major-river impact can conceal unmodelled Frisian regional-water pathways.",
+      "evidence": "The Rhine/Meuse/IJssel preset returns exact zero amplitude, severity, affected people and event-attributable person-hours at T+24/T+72. That scoped result is preferable to fabricated river flooding. E03/E04 nevertheless establish credible boezem, polder, canal/lake and dike pathways whose event state is absent, so the display must not generalize river zero into flood safety.",
+      "action": "Retain the exact direct zero for the specifically named national-river preset. Split Wadden storm surge, primary-defence failure, Friese-boezem high water, polder failure, lake/canal and pluvial source classes; mark each unselected or uncovered pathway Unknown and numerically neutral, never safe."
+    },
+    {
+      "id": "GM0080-F05",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Groundwater/subsidence and earthquake are conflated or left causally unsupported.",
+      "evidence": "Earthquake T+24 has current severity zero but still reports 5,177 affected people-equivalent and 410,598 cumulative service person-hours. No selected KNMI event, ground-motion field, local site response or fragility is cited. E02/E04 instead document peat, falling groundwater, oxidation, subsidence and foundation damage, which are distinct slow mechanisms and do not validate seismic impact.",
+      "action": "Keep earthquake only as a visibly synthetic exercise unless a selected KNMI event/ShakeMap, site-response and fragility set are present. Create separate groundwater/subsidence/foundation context and scenario semantics; preserve zero current forcing, residual modeled consequence and Unknown physical evidence as separate states."
+    },
+    {
+      "id": "GM0080-F06",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Nature fire and smoke have no Leeuwarden source, fuel or plume evidence.",
+      "evidence": "Canonical wildfire T+24 reports severity 0.112360, zero affected people and 172,304 cumulative person-hours while sharing the generic top-seven spatial order. E03 says nature fire can occur, but no ignition/perimeter, BRT/terrain-manager fuel extent, moisture, valid-time wind, spread, smoke concentration, visitor occupancy, access or suppression-water condition drives the run.",
+      "action": "Require an explicit official or exercise ignition/perimeter, versioned fuel eligibility, valid-time weather/moisture, spread/plume method, exposure unit, access and suppression-water assumptions. Static risk inclusion or daily regional phase is context, not ignition probability or a future plume forecast."
+    },
+    {
+      "id": "GM0080-F07",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Road-derived lifeline percentages overstate physical utility, water and supply knowledge.",
+      "evidence": "Eleven NWB border edges are reused for power, water, drainage, gas, telecom, mobility, facilities and supply. Public context provides 661 water assets, one Liander planning sample and 267 antenna registrations but no complete connectivity, compatible capacity, present state, backup, switching, pressure/quality, backhaul, inventory, crew or restoration. Repeated N31/N384 edges are also non-additive.",
+      "action": "Restrict NWB to mobility and eligible logistics/repair access. Use privacy/security-safe aggregate service zones with ranges or authorized operator aggregates; every layer must retain publisher, version, valid/retrieval time, licence, completeness and affectsSimulation. Unavailable topology/state remains Unknown or a transparently synthetic fallback."
+    },
+    {
+      "id": "GM0080-F08",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "The first-72-hour mobility/care model omits internal crossings, village access and Frisius MC operating state.",
+      "evidence": "GM0080 contains the city and 35 other BAG woonplaatsen, four stations, 255 stop areas and canals/lakes, but the model uses eleven border edges. Frisius MC is the only assigned 24/7 acute-care point. Static RIVM, NWB, ProRail and GTFS records do not establish ambulance travel, bridges, rail/bus operation, hospital acceptance, staff, backup utilities or capacity; empty NDW does not prove routes open.",
+      "action": "Build an internal multimodal reachability graph from NWB/BGT, ProRail, GTFS and authoritative waterway/crossing geometry, with ownership and static-versus-observed state. Add authorized aggregate Frisius acceptance/diversion, critical utilities/supplies and transfer state. Absent operation and acceptance remain Unknown."
+    },
+    {
+      "id": "GM0080-F09",
+      "severity": "high",
+      "category": "limitation",
+      "status": "open",
+      "summary": "No auditable action/resource ledger supports Leeuwarden's first 72 hours.",
+      "evidence": "Official sources identify regional warnings, water-control pathways, dense-centre access, heat coordination, preparedness advice, transport and acute care, but the simulator ingests no trigger, authority, assignment, resources, status, valid time or completion. Household guidance and a local heat plan cannot validate automatic interventions, support-point opening, aid arrival or restoration.",
+      "action": "Add proposed/requested/confirmed/completed/cancelled records for warning, dike/boezem/polder/drainage action, evacuation/welfare, nature fire/smoke, road/rail/bus/waterway control, Frisius continuity, reception, temporary water, food/fuel/medicine, utility repairs and mutual aid. Only confirmed time/geography-scoped actions may alter recovery."
+    },
+    {
+      "id": "GM0080-F10",
+      "severity": "medium",
+      "category": "ui",
+      "status": "open",
+      "summary": "Empty, null and scoped-zero inputs require explicit Unknown/NoData semantics.",
+      "evidence": "There is no assigned Waterinfo observation/forecast, NDW situation, PM2.5 station or KVK government point; district heat/charging are null for every neighbourhood and many CBS fields are partially missing. These mean no match, coverage gap or unavailable value, not zero hazard, normal service, open road, clean air or no government function. In contrast, KNMI reports observed zero rain at one time/station and the river preset has a scoped modeled zero.",
+      "action": "Across maps, legends, tooltips, APIs and exports distinguish measured/modeled zero, Unknown/NoData and not applicable. Show source, edition, issue/valid/retrieval time, unit, licence, coverage, confidence and affectsSimulation; add regressions preventing empty intersections and null values from rendering safe/normal/absent."
+    },
+    {
+      "id": "GM0080-F11",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The focused deterministic and numerical invariants pass for GM0080.",
+      "evidence": "MUNICIPALITY_AUDIT_CODE=GM0080 pnpm audit:model passes two tests over ten presets, six checkpoints and eight services. Outputs are finite/bounded, intensity-zero behavior is exact, 129,973 residents and 136 neighbourhoods reconcile, demand/delivery and causal ledgers close, local hazard is service-layer invariant, logical route ceilings hold and cumulative attributable person-hours are monotonic.",
+      "action": "Retain the focused gate in CI and add GM0080 regressions for scoped national-river zero, unsupported coastal suppression, distinct hazard rankings, managed-water source classes, non-additive corridors, Unknown/NoData rendering and action-confirmed recovery."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Suppress unsupported GM0080 coastal inundation precision and split Frisian large-water source classes while retaining scoped national-river zero.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/audited-municipality-guards.generated.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/MapView.tsx"
+      ],
+      "validation": "The canonical Rhine/Meuse/IJssel preset remains exact-zero direct impact for GM0080, explicitly scoped to that pathway. Coastal direct impact is unsupported/Unknown and numerically neutral until a versioned expert-selected Wadden/defence/LIWO event provides source, boundary condition, dike state, footprint, units, arrival/recession, probability/context, licence and NoData. Separate boezem, polder, canal/lake and pluvial pathways remain Unknown rather than safe."
+    },
+    {
+      "summary": "Replace the common GM0080 neighbourhood seed with hazard-specific water, heat, peat/groundwater, wildfire/smoke and cyber evidence.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/public/data/hazards/GM0080-spatial-context.json"
+      ],
+      "validation": "Before correction eight nonzero presets start with the same seven neighbourhoods. After correction distinct mechanisms must use distinct versioned surfaces/targets, explicit coverage and NoData, retain the municipal rain/warm-area plans only at their evidence class, and preserve exact hazard invariance across all eight selected service layers."
+    },
+    {
+      "summary": "Separate surface-water control, wastewater, drinking water, energy, telecom, facilities and supply from the eleven-road transfer graph.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/data.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "NWB routes apply only to mobility and eligible logistics/repair access, with N31/N384 sections non-additive. HWH, NBNL, RDI, RIVM and DUO remain context-only unless a governed adapter supplies compatible topology/state. Each service exposes topologySemantics, evidence class, source/version/time/licence/completeness and affectsSimulation; unavailable or sensitive facts remain Unknown or clearly aggregate synthetic."
+    },
+    {
+      "summary": "Add internal multimodal reachability, Frisius MC continuity and an Unknown-first 0–72-hour action/resource ledger.",
+      "files": [
+        "apps/web/public/data/transport-network.json",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/public/data/public-context/GM0080-response-context.json"
+      ],
+      "validation": "At every checkpoint expose internal road/bridge/rail/bus/waterway reachability, Frisius acceptance and critical dependencies, and proposed/requested/confirmed/completed/cancelled actions with authority, trigger, resource, source, issue/valid/expiry time, geography and confidence. Only confirmed actions affect recovery; absent route, facility, reception, stock or crew state remains Unknown."
+    },
+    {
+      "summary": "Make public evidence class, valid time, licence, coverage, zero and NoData explicit across all maps and exports.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "apps/web/src/data.ts",
+        "apps/web/src/components/MapView.tsx",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/AnalyticsDrawer.tsx"
+      ],
+      "validation": "Canonical exercises remain synthetic. Optional observed/replay/forecast modes retain dataset/version, issue/valid/retrieval time, lead, unit, method, processing status, uncertainty and licence. Empty Waterinfo, NDW, PM2.5, KVK and null CBS fields render Unknown/NoData; actual station zero and scoped model zero remain visibly distinct; no stale context silently changes a scenario."
+    }
+  ],
+  "residualLimitations": [
+    "This is a deterministic planning stress test, not a KNMI, Rijkswaterstaat, WMCN, Wetterskip, VRF or operator forecast, warning, probability estimate, evacuation order, casualty model or restoration promise.",
+    "No expert-selected Wadden/LIWO/boezem/polder event, boundary water level, primary-defence or breach/overtopping state, connected footprint, arrival/recession, verified depth unit or NoData mask is ingested for GM0080.",
+    "Generalized CBS and common neighbourhood geometry cannot resolve land/water, dikes, peilgebieden, sewers, drains, terrain, buildings, peat, groundwater, foundations, woodland/nature fuels, bridges, facilities or households.",
+    "CBS rows are rounded or suppressed; -3 neighbourhood population and +16 neighbourhood-household reconciliation differences are publication semantics, and null socioeconomic fields remain Unknown.",
+    "The Friese Klimaatatlas 2022 item has no stated licence/cadence and LIWO 2025.1.6 requires expert selection and interpretation; neither is a live event.",
+    "HWH points are contributor-dependent registry context and do not define catchments, compatible capacities, flow direction, present operation, power/backup, water quality or restoration.",
+    "No Waterinfo, NDW or PM2.5 point is assigned locally in the bounded snapshots; absence is coverage/NoData, not safe water, open transport or clean air.",
+    "The Leeuwarden Airport observation is one valid-time point and cannot be projected municipality-wide or through 72 hours without an explicit forecast product.",
+    "No complete safe-to-publish Liander, drinking-water, gas, telecom, sewer or surface-water physical topology, live state, switching, backup, crews or restoration estimate is available in the model.",
+    "RDI registrations do not establish operator, coverage, backhaul, capacity, traffic, power/backup, damage, availability or restoration; its WFS states no fixed cadence or reuse licence.",
+    "NWB, ProRail and GTFS are static geometry/schedule context and do not establish incident-time roads, bridges, rail, bus, waterway navigation, throughput, evacuation, clearance or repair access.",
+    "RIVM acute-care data are annual questionnaire context; Frisius MC's 24/7 role, rooms and visits do not establish live acceptance, staffing, beds, medicines, oxygen, power/fuel or ambulance access.",
+    "DUO and KVK points do not establish command, reception, shelter, distribution, occupancy, staffing or capacity; a zero KVK subset match does not mean no government functions.",
+    "Nature fire lacks local ignition/perimeter, verified fuel extent, moisture, valid-time wind, spread/plume, visitors, access and suppression water; regional risk inclusion is not an event forecast.",
+    "Cyber lacks a named target, architecture, attack path and containment state; earthquake lacks a selected KNMI event, ground-motion/site-response field and asset fragility.",
+    "Groundwater fall, peat oxidation, subsidence and foundation damage are slow mechanisms and cannot be inferred from a seismic scenario or a single water observation.",
+    "Household 72-hour advice and the local heat plan do not measure preparedness, support-point opening, action completion, aid arrival or utility recovery.",
+    "Affected population is a people-equivalent exercise index and event-attributable person-hours is a matched-baseline weighted service proxy, not casualties, patients, evacuations or customer outage-hours; six-hour checkpoints can miss rapid changes and 72 hours excludes prolonged recovery."
+  ],
+  "provinceReviewFlags": [
+    "Fryslân/WMCN/Wetterskip/VRF: select and version Wadden Sea, primary-defence, Friese-boezem, lake/canal, polder and pluvial event semantics; retain scoped Rhine/Meuse/IJssel zero and suppress precise coastal impact until a connected footprint is approved.",
+    "Fryslân/Gemeente/Wetterskip: publish or govern machine-readable rain/warm-area/peat/groundwater context with edition, feature meaning, resolution, coverage, licence and NoData; remove the shared eight-hazard neighbourhood order.",
+    "Fryslân/VRF/Brandweer/terrain managers: validate nature-fire eligibility, exercise source/perimeter, moisture, wind/plume, access, suppression water and evacuation/smoke decisions without exposing sensitive operational detail.",
+    "Fryslân/RWS/Province/municipality/ProRail/OV/care partners: validate A32/N31/Afsluitdijk-facing access, internal crossings, four stations, buses/waterways, village isolation and time-dependent Frisius MC reachability/acceptance; do not sum repeated N31/N384 boundary edges.",
+    "Fryslân/operators/municipality/VRF: create an Unknown-first 72-hour ledger for water control, warnings, welfare/evacuation, dense-centre access, hospital continuity, reception/resupply and utility repairs; only confirmed time-scoped actions alter recovery.",
+    "National data owners: preserve publisher/version/issue-valid-retrieval time/licence/coverage/evidence class on LIWO, HWH, KNMI, Waterinfo, NDW, NBNL, RDI, RIVM, DUO, KVK, NWB, ProRail and GTFS; empty or security-sensitive fields remain Unknown rather than zero/safe."
+  ]
+}

@@ -1,0 +1,291 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "ui-optimization-audit",
+  "track": "runtime-map-performance",
+  "agent": {
+    "taskName": "ui_runtime_map_performance",
+    "agentId": "/root/causal_engine_v3",
+    "completedAt": "2026-09-02T10:45:00Z"
+  },
+  "executiveSummary": "The current production UI renders all controls and a canvas quickly on an Apple M4 loopback baseline, but it is not yet operationally responsive across the 72-hour horizon. A cold visit transfers 20.85 MB of local response bodies, half of which is transit geometry requested before it can be shown. More importantly, every scrub computes a very large full-national frame synchronously from T+0, and every layer or frame change resubmits all 17 GeoJSON sources to MapLibre. At T+72 the isolated core call took a 499.7 ms median and its result had a 135.27 MB JSON-equivalent serialization; requested 12x playback from T+48 advanced only 8-9 frames in five seconds. No shared source was changed. The staged order is: first stop eager GTFS loading and unchanged MapLibre source submissions; next add a compact, persistent-worker simulation session with rolling history checkpoints and on-demand explanations; then stream/cache analytics projections and move large static geometry to compressed, cacheable vector delivery.",
+  "methods": [
+    "Inspected the running application and the exact paths that control loading, simulation and map updates: apps/web/src/App.tsx:91-180 and 193-204; apps/web/src/data.ts:122-169; apps/web/src/components/MapView.tsx:1324-1557; apps/web/src/useSimulationHistory.ts:36-94; apps/web/src/workers/simulation-history.worker.ts:34-80; packages/sim-core/src/model.ts:2142-2216 and 2427-2675; packages/sim-core/src/history.ts:126-171; and MapLibre 6.6.0 geojson_source.ts:273-276 and 425-490.",
+    "Built the current source into an isolated temporary production directory with `audit_now=$(mktemp -d /tmp/disaster-runtime-final.XXXXXX); pnpm --filter @disaster/web exec vite build --outDir \"$audit_now\" --emptyOutDir`. This avoided changing the shared application source or its checked-in public data. The resulting main and simulation-worker SHA-256 hashes matched the concurrently generated production dist: a4a1d6d7bf5bf41d6241f94a1e8ae7afb348e05ca206c56fc6acaa7c39a825ee and 39afa6758805cc04ee5b5f83609cd6e2de4c8fc14810b177a9843de3228757ca.",
+    "Ran five cache-disabled cold visits against the current Vite production preview at http://127.0.0.1:4186/ in a fresh Chromium process per run. The script recorded DOMContentLoaded, first contentful paint, first visible layer navigation and canvas, network idle, Resource Timing encoded/decoded bytes, Long Tasks, CDP Task/Script duration, heap, response failures and page errors. Exact recipe: launch `chromium.launch({headless:true})`; create a 1440x1000 DPR1 context; enable CDP Network and Performance; call `Network.setCacheDisabled({cacheDisabled:true})`; install a buffered `PerformanceObserver` for `longtask`; navigate with `waitUntil:'domcontentloaded'`; wait for the `Simulation map layers` navigation, `.maplibregl-canvas`, and `networkidle`; wait 1500 ms; collect navigation/resource entries and `Performance.getMetrics`; close the browser; repeat five times.",
+    "Captured an exact cold-request table with `node --input-type=module -e 'import {chromium} from \"@playwright/test\"; const b=await chromium.launch({headless:true}),p=await b.newPage({viewport:{width:1440,height:1000}}); await p.goto(\"http://127.0.0.1:4186/\"); await p.getByRole(\"navigation\",{name:\"Simulation map layers\"}).waitFor(); await p.waitForTimeout(2500); console.log(await p.evaluate(()=>{const n=performance.getEntriesByType(\"navigation\")[0],a=performance.getEntriesByType(\"resource\").filter(x=>x.name.startsWith(location.origin)).map(x=>({path:new URL(x.name).pathname,encoded:x.encodedBodySize,decoded:x.decodedBodySize,transfer:x.transferSize})); a.push({path:\"/\",encoded:n.encodedBodySize,decoded:n.decodedBodySize,transfer:n.transferSize}); return a.sort((x,y)=>y.encoded-x.encoded)})); await b.close()'`.",
+    "Ran one explicitly synthetic constrained-network visit using CDP `Network.emulateNetworkConditions` with cache disabled, 10 Mi-bit/s download, 1 Mi-bit/s upload and 40 ms added latency. This is a controlled sensitivity measurement, not an estimate of any user's connection or a named mobile-network profile.",
+    "Benchmarked the simulation without MapLibre by opening a same-origin data document on the Vite development server, dynamically importing the current sim-core source through `/@fs/Users/rikstokmans/Documents/Projects/Fontys/DisasterSimulator/packages/sim-core/src/index.ts`, fetching the exact municipality and network JSON consumed by the app, warming once, and timing three `simulateFrame` calls at steps 0, 24, 48, 96, 192 and 288 for 342 municipalities and 1,018 routes. The same frame was passed to `structuredClone` and `JSON.stringify`; component projections were serialized separately to attribute size. This diagnostic did not start the map.",
+    "Instrumented the running development map after load through its development-only `window.__resilienceMap` handle. Each of the 17 GeoJSON source instances had `setData` wrapped to record source id, feature count and reference identity before forwarding to the original method. A layer change and timeline change were then exercised. The wrapper changes observation overhead, so only call counts and identity results are treated as facts; interaction timing came from an uninstrumented production preview.",
+    "Measured uninstrumented layer and timeline responsiveness in three otherwise idle production-preview runs. After a five-second settle, Playwright clicked Overview to Hazard, then filled the timeline from step 0 to 96 after a further 4.5-second drain. Each action window included 2.5 seconds after the visible label update and recorded action-to-visible wall time, Long Tasks and requestAnimationFrame gaps.",
+    "Exercised actual playback with the supported reduced-motion setting to remove decorative animation as a confounder: production preview, requested 12x rate, start at step 192, five-second observation. Separately wrapped `setGlobalStateProperty` on the running development map for two-second normal-motion and reduced-motion windows to count idle animation updates.",
+    "Measured the real simulation-history worker without a competing map by constructing `/src/workers/simulation-history.worker.ts` from a same-origin blank data page, posting the current 342 municipality definitions, 1,018 routes and GM0772 severe-storm request, awaiting its own `durationMs`, and terminating it. Five baseline-only jobs and three season-comparison jobs were run with a fresh worker each time."
+  ],
+  "measurements": [
+    {
+      "metric": "Current build fingerprint",
+      "unit": "SHA-256",
+      "environment": "Production build generated 2026-09-02 12:34:48 Europe/Amsterdam from the shared workspace; no Git metadata is present in this workspace",
+      "before": "main index-rIfGE1Lb.js=a4a1d6d7bf5bf41d6241f94a1e8ae7afb348e05ca206c56fc6acaa7c39a825ee; simulation-history.worker-Du8nvqWM.js=39afa6758805cc04ee5b5f83609cd6e2de4c8fc14810b177a9843de3228757ca; App.tsx=f406fe25cd02e2072dbbba40f929bb69e6e9c9f11d1047365b6f7f477c72f93e; MapView.tsx=7ece30f4acb990be287ae548b65b2c6a23b284c1f21b585163fb847985597d19; model.ts=78031da0c1f58befa4c7341532540d518ce05d41dc9e913ac6c067f5fe60c7bc",
+      "after": null,
+      "interpretation": "All runtime numbers in this review are anchored to these files because the workspace is not a Git repository and shared integration continued during the wider audit programme."
+    },
+    {
+      "metric": "Production JavaScript and CSS asset table",
+      "unit": "raw / gzip-9 / Brotli-11 bytes",
+      "environment": "Current isolated Vite 8.2.2 production build; compression sizes generated locally from exact files",
+      "before": "main JS 1,298,758 / 347,048 / 288,398; main CSS 111,446 / 16,529 / 14,037; MapLibre worker 477,721 / 131,276 / 108,627; analytics JS 42,783 / 13,036 / 11,425; analytics CSS 16,625 / 4,285 / 3,742; simulation-history worker 54,043 / 15,787 / 13,850; index.html 591 / 373 / 231",
+      "after": null,
+      "interpretation": "The main bundle triggers Vite's greater-than-500-kB minified chunk warning, although its compressed size is much smaller. Analytics is already lazy; the primary runtime pressure is data and generated simulation state, not the 42.8 kB analytics chunk."
+    },
+    {
+      "metric": "Production directory footprint",
+      "unit": "bytes and files",
+      "environment": "Current isolated production output from Vite 8.2.2",
+      "before": "205,845,360 bytes across 705 files; data subtree 203,843,393 bytes across 698 files",
+      "after": null,
+      "interpretation": "Deployment size is not startup transfer: municipality region and settlement files are loaded on demand. It still raises release-upload, cache invalidation and storage costs, and includes an 11,275,939-byte transit-stops GeoJSON not referenced by the runtime UI."
+    },
+    {
+      "metric": "Cold local response-body table",
+      "unit": "encoded / decoded bytes",
+      "environment": "Chromium 151.0.7922.34, production Vite preview, cache disabled, loopback, 1440x1000 DPR1",
+      "before": "transit bus 9,251,740 / 9,251,740; roads 3,922,491 / 3,922,491; rail 1,770,020 / 1,770,020; municipalities 1,723,585 / 1,723,585; transport-network.json 1,612,798 / 4,191,071; safety regions 654,609 / 654,609; transit urban rail 594,841 / 594,841; transit rail services 485,391 / 485,391; main JS 348,059 / 1,298,758; GM0772 settlements 134,796 / 134,796; MapLibre worker 131,510 / 477,721; stations 96,635 / 96,635; GM0772 region JSON 85,080 / 312,043; ferries 20,448 / 20,448; main CSS 16,704 / 111,446; HTML 591 / 591",
+      "after": null,
+      "interpretation": "All `.geojson` bodies were delivered without content encoding by the local preview, while JavaScript, CSS and JSON were gzip encoded. The exact table sums to 20,849,298 encoded local bytes and 25,046,186 decoded bytes."
+    },
+    {
+      "metric": "Cold startup local body transfer",
+      "unit": "encoded bytes",
+      "environment": "Five fresh cache-disabled Chromium production-preview runs on Apple M4 10-core, 16 GB, macOS 26.5, Node 26.0.0; loopback; headless SwiftShader; no concurrent browser benchmark",
+      "before": 20849298,
+      "after": null,
+      "interpretation": "The byte count was identical in all five runs. It excludes cross-origin PDOK raster and OpenFreeMap glyph body sizes because browser Resource Timing does not expose those bodies without Timing-Allow-Origin. There were 26 such external requests in each observed startup."
+    },
+    {
+      "metric": "Cold startup timing medians and ranges",
+      "unit": "milliseconds",
+      "environment": "Same five cache-disabled current-production runs; headless Chromium uses software SwiftShader and is not a field-device benchmark",
+      "before": "first contentful paint 108 median (76-136), controls visible 392.929 median (299.429-957.530), canvas visible 409.344 median (403.030-1,050.521), network idle 1,134.932 median (1,087.925-1,781.240), measurement settle point 2,637.557 median (2,589.858-3,284.522)",
+      "after": null,
+      "interpretation": "First contentful paint is the loading shell, not an operational map. The fast loopback transfer hides the cost that appears on a constrained network; variance is also material under the software renderer. No page error or failed response was recorded."
+    },
+    {
+      "metric": "Cold-start Long Tasks and renderer heap at settle",
+      "unit": "milliseconds / bytes",
+      "environment": "Same five cold production-preview runs, observed from navigation through 1.5 seconds after network idle",
+      "before": "11 Long Tasks median; 1,918 ms median cumulative Long Task duration; 866 ms median longest task; 151,060,800-byte median CDP JSHeapUsedSize",
+      "after": null,
+      "interpretation": "Large parse/index/update work continues after the controls and canvas first appear. CDP heap is a point-in-time engine metric, not a complete process-memory measurement."
+    },
+    {
+      "metric": "Synthetic constrained-network startup",
+      "unit": "milliseconds",
+      "environment": "One cache-disabled Chromium production-preview run; CDP emulation set to 10 Mi-bit/s down, 1 Mi-bit/s up and 40 ms added latency; loopback origin; explicitly synthetic",
+      "before": "DOMContentLoaded 406.001; controls 12,235.654; canvas 12,237.825; network idle 16,783.851; 20,849,298 encoded local bytes",
+      "after": null,
+      "interpretation": "The unconditional transit request competes with the critical municipality/transport inputs. This is a measured lab sensitivity, not a claim about a real 4G service, geography or device."
+    },
+    {
+      "metric": "Eager transit route payload table",
+      "unit": "features; raw / gzip-9 / Brotli-11 bytes",
+      "environment": "Exact current files loaded by loadTransitRouteData on mount",
+      "before": "bus 7,982; 9,251,740 / 2,259,507 / 744,713. Urban rail 559; 594,841 / 94,452 / 33,531. Rail services 237; 485,391 / 98,934 / 38,424. Ferries 27; 20,448 / 4,028 / 3,117. Total 8,805 features; 10,352,420 / 2,456,921 / 819,785 bytes",
+      "after": null,
+      "interpretation": "Transit routes are 49.65% of the measured 20.85 MB cold local body transfer. The bus layer has minzoom 8.7, but its whole-country geometry is fetched while the map starts at zoom 6.25 and the Overview layer is active."
+    },
+    {
+      "metric": "Full-national simulateFrame latency by timeline step",
+      "unit": "milliseconds",
+      "environment": "Chromium 151 same-origin isolated source benchmark without map; 342 municipalities, 1,018 routes, severe storm baseline; three warm calls per point",
+      "before": "step 0: 34.0,45.1,34.2 (median 34.2); step 24/T+6h: 82.1,70.2,69.4 (70.2); step 48/T+12h: 114.7,109.8,109.2 (109.8); step 96/T+24h: 218.4,188.6,186.9 (188.6); step 192/T+48h: 346.0,342.1,344.9 (344.9); step 288/T+72h: 519.1,499.7,496.6 (499.7)",
+      "after": null,
+      "interpretation": "Latency grows with elapsed time because the single-frame API advances cumulative history from quarter-hour 1 through the requested step for every municipality. The UI invokes this API synchronously in a React memo on every step/scenario/intervention change."
+    },
+    {
+      "metric": "T+72 SimulationFrame serialized-size attribution",
+      "unit": "UTF-8 JSON bytes",
+      "environment": "Same isolated current-source benchmark at step 288; serialization is a protocol/object-shape proxy, not an in-memory heap-size claim",
+      "before": "full frame 135,274,118; municipalities full 59,173,872 versus compact map-state projection 770,835; routesByService 67,643,312; selected `routes` serialization 8,456,196; selected municipality full 173,199 versus compact 2,260; national/scenario/time 691; 8,144 route snapshots",
+      "after": null,
+      "interpretation": "The top-level `routes` array aliases one entry in routesByService in memory but JSON serializes it again. The measurement still demonstrates why posting the current full object through a Worker or caching 289 full frames is unsafe. Explanations should be requested only for the selected place/service, and immutable route geometry should not be repeated across eight service snapshots."
+    },
+    {
+      "metric": "T+72 full-frame clone and stringify diagnostics",
+      "unit": "milliseconds",
+      "environment": "Same isolated current-source Chromium run; one observation after the T+72 frame calculation",
+      "before": "structuredClone 146.3; JSON.stringify 264.8",
+      "after": null,
+      "interpretation": "A worker boundary alone is not a fix if it clones the current full SimulationFrame back to the UI. A compact message protocol is required."
+    },
+    {
+      "metric": "Map GeoJSON source update fan-out",
+      "unit": "setData calls per state change",
+      "environment": "Running Vite development app after initial load; wrappers forwarded every call to the real MapLibre 6.6.0 source",
+      "before": "17 calls for one Overview-to-Hazard layer change and 17 calls for one subsequent timeline update; 12,179 submitted features per full fan-out; 11 of 17 subsequent timeline arguments were the exact same object reference as the preceding call",
+      "after": null,
+      "interpretation": "The effect at MapView.tsx:1468-1488 updates every source whenever the combined `data` object changes. Unchanged roads, rail, stations, four transit collections and several city collections are resubmitted. MapLibre's setData implementation sets a pending data update and dispatches it to its worker without a reference-equality short circuit."
+    },
+    {
+      "metric": "Production layer-switch responsiveness",
+      "unit": "milliseconds",
+      "environment": "Three uninstrumented current-production runs, default motion, headless SwiftShader, idle five seconds before action; 2.5-second observation after label update",
+      "before": "action-to-visible median 927.304 (range 915.504-1,044.985); median 6 Long Tasks totaling 738; median longest Long Task 223; median maximum animation-frame gap 233.3",
+      "after": null,
+      "interpretation": "A layer switch does not recompute the canonical simulation frame, yet remains slow because it rebuilds map projections and causes the 17-source update fan-out. Absolute latency is renderer-specific; the fan-out and relative work are deterministic."
+    },
+    {
+      "metric": "Production timeline-jump responsiveness",
+      "unit": "milliseconds",
+      "environment": "Three uninstrumented current-production runs, default motion, headless SwiftShader; timeline step 0 to 96/T+24h; 2.5-second observation after label update",
+      "before": "action-to-visible median 634.707 (range 632.521-643.020); median 27 Long Tasks totaling 1,692; median longest Long Task 360; median maximum animation-frame gap 400.0",
+      "after": null,
+      "interpretation": "The user-visible label eventually changes, but synchronous model work and subsequent GeoJSON re-indexing block smooth interaction well beyond the 50 ms Long Task threshold."
+    },
+    {
+      "metric": "Requested 12x playback throughput from T+48",
+      "unit": "simulation frames advanced in five seconds",
+      "environment": "Current production preview with prefers-reduced-motion enabled; start step 192; configured timer floor 65 ms; one measured run",
+      "before": "8-9 observed frames advanced versus 76 timer opportunities; observation wall time 5,141.097 ms; playback remained active",
+      "after": null,
+      "interpretation": "The range reflects a read racing the next committed label by one step. Even with decorative motion disabled, late-horizon synchronous recomputation prevents the configured playback rate. The playback clock should advance by elapsed wall time and coalesce skipped renders instead of requiring every intermediate state to complete."
+    },
+    {
+      "metric": "Simulation-history worker baseline",
+      "unit": "milliseconds per 25-point full-network history",
+      "environment": "Actual current development worker, isolated from the map; fresh worker each run; GM0772, severe storm, 342 municipalities, 1,018 routes, intervalSteps 12",
+      "before": "worker duration 1,591.7, 1,453.1, 1,501.1, 1,562.5, 1,458.2 (median 1,501.1); request-to-response wall 1,608.2, 1,469.1, 1,517.1, 1,578.7, 1,474.2 (median 1,517.1); 25 points each",
+      "after": null,
+      "interpretation": "Moving history off the UI thread is correct. However, useSimulationHistory creates and terminates a worker for every dependency change and simulateHistory first retains an array of full frames before projecting compact chart points."
+    },
+    {
+      "metric": "Simulation-history worker with season comparison",
+      "unit": "milliseconds per two 25-point full-network histories",
+      "environment": "Same actual isolated worker method; severe-storm baseline plus winter comparison; three fresh workers",
+      "before": "worker duration 3,013.1, 2,680.1, 2,593.3 (median 2,680.1); request-to-response wall 3,034.2, 2,696.2, 2,609.7 (median 2,696.2); 25 primary and 25 comparison points each",
+      "after": null,
+      "interpretation": "The comparison is computed serially. A persistent keyed cache can reuse the unchanged primary series when only comparison settings change and can avoid repeatedly cloning the 342-city/1,018-route request."
+    },
+    {
+      "metric": "Idle map motion state updates",
+      "unit": "setGlobalStateProperty calls per two seconds",
+      "environment": "Running development map after settle; method wrapped only to count calls; no user interaction",
+      "before": "normal motion 105 calls: 21 each for motionPulse, motionSecondary, selectionPulse, flowDash and hazardDash; reduced motion 0 calls after the one-time fixed state was applied",
+      "after": null,
+      "interpretation": "Reduced-motion behavior is efficient and should be preserved. Default mode still drives approximately 52.5 observed global-state changes per second while idle, including when no hazard layer needs all animated properties."
+    }
+  ],
+  "findings": [
+    {
+      "id": "UI-PERF-001",
+      "priority": "critical",
+      "status": "accepted-pending",
+      "summary": "Late-horizon frames are recomputed synchronously from T+0 and materialize an oversized national explanation graph.",
+      "evidence": "App.tsx:152-180 calls simulateFrame in render-time memos. model.ts:2142-2216 loops through every completed quarter hour when no rolling accumulator is supplied, and simulateFrame at 2649-2655 always takes that path. The isolated median rises from 34.2 ms at T+0 to 499.7 ms at T+72. A T+72 result serializes to 135,274,118 bytes: 59,173,872 municipalities, 67,643,312 routesByService and a duplicated 8,456,196-byte displayed route serialization. With decorative motion disabled, requested 12x playback from T+48 advanced only 8-9 frames in five seconds.",
+      "recommendation": "Stage 1 P0: preserve the existing full `simulateFrame` contract for tests and server callers, but add a persistent `SimulationSession`/worker path for the UI. Key it by normalized scenario, intervention and network/data revision; retain rolling per-city history checkpoints; make latest requested step win; and advance playback from monotonic wall time so intermediate visual frames may be coalesced. Return a compact `SimulationMapFrame` containing national summary, 342 scalar municipality states and selected-service route state keyed by route id. Keep immutable route coordinates outside per-service state and compute full causal ledgers only for the selected municipality/service on demand. Acceptance must compare compact values with the full API across all 289 steps and ten presets, keep main-thread tasks below 50 ms during scrubbing, and verify playback time remains within one step of the configured clock."
+    },
+    {
+      "id": "UI-PERF-002",
+      "priority": "critical",
+      "status": "accepted-pending",
+      "summary": "Every frame and layer update resubmits all static and dynamic GeoJSON sources to MapLibre.",
+      "evidence": "MapView.tsx:1324-1346 combines every collection into one memo and :1468-1488 calls setData for all 17 sources whenever that object changes. Runtime instrumentation observed exactly 17 calls for a layer switch and 17 for a timeline update; 11 subsequent arguments were reference-identical and the fan-out represented 12,179 features before counting coordinate vertices. MapLibre 6.6.0 geojson_source.ts:273-276 marks every setData call pending and :425-490 sends it to the worker. The uninstrumented layer switch took a 927.3 ms median and produced a 233.3 ms median maximum frame gap under the stated renderer.",
+      "recommendation": "Stage 0 P0 and smallest safe map change: split immutable and mutable source effects. Set roads, rail, stations, transit geometry and unchanged settlement/place geometry once when each dataset arrives. Update only municipality scalar state, gateways, the displayed service's route state and active city detail when their own dependencies change. Configure stable feature ids/promoteId and use feature-state or MapLibre `updateData` diffs for property changes rather than re-indexing geometry. A regression probe should wrap all 17 sources and assert that a national layer/frame change produces zero setData calls for roads, rail, stations and transit, while preserving pixel/feature parity and click selection."
+    },
+    {
+      "id": "UI-PERF-003",
+      "priority": "high",
+      "status": "accepted-pending",
+      "summary": "Whole-country transit geometry is fetched unconditionally before the active view can display it.",
+      "evidence": "App.tsx:111-115 starts loadTransitRouteData on mount. data.ts:138-148 fetches all four route collections together. They contain 8,805 features and 10,352,420 raw bytes, 49.65% of the measured cold local body transfer. The 9,251,740-byte bus collection is loaded at national zoom 6.25 although its map layer begins at zoom 8.7. On the explicitly synthetic 10 Mi-bit/s plus 40 ms profile, controls did not become visible until 12,235.654 ms and network idle was 16,783.851 ms.",
+      "recommendation": "Stage 0 P0 and smallest safe transfer change: do not call the aggregate transit loader on mount. Split it by mode, memoize in-flight/completed requests, and request only when mobility or supply is active and the relevant layer can be rendered; load urban rail/rail/ferry independently from bus. As an immediate regression gate, a cold national Overview visit must issue no transit-route requests and should fall below 10,500,000 encoded local body bytes with the current remaining assets. Configure production compression for `application/geo+json`; then move nationwide route geometry to viewport-addressable vector tiles or PMTiles rather than shipping a monolith."
+    },
+    {
+      "id": "UI-PERF-004",
+      "priority": "high",
+      "status": "accepted-pending",
+      "summary": "The chart worker protects the UI thread but rebuilds full histories and worker state for every relevant control change.",
+      "evidence": "useSimulationHistory.ts:36-94 creates a new worker after a 180 ms debounce, posts all 342 municipalities and 1,018 routes, then terminates it. The actual isolated worker median was 1,501.1 ms for one 25-point history and 2,680.1 ms for primary plus comparison. history.ts:152 creates a full `simulateFrames` result array before lines 162-170 project compact points, so large explanation/route-rich frames coexist during the batch.",
+      "recommendation": "Stage 2: keep one persistent history worker, cache compact results by scenario/intervention/network revision/municipality/interval, and preserve the primary series when only comparison settings change. Add a streaming/projecting batch primitive that emits or immediately projects one rolling frame at a time rather than retaining full frames. Expose worker `durationMs` to development diagnostics and add cancellation/latest-job behavior. Keep the current 25-point sampling unless a chart demonstrably needs finer resolution."
+    },
+    {
+      "id": "UI-PERF-005",
+      "priority": "medium",
+      "status": "accepted-pending",
+      "summary": "Default map motion performs continuous global-state mutations even while the user is idle.",
+      "evidence": "MapView.tsx:1490-1557 keeps a requestAnimationFrame loop alive and targets updates every 80 ms. Runtime counting observed 105 global-state setter calls in two idle seconds, while reduced-motion correctly produced zero recurring calls after applying fixed state.",
+      "recommendation": "Stage 2: retain the effective reduced-motion path, but suspend normal motion when the document is hidden, the map is not visible, or a blocking analytics modal is open. Only update properties used by the active layer and consider a lower cadence for selection/flow effects. Add a browser test that counts state writes during hidden and reduced-motion windows and confirms they remain at zero."
+    },
+    {
+      "id": "UI-PERF-006",
+      "priority": "medium",
+      "status": "accepted-pending",
+      "summary": "The application release bundles a 203.84 MB data tree and depends on external raster/glyph services without a documented runtime cache budget.",
+      "evidence": "The exact production output is 205,845,360 bytes, of which 203,843,393 is data. The runtime does correctly load municipality bundles on demand, but the release still copies every region/settlement and an unused 11,275,939-byte transit-stops file. A default map startup also made 24 PDOK raster and two OpenFreeMap glyph requests. Vite preview served app assets with `Cache-Control: no-cache`; the production gatekeeper/CDN policy was outside this local audit.",
+      "recommendation": "Stage 3: publish versioned official-data artifacts independently of UI releases, apply immutable cache keys plus provenance/version metadata, precompress JSON/GeoJSON, and use a bundle/data budget in CI. Exclude transit-stops from the web deploy until a runtime feature consumes it, while retaining it in the audit/data pipeline if required there. Run a bundle analyzer before splitting main JS; prioritize data and state-graph reductions first. Define an offline/degraded basemap behavior suitable for an emergency-planning tool rather than assuming both external services are reachable."
+    }
+  ],
+  "implementedChanges": [],
+  "rejectedRecommendations": [
+    {
+      "summary": "Move the existing full SimulationFrame through a Web Worker unchanged.",
+      "reason": "The T+72 frame has a 135,274,118-byte JSON-equivalent serialization and took 146.3 ms merely to structuredClone in one isolated observation. This would trade synchronous model work for a large clone/message and memory problem. The worker must return a compact projection and retrieve explanations on demand."
+    },
+    {
+      "summary": "Cache all 289 full SimulationFrame objects for instant scrubbing.",
+      "reason": "A single full frame already contains 59.17 MB of serialized municipality state and 67.64 MB of per-service routes. Multiplying the 135.27 MB JSON-equivalent shape by 289 is about 39.1 GB before considering engine representation; use rolling accumulators/checkpoints and compact projections instead."
+    },
+    {
+      "summary": "Treat HTTP compression alone as the startup solution.",
+      "reason": "Compression would materially help because the current preview does not encode `.geojson`, but it does not remove JSON parsing, MapLibre indexing, eager off-screen transit, repeated setData calls or synchronous model execution. Conditional loading and vector delivery remain necessary."
+    },
+    {
+      "summary": "Remove all map animation to recover performance.",
+      "reason": "Motion communicates hazard and flow state, and the existing reduced-motion path already stops recurring updates. Visibility-aware and active-layer-aware scheduling preserves that value with a smaller idle cost."
+    }
+  ],
+  "validation": [
+    {
+      "command": "audit_now=$(mktemp -d /tmp/disaster-runtime-final.XXXXXX); pnpm --filter @disaster/web exec vite build --outDir \"$audit_now\" --emptyOutDir; shasum -a 256 \"$audit_now\"/assets/index-*.js \"$audit_now\"/assets/simulation-history.worker-*.js; find \"$audit_now\" -type f -exec stat -f %z {} \\; | awk '{s+=$1;n++}END{printf \"files=%d bytes=%d\\n\",n,s}'",
+      "status": "pass",
+      "result": "Vite 8.2.2 transformed 1,848 modules and built in 334 ms. It emitted the expected greater-than-500-kB warning, hashes a4a1d6... and 39afa675..., 705 files, and 205,845,360 total bytes. Output stayed under /tmp."
+    },
+    {
+      "command": "node --input-type=module -e '<Playwright: five fresh cache-disabled Chromium production-preview runs; exact algorithm and waits are recorded in methods[2]>'",
+      "status": "pass",
+      "result": "Five runs completed with identical 20,849,298-byte local encoded bodies, 15 local resource entries plus the document, 26 external resource entries, and no page error or failed HTTP response. Median/range measurements are recorded above."
+    },
+    {
+      "command": "node --input-type=module -e '<Playwright same-origin isolated sim-core import; warm once; time three simulateFrame calls at 0,24,48,96,192,288; structuredClone and JSON.stringify the last frame; serialize attributed projections>'",
+      "status": "pass",
+      "result": "342 municipalities and 1,018 routes were used. All calls completed; T+72 median was 499.7 ms and the exact JSON-equivalent size attribution summed as recorded in the measurements."
+    },
+    {
+      "command": "node --input-type=module -e '<Playwright development map: wrap all 17 GeoJSONSource.setData methods, click Hazard, change timeline, record id/features/reference identity, forward every original call>'",
+      "status": "pass",
+      "result": "Observed 17 calls for the layer change and 17 for the following timeline update, with 11 reference-identical arguments on the latter. All real source methods were forwarded and the app remained functional."
+    },
+    {
+      "command": "node --input-type=module -e '<Playwright isolated actual simulation-history.worker.ts: five baseline jobs and three winter-comparison jobs, each with 342 municipalities, 1,018 routes, GM0772, intervalSteps=12>'",
+      "status": "pass",
+      "result": "Every worker returned 25 primary points without error; comparison jobs also returned 25 comparison points. Exact duration and wall-time series are recorded above."
+    },
+    {
+      "command": "jq empty audits/ui/runtime-map-performance.json",
+      "status": "pass",
+      "result": "Artifact parses as JSON."
+    },
+    {
+      "command": "pnpm audit:status",
+      "status": "pass",
+      "result": "Audit manifest regeneration and incomplete-program schema validation passed with this runtime-map-performance artifact present."
+    }
+  ],
+  "residualLimitations": [
+    "Absolute render and interaction timings come from desktop Chromium 151 headless with SwiftShader on one Apple M4 host. They are reproducible lab baselines, not real-user monitoring and not representative of headed GPU acceleration, older emergency-room PCs, tablets or phones.",
+    "Loopback removes internet distance, TLS and production CDN behavior. The constrained-network result is a synthetic CDP sensitivity run with explicitly stated parameters, not a named field-network estimate.",
+    "Cross-origin PDOK raster and OpenFreeMap glyph bodies were not included in the exact Resource Timing byte total because those services do not expose their sizes through Timing-Allow-Origin. Request counts were observed; provider-side cache and outage behavior were not benchmarked.",
+    "The map source wrapper was development-only and adds instrumentation overhead. Only call counts, feature counts and reference identity are used as evidence from that run; uninstrumented production runs supply the latency figures.",
+    "No Safari, Firefox, touch-device GPU, memory-pressure, thermal, battery/energy or long-duration leak profile was run. Those should be added after the P0 state and data-flow changes so the measurements exercise the intended architecture.",
+    "No source optimization was implemented by this independent track, so every `after` value is null and all recommendations remain pending central cross-review."
+  ]
+}

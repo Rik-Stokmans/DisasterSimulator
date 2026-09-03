@@ -1,0 +1,481 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0757",
+    "name": "Boxtel",
+    "province": "Noord-Brabant",
+    "safetyRegion": "Brabant-Noord"
+  },
+  "agent": {
+    "taskName": "municipality_gm0757",
+    "agentId": "/root/nl_realism_audit",
+    "completedAt": "2026-09-02T18:08:57Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "Boxtel's official 2025 identity, boundary, demographic and neighbourhood inputs reconcile, and the deterministic harness passes all ten presets, six checkpoints and eight essential services. The output is not yet safe as a locally realistic first-72-hour decision layer. The major-river preset assigns 0.8614 municipality-wide inundation stress from T+12 through T+72, 15,058 affected people-equivalent and 767,217.05 event-attributable service person-hours at T+72 solely from distance to schematic river corridors. Official sources do confirm a real but conditional Maas–Dommel–Essche Stroom backwater pathway that can reach Boxtel and the A2, so this must become a versioned hydraulic scenario rather than either an all-clear or an unsupported uniform amplitude. The coastal preset also reports zero direct inundation, zero headline and peak severity and a no-event-forcing explanation while sub-threshold wind still generates 9,645.56 event-attributable person-hours at T+24. Eight unrelated hazards reuse the exact same 19-neighbourhood order, and a synthetic fire source beside Kampina ranks only third. Public water, road, rail, provider, antenna and acute-care data can improve context immediately, but public records do not expose the connectivity, operational state, backup, capacity or restoration commitments needed to calibrate lifelines. Those values remain Unknown, never zero; every exact impact is a deterministic exercise output, not an observation, forecast or official warning.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek / PDOK",
+      "title": "E01 — Official 2025 municipality, neighbourhood, settlement and demographic inputs",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_gegeneraliseerd/items?f=json&limit=1000&datetime=2025-07-01T00%3A00%3A00Z",
+      "accessedAt": "2026-09-02T18:00:00Z",
+      "edition": 2025,
+      "supports": [
+        "GM0757 identity, generalized boundary, centre containment and safety-region assignment",
+        "Companion CBS OData 86165NED query reports population 34,241, density 496, age-65-plus count 8,182 and 5,539 one-person households",
+        "Nineteen neighbourhoods, five districts and explicit missing-value semantics; neighbourhood population sums to 34,240 because published small-area counts are rounded",
+        "CBS municipality, neighbourhood and BRT inputs are annual editions under CC BY 4.0; BAG place data is Public Domain Mark 1.0; BRT source date is 2025-07-01"
+      ]
+    },
+    {
+      "publisher": "Gemeente Boxtel",
+      "title": "E02 — Climate-resilient Boxtel, municipal sewer plan and Boxtel Noordwest area programme",
+      "url": "https://www.boxtel.nl/in-de-gemeente/duurzaam-boxtel/wat-wij-doen/klimaatbestendig",
+      "accessedAt": "2026-09-02T17:30:00Z",
+      "edition": "strategy 2023–2030; implementation agenda from 2024; current pages accessed 2026-09-02",
+      "supports": [
+        "The municipality identifies heavy rain, flooding, drought and heat as local adaptation themes and states that its 2019 climate stress test mapped heavy-rain nuisance",
+        "The municipal sewer plan describes wastewater, surface-water and groundwater duties and is renewed every five years; responsibility differs between built-up and rural/water-board areas",
+        "The 2026 Boxtel Noordwest area-programme document identifies this as Boxtel's lowest area and maps the Essche Stroom/Kleine Aa, a regional barrier, water-storage reservation, natural inundation zone and drainage constraints",
+        "No stable public machine-readable municipal stress-test API, explicit redistribution licence or fixed layer refresh cadence was found; these documents are authoritative planning context, not observed incident state"
+      ]
+    },
+    {
+      "publisher": "Waterschap De Dommel / Het Waterschapshuis / PDOK",
+      "title": "E03 — Howabo regional high-water programme and public IMWA/DAMO water registers",
+      "url": "https://www.dommel.nl/11-maatregelen-met-een-doel-wateroverlast-voorkomen-in-de-regio-s-hertogenbosch",
+      "accessedAt": "2026-09-02T17:34:00Z",
+      "edition": "current Howabo programme accessed 2026-09-02; HWH snapshot retrieved 2026-09-02",
+      "supports": [
+        "When the Maas is high, the Aa and Dommel cannot discharge normally; tributaries can overflow toward Boxtel, depths can range from centimetres to at least one metre and the situation can persist for weeks",
+        "The water board specifically says the A2 emergency route can flood; a 4 May 2026 companion project page describes the A2 between Vught and Boxtel-Noord and low areas around Esch under prolonged rain and blocked discharge",
+        "The generated point-in-polygon context contains 38 public water assets in GM0757: 32 weirs, two surface-water pumps, three sewer pumps and RWZI Boxtel; 34 are labelled Waterschap De Dommel submissions",
+        "Kunstwerken IMWA OGC https://api.pdok.nl/hwh/waterschappen-kunstwerken-imwa/ogc/v2 is provider-supplied, generally weekly and CC BY-SA 4.0; Waterketen DAMO OGC https://api.pdok.nl/hwh/waterschappen-waterketen-damo/ogc/v1 is CC BY-SA 4.0 but has no clear fixed cadence; completeness, connectivity, control/state and capacity units remain uncertain"
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Brabant-Noord",
+      "title": "E04 — Regionaal Risicoprofiel 2024–2027",
+      "url": "https://www.vrbn.nl/publish/pages/23445/5b1_risicoprofiel_2024-2027.pdf",
+      "accessedAt": "2026-09-02T17:37:00Z",
+      "edition": "updated 2023-06-08; adopted for 2024–2027",
+      "supports": [
+        "Regional flood context includes high Maas water and explicitly growing attention to the inner rivers Dommel, Aa and Dieze; the profile warns that consequences differ by local area",
+        "Regional scenarios cover electricity/gas and drinking-water outages lasting eight hours to six days, wastewater-treatment failure, a 48-hour regional telecom/ICT outage and cascading effects",
+        "The profile treats public-health consequences as substantial after eight hours of drinking-water loss and threatening after 24 hours for drinking water or wastewater, but it does not calibrate Boxtel service availability",
+        "It includes extreme rain, storm, cold/snow/ice, heat, drought, nature fire and cyber context; for Boxtel it also describes increased rail and hazardous-goods traffic under PHS Meteren–Boxtel",
+        "This is a periodically adopted strategic risk profile with no machine incident API or explicit reuse licence stated on the PDF"
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Brabant-Noord / Veiligheidsregio Brabant-Zuidoost",
+      "title": "E05 — Regionaal Crisisplan 2024–2027",
+      "url": "https://www.vrbn.nl/publish/pages/33933/regionaal_crisisplan_1.pdf",
+      "accessedAt": "2026-09-02T17:40:00Z",
+      "edition": "version 1.2, definitive 2023-05-30; VRBN adopted 2023-06-29",
+      "supports": [
+        "The plan describes the acute crisis as roughly the first three days and uses flexible, information-led network coordination with preparation for recovery",
+        "The mayor or safety-region chair has general/public-order responsibilities, while functional chains such as electricity and food safety remain with ministers, national bodies and operators",
+        "Continuous monitoring and signalling, operational coordination and partner roles are responsibilities, not evidence that a named Boxtel intervention, resource, dispatch or restoration has occurred",
+        "No machine-readable incident feed, public action-state API, fixed update cadence or explicit document reuse licence is stated"
+      ]
+    },
+    {
+      "publisher": "Nederlands Instituut Publieke Veiligheid / Natuurmonumenten",
+      "title": "E06 — Risico Index Natuurbranden and Kampina land-manager context",
+      "url": "https://nipv.nl/informatievoorziening/voorzieningen/risico-index-natuurbranden/",
+      "accessedAt": "2026-09-02T17:43:00Z",
+      "edition": "RIN page current 2026-01-20; Kampina centenary context 2024",
+      "supports": [
+        "RIN combines seventeen parameters into a one-square-kilometre nature-fire risk product for preparedness and mitigation",
+        "No public bulk RIN API, redistribution licence or fixed update cadence was found, so an authorized export is preferred and absence of one remains Unknown",
+        "Natuurmonumenten identifies Kampina as approximately 1,600 hectares of forest, heath, fens and water in the Boxtel–Oisterwijk setting; this establishes local fuel/recreation context, not a current ignition or perimeter",
+        "BRT TOP10NL OGC https://api.pdok.nl/kadaster/brt-top10nl/ogc/v1 is a transparent normally annual CC BY 4.0 fallback for land-cover eligibility, not a fire-spread model"
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / ProRail / Nationaal Dataportaal Wegverkeer",
+      "title": "E07 — Integration-ready road, rail and timestamped traffic context",
+      "url": "https://api.pdok.nl/rws/nationaal-wegenbestand-wegen/ogc/v1?f=html&lang=nl",
+      "accessedAt": "2026-09-02T17:47:00Z",
+      "edition": "NWB snapshot 2026-08-01; ProRail current snapshot; NDW live feed accessed 2026-09-02",
+      "supports": [
+        "NWB national road geometry is available through OGC/download, normally monthly, under CC0; it supports geometry and signed-route identity but not operational capacity",
+        "ProRail tracks, stations and crossings are available at https://api.pdok.nl/prorail/spoorwegen/ogc/v1, manually updated under CC0; ProRail's PHS Meteren–Boxtel page dates the project 2022–2030 and expects more freight via Den Bosch and Boxtel",
+        "NDW DATEX current situations are available at https://opendata.ndw.nu/actueel_beeld.xml.gz as a live feed, CC0 unless stated; records may affect a matching scenario only after time/geometry/data-quality validation",
+        "No qualifying cached NDW point record inside GM0757 means operational state is Unknown, never that every road is open"
+      ]
+    },
+    {
+      "publisher": "Stichting Mijn Aansluiting / Rijksinspectie Digitale Infrastructuur / RIVM / Rijksoverheid",
+      "title": "E08 — Public provider territories, antennas, acute-care and national 72-hour preparedness context",
+      "url": "https://wiki.service.mijnaansluiting.nl/wiki/spaces/Wiki/pages/693731329",
+      "accessedAt": "2026-09-02T17:52:00Z",
+      "edition": "live provider layers queried 2026-09-02; RIVM v1.1 published 2026-07-03; national preparedness pages current 2026",
+      "supports": [
+        "The public WMS/WFS provider-area query at Boxtel's reference point returns Enexis electricity and gas, Brabant Water drinking water and Ziggo fixed media; it is Public Domain responsibility context with provider timestamps, potentially incomplete/overlapping coverage, and no drainage polygon, which means Unknown",
+        "RDI WFS https://antenneregister.nl/mapserver/wfs/ contributes 86 registered sites and 192 antennas inside GM0757; the statutory register gives deployment attributes but states no fixed refresh cadence or reusable licence version and does not establish coverage, backhaul, power or live state",
+        "RIVM acute-care dataset https://datacatalogus.rivm.nl/dataset.xhtml?persistentId=doi%3A10.21945%2F8E767B2D-9CED-4A85-A95D-3AC1A608C663 is version 1.1, published 2026-07-03 under CC0; no acute hospital is inside GM0757 and Jeroen Bosch Ziekenhuis is the nearest listed site at 12.28 km straight-line reference distance",
+        "Rijksoverheid's first-72-hour advice at https://www.rijksoverheid.nl/vraag-en-antwoord/veiligheidsregios-en-crisisbeheersing/wat-zit-er-in-een-noodpakket specifies three litres of water per person per day plus durable food, radio, power bank and medicines; advice and a national survey proxy are not observed Boxtel household stocks"
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "The generated identifier, name, province and safety-region assignment match official 2025 inputs.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "Feature id, municipality bundle code and bundle name all equal GM0757 / Boxtel.",
+        "The CBS safety-region layer assigns GM0757 uniquely to Brabant-Noord."
+      ]
+    },
+    "geography": {
+      "status": "pass",
+      "summary": "The application consumes the official 2025 generalized municipality boundary and its reference centre is contained by it.",
+      "evidenceRefs": ["E01", "E02"],
+      "notes": [
+        "Generated centre is [5.327818453422305, 51.578823241495144].",
+        "Administrative containment does not validate AHN terrain, catchments, regional barriers, flood zones, forest fuels, utility territories or operational footprints."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Municipality and neighbourhood population values reconcile within the known CBS small-area rounding contract.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "Official municipality population is 34,241; the 19 published neighbourhood values sum to 34,240, a difference of minus one person (-0.003 percent).",
+        "Density is 496 people/km², 23.9 percent are aged 65 or older, one-person households number 5,539, neighbourhood households sum to 15,445 and rounded neighbourhood age-65-plus counts sum to 8,175 versus the municipality count 8,182.",
+        "These aggregates support planning context only and never identify individual vulnerability, location, preparedness or service need."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "All 19 official neighbourhood rows and 36 supported fields load, but incomplete values remain null and none is a hazard surface.",
+      "evidenceRefs": ["E01", "E02"],
+      "notes": [
+        "Core population, household, age, density, doctor-distance and supermarket-distance fields have 19/19 coverage; cars per household has 16/19.",
+        "District-heating percentage and public-charging-point fields have 0/19 usable values and remain missing rather than zero.",
+        "Largest neighbourhoods are Boxtel-Oost (9,140), Boxtel-Centrum (8,050), Liempde (4,045), Boxtel-Noord (3,985) and Munsel-Selissen (3,465)."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "Three BAG places and 19 unsimplified BRT settlements resolve without place-centre leakage from the generalized boundary.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "The BAG place set is Boxtel, Esch and Liempde.",
+        "The BRT source date is 2025-07-01 and its classes comprise eleven buurtschappen, two deelkernen, two gehuchten and four woonkernen.",
+        "Settlement labels and source population metadata are descriptive and are not required to reconcile to CBS municipality population."
+      ]
+    },
+    "transport": {
+      "status": "warn",
+      "summary": "Official road, rail and transit context is inspectable, but the three-link graph omits operational route state and critical rail/A2 dependencies.",
+      "evidenceRefs": ["E03", "E04", "E07"],
+      "notes": [
+        "Three NWB-derived links connect Best and Vught via A2 and Meierijstad via N618; synthetic nominal capacity is 260, 260 and 150 logical units respectively.",
+        "Boxtel ProRail station and 36 GTFS stop areas are inside the boundary, while E03/E04 identify potential A2 flooding and growing rail/hazardous-goods traffic.",
+        "Static geometry, stops and schedules are not live traffic, closure, vehicle, passenger, freight, evacuation or emergency-access state; an empty local NDW intersection remains Unknown."
+      ]
+    },
+    "emergencyContext": {
+      "status": "warn",
+      "summary": "The correct regional crisis roles and first-three-day planning horizon are documented, but actual decisions, local facilities and continuity resources are not modeled.",
+      "evidenceRefs": ["E04", "E05", "E08"],
+      "notes": [
+        "E05 distinguishes mayoral/public-order coordination from functional-chain/operator responsibility and describes an acute phase of roughly three days.",
+        "No acute hospital is inside GM0757; route-aware access to Jeroen Bosch Ziekenhuis is material but the model has no dispatch, travel, acceptance, diversion, staffing or generator state.",
+        "Twenty DUO education records and five government/business-registry points are context only, not verified shelters, command posts, distribution hubs or live capacity."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "fail",
+      "summary": "All ten canonical scenarios execute, but the major-river amplitude is unsupported and the coastal no-forcing explanation contradicts event-attributable impact.",
+      "evidenceRefs": ["E02", "E03", "E04", "E06"],
+      "notes": [
+        "The required matrix ran severe storm, pluvial flood, river flood, coastal flood, heatwave, winter storm, cyberattack, earthquake, wildfire and compound at T+0/6/12/24/48/72 across power, water, drainage, gas, telecom, mobility, facilities and supply.",
+        "At T+24 modeled severity/pressure/affected/event-attributable person-hours are: storm 0.0332/0.3736/11,269/77,742.25; pluvial 0.2889/0.2818/6,838/138,248.50; river 0.2711/0.4264/13,817/190,928.82; coastal 0/0.0872/0/9,645.56; heat 0.1010/0.1832/2,086/89,296.46.",
+        "The remaining T+24 values are winter 0.5277/0.4108/13,061/169,613.46; cyber 0.3668/0.3678/10,991/150,615.82; earthquake 0/0.0564/0/3,428.48; wildfire 0.1111/0.1480/385/40,500.27; compound 0.8276/0.6299/23,632/310,347.57.",
+        "River inundation stress reaches 0.8614 at T+12 and remains exactly 0.8614 through T+72. Compound remains active at T+72 with severity 0.3584, inundation 0.4129, cyber 0.0491, pressure 0.6277, 23,528 affected and 1,180,236.11 cumulative person-hours. These are model outputs, not observations or forecasts."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "The focused gate passes deterministic, bounded, exact-zero, causal, population and service-reconciliation contracts.",
+      "evidenceRefs": [],
+      "notes": [
+        "MUNICIPALITY_AUDIT_CODE=GM0757 pnpm audit:model passed both tests before artifact creation across 10 presets × 6 checkpoints × 8 services.",
+        "Every intensity-zero preset has exactly zero current and peak severity, affected population and event-attributable person-hours at every checkpoint.",
+        "All local maps allocate exactly 34,241 people and reconcile service demand/delivery with maximum observed error 1.421e-14.",
+        "Switching among all service and map layers leaves the local hazard field exactly invariant; cumulative person-hours are monotonic and every route flow stays within its declared logical capacity."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "One shared neighbourhood seed ignores physical hazard mechanisms, and an explicit local fire source does not control the fire ranking.",
+      "evidenceRefs": ["E02", "E03", "E06"],
+      "notes": [
+        "At T+24 eight nonzero presets—storm, pluvial, river, heat, winter, cyber, wildfire and compound—have the identical complete order of all 19 neighbourhoods, starting Munsel-Selissen, Verspreide huizen Velders/Bosch/De Scheeken and Verspreide huizen Roond.",
+        "That ranking samples no AHN depression/elevation, catchment/barrier, paving/shade, vegetation/fuel, wind direction, road/rail exposure, infrastructure asset or cyber target.",
+        "In a reproducible synthetic T+24 fire with source [5.277560201473888, 51.5773009485156] at Verspreide huizen Roond centre beside Kampina, municipal direct fire is 0.4472, smoke 0.4375 and severity 0.4525.",
+        "The source neighbourhood ranks only 3/19 at 0.5168; Munsel-Selissen 4.397 km away ranks first at 0.5298 and Velders/Bosch/De Scheeken 6.853 km away ranks second at 0.5293. This is a synthetic reproduction, not an observed incident.",
+        "Canonical wildfire uses an epicentre 72.859 km from Boxtel centre, gives zero direct flame but 0.2511 smoke at T+24; that scoped output cannot be read as absence of local nature-fire risk."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "warn",
+      "summary": "All eight service balances and dependency stages are inspectable, but none is calibrated to Boxtel's physical operator, water, telecom, mobility or care networks.",
+      "evidenceRefs": ["E03", "E04", "E07", "E08"],
+      "notes": [
+        "The live territory query identifies Enexis electricity/gas, Brabant Water drinking water and Ziggo fixed media; a missing drainage polygon remains Unknown, not evidence that no authority or system exists.",
+        "The app can show 38 HWH water assets and 86 RDI antenna sites/192 antennas, but these public points establish neither connected topology nor unit-correct capacity, state, coverage, backhaul, power backup or restoration.",
+        "All eight services reuse the same three NWB-derived links and total nominal 670 logical scenario units. They are explicitly not physical cables, pipes, sewers, pressure zones, radio links, patient transfers or supply routes.",
+        "At compound T+24 modeled availability is power 0.3636, water 0.4014, drainage 0.2695, gas 0.5676, telecom 0.2046, mobility 0.5202, facilities 0.3134 and supply 0.3415; no cited operator source validates those exact values."
+      ]
+    },
+    "causalTrace": {
+      "status": "fail",
+      "summary": "Arithmetic ledgers close, but both the river evidence label and coastal hazard explanation overstate what their initiating evidence supports.",
+      "evidenceRefs": ["E02", "E03"],
+      "notes": [
+        "Service-stage deltas, weighted pressure and matched-no-event person-hour arithmetic close exactly for the full matrix.",
+        "The canonical Rhine, Meuse & IJssel high-water preset labels GM0757 spatial evidence as derived-screening without an evidence note, yet riverExposure uses only municipal-centre distance to three schematic line segments; it does not implement the official conditional Maas–Dommel–Essche backwater, barriers, storage, pumps, terrain, arrival or recession.",
+        "At coastal T+24 the hazard explanation says no event-related forcing is active and assigns wind zero headline effect even though displayed wind is 16.2276 m/s and downstream services are event-degraded; pressure is 0.0872 and cumulative event-attributable burden is 9,645.56 person-hours.",
+        "The coastal contradiction comes from inconsistent thresholds: headline coastal wind severity begins above 20 m/s while service wind pressure begins above 15 m/s."
+      ]
+    },
+    "recovery72h": {
+      "status": "warn",
+      "summary": "Recovery and cumulative burden behave deterministically, but no local operator, water-board, route or healthcare evidence validates the 72-hour curves.",
+      "evidenceRefs": ["E03", "E04", "E05", "E07", "E08"],
+      "notes": [
+        "At T+72 storm, pluvial, coastal, winter, earthquake and wildfire initiating forcing has cleared while cumulative burdens are 188,552.91, 318,396.21, 34,860.89, 404,800.32, 6,049.68 and 119,076.36 event-attributable service person-hours respectively.",
+        "River forcing remains at inundation stress 0.8614 and pressure 0.4521 with 15,058 affected and 767,217.05 person-hours; E03 supports potentially long regional high-water duration but not the exact uniform footprint or value.",
+        "Heat retains drought 0.5608 and severity 0.1010 at T+72 while affected population is zero; this threshold outcome does not establish absence of residual water, health, vegetation, agriculture or care burden.",
+        "Coastal T+48 has zero wind and direct hazard while cumulative event-attributable person-hours have grown to 24,737.70; the displayed no-forcing explanation does not expose inherited damage as a named pathway.",
+        "No real pump controls, provider switching, crew/fuel/spares, road/rail access, hospital acceptance, mutual aid or restoration commitment is ingested. E05 defines responsibilities, not a fixed action sequence."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": ["power", "water", "drainage", "gas", "telecom", "mobility", "facilities", "supply"]
+  },
+  "findings": [
+    {
+      "id": "GM0757-RIVER-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "A real conditional Maas–Dommel–Essche backwater pathway is represented by an unsupported municipality-centre distance score and uniform neighbourhood amplitude.",
+      "evidence": "E02/E03 establish that high Maas water can block the Aa and Dommel, tributaries can overflow toward Boxtel, low areas and the A2 can flood, and a regional event may persist for weeks. They do not validate the simulator's exact values. Canonical T+12 through T+72 assigns GM0757 inundation stress 0.861381 and severity 0.271088 everywhere from distance to three schematic Rhine/Meuse/IJssel corridor segments. It yields 13,817 affected and 190,928.82 event-attributable person-hours at T+24, rising to 15,058 and 767,217.05 by T+72. The trace calls this derived-screening and provides no local evidence note, hydraulic source, defence/storage/control assumptions, arrival, depth unit or recession.",
+      "action": "Keep the official pathway visible but mark current amplitude and distribution unsupported/Unknown for operational use. Replace distance screening with an explicitly selected, versioned LIWO/Howabo/water-board hydraulic scenario or authorized municipal stress-test export, recording rainfall and Maas boundary conditions, defences, breaches, regional barriers, retention/pump controls, connected footprint, AHN terrain, arrival, duration/recession, depth units, uncertainty, edition and licence. Add a gate that a generic corridor screen cannot display as local inundation depth or derived evidence without a limitation note."
+    },
+    {
+      "id": "GM0757-COASTAL-TRACE-001",
+      "severity": "high",
+      "category": "explainability",
+      "status": "open",
+      "summary": "The coastal preset says no local event forcing is active while sub-threshold wind causes event-attributable service loss.",
+      "evidence": "GM0757 correctly has zero direct coastal inundation at T+24, zero current/peak headline severity and zero affected people-equivalent. It nevertheless has wind 16.2276 m/s, service pressure 0.0872 and 9,645.56 cumulative event-attributable service person-hours while the hazard explanation says no event-related hazard forcing is active and assigns wind zero headline effect. At T+48 wind is zero but person-hours increase to 24,737.70. The model uses a greater-than-20 m/s coastal headline threshold and a greater-than-15 m/s service wind threshold.",
+      "action": "Use one coherent attribution contract. If an inland windstorm is part of the coastal preset, name and score that component separately from direct sea inundation in map, legend, headline and trace. Otherwise remove its local service damage. Add a regression gate: a no-event-forcing explanation may not coexist with event-attributable service deltas, affected population or person-hours unless an individually named remote or inherited-damage pathway is displayed."
+    },
+    {
+      "id": "GM0757-SPATIAL-SEED-001",
+      "severity": "high",
+      "category": "geography",
+      "status": "open",
+      "summary": "Eight unrelated hazards reuse one exact neighbourhood ranking instead of Boxtel's terrain, catchment, heat, fire, infrastructure and target mechanisms.",
+      "evidence": "E02 maps low Boxtel Noordwest, the Essche Stroom/Kleine Aa, storage and natural flood zones; E03 provides water-system mechanisms and E06 describes a parameterized nature-fire product. At T+24 storm, pluvial, river, heat, winter, cyber, wildfire and compound nevertheless share the exact complete order of all 19 neighbourhoods, starting Munsel-Selissen, Velders/Bosch/De Scheeken and Roond. The allocator samples none of the cited physical layers or explicit infrastructure/cyber targets.",
+      "action": "Until replaced, label neighbourhood values synthetic/unsupported and prohibit address-level or dispatch inference. Prefer a licensed municipal stress-test or hydraulic export; otherwise integrate hazard-specific AHN WCS 0.5 m CC0 terrain, HWH water areas/assets/defences, BRT annual CC BY 4.0 land cover, timestamped KNMI event forcing and explicit assets/targets. Retain publisher, edition, resolution, unit, cadence, licence, uncertainty and no-data masks; test that hazard rankings may differ while service-layer invariance remains exact."
+    },
+    {
+      "id": "GM0757-FIRE-SPAT-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "An explicit fire source beside Kampina does not control Boxtel's neighbourhood fire ranking.",
+      "evidence": "E04/E06 support local forest/heath fire relevance and identify Kampina's approximately 1,600 hectares; neither establishes a current event. In a reproducible synthetic T+24 test, a source at Verspreide huizen Roond centre produces direct fire 0.4472, smoke 0.4375, drought 0.5073 and municipality severity 0.4525. The source neighbourhood ranks only 3/19 at 0.5168 while Munsel-Selissen 4.397 km away ranks first at 0.5298 and Velders/Bosch/De Scheeken 6.853 km away ranks second. Canonical wildfire is 72.859 km away, has zero local flame and 0.2511 smoke at T+24.",
+      "action": "Make an explicit ignition/perimeter intersect and prioritize eligible fuel cells; separate flame, smoke and drought. Prefer an authorized NIPV RIN export, because no public bulk API/licence/cadence was found. The transparent public fallback is BRT TOP10NL OGC land-cover eligibility plus event-aligned KNMI wind/rain and explicit fuel, moisture, access, extinguishing-water and suppression assumptions. Expose Unknown where source or fuel evidence is absent."
+    },
+    {
+      "id": "GM0757-WATER-SYSTEM-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "open",
+      "summary": "Boxtel's backwater, drainage, wastewater and public water-control assets are visible context but absent from causal flood and service behavior.",
+      "evidence": "E02/E03 establish municipal/water-board responsibility boundaries, low and storage areas, regional barriers and a conditional Maas–Dommel–Essche pathway. Current HWH context contains 32 weirs, two surface-water pumps, three sewer pumps and RWZI Boxtel. Yet pluvial T+24 drainage availability is 0.5276 and river T+24 is 0.4408 without connected catchment, sewer, storage, barrier, control, water level, direction, overflow, power/backup or wastewater topology. Some public point capacity attributes exist, but their unit is absent in the app snapshot and cannot calibrate throughput.",
+      "action": "Integrate HWH Kunstwerken/Waterketen/Waterbeheergebieden/Zoneringen/Keringen/Oppervlaktewater OGC as partial typed context, observing each CC BY-SA 4.0 or CC0 licence and weekly/object-date cadence. Seek municipal GWSW/stress-test and De Dommel hydraulic topology/controls for causal use. Preserve Unknown for unreported units, completeness, state, connectivity, direction, power/backup, contamination and dewatering time; public registry points should default to affectsSimulation=false."
+    },
+    {
+      "id": "GM0757-UTILITY-DATA-001",
+      "severity": "medium",
+      "category": "network",
+      "status": "open",
+      "summary": "Verified Enexis, Brabant Water and Ziggo territories plus RDI sites do not calibrate the road-cloned utility networks.",
+      "evidence": "A live public-domain Stichting Mijn Aansluiting query at the municipal reference point identifies Enexis electricity/gas, Brabant Water drinking water and Ziggo fixed media; no drainage polygon is returned. RDI supplies 86 deployment sites/192 antennas, including 41 mobile sites/122 antennas and 30 fixed-link sites/55 antennas. The app has no confirmed public physical Enexis, Brabant Water, gas or telecom topology for Boxtel. Every service instead reuses three NWB corridors totalling 670 synthetic units, despite different physical mechanisms.",
+      "action": "Use provider WMS/WFS only for responsibility context and the RDI WFS only for dated non-causal deployment context. Never turn a territory or antenna point into connectivity, coverage, capacity or state, and keep absent drainage territory Unknown. Request security-reviewed exercise topology/state, backup endurance, priority users, crews, spares and restoration from operators; where unavailable, retain the smallest transparent synthetic proxy and expose sensitivity rather than inventing assets."
+    },
+    {
+      "id": "GM0757-MOBILITY-001",
+      "severity": "medium",
+      "category": "network",
+      "status": "open",
+      "summary": "The A2, N618, Boxtel station and growing passenger/freight rail corridor lack operational and hazard-intersection behavior.",
+      "evidence": "Generated context has only three logical road links, Boxtel station and 36 transit stop areas. E03 says regional high water can flood the A2 emergency route, while E04 and ProRail identify materially increased passenger, freight and hazardous-goods traffic under PHS Meteren–Boxtel. The simulator has no segment-level flood intersection, bridge/underpass, closure, traffic, train/bus operation, evacuation, hazmat incident, ambulance, crew access or alternative-route state. Winter T+24 mobility is 0.5890 and compound T+24 0.5202 without operational evidence.",
+      "action": "Use monthly CC0 NWB and manually updated CC0 ProRail as separate road/rail geometry, GTFS only as best-effort schedule context, and NDW DATEX as timestamped observations. Make an observation causal only after explicit scenario-time/geometry/quality matching. Separate road, rail, public transport, ambulance/evacuation and utility graphs, intersect selected hydraulic footprints with segments, and preserve Unknown when a live state is absent."
+    },
+    {
+      "id": "GM0757-FACILITY-SUPPLY-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "accepted-limitation",
+      "summary": "External acute-care access, local continuity facilities and household emergency supply are not represented by verified roles, stocks or live capacity.",
+      "evidence": "E01 records 23.9 percent aged 65 or older and 5,539 one-person households. E08 finds no acute hospital in GM0757; Jeroen Bosch Ziekenhuis is 12.28 km away by straight-line reference points and reports 24/7 SEH/obstetrics, 23 treatment rooms and 35,558 visits in 2025. Twenty DUO sites and five government/business-registry points are not verified shelters or hubs. The model lacks ambulance routes, acceptance/diversion, care homes/home care, pharmacies, staffing, generators/fuel, depot stocks and distribution vehicles. Its 0.44 household-preparedness default is a national 2026 survey proxy; the official nine-litre-per-person 72-hour water recommendation is advice, not observed Boxtel stock.",
+      "action": "Retain RIVM v1.1 CC0 and daily DUO RIO CC BY (licence version unspecified) as dated non-causal context. Add route-aware external care and named local shelter/distribution nodes only with authorized role, accessibility, capacity and state. Seek GHOR/ROAZ, municipal continuity and care/supply exercise data; otherwise display local need, confirmed resources and Unknown stock/continuity separately from scenario assumptions."
+    },
+    {
+      "id": "GM0757-RESPONSE-001",
+      "severity": "medium",
+      "category": "explainability",
+      "status": "accepted-limitation",
+      "summary": "Generic intervention controls do not represent Boxtel/VRBN authority, prerequisites, dispatch, travel or scarce resources through the first 72 hours.",
+      "evidence": "E05 frames the acute phase as roughly three days and distinguishes public-order authority, operational coordination, functional chains and operator responsibilities. It does not guarantee that teams activate, De Dommel changes a control, Enexis switches supply, Brabant Water deploys drinking water, a route is passable, a generator arrives or a hospital accepts patients on a fixed schedule. Current pump, generator, traffic and medical-priority controls are response-delay-gated multipliers rather than recorded decisions or inventoried resources.",
+      "action": "Keep every control hypothetical. Add a first-72-hour operations timeline that separates observation/time/confidence, decision authority, action owner, prerequisite, request/confirmation, quantity, dispatch/travel delay, effect and recovery handover. Offer a Boxtel/VRBN exercise template aligned to E05 without implying that a municipality, water board, operator, GHOR or hospital has acted."
+    },
+    {
+      "id": "GM0757-HAZARD-SCOPE-001",
+      "severity": "medium",
+      "category": "limitation",
+      "status": "accepted-limitation",
+      "summary": "Every non-hydraulic hazard magnitude is a bounded exercise assumption, and the current preset set omits locally prominent rail/hazardous-goods risk.",
+      "evidence": "E04 supports regional relevance of storm, extreme rain, high water, heat/drought, winter, nature fire, cyber and vital-service cascades, but not the exact GM0757 magnitudes. Coastal direct inundation is scoped zero, not a general no-impact claim. Heat T+24 uses 24.56 °C and drought 0.5608; winter uses -6.24 °C, 18.84 m/s wind and 2.663 cm/h snow; cyber has no named target; the remote Groningen earthquake has only 0.00139 g at T+6 and no local catalogue/site-response/fragility calibration; wildfire has no local canonical flame. E04 identifies PHS-related passenger/freight/hazardous-goods exposure, which is outside the ten canonical presets.",
+      "action": "Label every preset deterministic scenario, never probability, warning, forecast or complete risk register. In observed mode require named event/time/location matching to KNMI radar/catalogue records. Declare cyber target/system boundary, earthquake event/ground-motion/site response/fragility, fire source/perimeter/fuel/weather and compound dependence. Document rail/hazmat as out of V1 scope or add a separately authorized scenario; zero in a scoped pathway must never become an all-clear."
+    },
+    {
+      "id": "GM0757-DATA-001",
+      "severity": "informational",
+      "category": "regional-data",
+      "status": "fixed",
+      "summary": "Identity, population, neighbourhood, place, settlement and public-context provenance are inspectable and null-safe.",
+      "evidence": "E01 matches GM0757/Boxtel and official 2025 totals. All 19 neighbourhoods, three BAG places and 19 BRT settlements load; the one-person CBS rounded difference is disclosed. Missing district heat/public charging, absent drainage territory and empty NDW context remain null/Unknown. HWH, RDI, RIVM, DUO, provider and transport records retain publisher, URL, retrieval/edition and licence/no-licence caveats and do not affect simulation unless explicitly declared.",
+      "action": "Retain edition, retrieval time, licence, spatial/temporal coverage, no-data and affectsSimulation semantics. Refresh each public adapter at publisher cadence and rerun generated-data plus focused/national model gates after every snapshot."
+    },
+    {
+      "id": "GM0757-CONTRACT-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The complete deterministic and layer-invariance contract passes for Boxtel despite the identified semantic and calibration defects.",
+      "evidence": "The focused harness passes 10 presets × 6 checkpoints × 8 services; intensity-zero output is exact zero; local population, demand and delivery balances reconcile; causal arithmetic closes; person-hours are event-attributable against a matched no-event baseline; all layer selections preserve hazard/state; and every route declares logical-proxy semantics rather than physical utility topology.",
+      "action": "Retain these assertions as regression gates while fixing river evidence, coastal attribution and spatial calibration. Do not weaken exact-zero, deterministic, reconciliation, monotonic-person-hours or layer-invariance checks to conceal data gaps."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Replace GM0757's schematic major-river score with a selected local hydraulic scenario and honest evidence state.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/src/data.ts",
+        "apps/web/public/data/hazards/gm0757-river-context.geojson",
+        "apps/web/src/components/Inspector.tsx",
+        "audits/correction-ledger.json"
+      ],
+      "validation": "Before correction, GM0757 canonical river T+12/T+24/T+48/T+72 inundation stress is exactly 0.8613810177288751 and T+24 severity is 0.2710878376771953, with 13,817 affected and 190,928.8166 person-hours; T+72 has 15,058 affected and 767,217.05 person-hours. Require a named/versioned hydraulic source, scenario boundary conditions, defences/controls, depth unit, connected footprint, arrival/recession, licence and no-data mask before claiming local depth. Otherwise expose unsupported/Unknown while retaining E03's conditional local pathway as context."
+    },
+    {
+      "summary": "Make coastal headline, explanation and event-attributable service impacts causally coherent for inland GM0757.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/AnalyticsDrawer.tsx",
+        "audits/correction-ledger.json"
+      ],
+      "validation": "Regression values before correction: coastal T+24 flood=0, wind=16.2276 m/s, severity=0, peakSeverity=0, pressure=0.0872, affected=0 and event-attributable person-hours=9,645.56; T+48 wind=0 and person-hours=24,737.70. Align the greater-than-20 m/s headline and greater-than-15 m/s service thresholds or label an inland wind component. Assert that a no-event-forcing explanation implies zero event-attributable delta unless a named remote or inherited-damage pathway is shown."
+    },
+    {
+      "summary": "Replace the shared neighbourhood ranking and source-insensitive fire allocation with versioned hazard-specific evidence.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/src/data.ts",
+        "apps/web/public/data/hazards/gm0757-spatial-context.geojson"
+      ],
+      "validation": "Before correction, eight nonzero T+24 presets share the complete 19-neighbourhood order; the synthetic Roond fire source ranks 3/19 behind cells 4.397 and 6.853 km away. Mark ranks unsupported until sourced. Prefer an authorized NIPV RIN/local stress-test export; otherwise use BRT TOP10NL OGC, AHN WCS, HWH context and event-aligned KNMI inputs. Tests must allow hazard-specific ordering, preserve exact service-layer invariance, prioritize source-intersecting eligible fire cells and preserve Unknown no-data."
+    },
+    {
+      "summary": "Add typed Boxtel water, operator, telecom, mobility and facility context without inventing operational topology.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "apps/web/src/data.ts",
+        "apps/web/public/data/public-context/water-assets.geojson.gz",
+        "apps/web/public/data/public-context/rdi-antenna-sites.geojson.gz",
+        "apps/web/public/data/public-context/rivm-acute-care-locations.geojson.gz",
+        "apps/web/public/data/public-context/duo-education-locations.geojson.gz",
+        "apps/web/public/data/transport-network.json"
+      ],
+      "validation": "HWH OGC is partial CC BY-SA 4.0/CC0 context refreshed weekly or by retained object timestamp; provider WMS/WFS is live Public Domain responsibility context; RDI WFS has no stated fixed cadence/licence; RIVM is v1.1 2026-07-03 CC0; DUO RIO is daily CC BY with version unspecified; NWB is monthly CC0; ProRail is manually updated CC0; NDW is live CC0 unless stated. Keep all affectsSimulation=false until connectivity, unit-correct capacity, time-matched state, backup and decision semantics are authorized."
+    },
+    {
+      "summary": "Make Boxtel first-72-hour operational ownership, prerequisites, resource state and recovery uncertainty explicit.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/AnalyticsDrawer.tsx"
+      ],
+      "validation": "Represent observation, confidence, authority, owner, prerequisite, requested/confirmed state, quantity, dispatch/travel delay, effect and recovery handover separately. Assert that scenario controls never imply a real municipality, VRBN, De Dommel, Enexis, Brabant Water, telecom, GHOR or hospital action. At T+72 show residual hazard, all services, pressure, affected people-equivalent and cumulative event-attributable proxy together; zero affected may not be labelled complete recovery while residual hazard or service pressure remains."
+    }
+  ],
+  "residualLimitations": [
+    "The simulator is a deterministic planning stress test, not a KNMI forecast, official warning, probability estimate, live incident picture, casualty model or operator outage forecast.",
+    "No selected hydraulic footprint, boundary condition, defence, breach, storage/control state, arrival, duration, water-level/depth unit or recession grid is ingested for GM0757; internal inundation stress is not measured metres.",
+    "Official Howabo evidence establishes a conditional regional backwater mechanism and possible Boxtel/A2 consequences, not the simulator's exact municipality-wide amplitude, affected count or availability curve.",
+    "CBS neighbourhoods and deterministic seeds do not resolve low Boxtel Noordwest, terrain, catchments, barriers, buildings, paving, shade, vegetation, households, visitors or individual vulnerability.",
+    "The HWH national aggregation is provider-dependent and partial; 38 points cannot be interpreted as a complete connected surface-water, sewer or wastewater system, and snapshot capacity units are not usable causally.",
+    "No public causal Enexis feeder/switching, Brabant Water pipe/pressure-zone/reserve, gas pressure-district, sewer, Ziggo/mobile backhaul or operator restoration topology is authorized in the model.",
+    "Provider polygons identify responsibility at one reference point, not complete coverage, connectivity, capacity or state; absence of a drainage polygon means Unknown.",
+    "RDI antenna records do not establish operator, radio coverage, backhaul, traffic, power/backup, damage, congestion, availability or restoration.",
+    "All eight service layers reuse three road-derived logical corridors and cannot be interpreted as cables, pipes, sewers, pressure zones, radio backhaul, patient transfers or food routes.",
+    "Static NWB, ProRail and GTFS inputs do not establish live closure, traffic, train/bus operation, evacuation capacity, ambulance travel, freight/hazmat state or repair access; empty NDW context is not an all-clear.",
+    "No acute hospital is inside GM0757 in E08; straight-line distance to Jeroen Bosch Ziekenhuis is not ambulance travel time, acceptance, staffing, bed capacity, generator endurance or diversion status.",
+    "DUO and business/government registry points do not establish command, care, shelter or distribution roles; facilities/supply lack verified care-home, pharmacy, support-point, stock, depot, vehicle and staff state.",
+    "Wildfire lacks a local canonical perimeter, fuel/moisture surface, wind-aware spread, suppression state, extinguishing water and access; the Roond diagnostic is explicitly synthetic.",
+    "Earthquake lacks a selected event, ground-motion surface, local site response and asset fragility; a KNMI catalogue record would be observed context, not scenario probability.",
+    "Cyberattack lacks a named target, attack path, detection/containment evidence and operator architecture; generic regional context cannot calibrate exact cross-service loss.",
+    "Generic preparedness, demand, backup, network, repair and intervention multipliers are scenario controls rather than observed GM0757 resources or commitments.",
+    "Event-attributable essential-service person-hours is a matched-no-event all-service availability proxy, not experienced customer outage-hours, casualties, displacement or welfare loss.",
+    "Six-hour checkpoints can miss cloudbursts, water-level/control changes, route restrictions, fire spread and dispatch; 72 hours excludes prolonged high water, contamination, care effects, displacement, ecological loss and reconstruction."
+  ],
+  "provinceReviewFlags": [
+    "Audit the coastal headline/service threshold contradiction across inland Noord-Brabant and distinguish direct sea flooding from inland wind and explicitly modelled remote dependencies.",
+    "Review Maas backwater into Dommel, Aa, Dieze and Essche Stroom jointly across Brabant-Noord; a schematic main-river distance score must not replace named hydraulic scenarios, local barriers, storage, controls or no-data semantics.",
+    "Replace shared neighbourhood seeds across Noord-Brabant with hazard-specific, versioned municipal stress-test, AHN, HWH, BRT, KNMI and authorized RIN inputs while retaining licences and no-data masks.",
+    "Review Kampina and other Brabant forest/heath interfaces jointly for source/perimeter, fuel, weather, visitors, access, extinguishing water, smoke and simultaneous-incident resource constraints.",
+    "Treat A2 and the Meteren–Boxtel passenger/freight/hazardous-goods rail corridor as typed mobility dependencies and hazards where authorized; never clone NWB links into physical utility networks.",
+    "Keep Enexis, Brabant Water and telecom topology, backups, priority users, crews and restoration Unknown until current publisher-confirmed public or security-reviewed exercise data exists."
+  ]
+}

@@ -1,0 +1,499 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0106",
+    "name": "Assen",
+    "province": "Drenthe",
+    "safetyRegion": "Drenthe"
+  },
+  "agent": {
+    "taskName": "municipality_gm0106",
+    "agentId": "/root/nl_realism_audit",
+    "completedAt": "2026-09-02T14:10:00Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "Assen's generated identity and 2025 administrative data are coherent: 70,392 residents, 109 neighbourhoods in ten districts, seven BAG woonplaatsen, eleven BRT settlements, one ProRail station, 141 grouped transit stop areas and four NWB-derived municipal links. The complete ten-preset, six-checkpoint and eight-service audit contract passes, including deterministic ledgers, exact zero-event behavior, event-attributable deprived person-hours, preserved official zero populations and municipality-to-neighbourhood reconciliation. Release is nevertheless correction-required for two high-severity defects. Seven nonzero T+24 presets reuse exactly the same seeded neighbourhood hazard ranking, so water-on-street, heat, storm, cyber and other maps imply false spatial precision instead of using Assen's documented hazard geography. The earthquake preset also displays 0.0937 g and 15,914 affected residents at T+6 without an event magnitude, source mechanism, local site response or KNMI ShakeMap, making the physical unit unsupported. Direct major-river and coastal inundation zeros are appropriate for Assen, but the coastal preset's generic wind cascade must be labelled indirect. Public CBS/PDOK, municipal WOLK/flow-path, water-board IMWA/DAMO, KNMI weather/seismic and transport feeds can improve context when pinned with cadence, licence and quality metadata; unavailable or security-sensitive utility topology, restoration commitments, crews, reserves and backup autonomy must remain clearly synthetic inputs.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek / PDOK / Kadaster",
+      "title": "E01 — CBS Wijken en Buurten 2025 and 2025 administrative geography for GM0106",
+      "url": "https://api.pdok.nl/cbs/wijken-en-buurten-2025/ogc/v1?f=html&lang=nl",
+      "accessedAt": "2026-09-02T14:08:00Z",
+      "edition": 2025,
+      "supports": [
+        "The annual machine-readable OGC API publishes neighbourhood geometries and statistics under CC BY 4.0; the current generated snapshot identifies GM0106 Assen with 70,392 residents, density 860, 22 percent age 65-plus and 13,339 one-person households.",
+        "The app also uses CBS OData table 86165NED and the annual 2025 generalized municipality, neighbourhood and safety-region collections at https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1, plus daily BAG woonplaatsen at https://api.pdok.nl/kadaster/bag/ogc/v2/collections/woonplaats under Public Domain Mark 1.0.",
+        "Neighbourhood polygons are an administrative/statistical resolution, not sewer catchments, flood cells, utility service zones or individual vulnerability records; edition and generalized-boundary caveats must remain visible."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / PDOK / ProRail / OVapi",
+      "title": "E02 — Versioned machine-readable road, rail, station and scheduled-transit sources",
+      "url": "https://service.pdok.nl/rws/nationaal-wegenbestand-wegen/wfs/v1_0?service=WFS&version=2.0.0&request=GetCapabilities",
+      "accessedAt": "2026-09-02T14:08:00Z",
+      "edition": "NWB-Light 2026-08-01; transit feed version 9543",
+      "supports": [
+        "The generated transport snapshot pins NWB-Light 2026-08-01 and the NWB WFS under CC0 1.0; Assen has four logical boundary crossings on A28, N33 and N371, but the dataset supplies road geometry rather than disaster passability, capacity or utility topology.",
+        "ProRail's OGC API at https://api.pdok.nl/prorail/spoorwegen/ogc/v1 publishes feature-level rail, station and crossing geometry under CC0 1.0 with update frequency described as manual; one station point lies inside GM0106.",
+        "The app's OVapi national GTFS snapshot was retrieved 2026-08-31, is valid 2026-08-30 through 2026-12-12 and is free-use under OVapi terms, but is best-effort without an SLA. Its 141 grouped Assen stop areas are scheduled-location context, not current operations, ridership, vehicle capacity, closures or recovery."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Drenthe",
+      "title": "E03 — Regionaal Risicoprofiel 2025",
+      "url": "https://www.vrd.nl/publish/pages/2221/04-3b_vrd_regionaal_risicoprofiel_2025_inclusief_aanpassingen_1_.pdf",
+      "accessedAt": "2026-09-02T14:08:00Z",
+      "edition": 2025,
+      "supports": [
+        "Drenthe faces extreme local and prolonged rainfall, storm and lightning, heat and drought, nature fire, winter effects, energy and drinking-water interruption, cyber and telecom cascades and induced earthquakes; these hazards have distinct pathways rather than one common local pattern.",
+        "A 70 mm/hour urban rain event can inundate streets, cellars, homes and low roads. Drenthe has no primary sea- or major-river barrier; the limited major-water concern is around Meppel, with several days of warning, so Assen direct coastal and major-river inundation zeros are defensible.",
+        "Heat increases peak drinking-water demand and health risk, particularly for older people and care continuity; drought affects sandy soils, nature-fire risk and firefighting water. Extreme weather caused evacuation of Assen's Bevrijdingsfestival in 2023.",
+        "Energy interruption can cascade to other vital processes; three drinking-water companies use sixteen regional groundwater abstraction sites, and cyber incidents can affect energy, drinking water, water boards, electronic payments and digital care.",
+        "The profile records five light induced Drenthe earthquakes of magnitude 1.3–2.2 in 2023 without damage or public unrest and identifies gas fields near Hooghalen, Winde and Ekehaar; it does not support a fixed Assen peak-ground-acceleration value."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Drenthe",
+      "title": "E04 — Crisisplan Veiligheidsregio Drenthe 2026–2029",
+      "url": "https://www.vrd.nl/publish/pages/2221/crisisplan_vrd_2026_2029_vastgesteld_260624_1.pdf",
+      "accessedAt": "2026-09-02T14:08:00Z",
+      "edition": "2026–2029",
+      "supports": [
+        "VRD organizes crisis response flexibly and fit-for-purpose; GRIP supports coordination but is not itself a deterministic severity or recovery scale.",
+        "The meldkamer is continuously staffed, CoPI is intended to start within 30 minutes for local operational coordination, ROT handles scarcity, continuity and medium/long-term effects, and municipal/GBT/RBT structures have distinct strategic responsibilities. ROT is located at VRD in Assen.",
+        "The plan prioritizes operational leadership, information management, crisis communication, rescue, medical care, shelter and support for self-reliance, but does not publish incident-specific crews, stock, fuel, emergency-water or restoration capacity."
+      ]
+    },
+    {
+      "publisher": "Gemeente Assen",
+      "title": "E05 — Omgevingsvisie, Programma Water en riolering 2026–2031 and public Waterbeheer ArcGIS services",
+      "url": "https://lokaleregelgeving.overheid.nl/CVDR750575",
+      "accessedAt": "2026-09-02T14:08:00Z",
+      "edition": "effective 2026; WOLK 2017",
+      "supports": [
+        "The current Omgevingsvisie at https://lokaleregelgeving.overheid.nl/CVDR757835 identifies water-on-street susceptibility in the lower city and heat islands in Havenkwartier, the northern inner city, business parks and neighbourhood shopping centres; it also notes drinking-water scarcity and pipe-heating risks.",
+        "The PWR reports calibrated sewer measurements through 2024, a planned replacement sewer-system model, approximately 25,000 cubic metres of urban storage need, 34,500 connections in 2025, three involved water boards and priority work in Baggelhuizen, Pittelo, Noorderpark and Assen-Oost. These are planning facts, not emergency pumping or repair capacity.",
+        "The public WOLK inundation MapServer at https://gis.assen.nl/arcgis/rest/services/Waterbeheer/Wolk_Inundatie/MapServer is a static 2017 raster in RD/EPSG:28992; pixel resolution, time information, guaranteed cadence and an explicit reuse licence are not exposed, so it needs publisher validation before redistribution or calibration.",
+        "The public flow-path MapServer at https://gis.assen.nl/arcgis/rest/services/Waterbeheer/Wolk_Stroombaan/MapServer returns polyline JSON/GeoJSON/PBF in RD. The water-nuisance and peilbuis FeatureServers at https://gis.assen.nl/arcgis/rest/services/Waterbeheer/Registratie_loc_wateroverlast/FeatureServer and https://gis.assen.nl/arcgis/rest/services/Waterbeheer/Peilbuizen/FeatureServer expose point locations but no documented live observation cadence or reuse licence; the peilbuis service is location/attribute context, not a continuous emergency feed."
+      ]
+    },
+    {
+      "publisher": "Waterschap Hunze en Aa's / Waterschap Drents Overijsselse Delta / Het Waterschapshuis / PDOK",
+      "title": "E06 — Assen catchment responsibilities and machine-readable IMWA/DAMO water assets",
+      "url": "https://www.wdodelta.nl/waterschap-neemt-beheer-en-onderhoud-van-water-in-klein-deel-van-assen-over",
+      "accessedAt": "2026-09-02T14:08:00Z",
+      "edition": "current public services; Kloosterveen responsibility from 2023",
+      "supports": [
+        "Kloosterveen is the only Assen neighbourhood in WDODelta's management area, and WDODelta manages its main waterways from 2023; a municipality-wide single catchment or operator assumption is therefore wrong.",
+        "Hunze en Aa's documents the Loon diversion of Drentsche Aa peaks toward Havenkanaal/Noord-Willemskanaal as important for Assen drainage in https://www.hunzeenaas.nl/app/uploads/2021/03/Drentsche-Aa-KRW-achtergronddocument-2022-2027.pdf.",
+        "The nationwide object-level OGC APIs https://api.pdok.nl/hwh/waterschappen-kunstwerken-imwa/ogc/v2 and https://api.pdok.nl/hwh/waterschappen-waterketen-damo/ogc/v1 publish pumps, weirs, sluices, wastewater pumps and treatment works under CC BY-SA 4.0 with per-feature registration timestamps. Contributor completeness and update timing vary, so no fixed cadence or operational state should be inferred.",
+        "The current app's partial display-only snapshot contains RWZI Assen and named wastewater pumps/weirs near Assen, but these assets do not yet drive drainage, power dependency, storage, catchment or restoration."
+      ]
+    },
+    {
+      "publisher": "Koninklijk Nederlands Meteorologisch Instituut",
+      "title": "E07 — Assen induced-earthquake record and integration-ready weather/seismic APIs",
+      "url": "https://www.knmi.nl/nederland-nu/seismologie/aardbevingen/knmi2025hldw",
+      "accessedAt": "2026-09-02T14:08:00Z",
+      "edition": "event 2025-04-16; API catalogue current 2026-09-02",
+      "supports": [
+        "KNMI reports an automatically located induced M1.5 event at Assen on 2025-04-16 17:12 UTC, coordinates 6.562/52.953 and depth 3 km, and warns that the automatic solution can be wrong. This supports local seismic relevance, not the simulator's fixed 0.0937 g.",
+        "The keyless FDSN Event, Station and DataSelect services and ShakeMaps NetCDF service are documented at https://developer.dataplatform.knmi.nl/apis. They provide event-driven hypocentre/magnitude, station metadata, waveforms and available ShakeMaps; the API catalogue does not state a common reuse licence, so licence terms must be confirmed per product.",
+        "The machine-readable near-real-time 10-minute station-observation dataset at https://dataplatform.knmi.nl/en/dataset/10-minute-in-situ-meteorological-observations-1-0 is continual, available minutes after each interval, may be backfilled for seven days and is CC BY 4.0. It is station-scale rather than a neighbourhood raster and should be combined with a validated interpolation or radar product.",
+        "KNMI's public radar precipitation and short nowcast products provide approximately 1 km, five-minute gridded rainfall under CC BY 4.0; ingestion must pin the exact dataset version, grid, timestamp and quality flags rather than treating a national preset as an observation."
+      ]
+    },
+    {
+      "publisher": "Rijksoverheid / Denk vooruit",
+      "title": "E08 — Official first-72-hour preparedness guidance",
+      "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/veiligheidsregios-en-crisisbeheersing/wat-zit-er-in-een-noodpakket",
+      "accessedAt": "2026-09-02T14:08:00Z",
+      "edition": 2026,
+      "supports": [
+        "Official guidance asks households to prepare for the first 72 hours with water, durable food, radio/power, medicines and warmth; the stated water planning quantity is three litres per person per day.",
+        "The supporting page https://www.denkvooruit.nl/vraag-en-antwoord-2/voorbereiden says a crisis can last longer than 72 hours, uncertainty is high and emergency services cannot be everywhere at once.",
+        "The national page https://www.rijksoverheid.nl/themas/recht-veiligheid-en-defensie/dreiging-in-nederland/energie-drinkwater-internet-zorg-bereikbaarheid-tijdens-crisis explicitly links electricity, drinking water, internet, healthcare, accessibility and emergency supply, but does not provide an Assen neighbourhood preparedness percentage or a guaranteed restoration clock."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM0106 identity, municipality name, province and safety-region membership are coherent.",
+      "evidenceRefs": [
+        "E01"
+      ],
+      "notes": [
+        "Feature id, municipal code and regional bundle code/name all identify Assen in Drenthe and Veiligheidsregio Drenthe.",
+        "The current generator retains the leading-zero GM0106 code and does not confuse it with a numeric identifier."
+      ]
+    },
+    "geography": {
+      "status": "pass",
+      "summary": "The 2025 generalized boundary and generated center pass the audit geometry checks.",
+      "evidenceRefs": [
+        "E01"
+      ],
+      "notes": [
+        "The generated center [6.559254869973711, 53.00377783723215] lies inside the GM0106 multipolygon.",
+        "The generalized administrative geometry is suitable for selection and choropleths, not for drainage flow, groundwater response, water-board responsibility, hydraulic connectivity or utility service areas."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Official 2025 municipality totals and neighbourhood allocations reconcile within CBS publication rounding.",
+      "evidenceRefs": [
+        "E01"
+      ],
+      "notes": [
+        "Official population is 70,392, density 860, age 65-plus share 22 percent and one-person-household count 13,339.",
+        "Published neighbourhood population sums to 70,395, a difference of +3 (+0.004 percent); the modeled allocator reconciles exactly to 70,392 while preserving official zero residents.",
+        "Affected population is resident-equivalent and excludes commuters, visitors, TT/event attendees, hospital patients and other time-varying occupants."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "Neighbourhood statistics are broad, but important fields are incomplete and activity remains an aggregate proxy.",
+      "evidenceRefs": [
+        "E01",
+        "E03",
+        "E05"
+      ],
+      "notes": [
+        "The bundle has 109 neighbourhoods in ten districts and 36 statistic fields; population, age, household, building and business fields are complete.",
+        "District-heating percentage and public-charging points are unavailable for all 109 neighbourhoods and correctly remain null, not zero. Home value is available for 82, cars per household for 70, benefits for 91, doctor/supermarket distance for 106 and housing percentages for 84.",
+        "Kazerneterrein and Sportpark Stadsbroek retain zero residents but positive business/non-residential activity. This is useful for demand allocation but is not workers, visitors, critical-facility capacity or response priority.",
+        "All official neighbourhoods currently receive neutral operational priority; demographic vulnerability is correctly kept separate from responder priority."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "BAG woonplaatsen and BRT settlement geography are retained as distinct official concepts.",
+      "evidenceRefs": [
+        "E01"
+      ],
+      "notes": [
+        "Seven BAG woonplaatsen — Assen, Loon, Rhee, Ter Aard, Ubbena, Zeijerveen and Zeijerveld — have no assigned center outside the generalized boundary.",
+        "Eleven BRT settlement polygons comprise four buurtschappen, two deelkernen, one gehucht and four woonkernen; they are descriptive geography, not service zones or population totals."
+      ]
+    },
+    "transport": {
+      "status": "warn",
+      "summary": "Authoritative road, station and stop geometry is present, but mobility capacity and disaster state are not.",
+      "evidenceRefs": [
+        "E02",
+        "E03",
+        "E05"
+      ],
+      "notes": [
+        "The logical graph has four links to Midden-Drenthe, Aa en Hunze and Tynaarlo: A28 north/south, N33 and N371. It also contains Assen station and 141 grouped transit stop areas.",
+        "NWB nominal capacities are scenario units and GTFS supplies scheduled geometry only. Closures, bridge/tunnel state, actual train/bus operations, evacuation throughput, emergency access and restoration are absent.",
+        "Assen station, A28/N33 access and event traffic are important local context, but road geometry cannot be reused as physical electricity, water, drainage, gas or telecom topology."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "Official response roles and major local facilities are documented but not represented as resources, capacities or decisions.",
+      "evidenceRefs": [
+        "E03",
+        "E04",
+        "E05",
+        "E08"
+      ],
+      "notes": [
+        "VRD meldkamer, CoPI, ROT, GBT/RBT and municipal roles cannot be inferred from the model's operational/strained/degraded/critical/recovering label.",
+        "Wilhelmina hospital, VRD/ROT in Assen, the station and large event/TT demand are not typed facilities with occupancy, backup autonomy, access, stock or service dependencies.",
+        "The model has no verified incident inputs for warnings, available crews, emergency water, shelter, fuel, medical/logistics stock, road closures or mutual aid.",
+        "Household preparedness 0.44 is correctly disclosed as a national editable scenario proxy, not an Assen measurement."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "The complete deterministic 10 × 6 × 8 numerical contract passes for GM0106.",
+      "evidenceRefs": [
+        "E03",
+        "E05",
+        "E07"
+      ],
+      "notes": [
+        "MUNICIPALITY_AUDIT_CODE=GM0106 pnpm audit:model passed severe storm, pluvial flood, major-river flood, coastal surge, heatwave/drought, winter storm, cyberattack, earthquake, wildfire and compound at T+0, +6, +12, +24, +48 and +72 for power, water, drainage, gas, telecom, mobility, facilities and supply.",
+        "Selected T+24 outputs are: storm severity 0.0825 and 21,206 affected; pluvial severity 0.1410 and 11,359 affected; river severity/affected zero; coastal direct severity zero but 9,800 affected through indirect forcing/cascades; heat severity 0.0995 and 4,972 affected; winter severity 0.4854 and 20,862 affected; cyber severity 0.4833 and 21,487 affected; earthquake current hazard zero after a T+6 peak with 15,914 affected; wildfire severity 0.0951 and zero affected; compound severity 0.8161 and 48,409 affected.",
+        "At T+72 the compound remains critical with severity 0.2742, 50,592 affected and availability power 0.2235, water 0.4053, drainage 0.2403, gas 0.5750, telecom 0.2510, mobility 0.3995, facilities 0.3770 and supply 0.3919. These are deterministic scenario outputs, not observations, forecasts or operator commitments."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Determinism, bounds, accounting ledgers, zero-event semantics and local reconciliation all pass.",
+      "evidenceRefs": [
+        "E01"
+      ],
+      "notes": [
+        "All values are finite and bounded, delivery never exceeds demand, causal contributions and matched-baseline deltas reconcile, and repeated frames are deterministic.",
+        "Intensity zero produces exact zero event hazard, zero affected residents and zero event-attributable deprived person-hours at every preset/checkpoint.",
+        "Every preset/service local view contains 109 neighbourhoods and population sums exactly to 70,392; affected, demand and delivered totals reconcile to municipality outputs with maximum floating-point error 4.973799150320701e-14.",
+        "Local hazard is invariant across the eight service layer views, official zero populations remain zero and event-attributable deprivation is non-decreasing across checkpoints."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "Neighbourhood hazard maps are reproducible but not hazard-specific spatial evidence.",
+      "evidenceRefs": [
+        "E03",
+        "E05",
+        "E06",
+        "E07"
+      ],
+      "notes": [
+        "At T+24, severe storm, pluvial flood, heatwave, winter storm, cyberattack, wildfire and compound rank all 109 neighbourhoods in exactly the same order because local modulation uses municipality seed, the common preset seed 20260831 and neighbourhood id, but not disaster type or a physical field.",
+        "The repeated order begins Vanboeijen, Houtlaan, De Venen/De Wallen, De Hoven, De Messchen, De Kleuven and Buitengebied Schieven. E05 instead identifies distinct pluvial low areas and heat islands, so the apparent map precision is unsupported.",
+        "Direct major-river and coastal inundation are correctly zero for Assen under E03. Local pluvial depth/stress, flow direction, groundwater, heat and nature-fire exposure nevertheless need separate source-specific adapters rather than one rank seed."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "Eight-service cascades are inspectable but uncalibrated to Assen's assets, operators and catchments.",
+      "evidenceRefs": [
+        "E02",
+        "E03",
+        "E05",
+        "E06"
+      ],
+      "notes": [
+        "Power, water, drainage, gas, telecom, mobility, facilities and supply each expose direct damage, dependency, backup, intervention and recovery terms, but all eight use cloned versions of the same four road-derived municipality links.",
+        "The three-water-board context, Loon diversion, Kloosterveen responsibility, RWZI Assen, wastewater pumps, storage, Wilhelmina hospital and event/transport dependencies are not typed causal nodes, catchments or service areas.",
+        "NWB cannot establish utility supply or dependency. Public aggregate assets and service areas should be integrated where authoritative; feeder, pipe, valve, control, telecom, backup and restoration detail that is unavailable or security-sensitive must remain minimal synthetic zones with uncertainty, not guessed locations."
+      ]
+    },
+    "causalTrace": {
+      "status": "warn",
+      "summary": "Causal and counterfactual ledgers reconcile, but their local parameters remain scenario assumptions.",
+      "evidenceRefs": [
+        "E02",
+        "E03",
+        "E04",
+        "E06"
+      ],
+      "notes": [
+        "Hazard, availability and system-pressure ledgers reconcile exactly and intervention counterfactuals have the correct sign.",
+        "The explanation contract correctly describes route connectivity and supply as a logical transfer proxy, never physical utility topology, and deprived person-hours as event-attributable against a matched no-event baseline.",
+        "Generic vulnerability multipliers, reserve hours, repair capacity, delays, local activity weights and four-link flow capacities have no Assen operator calibration. Exact figures therefore remain scenario-only confidence.",
+        "Official crisis-plan role activation is adaptive and information-led; it cannot be inferred from a simulated status badge or fixed time alone."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "The 72-hour horizon and persistent hazards work numerically, but response and restoration are not locally calibrated.",
+      "evidenceRefs": [
+        "E03",
+        "E04",
+        "E05",
+        "E08"
+      ],
+      "notes": [
+        "The corrected heatwave forcing lasts 336 hours, major-river forcing can persist 168 hours and compound forcing remains active at T+72; the interface no longer implies that every hazard ends at the display horizon.",
+        "Assen's river event remains exact zero consistently with its documented lack of direct major-river exposure, while compound remains critical at T+72 rather than falsely recovering.",
+        "Most single hazards return to operational by T+72 under generic curves, but E04/E08 provide no such restoration guarantee. No incident-specific crews, fuel, emergency water, shelter, stocks, warnings, access or mutual-aid constraints are modeled.",
+        "First-72-hour guidance is a household and coordination planning horizon, not a promise that hazards, infrastructure repair, care pressure or displacement are complete."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [
+      0,
+      6,
+      12,
+      24,
+      48,
+      72
+    ],
+    "services": [
+      "power",
+      "water",
+      "drainage",
+      "gas",
+      "telecom",
+      "mobility",
+      "facilities",
+      "supply"
+    ]
+  },
+  "findings": [
+    {
+      "id": "GM0106-SPAT-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Seven distinct hazards reuse the same seeded Assen neighbourhood ranking.",
+      "evidence": "At T+24 the storm, pluvial, heat, winter, cyber, wildfire and compound maps rank all 109 neighbourhoods identically, beginning Vanboeijen and Houtlaan, because the local seed omits disaster type and physical data. E03/E05 document materially different rain, heat, storm and nature-fire pathways and identify specific Assen heat islands and water concerns.",
+      "action": "Replace common seeded modulation with hazard-specific adapters. Start with a versioned, publisher-approved municipal WOLK/flow-path layer plus AHN/land cover for pluvial, KNMI observations/radar for current forcing and validated heat/land-cover layers; preserve an explicitly uniform/unknown fallback when no authoritative footprint exists rather than inventing neighbourhood precision."
+    },
+    {
+      "id": "GM0106-EQ-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The earthquake layer presents unsupported peak ground acceleration as a physical Assen result.",
+      "evidence": "The canonical preset reaches 0.0937 g, severity 0.2928 and 15,914 affected at T+6 from a fixed epicentre and distance-decay formula, but contains no magnitude, focal/source model, soil/site amplification, observation or ShakeMap. E03 records only light regional events and E07's actual 2025 Assen event is M1.5 with an explicitly provisional automatic solution; neither supports 0.0937 g.",
+      "action": "Require an event id, origin, magnitude and provenance, then prefer a KNMI ShakeMap/ground-motion field where available with explicit site/uncertainty handling. Otherwise label the layer dimensionless scenario shaking and remove `g`; block decision-use of affected counts derived from unsupported physical acceleration."
+    },
+    {
+      "id": "GM0106-FLOOD-001",
+      "severity": "medium",
+      "category": "explainability",
+      "status": "open",
+      "summary": "Correct direct flood zeros are mixed with indirect coastal-wind service effects.",
+      "evidence": "E03 supports zero direct sea and major-river inundation for Assen, and the model returns exact zero river impact. The coastal preset also shows zero inundation/headline hazard but still labels Assen strained with 9,800 affected at T+24 because 19.44 m/s generic wind and downstream cascades are active. Without component labelling, users can read this as coastal-water exposure.",
+      "action": "Show direct coastal-water exposure, coincident wind forcing and dependency/recovery effects as separate named components in the map legend, inspector and operations brief. Preserve Assen's zero inundation while allowing clearly labelled indirect wind/cascade stress."
+    },
+    {
+      "id": "GM0106-WATER-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "open",
+      "summary": "Public Assen water assets and catchments are display-only and do not drive drainage or recovery.",
+      "evidence": "E05/E06 provide a static 2017 WOLK raster, flow paths, nuisance/peilbuis locations, Loon diversion, Kloosterveen's separate water-board responsibility, RWZI Assen and named wastewater pumps/weirs. The current official-water snapshot is explicitly display-only; none affects runoff direction, pump-power dependency, storage, catchment allocation, failure or restoration.",
+      "action": "Ingest publisher-approved WOLK/SSW outputs, IMWA water-management areas and public DAMO/IMWA assets with source, CRS/resolution, object timestamp, retrieval hash, licence and completeness. Use them first as structural context; activate causal behavior only with water-manager validation and never expose control-state or security-sensitive topology."
+    },
+    {
+      "id": "GM0106-NET-001",
+      "severity": "medium",
+      "category": "network",
+      "status": "accepted-limitation",
+      "summary": "Four road crossings proxy every utility and supply network.",
+      "evidence": "The A28, N33 and N371 records are valid NWB-derived municipal crossings, but each is cloned into all eight services. E02 supplies only transport geometry; E03 confirms distinct electricity, gas, drinking-water, telecom and other vital-process ownership/dependencies. The UI does disclose logical transfer-proxy semantics, so this is transparent but not physically calibrated.",
+      "action": "Separate the real mobility graph from small, parameterized synthetic utility zones. Integrate only public operator service areas/aggregate outage feeds where safe and licensed; do not infer feeder, pipe, valve, fibre, switching, capacity or restoration from roads. Add ensemble/sensitivity ranges to every synthetic network result."
+    },
+    {
+      "id": "GM0106-FAC-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "open",
+      "summary": "Regional healthcare, crisis-coordination and event/transient loads are absent from local allocation.",
+      "evidence": "E03/E04 identify Assen as a regional hospital/event and crisis-coordination location, while the dataset contains Assen station and a `Ziekenhuis` stop but no typed Wilhelmina hospital, VRD/ROT, TT/event or shelter node. The 70,392-person resident denominator excludes patients, staff, commuters and event visitors, and business/non-residential counts do not replace occupancy or capacity.",
+      "action": "Add public facility identity/location and optional, time-stamped incident occupancy/demand for hospital, crisis coordination, station and large events. Keep bed/backup/stock/crew/access values unknown until supplied by an authorized source, and display residents separately from transient person-equivalents."
+    },
+    {
+      "id": "GM0106-72H-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "open",
+      "summary": "The first-72-hour view lacks verified resources, role state and locally measured preparedness.",
+      "evidence": "E04 defines adaptive meldkamer, CoPI, ROT, GBT/RBT and municipal responsibilities; E08 asks households to manage for 72 hours while help is prioritized. The simulator has generic intervention and recovery parameters but no incident-specific warnings, role activation, crews, fuel, emergency-water points, shelter, stocks, access or mutual aid. Preparedness 0.44 is a disclosed national proxy, not an Assen estimate.",
+      "action": "Add a provenance-bearing incident-input timeline at 0/6/12/24/48/72 hours for official warning/as-of state, activated coordination roles, crews, emergency water, shelter, backup fuel, medical/logistics stock, closures and mutual aid. Defaults must remain visibly hypothetical and editable."
+    },
+    {
+      "id": "GM0106-CLIMATE-001",
+      "severity": "medium",
+      "category": "limitation",
+      "status": "accepted-limitation",
+      "summary": "Most hazard directions are plausible, but exact Assen forcing and restoration curves are uncalibrated.",
+      "evidence": "E03 supports storm, pluvial, heat/drought, winter, nature fire, cyber and induced-earthquake relevance and E05 supports local heat/water concerns. The corrected heat forcing now lasts 336 hours and compound stress persists through T+72. Wildfire direct flame is zero only because the canonical event is fixed far away, while nature-fire risk remains regionally relevant; exact severity, affected population and recovery values are not observations.",
+      "action": "Retain scenario-only labelling and the first-72-hour display. Future calibration should use timestamped KNMI wind, temperature and precipitation products, authoritative land cover/fuel and hydrologic layers, incident-specific cyber assumptions and operator-tested restoration ranges with uncertainty."
+    },
+    {
+      "id": "GM0106-DATA-001",
+      "severity": "low",
+      "category": "regional-data",
+      "status": "accepted-limitation",
+      "summary": "Null and resident-only statistics constrain vulnerability and demand interpretation.",
+      "evidence": "E01 supplies annual aggregate neighbourhood data. District-heating share and charging points are absent for every neighbourhood, several housing/mobility/benefit fields are partial, and official population is residence-based. The current bundle correctly preserves nulls and official zero-resident areas instead of silently imputing zero or residents.",
+      "action": "Keep field-level coverage visible, preserve null/zero distinction and version all snapshots. Add licensed public daytime/transient, facility and accessibility datasets only when their denominator and time meaning are explicit; never infer individual vulnerability or occupancy from neighbourhood averages."
+    },
+    {
+      "id": "GM0106-INV-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The municipality release harness and current causal-accounting semantics pass.",
+      "evidence": "The complete matrix passes bounds, determinism, exact zero-event behavior, monotone event-attributable deprived person-hours, causal/counterfactual ledgers, service-layer-invariant local hazard, neutral official-neighbourhood priority, preserved zero residents and municipality/local population-demand-delivery reconciliation. River forcing can persist 168 hours but correctly remains zero for Assen.",
+      "action": "Retain these invariants in the national all-municipality gate and add Assen-specific regression gates for hazard-specific local rank and the earthquake event/units contract before resolving the two blockers."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Replace the shared seeded Assen neighbourhood field with versioned, hazard-specific spatial adapters and an honest unknown/uniform fallback.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "scripts/fetch-realism-data.mjs (or a new versioned hazard-layer importer)"
+      ],
+      "validation": "For GM0106, officially different pluvial, heat and other footprints do not have identical neighbourhood rank order; a pinned municipal/KNMI/water-manager layer records publisher, version, CRS/resolution, timestamp, hash, licence and caveats. Missing evidence produces a labelled unknown/uniform field rather than deterministic pseudo-local hotspots. Run MUNICIPALITY_AUDIT_CODE=ALL pnpm audit:model."
+    },
+    {
+      "summary": "Make earthquake forcing event-based and prevent unsupported physical `g` claims.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/InspectorPanel.tsx"
+      ],
+      "validation": "An earthquake scenario must carry event id/origin/magnitude and source provenance, sample a KNMI ShakeMap or explicitly validated ground-motion model, and expose uncertainty/site limitations. Without those inputs the UI uses dimensionless scenario shaking and never `g`; affected counts cannot be presented as physically calibrated."
+    },
+    {
+      "summary": "Separate direct hazard, coincident forcing and cascade/recovery semantics in maps and explanations.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/InspectorPanel.tsx",
+        "apps/web/src/components/OperationsBrief.tsx"
+      ],
+      "validation": "GM0106 coastal surge keeps zero direct inundation while generic wind and downstream service losses are labelled indirect in the legend, inspector and brief; direct major-river zero remains source-consistent. Component sums and counterfactual ledgers still reconcile."
+    },
+    {
+      "summary": "Add public Assen water/catchment and critical-facility context with validated, non-sensitive causal adapters.",
+      "files": [
+        "scripts/fetch-realism-data.mjs",
+        "apps/web/src/data.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts"
+      ],
+      "validation": "The Loon diversion, Kloosterveen manager context, approved WOLK/SSW output, public IMWA/DAMO assets and typed public facilities retain publisher, resolution, update timestamp, licence and completeness. Display-only data cannot silently change failure state; any activated pump-power/catchment/facility dependency has water-manager/operator validation and no sensitive control detail."
+    },
+    {
+      "summary": "Separate mobility from synthetic utilities and add provenance-bearing first-72-hour resources and transient exposure.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/ScenarioControls.tsx",
+        "apps/web/src/components/OperationsBrief.tsx"
+      ],
+      "validation": "Road/rail/transit state can change independently of power, water, drainage, gas and telecom; unavailable utility topology is explicitly synthetic and parameterized. Resident and optional transient denominators stay separate and reconcile, while role activation, warnings, crews, fuel, emergency water, shelter, stocks, closures and mutual aid carry verified/hypothetical state, source and as-of time."
+    }
+  ],
+  "residualLimitations": [
+    "No reviewed public source provides safe, complete and current Assen electricity feeder, gas pipe/valve, drinking-water distribution, telecom-control, sewer-control, backup-fuel, switching, crew or restoration topology. These details must not be inferred from NWB roads or facility points.",
+    "Assen's WOLK inundation service is a static 2017 product with no exposed pixel resolution, guaranteed cadence or explicit reuse licence, and the newer calibrated SSW output is not publicly available in the reviewed sources.",
+    "Municipal peilbuis and nuisance FeatureServers expose locations/attributes but no documented live observation cadence; Assen also warns that groundwater can vary strongly within 100 metres, so they cannot support neighbourhood-wide real-time claims.",
+    "HWH/PDOK IMWA and DAMO coverage is contributor-dependent and only partially complete. Registration timestamps describe features, not guaranteed live condition or operational availability.",
+    "CBS neighbourhood data are annual residence/household aggregates, not people present at a particular hour, individual health/self-reliance, asset capacity or response priority.",
+    "OVapi GTFS is a best-effort schedule snapshot without SLA; stop areas and trips are not actual operations, passenger counts, emergency access, passability or restoration capacity.",
+    "VRD plans define roles and coordination, not a public incident resource ledger. Exact staff, vehicles, mutual aid, emergency water, shelter, stock, fuel and support-point readiness need authorized time-stamped input.",
+    "Exact hazard intensity, affected residents, service availability, reserves, route flows, interventions and deprived person-hours remain inspectable scenario outputs rather than measurements, forecasts, official decisions or operator commitments.",
+    "This audit covers the first 72 displayed hours; heat, high water elsewhere, displacement, infrastructure repair and social/health recovery can continue beyond that window."
+  ],
+  "provinceReviewFlags": [
+    "Preserve Assen's direct major-river/coastal exclusion, but do not generalize it blindly across Drenthe: Meppel and connected IJssel/Overijsselse-Vecht areas require catchment-specific review rather than centroid distance.",
+    "Audit the identical common-seed neighbourhood ranking across every Drenthe municipality and canonical preset; this is a shared model defect, not Assen-specific.",
+    "Require event magnitude/source and defensible ground-motion units for all induced-earthquake layers across Drenthe, using KNMI event/ShakeMap products and explicit site uncertainty.",
+    "Represent cross-water-board and catchment boundaries separately from municipal boundaries throughout Drenthe; Assen alone spans three water-board contexts and Kloosterveen has a distinct manager.",
+    "Review regional hospital, care, station, event/TT and transient demand across Drenthe without turning public facility points or GTFS schedules into unsupported capacity or backup claims.",
+    "Keep public infrastructure data and security-sensitive operator topology separate province-wide: integrate authoritative open aggregates, and document bounded synthetic fallbacks for unavailable operational networks."
+  ]
+}

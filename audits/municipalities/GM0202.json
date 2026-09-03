@@ -1,0 +1,443 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0202",
+    "name": "Arnhem",
+    "province": "Gelderland",
+    "safetyRegion": "Gelderland-Midden"
+  },
+  "agent": {
+    "taskName": "municipality_gm0202",
+    "agentId": "/root/causal_engine_v3",
+    "completedAt": "2026-09-02T14:02:41Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "GM0202 passes the complete deterministic contract over ten canonical scenarios, T+0/6/12/24/48/72 and all eight services; official identity, 2025 boundary, headline CBS statistics, null semantics, settlements, routes, arithmetic, causal ledgers and recovery guards are coherent. Release is nevertheless correction-required because two reproducible spatial defects affect Arnhem directly. First, neighbourhood hazard severity is municipality severity multiplied by a deterministic hash, so the river case ranks elevated Arnhem-Noord neighbourhoods among the most exposed while some low southern areas rank near the bottom, contrary to the municipality's documented stuwwal, floodplain and hydraulic compartments. Second, the canonical wildfire's modeled 18 km T+24 flame footprint intersects GM0202's official polygon and northern nature area, but a centre-point-only test reports exactly zero direct flame because Arnhem's label point is 23.151 km from the epicentre although an official boundary vertex is 15.828 km away. River and pluvial forcing are locally relevant and the completed 2026 Rijnkade is real, but current amplitudes, affected-person allocations and first-72-hour service trajectories are planning proxies, not LIWO depth/arrival, WRIJ stress-test, operator-outage or restoration predictions. All eight utility views correctly disclose NWB corridors as logical transfer proxies; unavailable or security-sensitive topology, live asset state, crews, backups and inventories were not invented.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek",
+      "title": "Kerncijfers wijken en buurten 2025 — filtered municipality row GM0202",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=WijkenEnBuurten%20eq%20%27GM0202%20%20%20%20%27&%24select=WijkenEnBuurten%2CGemeentenaam_1%2CAantalInwoners_5%2CBevolkingsdichtheid_34%2Ck_65JaarOfOuder_12%2CEenpersoonshuishoudens_30",
+      "accessedAt": "2026-09-02T13:54:15Z",
+      "edition": 2025,
+      "supports": [
+        "Official GM0202 identity and population 169,364.",
+        "Official density 1,733 per square kilometre, age-65-plus count 27,866 and one-person-household count 41,787.",
+        "Reference totals for checking the generated municipality and rounded neighbourhood statistics."
+      ]
+    },
+    {
+      "publisher": "PDOK / Centraal Bureau voor de Statistiek",
+      "title": "Gemeente gegeneraliseerd 2025",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_gegeneraliseerd/items?f=json&limit=1000&datetime=2025-07-01T00%3A00%3A00Z",
+      "accessedAt": "2026-09-02T13:54:15Z",
+      "edition": 2025,
+      "supports": [
+        "Official generalized GM0202 administrative geometry consumed by the application.",
+        "Boundary, municipality-centre and point-in-polygon checks; CBS neighbourhood, BAG woonplaats and BRT settlement products retain separate provenance.",
+        "The geometry used to reproduce the canonical wildfire footprint intersection."
+      ]
+    },
+    {
+      "publisher": "Gemeente Arnhem",
+      "title": "Strategie Klimaatadaptatie Arnhem",
+      "url": "https://www.arnhem.nl/alle-onderwerpen/klimaat-en-vergroenen/strategie-klimaatadaptatie-arnhem/",
+      "accessedAt": "2026-09-02T13:54:15Z",
+      "edition": 2026,
+      "supports": [
+        "Arnhem identifies flooding, intense-rain water nuisance, heat and drought as local safety, health and economic risks.",
+        "The local rain strategy retains water in upper slope source areas and routes it to parks and green buffers; a water-overload map and heat-attention map identify priority locations.",
+        "The Rhine's high-water regime and adjustment of dikes and quays along the Nederrijn and IJssel are explicit local context."
+      ]
+    },
+    {
+      "publisher": "Veiligheids- en Gezondheidsregio Gelderland-Midden",
+      "title": "Risicoprofielen",
+      "url": "https://vggm.nl/risicoprofielen",
+      "accessedAt": "2026-09-02T13:54:15Z",
+      "edition": 2026,
+      "supports": [
+        "Flooding and epidemic/pandemic are identified as the largest regional risks, followed by nature fire, cybercrime, utility disruption and animal disease.",
+        "VGGM's risk approach is spatial and building-aware; it distinguishes source/effect areas, estimated presence and vulnerable objects rather than using a municipality label point alone.",
+        "Regional relevance does not validate the simulator's scenario amplitudes, footprints or operational response resources."
+      ]
+    },
+    {
+      "publisher": "Gemeente Arnhem",
+      "title": "Stadsblokken – Meinerswijk 2015, adopted spatial-plan explanation",
+      "url": "https://open.arnhem.nl/ruimtelijkeplannen/plannen/NL.IMRO.0202.754-/NL.IMRO.0202.754-0301/t_NL.IMRO.0202.754-0301.html",
+      "accessedAt": "2026-09-02T13:54:15Z",
+      "edition": "adopted 2015",
+      "supports": [
+        "Meinerswijk is an approximately 250-hectare outer-dike floodplain and the Green River fills at high water; the area is part of the Nederrijn conveyance regime.",
+        "Arnhem-Noord is built high on the push moraine, in explicit contrast with the river landscape and defended southern compartments.",
+        "Local river exposure therefore requires terrain, dike/outer-dike status and connected hydraulic geometry rather than deterministic neighbourhood hashes."
+      ]
+    },
+    {
+      "publisher": "Waterschap Rijn en IJssel",
+      "title": "Versterken Rijnkade Arnhem",
+      "url": "https://www.wrij.nl/projecten/versterken-rijnkade-arnhem",
+      "accessedAt": "2026-09-02T13:54:15Z",
+      "edition": "project completed 2026-05",
+      "supports": [
+        "The Rijnkade is a high-water defence and more than one kilometre was strengthened because part did not meet future extreme-high-water requirements.",
+        "The strengthened quay opened in May 2026; scenario calibration must preserve a dated defence state rather than silently treating all city fabric alike.",
+        "Completion does not establish an all-clear for an unspecified breach or extreme event."
+      ]
+    },
+    {
+      "publisher": "Waterschap Rijn en IJssel",
+      "title": "Klimaateffectatlas KEA_DATA ArcGIS MapServer",
+      "url": "https://opengeo.wrij.nl/arcgis/rest/services/Klimaat/KEA_DATA/MapServer",
+      "accessedAt": "2026-09-02T13:54:15Z",
+      "edition": "live service inspected 2026-09-02",
+      "supports": [
+        "Machine-readable Arnhem layers include water-overload water polygons (155), water-on-street lines (156), reports (157), measures (178) and attention-map polygons/lines (179/180).",
+        "The official service supports REST queries and GeoJSON output and is materially more local than a hash-based neighbourhood rank.",
+        "The service publishes blank copyright text and no update cadence, so reuse rights and freshness must be confirmed before redistribution."
+      ]
+    },
+    {
+      "publisher": "Gemeente Arnhem",
+      "title": "Natuurbeheer bossen en parken",
+      "url": "https://www.arnhem.nl/alle-onderwerpen/groenbeheer/natuurbeheer-bossen-en-parken/",
+      "accessedAt": "2026-09-02T13:54:15Z",
+      "edition": 2026,
+      "supports": [
+        "Arnhem manages more than 2,500 hectares of nature in forests, heath, agricultural nature, floodplains and polder parks.",
+        "Forest, heath and nature north of the Schelmseweg form part of Natura 2000 Veluwe, and local management explicitly addresses forest-fire origin and spread.",
+        "The northern municipal polygon intersected by the canonical T+24 fire circle cannot be dismissed solely because the municipality label point lies outside that circle."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM0202, Arnhem, Gelderland and safety region Gelderland-Midden are internally and officially coherent.",
+      "evidenceRefs": ["E01", "E02", "E04"],
+      "notes": [
+        "The generated feature id, municipality bundle code and name equal GM0202/Arnhem.",
+        "The generated safety-region overlay contains GM0202 in exactly one region, Gelderland-Midden.",
+        "A current Kadaster bestuurlijke-gebieden query independently returned identification GM0202, name Arnhem and province Gelderland."
+      ]
+    },
+    "geography": {
+      "status": "pass",
+      "summary": "The consumed 2025 generalized municipality geometry and centre are coherent, while distinct source products remain explicit.",
+      "evidenceRefs": ["E02", "E05"],
+      "notes": [
+        "Generated centre [5.8967587163818145, 51.99233730896442] is inside the official generalized municipality geometry.",
+        "BoundaryEdition and statisticsEdition both equal 2025; newer definitive Kadaster geometry was used only as an identity cross-check.",
+        "BAG woonplaats, BRT settlement and CBS municipality/neighbourhood geometries represent different objects and must not be forced to share edges or totals.",
+        "The official municipality includes both Nederrijn floodplain/southern compartments and the elevated Arnhem-Noord moraine, a distinction lost by municipality-wide scalar allocation."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Headline municipality statistics match CBS 2025 and rounded neighbourhood population reconciles within publication precision.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "Generated population 169,364, density 1,733 and one-person-household count 41,787 exactly match the filtered CBS municipality row.",
+        "Generated age65Pct 16.5 is the rounded share implied by CBS's official age-65-plus count 27,866.",
+        "The 83 published neighbourhood rows sum to 169,355 residents, 9 below the municipality row (-0.005%); households sum to 85,675 and age-65-plus rounded rows to 27,875."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "All 83 neighbourhoods expose the 36-field schema and reconcile, but official suppressions remain null and the fields are aggregate context rather than operational inventories.",
+      "evidenceRefs": ["E01", "E02"],
+      "notes": [
+        "Population, age, households, businesses, cars, land, water, doctor/supermarket distance and address density are available in all 83 neighbourhoods.",
+        "Home-value coverage is 73/83; average-household-size 82/83; cars-per-household 79/83; disability, pension and social-assistance counts 81/83; housing-tenure/form percentages 80/83.",
+        "District-heating percentage and public-charging-point count are null in all 83 neighbourhoods and are not coerced to zero.",
+        "Published local context totals include 85,675 households, 25,625 establishments, 8,526 non-residential buildings, 71,685 cars, 9,779 hectares land and 380 hectares water; none is a live asset, stock or capacity measurement.",
+        "No neighbourhood has zero published residents; compound T+24 activity-weighted demand still reconciles exactly to municipality totals."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "One BAG woonplaats and five BRT settlements are correctly retained as separate geographic products.",
+      "evidenceRefs": ["E02"],
+      "notes": [
+        "The active BAG woonplaats is Arnhem and its label centre lies within the generalized municipality boundary.",
+        "BRT supplies Arnhem, Elden and Schaarsbergen as woonkernen, De Praets as a deelkern and 't Vlot as a gehucht.",
+        "The BRT settlement-population sum 167,510 is not substituted for the CBS municipality population because settlement and administrative geographies differ."
+      ]
+    },
+    "transport": {
+      "status": "pass",
+      "summary": "Eleven signed NWB boundary links, four ProRail stations and scheduled-transit context are coherent as static transport inputs.",
+      "evidenceRefs": ["E02", "E04"],
+      "notes": [
+        "The eleven links are A50 to Renkum and Apeldoorn, A12 to Ede and Westervoort, A325/N837 to Overbetuwe, N325 to Lingewaard, N785 to Rozendaal, N310/N804 to Ede and N224 to Renkum; every endpoint resolves.",
+        "Every A-road link is trunk/260 and every N-road link regional/150 in generalized scenario capacity units.",
+        "Arnhem Centraal, Arnhem Zuid, Arnhem Velperpoort and Arnhem Presikhaaf station geometry lies inside GM0202; 333 GTFS stop areas are present.",
+        "NWB, ProRail and GTFS establish identities and static geometry, not live closure, timetable, vehicle, emergency throughput, evacuation or repair-access state."
+      ]
+    },
+    "emergencyContext": {
+      "status": "warn",
+      "summary": "Primary sources establish sharply differentiated flood, slope, forest, infrastructure and vulnerable-population contexts that the generic first-72-hour model only partially represents.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "Nederrijn high water, the Green River/Meinerswijk floodplain, the elevated northern moraine, local pluvial flow routes and 2,500-plus hectares of municipal nature require distinct footprints.",
+        "The renewed Rijnkade is a dated defence input; the model has no named breach, water-level, arrival-time, dike-compartment or current defence-state selection.",
+        "VGGM confirms regional importance of flooding, nature fire, cyber and utility disruption but publishes no scenario-specific operational resources sufficient to calibrate these frames.",
+        "No sensitive utility topology, operator outage state, control system, crew, fuel, backup, inventory or restoration promise was inferred."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten canonical presets completed at T+0, 6, 12, 24, 48 and 72 for all eight essential services.",
+      "evidenceRefs": ["E03", "E04"],
+      "notes": [
+        "Peak municipality severities were storm 0.469456, pluvial 0.708073, river 0.593203, coastal 0, heat 0.491545, winter 0.765661, cyber 0.537198, earthquake 0.027567, wildfire 0.137881 and compound 0.969750.",
+        "At T+24 the compound frame had rain 62.165648 mm/h, inundation-stress amplitude 0.761129, wind 23.615126 m/s, cyber disruption 0.471283, system pressure 0.576898 and 104,251 modeled residents under pressure.",
+        "At T+72 residual compound water/cyber forcing remained 0.761129/0.061295, with pressure 0.625755, 115,908 modeled residents under pressure and 7,203,519 cumulative event-attributable essential-service person-hours.",
+        "The extended heatwave still carries drought/current severity 0.432354/0.077824 at T+72; this refresh reflects the current canonical preset rather than stale pre-extension output.",
+        "apps/web/src/scenarios.ts is a thin clone of sim-core presets, so the audited configurations equal the user-selectable scenarios."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Bounds, exact no-event semantics, determinism, monotonic burden and municipality/local reconciliation pass.",
+      "evidenceRefs": [],
+      "notes": [
+        "MUNICIPALITY_AUDIT_CODE=GM0202 pnpm audit:model passed both tests across 10 presets × 6 checkpoints × 8 services.",
+        "Setting intensity to zero for each canonical preset produced exactly zero event severity, peak, affected population and event-attributable essential-service person-hours at all checkpoints.",
+        "Compound T+24 detail reconciled population 169,364 and affected population 104,251 exactly for every service; demand/delivered sums closed with maximum floating error 4.27e-14.",
+        "Repeated T+24 frames were byte-deterministic, outputs were finite and bounded, cumulative person-hours were monotonic and every logical route flow stayed within effective capacity.",
+        "Changing among all eleven map layers left the compound T+24 physical hazard, municipality pressure and affected population exactly invariant."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "Municipality-centre hazard sampling and hash-based neighbourhood allocation contradict Arnhem's official polygon and terrain.",
+      "evidenceRefs": ["E03", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "Canonical wildfire T+24 uses an 18 km direct-fire radius around [5.75, 52.18]. Arnhem's centre is 23.151 km away, but official boundary vertex [5.850027421284896, 52.051594428817424] is only 15.828 km away; the direct footprint intersects while municipality wildfireIntensity is exactly zero.",
+        "River T+24/T+72 emits 1.916301 internal inundation-stress amplitude, pressure 0.574069/0.623299 and 103,575/115,322 people under pressure. Direct river relevance is plausible, but neither magnitude nor footprint is source-calibrated.",
+        "The river local rank places 't Duifje 0.698995 and river-adjacent industry 0.697681 high, but also Klarendal-Zuid 0.694408 and elevated Burgemeesterswijk 0.667574; Malburgen-West is only 0.492488. The ordering follows seededUnit and not terrain/dike/hydraulic evidence.",
+        "Official local rain/attention layers exist, yet pluvial T+24's 0.738379 amplitude and neighbourhood ordering use density plus deterministic seeds rather than WRIJ polygons, slopes, storage or drainage catchments.",
+        "The UI correctly presents the generic river value as capped normalized inundation stress rather than metres, but that semantic safeguard does not make its local footprint physically valid."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "warn",
+      "summary": "All eight service states balance and explain their modeled dependencies, but local assets and physical networks are absent.",
+      "evidenceRefs": ["E03", "E04", "E06", "E07"],
+      "notes": [
+        "River T+24 availability was power 0.624372, water 0.324511, drainage 0.241788, gas 0.624117, telecom 0.263418, mobility 0.450304, facilities 0.563766 and supply 0.206498.",
+        "Compound T+24 availability was power 0.544340, water 0.319314, drainage 0.284558, gas 0.607800, telecom 0.123697, mobility 0.740569, facilities 0.541781 and supply 0.168299.",
+        "Every service reuses the same eleven NWB boundary links and total generalized route capacity; emitted routes correctly say transferSemantics logical-proxy.",
+        "There is no modeled physical Liander electricity/gas topology, Vitens pressure zone, WRIJ drainage catchment, telecom exchange, Rijnstate/facility node, emergency depot, supermarket stock or last-mile fleet.",
+        "CBS business/building context changes service-specific local demand weights inspectably and reconciles totals, but does not confer criticality or measured consumption."
+      ]
+    },
+    "causalTrace": {
+      "status": "pass",
+      "summary": "Hazard, service and municipality ledgers close and preserve scenario confidence, logical-network semantics and counterfactual scope.",
+      "evidenceRefs": [],
+      "notes": [
+        "Hazard contributions sum to headline severity; each service baseline plus contribution deltas sums to availability; eight weighted service-pressure terms sum to municipality system pressure.",
+        "Dependency chains, driver metadata, recovery progress and service-restoration counterfactual deltas are finite and arithmetically closed.",
+        "Operational control and time-gated intervention effects are labeled scenario assumptions, not actual Arnhem crews or assets.",
+        "Household preparedness affects modeled people/supply burden after physical pressure and does not alter hazard fragility.",
+        "Event-attributable person-hours integrate weighted essential-service shortfall as a planning proxy and are not observed outage-customer-hours, casualties or displacement."
+      ]
+    },
+    "recovery72h": {
+      "status": "warn",
+      "summary": "Sustained-water and intervention-delay guards work, but no Arnhem operator or resource evidence calibrates restoration within 72 hours.",
+      "evidenceRefs": ["E04", "E06", "E07"],
+      "notes": [
+        "River forcing remains active at T+72, all eight recovery-progress values stay exactly zero, and no recovering label is inferred from elapsed time alone.",
+        "River T+72 leaves seven services at their T+24 availability while facilities declines from 0.563766 to 0.212120 through modeled dependencies; this is not a Rijnstate forecast.",
+        "Compound residual standing water blocks generic restoration at T+72; telecom remains limiting at 0.123991 and facilities/supply are 0.206247/0.165530.",
+        "Ended storm, pluvial, winter, wildfire and earthquake forcing recovers monotonically; heat/drought and cyber retain bounded forcing under their current presets.",
+        "Actual defence condition, local pumps, utility switching, crews, mutual aid, repair access, fuel, spares, staff, backup runtime and operator restoration estimates remain unknown."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": [
+      "power",
+      "water",
+      "drainage",
+      "gas",
+      "telecom",
+      "mobility",
+      "facilities",
+      "supply"
+    ]
+  },
+  "findings": [
+    {
+      "id": "GM0202-FIRE-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Centre-point wildfire sampling creates a deterministic direct-footprint false negative in northern Arnhem.",
+      "evidence": "E02/E08 establish the official polygon and extensive northern forest/nature context. In packages/sim-core/src/model.ts, nearestDistance(city, fireCenters) evaluates only city.coordinates, and the canonical preset at T+24 has elapsedFireHours 18 and directFireRadiusKm min(18, 2 + 18×0.9) = 18 km. A read-only Haversine reproduction gives 23.15141680695721 km from centre [5.8967587163818145, 51.99233730896442] to epicentre [5.75, 52.18], but only 15.827549821368576 km from boundary vertex [5.850027421284896, 52.051594428817424]. The modeled circle therefore intersects GM0202 while wildfireIntensity remains exactly 0 at T+12 and T+24; smoke 0.379948 and drought 0.515758 produce headline severity 0.137881. This is municipality-specific evidence of a likely national/shared centroid defect.",
+      "action": "Use polygon/neighbourhood intersection before calculating direct flame, then weight only intersected authoritative combustible land cover. Preserve smoke as a separate wider field. Until the geometry adapter exists, show direct flame as spatially unresolved rather than a municipality all-clear whenever the footprint intersects the boundary but misses the centre."
+    },
+    {
+      "id": "GM0202-FLOOD-SPAT-001",
+      "severity": "high",
+      "category": "geography",
+      "status": "open",
+      "summary": "Hash-based river allocation reverses material parts of Arnhem's documented terrain and floodplain pattern.",
+      "evidence": "E03/E05 describe high Arnhem-Noord on the moraine, the outer-dike Meinerswijk/Green River and defended southern compartments. packages/sim-core/src/model.ts nevertheless computes each district hazard as municipality.hazard.severity × (0.82 + seededUnit(...) × 0.36). At canonical river T+24 this ranks Klarendal-Zuid 0.694408 and Burgemeesterswijk 0.667574 among the highest while Malburgen-West is 0.492488; nearby districts can differ only by a hash multiplier and all receive the municipality-wide forcing. The municipality result is 1.916301 internal inundation stress, 0.574069 pressure and 103,575 people under pressure at T+24, growing to 115,322 by T+72. Direct high-water risk is real, but the local ordering and affected allocation are not hydraulic evidence. This is Arnhem-specific proof of a national/shared local-allocation defect.",
+      "action": "Replace the hazardSeed multiplier for direct water with source-specific intersected footprints using dike/outer-dike status, AHN terrain and an approved LIWO/WRIJ scenario. Preserve no-data and separate floodplain exposure, protected areas, pluvial flow, groundwater and indirect network loss. Regression-test the official high/low terrain contrast without fabricating metre depths."
+    },
+    {
+      "id": "GM0202-PLUV-001",
+      "severity": "medium",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Public Arnhem rain-overload geometry is available but absent from the pluvial footprint and drainage allocation.",
+      "evidence": "E03 states that Arnhem uses a water-overload map and routes water from slope source areas to parks/green buffers. E07 exposes Arnhem-specific T500 water polygons, water-on-street lines, reports, measures and attention areas through a queryable official ArcGIS service. The model instead derives pluvial water from peak rain, municipality density and a local random seed; T+24 produces 0.738379 internal stress and 13,930 people under pressure, with no link from an official polygon to a neighbourhood, road or drainage branch.",
+      "action": "After licence/freshness confirmation, ingest the official vector layers as dated scenario context and intersect them with CBS neighbourhoods/NWB roads. Keep reported incidents separate from modeled T500 water, retain scenario uncertainty, and use a transparent national fallback only where local authoritative geometry is unavailable."
+    },
+    {
+      "id": "GM0202-DEFENCE-001",
+      "severity": "medium",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The river scenario has no named hydraulic case or dated Rijnkade defence state.",
+      "evidence": "E06 documents that more than one kilometre of Rijnkade was strengthened and the renewed defence opened in May 2026. The canonical river field is a coarse distance-to-three-lines exposure with no breach, discharge/water level, dike section, overtopping/failure mode, arrival time, probability class or defence edition. It is plausible as a severe screening exercise, but the 1.916301 internal amplitude and 6,421,279 T+72 person-hours cannot be attributed to the current quay or any approved Arnhem high-water scenario.",
+      "action": "Require a named, versioned hydraulic scenario and defence-state date before presenting a local footprint. Keep the current normalized stress wording, expose source/scenario/arrival/uncertainty, and never infer that the 2026 defence either eliminates all risk or has failed."
+    },
+    {
+      "id": "GM0202-NET-001",
+      "severity": "medium",
+      "category": "network",
+      "status": "accepted-limitation",
+      "summary": "All eight intermunicipal service networks reuse road corridors and generalized capacity rather than Arnhem utility topology.",
+      "evidence": "The exact same eleven A50/A12/A325/N785/N837/N325/N310/N224/N804 edges and nominal sum 2,090 appear in power, water, drainage, gas, telecom, mobility, facilities and supply views. This cannot represent the different physical networks or catchments. The implementation and UI correctly label every transfer logical-proxy, while E04 provides only regional risk context rather than approved topology or live capacity, so no stronger operational claim is supported.",
+      "action": "Retain the fidelity badge and logical-proxy semantics. Add independently licensed public asset context where safe, but use physical flows only with operator-approved topology, capacities, dependencies and state; otherwise keep transparent service-specific synthetic graphs and never clone a road capacity into a cable, pipe or care pathway claim."
+    },
+    {
+      "id": "GM0202-SERVICE-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "accepted-limitation",
+      "summary": "First-72-hour service values have no verified local asset, stock, backup or restoration calibration.",
+      "evidence": "All eight layers compute coherent deterministic balances, but their availability is scenario output. River T+24 ranges from supply 0.206498 and drainage 0.241788 to gas 0.624117; compound T+24 ranges from telecom 0.123697 to mobility 0.740569. No named substation, pressure zone, pump/catchment, telecom site, hospital role, emergency depot, supermarket inventory, crew, fuel or repair promise explains those magnitudes. Aggregate CBS establishments/buildings affect demand weight but do not identify critical assets.",
+      "action": "Use public machine-readable asset roles and geometry as context first, with source date and coverage. Keep topology, live state, backup, staffing, stock and restoration unknown where unavailable or security-sensitive; any synthetic fallback must be separately labeled, bounded and editable rather than presented as observed Arnhem capacity."
+    },
+    {
+      "id": "GM0202-MET-CYBER-001",
+      "severity": "medium",
+      "category": "limitation",
+      "status": "accepted-limitation",
+      "summary": "Storm, heat/drought, winter and cyber outputs are relevant stress tests, not dated local forecasts or incidents.",
+      "evidence": "E03/E04 support local climate and regional cyber/utility relevance, but the model peaks—storm 0.469456, heat 0.491545, winter 0.765661 and cyber 0.537198—derive from canonical forcing and deterministic seed. They do not use a timestamped KNMI observation/warning, Arnhem heat-attention geometry, named cyber target or operator incident. At T+72 heat/drought remains 0.077824/0.432354 and cyber 0.053720 under current presets; those are scenario continuations, not current conditions.",
+      "action": "Keep prominent scenario confidence and optionally add timestamped KNMI observations/warnings and authorized incident targets as separate inputs. Never describe preset forcing as a forecast, probability or live outage; retain fully synthetic mode for exercises when no incident data is supplied."
+    },
+    {
+      "id": "GM0202-REMOTE-001",
+      "severity": "low",
+      "category": "hazard",
+      "status": "accepted-limitation",
+      "summary": "Coastal and Groningen-earthquake direct effects are conservatively small/zero, but remain screening fields rather than local risk assessments.",
+      "evidence": "The coastal preset produces exactly zero direct flood and affected population in Arnhem at every checkpoint while retaining modest wind/indirect system pressure; direct and indirect effects remain separable. The remote Groningen preset peaks at only 0.027567, has 0.005429 g peak ground-motion proxy, zero current shaking/affected population by T+24 and 121,427 cumulative proxy person-hours by T+72. Bounded results do not supply occurrence probability, site amplification, ShakeMap or asset vulnerability.",
+      "action": "Retain named remote-event and direct/indirect disclosures. For an actual earthquake, use event-specific KNMI ground motion and validated local vulnerability; for coastal flooding use connected source-specific hydraulic geometry rather than extending a national proximity tail."
+    },
+    {
+      "id": "GM0202-DATA-001",
+      "severity": "informational",
+      "category": "regional-data",
+      "status": "fixed",
+      "summary": "Official identity, rounded demographic totals, null semantics and service-specific demand allocation are inspectably coherent.",
+      "evidence": "E01/E02 agree with GM0202 identity and headline totals. All 83 neighbourhoods preserve unavailable values as null, population differs from the municipality row by only -9, and local compound T+24 allocation reconciles municipality population, affected people, demand and delivery for every service. Non-residential activity contributes separately without inventing residents or measured load.",
+      "action": "Retain source editions, null handling, distinct geography semantics, aggregate-context disclosures and exact reconciliation tests."
+    },
+    {
+      "id": "GM0202-CONTRACT-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The deterministic, causal, zero-intensity, sustained-water and UI semantic contracts pass for GM0202.",
+      "evidence": "The focused gate passed ten presets, six checkpoints and eight services; exact zero intensity clears event severity/peak/affected/person-hours; contributions and counterfactuals close; T+24 repeats exactly; all routes say logical-proxy; layer selection cannot change physics; and sustained river/compound water prevents generic T+72 restoration. A headless Chromium check selected Arnhem/river/T+72, exercised all eleven layer buttons, displayed 100% capped inundation stress plus the logical-service-transfer fidelity badge, and produced no page, console or failed local-response errors.",
+      "action": "Keep these national invariants while correcting GM0202-FIRE-001 and GM0202-FLOOD-SPAT-001; add their exact polygon and terrain fixtures to regression coverage."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Replace hash-based Arnhem water allocation with versioned local hydraulic and terrain intersections.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/src/data.ts",
+        "apps/web/public/data/hazards/arnhem-water-scenarios.geojson"
+      ],
+      "validation": "Create an adapter whose inputs carry scenario id, mechanism, provider, edition, probability class, arrival/depth/stress semantics, resolution, no-data and uncertainty. Preferred machine sources are: (1) WRIJ KEA_DATA MapServer https://opengeo.wrij.nl/arcgis/rest/services/Klimaat/KEA_DATA/MapServer with native Arnhem vector layers 155/156/157/178/179/180 queryable as GeoJSON; its service declares neither licence nor cadence, so obtain reuse confirmation and store retrieval/layer timestamps before redistribution; (2) AHN WCS https://service.pdok.nl/rws/actueel-hoogtebestand-nederland/wcs/v1_0?SERVICE=WCS&REQUEST=GetCapabilities, whose AHN4 DTM/DSM are 0.5 m rasters acquired 2020–2022 and published CC0; and (3) LIWO GeoServer OWS https://basisinformatie-overstromingen.nl/geoserver/ows plus catalogue API https://basisinformatie-overstromingen.nl/api/v2 for approved layer-specific breach/arrival/depth products. LIWO is release-versioned rather than fixed-cadence and its public portal did not expose a redistribution licence during audit, so pin the chosen release/layer terms and require licence review. CBS 2025 neighbourhood geometry is annual CC BY 4.0. Tests must show source-intersected neighbourhoods only, preserve true no-data, keep direct and indirect effects separate, and prohibit metre labels unless the selected product is calibrated depth."
+    },
+    {
+      "summary": "Make direct wildfire exposure polygon- and land-cover-aware so an intersecting footprint cannot be erased by the municipality label point.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/src/data.ts",
+        "apps/web/public/data/hazards/wildfire-landcover.geojson"
+      ],
+      "validation": "Add the exact GM0202 fixture: centre distance 23.15141680695721 km, boundary-vertex distance 15.827549821368576 km and T+24 radius 18 km. It must no longer emit a false municipality-wide direct zero; only intersected neighbourhood/combustible area receives direct flame and smoke remains independent. Preferred public source is BRT TOP10NL OGC API https://api.pdok.nl/kadaster/brt-top10nl/ogc/v1, particularly terrain_vlak/geografisch_gebied_vlak queried by municipality bbox; it is native vector, CC BY 4.0, annual, and the inspected collections were updated through 2026-06-01. Combine it with CBS GM0202 geometry and documented Natura 2000/nature context; do not infer fuel moisture or suppression. No stable licensed public machine feed for incident spread, response water points or crews was identified, so preserve the growing circle only as an explicitly synthetic scenario fallback and require an explicit epicentre."
+    },
+    {
+      "summary": "Add safe public Arnhem service-asset context while keeping unavailable physical topology and operational state explicitly synthetic or unknown.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/data.ts",
+        "apps/web/public/data/infrastructure/public-utility-assets.geojson",
+        "apps/web/public/data/facilities/public-care-roles.json"
+      ],
+      "validation": "For electricity/gas, ingest only public static context from Liander's ArcGIS FeatureServers https://services1.arcgis.com/v6W5HAVrpgSg3vts/arcgis/rest/services/Liander_Open_Data_Elektra/FeatureServer and https://services1.arcgis.com/v6W5HAVrpgSg3vts/arcgis/rest/services/Liander_Open_Data_Gas/FeatureServer (CC BY 4.0; formal cadence unstated, ArcGIS items exposed modified timestamps 2026-08-09/10 at audit). For drainage/wastewater, prefer PDOK Waterketen DAMO https://api.pdok.nl/hwh/waterschappen-waterketen-damo/ogc/v1 (CC BY-SA 4.0; cadence unknown, inspected leiding collection updated 2026-08-29) or GWSW https://api.pdok.nl/rioned/waterschappen-waterketen-gwsw/ogc/v1 (CC0; cadence unknown), preserving provider completeness. For facility roles, use the RIVM annual public-domain 2025 acute-care survey https://data.rivm.nl/meta/srv/api/records/0c25694e-3b4c-41a2-bf89-6b88ecda23cc/attachments/Antwoorden%20vragenlijst%202025%20tbv%20data.rivm.nl.xlsx.zip and BAG daily Public Domain Mark 1.0 geometry. These sources may support asset/role overlays but do not establish live availability, topology, pressure/flow, priority customers, backup, staff, stock, crews or restoration. Water/telecom/supply gaps therefore remain explicit unknown or service-specific synthetic assumptions; NWB corridors remain logical proxies and must never be silently upgraded to physical networks."
+    }
+  ],
+  "residualLimitations": [
+    "The simulator is a deterministic planning stress test, not a KNMI forecast, warning, probability estimate, live incident picture, casualty model or operator outage forecast.",
+    "No approved Arnhem LIWO breach, water-level, depth, arrival, dike-compartment or defence-state product is ingested; normalized inundation stress is not measured metres.",
+    "The current 2026 Rijnkade completion is not a guarantee against all high-water mechanisms, while omitting it prevents defence-specific attribution.",
+    "The official WRIJ Arnhem pluvial layers expose local geometry but did not publish reuse terms or cadence in the inspected service; integration requires permission/freshness governance.",
+    "CBS neighbourhoods and hashes do not resolve parcels, buildings, basements, terrain, dikes, sewers, pumps, workers, visitors or individual vulnerability.",
+    "Wildfire lacks incident perimeter, fuels, moisture, wind-aware spread, smoke dispersion, evacuation, suppression, water points and live nature-access state.",
+    "Earthquake lacks occurrence probability, site amplification, event ShakeMap and building/asset fragility; coastal zero direct impact is scenario-specific, not a universal all-clear.",
+    "No physical Liander, Vitens, WRIJ, gas, telecom, hospital or emergency-supply topology, live state, backup, priority-customer list, crew, fuel, spare or restoration estimate is available to the model.",
+    "All eight intermunicipal service layers reuse NWB-derived logical corridors and cannot be interpreted as cables, pipes, pressure zones, radio backhaul, hospital transfers or food routes.",
+    "Static NWB, ProRail and GTFS inputs do not establish live closures, timetables, vehicles, bridge status, evacuation throughput or repair access.",
+    "Facilities and supply lack verified beds, staff, acceptance, care-home occupancy, pharmacies, supermarket/warehouse stock, depots, vehicles and continuity agreements.",
+    "Generic preparedness, demand, backup, network, repair and intervention multipliers are transparent scenario controls rather than observed Arnhem resources or commitments.",
+    "Six-hour audit checkpoints can miss short cloudbursts, shaking, dispatch, traffic restrictions and schedule transitions; the horizon excludes prolonged displacement, contamination, health effects, economic loss and reconstruction.",
+    "Rounded CBS fields, partial suppressions and distinct BAG/BRT/CBS reference dates prevent false exact reconciliation across products."
+  ],
+  "provinceReviewFlags": [
+    "Review every Gelderland municipality whose canonical wildfire circle intersects its official polygon but misses its label point; prioritize Veluwe-border forest/nature municipalities and keep direct flame separate from smoke.",
+    "Replace hash-based neighbourhood flood rankings across Nederrijn, IJssel and Maas municipalities with approved LIWO/WRIJ scenario intersections, AHN terrain and dike/outer-dike compartments.",
+    "Coordinate WRIJ KEA pluvial/heat layers, Waterketen public assets and source/licence freshness at water-board scale rather than hand-calibrating Arnhem alone.",
+    "Use Liander public electricity/gas geometry as dated context across Gelderland where covered, but do not infer topology, switching, capacity, outages or restoration from static open-data features.",
+    "Preserve shared NWB/ProRail/GTFS transport identity separately from dated operational access and from every utility's logical transfer proxy."
+  ]
+}

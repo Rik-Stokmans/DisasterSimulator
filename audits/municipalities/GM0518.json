@@ -1,0 +1,545 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0518",
+    "name": "'s-Gravenhage",
+    "province": "Zuid-Holland",
+    "safetyRegion": "Haaglanden"
+  },
+  "agent": {
+    "taskName": "municipality_gm0518",
+    "agentId": "/root/municipality_gm0518",
+    "completedAt": "2026-09-02T10:13:55Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "The 2025 CBS/PDOK identity, boundary, label point, population, 114 buurten, BAG woonplaats, Haaglanden membership, and main road/rail/transit context verify. The corrected GM0518 coverage harness passes all ten presets, six checkpoints, eight services, deterministic replay, bounds, ledgers, and municipality-total reconciliation, and the national ALL-municipality harness is green. A high-severity local-allocation defect nevertheless requires correction: three official zero-population buurten are treated as missing and each receives 4,991 simulated residents. Hazard footprints and utility behavior remain transparent planning proxies rather than locally calibrated physical models; river/coastal depths, dune-fire exposure, operator service areas, backup endurance, and restoration therefore need additional local evidence before operational interpretation.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek (CBS)",
+      "title": "Gebieden in Nederland 2025 (86059NED)",
+      "url": "https://www.cbs.nl/nl-nl/cijfers/detail/86059NED",
+      "accessedAt": "2026-09-02T10:06:39Z",
+      "edition": 2025,
+      "supports": [
+        "Official municipality code and spelling",
+        "Province Zuid-Holland and safety region VR15 Haaglanden",
+        "Final 2025 population of 568,945"
+      ]
+    },
+    {
+      "publisher": "Centraal Bureau voor de Statistiek (CBS)",
+      "title": "Kerncijfers wijken en buurten 2025 (86165NED)",
+      "url": "https://www.cbs.nl/nl-nl/cijfers/detail/86165NED",
+      "accessedAt": "2026-09-02T10:06:39Z",
+      "edition": 2025,
+      "supports": [
+        "Municipality and buurt population and demographic fields",
+        "Official zero values for Oostduinen, Vliegeniersbuurt, and Tedingerbroek",
+        "CBS publication and suppression/rounding context"
+      ]
+    },
+    {
+      "publisher": "PDOK / CBS",
+      "title": "CBS Gebiedsindelingen 2016 tot heden OGC API",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1?f=html&lang=nl",
+      "accessedAt": "2026-09-02T10:06:39Z",
+      "edition": 2025,
+      "supports": [
+        "Official 2025 generalized municipality, wijk, buurt, province, and safety-region geometries",
+        "CC BY 4.0 provenance and CBS as dataset provider"
+      ]
+    },
+    {
+      "publisher": "PDOK / Kadaster",
+      "title": "Basisregistratie Adressen en Gebouwen OGC API",
+      "url": "https://api.pdok.nl/kadaster/bag/ogc/v2?f=html&lang=nl",
+      "accessedAt": "2026-09-02T10:06:39Z",
+      "edition": "daily service queried for generated bundle retrieved 2026-08-31",
+      "supports": [
+        "BAG woonplaats provenance and active woonplaats context",
+        "Public Domain Mark 1.0 and daily update frequency"
+      ]
+    },
+    {
+      "publisher": "PDOK / Kadaster",
+      "title": "BRT TOP10NL plaats_multivlak OGC collection",
+      "url": "https://api.pdok.nl/kadaster/brt-top10nl/ogc/v1/collections/plaats_multivlak",
+      "accessedAt": "2026-09-02T10:06:39Z",
+      "edition": "source date 2025-07-01",
+      "supports": [
+        "Generated woonkern settlement geometry, name, type, and population source"
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Haaglanden",
+      "title": "Bijlagen Regionaal Risicoprofiel Haaglanden 2023",
+      "url": "https://www.vrh.nl/sites/default/files/2023-01/6-B%20II%20Bijlagen%20Regionaal%20Risicoprofiel%202023.pdf",
+      "accessedAt": "2026-09-02T10:06:39Z",
+      "edition": 2023,
+      "supports": [
+        "Regional relevance and spatial context of extreme weather, coastal and regional flooding, low earthquake relevance, and dune fires",
+        "Power, gas, drainage, drinking-water, telecom, mobility, facilities, and food-distribution dependency context",
+        "Dunea/Evides service context and ten-day drinking-water self-sufficiency planning statement"
+      ]
+    },
+    {
+      "publisher": "Gemeente Den Haag",
+      "title": "Natuurinclusief en klimaatadaptief ontwikkelen",
+      "url": "https://www.denhaag.nl/nl/duurzaam-ontwikkelen/natuurinclusief-en-klimaatadaptief-ontwikkelen/",
+      "accessedAt": "2026-09-02T10:06:39Z",
+      "edition": "updated 2026-08-21",
+      "supports": [
+        "Local heat, drought, extreme-rainfall, storage, infiltration, and water-robust-design context",
+        "Requirement to retain 50 mm from a 70 mm one-hour event on private new-build sites"
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat",
+      "title": "Strand van Scheveningen versterkt met 700.000 m3 zand",
+      "url": "https://www.rijkswaterstaat.nl/nieuws/archief/2023/11/strand-van-scheveningen-versterkt-met-700000-m3-zand",
+      "accessedAt": "2026-09-02T10:06:39Z",
+      "edition": 2023,
+      "supports": [
+        "Scheveningen coastal-maintenance and flood-defense context",
+        "Regular nourishment and boulevard/strand protection measures"
+      ]
+    },
+    {
+      "publisher": "KNMI",
+      "title": "KNMI'23-klimaatscenario's voor Nederland",
+      "url": "https://www.knmi.nl/kennis-en-datacentrum/publicatie/knmi-23-klimaatscenario-s-voor-nederland",
+      "accessedAt": "2026-09-02T10:06:39Z",
+      "edition": "KNMI publication 23-03",
+      "supports": [
+        "Four official Hn, Hd, Ln, and Ld climate pathways",
+        "Scenario context for temperature, drought, precipitation extremes, and sea-level change"
+      ]
+    },
+    {
+      "publisher": "PDOK / ProRail",
+      "title": "Spoorwegen OGC API",
+      "url": "https://api.pdok.nl/prorail/spoorwegen/ogc/v1?f=html&lang=en",
+      "accessedAt": "2026-09-02T10:06:39Z",
+      "edition": "generated transport retrieval 2026-08-31",
+      "supports": [
+        "Official ProRail rail, station, and crossing data provenance",
+        "CC0 source for six station points within the GM0518 boundary"
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / PDOK",
+      "title": "Nationaal Wegenbestand wegen WFS capabilities",
+      "url": "https://service.pdok.nl/rws/nationaal-wegenbestand-wegen/wfs/v1_0?service=WFS&version=2.0.0&request=GetCapabilities",
+      "accessedAt": "2026-09-02T10:06:39Z",
+      "edition": "NWB-light 2026-08-01",
+      "supports": [
+        "Official road source used to derive the 13 logical municipality links"
+      ]
+    },
+    {
+      "publisher": "HTM",
+      "title": "Kaarten voor je HTM reis",
+      "url": "https://www.htm.nl/reizen/kaarten-voor-je-htm-reis/",
+      "accessedAt": "2026-09-02T10:06:39Z",
+      "edition": "topographic network map January 2026",
+      "supports": [
+        "Current official tram and bus network-map context for Den Haag",
+        "Operator caveat that temporary diversions are not shown on the static map"
+      ]
+    },
+    {
+      "publisher": "Dunea",
+      "title": "Algemene voorwaarden drinkwater 2026: leveringsgebied Dunea",
+      "url": "https://www.dunea.nl/-/media/bestanden/home/algemene-voorwaarden-2026.pdf",
+      "accessedAt": "2026-09-02T10:06:39Z",
+      "edition": 2026,
+      "supports": [
+        "Dunea serves Den Haag except the Wateringse Veld neighborhood",
+        "Known public operator-area split that the homogeneous municipality service proxy does not represent"
+      ]
+    },
+    {
+      "publisher": "Hoogheemraadschap van Delfland",
+      "title": "KRW-programma Delfland 2022-2027",
+      "url": "https://www.hhdelfland.nl/publish/pages/2039/bijlage_2_krw-programma_delfland_2022-2027.pdf",
+      "accessedAt": "2026-09-02T10:06:39Z",
+      "edition": "2022-2027",
+      "supports": [
+        "Boezem Haaglanden, urban surface-water, polder, runoff, and overflow context",
+        "Local water-system heterogeneity absent from municipality-label-point hazard equations"
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "Generated identity agrees with the final 2025 CBS and PDOK records.",
+      "evidenceRefs": [
+        "https://www.cbs.nl/nl-nl/cijfers/detail/86059NED",
+        "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1?f=html&lang=nl"
+      ],
+      "notes": [
+        "Feature id and code are GM0518, the official name is 's-Gravenhage, the province is Zuid-Holland, and the safety region is VR15 Haaglanden.",
+        "The regional bundle code/name and manifest identity match exactly."
+      ]
+    },
+    "geography": {
+      "status": "pass",
+      "summary": "The generated 2025 generalized MultiPolygon and official label point are internally coherent and source-matched.",
+      "evidenceRefs": [
+        "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1?f=html&lang=nl",
+        "https://api.pdok.nl/kadaster/bag/ogc/v2?f=html&lang=nl"
+      ],
+      "notes": [
+        "The generated municipality label point [4.286124015926171, 52.07723492938561] lies inside the GM0518 geometry under the corrected point-in-polygon audit.",
+        "One active BAG woonplaats, id 1245 and named 's-Gravenhage, is assigned to GM0518; its label point also raises no generalized-boundary review flag.",
+        "Generalized CBS boundaries and BAG geometry are independently versioned; passing this check does not imply parcel-level precision."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Municipality population and material demographic inputs reproduce the cited 2025 CBS series.",
+      "evidenceRefs": [
+        "https://www.cbs.nl/nl-nl/cijfers/detail/86059NED",
+        "https://www.cbs.nl/nl-nl/cijfers/detail/86165NED"
+      ],
+      "notes": [
+        "Generated population 568,945 and density 6,901 residents/km2 match CBS.",
+        "Generated age 65+ share is 15.4% and one-person households are 140,675; the neighborhood bundle sums to 87,835 age-65+ residents and 285,090 households.",
+        "The 114 published buurt populations sum to 568,925, only 20 below the municipality total (-0.004%); this is consistent with separately rounded CBS buurt values and the municipality total remains authoritative."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "The official regional bundle is complete for core population fields, but several contextual fields are unavailable and downstream zero handling is defective.",
+      "evidenceRefs": [
+        "https://www.cbs.nl/nl-nl/cijfers/detail/86165NED",
+        "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1?f=html&lang=nl"
+      ],
+      "notes": [
+        "The bundle contains 114 buurten in 44 wijken, exposes all 36 schema fields, and has no missing population values.",
+        "Oostduinen (BU05180170), Vliegeniersbuurt (BU05184107), and Tedingerbroek (BU05184209) have published population 0; zero is an observed value, not missing data.",
+        "District-heating percentage and public-charging-point count have 0/114 coverage; several housing and accessibility fields have roughly 95-97% coverage. Missing values remain null in the source bundle.",
+        "The source file is sound, but simulateCityDetail currently converts each published zero into a positive imputed population; this is recorded as finding GM0518-REGION-001."
+      ]
+    },
+    "settlements": {
+      "status": "warn",
+      "summary": "The single TOP10NL woonkern is spatially plausible, but its population is not interchangeable with the CBS municipality total.",
+      "evidenceRefs": [
+        "https://api.pdok.nl/kadaster/brt-top10nl/ogc/v1/collections/plaats_multivlak",
+        "https://www.cbs.nl/nl-nl/cijfers/detail/86059NED"
+      ],
+      "notes": [
+        "One woonkern named 's-Gravenhage (Dutch display name Den Haag) is assigned by point-in-polygon.",
+        "TOP10NL reports 568,375 for source date 2025-07-01, 570 below the CBS municipality population (0.10%); source date and spatial concept differ.",
+        "The settlement value is map context and is not consumed as the simulation municipality population."
+      ]
+    },
+    "transport": {
+      "status": "warn",
+      "summary": "Road, rail, station, and transit geography is locally recognizable, while simulated cross-service capacity remains a logical proxy.",
+      "evidenceRefs": [
+        "https://service.pdok.nl/rws/nationaal-wegenbestand-wegen/wfs/v1_0?service=WFS&version=2.0.0&request=GetCapabilities",
+        "https://api.pdok.nl/prorail/spoorwegen/ogc/v1?f=html&lang=en",
+        "https://www.htm.nl/reizen/kaarten-voor-je-htm-reis/"
+      ],
+      "notes": [
+        "NWB-derived context supplies 13 logical links to Rijswijk, Zoetermeer, Leidschendam-Voorburg, Delft, Wassenaar, and Westland via recognizable A4, A12, A13, N14, N44, N440, and N464 corridors plus raw numeric NWB names.",
+        "Six ProRail stations fall inside the boundary: Den Haag Centraal, Den Haag HS, Den Haag Laan van NOI, Den Haag Mariahoeve, Den Haag Moerwijk, and Den Haag Ypenburg.",
+        "The generated transit layer finds 652 stop areas and extensive tram, bus, and rail-service geometry consistent with HTM's January 2026 network context.",
+        "GTFS geometry is a best-effort snapshot without disaster-time schedules, capacity, ridership, or live disruption state; road-derived route capacities must not be interpreted as physical power, water, gas, telecom, drainage, facility, or supply topology."
+      ]
+    },
+    "emergencyContext": {
+      "status": "warn",
+      "summary": "Haaglanden membership and regional hazard/dependency context verify, but the simulation lacks local asset and emergency-resource inventories.",
+      "evidenceRefs": [
+        "https://www.cbs.nl/nl-nl/cijfers/detail/86059NED",
+        "https://www.vrh.nl/sites/default/files/2023-01/6-B%20II%20Bijlagen%20Regionaal%20Risicoprofiel%202023.pdf",
+        "https://www.denhaag.nl/nl/duurzaam-ontwikkelen/natuurinclusief-en-klimaatadaptief-ontwikkelen/"
+      ],
+      "notes": [
+        "GM0518 belongs to exactly one generated safety region, VR15 Haaglanden, with the expected nine-municipality membership.",
+        "The VRH profile supports the modeled direction of storm, cloudburst, heat, coastal/regional flood, utility, telecom, mobility, facility, and supply dependencies and says earthquake damage in Haaglanden is very unlikely and limited.",
+        "No audited inventory of shelters, hospitals, generators, pumps, crews, fuel, emergency-water points, logistics stocks, or dispatch constraints is consumed, so emergency capability is not locally verified."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten presets execute at T+0/6/12/24/48/72 for all eight services in both core coverage and UI-default spot checks.",
+      "evidenceRefs": [
+        "in-repo:packages/sim-core/src/municipality-coverage.test.ts",
+        "https://www.vrh.nl/sites/default/files/2023-01/6-B%20II%20Bijlagen%20Regionaal%20Risicoprofiel%202023.pdf",
+        "https://www.knmi.nl/kennis-en-datacentrum/publicatie/knmi-23-klimaatscenario-s-voor-nederland"
+      ],
+      "notes": [
+        "Final local command: MUNICIPALITY_AUDIT_CODE=GM0518 pnpm exec vitest run packages/sim-core/src/municipality-coverage.test.ts; 1 file and 2 tests passed in 15.61 s on 2026-09-02 after the corrected geometry check.",
+        "The root-level MUNICIPALITY_AUDIT_CODE=ALL run is also green for all 342 municipalities x 10 presets x 6 checkpoints x 8 services.",
+        "Severe-storm: finite wind/rain/flood effects and supply/drainage impacts are directionally plausible for an exposed coastal city, but no KNMI return period or local wind field is used.",
+        "Pluvial-flood: drainage is the limiting service and the UI-default run reaches 69.2 mm/h rain and 0.59 m modeled flood depth; local policy confirms cloudburst relevance, but this is not a sewer or hydraulic calculation.",
+        "River-flood: the UI-default run holds 1.10 m modeled flood depth from T+12 through T+48; the value comes from generic corridor distance and is not a Den Haag inundation map.",
+        "Coastal-flood: the UI-default run reaches 2.28 m modeled depth with 32.2 m/s gusts; coastal flooding is locally relevant, but defenses, breach location, elevation, and LIWO depth heterogeneity are absent.",
+        "Heatwave: high density and vulnerable-population context sensibly raise water/facility pressure; the UI-default run reaches 36.4 C, but no local urban-heat observation or raster calibrates it.",
+        "Winter-storm: snow/ice/cold and supply effects are finite and conditional; VRH notes that extreme cold, snow, and ice are relatively less frequent in Haaglanden's maritime climate, which the model does not express as probability.",
+        "Cyberattack: telecom is the limiting UI-default service and power-linked cascades are directionally credible; there is no operator/process-specific business-impact, RTO, or recovery evidence.",
+        "Earthquake: UI-default peak severity is only 0.008 with peak PGA about 0.0015 g, directionally consistent with VRH's very-low regional relevance assessment.",
+        "Wildfire: water becomes limiting, but the generic fire/smoke centers omit the actual Haagse coastal dunes identified by VRH as a local nature-fire environment.",
+        "Compound: severe storm, pluvial flood, and cyber effects combine deterministically; the UI-default run peaks at 0.95 severity, but component persistence and recovery are generic rather than event-calibrated."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "fail",
+      "summary": "Aggregate numerical contracts pass, but the local allocation violates preservation of official zero-population observations.",
+      "evidenceRefs": [
+        "in-repo:packages/sim-core/src/municipality-coverage.test.ts",
+        "in-repo:packages/sim-core/src/model.ts",
+        "https://www.cbs.nl/nl-nl/cijfers/detail/86165NED"
+      ],
+      "notes": [
+        "Across the full matrix, hazard/service values are finite and bounded, affected population is integral and within 0..568,945, route flows are bounded by effective capacity, deterministic T+24 replay is byte-identical, and cumulative person-hours are monotonic.",
+        "At compound T+24, each service's 114 district records exactly reconciles population, affected population, demand, and delivery to municipality totals within the shared tolerance.",
+        "Those totals mask a composition error: simulateCityDetail filters known population with population > 0 and uses a truthy/positive guard, so official zero is handled as missing. Oostduinen, Vliegeniersbuurt, and Tedingerbroek each receive 4,991 simulated residents.",
+        "The current coverage test checks the sum but has no per-buurt assertion matching observed finite zero values."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "Municipality-scale ordering is deterministic, but hazard and district exposure are not locally spatially calibrated for Den Haag.",
+      "evidenceRefs": [
+        "in-repo:packages/sim-core/src/model.ts",
+        "https://www.vrh.nl/sites/default/files/2023-01/6-B%20II%20Bijlagen%20Regionaal%20Risicoprofiel%202023.pdf",
+        "https://www.rijkswaterstaat.nl/nieuws/archief/2023/11/strand-van-scheveningen-versterkt-met-700000-m3-zand",
+        "https://www.hhdelfland.nl/publish/pages/2039/bijlage_2_krw-programma_delfland_2022-2027.pdf"
+      ],
+      "notes": [
+        "River and coastal exposure use one municipality label point and three generic river/coast segment sets; pluvial response uses municipality density rather than local elevation, drainage capacity, imperviousness, or inundation rasters.",
+        "Wildfire uses three generic national ignition centers and one generic smoke center; no Haagse dune polygon or prevailing wind field is represented.",
+        "VRH identifies coastal flooding as the most relevant regional flood case, documents marked inundation-depth heterogeneity and reinforced defenses, and identifies extensive coastal dunes adjoining dense development.",
+        "Neighborhood allocation uses deterministic seeded variation and selected CBS context, not a hazard footprint intersected with neighborhood geometry; therefore neighborhood rankings must not be read as observed exposure."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "warn",
+      "summary": "All eight services have bounded, explainable behavior and several credible dependency directions, but capacities, backups, and topology are generic assumptions.",
+      "evidenceRefs": [
+        "in-repo:packages/sim-core/src/model.ts",
+        "https://www.vrh.nl/sites/default/files/2023-01/6-B%20II%20Bijlagen%20Regionaal%20Risicoprofiel%202023.pdf",
+        "https://www.dunea.nl/-/media/bestanden/home/algemene-voorwaarden-2026.pdf"
+      ],
+      "notes": [
+        "Power: the model supplies the upstream dependency driver, while VRH describes a multi-feed transport ring and possible downstream station cascade; no Stedin/TenneT asset topology or outage history is used.",
+        "Water: power dependency is directionally valid, but Dunea/Evides operator areas, source-water coupling, public ten-day self-sufficiency context, and real backup endurance are not calibrated.",
+        "Drainage: continuous power dependence aligns with pump/control needs and VRH wastewater context, but sewer, pumping-station, boezem, and AWZI topology/capacity is absent.",
+        "Gas: partial passive capacity plus power-dependent control is plausible, but no Stedin/other operator regulator topology or customer mix is modeled.",
+        "Telecom: power/battery dependence and cyber exposure are credible directions, but battery windows, nodes, fiber, radio sites, and operator mutual dependencies are synthetic.",
+        "Mobility: NWB, ProRail, and GTFS support map context, while disruption capacities and intermunicipal flows are assumed rather than observed.",
+        "Facilities: power/generator dependence is credible, but hospitals, care sites, shelters, generators, fuel, occupancy, and patient-transfer capacity are not inventoried.",
+        "Supply: dependence on mobility is credible and VRH notes geographic substitution in food distribution, but warehouses, stocks, household reserves, delivery fleets, and emergency logistics are not locally observed."
+      ]
+    },
+    "causalTrace": {
+      "status": "pass",
+      "summary": "Hazard, service, system-pressure, dependency, and counterfactual ledgers reconcile exactly under the declared deterministic equations.",
+      "evidenceRefs": [
+        "in-repo:packages/sim-core/src/municipality-coverage.test.ts",
+        "in-repo:packages/sim-core/src/model.ts"
+      ],
+      "notes": [
+        "Hazard contribution effects sum to hazard severity; service-availability contributions reconcile from baseline 1; system-pressure contributions sum to system pressure.",
+        "Every checked counterfactual satisfies counterfactualValue - observedValue = delta, and dependency chains expose active upstream service, multiplier, backup state, and remaining modeled backup time.",
+        "Hazard attribution divides deterministic modeled effects proportionally; it is an explanation mechanism, not empirical causal inference.",
+        "The local zero-population error does not break ledger arithmetic, which is why it requires a separate source-fidelity assertion."
+      ]
+    },
+    "recovery72h": {
+      "status": "warn",
+      "summary": "Recovery outputs remain bounded and cumulative burden is monotonic, but baseline shortfall and forcing/recovery semantics need clearer treatment.",
+      "evidenceRefs": [
+        "in-repo:packages/sim-core/src/model.ts",
+        "in-repo:packages/sim-core/src/municipality-coverage.test.ts",
+        "https://www.vrh.nl/sites/default/files/2023-01/6-B%20II%20Bijlagen%20Regionaal%20Risicoprofiel%202023.pdf"
+      ],
+      "notes": [
+        "All presets produce finite T+72 states and monotonic deprived-person-hours; cyber retains residual disruption in the UI-default run while most weather forcing subsides.",
+        "The UI-default compound run still reports 0.61 m flood depth and 0.573 current hazard severity at T+72, while modeled population under pressure is 0 and all service availabilities are at least 0.871; generic restoration is not gated by a local access/inundation footprint.",
+        "The UI-default earthquake run has peak severity 0.008 and zero modeled population under pressure at every checkpoint, yet accumulates 2,721,551 deprived person-hours by T+72 because baseline resilience is below 1 even without material hazard.",
+        "These are planning-model metrics, not observed restoration estimates; label baseline-inclusive burden explicitly or report an event-attributable counterfactual difference."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [
+      0,
+      6,
+      12,
+      24,
+      48,
+      72
+    ],
+    "services": [
+      "power",
+      "water",
+      "drainage",
+      "gas",
+      "telecom",
+      "mobility",
+      "facilities",
+      "supply"
+    ]
+  },
+  "findings": [
+    {
+      "id": "GM0518-REGION-001",
+      "severity": "high",
+      "category": "regional-data",
+      "status": "open",
+      "summary": "Finite CBS population zero is imputed as missing during neighborhood allocation.",
+      "evidence": "The 2025 regional input records population 0 for BU05180170 Oostduinen, BU05184107 Vliegeniersbuurt, and BU05184209 Tedingerbroek. In simulateCityDetail, knownPopulations retains only values > 0 and populationWeight uses a truthy/positive guard; at compound T+24 each of these three buurten receives 4,991 residents. Municipality population, affected, demand, and delivery totals still reconcile, so the aggregate harness does not expose the redistribution.",
+      "action": "Treat finite zero as observed zero and impute only null, undefined, or non-finite population. Add per-buurt source-fidelity tests for zero and positive values while retaining exact municipality-total reconciliation."
+    },
+    {
+      "id": "GM0518-HAZARD-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Exact-looking flood and wildfire outputs are not based on Den Haag hazard footprints.",
+      "evidence": "The model uses the GM0518 label point, generic national coast/river segments, municipality density, seeded variation, and generic wildfire centers. It does not intersect neighborhoods with LIWO/Delfland flood depths, elevation/drainage layers, coastal defenses/breach cases, or the Haagse dunes. UI defaults consequently show single municipal values such as 1.10 m river depth and 2.28 m coastal depth, while VRH documents spatially heterogeneous depths, coastal-flood priority, strengthened Scheveningen defenses, and extensive dune-fire exposure.",
+      "action": "Calibrate or explicitly discretize flood and nature-fire exposure with authoritative local rasters/scenarios, neighborhood geometry, defense/breach assumptions, and wind; until then present these values as non-spatial scenario indices rather than local depths or neighborhood exposure."
+    },
+    {
+      "id": "GM0518-METRIC-001",
+      "severity": "medium",
+      "category": "explainability",
+      "status": "open",
+      "summary": "Deprived person-hours include synthetic baseline service shortfall without saying that they are baseline-inclusive.",
+      "evidence": "Baseline resilience is below 1 and the history integral accumulates population times weighted service shortfall every quarter hour. In the UI-default Groningen-earthquake scenario for GM0518, peak severity is 0.008 and modeled population under pressure stays zero, but the displayed cumulative burden reaches 2,721,551 person-hours at T+72.",
+      "action": "Either subtract a matched no-event counterfactual to report event-attributable deprived person-hours or rename and explain the metric as baseline-inclusive synthetic service shortfall; test a zero/near-zero hazard case."
+    },
+    {
+      "id": "GM0518-WATER-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "open",
+      "summary": "The homogeneous water-service proxy misses a known operator-area split and uses unsupported short backup windows.",
+      "evidence": "Dunea's 2026 service-area document covers Den Haag except Wateringse Veld, and VRH describes Dunea plus Evides, distinct networks with interconnections, source-water dependencies, high redundancy, and a ten-day self-sufficiency planning requirement. The model assigns one municipal water state and a seeded power-backup window of hours without operator calibration.",
+      "action": "Represent the public Dunea/Evides service-area distinction at an aggregate level and expose backup endurance as an assumption; do not invent pipe topology. Calibrate any stronger claims with operator-approved outage and resilience evidence."
+    },
+    {
+      "id": "GM0518-NETWORK-001",
+      "severity": "medium",
+      "category": "network",
+      "status": "accepted-limitation",
+      "summary": "NWB-derived intermunicipal routes are logical balancing proxies for all services, not utility infrastructure.",
+      "evidence": "Every service route is typed transferSemantics='logical-proxy'. The same road-derived adjacency can move power, water, drainage, gas, telecom, facilities, mobility, and supply in the balancing model, although public evidence verifies only transport geography and broad dependency directions.",
+      "action": "Retain explicit proxy labels and prohibit physical-flow claims; use only operator-approved aggregated connectivity if it becomes available."
+    },
+    {
+      "id": "GM0518-RECOVERY-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "open",
+      "summary": "Generic recovery can substantially restore services while the same scenario still reports material flood forcing.",
+      "evidence": "At UI-default compound T+72, GM0518 retains 0.61 m modeled flood depth and current severity 0.573, but population under pressure is zero and the least available service is 0.871. Repair ramps are driven by generic time, preparedness, and seeded variability, not neighborhood access, pump status, inundation, crew, fuel, or asset inspection.",
+      "action": "Gate or qualify restoration using current local forcing and access constraints, or explicitly state that service recovery is independent of the displayed flood-depth proxy; add a persistence/recovery consistency test."
+    },
+    {
+      "id": "GM0518-SETTLEMENT-001",
+      "severity": "informational",
+      "category": "regional-data",
+      "status": "accepted-limitation",
+      "summary": "TOP10NL woonkern population differs slightly from the CBS municipality population because it is a different spatial concept and source date.",
+      "evidence": "The single TOP10NL woonkern reports 568,375 at source date 2025-07-01, versus the CBS municipality total 568,945 at 2025-01-01, a difference of 570 (0.10%). The municipality simulation correctly uses the CBS total.",
+      "action": "Keep source, date, and spatial-concept labels visible and never substitute the settlement value for the municipality total."
+    },
+    {
+      "id": "GM0518-TRANSIT-001",
+      "severity": "low",
+      "category": "limitation",
+      "status": "accepted-limitation",
+      "summary": "Transit geometry is suitable for map context but does not establish disaster-time service capacity.",
+      "evidence": "The generated layer contains 652 in-boundary stop areas and recognizable HTM/rail geometry, but it is a best-effort GTFS snapshot with duplicate stop-area labels and no validated capacity, ridership, live disruption, accessibility, or emergency-operations state.",
+      "action": "Use operator timetable/realtime and capacity evidence for operational claims; retain the current layer as source-dated contextual geometry only."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Preserve finite official zero populations in local allocation and add a per-buurt fidelity invariant.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts"
+      ],
+      "validation": "For GM0518 compound T+24 and each service, assert that BU05180170, BU05184107, and BU05184209 allocate population 0, positive-population allocations remain proportional within documented integer rounding, and municipality population/affected/demand/delivery totals still reconcile. Then rerun the exact GM0518 command and the ALL-municipality harness."
+    },
+    {
+      "summary": "Replace exact-looking label-point hazard depths/exposures with authoritative local spatial inputs or clearly non-spatial indices.",
+      "files": [
+        "scripts/fetch-realism-data.mjs",
+        "apps/web/src/data.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts"
+      ],
+      "validation": "Benchmark GM0518 coastal, river/regional, and pluvial footprints against documented LIWO, Rijkswaterstaat, Delfland, municipality, and VRH scenarios; verify neighborhood gradients, Scheveningen defense/breach assumptions, and Haagse dune-fire exposure while preserving deterministic bounds and ledger reconciliation."
+    },
+    {
+      "summary": "Clarify or counterfactualize deprived person-hours so baseline synthetic shortfall is not mistaken for event-attributable burden.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/history.ts",
+        "packages/sim-core/src/explainability.test.ts",
+        "apps/web/src/components/statistics/statisticsCatalog.ts"
+      ],
+      "validation": "Add zero-intensity and near-zero-earthquake tests that distinguish baseline-inclusive from event-attributable person-hours, preserve monotonic integration, and verify UI labels/tooltips match the implemented definition."
+    },
+    {
+      "summary": "Make Den Haag drinking-water operator context and backup assumptions explicit without fabricating physical network topology.",
+      "files": [
+        "apps/web/src/data.ts",
+        "apps/web/src/scenarios.ts",
+        "packages/sim-core/src/model.ts"
+      ],
+      "validation": "Confirm the public Dunea exclusion for Wateringse Veld and any Evides assignment with operator sources, expose source date and uncertainty, test backup-duration sensitivity through 72 hours, and require operator evidence before calling results calibrated."
+    },
+    {
+      "summary": "Couple recovery plausibility to persistent forcing/access or disclose that the recovery curve is independent of the displayed local hazard proxy.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts"
+      ],
+      "validation": "Re-run the UI-default compound scenario at all six checkpoints and assert a documented relationship between persistent inundation, access, and restoration, while retaining finite bounds, causal-ledger equality, and deterministic replay."
+    }
+  ],
+  "residualLimitations": [
+    "Public sources do not expose complete physical electricity, gas, drinking-water, sewer/drainage, telecom, critical-facility, or emergency-supply topology, asset condition, protection level, switching rules, backup inventories, repair crews, fuel, or restoration observations. No such accuracy is claimed.",
+    "All hazard and service results are conditional deterministic planning-model states, not forecasts, probabilities, return periods, live telemetry, dispatch advice, or operator commitments.",
+    "CBS buurt counts are separately rounded and some values are suppressed or unavailable; the -20 neighborhood-to-municipality population difference and incomplete context fields should not be filled with invented precision.",
+    "TOP10NL settlement and BAG woonplaats concepts/dates differ from CBS municipality statistics and generalized geometry; they are contextual layers rather than alternate municipality totals.",
+    "GTFS and static operator maps do not provide validated disaster-time transit capacity, passenger load, accessibility, or live disruption behavior.",
+    "Daytime commuters, government workforce, beach tourism, events, institutional populations, and evacuation movements can materially change Den Haag exposure but are not represented by the resident-population allocation.",
+    "Regional policy statements and broad redundancy descriptions cannot validate asset-level service availability or a specific 72-hour restoration curve."
+  ],
+  "provinceReviewFlags": [
+    "Search every Zuid-Holland municipality for finite CBS zero-population buurten and verify that local allocation preserves zero rather than applying missing-value imputation.",
+    "Compare river, coastal, and pluvial severity ordering across Zuid-Holland against LIWO, Rijkswaterstaat, and the relevant water boards; label-point corridor distance may systematically distort coastal and polder municipalities.",
+    "Review public drinking-water service-area boundaries across Zuid-Holland, including the Dunea/Evides split at Wateringse Veld, without inferring pipe connectivity.",
+    "Audit deprived-person-hour semantics province-wide with a zero-intensity/no-event counterfactual so baseline synthetic shortfall is not presented as disaster-attributable burden.",
+    "Ensure province synthesis preserves the distinction between official transport geography and road-derived logical service-transfer routes."
+  ]
+}

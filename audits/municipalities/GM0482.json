@@ -1,0 +1,682 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0482",
+    "name": "Alblasserdam",
+    "province": "Zuid-Holland",
+    "safetyRegion": "Zuid-Holland-Zuid"
+  },
+  "agent": {
+    "taskName": "municipality_gm0482",
+    "agentId": "/root/causal_engine_v3",
+    "completedAt": "2026-09-02T11:34:15Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "Alblasserdam's 2025 identity, boundary, municipal totals and 29-neighbourhood source data reconcile closely, and the dedicated 10-scenario by 6-checkpoint by 8-service numerical gate passes. The four newly requested shared corrections behave as intended in the current build: intensity zero is an exact no-event counterfactual for all presets; canonical river forcing prevents restoration through T+72; direct wildfire has finite support while distant smoke remains separate; and direct coastal depth is screened outside the 35 km coast-distance radius. The last behavior is nevertheless not locally defensible for this benedenrivieren municipality. Current official regional evidence places Alblasserdam in dike-ring sections 16-1 through 16-5 and identifies both river and sea influence, while the model reports zero direct coastal depth solely from straight-line open-coast distance. Two further correction-required defects materially affect all services: the zero-resident Hoogendijk neighbourhood contains major business and current Stedin/TenneT infrastructure yet receives zero modeled demand and delivery for every service, and an official Rijksweg A15 boundary connection is emitted as route 015 with regional rather than trunk capacity. Exact utility, telecom and drainage topology is unavailable publicly; all intermunicipal flows are correctly labeled logical transfer proxies and must remain so. The build is a deterministic stress-test prototype, not a locally calibrated operational forecast.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek",
+      "title": "Kerncijfers wijken en buurten 2025 — filtered municipality row GM0482",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM0482%27%29&%24select=WijkenEnBuurten%2CAantalInwoners_5%2CBevolkingsdichtheid_34%2Ck_65JaarOfOuder_12%2CEenpersoonshuishoudens_30",
+      "accessedAt": "2026-09-02T11:34:15Z",
+      "edition": 2025,
+      "supports": [
+        "Official GM0482 population, population density, age-65-plus count and one-person-household count.",
+        "Reference totals for generated municipality and neighbourhood reconciliation."
+      ]
+    },
+    {
+      "publisher": "PDOK / Kadaster",
+      "title": "Definitieve Bestuurlijke Gebieden 2026 — GM0482 feature",
+      "url": "https://api.pdok.nl/kadaster/brk-bestuurlijke-gebieden/ogc/v1/collections/gemeentegebied/items?f=json&identificatie=GM0482",
+      "accessedAt": "2026-09-02T11:34:15Z",
+      "edition": 2026,
+      "supports": [
+        "Current authoritative municipality identifier, name, province and multipolygon.",
+        "Independent check on the generated 2025 generalized administrative geometry."
+      ]
+    },
+    {
+      "publisher": "PDOK / Centraal Bureau voor de Statistiek",
+      "title": "Buurt gegeneraliseerd 2025",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/buurt_gegeneraliseerd",
+      "accessedAt": "2026-09-02T11:34:15Z",
+      "edition": 2025,
+      "supports": [
+        "Twenty-nine official neighbourhood geometries and six district groupings in GM0482.",
+        "Spatial basis for aggregate local statistics and allocation."
+      ]
+    },
+    {
+      "publisher": "PDOK / Kadaster",
+      "title": "BAG woonplaats OGC API",
+      "url": "https://api.pdok.nl/kadaster/bag/ogc/v2/collections/woonplaats",
+      "accessedAt": "2026-09-02T11:34:15Z",
+      "edition": 2026,
+      "supports": [
+        "One active BAG woonplaats named Alblasserdam is associated with the municipality."
+      ]
+    },
+    {
+      "publisher": "PDOK / Kadaster",
+      "title": "BRT TOP10NL plaats_vlak OGC API",
+      "url": "https://api.pdok.nl/kadaster/brt-top10nl/ogc/v1/collections/plaats_vlak",
+      "accessedAt": "2026-09-02T11:34:15Z",
+      "edition": 2026,
+      "supports": [
+        "BRT settlement polygons for the Alblasserdam woonkern and Kortland buurtschap.",
+        "Source-ontology and settlement-population caveat."
+      ]
+    },
+    {
+      "publisher": "PDOK / Centraal Bureau voor de Statistiek",
+      "title": "Veiligheidsregio gegeneraliseerd 2025",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/veiligheidsregio_gegeneraliseerd",
+      "accessedAt": "2026-09-02T11:34:15Z",
+      "edition": 2025,
+      "supports": [
+        "GM0482 intersects exactly one safety region, Zuid-Holland-Zuid."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / PDOK",
+      "title": "Nationaal Wegenbestand wegvakken — focused Alblasserdam A15 query",
+      "url": "https://service.pdok.nl/rws/nationaal-wegenbestand-wegen/wfs/v1_0?service=WFS&version=2.0.0&request=GetFeature&typeNames=nwbwegen%3Awegvakken&outputFormat=application%2Fjson&srsName=EPSG%3A4326&count=100&bbox=51.848%2C4.682%2C51.849%2C4.684%2CEPSG%3A4326&propertyName=wvkId%2CjteIdBeg%2CjteIdEnd%2Cwegnummer%2Crouteltr%2Croutenr%2Cfrc%2CgmeId%2CgmeNaam%2CsttNaam%2CstLengthshape%2Cgeom",
+      "accessedAt": "2026-09-02T11:34:15Z",
+      "edition": "NWB 2026",
+      "supports": [
+        "The generated numeric route 015 is a Rijksweg A15 segment and adjoining records expose route letter A and route number 15.",
+        "Functional classes and street names used to diagnose the route alias and capacity error."
+      ]
+    },
+    {
+      "publisher": "ProRail / PDOK",
+      "title": "ProRail stations OGC API",
+      "url": "https://api.pdok.nl/prorail/spoorwegen/ogc/v1/collections/station",
+      "accessedAt": "2026-09-02T11:34:15Z",
+      "edition": 2026,
+      "supports": [
+        "No ProRail station geometry lies inside GM0482."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Zuid-Holland Zuid",
+      "title": "Regionaal Risicoprofiel Zuid-Holland Zuid 2025–2028",
+      "url": "https://www.zhzveilig.nl/sites/zhzveilig_corporate/files/2024-12/Regionaal%20Risicoprofiel%20Zuid-Holland%20Zuid%202025-2028.pdf",
+      "accessedAt": "2026-09-02T11:34:15Z",
+      "edition": "2025–2028",
+      "supports": [
+        "Alblasserdam is explicitly covered by dike sections 16-1 through 16-5 and by territorial risk categories for ring flooding, outside-dike flooding, regional barriers, pluvial rain, heat, drought, snow/ice and storm.",
+        "The regional profile identifies digital disruption, electricity, drinking-water, mobility and other vital-service dependencies.",
+        "Oasen supplies the Alblasserwaard; public evidence describes dependencies but not an operational distribution topology."
+      ]
+    },
+    {
+      "publisher": "Gemeente Alblasserdam",
+      "title": "Beleidsnota Klimaatadaptatie Alblasserdam",
+      "url": "https://zoek.officielebekendmakingen.nl/gmb-2025-307318.html",
+      "accessedAt": "2026-09-02T11:34:15Z",
+      "edition": 2025,
+      "supports": [
+        "Alblasserdam is low-lying and characterized locally as lying inside the dikes in a bathtub.",
+        "Current local policy evidence for pluvial flooding, heat, drought, extensive paving and rainfall-storage design assumptions."
+      ]
+    },
+    {
+      "publisher": "Gemeente Alblasserdam / Waterschap Rivierenland",
+      "title": "Programma Stedelijk Waterbeheer 2023–2027",
+      "url": "https://raad.alblasserdam.nl/Documenten/Bijlage-n/20221201-PSW-Alblasserdam.pdf",
+      "accessedAt": "2026-09-02T11:34:15Z",
+      "edition": "2023–2027",
+      "supports": [
+        "Municipal drainage duties, 110 km gravity sewer and 31 km mechanical sewer context.",
+        "Emergency-route passability, pressure-sewer and centrally monitored pump context without a complete public dependency graph."
+      ]
+    },
+    {
+      "publisher": "Waterschap Rivierenland",
+      "title": "Nieuwe Waarden Alblasserwaard",
+      "url": "https://www.waterschaprivierenland.nl/A5H/Nieuwe-Waarden-Alblasserwaard",
+      "accessedAt": "2026-09-02T11:34:15Z",
+      "edition": 2026,
+      "supports": [
+        "The historic Alblasserwaard water system is reaching limits and the two Kinderdijk pumping locations cannot always adequately control boezem levels.",
+        "A planned eastern pumping route is intended to reduce the present single-location dependency."
+      ]
+    },
+    {
+      "publisher": "Waterschap Rivierenland",
+      "title": "Kadeversterkingen Alblasserwaard-Vijfheerenlanden — tranche 1",
+      "url": "https://www.waterschaprivierenland.nl/kadeversterkingen-tranche-1",
+      "accessedAt": "2026-09-02T11:34:15Z",
+      "edition": 2026,
+      "supports": [
+        "More than 100 km of regional barriers in the wider system do not meet current standards.",
+        "Public regional-barrier reinforcement context relevant to Alblas/Giessen built areas."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / Informatiepunt Leefomgeving",
+      "title": "Landelijk Informatiesysteem Water en Overstromingen",
+      "url": "https://iplo.nl/thema/water/applicaties-modellen/berichtgeving-crisismanagement/liwo/",
+      "accessedAt": "2026-09-02T11:34:15Z",
+      "edition": 2026,
+      "supports": [
+        "Scenario-specific flood depth, arrival-time and probability layers require spatial scenario selection.",
+        "No defensible exact municipality-wide depth follows from a straight-line coast or river distance."
+      ]
+    },
+    {
+      "publisher": "Stedin",
+      "title": "Stedin starts construction of new electricity station in Alblasserdam",
+      "url": "https://web.stedin.net/over-stedin/pers-en-media/persberichten/stedin-start-met-bouw-nieuw-elektriciteitsstation-in-alblasserdam",
+      "accessedAt": "2026-09-02T11:34:15Z",
+      "edition": 2026,
+      "supports": [
+        "A new regional distribution station is under construction at Hoogendijk beside existing Stedin and TenneT stations.",
+        "The site serves a wider Alblasserdam, Molenlanden and Papendrecht system and is planned to increase capacity to 375 MVA after commissioning."
+      ]
+    },
+    {
+      "publisher": "Stedin",
+      "title": "Summary congestion study — Alblasserdam and Molenlanden-West",
+      "url": "https://www.stedin.net/-/media/project/online/files/zakelijk/congestiemanagement/samenvatting-congestieonderzoek-afname-alblasserdam-en-molenland-west.pdf?hash=31FF46BF75C81DC9162121BCC96E6E76&rev=dad20a970d4c44bca6179b00f2726df2",
+      "accessedAt": "2026-09-02T11:34:15Z",
+      "edition": 2025,
+      "supports": [
+        "Most of the Alblasserdam/Molenlanden-West demand area reached maximum consumption capacity in April 2025.",
+        "Congestion is contextual evidence of constrained capacity, not outage probability or disaster fragility."
+      ]
+    },
+    {
+      "publisher": "Oasen",
+      "title": "Oasen 2025 sustainability report",
+      "url": "https://jaarverslag.oasen.nl/jaarverslag-2025/duurzaamheidsverslag/algemeen-1",
+      "accessedAt": "2026-09-02T11:34:15Z",
+      "edition": 2025,
+      "supports": [
+        "Oasen assesses flooding, dike failure and extreme-weather resilience per location and maintains disturbed-supply planning.",
+        "Public reporting does not reveal the exact Alblasserdam feed route, pressure zone, redundancy or isolation topology."
+      ]
+    },
+    {
+      "publisher": "Gemeente Alblasserdam",
+      "title": "Business locations in Alblasserdam",
+      "url": "https://www.alblasserdam.nl/Ondernemers/Alle_onderwerpen/Bedrijfshuisvesting",
+      "accessedAt": "2026-09-02T11:34:15Z",
+      "edition": 2026,
+      "supports": [
+        "Nearly half of built land comprises business parks, with about 500 businesses and 5800 jobs.",
+        "Vinkenwaard, Hoogendijk, Nieuwland Parc, quays and the container transfer function create non-residential service demand."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat",
+      "title": "Noordtunnel A15",
+      "url": "https://www.rijkswaterstaat.nl/wegen/wegenoverzicht/a15/noordtunnel-a15",
+      "accessedAt": "2026-09-02T11:34:15Z",
+      "edition": 2026,
+      "supports": [
+        "The A15 Noordtunnel crosses beneath the Noord between Alblasserdam and Hendrik-Ido-Ambacht.",
+        "A public critical mobility structure exists beyond a generic municipal boundary link."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat",
+      "title": "Renovation of the N915 Bridge over the Noord",
+      "url": "https://www.rijkswaterstaat.nl/wegen/projectenoverzicht/n915-renovatie-brug-over-de-noord",
+      "accessedAt": "2026-09-02T11:34:15Z",
+      "edition": 2026,
+      "supports": [
+        "The N915 Bridge over the Noord is a distinct movable bridge and mobility dependency.",
+        "Its systems were renovated from 2023 through spring 2026."
+      ]
+    },
+    {
+      "publisher": "Waterschap Rivierenland",
+      "title": "Limited water inlet at Kinderdijk during spring tide",
+      "url": "https://www.waterschaprivierenland.nl/beperkte-inlaat-van-water-in-kinderdijk-bij-springvloed",
+      "accessedAt": "2026-09-02T11:34:15Z",
+      "edition": 2026,
+      "supports": [
+        "Spring tide, low river discharge and saline intrusion can combine at Kinderdijk.",
+        "Alblasserdam's benedenrivieren exposure is not separable into independent open-coast and river distance fields."
+      ]
+    },
+    {
+      "publisher": "KNMI",
+      "title": "KNMI'23 climate scenarios for the Netherlands",
+      "url": "https://www.knmi.nl/kennis-en-datacentrum/publicatie/knmi-23-klimaatscenario-s-voor-nederland",
+      "accessedAt": "2026-09-02T11:34:15Z",
+      "edition": "KNMI'23",
+      "supports": [
+        "National forcing and uncertainty context for precipitation, heat, drought, storm and sea level.",
+        "Simulator presets are synthetic stress tests rather than municipal forecasts."
+      ]
+    },
+    {
+      "publisher": "KNMI",
+      "title": "Natuurbranden",
+      "url": "https://www.knmi.nl/kennis-en-datacentrum/uitleg/natuurbranden",
+      "accessedAt": "2026-09-02T11:34:15Z",
+      "edition": 2026,
+      "supports": [
+        "Wildfire occurrence depends on weather, burnable material and ignition.",
+        "Finite geometric support is safer than an unlimited direct-fire tail but is not a land-cover or spread model."
+      ]
+    },
+    {
+      "publisher": "KNMI",
+      "title": "ShakeMaps archive",
+      "url": "https://www.knmi.nl/nederland-nu/seismologie/shakemaps-archief",
+      "accessedAt": "2026-09-02T11:34:15Z",
+      "edition": 2026,
+      "supports": [
+        "Official Dutch ground-shaking products are event-specific maps based on observations and ground-motion relations.",
+        "The model's Groningen-centred earthquake is a synthetic stress test, not an Alblasserdam assessment."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM0482, Alblasserdam, Zuid-Holland and safety region Zuid-Holland-Zuid agree across the manifest, generated data and official sources.",
+      "evidenceRefs": [
+        "E1",
+        "E2",
+        "E6"
+      ],
+      "notes": [
+        "The generated feature id and municipality code both equal GM0482.",
+        "The generated point intersects exactly one 2025 safety region, Zuid-Holland-Zuid.",
+        "Generated boundary and municipality-statistics editions are both 2025; E2 is a newer independent boundary check, not a silent replacement."
+      ]
+    },
+    "geography": {
+      "status": "pass",
+      "summary": "The generated 2025 generalized polygon and municipal centre are internally coherent; [4.663621856416433, 51.861135123133074] lies inside the boundary.",
+      "evidenceRefs": [
+        "E2",
+        "E3"
+      ],
+      "notes": [
+        "The audit context resolves 29 official neighbourhoods and six district groups.",
+        "Administrative geometry does not establish elevation, dike compartments, inside/outside-dike status, sewer catchments or utility geometry."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "The generated municipality values reproduce the official 2025 row: 20242 residents, density 2307/km², 4176 residents aged 65+ and 2789 one-person households.",
+      "evidenceRefs": [
+        "E1",
+        "E3"
+      ],
+      "notes": [
+        "Published neighbourhood populations sum to 20250, eight above the municipality total or 0.04%.",
+        "Neighbourhood age-65-plus values sum to 4190, fourteen above the municipal count; one-person households sum to 2790, one above. These are small differences in rounded small-area products.",
+        "Neighbourhood totals include 8485 households, 9795 cars, 2490 businesses, 1345 non-residential buildings, 876 ha land and 125 ha water."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "All 29 official neighbourhoods are present and official zero population is preserved, but coverage is sparse in industrial areas and economic/non-residential fields do not enter local service demand.",
+      "evidenceRefs": [
+        "E3",
+        "E15",
+        "E18"
+      ],
+      "notes": [
+        "Core population, age, household, business, car and land/water fields are present for 29/29 records. Average-home-value, benefits and multi-family fields are present for 22/29; cars per household for 21/29; density and doctor/supermarket distance for 27/29.",
+        "District-heating percentage and public charging points are unavailable in all 29 records and remain null, not zero.",
+        "Hoogendijk correctly preserves official population=0 and households=0 while retaining 80 businesses and 104 non-residential buildings; Vinkenwaard has 105 residents, 245 businesses and 346 non-residential buildings.",
+        "Local context coverage ranges from 0.1111 to 1.000. All operational priorities remain neutral at 2 and isHub=false, which avoids inventing incident priorities but also omits the evidenced Hoogendijk energy asset."
+      ]
+    },
+    "settlements": {
+      "status": "warn",
+      "summary": "One BAG woonplaats and two BRT settlement polygons are source-valid but represent different ontologies and dates.",
+      "evidenceRefs": [
+        "E4",
+        "E5"
+      ],
+      "notes": [
+        "BAG supplies one woonplaats, Alblasserdam.",
+        "BRT supplies the Alblasserdam woonkern with population 20035 and Kortland buurtschap with population 70.",
+        "BRT settlement population totals 20105, 137 below the municipal population or 0.68%; it must not be forced to equal CBS municipality totals."
+      ]
+    },
+    "transport": {
+      "status": "fail",
+      "summary": "Neighbour municipalities and most route labels are plausible, but the Molenlanden connection named 015 is demonstrably an A15 segment and is assigned the wrong logical route class and capacity.",
+      "evidenceRefs": [
+        "E7",
+        "E8",
+        "E19",
+        "E20"
+      ],
+      "notes": [
+        "The logical graph has degree four and connects Papendrecht, Hendrik-Ido-Ambacht and Molenlanden using A15, N915 and 015 records.",
+        "A15 links to Papendrecht and Hendrik-Ido-Ambacht use trunk capacity 260; the 0.100 km Molenlanden 015 link uses regional capacity 150.",
+        "The focused NWB WFS response names 015 as Rijksweg A15 and adjacent source records expose route letter A and number 15. scripts/fetch-realism-data.mjs resolves numeric aliases only against explicit routes for the same municipality pair, so this cross-pair case remains wrong.",
+        "No ProRail station lies inside GM0482 and 20 GTFS stop areas are retained. The A15 Noordtunnel and N915 Bridge over the Noord are real critical structures but are not modeled as assets or detour dependencies."
+      ]
+    },
+    "emergencyContext": {
+      "status": "warn",
+      "summary": "Official current sources strongly support flood, extreme-weather, digital and vital-service relevance, but no public source supplies operational restoration priorities or complete utility inventories.",
+      "evidenceRefs": [
+        "E9",
+        "E10",
+        "E11",
+        "E12",
+        "E15",
+        "E17"
+      ],
+      "notes": [
+        "The regional profile explicitly includes Alblasserdam in ring-16, outside-dike, regional-barrier, rain, heat, drought, snow/ice and storm categories; category colour is territorial relevance, not quantitative likelihood.",
+        "The public water system has important Kinderdijk and regional-barrier dependencies, but detailed pump, overflow, control and emergency operating topology is incomplete.",
+        "Public Stedin and Oasen evidence establishes operators, assets, capacity context and resilience processes, not failure probabilities, feeder/pipe topology, backup autonomy, crews or restoration times."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "The current model completed all 10 canonical presets at T+0/6/12/24/48/72 across all eight services for GM0482 without missing or non-finite outputs.",
+      "evidenceRefs": [
+        "E9",
+        "E10",
+        "E21",
+        "E22",
+        "E23"
+      ],
+      "notes": [
+        "Reproduction: MUNICIPALITY_AUDIT_CODE=GM0482 pnpm audit:model; result 2 tests passed in 27.72 seconds on 2026-09-02. The national ALL harness also passes 342 municipalities × 10 scenarios × 6 checkpoints × 8 services.",
+        "Peak severities are severe-storm 0.663842, pluvial-flood 0.367767, river-flood 0.958604, coastal-flood 0, heatwave 0.712481, winter-storm 0.445197, cyberattack 0.422779, earthquake 0.008424, wildfire 0.117453 and compound 0.899761.",
+        "Representative T+24 values are: severe storm severity 0.172707/flood 0.311832 m; pluvial 0.250692/0.347112 m; river 0.958604/3.096792 m; coastal severity and depth 0 with wind 17.6638 m/s; heatwave 25.485 C; winter severity 0.444559; cyber disruption 0.360240; earthquake current severity 0 after a T+6 peak; wildfire direct intensity 0 and smoke 0.254408; compound severity 0.883092, rain 53.4654 mm/h, flood 0.359738 m, wind 30.4219 m/s and cyber 0.370903.",
+        "These outputs demonstrate deterministic coverage, not empirical validation of the stated physical units."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "All audited values are finite and bounded, population and allocation reconciliations close, and cumulative event-attributable person-hours are monotonic.",
+      "evidenceRefs": [],
+      "notes": [
+        "Every service availability remains in [0,1], all hazards and demands are non-negative, and current severity never exceeds remembered peak severity.",
+        "At compound T+24, the 29 supply allocations sum to population 20242, affected population 14640, demand 11.838922 and delivery 3.303253; inbound supply is 3.303253 and reconciliation error is zero.",
+        "All ten intensity-zero counterfactuals at all six checkpoints have maximum event severity, peak severity, event hazard dimension, affected population, event-attributable person-hours and hazard-ledger magnitude exactly zero. This verifies CORR-009."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "The finite fire footprint behaves conservatively, but the open-coast distance screen creates a locally indefensible coastal-flood false negative and the remaining flood depths are not hydraulic results.",
+      "evidenceRefs": [
+        "E9",
+        "E10",
+        "E12",
+        "E14",
+        "E20",
+        "E22"
+      ],
+      "notes": [
+        "CORR-010 wildfire verification passes its interim contract: GM0482 is beyond the maximum 18 km direct-fire radius, so wildfireIntensity is exactly zero at all six checkpoints while separately labeled smoke reaches 0.254408 and drought 0.554762 at T+24.",
+        "CORR-010 coastal-screen verification is numerically exact but fails local realism: direct coastal depth is zero at all six checkpoints because the municipal label point lies beyond a 35 km straight-line open-coast screen.",
+        "Official evidence places Alblasserdam in ring-16 flood exposure and a hydraulically coupled Noord/Lek/Merwede benedenrivieren system where sea level, spring tide, wind and river discharge can interact. A coast-distance cutoff cannot establish zero coastal/storm-surge contribution.",
+        "The canonical river depth of 3.096792 m at T+12 through T+72 is directionally consistent with severe local flood consequences, but it is a proximity stress value, not an intersected LIWO breach scenario and must not be presented as an exact municipal or neighbourhood depth."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "Eight-service cascades and transparent system weights execute, but population-only local demand erases a regionally important zero-resident energy and employment area.",
+      "evidenceRefs": [
+        "E9",
+        "E11",
+        "E12",
+        "E15",
+        "E16",
+        "E17",
+        "E18"
+      ],
+      "notes": [
+        "System-pressure weights include all eight services and sum to one: power 0.18, water 0.15, drainage 0.08, gas 0.09, telecom 0.12, mobility 0.12, facilities 0.14 and supply 0.12.",
+        "At compound T+24, Hoogendijk receives population=0, demand=0 and delivery=0 for power, water, drainage, gas, telecom, mobility, facilities and supply despite 80 official businesses, 104 non-residential buildings and evidenced Stedin/TenneT infrastructure.",
+        "The same resident-demand limitation understates Vinkenwaard and Nieuwland industrial activity. apps/web/src/data.ts reads business/non-residential values but bundleToLocalRegions does not pass them into LocalRegionContext.",
+        "Power, water, drainage, gas, telecom, mobility, facilities and supply each have distinct model coefficients, but all intermunicipal transfers share the road-derived graph and are not operator networks."
+      ]
+    },
+    "causalTrace": {
+      "status": "warn",
+      "summary": "Causal ledgers reconcile, operational assumptions are labeled and network semantics are explicit, but a zero coastal headline can coexist with material wind-driven service effects.",
+      "evidenceRefs": [
+        "E7",
+        "E9",
+        "E15",
+        "E17"
+      ],
+      "notes": [
+        "Every route transfer exposes transferSemantics=logical-proxy; the UI and exports must preserve that wording because an NWB road graph is not physical power, water, drainage, gas or telecom topology.",
+        "Backup, network-capacity, repair-capacity, mutual-aid and generator effects are bounded scenario assumptions rather than verified assets, crews or commitments; delayed/ramped activation is visible in the trace.",
+        "For coastal-flood, current and peak headline severity remain zero at all checkpoints, yet T+24 wind 17.6638 m/s produces system pressure 0.138197 and 13890 cumulative event-attributable person-hours; by T+72 the cumulative value is 54394. The arithmetic is traceable, but users can misread headline zero as no event impact.",
+        "Local allocations expose official source type, neutral priority and context coverage, but no asset-based cause explains the omission of Hoogendijk demand."
+      ]
+    },
+    "recovery72h": {
+      "status": "pass",
+      "summary": "The newly added sustained-flood gate prevents direct service restoration during the entire canonical 72-hour river-flood audit window.",
+      "evidenceRefs": [
+        "E9",
+        "E10",
+        "E12",
+        "E14"
+      ],
+      "notes": [
+        "CORR-011 is verified: canonical river duration is 168 hours, direct safe-repair onset is delayed to 90% of duration, and recoveryProgress is exactly zero for every service at T+12, T+24, T+48 and T+72 while flood depth remains 3.096792 m.",
+        "At T+72 river system pressure remains 0.533881, affected population 11233 and cumulative event-attributable person-hours 793808; mobility is the limiting service at availability 0.287145.",
+        "Facility availability changes from 0.398298 at T+24 to 0.552842 at T+48 even while local recoveryProgress is zero because full-network logical transfers can vary; the explanation separates this from direct restoration.",
+        "Other T+72 cumulative event-attributable person-hour approximations are severe storm 284361, pluvial 162094, coastal 54394, heatwave 178697, winter 214002, cyber 296848, earthquake 4789, wildfire 81292 and compound 579106. These are model pressure integrals, not observed deprivation."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [
+      0,
+      6,
+      12,
+      24,
+      48,
+      72
+    ],
+    "services": [
+      "power",
+      "water",
+      "drainage",
+      "gas",
+      "telecom",
+      "mobility",
+      "facilities",
+      "supply"
+    ]
+  },
+  "findings": [
+    {
+      "id": "GM0482-FLOOD-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Municipality-specific: the finite open-coast screen incorrectly forces direct coastal depth to zero in a hydraulically coupled benedenrivieren municipality.",
+      "evidence": "For all six canonical coastal-flood checkpoints, packages/sim-core/src/model.ts coastalExposure returns zero because GM0482 is beyond 35 km from three simplified coast segments. The focused run therefore returns coastal floodDepthM=0 and severity=0. E9 explicitly places Alblasserdam in ring-16 and outside-dike flood relevance; E20 documents spring-tide and salinity interaction; E10 describes the town as a low-lying bathtub. This is Alblasserdam/delta-specific evidence exposing a shared national distance-screen limitation.",
+      "action": "Replace the binary open-coast screen with public hydraulic scenario masks that distinguish direct open-coast, benedenrivieren storm-surge/tidal, river, regional-barrier and outside-dike pathways. Do not simply enable an arbitrary depth: intersect LIWO scenario provenance with the municipal/neighbourhood geometry and label remaining values as stress indices until calibrated."
+    },
+    {
+      "id": "GM0482-DEMAND-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Municipality-specific: Hoogendijk's official zero resident population erases demand for a critical regional electricity site and substantial business stock.",
+      "evidence": "The generated source correctly preserves Hoogendijk population=0 and households=0 together with 80 businesses and 104 non-residential buildings. E15 places existing Stedin and TenneT stations plus the new regional station at Hoogendijk; E18 documents large business/employment activity. Yet simulateCityDetail at compound T+24 returns population=0, demand=0 and delivered=0 for all eight services, because apps/web/src/data.ts bundleToLocalRegions passes only resident vulnerability/context fields and packages/sim-core/src/model.ts scales local demand from population. The zero-preservation fix is correct; the derived service semantics are not.",
+      "action": "Add privacy-safe business, employment, non-residential floor/stock and public critical-asset context, with service-specific and time-of-day coefficients. Keep resident and economic/process load reconciliations separate and label asset priorities as sourced context rather than demographics. Add a GM0482 regression proving Hoogendijk can carry power/facility/mobility/supply load while population remains exactly zero."
+    },
+    {
+      "id": "GM0482-NWB-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "Municipality-specific route instance exposing shared ingestion logic: an official Rijksweg A15 link is emitted as regional route 015 at capacity 150.",
+      "evidence": "The generated GM0482–GM1978 connection is named 015, mode regional and capacity 150. The exact E7 NWB WFS query returns street name Rijksweg A15/Alblasserdam 22, wegnummer 015 and adjacent route fields routeltr=A/routenr=15, with top functional classes. scripts/fetch-realism-data.mjs normalizes numeric-only aliases only when the same municipality pair also contains exactly one explicit A/N name; this pair lacks that local alias even though the road is A15. Route class affects the shared logical capacity used by all eight services.",
+      "action": "Normalize NWB road identity from routeltr+routenr and/or a nationally keyed road-section identity before pair aggregation, then deduplicate by canonical route. Add a fixture for GM0482–GM1978 expecting A15, trunk and capacity 260, and verify that no physical utility interpretation is introduced."
+    },
+    {
+      "id": "GM0482-ZERO-001",
+      "severity": "informational",
+      "category": "hazard",
+      "status": "fixed",
+      "summary": "Shared correction verified locally: intensity zero is an exact no-event counterfactual for every preset.",
+      "evidence": "Using createScenarioConfig(preset, { intensity: 0 }) for all ten presets and T+0/6/12/24/48/72, the focused isolated-GM0482 run returns maximum current severity=0, peak severity=0, physical event dimension=0, affected population=0, event-attributable person-hours=0 and hazard-ledger magnitude=0. Seasonal temperature and climate context remain visible but are not counted as event severity. This verifies packages/sim-core/src/model.ts CORR-009 behavior.",
+      "action": "Retain the all-preset zero-intensity invariant in packages/sim-core/src/municipality-coverage.test.ts and national audits; future hazard components must satisfy it before release."
+    },
+    {
+      "id": "GM0482-FIRE-001",
+      "severity": "medium",
+      "category": "hazard",
+      "status": "accepted-limitation",
+      "summary": "Shared interim fire-footprint correction passes, but direct spread and smoke remain geometric proxies rather than local vegetation/wind models.",
+      "evidence": "The canonical wildfire epicentre remains farther than the packages/sim-core/src/model.ts radius min(18 km, 2+0.9×elapsed), so GM0482 wildfireIntensity is exactly zero at all six checkpoints while smokeSeverity reaches 0.254408 and droughtSeverity 0.554762 at T+24. E9 excludes a regional wildfire scenario because Zuid-Holland-Zuid lacks a continuous qualifying nature-fire area, and E22 states the need for weather, burnable material and ignition. The direct-versus-smoke separation is materially safer, but the smoke field is not wind-transport calibrated.",
+      "action": "Retain finite direct-fire support and separate smoke labeling. In a future calibration, intersect burnable land cover, ignition footprint and wind-aware spread; treat current smoke as a stress proxy and not a concentration or plume forecast."
+    },
+    {
+      "id": "GM0482-REC-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "Shared sustained-flood correction verified locally: no direct restoration is credited while canonical river forcing persists through T+72.",
+      "evidence": "The focused GM0482 river run has floodDepthM=3.096792 at T+12, T+24, T+48 and T+72, and recoveryProgress=0 for power, water, drainage, gas, telecom, mobility, facilities and supply at each checkpoint. packages/sim-core/src/model.ts delays safe repair for river/coastal forcing to 90% of the 168-hour canonical duration. Any service change from full-network transfer remains separate in the trace.",
+      "action": "Keep forcing-gated recovery tests for sustained river and coastal fixtures. Future local recovery validation requires incident access, assets, crews, backup autonomy and operator restoration envelopes that are not public."
+    },
+    {
+      "id": "GM0482-FLOOD-002",
+      "severity": "high",
+      "category": "explainability",
+      "status": "open",
+      "summary": "Shared flood precision limitation: the 3.096792 m river value looks physical but is not derived from a named breach, dike or LIWO scenario.",
+      "evidence": "The canonical river run holds GM0482 at exactly 3.096792 m from T+12 through T+72 and seeds the same municipal hazard severity into all 29 local allocations. E9-E14 show that credible local inundation depends on ring-16 sections, outside-dike exposure, regional barriers, Kinderdijk/boezem behavior, breach choice, elevation and scenario timing. packages/sim-core/src/model.ts explicitly computes a 50 km proximity field, not hydraulics.",
+      "action": "Suppress exact metre claims and neighbourhood-uniform physical-depth language unless an official scenario footprint is intersected. Expose source layer, scenario/breach identifier, return-period context, resolution and coverage in the explanation trace; otherwise use a unitless flood-stress index."
+    },
+    {
+      "id": "GM0482-COAST-SEM-001",
+      "severity": "medium",
+      "category": "explainability",
+      "status": "open",
+      "summary": "Shared UI/model semantic risk: coastal headline severity is zero while wind still creates measurable essential-service pressure.",
+      "evidence": "At T+24 the coastal preset reports severity=0 and floodDepthM=0 but windGustMs=17.6638, systemPressure=0.138197 and 13890 cumulative event-attributable person-hours; the cumulative value reaches 54394 at T+72. The cause ledger can explain wind-driven service degradation, but a user filtering on the headline hazard can reasonably interpret zero as no event. This is shared behavior made especially consequential by GM0482's coastal/river coupling.",
+      "action": "Distinguish flood/inundation severity from overall preset forcing and expose non-zero wind/service drivers in summary cards, charts and exports. A zero direct-inundation field must not collapse the overall multi-hazard event headline to zero."
+    },
+    {
+      "id": "GM0482-NET-001",
+      "severity": "medium",
+      "category": "network",
+      "status": "accepted-limitation",
+      "summary": "Shared limitation: all essential-service transfers use road-derived logical corridors, not physical utility networks.",
+      "evidence": "GM0482's four logical route records are reused for power, water, drainage, gas, telecom, mobility, facilities and supply. E15-E17 establish operators and selected public assets but do not disclose feeders, pipes, valves, pressure zones, switching, backhaul, reserve power, failure domains or restoration priorities. The current types and explanations correctly emit transferSemantics=logical-proxy.",
+      "action": "Preserve logical-transfer-proxy wording in every map, legend, tooltip and export and never draw these edges as operator cables or pipes. Any future topology requires operator-authorized, security-reviewed aggregate zones, not road coincidence."
+    },
+    {
+      "id": "GM0482-MOB-001",
+      "severity": "medium",
+      "category": "network",
+      "status": "open",
+      "summary": "Municipality-specific mobility allocation omits the Noordtunnel, Bridge over the Noord and demonstrated constrained-access relationships.",
+      "evidence": "E19 and E20 identify the A15 Noordtunnel and movable N915 Bridge over the Noord. The generated graph reduces them to municipality-to-municipality road edges and has no tunnel/bridge systems, closure state or detour coupling. The resulting capacity is a logical stress coefficient, not emergency throughput, and the erroneous 015 classification further distorts one exit corridor.",
+      "action": "Add public critical-structure flags and mode-specific closure/detour relationships for the Noordtunnel and Bridge over the Noord without inventing classified capacity. Validate closure counterfactuals against published Rijkswaterstaat routes and keep supplier/passenger/freight demand distinct."
+    },
+    {
+      "id": "GM0482-SET-001",
+      "severity": "informational",
+      "category": "regional-data",
+      "status": "accepted-limitation",
+      "summary": "BAG woonplaats and BRT settlement counts are valid but non-equivalent Alblasserdam geographies.",
+      "evidence": "E4 yields one BAG woonplaats; E5 yields one woonkern and one buurtschap. The two BRT population attributes total 20105 versus the CBS municipality total 20242, a 0.68% difference consistent with distinct ontology/reference dates rather than a failed population reconciliation.",
+      "action": "Keep source type, edition and ontology visible; do not merge the counts or present BRT settlement population as the CBS municipal total."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Replace the Alblasserdam coastal false-negative and exact flood-depth proxy with hydraulically valid scenario semantics.",
+      "files": [
+        "scripts/fetch-realism-data.mjs",
+        "apps/web/src/data.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts"
+      ],
+      "validation": "Add at least one official LIWO/primary-system or regional flood fixture intersecting GM0482 and distinguish open-coast, benedenrivieren tidal/storm-surge, river, outside-dike and regional-barrier pathways. Assert that the current distance screen cannot force a hydraulic scenario footprint to zero; require scenario provenance before emitting metres, otherwise assert a unitless stress label. Re-run MUNICIPALITY_AUDIT_CODE=GM0482 pnpm audit:model and the national ALL gate."
+    },
+    {
+      "summary": "Include aggregate non-residential and sourced critical-asset demand while preserving official zero residents.",
+      "files": [
+        "apps/web/src/data.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/explainability.test.ts"
+      ],
+      "validation": "Pass privacy-safe business, non-residential, employment/daytime and sourced public-asset context into LocalRegionDefinition. Add service-specific coefficients and separate resident/economic demand ledgers. Assert GM0482 Hoogendijk population remains 0 while power, facilities, mobility and supply can receive non-zero explainable load; changing demand context must not change physical hazard fields."
+    },
+    {
+      "summary": "Canonicalize the numeric NWB route 015 to A15 before municipality-pair aggregation.",
+      "files": [
+        "scripts/fetch-realism-data.mjs",
+        "apps/web/public/data/transport-network.json",
+        "scripts/validate-realism-data.mjs"
+      ],
+      "validation": "Build route identity from NWB routeltr/routenr and nationally consistent section attributes rather than same-pair aliases alone. Add a GM0482–GM1978 regression expecting route A15, trunk mode and the configured trunk capacity 260; verify deduplication and retain logical-proxy transfer semantics for every service."
+    },
+    {
+      "summary": "Make multi-hazard headline and service-impact semantics explicit when direct inundation is zero.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/explainability.test.ts",
+        "apps/web/src/components/StatsPanel.tsx"
+      ],
+      "validation": "For GM0482 coastal-flood at T+24, assert separate direct-inundation severity, wind forcing, system pressure and cumulative unmet-service fields. A zero inundation contribution may coexist with non-zero wind/service effects, but no overall card/export may describe the event as impact-free."
+    }
+  ],
+  "residualLimitations": [
+    "The ten presets are deterministic synthetic stress tests, not KNMI forecasts, official probabilities, current incidents or operator outage predictions.",
+    "No confidential or security-sensitive Stedin, TenneT, Oasen, gas, telecom, waterboard or emergency-service topology was used; public asset and service-area evidence cannot substitute for an operational network.",
+    "Neighbourhood outputs use aggregate CBS label-point/context allocation and do not resolve buildings, households, people, dike compartments, inside/outside-dike parcels or actual infrastructure assets.",
+    "LIWO scenario layers were not ingested in the current build, so the reported river/pluvial/compound metre values and zero coastal depth are not locally validated hydraulics.",
+    "Wildfire direct support is finite, but burnable land cover, ignition, slope and wind-aware propagation are not modeled; smoke is a regional stress surface rather than a concentration forecast.",
+    "Generic repair, backup, mutual-aid, preparedness and network-capacity assumptions are bounded scenario controls, not verified municipal inventories, dispatch times or commitments.",
+    "The first-72-hour horizon excludes prolonged displacement, health consequences, economic loss, environmental recovery, reconstruction and adaptive behavior.",
+    "Six-hour checkpoint reporting can miss short impulses such as earthquake shaking; peak-memory fields improve visibility but do not create temporal validation.",
+    "CBS neighbourhood percentages and counts are rounded and have field-specific availability; close totals should not be forced to exact equality where official semantics do not support it.",
+    "BAG, BRT, CBS neighbourhood and municipality products use different ontologies and sometimes different reference dates.",
+    "The public evidence does not provide gas regulator/valve topology, telecom backhaul/reserve power, exact Oasen pressure zones, full sewer pump/overflow dependency, facility backup autonomy or household supply inventories."
+  ],
+  "provinceReviewFlags": [
+    "Zuid-Holland/benedenrivieren: review every municipality where straight-line open-coast screening conflicts with hydraulic sea-river, tidal, estuary or dike-ring exposure; do not globally turn depth on without scenario masks.",
+    "Alblasserdam-specific: calibrate ring-16, outside-dike, regional-barrier, Kinderdijk/boezem and Noord/Lek/Merwede pathways as distinct flood mechanisms.",
+    "Alblasserdam-specific: preserve Hoogendijk's official zero resident count while representing its public Stedin/TenneT asset and non-residential demand separately.",
+    "Shared/national: audit numeric-only NWB route aliases across municipality pairs; GM0482–GM1978 route 015 must resolve to A15 before class/capacity assignment.",
+    "Shared/national: retain the corrected all-preset zero-intensity invariant and sustained-forcing recovery gate in coverage tests.",
+    "Shared/national: retain finite direct-fire support and separate smoke semantics, then add burnable-land and wind calibration before local physical claims.",
+    "Shared/national: all road-derived essential-service flows must remain labeled logical transfer proxies and must not be presented as physical power, water, drainage, gas or telecom networks.",
+    "Zuid-Holland: business parks, ports, horticulture, industry and other zero/low-resident areas require a separate aggregate daytime/economic service-demand review.",
+    "Province and safety-region review must not interpret grid congestion, planned station capacity or resilience programmes as outage likelihood, fragility or restoration-time evidence."
+  ]
+}

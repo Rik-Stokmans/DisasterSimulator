@@ -1,0 +1,469 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0166",
+    "name": "Kampen",
+    "province": "Overijssel",
+    "safetyRegion": "IJsselland"
+  },
+  "agent": {
+    "taskName": "municipality_gm0166",
+    "agentId": "/root/municipality_gm0397",
+    "completedAt": "2026-09-03T05:51:59Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "GM0166's identity, IJsselland safety-region assignment, full 2025 boundary and CBS resident control are coherent. Fresh context reports 56,547 residents; 36 published neighbourhood rows sum to 56,545 (-2, -0.004%), a negligible difference that preserves CBS rounding and suppression semantics. The bundle contains nine districts, 36 neighbourhoods, nine BAG places, eighteen BRT settlement labels, seven logical road records, Kampen and Kampen Zuid stations and 95 scheduled-transit stop areas. All ten canonical presets execute deterministically at T+0/6/12/24/48/72 across eight services and pass structural/numerical contracts. Release is nevertheless correction-required. Kampen sits at the IJssel–Ketelmeer/IJsselmeer transition in a complex, fully pumped IJsseldelta whose real flood behaviour depends on IJssel discharge, wind setup, Ramspol, Reevediep/Reevesluis, primary/regional defences, Kampen Midden's 83 mobile closures and distinct Kampereiland, Mastenbroek, Kamperveen and urban pathways. The river preset instead fixes an unsupported 3.052798 normalized inundation-stress value, severity 0.947300, 29,283 affected and all eight services unchanged from T+24 through T+72; this is not 3.05 measured metres. Seven unrelated hazards reuse exactly the same full neighbourhood order. Roads alone are cloned as lifelines and omit internal IJssel bridge/rail, defence and destination state. An official Molenbrug closure begins within the current deployment's first 72 hours, but neither the zero-match NDW screen nor the two-item restriction registry contains it. Public Waterinfo observations and forecasts, water assets, grid planning, antennas, schools, care and plans remain context rather than a selected event or live topology. Missing and expired records are Unknown/NoData, never zero or safe.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek (CBS)",
+      "title": "E01 — Kerncijfers wijken en buurten 2025, table 86165NED, OData API",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM0166%27%29",
+      "accessedAt": "2026-09-03T05:12:00Z",
+      "edition": 2025,
+      "supports": [
+        "The official municipality row identifies GM0166 Kampen and reports 56,547 residents, density 400 per square kilometre, 18.3% age 65 or older and 7,645 one-person households.",
+        "The 36 published neighbourhood rows sum to 56,545 residents (-2, -0.004%), 23,360 households and 10,375 residents aged 65 or older. The negligible difference retains annual rounding and suppression semantics.",
+        "Average-home values cover 33/36 rows, average household size 35/36, cars per household 27/36 and doctor/supermarket distance 34/36; district-heating share and public-charging counts cover zero rows and must not become zero.",
+        "CBS OData is machine-readable under CC BY 4.0, with quarterly additions described for this annual table. It controls resident allocation, not incident-time presence, self-reliance, injury, evacuation or deprivation."
+      ]
+    },
+    {
+      "publisher": "PDOK / CBS / Kadaster / Rijkswaterstaat / ProRail / OVapi",
+      "title": "E02 — Full municipal geometry, settlements and road, rail and scheduled-transit reference inputs",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_niet_gegeneraliseerd/items?f=json&filter=statcode%3D%27GM0166%27",
+      "accessedAt": "2026-09-03T05:14:00Z",
+      "edition": "2025 boundary/statistics and current generated BAG, BRT, NWB, ProRail and GTFS reference snapshots",
+      "supports": [
+        "The generated centre [5.923198819378923, 52.546485510841414] lies inside the fresh 2025 municipal boundary.",
+        "The bundle retains nine districts, 36 neighbourhoods, nine BAG places and eighteen BRT labels: nine woonkernen, one deelkern, three gehuchten and five buurtschappen.",
+        "Seven logical road records identify N50 north/south, N760, N307, N765, N763 and N764 links to six neighbouring municipalities. The two N50 records share physical corridor NWB-road-50 and are series edges, not additive capacity.",
+        "Kampen and Kampen Zuid stations lie inside the boundary and 95 GTFS stop areas are assigned, but internal IJssel crossings, current train/bus operation, ambulance destinations and route restrictions are not represented by these counts.",
+        "CBS boundary OGC is half-yearly/CC BY 4.0; BAG is daily/Public Domain Mark 1.0; BRT is CC BY 4.0; NWB is monthly/CC0 1.0; ProRail is manually refreshed/CC0 1.0. OVapi GTFS is free-use best-effort context without an operational SLA.",
+        "Nominal road values of 150 are generalized scenario units and reference links do not prove direction, bridge state, passability, queues, accessible evacuation, emergency priority or throughput."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio IJsselland",
+      "title": "E03 — Crisisplan 2023–2026 with 2025 addendum and current flooding and 72-hour outage guidance",
+      "url": "https://www.vrijsselland.nl/crisisplan-2023-2026/",
+      "accessedAt": "2026-09-03T05:18:00Z",
+      "edition": "Crisis plan version 29 November 2022, effective 2023–2026; addendum adopted 10 December 2025; current public guidance",
+      "supports": [
+        "The current crisis plan assigns crisis-team structure, responsibilities, information lines, acute/non-acute flexibility and transition to recovery. The addendum updates the plan but does not turn it into a live staffing, resource or incident feed.",
+        "The region moved from a purely four-year risk document toward continual signalling/monitoring; 2024–2025 governance reporting specifically focuses on prolonged electricity failure/cyber, heavy local rainfall and vital-infrastructure consequences. Planning and monitoring claims are not event state.",
+        "Current flooding guidance says to follow authority information, check passable roads and safe routes, prepare food/water/charged phone and switch off gas, water and electricity when leaving. It warns that electricity, internet and television can fail.",
+        "Current outage guidance explicitly describes 24–72-hour disruption and advises households to be able to manage for 72 hours. This is public preparedness guidance, not evidence that every household is prepared or that supplies and care will be available.",
+        "The crisis-plan PDF allows quotation/reuse with attribution; the public webpages expose no stable operational resource API or stated machine-data cadence."
+      ]
+    },
+    {
+      "publisher": "Waterschap Drents Overijsselse Delta (WDODelta)",
+      "title": "E04 — IJsseldelta Waterbeheerprogramma 2022–2027, Kampen Midden mobile defence and Mastenbroek–IJssel reinforcement",
+      "url": "https://www.wdodelta.nl/_flysystem/media/wbp-deel-2.-2.4.-gebiedsuitwerking-ijsseldelta.pdf",
+      "accessedAt": "2026-09-03T05:22:00Z",
+      "edition": "Waterbeheerprogramma 2022–2027; current project pages inspected 3 September 2026",
+      "supports": [
+        "WDODelta describes the IJsseldelta as a complex and vulnerable convergence of IJsselmeer, IJssel, Vecht, Drentse canals and Sallandse Weteringen, with Kampereiland, Kamperveen and Mastenbroek as distinct systems.",
+        "Low-lying managed areas are fully pumped to the IJssel, Reevediep, randmeren, Zwarte Meer and Zwarte Water, with water also admitted during the growing season. This establishes mechanism and dependency, not live capacity or state.",
+        "Kampen Midden protects the IJsselkade with 83 mobile components—slides, stoplogs and water-retaining doors—assembled by about 250 volunteers when forecast IJssel discharge or IJsselmeer wind setup threatens high water. Readiness, arrival, closure completion and residual risk are not public live fields.",
+        "The current Mastenbroek–IJssel project says the dike between 's-Heerenbroek and IJsselmuiden must be strengthened for extreme high water/storm; plan development began in 2026. Monitoring and temporary high-water measures continue, so planned reinforcement cannot be treated as completed protection.",
+        "The deployment HWH/PDOK screen returns 219 points: six sewer pumps, one wastewater-treatment point, 56 surface-water pumps, four sluices and 152 weirs. Aggregation is partial/contributor-dependent under CC BY-SA 4.0 and does not establish topology, settings, power/backup or operation; WDODelta document/page reuse terms were not stated in inspected responses."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / Watermanagementcentrum Nederland / IPLO",
+      "title": "E05 — Ramspol, completed IJsseldelta works, Waterinfo observations/forecasts and LIWO 2025.1.6",
+      "url": "https://www.rijkswaterstaat.nl/water/waterbeheer/bescherming-tegen-het-water/waterkeringen/stormvloedkeringen/stormvloedkering-ramspol",
+      "accessedAt": "2026-09-03T05:26:00Z",
+      "edition": "Current operator information; IJsseldelta completion 2023; Waterinfo snapshots retrieved 2–3 September 2026; LIWO release 2025.1.6",
+      "supports": [
+        "Ramspol closes automatically at NAP +0.50 m with strong northwesterly wind and inward flow to protect West Overijssel. Maintenance/inspection in 2025–2026 is described publicly, but an operator webpage is not a live defence-state API.",
+        "The completed 2023 IJsseldelta configuration includes lowered IJssel bed, Reevediep high-water channel, inlets, Scheeresluis and Reevesluis complexes, raised Drontermeerdijk, widened N307 and removal of Roggebotsluis. Pre-2023 geometry cannot represent the current system.",
+        "Three fresh Waterinfo observations at 2 September 2026 17:30 UTC report Kampen IJssel -21 cm NAP, Keteldiep -20 cm and Scheeresluis beneden -18 cm. These are timestamped station observations, not a flood surface, defence assessment or arbitrary scenario boundary condition.",
+        "Eight cached Waterinfo point forecasts cover Kampen IJssel and Keteldiep through requested +24 hours only; no GM0166 point forecast is assigned at +48/+72. The rolling endpoint is official guidance under CC0 1.0 but exposes no single model-cycle issue time and is not an inundation forecast. Missing horizons are NoData, not zero.",
+        "LIWO 2025.1.6 provides downloadable professional flood layers requiring specialist water-manager interpretation. A selected case must retain source/boundary condition, defence/failure/control state, footprint, native units/resolution, arrival/persistence, probability, CRS, licence and NoData."
+      ]
+    },
+    {
+      "publisher": "Provincie Overijssel / Gemeente Kampen / Rijkswaterstaat",
+      "title": "E06 — Valid-time Molenbrug/N764 closure and Kampen IJssel/N50 crossing context",
+      "url": "https://www.overijssel.nl/onderwerpen/verkeer-en-vervoer/wegenprojecten/n764-zwolle-kampen",
+      "accessedAt": "2026-09-03T05:30:00Z",
+      "edition": "Official project/current notices valid 29 June–mid-September 2026; retrieved 3 September 2026",
+      "supports": [
+        "Province Overijssel says the Molenbrug and N764 approaches close to motor traffic from 4 September 2026 16:00 through 11 September 17:00, with through traffic diverted via N50. The closure begins within 72 hours of this audit retrieval.",
+        "Municipality Kampen says emergency services, pedestrians, cyclists/mopeds and agricultural traffic retain the parallel route, while Stadsbrug traffic faces extra pressure and IJsselkade access is limited around Hanzefestival from 1–6 September. These mode/time distinctions cannot be collapsed to a single road availability fraction.",
+        "Rijkswaterstaat identifies N50's Eilandbrug and Ramspolbrug and the regionally important Molenbrug as the southernmost of three Kampen IJssel bridges. N50 northern and southern links are one physical corridor, not independent redundancy.",
+        "The deployment NDW snapshot published 2 September 15:25 UTC assigns zero situations to GM0166 and the named restriction registry contains only two unrelated national cases. Absence is a source/coverage gap, not evidence that Molenbrug is open.",
+        "Official webpages carry validity and retrieval evidence but no complete machine-readable route-capacity contract or blanket machine reuse licence. The canonical scenarios have no reference date unless explicitly supplied, so current restrictions must never be replayed onto an arbitrary exercise."
+      ]
+    },
+    {
+      "publisher": "Ambulance IJsselland / RIVM / Isala",
+      "title": "E07 — Kampen ambulance deployment context and cross-boundary 24/7 acute care in Zwolle",
+      "url": "https://www.ambulanceijsselland.nl/over-ons/ambulanceposten/kampen",
+      "accessedAt": "2026-09-03T05:34:00Z",
+      "edition": "Current provider pages and RIVM questionnaire 2026 v1.1 published 3 July 2026",
+      "supports": [
+        "Ambulance IJsselland states that the Kampen post at the fire station has two ambulances: one active 24/7 and one during office hours. This is a planned deployment statement, not incident-time vehicle/staff availability or a guaranteed response.",
+        "The RIVM 2026 v1.1 national acute-care screen returns no emergency department inside GM0166. It identifies Isala Zwolle outside the municipality as 24/7, with acute obstetrics, twenty reported treatment rooms and 32,342 reported 2025 emergency visits.",
+        "Isala describes Kampen as a polyclinic location and Zwolle as a regional top-clinical hospital/trauma centre. This supports cross-boundary referral, not a conclusion that every emergency goes there or that it has live capacity.",
+        "Provider pages and the annual questionnaire do not publish live ambulance positions, dispatch, staffing, acceptance, occupancy, route passability, backup endurance or restoration. Provider webpages state no machine reuse licence; RIVM data are CC0 1.0."
+      ]
+    },
+    {
+      "publisher": "Netbeheer Nederland / RDI / DUO / KNMI / RIVM / Rijkswaterstaat / NDW",
+      "title": "E08 — Public lifeline, facility, warning and observation deployment screens",
+      "url": "https://data.partnersinenergie.nl/capaciteitskaart/totaal/afname",
+      "accessedAt": "2026-09-03T05:38:00Z",
+      "edition": "Deployment snapshots retrieved 31 August–3 September 2026",
+      "supports": [
+        "One NBNL sample postcode, 8266BK, maps to KP Kampen and Enexis. It reports withdrawal existing/required/queue 49.6/46.9/13.4 MW with 34 requests and injection 46.8/45.1/7.8 MW with 35 requests, plus thirteen projects from 2026. This is large-user planning/queue context, not feeder topology, live load, emergency reserve, outage or restoration.",
+        "The municipal screens contain 73 RDI antenna installations—34 mobile, ten fixed-link, 26 amateur, two broadcast and one other-mobile—and 54 DUO education locations—34 primary, seven secondary, three special and ten other registered uses. Registers do not prove coverage, occupancy, shelter status, accessibility, supplies or operation.",
+        "The KNMI warning retrieval contains no warning period and no observation station is assigned inside GM0166. A no-warning fallback at issue time is short-horizon provincial context, not gridded local forcing or an all-clear for arbitrary exercises.",
+        "No GM0166 NDW situation, RIVM acute-care point, PM2.5 station, KNMI seismic event or government-service point is assigned. Sparse point/register matching is a coverage fact; absence remains Unknown rather than zero hazard, disruption, pollution, care need or government continuity.",
+        "NBNL context updates at least quarterly and queues monthly but its frontend endpoint/licence is not a stable exact dataset contract. RDI cadence/licence is unstated; DUO is daily under CC Attribution version unspecified; KNMI is ten-minute/CC BY 4.0; RIVM acute care is annual/CC0 1.0; Waterinfo and NDW are CC0 unless stated. All remain affectsSimulation=false context."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM0166, Kampen, Overijssel and Veiligheidsregio IJsselland are internally and officially coherent.",
+      "evidenceRefs": ["E01", "E02", "E03"],
+      "notes": [
+        "Generated municipality, province and exactly one safety-region assignment agree.",
+        "The generated centre lies inside the fresh full-resolution 2025 municipal boundary.",
+        "Annual registers, governance plans, projects, current notices, observations, forecasts, official scenarios and synthetic checkpoints remain distinct evidence classes."
+      ]
+    },
+    "geography": {
+      "status": "fail",
+      "summary": "Administrative geometry is coherent, but IJssel, lake setup, defences, polders, drainage and hazard-specific geography do not govern local impacts.",
+      "evidenceRefs": ["E02", "E04", "E05"],
+      "notes": [
+        "Severe storm, pluvial, coastal, heat, winter, cyber and wildfire share exactly the same complete 36-neighbourhood hazard-severity order at T+24.",
+        "The river preset saturates the first sixteen neighbourhoods at severity 1 and leaves Polder Dronthen 35/36 without an authority-selected hydraulic footprint.",
+        "River output has no selected IJssel/IJsselmeer/Ramspol/Reevediep/defence case; pluvial output has no catchment, sewer, pump, weir or receiving-water state.",
+        "Full polygons, current post-2023 water geometry and eligible mechanism domains—not a generic municipal seed—must govern containment and ranking."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Official resident controls and neighbourhood aggregates reconcile within negligible CBS rounding difference.",
+      "evidenceRefs": ["E01", "E03", "E07"],
+      "notes": [
+        "CBS reports 56,547 residents; the 36 published neighbourhood rows sum to 56,545 (-2, -0.004%), while model allocations reconcile to the municipal control.",
+        "The 18.3% age-65-plus share and 7,645 one-person households inform aggregate assistance pressure but never identify individual vulnerability.",
+        "Residents remain separate from pupils, patients, care residents, visitors/event attendees, workers, road/rail/waterway users, volunteers and responders under CORR-015."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "Thirty-six neighbourhoods support census allocation, while material statistics and every live physical lifeline state remain incomplete.",
+      "evidenceRefs": ["E01", "E04", "E07", "E08"],
+      "notes": [
+        "Most supported CBS fields cover 27–36 rows; district-heating and public-charging cover zero. Suppressed/null fields remain Unknown/NoData.",
+        "Water objects, grid planning, antennas, schools, ambulance/hospital pages and public actions have incompatible coverage, cadence, licence and operational meaning.",
+        "Registered assets, scheduled resources and provider locations do not establish connectivity, occupancy, capacity, state or recovery."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "Nine BAG places and eighteen BRT labels preserve Kampen town, IJsselmuiden and dispersed delta villages/polders.",
+      "evidenceRefs": ["E02", "E04", "E05"],
+      "notes": [
+        "BAG retains 's-Heerenbroek, Grafhorst, IJsselmuiden, Kampen, Kamperveen, Mastenbroek, Reeve, Wilsum and Zalk.",
+        "BRT also retains Kampereiland, Veecaten, De Zande and smaller places, distinguishing nine woonkernen plus smaller settlement classes.",
+        "Settlement labels are reference context, not incident-time presence, hydraulic connectivity, accessibility or protection."
+      ]
+    },
+    "transport": {
+      "status": "fail",
+      "summary": "Reference roads, two stations and transit are present, but IJssel bridge/mode state and a current first-72-hour Molenbrug closure are absent.",
+      "evidenceRefs": ["E02", "E06", "E07"],
+      "notes": [
+        "Seven NWB records contain N50 series links plus N760/N307/N765/N763/N764; repeated N50 edges are non-additive portions of one corridor.",
+        "Molenbrug is officially closed to motor traffic from 4–11 September 2026 with mode-specific exceptions and N50 diversion, but no GM0166 NDW or named restriction record is deployed.",
+        "The graph omits typed Eilandbrug, Ramspolbrug, Stadsbrug, Molenbrug, rail/waterway crossings and routes from the ambulance post to external acute care.",
+        "Static stations and timetables do not prove scenario-time train/bus operation, vehicles, direction, bridge opening, flood intersection, accessibility or throughput."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "Official flood, defence, drainage, mobility, care, warning and first-72-hour evidence is not selected into incident/action/resource state.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "No selected hydrograph/lake setup/defence case, mobile-barrier readiness, pump state, bridge/rail restriction, hospital acceptance or utility condition drives outputs.",
+        "The 83-part Kampen Midden closure and about 250 volunteers are a forecast-triggered action dependency, not automatic protection or guaranteed incident-time availability.",
+        "Current Waterinfo points and the current Molenbrug plan have valid times, but canonical scenarios have no reference date unless explicitly set.",
+        "No-warning and empty municipal incident/facility screens cannot validate an arbitrary first-72-hour exercise."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten canonical presets execute at all six mandatory checkpoints for all eight services.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "The initial and final MUNICIPALITY_AUDIT_CODE=GM0166 pnpm audit:model gates each passed one file/two tests; the initial run completed in 30.87 seconds.",
+        "Maximum checkpoint severity / maximum affected / T+72 attributable person-hours are storm 0.458330 / 12,571 / 460,402.002; pluvial 0.385387 / 11,633 / 550,801.582; river 0.947300 / 29,283 / 1,942,644.003; coastal 0.071459 / 388 / 257,048.307.",
+        "Remaining values are heat 0.668664 / 4,789 / 311,799.621; winter 0.812176 / 17,342 / 948,462.459; cyber 0.505834 / 14,963 / 641,968.499; earthquake 0.065167 / 0 / 120,330.303; wildfire 0.166903 / 3,626 / 305,608.350; compound 0.900876 / 32,547 / 2,001,330.287.",
+        "Structural execution and deterministic decimals do not establish local empirical validity."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Outputs are finite, deterministic, exact at zero intensity, selected-layer invariant and locally reconciled.",
+      "evidenceRefs": ["E01", "E02"],
+      "notes": [
+        "All required structural, range, local-sum, causal-ledger and repeatability checks pass under the current contract.",
+        "Every preset's zero-intensity run returns exact-zero hazard, affected resident-equivalents and cumulative deprived person-hours.",
+        "Changing the display service does not mutate hazard, pressure or affected population.",
+        "The legacy floodDepthM field is normalized inundation stress under CORR-017, not measured metres; its 3.052798 river value demonstrates why the legacy name must not be shown as depth."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "The shared local seed overrides distinct river/lake, rainfall, weather, fire/smoke, cyber and infrastructure geography.",
+      "evidenceRefs": ["E02", "E04", "E05"],
+      "notes": [
+        "Storm, pluvial, coastal, heat, winter, cyber and wildfire share the same 36-neighbourhood T+24 order, led by Flevowijk, Stationskwartier, De Waard and 's-Heerenbroek.",
+        "River severity saturates Binnenstad Kampen through Polder Mastenbroek at 1 while Polder Dronthen ranks 35/36 at 0.814450, without any hydraulic footprint or defence path.",
+        "The wildfire preset at T+24 has zero direct fire, smoke 0.427683 and 3,626 affected while retaining the shared order; no source, perimeter, wind-aligned plume or observation supports it.",
+        "Static settlement/water/nature context and a generic model seed cannot substitute for mechanism-specific spatial evidence."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "Exact eight-service availability exceeds verified utility, water, defence, care and multimodal topology/state evidence.",
+      "evidenceRefs": ["E02", "E04", "E06", "E07", "E08"],
+      "notes": [
+        "At compound T+24 availability is Power 0.454355, Water 0.416876, Drainage 0.332518, Gas 0.596649, Telecom 0.296405, Mobility 0.525585, Facilities 0.391181 and Supply 0.652925.",
+        "Only seven generalized NWB edges support Mobility and explicit road-logistics/Supply; bridge, rail, waterway, ambulance/hospital and defence-action state are missing and no verified physical routes exist for the other services.",
+        "One grid-planning point, 219 partial water objects, 73 antennas, 54 schools, an ambulance-post schedule and an external hospital questionnaire are not compatible live topology/capacity/backup/restoration evidence.",
+        "Official residents and non-resident activity-demand weights remain separate under CORR-015."
+      ]
+    },
+    "causalTrace": {
+      "status": "warn",
+      "summary": "The numerical causal ledger closes, but authority-selected causes, owners, interventions and resources remain absent.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "Outputs expose hazard, direct-service, interdependency, network, recovery and local-allocation components with matched totals.",
+        "Cumulative person-hours are synthetic no-event counterfactual accounting, not observed outage duration, casualties, evacuated people or unmet care.",
+        "No selected water event, mobile-barrier closure, pump operation, road/bridge/rail restriction, utility network or hospital acceptance explains exact trajectories.",
+        "Each change requires owner, target, prerequisite, route, crew/volunteer/material/fuel/water, start/end, state, evidence class and uncertainty."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "Persistent river state, compound deterioration and exact recovery lack incident/action/resource explanations through T+72.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "River severity 0.947300, normalized stress 3.052798, 29,283 affected and all eight service availabilities remain exactly fixed from T+24 to T+72, accumulating 1,942,644.003 person-hours without hydrograph, recession, defence or action state.",
+        "Compound stress 0.532622 remains fixed while severity falls 0.900876 to 0.478022, affected rises 32,156 to 32,547 and every service worsens slightly from T+24 to T+72 without resource/blocking state.",
+        "Storm and pluvial reach zero direct severity/affected by T+72 after 460,402.002 and 550,801.582 person-hours without barrier, pumping, bridge/road reopening, grid switching, supplies, crews or care actions.",
+        "Sustained disruption and recovery can be plausible, but exact first-72-hour values require explicit incident, resource and action states."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": ["power", "water", "drainage", "gas", "telecom", "mobility", "facilities", "supply"]
+  },
+  "findings": [
+    {
+      "id": "GM0166-IJSSELDELTA-FLOOD-001",
+      "severity": "critical",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The river preset asserts catastrophic, persistent Kampen inundation without selecting an IJssel/IJsselmeer boundary condition, defence or polder pathway.",
+      "evidence": "WDODelta and RWS establish a coupled IJssel discharge, IJsselmeer wind-setup, Ramspol, Reevediep/Reevesluis, Kampen Midden, Mastenbroek/Kampereiland/Kamperveen and pumped-water system. The generic river run instead reports severity 0.947300, 29,283 affected and legacy floodDepthM 3.052798 at T+24, all unchanged through T+72, without gauge hydrograph, lake setup, defence/failure/control state, footprint, arrival or recession. The 3.052798 value is normalized stress, not 3.05 measured metres. Coastal zero direct stress tests only a narrow source and does not establish safety from lake setup, river, regional water, rainfall or external cascades.",
+      "action": "Suppress exact local river/coastal impacts until an authority-selected LIWO/WDODelta/RWS case supplies waterbody/boundary conditions, Ramspol/Reevediep/defence/coupure/failure/control state, footprint, native units/resolution, arrival/persistence/recession, probability, CRS, issue/valid time, licence, NoData, transform hash and reviewer. Keep direct and indirect effects separate; Unknown is not safe."
+    },
+    {
+      "id": "GM0166-MOBILE-DEFENCE-001",
+      "severity": "critical",
+      "category": "service",
+      "status": "open",
+      "summary": "Kampen Midden's forecast-triggered mobile barrier and volunteer/material dependencies are absent from first-72-hour state and actions.",
+      "evidence": "WDODelta says 83 mobile components along the IJsselkade are assembled with about 250 volunteers under forecast high-water conditions. The model has no forecast threshold, mobilisation/order time, component inventory, access, crew/volunteer availability, closure completeness, inspection, failure, reopening or residual-risk state. It therefore cannot distinguish an open waterfront, successful timely closure, partial closure or failure while presenting exact flood and service trajectories.",
+      "action": "Represent Kampen Midden as a typed defence/action system with authority, trigger station/datum, forecast issue/valid time, decision, 83-component inventory, trained-person requirement, staging/access, start/duration, completion/inspection, failure/uncertainty and reopening. Do not publish protected deployment detail; suppress consequence precision when state is Unknown."
+    },
+    {
+      "id": "GM0166-SHARED-SPATIAL-001",
+      "severity": "critical",
+      "category": "geography",
+      "status": "open",
+      "summary": "Seven unrelated hazards reuse one complete neighbourhood order across urban Kampen, IJsselmuiden and distinct delta polders.",
+      "evidence": "Storm, pluvial, coastal, heat, winter, cyber and wildfire share the exact T+24 order from Flevowijk/Stationskwartier/De Waard to Polder Dronthen/Losse Landen. River differs mainly because sixteen neighbourhoods saturate at severity 1. Official sources distinguish river/lake boundaries, fully pumped polders, mobile defences, urban rain, road/rail/bridge targets and smoke mechanisms. Cyber and heat have no defensible reason to share rainfall and wildfire ranks.",
+      "action": "Replace the municipality seed with hazard-specific source, eligible-domain, forcing, exposed-object and evidence-support adapters. Require cross-preset tests that unrelated hazards do not silently share a full order; missing compatible spatial support must show Unknown rather than precise ranking."
+    },
+    {
+      "id": "GM0166-POLDER-DRAINAGE-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Pluvial and Drainage outputs ignore fully pumped polder chains, urban sewers, receiving waters, controls and power state.",
+      "evidence": "WDODelta describes Kampereiland, Kamperveen and Mastenbroek as distinct systems fully pumped to IJssel, Reevediep, randmeren, Zwarte Meer and Zwarte Water; public context finds 56 surface-water pumps, six sewer pumps, 152 weirs, four sluices and one treatment point. Pluvial T+24 nevertheless reports stress 0.516568, 11,633 affected and Drainage 0.501118 without rain raster, catchment, sewer capacity, pump/weir/sluice topology and setting, receiving-water level, power/backup or control state. Polder Dronthen ranks 35/36 under the shared seed.",
+      "action": "Version WDODelta-native catchments, level areas, sewers, watercourses and HWH objects with feature date, scope, CRS, cadence, licence and NoData. Bind capacity, connectivity, flow direction, receiving level, controls, power/backup and project lifecycle only after review. Public registers remain affectsSimulation=false."
+    },
+    {
+      "id": "GM0166-MOLENBRUG-TIME-001",
+      "severity": "critical",
+      "category": "network",
+      "status": "open",
+      "summary": "An official Molenbrug closure begins inside the current first-72-hour window but is absent from deployed incident/restriction context and route state.",
+      "evidence": "Province and municipality notices validly schedule motor-traffic closure from 4 September 2026 16:00 to 11 September 17:00, with emergency/cycle/agricultural exceptions, N50 diversion, Stadsbrug pressure and temporary IJsselkade limitations. At the 3 September audit, the NDW snapshot assigns zero GM0166 situations and transport-restrictions.json contains only two unrelated cases; N764 remains a generic link. Canonical presets carry no reference date unless explicitly supplied, so the notice must neither be ignored in a current exercise nor replayed into an arbitrary date.",
+      "action": "Ingest authority-confirmed route restrictions with source, issue/retrieval/valid-from/valid-through, modes/vehicle classes, direction, geometry, exceptions, detour, confidence and expiry. Apply only when an explicit exercise reference date overlaps; display zero NDW matches as NoData/coverage, not open, and require expiry/reconfirmation."
+    },
+    {
+      "id": "GM0166-CROSSINGS-CARE-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "IJssel bridge, rail and external acute-care dependencies lack typed route state and incident-valid capacity.",
+      "evidence": "RWS identifies N50 Eilandbrug/Ramspolbrug and three Kampen IJssel road bridges; model links omit internal Stadsbrug/Molenbrug/Eilandbrug objects and water/rail crossing interactions. Kampen and Kampen Zuid plus 95 GTFS stops are static references. Ambulance IJsselland publishes one 24/7 and one office-hours vehicle at Kampen, while the 24/7 Isala SEH is outside GM0166 in Zwolle. Exact Mobility/Facilities do not include bridge opening/flood state, train/bus operation, ambulance availability, hospital acceptance, priority, detours or unit-bearing throughput.",
+      "action": "Build an authority-reviewed multimodal graph with named crossings, shared-corridor identity, mode/direction, timetable and valid restrictions. Bind ambulance, care, evacuation, supply and repair destinations through privacy-safe availability/acceptance interfaces; keep planned resources and reported annual hospital capacity distinct from live state."
+    },
+    {
+      "id": "GM0166-WILDFIRE-SMOKE-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The wildfire preset produces a precise Kampen smoke impact without a selected ignition, perimeter, plume or observation.",
+      "evidence": "At T+24 the canonical wildfire has direct fire zero, smoke 0.427683, 3,626 affected and 305,608.350 T+72 person-hours, while its neighbourhood order exactly matches pluvial, heat and cyber. No current ignition/perimeter, source-bearing eligible fuel, issued wind/humidity, smoke observation/forecast, population presence, access or suppression action is cited. The regional daily nature-fire phase is broad preparedness context, not a local smoke plume or incident forecast.",
+      "action": "Require an explicit source/perimeter or clearly labelled remote-source plume, event-valid weather and fuel/smoke inputs before local wildfire impacts are shown. Retain source time, geometry, uncertainty, people present, access, extinguishing water and suppression state; absent source is Unknown/no selected event, not a synthetic observed plume."
+    },
+    {
+      "id": "GM0166-LIFELINE-PROVENANCE-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Exact service availability has no verified operator topology, live capacity, backup or restoration state.",
+      "evidence": "At compound T+24 exact availability ranges from Telecom 0.296405 to Supply 0.652925. One Enexis planning postcode, 219 partial water objects, 73 antennas, 54 schools, planned ambulance deployment and external care do not provide feeder/customer or pipe topology, live load/pressure/backhaul, damage, priority users, backup, switching, repair crew or restoration commitments. NWB supports Mobility and explicit road-logistics/Supply only.",
+      "action": "Integrate authorized operator topology, outage, priority-user, backup and restoration data where lawful and safe. Otherwise expose minimal versioned synthetic zones/graphs with ranges and uncertainty. Keep public planning/register layers affectsSimulation=false and suppress operator-validated-looking exact decimals."
+    },
+    {
+      "id": "GM0166-TEMPORAL-RECOVERY-001",
+      "severity": "critical",
+      "category": "service",
+      "status": "open",
+      "summary": "Fixed river catastrophe, compound deterioration and exact recovery lack incident/action/resource explanations through T+72.",
+      "evidence": "River severity/stress/affected and all eight services are identical at T+24 and T+72 while person-hours reach 1,942,644.003. Compound severity falls 0.900876 to 0.478022 while affected rises 32,156 to 32,547 and every service worsens. Storm/pluvial direct forcing reaches zero by T+72 after 460,402.002/550,801.582 person-hours. No hydrograph, Ramspol/mobile-defence/pump action, Molenbrug/rail reopening, grid switching, hospital acceptance, crew, volunteer, fuel, material or access constraint explains these paths.",
+      "action": "Require a typed incident/action/resource ledger at T+0/6/12/24/48/72 with authority, owner, target, prerequisite, route, crew/volunteer/material/fuel/water, start/end, state, evidence time and uncertainty. Each deterioration, plateau, residual effect and recovery must cite a driver; suppress unsupported decision-grade trajectories."
+    },
+    {
+      "id": "GM0166-EVIDENCE-UI-001",
+      "severity": "high",
+      "category": "ui",
+      "status": "open",
+      "summary": "Plans, current notices, observations, forecasts, missing horizons/matches and synthetic values need adjacent evidence-class and NoData gates.",
+      "evidence": "The interface can combine annual CBS, a 2023–2026 crisis plan/addendum, future dike reinforcement, completed 2023 IJsseldelta works, a current 4–11 September road plan, three timestamped water observations, eight forecasts only through +24, a no-warning fallback, one grid-planning postcode and empty local NDW/acute-care/air/seismic/government matches. None alone establishes an arbitrary scenario. Exact synthetic values—including legacy 3.052798 floodDepthM—can be mistaken for observations or metres.",
+      "action": "Attach publisher, dataset/version, issue/valid/retrieval time, coverage, licence, evidence class, affectsSimulation, uncertainty and NoData to every layer/value/export. Show project lifecycle and explicit exercise/reference time; stale or non-overlapping state deactivates, missing horizons/matches render Unknown and normalized stress is never labelled depth/metres."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Bind GM0166 flood and pluvial scenarios to authority-selected IJssel/IJsselmeer, defence, polder and water-control cases.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "River/coastal exact impacts are suppressed without a selected LIWO/WDODelta/RWS boundary/defence/failure/control case. Supported cases retain IJssel discharge/lake setup, Ramspol/Reevediep/mobile defence, footprint, units, resolution, arrival/persistence/recession, probability, CRS, issue/valid time, licence, NoData, transform hash and reviewer. Pluvial follows catchments/pumps/receiving levels. Normalized stress is never labelled metres."
+    },
+    {
+      "summary": "Represent Kampen Midden and related defences as activation-gated first-72-hour actions/resources.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/components/OperationsBrief.tsx",
+        "apps/web/src/components/CausalExplanation.tsx"
+      ],
+      "validation": "A forecast-triggered case records station/datum, issue/valid time, decision authority, 83-component inventory, privacy-safe trained-person requirement, staging/access, duration, completion/inspection, uncertainty, failure and reopening. Unknown readiness does not silently equal success or failure, and consequence changes cite the action state."
+    },
+    {
+      "summary": "Replace the shared GM0166 neighbourhood seed with mechanism-aware full-polygon allocation.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/geometry.ts",
+        "packages/sim-core/src/model.test.ts",
+        "scripts/fetch-realism-data.mjs"
+      ],
+      "validation": "Selected IJssel/lake/polder and rain footprints govern flood ranks; an explicit fire/smoke source controls affected geometry. Unrelated hazards cannot silently share all 36 ranks, saturation cannot hide unsupported ordering and missing spatial support remains Unknown."
+    },
+    {
+      "summary": "Add valid-time Kampen bridge, rail, transit, ambulance/care and route-restriction state.",
+      "files": [
+        "scripts/fetch-transport-network.mjs",
+        "apps/web/public/data/transport-network.json",
+        "apps/web/public/data/public-context/transport-restrictions.json",
+        "packages/sim-core/src/network.ts",
+        "packages/sim-core/src/network.test.ts",
+        "apps/web/src/data.ts"
+      ],
+      "validation": "Molenbrug's 4–11 September 2026 closure applies only to an explicitly overlapping exercise date and retains motor/emergency/cycle/agricultural exceptions, direction, detour and expiry. Eilandbrug, Ramspolbrug, Stadsbrug, Molenbrug, rail and N50 series identity are typed; care/supply routes have destination and units. Zero NDW matches never means open."
+    },
+    {
+      "summary": "Integrate WDODelta water topology and evidence-gate lifelines, care, non-resident demand and first-72-hour recovery.",
+      "files": [
+        "scripts/fetch-water-assets.mjs",
+        "scripts/fetch-realism-data.mjs",
+        "packages/sim-core/src/network.ts",
+        "packages/sim-core/src/types.ts",
+        "apps/web/src/components/OperationsBrief.tsx"
+      ],
+      "validation": "Water data retain publisher, feature date, collection, scope, CRS, cadence, licence and NoData; catchments/level areas/pumps/sewers/controls remain context until connected capacity/power/state exists. NWB affects Mobility and explicit road Supply only. Utilities/care require verified state or labelled ranges. Residents remain separate from pupils/patients/visitors/workers/users/volunteers/responders."
+    },
+    {
+      "summary": "Expose evidence class, lifecycle, licence, clock alignment, support and Unknown/NoData beside every operational value and export.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "apps/web/src/components/CausalExplanation.tsx",
+        "apps/web/src/components/OperationsBrief.tsx",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Annual statistics, plans/projects, current restrictions, observations, rolling forecasts, warnings, registers and synthetic checkpoints are distinct. Current notices require explicit reference-date overlap and expiry; Waterinfo +48/+72 absence and empty municipal matches display Unknown/NoData rather than zero/safe; normalized inundation stress is never displayed as physical depth."
+    }
+  ],
+  "residualLimitations": [
+    "Complete physical electricity, gas, drinking-water, sewer/drainage, telecom, care and supply topology, live load, outage, backup, crews, spares, fuel and restoration state are unavailable or security-sensitive. Public geometry, plans and registers cannot replace them.",
+    "No selected LIWO/WDODelta/RWS hydraulic case establishes the GM0166 IJssel/IJsselmeer boundary condition, Ramspol/Reevediep/defence state, breach/overtopping footprint, polder propagation or arrival/recession. A generic value is not evidence and an unsupported zero is not safety.",
+    "Kampen Midden's 83 parts/about 250 volunteers are planning/mechanism facts, not incident-time readiness, availability, deployment or successful closure. Sensitive staging detail must not be reconstructed publicly.",
+    "Mastenbroek–IJssel reinforcement is in plan development during 2026. Proposed works cannot be represented as completed protection; current condition, temporary measures and remaining segments require authority validation.",
+    "Waterinfo station observations are valid only at their timestamp/location and the cached local forecast ends at +24. Neither can be extrapolated to the synthetic severe river case or T+72; missing horizons remain NoData.",
+    "The Molenbrug closure is an official plan with explicit validity and mode exceptions. It applies to a 3 September 2026-referenced exercise only, not arbitrary scenarios, and may require confirmation if authorities update it.",
+    "CBS residents omit pupils, patients, care residents, visitors/event attendees, workers, road/rail/waterway users, volunteers and responders. Aggregate age/household statistics cannot identify individual vulnerability or incident presence.",
+    "Ambulance, Isala and RIVM pages do not expose incident-time vehicles, staffing, dispatch, acceptance, occupancy, backup or restoration; protected operational information must not be inferred.",
+    "NWB, ProRail and GTFS do not prove scenario-time road, bridge, railway or transit operation, emergency priority, accessibility, detours, destination or throughput. N50 series links are not independent redundancy.",
+    "No explicit current ignition, perimeter or smoke plume supports the wildfire output. A regional nature-fire phase or remote-smoke report cannot be converted to a local forecast without source/time/wind geometry.",
+    "One Enexis planning postcode, water objects, antennas and schools have different support, cadence and licences and remain affectsSimulation=false without reviewed causal bindings.",
+    "A no-warning snapshot and no municipally assigned KNMI observation, NDW situation, PM2.5, acute-care, seismic or government point are coverage/time facts, not zero hazard, disruption, pollution, care need or government continuity.",
+    "Exact hazard, affected-population, service, recovery and person-hour outputs remain synthetic exercise results, not observations, official forecasts, operator commitments or decision-grade advice until critical/high findings are corrected and authorities review the case.",
+    "This audit covers only the first 72 hours. Flood displacement, agricultural damage, care interruption, pollution and infrastructure recovery can persist much longer."
+  ],
+  "provinceReviewFlags": [
+    "Province Overijssel, Veiligheidsregio IJsselland, WDODelta, Rijkswaterstaat and GM0166 should select valid IJssel discharge/IJsselmeer setup/Ramspol/Reevediep/Kampen Midden/Mastenbroek/polder and pluvial cases, retaining defence/action state, arrival/recession, uncertainty and NoData.",
+    "WDODelta, municipality, Hoogwaterbrigade and crisis partners should review a privacy-safe Kampen Midden trigger, component, staffing, access, completion/failure and reopening schema rather than assuming 83 closures and 250 volunteers are automatically available.",
+    "Province, Rijkswaterstaat, municipality, ProRail, transit and emergency partners should review N50/N307/N760/N764 and Eilandbrug/Ramspolbrug/Stadsbrug/Molenbrug/rail as direction- and mode-specific, non-additive, valid-time mobility/care/supply routes with confirmed diversions.",
+    "Municipality, GHOR, Ambulance IJsselland, Isala and regional care partners should review privacy-safe ambulance/care continuity and cross-boundary Zwolle access through protected interfaces rather than public inference.",
+    "IJsselland partners should turn flooding and 72-hour outage guidance into typed but activation-gated warning, evacuation/shelter, household support, medical, supply, utility and recovery actions, separating plan, observation, forecast, official scenario, current state, synthetic assumption and Unknown."
+  ]
+}

@@ -1,0 +1,640 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM1680",
+    "name": "Aa en Hunze",
+    "province": "Drenthe",
+    "safetyRegion": "Drenthe"
+  },
+  "agent": {
+    "taskName": "municipality_gm1680",
+    "agentId": "/root/nl_realism_audit",
+    "completedAt": "2026-09-02T12:19:58+02:00"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "The official 2025 input for Aa en Hunze is strong: identity, generalized boundary, centre, population, neighbourhoods, BAG places, TOP10NL settlements and safety-region membership reconcile, and the shared deterministic model gate passes every numerical, causal and local-allocation invariant across ten presets, six checkpoints and eight services. The physical interpretation is not yet safe, however. The live web coastal preset gives inland Aa en Hunze 0.823 m of direct inundation at T+6, T+12 and T+24, while the VRD risk profile says Drenthe has no primary sea or major-river defences and confines the limited sea-level/large-river exposure to the Meppel area. The core Rhine/Meuse river footprint also assigns Aa en Hunze direct depth despite its locally relevant systems being the Drentsche Aa, Hunze, canals and cloudburst runoff. Local hazard variation, utility transfer, critical-facility priority and recovery values remain transparent deterministic scenarios rather than local calibration. Coastal and river masks therefore require correction before these layers can be presented as municipality-realistic outcomes.",
+  "evidenceSources": [
+    {
+      "publisher": "PDOK / Centraal Bureau voor de Statistiek",
+      "title": "E01 — CBS Gebiedsindelingen 2025, generalized municipality features",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_gegeneraliseerd/items?f=json&limit=1000&datetime=2025-07-01T00%3A00%3A00Z",
+      "accessedAt": "2026-09-02T12:04:49+02:00",
+      "edition": 2025,
+      "supports": [
+        "GM1680 code and Aa en Hunze name",
+        "Generalized municipal boundary used by the application",
+        "Point-in-polygon verification of the generated municipality centre"
+      ]
+    },
+    {
+      "publisher": "Centraal Bureau voor de Statistiek",
+      "title": "E02 — Kerncijfers wijken en buurten 2025 (86165NED), municipality selection",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM%27%29&%24select=WijkenEnBuurten%2CAantalInwoners_5%2CBevolkingsdichtheid_34%2Ck_65JaarOfOuder_12%2CEenpersoonshuishoudens_30",
+      "accessedAt": "2026-09-02T12:04:49+02:00",
+      "edition": 2025,
+      "supports": [
+        "Population 25,935",
+        "Population density 94 inhabitants per square kilometre",
+        "29.2 percent aged 65 or older and 3,407 one-person households"
+      ]
+    },
+    {
+      "publisher": "PDOK / Centraal Bureau voor de Statistiek",
+      "title": "E03 — CBS Gebiedsindelingen 2025, generalized neighbourhood collection",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/buurt_gegeneraliseerd",
+      "accessedAt": "2026-09-02T12:04:49+02:00",
+      "edition": 2025,
+      "supports": [
+        "Fifty-four generated neighbourhood geometries belong to GM1680",
+        "Neighbourhood identifiers and district membership",
+        "Spatial basis for the local city view"
+      ]
+    },
+    {
+      "publisher": "PDOK / Kadaster",
+      "title": "E04 — Basisregistratie Adressen en Gebouwen, woonplaats collection",
+      "url": "https://api.pdok.nl/kadaster/bag/ogc/v2/collections/woonplaats",
+      "accessedAt": "2026-09-02T12:04:49+02:00",
+      "edition": "retrieved 2026-08-31",
+      "supports": [
+        "Thirty-five BAG woonplaatsen assigned to Aa en Hunze",
+        "No BAG place centre falls outside the generated generalized municipality boundary"
+      ]
+    },
+    {
+      "publisher": "PDOK / Kadaster",
+      "title": "E05 — BRT TOP10NL plaats-vlak collection",
+      "url": "https://api.pdok.nl/brt/top10nl/ogc/v1/collections/plaats_vlak?f=html",
+      "accessedAt": "2026-09-02T12:04:49+02:00",
+      "edition": "source date 2025-07-01 in generated features",
+      "supports": [
+        "Fifty-three settlement polygons assigned by point-in-polygon",
+        "Settlement type, built-up status and source population metadata"
+      ]
+    },
+    {
+      "publisher": "PDOK / Centraal Bureau voor de Statistiek",
+      "title": "E06 — CBS Gebiedsindelingen 2025, generalized safety-region collection",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/veiligheidsregio_gegeneraliseerd",
+      "accessedAt": "2026-09-02T12:04:49+02:00",
+      "edition": 2025,
+      "supports": [
+        "GM1680 membership of Veiligheidsregio Drenthe",
+        "Unique generated safety-region assignment"
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat",
+      "title": "E07 — Nationaal Wegenbestand and WEGGEG",
+      "url": "https://www.rijkswaterstaat.nl/zakelijk/zakendoen-met-rijkswaterstaat/werkwijzen/werkwijze-in-gww/data-eisen-rijkswaterstaatcontracten/nationaal-wegenbestand",
+      "accessedAt": "2026-09-02T12:04:49+02:00",
+      "edition": "NWB-Light 2026-08-01",
+      "supports": [
+        "NWB is the standardized topological road layer for all Dutch road authorities",
+        "Official geometry and names underlying the generated N33, N34, N374, N376, N378, N379 and N857 logical links",
+        "NWB geometry does not itself validate the simulator's nominal transfer capacities"
+      ]
+    },
+    {
+      "publisher": "ProRail / PDOK",
+      "title": "E08 — ProRail station OGC collection",
+      "url": "https://api.pdok.nl/prorail/spoorwegen/ogc/v1/collections/station",
+      "accessedAt": "2026-09-02T12:04:49+02:00",
+      "edition": "retrieved 2026-08-31",
+      "supports": [
+        "No ProRail station point is located inside the GM1680 boundary"
+      ]
+    },
+    {
+      "publisher": "Gemeente Aa en Hunze",
+      "title": "E09 — Lokale Adaptatie Strategie gemeente Aa en Hunze",
+      "url": "https://repository.officiele-overheidspublicaties.nl/externebijlagen/exb-2024-27445/currentItem",
+      "accessedAt": "2026-09-02T12:04:49+02:00",
+      "edition": "adopted 2024-04-18",
+      "supports": [
+        "Municipal stress tests for water nuisance, flooding, heat and drought",
+        "Hondsrug elevation and runoff toward lower brook valleys as decisive local controls",
+        "Named water- and heat-stress locations in Annen, Gasselte, Gieten and Rolde",
+        "A local 70 mm extreme-rain event and potential effects on buildings, roads, accessibility and energy"
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Drenthe",
+      "title": "E10 — Regionaal Risicoprofiel 2025",
+      "url": "https://www.vrd.nl/publish/pages/2221/vrd_regionaal_risicoprofiel_2025_1.pdf",
+      "accessedAt": "2026-09-02T12:04:49+02:00",
+      "edition": 2025,
+      "supports": [
+        "Drenthe water, storm, nature-fire, vital-service, cyber and induced-earthquake risk context",
+        "A 70 mm per hour cloudburst can flood streets, cellars, houses and low roads",
+        "Drenthe has no primary barriers against sea or major-river water; the limited relevant large-water exposure is around Meppel",
+        "Energy and cyber outages can cascade to other vital processes",
+        "Three water companies use sixteen groundwater locations in Drenthe",
+        "In 2023 five Drenthe earthquakes of magnitude 1.3 to 2.2 caused no physical damage or unrest"
+      ]
+    },
+    {
+      "publisher": "Waterschap Hunze en Aa's",
+      "title": "E11 — Waterbeheerprogramma 2022–2027",
+      "url": "https://www.hunzeenaas.nl/app/uploads/2021/12/Waterbeheerprogramma-2022-2027.pdf",
+      "accessedAt": "2026-09-02T12:04:49+02:00",
+      "edition": "2022–2027",
+      "supports": [
+        "Drentsche Aa and Hunze (South) are distinct local water systems",
+        "The Drentsche Aa sandy catchment cannot receive imported water and is drought-sensitive",
+        "Local flood, drought, groundwater, brook-valley and water-storage processes require catchment-specific treatment"
+      ]
+    },
+    {
+      "publisher": "WMD Drinkwater",
+      "title": "E12 — Waterwingebied Gasselte",
+      "url": "https://wmd.nl/drinkwater/waterwingebieden/gasselte/",
+      "accessedAt": "2026-09-02T12:04:49+02:00",
+      "edition": null,
+      "supports": [
+        "Gasselte has a 67 hectare groundwater abstraction area and pumping station",
+        "Approximately two billion litres are abstracted annually",
+        "The station supplies Gasselte, Gieten, Borger and surrounding areas"
+      ]
+    },
+    {
+      "publisher": "Enexis Netbeheer",
+      "title": "E13 — Congestieonderzoek Gasselte Kraanlanden MS10, MS21 and MS22",
+      "url": "https://www.enexis.nl/zakelijk/netcapaciteit/congestie/congestiemanagement/onderzoeken/drenthe/gasselte-kraanlanden-blok-ms10-ms21-ms22-ea",
+      "accessedAt": "2026-09-02T12:04:49+02:00",
+      "edition": "status accessed 2026-09-02",
+      "supports": [
+        "The real electrical supply area crosses Aa en Hunze, Borger-Odoorn and Midden-Drenthe",
+        "The area is supplied through Gasselte Kraanlanden medium-voltage blocks",
+        "Demand congestion is reported through 2027: 34 MW requested versus 31 MW available N-1 capacity",
+        "Congestion evidence must not be reinterpreted as measured disaster outage probability"
+      ]
+    },
+    {
+      "publisher": "Koninklijk Nederlands Meteorologisch Instituut",
+      "title": "E14 — Aardbeving van magnitude 3 bij Drentse Geelbroek",
+      "url": "https://www.knmi.nl/over-het-knmi/nieuws/aardbeving-drente",
+      "accessedAt": "2026-09-02T12:04:49+02:00",
+      "edition": "2026-03-14",
+      "supports": [
+        "A reviewed magnitude 3.0 induced earthquake occurred near the Drenthe Eleveld field in March 2026",
+        "Local induced seismicity is relevant, but an event magnitude and measured or modelled ground-motion field are needed for calibration"
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Drenthe",
+      "title": "E15 — Crisisplan Veiligheidsregio Drenthe 2026–2029",
+      "url": "https://www.vrd.nl/publish/pages/2221/crisisplan_vrd_2026_2029_vastgesteld_260624_1.pdf",
+      "accessedAt": "2026-09-02T12:04:49+02:00",
+      "edition": "2026–2029",
+      "supports": [
+        "VRD provides operational leadership, information and crisis communication and supports municipalities on request",
+        "CoPI handles incident effects and short-term scenarios; ROT coordinates scarcity, continuity and medium-to-long-term scenarios",
+        "Municipal and regional policy teams retain strategic and mayoral decision roles",
+        "Waterschap, GHOR and other functional partners can be included according to the incident"
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Drenthe",
+      "title": "E16 — De brandweer in de buurt",
+      "url": "https://www.vrd.nl/brandweer/brandweer-buurt/",
+      "accessedAt": "2026-09-02T12:04:49+02:00",
+      "edition": null,
+      "supports": [
+        "Volunteer fire posts at Annen, Gasselternijveen, Gieten and Rolde",
+        "Drenthe has 36 posts and only Emmen is permanently staffed by a professional crew"
+      ]
+    },
+    {
+      "publisher": "Rijksoverheid",
+      "title": "E17 — Wat zit er in een noodpakket?",
+      "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/veiligheidsregios-en-crisisbeheersing/wat-zit-er-in-een-noodpakket",
+      "accessedAt": "2026-09-02T12:04:49+02:00",
+      "edition": "accessed 2026-09-02",
+      "supports": [
+        "National advice is household preparation for the first 72 hours",
+        "The published water-planning quantity is three litres per person per day",
+        "Medication, radio, power bank, food, warmth, cash and household-specific needs are relevant supply dimensions"
+      ]
+    },
+    {
+      "publisher": "Gemeente Aa en Hunze",
+      "title": "E18 — Veiligheid: politie en brandweer in Aa en Hunze",
+      "url": "https://www.aaenhunze.nl/Alle_onderwerpen/Veiligheid",
+      "accessedAt": "2026-09-02T12:04:49+02:00",
+      "edition": null,
+      "supports": [
+        "The Aa en Hunze area policing group works from the Gieten police office",
+        "Aa en Hunze fire services are part of Veiligheidsregio Drenthe district North and Central"
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "The generated identifier, name, province and safety-region assignment agree with official 2025 CBS/PDOK data.",
+      "evidenceRefs": ["E01", "E02", "E06"],
+      "notes": [
+        "Feature id, municipality bundle code and municipality bundle name all match GM1680 / Aa en Hunze.",
+        "The safety-region collection assigns GM1680 uniquely to Drenthe."
+      ]
+    },
+    "geography": {
+      "status": "pass",
+      "summary": "The application consumes the official 2025 generalized MultiPolygon and the generated centre is inside that boundary.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "Generated centre is [6.750099199746435, 53.021274954221795].",
+        "The audit helper's corrected closed-ring point-in-polygon test returned true.",
+        "This verifies administrative geometry, not terrain, elevation or hazard footprint."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Municipality-level and neighbourhood-level 2025 demographic values reconcile within expected CBS five-person rounding.",
+      "evidenceRefs": ["E02", "E03"],
+      "notes": [
+        "Official municipality population is 25,935; the 54 published neighbourhood populations sum to 25,930, a difference of five people (-0.019 percent).",
+        "Density is 94, age 65+ is 29.2 percent, and one-person households are 3,407.",
+        "Neighbourhood households sum to 11,490 and age-65+ counts sum to 7,570."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "All 54 official neighbourhoods and 36 supported statistic fields are present, but several contextual fields have partial or zero published coverage and must remain missing rather than be read as zero.",
+      "evidenceRefs": ["E02", "E03", "E09"],
+      "notes": [
+        "Population, households and age bands have 100 percent neighbourhood coverage.",
+        "Doctor and supermarket distance have 88.89 percent coverage; cars per household 59.26 percent; several housing and benefit fields 75.93 percent.",
+        "District-heating percentage and public-charging-point fields have zero usable values across the 54 rows; the engine uses neutral missing-data handling.",
+        "Official neighbourhood statistics do not provide the street-scale LAS flood and heat hotspots."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "The generated local bundle contains 35 BAG woonplaatsen and 53 TOP10NL settlement polygons assigned to GM1680 without foreign-boundary leakage.",
+      "evidenceRefs": ["E04", "E05"],
+      "notes": [
+        "Settlement types are 28 woonkernen, 14 buurtschappen, nine gehuchten and two deelkernen.",
+        "TOP10NL source date in the consumed features is 2025-07-01 and assignment is point-in-polygon.",
+        "Settlement population is descriptive source metadata and is not expected to reconcile to the municipality total."
+      ]
+    },
+    "transport": {
+      "status": "warn",
+      "summary": "Official NWB road geometry gives ten logical municipality links and the station check is plausible, but capacities, flows and local service transfer are synthetic.",
+      "evidenceRefs": ["E07", "E08"],
+      "notes": [
+        "The ten links reach seven unique neighbouring municipalities using N33, N34, N374, N376, N378, N379 and N857 geometry.",
+        "After the current NWB alias/class regeneration, all ten GM1680 links are classified regional and receive the same nominal capacity 150; this is not an NWB traffic or emergency-capacity measurement.",
+        "No ProRail station is inside the boundary; 84 transit stop areas are present, but no timetable, ridership, vehicle, disruption or evacuation capacity is simulated."
+      ]
+    },
+    "emergencyContext": {
+      "status": "warn",
+      "summary": "The correct Drenthe crisis organisation and first-72-hour framing are documented, but the local simulation does not represent actual command roles, posts, responders, care capacity, shelters or distribution points.",
+      "evidenceRefs": ["E10", "E15", "E16", "E17", "E18"],
+      "notes": [
+        "VRD's plan separates incident coordination, scarcity/continuity coordination and mayoral strategic decisions; the UI currently represents these only through generic intervention multipliers.",
+        "Four local volunteer fire posts are documented, and the municipality identifies the Gieten police location, but these are absent from the facilities layer.",
+        "The national 72-hour advice supports the selected horizon but is not evidence that each Aa en Hunze household has those supplies."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "fail",
+      "summary": "All ten scenarios execute at all six checkpoints, but direct coastal and Rhine/Meuse flood depths contradict the municipality's official regional risk context.",
+      "evidenceRefs": ["E09", "E10", "E11", "E14"],
+      "notes": [
+        "The mandated core-preset gate passed 10 presets × 6 checkpoints × 8 services for GM1680, and the national ALL gate is green for 342 municipalities.",
+        "A separate check of the web application's createScenario defaults also ran all checkpoints.",
+        "Web coastal-flood produces 0.823 m at T+6, T+12 and T+24 and 9,577 affected people-equivalent at T+24; this is a correction-required spatial false positive.",
+        "Web river-flood produces 0.158 m at T+12, T+24, T+48 and T+72 even though the core preset is specifically named Rhine and Meuse high-water flood; river forcing now deliberately persists beyond the 72-hour audit window.",
+        "Web pluvial-flood produces 0.409 m at T+12 and T+24; local extreme-rain risk is supported, but that exact depth is not calibrated.",
+        "Storm, heat/drought, winter, cyber, earthquake, wildfire and compound dimensions are directionally relevant but remain scenario assumptions rather than forecasts."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "The dedicated GM1680 gate passes boundedness, exact ledger identities, determinism, local reconciliation and monotonic cumulative person-hours.",
+      "evidenceRefs": [],
+      "notes": [
+        "Command: MUNICIPALITY_AUDIT_CODE=GM1680 pnpm audit:model; result: 2 tests passed on 2026-09-02.",
+        "Hazard ledgers, service availability ledgers and counterfactual delta identities close at every checkpoint.",
+        "Affected population is integral and bounded; all service availability, demand, delivery and reserve values are finite and bounded.",
+        "All 54 local regions preserve exact municipality population, affected-population, demand and delivery totals within 1e-6; published zero-population neighbourhoods remain zero.",
+        "The regenerated national NWB logical graph contains 1,018 routes and the current ALL gate passes all 342 municipalities."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "Administrative polygons are real, but coastal, river, pluvial, earthquake and wildfire exposure surfaces are analytic distance/seed proxies rather than local physical footprints.",
+      "evidenceRefs": ["E09", "E10", "E11", "E14"],
+      "notes": [
+        "Coastal exposure is an exponential distance decay from three coast segments and ignores elevation, defences and connected flood pathways.",
+        "River exposure is distance decay from three hand-coded national corridors and does not model the Drentsche Aa, Hunze, canals or water-storage system.",
+        "Pluvial local variation is now service-layer invariant (manual maximum cross-layer difference 0), but still uses municipality severity and deterministic region seeds rather than AHN terrain, sewer/drainage capacity or the municipality's named LAS hotspots.",
+        "Earthquake exposure uses radial attenuation without an event magnitude, site response or official shakemap; wildfire uses three fixed centres without land cover, fuel, wind or access."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "warn",
+      "summary": "All eight services have explicit bounded dependencies and backup assumptions, but the same logical NWB graph substitutes for distinct power, water, drainage, gas, telecom, mobility, facility and supply networks.",
+      "evidenceRefs": ["E10", "E12", "E13"],
+      "notes": [
+        "Power dependency propagates into water, drainage, telecom and facilities, and mobility constrains supply; these are causally inspectable scenario relations.",
+        "The code correctly labels connectivity and transfer as logical-proxy, never physical utility topology.",
+        "The actual WMD Gasselte source/pumping station and Enexis Gasselte Kraanlanden cross-boundary supply zone are not represented.",
+        "Gas/heating and telecom have no public local topology, asset condition, outage history or verified backup windows in the model."
+      ]
+    },
+    "causalTrace": {
+      "status": "pass",
+      "summary": "Hazard forcing, direct damage, recovery, dependency, backup, intervention and counterfactual effects are exposed as algebraically testable ledgers.",
+      "evidenceRefs": [],
+      "notes": [
+        "The exact service-pressure ledger matches the displayed system pressure.",
+        "Deprived person-hours quarter-hour-integrates event-attributable all-eight-service weighted availability shortfall above a matched no-event baseline and is documented as a local pre-network proxy.",
+        "Local demand, vulnerability-context and priority contributions identify their scenario confidence and do not claim individual vulnerability."
+      ]
+    },
+    "recovery72h": {
+      "status": "warn",
+      "summary": "Recovery is bounded and cumulative deprivation is monotonic, but T+72 outputs are synthetic and affected-population thresholding can hide material residual service pressure.",
+      "evidenceRefs": ["E15", "E17"],
+      "notes": [
+        "At T+72 every checked web preset reports zero affected people-equivalent, while system pressure remains approximately 3.5–9.6 percent; river still reports 0.158 m and compound 0.422 m modelled flood depth.",
+        "At T+48, coastal forcing has ended but system pressure is 25.8 percent and affected people-equivalent is 4,325, showing that the engine can retain service recovery tails.",
+        "No operator restoration time, crew availability, mutual-aid travel, priority customer, shelter, emergency-water or last-mile supply calibration is available for GM1680.",
+        "The 72-hour public-preparedness horizon is operationally relevant, but it does not validate model recovery rates."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": [
+      "power",
+      "water",
+      "drainage",
+      "gas",
+      "telecom",
+      "mobility",
+      "facilities",
+      "supply"
+    ]
+  },
+  "findings": [
+    {
+      "id": "GM1680-H01",
+      "severity": "critical",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The coastal-surge layer creates a physically misleading direct inundation footprint in inland Aa en Hunze.",
+      "evidence": "The live web preset returns 0.823 m at T+6, T+12 and T+24. E10 states that Drenthe has no primary defences against sea or major-river water and limits the relevant large-water flood area to around Meppel; Aa en Hunze is not that area. The model instead applies exponential distance from coast segments without hydraulic connectivity or terrain.",
+      "action": "Set direct coastal depth to zero outside an official LIWO/Rijkswaterstaat connected flood footprint. Preserve any separately justified wind or indirect regional supply effects, label them as indirect, and add a GM1680 regression asserting zero coastal inundation across 0–72 hours under the reference preset."
+    },
+    {
+      "id": "GM1680-H02",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The Rhine/Meuse preset assigns direct river depth to a municipality whose relevant flood processes are different catchments.",
+      "evidence": "The current web run produces 0.158 m from T+12 through T+72, while the core scenario is explicitly named Rhine and Meuse high-water flood. E09–E11 support cloudburst, brook, canal, saturated-soil and Drentsche Aa/Hunze processes, not direct Rhine/Meuse inundation in GM1680. Extending generic river forcing to 168 hours improves duration realism only after the spatial source is correct.",
+      "action": "Mask the Rhine/Meuse preset with an official flood extent. Add a distinct regional-water or brook/canal scenario driven by Hunze en Aa's catchment and storage data; do not relabel the current distance-decay output as local river flooding."
+    },
+    {
+      "id": "GM1680-H03",
+      "severity": "high",
+      "category": "geography",
+      "status": "open",
+      "summary": "Neighbourhood hazard differences are now service-layer invariant but still do not use the municipality's documented terrain and hotspot evidence.",
+      "evidence": "E09 identifies Hondsrug elevation/runoff and named locations in Annen, Gasselte, Gieten and Rolde. The current engine correctly gives each neighbourhood the same hazard severity on drainage, mobility and water layers (maximum observed cross-layer delta 0), but web pluvial T+12's municipality depth of 0.409 m is still spatially varied only by deterministic region seed, not terrain or hydraulics.",
+      "action": "Preserve the service-layer-invariance regression and replace the seeded hazard pattern with a raster or polygon overlay based on municipal stress tests/AHN and drainage modelling. Until available, title it 'scenario allocation proxy' and suppress metre precision below municipality scale."
+    },
+    {
+      "id": "GM1680-H04",
+      "severity": "medium",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Induced earthquake relevance is real, but the displayed ground acceleration and cascading losses are uncalibrated.",
+      "evidence": "The web preset gives 0.087 g at T+6. E10 records Ekehaar and other Drenthe gas fields and earlier light events; E14 records a magnitude 3.0 Geelbroek/Eleveld event in March 2026. The simulator has no event magnitude, source mechanism, site amplification, KNMI shakemap or damage curve tied to either event.",
+      "action": "Require magnitude/event identification and ingest an official KNMI ground-motion product or clearly defined hypothetical event. Display 'hypothetical scenario' and uncertainty bounds until PGA and service fragility are calibrated."
+    },
+    {
+      "id": "GM1680-H05",
+      "severity": "medium",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Storm, winter, heat/drought and wildfire are relevant classes but their local intensity and footprint remain analytic scenarios.",
+      "evidence": "E09 and E10 support extreme rain, heat, drought, storms and nature fire. The model derives local values from seasonal sinusoids, density, fixed radial fire centres and deterministic seeds rather than KNMI observations/forecasts, land cover, fuels, wind fields, soil moisture or road-treatment data; web wildfire reaches 0.456 intensity at T+12 and T+24.",
+      "action": "Keep these layers explicitly labelled scenario/not forecast in V3. Future calibration should use KNMI gridded forcing, land-cover/fuel and drought indicators, and municipality/VRD access and response data."
+    },
+    {
+      "id": "GM1680-N01",
+      "severity": "high",
+      "category": "network",
+      "status": "accepted-limitation",
+      "summary": "NWB connectivity is a logical transfer proxy for every service, not physical utility topology.",
+      "evidence": "E07 validates road topology only. Electricity, drinking water, drainage, gas and telecom do not follow the same graph; E12 and E13 demonstrate real water and electricity zones with different assets and cross-boundary relations. Current code and explanations correctly disclose the logical-proxy status.",
+      "action": "Retain the disclosure and never label links as cables, pipes, towers or utility flows. Add service-specific network adapters only when operator/open asset data and licences permit."
+    },
+    {
+      "id": "GM1680-S01",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "The water layer omits the actual Gasselte production and distribution context.",
+      "evidence": "E12 documents a 67 ha abstraction area, approximately two billion litres per year, purification at Gasselte and supply to Gasselte, Gieten, Borger and surroundings. The model has neither that source/pumping node nor its power, water-quality, reserve and cross-municipality dependencies.",
+      "action": "Add the public Gasselte facility as a sourced contextual node without inventing pipe geometry. Obtain WMD-approved topology, backup and restoration data before using it to calculate outage propagation."
+    },
+    {
+      "id": "GM1680-S02",
+      "severity": "medium",
+      "category": "service",
+      "status": "open",
+      "summary": "The power layer does not reflect the known Gasselte Kraanlanden supply area or its cross-municipality boundary.",
+      "evidence": "E13 says MS10/MS21/MS22 supply parts of Aa en Hunze, Borger-Odoorn and Midden-Drenthe. Current NWB links cannot represent that zone. The published 34 MW demand and 31 MW N-1 capacity describe congestion, not observed disaster fragility.",
+      "action": "Use the operator zone as contextual geography and distinguish normal network congestion from emergency outage likelihood. Calibrate switching, backup and restoration only with Enexis-approved operational data."
+    },
+    {
+      "id": "GM1680-S03",
+      "severity": "medium",
+      "category": "limitation",
+      "status": "accepted-limitation",
+      "summary": "Local gas/heating and telecom topology, asset condition, backup endurance and restoration performance are unavailable.",
+      "evidence": "No public GM1680 pipe/pressure district, customer heat-source, mast/backhaul, battery-runtime, crew or outage dataset is consumed. Generic service coefficients and backup windows therefore cannot be described as operator expectations.",
+      "action": "Continue to present gas and telecom as synthetic service indices. Add an evidence/confidence badge and a data-unavailable note; pursue operator data-sharing rather than reconstructing sensitive topology."
+    },
+    {
+      "id": "GM1680-L01",
+      "severity": "high",
+      "category": "regional-data",
+      "status": "open",
+      "summary": "The local allocation heuristic conflates older population with operational service priority.",
+      "evidence": "Because any neighbourhood with age-65 share at or above 24 percent becomes priority 1, 29 of 54 GM1680 neighbourhoods are priority 1 and 25 are priority 3, with none priority 2. E02 confirms an older municipality (29.2 percent aged 65+), but age share is vulnerability context, not evidence of feeder, water, emergency or logistics restoration priority.",
+      "action": "Separate vulnerability/assistance need from infrastructure restoration priority. Default unknown operational priority to neutral, and use sourced critical customers/facilities or a user-defined incident policy for priority changes."
+    },
+    {
+      "id": "GM1680-L02",
+      "severity": "medium",
+      "category": "network",
+      "status": "open",
+      "summary": "Gieten-as-hub and local star links are population-derived visual constructs, not observed service or mobility networks.",
+      "evidence": "Gieten is chosen only because it is the largest CBS neighbourhood (4,780 residents); straight links then connect it to all other neighbourhoods. After alias/class regeneration, all ten GM1680 NWB logical links use the same synthetic nominal capacity 150. Neither construction is an observed utility, evacuation or emergency-logistics network.",
+      "action": "Label these links 'allocation graph' in the UI and hide capacity units that imply measured throughput. For mobility, derive routing/capacity from NWB attributes and closures; for utilities use separate sourced networks."
+    },
+    {
+      "id": "GM1680-E01",
+      "severity": "medium",
+      "category": "service",
+      "status": "open",
+      "summary": "The facilities layer omits actual emergency and care geography and cannot support response-time claims.",
+      "evidence": "E16 lists volunteer posts at Annen, Gasselternijveen, Gieten and Rolde; E18 identifies a police office in Gieten, while E10 describes regional hospitals outside the municipality and pressure on care/self-reliance. The current facilities service is a generic index with no sites, staffing, catchments or road-based turnout.",
+      "action": "Add sourced public facility points and clearly separate presence from operational capacity. Model travel time, availability, staffing and mutual aid only with VRD/GHOR-approved data."
+    },
+    {
+      "id": "GM1680-E02",
+      "severity": "medium",
+      "category": "service",
+      "status": "open",
+      "summary": "Emergency supply and household preparedness are national proxies rather than local readiness measurements.",
+      "evidence": "The web default uses householdPreparedness 0.44 from a national 2026 survey. E17 defines recommended 72-hour items and three litres of water per person per day, but no Aa en Hunze inventory, depot, shop stock, vulnerable-household readiness or distribution-point dataset is present.",
+      "action": "Expose preparedness as an uncertainty/scenario control, never a local observed statistic. Add water, food, medicine, warmth, information/power and cash submetrics; later connect sourced emergency support points and last-mile routes."
+    },
+    {
+      "id": "GM1680-UI01",
+      "severity": "medium",
+      "category": "ui",
+      "status": "open",
+      "summary": "The core and web application maintain separate preset defaults, leaving a test-to-UI coverage gap.",
+      "evidence": "packages/sim-core names and parameterizes ten canonical presets, while apps/web/src/scenarios.ts redefines season, intensity, duration, start, preparedness, response delay, epicentre and seed. The mandated gate exercises core preset IDs; this audit separately exercised web defaults and obtained different checkpoint values.",
+      "action": "Create one canonical preset factory in sim-core and import it in the web app, or make the coverage test enumerate the actual web configs. Add snapshot assertions for every public preset's full normalized configuration."
+    },
+    {
+      "id": "GM1680-UI02",
+      "severity": "medium",
+      "category": "ui",
+      "status": "open",
+      "summary": "A zero affected-population value can coexist with non-trivial residual service pressure and should not read as full recovery.",
+      "evidence": "At web compound T+72, affected people-equivalent is zero while system pressure is 9.6 percent and modelled flood depth is 0.422 m. River also retains 0.158 m at T+72. Several other presets reach zero affected while 6–7 percent pressure remains. This follows an explicit threshold, not literal proof that nobody remains disrupted.",
+      "action": "Label affected population as a thresholded people-equivalent, show residual service pressure beside it, and use a multi-condition recovery state rather than treating zero affected as recovered."
+    },
+    {
+      "id": "GM1680-I01",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The current engine closes its causal and cumulative-deprivation ledgers for GM1680.",
+      "evidence": "The dedicated test proves exact hazard/service stage identities, deterministic T+24 output, local reconciliation and monotonic deprived person-hours. Deprivation now integrates only the event-attributable all-eight-service weighted pre-network availability shortfall above a matched no-event baseline. Manual checks also confirm service-invariant local hazard severity and preservation of published zero-population neighbourhoods.",
+      "action": "Keep these invariants in the release gate and retain the explicit event-attributable, matched-baseline, pre-network and logical-proxy language."
+    },
+    {
+      "id": "GM1680-D01",
+      "severity": "low",
+      "category": "regional-data",
+      "status": "accepted-limitation",
+      "summary": "Some CBS neighbourhood context is unavailable or suppressed and is correctly neutral rather than imputed.",
+      "evidence": "Cars per household is available in 32/54 rows; doctor and supermarket distance in 48/54; several housing and benefit fields in 41/54; district-heating and public-charging values are unavailable in every row. Small-area suppression and CBS semantics make zero-filling misleading.",
+      "action": "Preserve nulls, display per-layer coverage, and do not infer household-level vulnerability from aggregates."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Replace analytic coastal distance decay with an official connected flood-footprint mask and make GM1680 direct coastal inundation zero under the reference preset.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/public/data/hazards/coastal-flood-footprints.geojson"
+      ],
+      "validation": "For GM1680, assert floodDepthM === 0 at 0/6/12/24/48/72 for coastal-flood while any retained wind/indirect effects are separately attributed; rerun the national 342-municipality matrix and visually inspect boundary transitions."
+    },
+    {
+      "summary": "Mask the Rhine/Meuse scenario to official extents and create a separate Drentsche Aa/Hunze/canal water-system scenario if local horizontal flooding is required.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/scenarios.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts"
+      ],
+      "validation": "Assert zero direct Rhine/Meuse depth for GM1680, retain a distinct test for locally sourced brook/canal forcing, and verify scenario names and explanations identify the actual water system."
+    },
+    {
+      "summary": "Retain the corrected service-independent neighbourhood hazard field and replace its seeded spatial pattern with sourced local pluvial/heat exposure where evidence exists.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/data.ts",
+        "apps/web/public/data/hazards/GM1680.geojson"
+      ],
+      "validation": "Keep the fixed-time cross-service hazard delta at exactly zero, verify known LAS hotspot areas, preserve published zero-population neighbourhoods, and document raster edition, units and uncertainty."
+    },
+    {
+      "summary": "Unify core and web preset defaults so the public configuration is exactly what the model coverage gate tests.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/scenarios.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts"
+      ],
+      "validation": "Snapshot all ten normalized public presets and compare web-selected configs byte-for-byte with the canonical factory before running all checkpoints."
+    },
+    {
+      "summary": "Separate demographic vulnerability from operational restoration priority and replace the population-derived Gieten star graph with explicitly labelled allocation logic.",
+      "files": [
+        "apps/web/src/data.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/components/MapView.tsx"
+      ],
+      "validation": "GM1680 should no longer assign priority 1 solely because age65Share >= 0.24; verify demand/delivery/population reconciliation remains exact and UI labels never call allocation links physical infrastructure."
+    },
+    {
+      "summary": "Add sourced context for WMD Gasselte, Enexis Gasselte Kraanlanden and public emergency facilities without inferring unavailable network topology or capacity.",
+      "files": [
+        "apps/web/src/data.ts",
+        "apps/web/public/data/critical-facilities/GM1680.geojson",
+        "packages/sim-core/src/model.ts"
+      ],
+      "validation": "Each contextual feature must carry publisher, URL, edition, observed-versus-scenario semantics and licence; calculations must remain disabled until operator-approved capacity/dependency data are supplied."
+    },
+    {
+      "summary": "Make 72-hour outcome semantics explicit and prevent zero affected people-equivalent from being displayed as full recovery while residual hazards or service pressure remain.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/components/AnalyticsDrawer.tsx",
+        "apps/web/src/components/InspectorPanel.tsx"
+      ],
+      "validation": "Add a compound GM1680 T+72 UI assertion that simultaneously exposes affected people-equivalent, residual hazard, service pressure and recovery state; include accessible explanatory text."
+    }
+  ],
+  "residualLimitations": [
+    "No public physical electricity feeder/switching topology, outage history, crew allocation or operator restoration distribution is consumed for GM1680.",
+    "No public WMD pipe/pressure-zone, reserve, emergency-power or contamination-response topology is consumed; the public Gasselte facility page is contextual only.",
+    "No local sewer, pump, culvert, water-level, storage-operation or real-time waterschap state is connected to the drainage layer.",
+    "No public gas pressure-district/customer heat-source or telecom mast/backhaul/battery topology is available in the model.",
+    "The ten GM1680 NWB routes are logical municipality links currently classified regional with uniform synthetic nominal capacity 150 and synthetic service flow; 84 transit stop areas do not provide emergency transport capacity.",
+    "Critical facilities, care users, volunteer availability, shelters, emergency support points, stockpiles and distribution depots are not represented.",
+    "Hazard values are deterministic scenario outputs, not forecasts, LIWO products, KNMI warnings, AHN hydrodynamics, shakemaps or wildfire spread forecasts.",
+    "Neighbourhood context is aggregate and partially suppressed; it must not be interpreted as an individual vulnerability or household preparedness score.",
+    "Deprived person-hours is explicitly an event-attributable, matched-no-event-baseline, pre-network all-service availability proxy, not a measured experienced-outage total.",
+    "Intervention bonuses and 72-hour recovery curves are generic assumptions without Aa en Hunze operator or VRD calibration."
+  ],
+  "provinceReviewFlags": [
+    "Review every Drenthe municipality for false direct coastal-surge depth; the VRD profile confines limited large-water exposure to the Meppel area and distinguishes possible indirect vital-service and transport effects.",
+    "Separate Rhine/Meuse, IJssel/Overijsselse Vecht, Drentsche Aa/Hunze brook-and-canal, saturated-system and local cloudburst scenarios throughout Drenthe.",
+    "Calibrate induced-earthquake scenarios to named gas fields, event magnitude and KNMI ground-motion products; do not apply one generic North Netherlands radial field.",
+    "Nature-fire review should include Drenthe land cover, recreational/care sites, access, volunteer coverage, wind and simultaneous-incident capacity.",
+    "Power, water, gas and telecom zones cross municipal boundaries differently from NWB roads; province aggregation must preserve the logical-proxy disclaimer and seek operator-specific topology.",
+    "Drenthe's aging and rurality should inform assistance demand, not automatically assign infrastructure restoration priority."
+  ]
+}

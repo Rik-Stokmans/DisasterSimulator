@@ -1,0 +1,444 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM1942",
+    "name": "Gooise Meren",
+    "province": "Noord-Holland",
+    "safetyRegion": "Gooi en Vechtstreek"
+  },
+  "agent": {
+    "taskName": "municipality_gm1942",
+    "agentId": "/root/municipality_gm1942",
+    "completedAt": "2026-09-03T02:28:09Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "Gooise Meren's generated identity, Noord-Holland and Gooi en Vechtstreek membership, 2025 CBS totals and official regional bundles are coherent: 61,003 residents, 56 neighbourhoods, four BAG woonplaatsen and seven BRT settlements are present, with a 27-person (+0.044%) normal published-neighbourhood rounding difference. The full CBS polygon has six components and 14,081 positions, while the overview polygon has five components and 260 positions; the generated Muiden BAG geometry is retained correctly, but its computed centre lies outside both concave source polygons and must not be used as a containment test. All ten presets run deterministically at six checkpoints across eight services and exact allocation, reconciliation, bounds, zero-event and causal-ledger contracts pass. Release is nevertheless correction-required. Neither the zero major-river field nor the zero direct North Sea coastal field represents the municipality's defence-, lake-level-, polder- and pump-dependent IJmeer/Markermeer/Gooimeer pathways. The pluvial preset reports 0.597482 m standing-water proxy at T+24 without consuming the municipality's climate maps or water system. Thirteen public combustible-area records with Gooise Meren as source holder are display-only: a test source in Valkeveen's mixed forest leaves Valkeveen 54th of 56 while Bloemenbuurt ranks first, and direct flame remains zero. Storm, pluvial, coastal wind, heat, winter, cyber and wildfire all reuse the same seeded neighbourhood order. Six NWB logical links capture A1/A6/A9/N236/N524 border crossings, but no bridge, rail, hospital acceptance, aid, supply, utility, backup, crew, stock or restoration state is observed; the same road edges remain generalized scenario proxies. Coarse river and coastal direct-water diagnostics should therefore be suppressed for local claims, retaining only separately labelled indirect national/corridor effects; a new authority-selected lake/polder flood family is required.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek (CBS)",
+      "title": "Kerncijfers wijken en buurten 2025, table 86165NED, OData API",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM1942%27%29",
+      "accessedAt": "2026-09-03T02:05:00Z",
+      "edition": 2025,
+      "supports": [
+        "Fresh official row GM1942 gives 61,003 residents, density 1,472/km², 12,818 residents aged 65+, 27,551 households, 10,795 one-person households, 4,143 hectares land and 3,377 hectares water.",
+        "Municipality, district and neighbourhood attributes and CBS rounding, suppression and null semantics used for reconciliation.",
+        "Machine-readable OData; annual 2025 edition with additions when data become available, reusable under CC BY 4.0. It is demographic context, not occupancy, exposure or response priority."
+      ]
+    },
+    {
+      "publisher": "PDOK / CBS / Kadaster / Rijkswaterstaat / ProRail",
+      "title": "CBS Gebiedsindelingen 2025 non-generalized geometry, BAG woonplaatsen and national transport APIs",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_niet_gegeneraliseerd/items?f=json&limit=100&datetime=2025-07-01T00%3A00%3A00Z&bbox=5.00,52.20,5.25,52.42",
+      "accessedAt": "2026-09-03T02:07:00Z",
+      "edition": "2025 CBS/BAG; NWB August 2026; current ProRail",
+      "supports": [
+        "Full-resolution GM1942 is a six-component MultiPolygon with six rings and 14,081 coordinate positions; the generated overview retains five components and 260 positions, so it is unsuitable for shoreline, island, route or asset intersection.",
+        "All 56 CBS neighbourhood label points are contained. BAG contains active Bussum, Muiden, Muiderberg and Naarden polygons; the computed Muiden centre [5.0737012050, 52.3524857043] lies outside the concave BAG and CBS polygons, so centre containment is a review flag rather than proof of foreign membership.",
+        "The August 2026 NWB graph has six border edges: A6 to Almere, A9 and A1 to Diemen, A1 to Huizen, and N524/N236 to Hilversum. ProRail has Naarden-Bussum and Bussum Zuid stations; 77 GTFS stop areas are present.",
+        "CBS boundaries are annual CC BY 4.0; BAG is Public Domain Mark 1.0; NWB and ProRail are CC0. Geometry and schedules do not establish bridge/rail operation, passenger loads, emergency throughput or utility topology."
+      ]
+    },
+    {
+      "publisher": "Gemeente Gooise Meren",
+      "title": "Gemeentelijk Rioleringsplan Gooise Meren 2023–2026 and municipal climate tool",
+      "url": "https://archiefbestuur.gooisemeren.nl/fileadmin/Beleidsnota_s/Buitenruimte/gemeentelijk-rioleringsplan-gooise-meren-2023-2026.pdf",
+      "accessedAt": "2026-09-03T02:09:00Z",
+      "edition": "GRP dated 21 November 2022, plan period 2023–2026; climate tool current at access",
+      "supports": [
+        "The municipality identifies vulnerable water-overload areas and commits to further investigation, disconnection of paved surface, infiltration and climate-adaptive measures; the plan does not publish a live drainage model or operational capacity.",
+        "The municipal climate tool at https://duurzaambouwen.gooisemeren.nl/aan-de-slag/ exposes local heat, infiltration-capacity, water-depth and vulnerable-building maps and states that its heat map derives from the Amstel, Gooi en Vecht climate atlas.",
+        "The municipality states that mixed sewerage remains present and rain can collect at low points, while drought can lower groundwater and harm buildings and water quality. These distinct mechanisms contradict one shared hazard ordering.",
+        "The documentary plan has a four-year policy cadence; the interactive map does not state a stable feature endpoint, source edition or standard reuse licence, so owner-supplied machine grids and terms are required before causal ingestion."
+      ]
+    },
+    {
+      "publisher": "Waterschap Amstel, Gooi en Vecht / Het Waterschapshuis",
+      "title": "Muiden water-supply and defence context plus IMWA public water assets",
+      "url": "https://www.agv.nl/werk-in-uitvoering/nieuw-gemaal-muiden-bij-grote-steenen-beer/update-2---11-aug.-2026/",
+      "accessedAt": "2026-09-03T02:11:00Z",
+      "edition": "11 August 2026 drought update; IMWA snapshot retrieved 3 September 2026",
+      "supports": [
+        "In the 2026 drought response, three temporary pumps at Muiden take water from the Markermeer through the Vecht toward the Naardermeer and other areas; the permanent installation cannot always supply enough during prolonged drought. This is a dated observed action, not a scenario default or continuing status.",
+        "The current Zuidpolderweg project page at https://www.agv.nl/werk-in-uitvoering/Zuidpolderweg/ states that parts of the Muiden dike no longer meet water-safety requirements and that works also require water-main relocation; project state does not imply breach or outage.",
+        "The consumed HWH IMWA snapshot assigns 134 records by full CBS containment: 21 surface-water pumps, 106 weirs and seven sluices, all registered as realised and managed by AGV. Every capacity is null and AGV contributes no sewer-pump or treatment record to the consumed DAMO subset; absence and null are not zero.",
+        "Integration-ready OGC API https://api.pdok.nl/hwh/waterschappen-kunstwerken-imwa/ogc/v2 is a national aggregation refreshed by contributors, CC BY-SA 4.0, with explicitly variable completeness. Geometry/status may support context only, not operation, flow, backup or T+72 restoration."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Gooi en Vechtstreek",
+      "title": "Regionaal Risicoprofiel Gooi en Vechtstreek 2024",
+      "url": "https://samen.vrfgv.nl/wp-content/uploads/2024/11/RRP-2024-Gooi-en-Vechtstreek-Definitief.pdf",
+      "accessedAt": "2026-09-03T02:13:00Z",
+      "edition": "Definitive 2024 risk profile for the 2025–2028 policy cycle",
+      "supports": [
+        "The profile includes Gooise Meren among the region's six municipalities and describes the region as partly below NAP with substantial surface water, forests, heath and reedland, dense transport and cross-boundary vital infrastructure.",
+        "Priority risks include storm/wind/rain, cold, heat, loss of voice/data, electricity loss, cyberattack, flooding and nature fire; nature fire is newly priority-rated and cyber/ICT/telecom and electricity likelihoods have increased.",
+        "The region explicitly notes roads, rail, waterways, pipelines, high-voltage links, hazardous-goods transport, industrial sites, vulnerable-care objects and cross-regional effects on aid capacity.",
+        "This four-year strategic PDF has no standard reuse licence or machine incident/capacity interface; it validates scope, not local probability, dispatch, staffing, inventory or restoration."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / Watermanagementcentrum Nederland",
+      "title": "Landelijk Informatiesysteem Water en Overstromingen (LIWO) and national 70 mm cloudburst layer",
+      "url": "https://iplo.nl/thema/water/applicaties-modellen/berichtgeving-crisismanagement/liwo/",
+      "accessedAt": "2026-09-03T02:15:00Z",
+      "edition": "LIWO 2025.1.6/project dataset 2025_0_1; cloudburst catalogue updated 5 August 2026",
+      "supports": [
+        "LIWO exposes versioned flood scenarios and derived maximum-depth products for professional interpretation through https://basisinformatie-overstromingen.nl/api/liwo.ws and https://basisinformatie-overstromingen.nl/geoserver/ows.",
+        "A defensible Gooise Meren event must select an IJmeer/Markermeer/Gooimeer or connected defence/polder pathway, water level, defence state, probability/source class, footprint, depth unit, arrival, duration and recession; a North Sea or Rhine/Meuse/IJssel centre-distance field cannot substitute.",
+        "The project already exposes the national 70 mm-in-two-hours CC0 WMS/GeoTIFF from https://data.overheid.nl/dataset/3d9640b8-a6ae-449c-88dd-0ab186094fae as non-causal official-scenario context. Transparent/NoData is Unknown, not dry.",
+        "LIWO is release-versioned rather than guaranteed-cadence data and no general redistribution licence was found in inspected metadata; expert scenario selection and terms approval are required before causal caching."
+      ]
+    },
+    {
+      "publisher": "Interprovinciaal Overleg / Landelijke Beheerorganisatie Risicokaart",
+      "title": "ISOR combustible nature areas and external-safety public services",
+      "url": "https://data.overheid.nl/dataset/13235-natuurbranden",
+      "accessedAt": "2026-09-03T02:17:00Z",
+      "edition": "Catalogue metadata updated 19 February 2026; WFS updateSequence 3714",
+      "supports": [
+        "The public WFS https://servicespub.risicokaart.nl/geoserver/ISOR_RK/wfs returns 13 combustible-area records whose source holder is Gooise Meren, including Valkeveen mixed forest, Oostereng/Westereng forest strips and Wegelsberg.",
+        "A representative point [5.2042111, 52.3036778] within the Valkeveen mixed-forest polygon is contained by CBS neighbourhood BU19420512 Valkeveen. Static geometry proves only fire eligibility, never ignition, fuel moisture, perimeter, spread, smoke, evacuation or suppression state.",
+        "The dataset is Public Domain and accessible as WMS/WFS; feature validity begins between 2006 and 2014 and no guaranteed operational refresh cadence is stated, so feature dates and Unknown risk values must be retained.",
+        "The separate public REV WMS at https://www.registerexterneveiligheid.nl/kaartbeelden supplies regulated activities, attention areas, pipeline references and Basisnet hazardous-goods context. It has no fixed cadence, per-feature incident time or stated reuse-licence version and cannot create an industrial incident or live transport state."
+      ]
+    },
+    {
+      "publisher": "Liander / RDI / RIVM / Netbeheer Nederland",
+      "title": "Public physical utility, telecom, acute-care and electricity-planning context consumed by the application",
+      "url": "https://www.liander.nl/over-ons/open-data",
+      "accessedAt": "2026-09-03T02:19:00Z",
+      "edition": "Deployment snapshots retrieved 2–3 September 2026; Liander current services",
+      "supports": [
+        "Liander's current CC BY 4.0 ArcGIS services expose electricity station/cable and gas-pipe geometry in its territory, but no connected switching/valve topology, flow, load, outage, backup or restoration state.",
+        "The statutory RDI WFS https://antenneregister.nl/mapserver/wfs/ contributes 93 antenna-installation sites assigned to GM1942; the service states no fees/access constraints but no reuse-licence version or fixed cadence. Sites are not coverage, ownership, backhaul, power endurance or availability.",
+        "The one Netbeheer Nederland postcode sample is quarterly/monthly large-user planning context, not emergency availability. The current RIVM 2026 acute-care questionnaire contains no emergency department inside GM1942, making hospital access cross-boundary; zero records does not mean zero local care facilities or guaranteed external acceptance.",
+        "These sources are integration-ready context at feature or service-area level, but no reviewed public source supplies safe complete physical drinking-water, sewer, gas, telecom, facility, stock, crew, backup, aid or restoration topology. Synthetic indices must remain explicitly scenario-class."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM1942, Gooise Meren, Noord-Holland and safety region Gooi en Vechtstreek agree across the manifest, generated bundles and official 2025/current records.",
+      "evidenceRefs": ["E01", "E02", "E05"],
+      "notes": [
+        "Generated feature id, bundle code/name, source edition and exactly one safety-region membership agree.",
+        "The municipality reference point lies inside the generated polygon; all 56 neighbourhood identifiers belong to GM1942.",
+        "The 2024 regional profile lists Gooise Meren in Gooi en Vechtstreek."
+      ]
+    },
+    "geography": {
+      "status": "warn",
+      "summary": "The overview geometry is suitable for navigation but loses one small component and is too coarse for lake, defence, nature-area and infrastructure intersection.",
+      "evidenceRefs": ["E02", "E04", "E06", "E07"],
+      "notes": [
+        "Full-resolution GM1942 has six components/14,081 positions versus five components/260 positions in the overview file.",
+        "The Muiden BAG polygon is correctly retained, but its computed bbox-style centre falls outside both concave polygons; validate polygon intersection and official membership, not representative-point containment.",
+        "Use full-resolution source geometry and explicit CRS/no-data/precision controls for shoreline, island, dike, forest, road, rail and asset work."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Generated municipality totals reproduce official 2025 CBS values and neighbourhood population reconciles within normal publication rounding.",
+      "evidenceRefs": ["E01", "E02"],
+      "notes": [
+        "Official/generated population is 61,003, density 1,472/km², age 65+ is 12,818 or 21.0%, households are 27,551 and one-person households are 10,795.",
+        "Published neighbourhood population sums to 61,030, 27 above the municipal row (+0.044%); neighbourhood households sum to 27,540 and age 65+ to 12,825.",
+        "The allocator reconciles to 61,003 without overwriting rounded source observations."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "All 56 neighbourhoods and 36 declared fields are present, with published nulls retained, but demographic context is overextended into hazard and operational allocation.",
+      "evidenceRefs": ["E01", "E02", "E03"],
+      "notes": [
+        "Core demographic fields cover 56/56; home-value/housing fields cover 51/56, cars per household 50/56, benefit fields 53/56, density/doctor/supermarket 54/56 and average household size 55/56.",
+        "District heating and public charging cover 0/56 and correctly remain null rather than zero.",
+        "CBS water share, density, age and establishments may transparently weight vulnerability/demand but do not locate floodwater, heat, fire, cyber assets or physical service branches."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "Four active BAG woonplaatsen and seven BRT settlement footprints are structurally coherent and remain non-causal geographic context.",
+      "evidenceRefs": ["E02"],
+      "notes": [
+        "BAG woonplaatsen are Bussum, Muiden, Muiderberg and Naarden; BRT has four woonkernen, one deelkern, one gehucht and one buurtschap.",
+        "Muiden's derived centre mismatch is a concavity/representative-point caveat, not a foreign-place finding.",
+        "Place and settlement geometry does not establish occupancy, evacuation demand, shelter status or response capacity."
+      ]
+    },
+    "transport": {
+      "status": "warn",
+      "summary": "NWB captures six major border crossings and ProRail/GTFS capture rail/transit context, but scenario capacity omits crossing state, internal branching and cross-boundary care/aid/supply operation.",
+      "evidenceRefs": ["E02", "E04", "E05", "E08"],
+      "notes": [
+        "The graph represents A6 across the Hollandse Brug to Almere, A1 east/west, A9 and N236/N524 with generalized 150/260 u/h capacities; A1's two edges are consecutive corridor directions and must not be summed as independent capacity.",
+        "Naarden-Bussum and Bussum Zuid plus 77 GTFS stop areas are schedule/geometry context, not event-time rail/bus service or passenger evacuation capacity.",
+        "No RIVM questionnaire emergency department lies inside GM1942; ambulance routing, external hospital acceptance, mutual aid and supply remain unknown.",
+        "Bridge/viaduct, A1/A6 interchange, local Muiden/Naarden branches, rail crossings and current restrictions need validity-aligned operator state before operational use."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "Official water, nature-fire, industrial and vital-infrastructure context is visible but no first-72-hour authority/resource ledger enters model state.",
+      "evidenceRefs": ["E04", "E05", "E07", "E08"],
+      "notes": [
+        "All 56 neighbourhoods retain neutral priority 2 and isHub=false; no dike/polder role, fire interface, assembly site, station, crossing, care route or response asset is encoded.",
+        "The 134 HWH water assets, 93 RDI sites, Liander geometry, REV layers and one capacity-map sample correctly remain non-causal context.",
+        "The three August 2026 temporary Muiden pumps are an observed drought action with date/scope, not a generic resource available in every scenario.",
+        "No source provides public complete crews, appliances, extinguishing-water availability, hospital acceptance, shelter capacity, stocks, backup endurance or restoration commitments."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten canonical presets execute at T+0/6/12/24/48/72 across all eight services with finite deterministic output.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "MUNICIPALITY_AUDIT_CODE=GM1942 pnpm audit:model passed two tests in 37.30 seconds; focused 25-frame and source-containment probes passed in 30.20 seconds and 0.455 seconds.",
+        "Modeled peak severity / sampled maximum affected / T+72 attributable deprived person-hours are severe storm 0.593295 / 16,815 / 643,574.708; pluvial 0.595699 / 15,457 / 654,186.309; river 0 / 0 / 0; coastal 0.050704 / 1,084 / 196,510.220; heat 0.494873 / 2,217 / 266,052.675.",
+        "Remaining values are winter 0.481440 / 15,233 / 588,560.368; cyber 0.443863 / 14,945 / 682,351.652; earthquake 0.031376 / 0 / 44,124.497; wildfire 0.113402 / 0 / 182,173.220; compound 0.929471 / 38,228 / 2,245,003.851.",
+        "These are deterministic exercise outputs, not probabilities, forecasts, casualties, measured water depths, cyber intelligence or service commitments."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Bounds, determinism, zero-event behavior, official-local allocation, exact reconciliation, cumulative accounting and layer invariance pass.",
+      "evidenceRefs": [],
+      "notes": [
+        "All service availability remains [0,1]; hazard values, demands, deliveries and person-hours are finite/non-negative and cumulative ledgers do not decrease.",
+        "At compound T+24 every service has 56 official local rows summing to 61,003 residents and 35,749 affected people-equivalent; maximum focused delivery reconciliation error is 4.27×10^-14.",
+        "Zero intensity produces exactly zero event dimensions, severity, affected people and attributable deprived person-hours while ambient season remains separate.",
+        "Repeated frames are identical and selecting another display layer does not change hazard or service state."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "Municipality scalars and one common seeded local order ignore the lake/polder, urban heat/pluvial and forest-interface geography evidenced by public sources.",
+      "evidenceRefs": ["E02", "E03", "E04", "E06", "E07"],
+      "notes": [
+        "At T+24 storm, pluvial, coastal wind, heat, winter, cyber and wildfire all rank Bloemenbuurt, Vesting Muiden, Nijverheidswerf, Noordpolder, Naardermeer and IJmeer first through sixth for hazard severity; only zero-current river/earthquake and compound saturation differ.",
+        "Pluvial T+24 reports synthetic floodDepthM 0.597482 and 14,158 affected people while using no local water-depth, infiltration, low-point, sewer, pump or measure layer.",
+        "A representative source inside the official Valkeveen mixed-forest polygon is in BU19420512, yet Valkeveen ranks 54/56 under wildfire while urban Bloemenbuurt ranks first; direct flame is zero and only smoke/drought remain.",
+        "Neither direct river nor direct coast water selects the relevant IJmeer/Markermeer/Gooimeer level, dike/gate/pump state or connected footprint."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "Aggregate cascades calculate coherently, but physical service dependencies and cross-boundary continuity are synthetic and cannot be inferred from the six road links.",
+      "evidenceRefs": ["E02", "E04", "E05", "E08"],
+      "notes": [
+        "At compound T+72 availability is power 0.394019, water 0.414905, drainage 0.261263, gas 0.582013, telecom 0.293138, mobility 0.633140, facilities 0.343120 and supply 0.413161.",
+        "All six NWB edges have logical-proxy semantics and generalized capacities; they are appropriate only as explicit mobility/road-logistics assumptions, not power, water, drainage, gas, telecom or facility flow.",
+        "Public water and utility geometry has no operational topology/capacity. External acute care, Flevoland/Amsterdam-Amstelland aid, rail and bridge availability, fuel, food, spares and repair access are absent.",
+        "Exact service availability must not be attributed to AGV, Liander, water/telecom providers, hospitals, ProRail, Rijkswaterstaat or the safety region."
+      ]
+    },
+    "causalTrace": {
+      "status": "fail",
+      "summary": "Arithmetic ledgers and counterfactual reruns close, but unsupported local hazard, action and resource claims remain causal inputs and the pluvial hero hides standing water behind zero current rain.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "The harness verifies hazard, service, dependency, intervention, allocation and reconciliation closure and exact zero-intensity attribution.",
+        "At pluvial T+24 the model holds 0.597482 m synthetic standing-water proxy while rainMmH is zero; the desktop hero displays '0 mm/h rain · Scenario · evidence class synthetic' and does not surface the standing-water driver.",
+        "Generic generator-priority and mutual-aid ramps are response-delay-gated scenario controls but are not linked to Gooise Meren resources, dispatched units, route state, consumed stocks, failed actions or authority timestamps.",
+        "NoData and null are preserved in source files, but exact local outputs can still visually outrank the explicit absence of a causal local adapter."
+      ]
+    },
+    "recovery72h": {
+      "status": "warn",
+      "summary": "Generic recovery mechanics are internally consistent, but lake/polder recession, drainage, access, external care and operator restoration are uncalibrated.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E08"],
+      "notes": [
+        "Storm, pluvial, coastal, winter, cyber, earthquake and wildfire are operational by T+72 without reducing accumulated deprived person-hours; river remains neutral throughout.",
+        "Compound remains critical at T+72 with 38,228 affected and nearly unchanged service availability from T+24, reflecting generic repair blocking rather than an observed local action/resource chain.",
+        "The heat forcing is scheduled for 336 hours but municipal status is operational at T+72 with zero affected; this is model threshold behavior, not a heat-health all-clear.",
+        "No public adapter binds dike/pump state, water recession, road/rail reopening, crew arrival, hospital acceptance, generator fuel, repair inventory or completion evidence to the exercise clock."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": ["power", "water", "drainage", "gas", "telecom", "mobility", "facilities", "supply"]
+  },
+  "findings": [
+    {
+      "id": "GM1942-DATA-001",
+      "severity": "informational",
+      "category": "identity",
+      "status": "fixed",
+      "summary": "Identity, 2025 population, safety-region membership and official regional bundles are coherent.",
+      "evidence": "CBS gives 61,003 residents; the 56 published neighbourhoods sum to 61,030 (+0.044%) and the allocator reconciles without altering source values. Four BAG places and seven BRT settlements belong to GM1942.",
+      "action": "Retain annual editions, retrieval timestamps, official zero/null semantics and published-versus-allocated reconciliation on refresh."
+    },
+    {
+      "id": "GM1942-GEO-001",
+      "severity": "medium",
+      "category": "geography",
+      "status": "open",
+      "summary": "The overview polygon loses one component and the derived Muiden centre is not a valid membership point.",
+      "evidence": "Full CBS geometry has six components/14,081 positions versus five/260 generated; Muiden's generated centre is outside both full CBS and its concave BAG polygon even though the active BAG geometry is correctly assigned by intersection.",
+      "action": "Use the full annual CBS polygon for every source intersection, preserve all components, and calculate an interior point only for display; never reject BAG membership from bbox-centre containment."
+    },
+    {
+      "id": "GM1942-FLOOD-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The river/coastal families omit the municipality's relevant IJmeer/Markermeer/Gooimeer, defence and polder-water mechanisms.",
+      "evidence": "River is exactly zero and coast direct water is zero; neither selects lake level, defence/gate/pump state, connected footprint, probability, arrival or recession. AGV documents Muiden water transfer, dike work and lake-dependent operation, while LIWO provides the correct scenario family.",
+      "action": "Suppress both coarse direct-water diagnostics for local claims and retain only separately labelled indirect national/corridor effects. Add an authority-selected lake/polder event using versioned LIWO/AGV data; zero remains narrow, never an all-clear."
+    },
+    {
+      "id": "GM1942-PLUVIAL-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "A 0.597482-m pluvial standing-water proxy ignores published local depth, infiltration, sewer and water-control context.",
+      "evidence": "At T+24 the model reports 14,158 affected people and drainage availability 0.423777 while current rain is zero. The municipality publishes local heat/infiltration/water-depth/vulnerable-building maps and the runtime has 134 partial water-register points, but none controls forcing, exposure or drainage.",
+      "action": "Ingest an owner-versioned municipal stress-test grid with full-boundary clipping and explicit rainfall, depth, NoData, sewer/measure vintage and licence. Keep HWH assets non-causal unless capacity and event state are separately authorized."
+    },
+    {
+      "id": "GM1942-FIRE-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The wildfire family fails a source-containment test in official Valkeveen mixed forest.",
+      "evidence": "IPO WFS returns 13 municipality-held combustible polygons. A representative Valkeveen point lies in BU19420512, but the wildfire T+24 local ranking puts Valkeveen 54/56 and urban Bloemenbuurt first; direct flame is zero and the municipality receives only synthetic drought/smoke.",
+      "action": "Require a named synthetic or observed source/perimeter to govern eligible forest/heath, event-valid wind, smoke, access and suppression. Until then mark direct local flame Unknown and describe remote smoke separately."
+    },
+    {
+      "id": "GM1942-SPATIAL-001",
+      "severity": "high",
+      "category": "geography",
+      "status": "open",
+      "summary": "Seven unrelated nonzero single-hazard families reuse exactly one seeded neighbourhood ordering.",
+      "evidence": "Storm, pluvial, coastal wind, heat, winter, cyber and wildfire rank Bloemenbuurt through IJmeer in the same first-six order. The ranking consumes no family-specific rain/depth, lake, heat/shade, ice, forest/source, cyber-asset or exposed-object surface.",
+      "action": "Replace common seeded variation with family-specific adapters; use CBS only for explicit vulnerability/demand modifiers. Suppress hotspot wording whenever a local source footprint is unavailable."
+    },
+    {
+      "id": "GM1942-NETWORK-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "Six major road links do not establish A1/A6 bridge, rail, external-care, mutual-aid or supply continuity.",
+      "evidence": "NWB supplies A6/A1/A9/N236/N524 geometry and ProRail/GTFS supply two stations/77 stops, but generalized capacity has no event-time Hollandse Brug/interchange/rail/bridge state. RIVM lists no ED in GM1942, and no ambulance destination acceptance, Flevoland/Amsterdam aid or logistics stock is modeled.",
+      "action": "Keep NWB edges on Mobility and road Supply only. Add validity-aligned NDW/ProRail/operator crossing state and an authority-approved external-care/aid/supply ledger; unknown capacity must stay Unknown."
+    },
+    {
+      "id": "GM1942-SERVICE-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Physical power, water, drainage, gas, telecom and facility operation is unsupported by the visible public context.",
+      "evidence": "HWH provides 134 partial points with every capacity null and no consumed AGV sewer/RWZI record; Liander, RDI, provider and planning layers provide geometry/territory/sites only. None supplies connected flows, live outage, backup, stock, crew or restoration.",
+      "action": "Ingest only security-reviewed service-zone and state interfaces with publisher, edition, cadence, licence and coverage. Otherwise keep municipality indices synthetic and never copy road topology into physical services."
+    },
+    {
+      "id": "GM1942-CAUSAL-001",
+      "severity": "high",
+      "category": "explainability",
+      "status": "open",
+      "summary": "Generic interventions and recovery have no Gooise Meren action/resource evidence despite exact arithmetic ledgers.",
+      "evidence": "Generator and mutual-aid ramps are scenario parameters; the dated August 2026 temporary pumps, local crews, routes, hospital acceptance, fuel, stock, repair inventory and completed/failed actions are absent. Compound remains critical through T+72 from generic repair blocking.",
+      "action": "Add an event-time action ledger with authority, request/dispatch/arrival/completion/failure times, resource quantities/units, route and stock constraints, expiry and attribution; scenario controls must remain counterfactual assumptions until matched."
+    },
+    {
+      "id": "GM1942-UI-001",
+      "severity": "medium",
+      "category": "ui",
+      "status": "open",
+      "summary": "Desktop and mobile are usable, but the pluvial T+24 hero foregrounds zero rain and hides modeled standing water.",
+      "evidence": "Headless Chromium at 1440×1000 and 375×812 selected Gooise Meren without console/page errors or horizontal overflow; mobile navigation remained reachable. At T+24 the hero reads '0 mm/h rain · evidence class synthetic' while floodDepthM is 0.597482 and drives degradation.",
+      "action": "Show current and accumulated/standing hazard separately, surface source class and missing-local-adapter warning at the decision point, and add desktop/mobile assertions for the dominant active/recovery driver."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Suppress generic local river/coastal direct-water claims and add a separately typed Gooise Meren lake/polder scenario adapter.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/public/data/hazards/GM1942-lake-flood-context.json",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Use WMCN/Rijkswaterstaat LIWO API https://basisinformatie-overstromingen.nl/api/liwo.ws and WMS https://basisinformatie-overstromingen.nl/geoserver/ows (release 2025.1.6/project 2025_0_1; scenario/derived raster resolution varies; release-versioned, no guaranteed cadence; redistribution licence not found) plus AGV/HWH defence and water-system geometry. Record selected IJmeer/Markermeer/Gooimeer boundary, defence/gate/pump state, scenario/LDO id, probability/source class, version, CRS, depth unit, NoData, arrival, duration, recession, retrieval and terms approval. Clip with full CBS 2025 CC BY 4.0 geometry. Until expert selection, make both named direct-water results Unknown/suppressed locally; retain only separately evidenced indirect national/corridor effects and assert zero is not an all-clear."
+    },
+    {
+      "summary": "Replace shared local rankings with bounded pluvial, heat/drought and source-aware nature-fire adapters.",
+      "files": [
+        "apps/web/public/data/hazards/GM1942-pluvial-context.json",
+        "apps/web/public/data/hazards/GM1942-heat-context.json",
+        "apps/web/public/data/hazards/GM1942-fire-context.json",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Request stable exports of the municipal climate-tool heat, infiltration, water-depth and vulnerable-building grids; its public UI states municipal/AGV provenance but no stable feature endpoint, edition, cadence or standard licence, so confirm these before caching. The national RWS 70 mm/2 h GeoTIFF/WMS is CC0 and catalogue-updated 5 August 2026 but remains official-scenario context unless its rainfall matches the exercise. For fire eligibility use IPO WFS https://servicespub.risicokaart.nl/geoserver/ISOR_RK/wfs (Public Domain; metadata 19 February 2026; no guaranteed operational cadence), then require a named source/perimeter, event-valid KNMI wind, fuel/moisture assumptions and suppression/access state. Test that Valkeveen containment can change the local rank, unrelated families do not share ordering, NoData is Unknown and municipal totals still reconcile exactly."
+    },
+    {
+      "summary": "Model only source-backed A1/A6/rail/external-care/aid/supply continuity and keep physical services separate from roads.",
+      "files": [
+        "scripts/fetch-realism-data.mjs",
+        "scripts/apply-audited-lifelines.mjs",
+        "apps/web/public/data/transport-network.json",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Use NWB OGC https://api.pdok.nl/rws/nationaal-wegenbestand-wegen/ogc/v1 (monthly, CC0), ProRail OGC https://api.pdok.nl/prorail/spoorwegen/ogc/v1 (current CC0), and timestamped NDW DATEX II https://opendata.ndw.nu/actueel_beeld.xml.gz (current picture, CC0 unless stated) for mode/direction/validity-aware crossing context. Static geometry never implies capacity or opening. External ED roles use RIVM 2026 v1.1 CC0 questionnaire data, but route, acceptance, beds/staff and ambulance/mutual-aid actions need authority state. Liander CC BY 4.0, HWH CC BY-SA 4.0, RDI terms-unknown and provider territories may remain non-causal context; absent/security-sensitive physical topology, backup and restoration remain Unknown. Assert NWB affects only Mobility and explicit road Supply."
+    },
+    {
+      "summary": "Make pluvial state, evidence class and first-72-hour action/resource/recovery causality visible on desktop and mobile.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/explainability.test.ts",
+        "apps/web/src/components/Inspector.tsx",
+        "tests/e2e/app.spec.ts"
+      ],
+      "validation": "At pluvial T+24 show both 0 mm/h current rain and the 0.597482-m modeled standing-water proxy, with synthetic class and missing-local-calibration warning. Add an action/resource ledger containing authority, action, requested/dispatched/arrived/completed/failed state, quantity/unit, route, stock, valid time and source; the August 2026 Muiden pumps must appear only in a matched replay, never every drought. Validate exact counterfactual deltas, ledger closure, expired/no-data behavior, recovery blocking/release, 1440×1000 and 375×812 access, no horizontal overflow and no console/page errors."
+    }
+  ],
+  "residualLimitations": [
+    "This is a deterministic first-72-hour exercise audit, not a forecast, warning, flood assessment, evacuation plan, wildfire forecast, cyber assessment or operator commitment.",
+    "CBS neighbourhood values are rounded/suppressed; null district-heating and charging coverage is Unknown, not zero, and local allocations are reconciled model values rather than census microdata.",
+    "The overview polygon omits one small component and cannot support hydraulic, shoreline, forest-edge, road, rail or asset intersection; use the full annual CBS source.",
+    "The Muiden BAG centre is a derived representative point outside concave source geometry; polygon membership remains valid and must be tested by intersection.",
+    "LIWO maximum composites, AGV/HWH asset geometry and the RWS cloudburst layer are context until a named event, units, NoData, validity and defence/system state are selected; missing coverage is not safe.",
+    "The municipal climate maps lack a documented stable public feature endpoint, edition, cadence and licence in the inspected interface.",
+    "IPO combustible polygons are old eligibility records with no fuel, moisture, ignition, perimeter, spread, occupancy or response state; missing risk values are Unknown.",
+    "The August 2026 Muiden pumps and drought measures are dated observations, not proof of current operation or resources available to another scenario.",
+    "NWB, ProRail, GTFS and NDW do not establish A1/A6 bridge or rail operation, passenger/vehicle throughput, evacuation, hospital routing or supply continuity for an arbitrary exercise date.",
+    "No complete public physical electricity, drinking-water, drainage, gas, telecom, facility, fuel, stock, backup, crew or restoration topology is consumed; sensitive gaps remain synthetic/Unknown.",
+    "RDI antenna sites are not coverage/backhaul, REV records are not a current industrial incident, and absence of a recent KNMI event or RIVM ED point is not zero hazard/care need.",
+    "The Groningen earthquake and generic cyber presets are scoped synthetic exercises; neither validates local ground motion, building fragility, adversary, affected asset or recovery.",
+    "Household preparedness, transient A1/A6/rail users, visitors, care needs, warning compliance, external hospital acceptance and recovery beyond T+72 remain unvalidated."
+  ],
+  "provinceReviewFlags": [
+    "Noord-Holland/Rijkswaterstaat/AGV/WMCN: define a separately typed IJmeer/Markermeer/Gooimeer, defence and polder flood adapter for Gooise Meren; suppress generic Rhine/Meuse/IJssel and North Sea direct-water diagnostics locally until a connected versioned scenario is selected.",
+    "Noord-Holland/Gooise Meren/AGV: publish or authorize versioned climate-stress-test heat, infiltration, water-depth and vulnerable-building grids with CRS, resolution, rainfall case, NoData, edition, cadence and licence.",
+    "Noord-Holland/VRGV/IPO/land managers: provide a bounded source-aware nature-fire exercise contract for Valkeveen/Oostereng/Westereng without treating old combustible-area geometry as current ignition or operational response.",
+    "Noord-Holland/Flevoland/Amsterdam-Amstelland/RWS/ProRail/health partners: establish non-sensitive identifiers and valid-time state for Hollandse Brug/A1-A6, rail, cross-boundary acute care, mutual aid and emergency supply.",
+    "Noord-Holland utility, water, telecom and facility operators: publish or authorize safe aggregate continuity/restoration interfaces where possible; unavailable physical topology, capacity, backup and crew state must remain Unknown rather than derived from road or registry context."
+  ]
+}

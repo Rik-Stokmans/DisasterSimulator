@@ -1,0 +1,228 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rikstokmans.com/schemas/disaster-simulator/municipality-audit-1.0.0.json",
+  "title": "Disaster Simulator municipality audit",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "kind",
+    "municipality",
+    "agent",
+    "verdict",
+    "executiveSummary",
+    "evidenceSources",
+    "dataChecks",
+    "modelChecks",
+    "scenarioCoverage",
+    "findings",
+    "corrections",
+    "residualLimitations",
+    "provinceReviewFlags"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" },
+    "kind": { "const": "municipality-audit" },
+    "municipality": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["code", "name", "province", "safetyRegion"],
+      "properties": {
+        "code": { "type": "string", "pattern": "^GM[0-9]{4}$" },
+        "name": { "type": "string", "minLength": 1 },
+        "province": { "$ref": "#/$defs/province" },
+        "safetyRegion": { "type": "string", "minLength": 1 }
+      }
+    },
+    "agent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["taskName", "agentId", "completedAt"],
+      "properties": {
+        "taskName": { "type": "string", "pattern": "^municipality_gm[0-9]{4}$" },
+        "agentId": { "type": "string", "minLength": 1 },
+        "completedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "verdict": {
+      "enum": ["verified", "verified-with-caveats", "correction-required", "blocked"]
+    },
+    "executiveSummary": { "type": "string", "minLength": 40 },
+    "evidenceSources": {
+      "type": "array",
+      "minItems": 3,
+      "items": { "$ref": "#/$defs/evidenceSource" }
+    },
+    "dataChecks": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "identity",
+        "geography",
+        "demography",
+        "regionalDetail",
+        "settlements",
+        "transport",
+        "emergencyContext"
+      ],
+      "properties": {
+        "identity": { "$ref": "#/$defs/check" },
+        "geography": { "$ref": "#/$defs/check" },
+        "demography": { "$ref": "#/$defs/check" },
+        "regionalDetail": { "$ref": "#/$defs/check" },
+        "settlements": { "$ref": "#/$defs/check" },
+        "transport": { "$ref": "#/$defs/check" },
+        "emergencyContext": { "$ref": "#/$defs/check" }
+      }
+    },
+    "modelChecks": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "scenarioMatrix",
+        "numericalInvariants",
+        "spatialPlausibility",
+        "serviceDependencies",
+        "causalTrace",
+        "recovery72h"
+      ],
+      "properties": {
+        "scenarioMatrix": { "$ref": "#/$defs/check" },
+        "numericalInvariants": { "$ref": "#/$defs/check" },
+        "spatialPlausibility": { "$ref": "#/$defs/check" },
+        "serviceDependencies": { "$ref": "#/$defs/check" },
+        "causalTrace": { "$ref": "#/$defs/check" },
+        "recovery72h": { "$ref": "#/$defs/check" }
+      }
+    },
+    "scenarioCoverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["presets", "checkpointsHours", "services"],
+      "properties": {
+        "presets": {
+          "type": "array",
+          "minItems": 10,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/preset" }
+        },
+        "checkpointsHours": {
+          "type": "array",
+          "minItems": 6,
+          "uniqueItems": true,
+          "items": { "enum": [0, 6, 12, 24, 48, 72] }
+        },
+        "services": {
+          "type": "array",
+          "minItems": 8,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/service" }
+        }
+      }
+    },
+    "findings": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/finding" }
+    },
+    "corrections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["summary", "files", "validation"],
+        "properties": {
+          "summary": { "type": "string", "minLength": 1 },
+          "files": { "type": "array", "items": { "type": "string" } },
+          "validation": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "residualLimitations": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "provinceReviewFlags": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    }
+  },
+  "$defs": {
+    "province": {
+      "enum": [
+        "Drenthe",
+        "Flevoland",
+        "Fryslân",
+        "Gelderland",
+        "Groningen",
+        "Limburg",
+        "Noord-Brabant",
+        "Noord-Holland",
+        "Overijssel",
+        "Utrecht",
+        "Zeeland",
+        "Zuid-Holland"
+      ]
+    },
+    "preset": {
+      "enum": [
+        "severe-storm",
+        "pluvial-flood",
+        "river-flood",
+        "coastal-flood",
+        "heatwave",
+        "winter-storm",
+        "cyberattack",
+        "earthquake",
+        "wildfire",
+        "compound"
+      ]
+    },
+    "service": {
+      "enum": ["power", "water", "drainage", "gas", "telecom", "mobility", "facilities", "supply"]
+    },
+    "evidenceSource": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["publisher", "title", "url", "accessedAt", "supports"],
+      "properties": {
+        "publisher": { "type": "string", "minLength": 1 },
+        "title": { "type": "string", "minLength": 1 },
+        "url": { "type": "string", "format": "uri" },
+        "accessedAt": { "type": "string", "format": "date-time" },
+        "edition": { "type": ["string", "number", "null"] },
+        "supports": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "check": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "summary", "evidenceRefs", "notes"],
+      "properties": {
+        "status": { "enum": ["pass", "warn", "fail", "unverified"] },
+        "summary": { "type": "string", "minLength": 1 },
+        "evidenceRefs": { "type": "array", "items": { "type": "string" } },
+        "notes": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "finding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "severity", "category", "status", "summary", "evidence", "action"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "severity": { "enum": ["critical", "high", "medium", "low", "informational"] },
+        "category": {
+          "enum": ["identity", "geography", "demography", "exposure", "regional-data", "hazard", "service", "network", "model", "explainability", "ui", "limitation"]
+        },
+        "status": { "enum": ["open", "fixed", "accepted-limitation"] },
+        "summary": { "type": "string", "minLength": 1 },
+        "evidence": { "type": "string", "minLength": 1 },
+        "action": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}

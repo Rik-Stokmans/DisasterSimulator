@@ -1,0 +1,462 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM1507",
+    "name": "Horst aan de Maas",
+    "province": "Limburg",
+    "safetyRegion": "Limburg-Noord"
+  },
+  "agent": {
+    "taskName": "municipality_gm1507",
+    "agentId": "/root/municipality_gm0397",
+    "completedAt": "2026-09-03T05:31:00Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "GM1507's identity, Limburg-Noord assignment, 2025 CBS population control and full municipal geometry are coherent. Fresh context reports 44,242 residents; 49 published neighbourhood rows sum to 44,255 (+13, +0.029%), a minor difference that preserves CBS rounding and suppression semantics. The bundle contains sixteen districts, 49 neighbourhoods, sixteen BAG places, 50 BRT settlement labels, seven logical road records, Horst-Sevenum station and 58 scheduled-transit stop areas. All ten canonical presets execute deterministically at T+0/6/12/24/48/72 across eight services and pass the structural/numerical contract. Release is nevertheless correction-required. Horst aan de Maas spans distinct Maas floodplain/dike villages, inland towns, intensive agriculture/logistics, major recreation and Peel/forest nature. The model gives one municipality scalar instead of a selected Maas/defence/catchment footprint; seven unrelated hazards plus wildfire reuse exactly the same full neighbourhood order. A controlled ignition inside the official Schadijkse Bossen polygon leaves source-containing Verspreide huizen Meterik last of 49, behind America. Public evidence also establishes three Maas vehicle ferries, all reported temporarily out of service at retrieval, but none is represented in the operational route graph; road, rail, care, detention, visitor and lifeline dependencies lack incident-valid capacity and state. CBS residents omit potentially large Toverland, seasonal, worker, patient, detainee and transport populations. Public weather, water, grid, antenna, education, care and asset records remain context rather than live topology or commitments. Missing public records are Unknown/NoData, never zero or safe.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek (CBS)",
+      "title": "E01 — Kerncijfers wijken en buurten 2025, table 86165NED, OData API",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM1507%27%29",
+      "accessedAt": "2026-09-03T05:03:00Z",
+      "edition": 2025,
+      "supports": [
+        "The official municipality row identifies GM1507 Horst aan de Maas and reports 44,242 residents, density 234 per square kilometre, 24.2% age 65 or older and 6,406 one-person households.",
+        "The 49 published neighbourhood rows sum to 44,255 residents (+13, +0.029%), 19,565 households and 10,700 residents aged 65 or older. Small differences retain annual rounding, suppression and incomplete-value semantics.",
+        "Average-home values cover 44/49 rows, average household size 47/49, cars per household 43/49 and doctor/supermarket distance 46/49; district-heating share and public-charging counts are unavailable for all 49 rows and must not become zero.",
+        "CBS OData is machine-readable under CC BY 4.0, with quarterly additions described for this annual table. It supports resident context and allocation control, not incident-time presence, self-reliance, injury, evacuation or deprivation."
+      ]
+    },
+    {
+      "publisher": "PDOK / CBS / Kadaster / Rijkswaterstaat / ProRail / OVapi",
+      "title": "E02 — Full municipal geometry, settlements and road, rail and scheduled-transit reference inputs",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_niet_gegeneraliseerd/items?f=json&filter=statcode%3D%27GM1507%27",
+      "accessedAt": "2026-09-03T05:05:00Z",
+      "edition": "2025 boundary/statistics and current generated BAG, BRT, NWB, ProRail and GTFS reference snapshots",
+      "supports": [
+        "The generated centre [6.046775487895938, 51.445536853166494] lies inside the fresh 2025 municipal boundary.",
+        "The bundle retains sixteen districts, 49 neighbourhoods, sixteen BAG places and 50 BRT labels: fifteen woonkernen, two gehuchten, one deelkern and 32 buurtschappen.",
+        "Seven logical records identify A73 north/south, A67, N277 north/south, N556 and N295 boundary clips. A73 and N277 pairs share physical-corridor identities and are consecutive series edges, not additive capacity.",
+        "Horst-Sevenum station lies inside the boundary and 58 GTFS stop areas are assigned, but no Lottum–Lomm, Grubbenvorst–Velden or Broekhuizen–Arcen ferry is present in the simulation route graph or ferry overlay.",
+        "CBS boundary OGC is half-yearly/CC BY 4.0; BAG is daily/Public Domain Mark 1.0; BRT is CC BY 4.0; NWB is monthly/CC0 1.0; ProRail is manually refreshed/CC0 1.0. OVapi GTFS is free-use best-effort context without an operational SLA.",
+        "Nominal 260/150 values are generalized scenario units and reference links do not prove direction, passability, queue, accessible evacuation, incident capacity or service."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Limburg-Noord and Veiligheidsregio Zuid-Limburg",
+      "title": "E03 — Provinciaal Risicoprofiel Limburg 2023–2027 and public first-72-hour guidance",
+      "url": "https://www.vrln.nl/sites/vrln/files/2024-04/Provinciaal%20Risicoprofiel%20Veiligheidsregio%202024.pdf",
+      "accessedAt": "2026-09-03T05:08:00Z",
+      "edition": "Public version 1.0, 2023–2027 profile; current 2026 resilience guidance",
+      "supports": [
+        "Limburg-Noord is described as rural, wooded and composed of many small settlements, with intensive agriculture, horticulture, logistics and goods storage. The region is longitudinally divided by the Maas and crossed by A67/A73, the Nijmegen–Venlo–Roermond railway and hazardous-substance transport by pipeline, road, rail and water.",
+        "The profile includes river flood/dike breach, nature fire, heat, drought, cold, storm, earthquake, extreme precipitation, utility and communications failure, cyberattack, transport blockage, major public-function fire and hazardous-material incidents.",
+        "The profile explicitly calls itself a largely static four-year product and seeks more frequent spatial/temporal treatment for flood and nature-fire risk. It is scenario/planning evidence, not event state, local probability or live resource availability.",
+        "VRLN's current public guidance asks households to prepare for 72 hours. Its outage guidance names Enexis for regional gas/electricity and WML for drinking water, says authorities jointly prioritize emergency power and may create temporary drinking-water distribution points; it does not publish activated GM1507 sites or capacity.",
+        "These human-readable public documents expose no stable incident/resource API, operational cadence or blanket reuse licence."
+      ]
+    },
+    {
+      "publisher": "Waterschap Limburg / Rijkswaterstaat Watermanagementcentrum Nederland / IPLO",
+      "title": "E04 — Vierwaarden Maas project, Waterschap legger and LIWO 2025.1.6 flood information",
+      "url": "https://www.waterschaplimburg.nl/projecten/gebiedsontwikkeling-vierwaarden/",
+      "accessedAt": "2026-09-03T05:11:00Z",
+      "edition": "Vierwaarden verkenning 2023–2026 and plan phase 2026–2029; LIWO release 2025.1.6",
+      "supports": [
+        "Vierwaarden covers Lottum and Grubbenvorst in GM1507 plus Venlo-side areas. Partners are evaluating river-space, dike, nature and liveability measures; construction is scheduled for 2029–2032, so proposed measures cannot be treated as completed protection.",
+        "The project material identifies current dike sections, floodplain/outside-dike homes and campsites, the Lottum–Lomm vehicle ferry, the seasonal Arcen–Lottum foot/cycle ferry, and named Maas tributary/drainage systems including Salderbeek, Aastbeek, Siebersbeek and Molenbeek van Lottum.",
+        "Waterschap Limburg's public legger points to managed beeks, ditches, dikes, weirs, buffers and other works in PDOK and warns that it is under revision. The deployment screen contains 513 GM1507 points: eleven sewer pumps, thirteen surface-water pumps and 489 weirs, with no municipal sluice or wastewater-treatment point returned.",
+        "HWH/PDOK water-object aggregation is partial and contributor-dependent under CC BY-SA 4.0. Objects do not establish topology, water-level area, setting, capacity, electricity/backup or operation; an empty type is NoData for this screen, not proof of absence.",
+        "LIWO 2025.1.6 contains downloadable professional flood layers and requires specialist water-manager interpretation. A selected case must retain source/failure, defence and control state, footprint, units, resolution, arrival/persistence, probability, CRS, licence and NoData."
+      ]
+    },
+    {
+      "publisher": "Interprovinciaal Overleg / Risicokaart / Brandweer Nederland / Veiligheidsregio Limburg-Noord",
+      "title": "E05 — Official combustible-nature eligibility for Mariapeel, Schadijkse Bossen and Tienray–Swolgen",
+      "url": "https://servicespub.risicokaart.nl/geoserver/ISOR_RK/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ISOR_RK%3Aisor_brandbaar_natuurgebied&outputFormat=application%2Fjson",
+      "accessedAt": "2026-09-03T05:14:00Z",
+      "edition": "Risicokaart metadata updated 19 February 2026; relevant provincial features begin-validity 31 May 2006",
+      "supports": [
+        "The official WFS contains Mariapeel (heath/high peat), Schadijkse Bossen (mixed woodland) and Tienraijsche- en Swolgender Heide (dense coniferous woodland) in and around GM1507, attributed to Province Limburg with old begin-validity dates.",
+        "The controlled audit origin [5.994646773638124, 51.46383092607043] lies inside the Schadijkse Bossen polygon and CBS Verspreide huizen Meterik.",
+        "VRLN identifies the 2020 Peel fire and explains that warm/dry conditions increase ignition/spread risk and nature fires are difficult to suppress. Brandweer Nederland's regional phase is assessed daily from station indices, weather, land managers, experts and observations.",
+        "Risicokaart is public-domain static eligibility, not current ignition, fuel, peat moisture, perimeter, spread, smoke, visitors, evacuation or response. A regional daily phase is not a local forecast; issue time and coverage must remain visible."
+      ]
+    },
+    {
+      "publisher": "Ton Paulus Veerbedrijf / Waterschap Limburg / Rijkswaterstaat / ProRail",
+      "title": "E06 — Maas ferry operating pages and GM1507 road/rail corridor references",
+      "url": "https://www.tonpaulusveerbedrijf.nl/veerdiensten/broekhuizen-arcen",
+      "accessedAt": "2026-09-03T05:17:00Z",
+      "edition": "Operator pages inspected 3 September 2026; NWB August 2026; current ProRail reference",
+      "supports": [
+        "The operator publishes vehicle/load limits and seasonal daily windows for Broekhuizen–Arcen, Lottum–Lomm and Velden–Grubbenvorst. At retrieval it reports all three temporarily out of service for repair or technical failure.",
+        "Those web statuses have retrieval time but no machine-readable issue time, restoration estimate, expiry, API contract or reuse licence. They are current operational clues requiring confirmation, not permanent closure or a guaranteed 72-hour forecast.",
+        "The official Vierwaarden NRD independently identifies the Lottum–Lomm and seasonal Arcen–Lottum crossings. NWB/ProRail retain A67/A73, regional roads, railway and Horst-Sevenum station.",
+        "No ferry appears in the model's logical routes. Road/rail/GTFS reference geometry does not provide incident-time direction, blockage, detour, accessible capacity, emergency priority or destination-specific throughput."
+      ]
+    },
+    {
+      "publisher": "Dienst Justitiële Inrichtingen / VieCuri Medisch Centrum / Gemeente Horst aan de Maas / Attractiepark Toverland",
+      "title": "E07 — Ter Peel, cross-boundary acute care and Toverland transient exposure",
+      "url": "https://www.dji.nl/locaties/penitentiaire-inrichtingen/pi-zuid-oost-locatie-ter-peel",
+      "accessedAt": "2026-09-03T05:20:00Z",
+      "edition": "Current facility/provider pages and 2026 planning context",
+      "supports": [
+        "PI Zuid-Oost location Ter Peel is in Evertsoord and includes detention, remand, limited-security and Mother-and-Child regimes. DJI states weekday access by an eight-seat bus from Horst-Sevenum and no weekend public transport, demonstrating a typed institutional and access dependency rather than ordinary resident demand.",
+        "VieCuri's emergency department in Venlo is open 24/7. The RIVM 2026 v1.1 national acute-care screen returns no facility inside GM1507; this is consistent with cross-boundary hospital reliance, not zero local care demand or capacity.",
+        "Municipal planning rules permit up to 30,000 Toverland visits per day and current first-party reporting records 1.137 million visits in 2025. These are permitted/annual context, not incident-time occupancy, evacuation load or daily presence.",
+        "Facility pages and plans are human-readable and do not publish live occupancy, staffing, acceptance, medical specialty, backup, evacuation capability or restoration APIs. Sensitive detention and care operations must not be inferred."
+      ]
+    },
+    {
+      "publisher": "Netbeheer Nederland / RDI / DUO / KNMI / RIVM / Rijkswaterstaat / NDW",
+      "title": "E08 — Public lifeline, facility and observed-context deployment screens",
+      "url": "https://data.partnersinenergie.nl/capaciteitskaart/totaal/afname",
+      "accessedAt": "2026-09-03T05:23:00Z",
+      "edition": "Deployment snapshots retrieved 2–3 September 2026",
+      "supports": [
+        "One NBNL postcode sample, 5961GA, maps to HRST Horst and Enexis. It reports withdrawal existing/required/queue 102.4/57.5/64.6 MW with 90 requests and injection 93.1/90.4/78.7 MW with 105 requests, plus eleven projects from 2028.",
+        "The public municipal screens contain 114 RDI antenna installations and 29 DUO education locations. Registered sites do not prove coverage/backhaul/power, occupancy, shelter role, accessibility, supplies or operation.",
+        "A KNMI Horst station record at 2 September 2026 23:30 UTC reports observed temperature 18.4 C, gust 3.81 m/s and zero last-hour rain; Limburg's warning snapshot reports level zero. Both are retrieval-time context, not forcing or an all-clear for arbitrary exercises.",
+        "The deployment assignment returns no GM1507 Waterinfo observation/forecast, NDW situation, RIVM acute-care point, PM2.5 station or KNMI seismic event. Sparse point/register matching is a coverage fact; absence remains Unknown rather than zero hazard, disruption, pollution or care need.",
+        "NBNL capacity/projects update at least quarterly and queues monthly but the frontend endpoint/licence is not a stable exact dataset contract. RDI cadence/licence is unstated; DUO is daily under CC Attribution version unspecified; KNMI is ten-minute/CC BY 4.0; RIVM acute care is annual/CC0 1.0; Waterinfo and NDW are CC0 unless stated otherwise. All are affectsSimulation=false context."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM1507, Horst aan de Maas, Limburg and Veiligheidsregio Limburg-Noord are internally and officially coherent.",
+      "evidenceRefs": ["E01", "E02", "E03"],
+      "notes": [
+        "Generated municipality, province and exactly one safety-region assignment agree.",
+        "The generated centre lies inside the fresh full-resolution 2025 municipal boundary.",
+        "Annual registers, multi-year projects/plans, current webpages, point observations and synthetic checkpoints remain distinct evidence classes."
+      ]
+    },
+    "geography": {
+      "status": "fail",
+      "summary": "Administrative geometry is coherent, but distinct Maas, pluvial and combustible-nature geography does not govern local impacts.",
+      "evidenceRefs": ["E02", "E04", "E05"],
+      "notes": [
+        "Severe storm, pluvial, river, coastal, heat, winter, cyber and wildfire share exactly the same complete 49-neighbourhood hazard-severity order at T+24.",
+        "A controlled source inside official Schadijkse Bossen and Verspreide huizen Meterik ranks the containing neighbourhood 49/49.",
+        "River output lacks a selected Maas/defence/floodplain case; pluvial output lacks catchment, sewer, buffer and control state.",
+        "Full polygons and eligible domains, not a generic municipal seed or centre distance, must control containment and ranking."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Official resident controls and neighbourhood aggregates reconcile within minor CBS rounding difference.",
+      "evidenceRefs": ["E01", "E07"],
+      "notes": [
+        "CBS reports 44,242 residents; the 49 published neighbourhood rows sum to 44,255 (+13, +0.029%), while model allocations reconcile to the municipal control.",
+        "The 24.2% age-65-plus share and 6,406 one-person households inform aggregate assistance pressure but never identify individual vulnerability.",
+        "Residents remain separate from visitors, seasonal/temporary workers, pupils, patients, detainees, road/rail users and responders under CORR-015."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "Forty-nine neighbourhoods support census allocation, while material statistical and every live physical lifeline state remain incomplete.",
+      "evidenceRefs": ["E01", "E04", "E07", "E08"],
+      "notes": [
+        "Most supported CBS fields cover 43–49 rows, while district-heating and public-charging cover zero; null fields remain Unknown/NoData.",
+        "Water objects, nature polygons, grid planning, antennas, schools, care, detention and recreation have incompatible scope, time, licence and operational meaning.",
+        "Registered assets and permitted/annual visitor values do not establish connections, occupancy, capacity, state or recovery."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "Sixteen BAG places and 50 BRT labels preserve Maas villages, inland cores, Peel settlements and dispersed rural context.",
+      "evidenceRefs": ["E02", "E04", "E05", "E07"],
+      "notes": [
+        "BAG retains America, Broekhuizen, Broekhuizenvorst, Evertsoord, Griendtsveen, Grubbenvorst, Hegelsom, Horst, Kronenberg, Lottum, Meerlo, Melderslo, Meterik, Sevenum, Swolgen and Tienray.",
+        "The settlement set distinguishes fifteen woonkernen plus small places; it is appropriate reference geography, not an incident-time presence layer.",
+        "Maas-side exposure, nature eligibility, visitor sites and institutional populations require their own versioned footprints."
+      ]
+    },
+    "transport": {
+      "status": "fail",
+      "summary": "Reference motorways, regional roads, rail and transit are present, but three Maas vehicle ferries and operational state are absent.",
+      "evidenceRefs": ["E02", "E06", "E07"],
+      "notes": [
+        "Seven NWB logical records identify A73/A67/N277/N556/N295 clips; repeated A73 and N277 links are non-additive series portions.",
+        "Broekhuizen–Arcen, Lottum–Lomm and Grubbenvorst–Velden are absent from the simulation graph while the operator reports all temporarily out of service at retrieval.",
+        "Horst-Sevenum and 58 scheduled stops do not prove scenario-time rail/bus operation, including Ter Peel's weekday-only eight-seat link.",
+        "Routes lack direction, junction, flood/fire footprint, closure/expiry, detour, emergency priority, queue, mode-specific accessibility and unit-bearing throughput."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "Official water, nature, mobility, care, exposure and 72-hour evidence is not selected into the incident/action/resource model.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "No selected flood case, ignition/perimeter, ferry/road/rail restriction, hospital acceptance, detention/recreation occupancy or utility state drives outputs.",
+        "VRLN household preparedness, emergency-power prioritization and possible water distribution are planning guidance, not activated sites or commitments.",
+        "Retrieval-time ferry outages, one weather observation and a level-zero provincial warning cannot validate an arbitrary first-72-hour exercise."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten canonical presets execute at all six mandatory checkpoints for all eight services.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "The initial MUNICIPALITY_AUDIT_CODE=GM1507 pnpm audit:model gate passed one file/two tests in 32.38 seconds; the final gate passed one file/two tests in 31.78 seconds.",
+        "Maximum checkpoint severity / maximum affected / T+72 attributable person-hours are storm 0.405068 / 4,681 / 267,352.074; pluvial 0.247333 / 1,791 / 201,346.494; river 0.145990 / 3,992 / 524,265.253; coastal 0.061648 / 0 / 174,418.964.",
+        "Remaining values are heat 0.449285 / 1,456 / 198,778.561; winter 0.634310 / 10,456 / 602,520.989; cyber 0.597555 / 13,510 / 641,222.591; earthquake 0.005144 / 0 / 7,894.675; wildfire 0.144673 / 1,196 / 226,317.818; compound 0.819456 / 25,600 / 1,496,434.300.",
+        "Structural execution and deterministic decimals do not establish local empirical validity."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Outputs are finite, bounded, deterministic, exact at zero intensity, selected-layer invariant and locally reconciled.",
+      "evidenceRefs": ["E01", "E02"],
+      "notes": [
+        "All required structural, range, local-sum, causal-ledger and repeatability checks pass.",
+        "Every preset's zero-intensity run returns exact-zero hazard, affected resident-equivalents and cumulative deprived person-hours.",
+        "Changing the display service does not mutate hazard, pressure or affected population.",
+        "The legacy floodDepthM field is normalized inundation stress under CORR-017, not measured metres."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "The shared local seed overrides distinct Maas, rainfall, nature, weather, cyber and infrastructure geography.",
+      "evidenceRefs": ["E02", "E04", "E05"],
+      "notes": [
+        "Storm, pluvial, river, coastal, heat, winter, cyber and wildfire share exactly the same 49-neighbourhood T+24 order, led by America and Loohorst.",
+        "A controlled Schadijkse Bossen origin [5.994646773638124, 51.46383092607043] lies in official combustible geometry and Verspreide huizen Meterik.",
+        "At T+11/T+24 direct fire is 0.535868, smoke 0.589266 and severity 0.564790; the containing neighbourhood ranks 49/49 while America ranks first.",
+        "The source is an audit fixture derived from official eligibility, not a current ignition or probability."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "Exact eight-service availability exceeds verified utility, water, care, facility and multimodal topology/state evidence.",
+      "evidenceRefs": ["E02", "E04", "E06", "E07", "E08"],
+      "notes": [
+        "At compound T+24 availability is Power 0.453608, Water 0.427896, Drainage 0.338305, Gas 0.588965, Telecom 0.302720, Mobility 0.554948, Facilities 0.552764 and Supply 0.628131.",
+        "Only seven generalized NWB edges support Mobility and explicit road-logistics/Supply; ferries are missing and no verified physical routes exist for the other services.",
+        "One grid-planning point, 513 water objects, 114 antennas, 29 schools, zero local acute-care matches, Ter Peel and Toverland context are not compatible live topology/capacity/backup/restoration.",
+        "Official residents and non-resident activity-demand weights remain separate under CORR-015."
+      ]
+    },
+    "causalTrace": {
+      "status": "warn",
+      "summary": "The numerical causal ledger closes, but authority-selected causes, owners, interventions and resources remain absent.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "Outputs expose hazard, direct-service, interdependency, network, recovery and local-allocation components with matched totals.",
+        "Cumulative person-hours are synthetic no-event counterfactual accounting, not observed outage duration, casualties or unmet care.",
+        "No selected water/fire event, ferry/road restriction, utility network, hospital acceptance, public-site occupancy or response action explains exact trajectories.",
+        "Each change requires owner, target, prerequisite, route, crew/material/fuel/water, start/end, state, evidence class and uncertainty."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "Persistent river/compound state and exact recovery after other hazards lack action/resource and valid-state explanations.",
+      "evidenceRefs": ["E03", "E04", "E06", "E07", "E08"],
+      "notes": [
+        "River severity 0.145990 and normalized stress 0.467757 remain exactly fixed T+24–T+72; affected rises 3,266 to 3,992 and Facilities worsens while the other seven services remain fixed, without a selected water condition/action.",
+        "Compound severity falls 0.808343 to 0.227069 while affected rises 23,587 to 25,600 and all eight services worsen, without an action or blocking-state ledger.",
+        "Storm reaches zero direct severity/affected by T+72 after 267,352.074 person-hours, with no crews, ferry/road reopening, grid switching, pumps, supplies or care actions named.",
+        "Sustained disruption and recovery may be plausible, but exact first-72-hour values require explicit incident, resource and action states."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": ["power", "water", "drainage", "gas", "telecom", "mobility", "facilities", "supply"]
+  },
+  "findings": [
+    {
+      "id": "GM1507-MAAS-FLOOD-001",
+      "severity": "critical",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The river preset does not select a Maas source, dike/floodplain case, local water system or village footprint.",
+      "evidence": "Vierwaarden specifically distinguishes Lottum and Grubbenvorst dikes, floodplain/outside-dike exposure, nearby Broekhuizen and named tributary/drainage systems, while LIWO offers scenario-specific professional layers. The generic model instead reports normalized inundation stress 0.467757 and 3,266 affected at T+24, then identical stress/severity through T+72 with 3,992 affected, without water level, dike/failure/control state, case footprint, arrival or persistence. The field is normalized stress, not metres.",
+      "action": "Suppress exact local river impacts until an authority-selected LIWO/Waterschap/RWS case supplies waterbody, dike/failure/control state, footprint, native units/resolution, arrival/persistence, probability, CRS, issue/valid time, licence, NoData, transform hash and reviewer. Retain Maas villages/outside-dike areas separately from municipality-wide exposure; Unknown is not safe."
+    },
+    {
+      "id": "GM1507-SCHADIJK-FIRE-001",
+      "severity": "critical",
+      "category": "geography",
+      "status": "open",
+      "summary": "An explicit ignition inside official Schadijkse Bossen ranks its containing neighbourhood last of 49.",
+      "evidence": "Province Limburg/Risicokaart identifies Schadijkse Bossen as combustible mixed woodland. Audit point [5.994646773638124, 51.46383092607043] is inside that polygon and Verspreide huizen Meterik. At T+11/T+24 fire is 0.535868, smoke 0.589266 and municipal severity 0.564790, yet the containing neighbourhood remains 49/49 at local severity 0.465717 while America is first at 0.660740. The origin is controlled, not an actual fire.",
+      "action": "Block local fire ranking from operational use. Require source/perimeter intersection with full neighbourhood and versioned combustible/nature polygons, plus issue-valid wind/humidity, fuel/peat moisture, visitor/institution presence, access, extinguishing water, crews and suppression state. Preserve old feature dates and render absent current ignition as Unknown."
+    },
+    {
+      "id": "GM1507-SHARED-SPATIAL-001",
+      "severity": "critical",
+      "category": "geography",
+      "status": "open",
+      "summary": "Eight unrelated hazards reuse one complete neighbourhood order across Maas villages, inland towns and Peel nature.",
+      "evidence": "Severe storm, pluvial, river, coastal, heat, winter, cyber and wildfire have the same full T+24 hazard-severity ordering, from America/Loohorst to Verspreide huizen Meterik. Official sources distinguish Maas floodplains/dikes, named drainage systems, three separate combustible areas, visitor/institutional sites, highway/rail/ferry routes and utility/cyber boundaries. Coastal/cyber effects have no defensible reason to share local fire and rainfall rank.",
+      "action": "Replace the municipality seed with hazard-specific source, eligible-domain, forcing, exposed-object and evidence-support adapters. Require cross-preset tests that unrelated hazards do not silently share a full order; missing compatible spatial support must show Unknown rather than precise ranking."
+    },
+    {
+      "id": "GM1507-PLUVIAL-DROUGHT-WATER-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Pluvial, drainage and drought outputs ignore catchments, buffers, water controls, topology and operating state.",
+      "evidence": "Waterschap evidence identifies Salderbeek, Aastbeek, Siebersbeek, Molenbeek van Lottum, ditches, buffers, dikes and controls. The public screen finds 513 points, predominantly 489 weirs, but is partial and not operational. Pluvial T+24 reports stress 0.163720, 1,791 affected and Drainage 0.672249; heat T+24 reports drought 0.436214 and Water 0.656837. No catchment, sewer capacity, buffer availability, asset connectivity/setting, power/backup, soil/groundwater or dated drought measure drives the numbers.",
+      "action": "Version Waterschap-native catchments/level areas/sewer-buffer data and HWH objects with feature date, scope, CRS, cadence, licence and NoData. Bind control, capacity, power/backup and incident state only after review. Keep registers affectsSimulation=false; empty collections/types and missing state remain Unknown."
+    },
+    {
+      "id": "GM1507-MAAS-FERRIES-001",
+      "severity": "critical",
+      "category": "network",
+      "status": "open",
+      "summary": "Three local Maas vehicle ferries and their current outage state are absent from the first-72-hour route model.",
+      "evidence": "Operator pages publish Broekhuizen–Arcen (80-ton load/40-ton maximum vehicle), Lottum–Lomm and Grubbenvorst–Velden (both 50/25-ton) with daily seasonal windows; all three were reported temporarily out of service on 3 September 2026. None appears in the logical routes/ferry overlay. Web restrictions lack issue time, estimated restoration and stable API, so they cannot be extrapolated indefinitely, but omitting the crossings and valid-time state misrepresents Maas-side access and detours.",
+      "action": "Add typed vehicle/passenger ferry crossings with owner, endpoints, schedule, load/vehicle units, emergency eligibility and dependency destinations. Ingest confirmed restriction start/update/expected end with source and retrieval time; require TTL/manual confirmation when issue time is absent. Model alternate bridges/routes and never convert a stale status into permanent closure or unverified availability."
+    },
+    {
+      "id": "GM1507-ROAD-RAIL-CARE-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "A67/A73, regional roads, Horst-Sevenum and Venlo care referral lack direction, junction and incident-valid capacity.",
+      "evidence": "Seven generated NWB links contain non-additive A73/N277 series sections; the model lacks junctions, directions, flood/fire intersection, detours, emergency priority and units. Horst-Sevenum and 58 GTFS stops are static reference; DJI describes only an eight-seat weekday connection to Ter Peel and none on weekends. VieCuri's 24/7 SEH is outside GM1507 in Venlo, yet live acceptance, ambulance/rail/road access and route state do not drive Facilities/Mobility.",
+      "action": "Build an authority-reviewed multimodal graph from monthly CC0 NWB, named junction structures, rail/station, ferry and valid GTFS/operational feeds. Preserve shared corridors, direction, schedules, accessibility, detours and restriction lifecycle; bind routes to care, detention, evacuation, supply and mutual-aid destinations with unit-bearing capacity."
+    },
+    {
+      "id": "GM1507-NONRESIDENT-EXPOSURE-001",
+      "severity": "high",
+      "category": "demography",
+      "status": "open",
+      "summary": "Resident-only impacts omit major visitor, detention, worker, seasonal, patient and transport populations.",
+      "evidence": "CBS controls 44,242 residents only. Municipal Toverland rules permit up to 30,000 daily visits and first-party reporting gives 1.137 million annual visits in 2025; neither equals incident occupancy. Ter Peel contains confined regimes and children but public pages do not provide incident occupancy. The regional risk profile highlights intensive agriculture, horticulture, logistics, storage and international labour. These groups can change warning, evacuation, shelter, care, language and supply demand without becoming residents.",
+      "action": "Retain resident-equivalent outputs and separate typed, time-varying visitor/worker/pupil/patient/detainee/transport/responder demand. Integrate authorized occupancy/schedule ranges with issue/valid time and uncertainty; never infer presence from annual totals, legal maxima, buildings, schools or sensitive institutional descriptions."
+    },
+    {
+      "id": "GM1507-LIFELINE-PROVENANCE-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Exact service availability has no verified operator topology, live capacity, backup or restoration state.",
+      "evidence": "At compound T+24 exact availability ranges from Telecom 0.302720 to Supply 0.628131. Public screens contain one Enexis planning postcode, 513 water objects, 114 antennas and 29 schools; VRLN describes only general Enexis/WML roles and prioritization/distribution processes. These do not provide feeder/customer or pipe topology, live load/pressure/backhaul, damage, priority users, backup, switching, repair crew or restoration commitments. NWB supports Mobility and explicit road-logistics/Supply only.",
+      "action": "Integrate authorized operator topology, outage, priority-user, backup and restoration data where lawful and safe. Otherwise expose minimal versioned synthetic zones/graphs with ranges and uncertainty. Keep public planning/register layers affectsSimulation=false and suppress operator-validated-looking exact decimals."
+    },
+    {
+      "id": "GM1507-TEMPORAL-RECOVERY-001",
+      "severity": "critical",
+      "category": "service",
+      "status": "open",
+      "summary": "Persistent river state, compound deterioration and exact recovery lack incident/action/resource explanations through T+72.",
+      "evidence": "River severity/stress are fixed T+24–T+72 while affected rises and Facilities worsens. Compound severity falls 0.808343 to 0.227069 but affected rises 23,587 to 25,600 and all services worsen. Storm reaches zero severity/affected by T+72 after 267,352.074 person-hours. No Maas level/defence state, ferry reopening, road clearance, pump/control action, grid switching, WML distribution, hospital acceptance, crew, fuel, material or access constraint explains these paths.",
+      "action": "Require a typed incident/action/resource ledger at T+0/6/12/24/48/72 with authority, owner, target, prerequisite, route, crew/material/fuel/water, start/end, state, evidence time and uncertainty. Each deterioration, plateau, residual effect and recovery must cite a driver; preserve arithmetic but suppress unsupported decision-grade trajectories."
+    },
+    {
+      "id": "GM1507-EVIDENCE-UI-001",
+      "severity": "high",
+      "category": "ui",
+      "status": "open",
+      "summary": "Plans, old eligibility, current webpages, observations, missing matches and synthetic values need adjacent evidence-class and NoData gates.",
+      "evidence": "The interface can combine annual CBS, a 2023–2027 risk profile, future Vierwaarden measures, 2006-valid nature polygons, current no-timestamp ferry outages, annual/legal visitor values, one live weather point, level-zero provincial warning, one grid-planning postcode and empty municipal Waterinfo/NDW/acute-care/air/seismic matches. None alone establishes arbitrary scenario state. Exact synthetic values and missing-record zeros can be mistaken for observed precision or safety.",
+      "action": "Attach publisher, dataset/version, issue/valid/retrieval time, coverage, licence, evidence class, affectsSimulation, uncertainty and NoData to every layer/value/export. Show project lifecycle, operator-webpage TTL and register scope beside claims; expired/unconfirmed state deactivates and absent records render Unknown, never zero/safe."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Bind GM1507 flood and pluvial scenarios to authority-selected Maas, dike, catchment and water-control cases.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "River exact impacts are suppressed without a selected LIWO/Waterschap/RWS source/defence/failure/control case. Supported cases retain footprint, units, resolution, arrival/persistence, probability, CRS, issue/valid time, licence, NoData, transform hash and reviewer. Pluvial output follows catchments, sewer/buffer/control state. Normalized stress is never labelled metres."
+    },
+    {
+      "summary": "Replace the shared GM1507 neighbourhood seed with source- and mechanism-aware full-polygon allocation.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/geometry.ts",
+        "packages/sim-core/src/model.test.ts",
+        "scripts/fetch-realism-data.mjs"
+      ],
+      "validation": "A source inside Schadijkse Bossen and Verspreide huizen Meterik responds consistently rather than ranking 49/49; old eligibility dates/scope remain visible. Selected rain/water footprints govern pluvial/river ranks, and unrelated hazards cannot silently share a complete order. Missing support remains Unknown."
+    },
+    {
+      "summary": "Add typed GM1507 Maas ferries and authority-reviewed road, rail, transit and care routes with valid-time state.",
+      "files": [
+        "scripts/fetch-transport-network.mjs",
+        "apps/web/public/data/transport-network.json",
+        "packages/sim-core/src/network.ts",
+        "packages/sim-core/src/network.test.ts",
+        "apps/web/src/data.ts"
+      ],
+      "validation": "Broekhuizen–Arcen, Lottum–Lomm and Grubbenvorst–Velden expose mode, endpoints, owner, schedule, load/vehicle units, current restriction and TTL/confirmation. A67/A73/N277/N556/N295 and Horst-Sevenum retain direction, shared corridor, junction, detour and unit-bearing state; care/detention/supply destinations are explicit and stale restrictions do not remain active."
+    },
+    {
+      "summary": "Integrate Waterschap Limburg water topology and controls without promoting partial registers to live state.",
+      "files": [
+        "scripts/fetch-water-assets.mjs",
+        "scripts/fetch-realism-data.mjs",
+        "packages/sim-core/src/types.ts",
+        "apps/web/src/data.ts"
+      ],
+      "validation": "Waterschap/HWH data retain publisher, feature date, collection, scope, CRS, cadence, licence, coverage and NoData. Catchments, level areas, sewers, buffers, dikes, weirs/pumps and projects remain official context until compatible capacity, power/backup and valid state are supplied; empty asset types remain NoData, not zero."
+    },
+    {
+      "summary": "Evidence-gate lifelines, cross-boundary care, non-resident exposure and first-72-hour recovery.",
+      "files": [
+        "packages/sim-core/src/network.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/components/OperationsBrief.tsx"
+      ],
+      "validation": "NWB affects Mobility and explicit road-logistics/Supply only. Utilities/care require verified topology, capacity, backup, acceptance/occupancy and restoration or labelled synthetic ranges. Residents remain separate from visitors/workers/patients/detainees/responders. Every checkpoint change cites owner, target, prerequisite, resources, access, start/end, state and uncertainty."
+    },
+    {
+      "summary": "Expose evidence class, lifecycle, licence, support and Unknown/NoData beside every operational value and export.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "apps/web/src/components/CausalExplanation.tsx",
+        "apps/web/src/components/OperationsBrief.tsx",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Annual statistics, multi-year plans/projects, old static eligibility, current no-issue-time webpages, observations, forecasts and synthetic checkpoints are distinct. Ferry restrictions expire or require reconfirmation; empty municipal observation/register matches display Unknown/not-in-scope rather than zero/safe."
+    }
+  ],
+  "residualLimitations": [
+    "Complete physical electricity, gas, drinking-water, sewer/drainage, telecom, care and supply topology, live load, outage, backup, crews, spares, fuel and restoration state are unavailable or security-sensitive. Public geometry, plans and registers cannot replace them.",
+    "No selected LIWO/Waterschap/RWS hydraulic case establishes the GM1507 river footprint or arrival/persistence. A generic nonzero model result is not evidence, and an unsupported zero outside a footprint would not prove safety.",
+    "Vierwaarden is in planning before 2029–2032 realization. Proposed alternatives cannot be represented as completed protection; older dike works likewise require current assessed state.",
+    "Risicokaart polygons establish static combustible eligibility only. They do not establish ignition, fuel/peat moisture, perimeter, access, visitors or suppression; the Schadijkse source is an audit fixture.",
+    "CBS residents omit visitors, seasonal/temporary workers, pupils, patients, detainees, road/rail/ferry users and responders. Legal maxima and annual visitation cannot be converted to incident occupancy.",
+    "Ter Peel, VieCuri and other public pages do not expose incident-time occupancy, staffing, acceptance, evacuation, backup or restoration; protected operational information must not be reconstructed publicly.",
+    "Ferry webpages report three retrieval-time outages without issue/expiry or restoration estimate. They require confirmation/TTL and do not prove the crossings remain closed for any arbitrary scenario.",
+    "NWB, ProRail, GTFS and current-route pages do not prove scenario-time road/rail/transit service, emergency priority, accessibility, detours, destination or throughput.",
+    "One Enexis planning postcode, water assets, antennas and schools have different support, cadence and licences and remain affectsSimulation=false without reviewed causal bindings.",
+    "A level-zero warning, one Horst observation and no municipally assigned Waterinfo, NDW, PM2.5, acute-care or seismic point are coverage/time facts, not zero hazard, disruption, pollution or care need.",
+    "Exact hazard, affected-population, service, recovery and person-hour outputs remain synthetic exercise results, not observations, official forecasts, operator commitments or decision-grade advice until critical/high findings are corrected and authorities review the case.",
+    "This audit covers only the first 72 hours. Flood displacement, ecological/peat-fire effects, drought, care interruption and infrastructure recovery can persist much longer."
+  ],
+  "provinceReviewFlags": [
+    "Province Limburg, VRLN, Waterschap Limburg, Rijkswaterstaat and GM1507 should select valid Maas/dike/floodplain and pluvial/catchment cases for Lottum, Grubbenvorst, Broekhuizen and inland systems, retaining arrival/persistence, controls, project lifecycle and NoData.",
+    "Province/Rijkswaterstaat/ProRail/municipalities and ferry owners should review A67/A73/N277/N556/N295, Horst-Sevenum and the three Maas vehicle ferries as direction-specific, non-additive, valid-time mobility/care/supply routes with verified detours.",
+    "VRLN, Province, municipality, land managers and fire partners should determine whether Mariapeel, Schadijkse Bossen and Tienray–Swolgen eligibility, peat/fuel, access, extinguishing-water, visitor and resource data can support exercises without exposing sensitive operations.",
+    "Municipality, VieCuri, GHOR, ambulance, DJI and visitor-sector partners should review cross-boundary acute-care routes, Ter Peel continuity and time-varying Toverland/seasonal presence through protected interfaces rather than public inference.",
+    "Limburg-Noord partners should turn 72-hour household guidance, emergency-power priority and possible water distribution into typed but activation-gated support, communications, care, supply and lifeline actions, separating plan, current state, synthetic assumption and Unknown."
+  ]
+}

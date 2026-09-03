@@ -1,0 +1,558 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0796",
+    "name": "'s-Hertogenbosch",
+    "province": "Noord-Brabant",
+    "safetyRegion": "Brabant-Noord"
+  },
+  "agent": {
+    "taskName": "municipality_gm0796",
+    "agentId": "/root/causal_engine_v3",
+    "completedAt": "2026-09-02T10:02:52Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "The 2025 official input for GM0796 is coherent: identity, boundary and label point, province, Brabant-Noord membership, 161,530 residents, 110 neighbourhoods, four BAG woonplaatsen, 22 BRT topographic settlements, three ProRail stations and 234 transit stop areas all survive the generated-data checks. The deterministic 10-preset, six-checkpoint, eight-service model contract also passes. The result is nevertheless correction-required because the local physical interpretation is not yet safe: a coastal distance-decay creates unsupported inland flood depth, river forcing cannot remain active through the end of a 72-hour event although local high water can last weeks, district hazard severity changes when the service layer changes, every service is assigned the same population-derived hub, cumulative deprivation includes nominal baseline shortfall, and duplicate digit-only A59 links distort the shared logical-transfer graph. These are scenario-model outputs, not forecasts or operational plans.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek (CBS)",
+      "title": "E1 — Kerncijfers wijken en buurten 2025, filtered to GM0796",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM0796%27%29&%24select=WijkenEnBuurten%2CAantalInwoners_5%2CBevolkingsdichtheid_34%2Ck_65JaarOfOuder_12%2CEenpersoonshuishoudens_30",
+      "accessedAt": "2026-09-02T10:02:52Z",
+      "edition": 2025,
+      "supports": [
+        "GM0796 has 161530 residents and density 1475 per square kilometre in the generated source row.",
+        "The source row has 31897 residents aged 65+ and 32360 one-person households."
+      ]
+    },
+    {
+      "publisher": "PDOK / CBS",
+      "title": "E2 — CBS Gebiedsindelingen 2025, gemeente gegeneraliseerd",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_gegeneraliseerd/items?f=json&limit=1000&datetime=2025-07-01T00%3A00%3A00Z",
+      "accessedAt": "2026-09-02T10:02:52Z",
+      "edition": 2025,
+      "supports": [
+        "Official 2025 municipal geometry, code, name, province and label point.",
+        "The generated GM0796 centre lies inside its official generalized boundary."
+      ]
+    },
+    {
+      "publisher": "PDOK / Kadaster",
+      "title": "E3 — BAG woonplaats OGC API",
+      "url": "https://api.pdok.nl/kadaster/bag/ogc/v2/collections/woonplaats",
+      "accessedAt": "2026-09-02T10:02:52Z",
+      "edition": "retrieved 2026-08-31",
+      "supports": [
+        "The regional bundle contains the four assigned BAG woonplaatsen 's-Hertogenbosch, Rosmalen, Nuland and Vinkel.",
+        "BAG woonplaatsen are a different administrative/topographic concept from municipal kernen and BRT settlement classes."
+      ]
+    },
+    {
+      "publisher": "PDOK / Kadaster",
+      "title": "E4 — BRT TOP10NL plaats_vlak OGC API",
+      "url": "https://api.pdok.nl/kadaster/brt-top10nl/ogc/v1/collections/plaats_vlak",
+      "accessedAt": "2026-09-02T10:02:52Z",
+      "edition": "source date 2025-07-01",
+      "supports": [
+        "The 22 generated woonkern, deelkern, gehucht and buurtschap features are source-attributed BRT topographic settlement polygons.",
+        "Settlement assignment uses a point-in-polygon operation against the 2025 municipality boundary."
+      ]
+    },
+    {
+      "publisher": "PDOK / CBS",
+      "title": "E5 — CBS Gebiedsindelingen 2025, veiligheidsregio gegeneraliseerd",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/veiligheidsregio_gegeneraliseerd",
+      "accessedAt": "2026-09-02T10:02:52Z",
+      "edition": 2025,
+      "supports": [
+        "GM0796 is assigned once to Veiligheidsregio Brabant-Noord.",
+        "The generated safety-region feature contains GM0796 among 11 member municipalities."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Brabant-Noord",
+      "title": "E6 — Risicoprofiel 2023, gemeentelijke pagina 's-Hertogenbosch",
+      "url": "https://www.vrbn.nl/publish/pages/33906/5b5_risicoprofiel_gemeentelijke_pagina_den_bosch.pdf",
+      "accessedAt": "2026-09-02T10:02:52Z",
+      "edition": "municipal risk page published with the 2024-2027 programme",
+      "supports": [
+        "A Maas dike breach can inundate a large part of the city to as much as four metres.",
+        "More likely, lower-impact flooding is identified around the Dieze at Maaspoort or Engelen and the Aa at De Brand.",
+        "Gement and Bossche Broek are identified for nature-fire risk.",
+        "Jeroen Bosch Hospital and care homes are identified as vulnerable facilities."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Brabant-Noord",
+      "title": "E7 — Regionaal Risicoprofiel 2024-2027",
+      "url": "https://www.vrbn.nl/publish/pages/24264/risicoprofiel_2024-2027_versie_8_juni.pdf",
+      "accessedAt": "2026-09-02T10:02:52Z",
+      "edition": "2024-2027",
+      "supports": [
+        "Regional extreme-weather scope includes cold waves, snow and ice, heavy precipitation, storm, heat waves and drought.",
+        "The profile treats energy, gas, telecom/ICT and cybersecurity continuity as cross-sector risks.",
+        "The profile says digital disruptions are not geographically bounded and can affect emergency-service quality."
+      ]
+    },
+    {
+      "publisher": "Waterschap De Dommel",
+      "title": "E8 — 11 maatregelen met één doel: wateroverlast voorkomen in de regio 's-Hertogenbosch",
+      "url": "https://www.dommel.nl/11-maatregelen-met-een-doel-wateroverlast-voorkomen-in-de-regio-s-hertogenbosch",
+      "accessedAt": "2026-09-02T10:02:52Z",
+      "edition": "2026-04-15",
+      "supports": [
+        "'s-Hertogenbosch lies at the low point of East Brabant where the Aa and Dommel meet and discharge toward the Maas.",
+        "A high Maas can prevent discharge, producing local inundation from centimetres to more than one metre and affecting the A2.",
+        "A severe local high-water situation can last weeks; HoWaBo proposes 36 million cubic metres of emergency storage now and 50 million toward 2050."
+      ]
+    },
+    {
+      "publisher": "Gemeente 's-Hertogenbosch",
+      "title": "E9 — Plan Water en Riolering 's-Hertogenbosch 2023-2028",
+      "url": "https://www.s-hertogenbosch.nl/wp-content/uploads/Plan-Water-en-Riolering-s-Hertogenbosch.pdf",
+      "accessedAt": "2026-09-02T10:02:52Z",
+      "edition": "2023-2028",
+      "supports": [
+        "The municipal system functions under the current climate but must adapt to future extremes; the water-overload stress test was updated in 2022.",
+        "The plan identifies real-time steering to RWZI Treurenburg and cooperation with Aa en Maas, De Dommel and Brabant Water.",
+        "Drainage and wastewater are asset- and operator-specific systems, not road-network flows."
+      ]
+    },
+    {
+      "publisher": "Gemeente 's-Hertogenbosch",
+      "title": "E10 — Bosch Centraal project information",
+      "url": "https://www.s-hertogenbosch.nl/bosch-centraal/projectinformatie/",
+      "accessedAt": "2026-09-02T10:02:52Z",
+      "edition": "accessed 2026-09-02",
+      "supports": [
+        "The heavily paved station area has more heat stress and water nuisance than other parts of the city.",
+        "The station and bus station are a high-demand mobility node with peak-capacity and weather-exposure concerns."
+      ]
+    },
+    {
+      "publisher": "PDOK / Rijkswaterstaat",
+      "title": "E11 — Nationaal Wegenbestand wegen WFS",
+      "url": "https://service.pdok.nl/rws/nationaal-wegenbestand-wegen/wfs/v1_0?service=WFS&version=2.0.0&request=GetCapabilities",
+      "accessedAt": "2026-09-02T10:02:52Z",
+      "edition": "NWB source retrieved 2026-08-31",
+      "supports": [
+        "The generated intermunicipal road links are derived from official NWB nodes and sections.",
+        "The raw route-letter/number attributes require canonicalization before network-edge deduplication."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat",
+      "title": "E12 — Snelweg A59: route and current works",
+      "url": "https://www.rijkswaterstaat.nl/wegen/wegenoverzicht/a59",
+      "accessedAt": "2026-09-02T10:02:52Z",
+      "edition": "accessed 2026-09-02",
+      "supports": [
+        "The official road is named A59, including sections around 's-Hertogenbosch, Oss, Waalwijk and Empel.",
+        "Digit-only 059 is not an appropriate user-facing duplicate route name for the generated A59 links."
+      ]
+    },
+    {
+      "publisher": "PDOK / ProRail",
+      "title": "E13 — ProRail station OGC API",
+      "url": "https://api.pdok.nl/prorail/spoorwegen/ogc/v1/collections/station",
+      "accessedAt": "2026-09-02T10:02:52Z",
+      "edition": "retrieved 2026-08-31",
+      "supports": [
+        "The three generated stations inside GM0796 are 's-Hertogenbosch, 's-Hertogenbosch Oost and Rosmalen.",
+        "Station geometry is a real transport input, unlike simulated utility-transfer corridors."
+      ]
+    },
+    {
+      "publisher": "Brabant Water",
+      "title": "E14 — Water quality and local drinking-water sources for 's-Hertogenbosch",
+      "url": "https://www.brabantwater.nl/drinkwater/waterkwaliteit/waterkwaliteit-opvragen/s-hertogenbosch",
+      "accessedAt": "2026-09-02T10:02:52Z",
+      "edition": "current rolling 2026 reporting",
+      "supports": [
+        "Brabant Water identifies Nuland and Vlijmen as the local production sources for 's-Hertogenbosch drinking water.",
+        "These source relationships are absent from the current water-service graph."
+      ]
+    },
+    {
+      "publisher": "Enexis Netbeheer",
+      "title": "E15 — Update netcapaciteit augustus 2026",
+      "url": "https://www.enexis.nl/nieuws/2026/08/update-netcapaciteit-augustus",
+      "accessedAt": "2026-09-02T10:02:52Z",
+      "edition": "2026-08-17",
+      "supports": [
+        "'s-Hertogenbosch West is a named high- and medium-voltage capacity area with current constraints.",
+        "Actual electricity capacity areas do not follow the simulator's NWB-derived municipal road edges."
+      ]
+    },
+    {
+      "publisher": "Kadaster",
+      "title": "E16 — Onderzoek naar netwerken: distinction between KLIC and public registers",
+      "url": "https://www.kadaster.nl/zakelijk/producten/netwerken/onderzoek-naar-netwerken",
+      "accessedAt": "2026-09-02T10:02:52Z",
+      "edition": "accessed 2026-09-02",
+      "supports": [
+        "KLIC is intended for excavation information exchange rather than a general public operational utility-topology register.",
+        "Not every network is registered and Kadaster does not hold a complete public register of cable and pipe location data."
+      ]
+    },
+    {
+      "publisher": "Koninklijk Nederlands Meteorologisch Instituut (KNMI)",
+      "title": "E17 — KNMI'23 climate scenarios for the Netherlands",
+      "url": "https://www.knmi.nl/kennis-en-datacentrum/publicatie/knmi-23-klimaatscenario-s-voor-nederland",
+      "accessedAt": "2026-09-02T10:02:52Z",
+      "edition": "KNMI publication 23-03",
+      "supports": [
+        "The national scenario framework covers increasing extremes in heat, drought and precipitation and should be used as forcing uncertainty, not as a deterministic municipal forecast.",
+        "Future scenario paths are a range without municipality-specific impact calibration."
+      ]
+    },
+    {
+      "publisher": "Gemeente 's-Hertogenbosch",
+      "title": "E18 — Subsidieregeling Volksfeesten: municipal civic kernen",
+      "url": "https://www.s-hertogenbosch.nl/product/subsidieregeling-volksfeesten/",
+      "accessedAt": "2026-09-02T10:02:52Z",
+      "edition": "accessed 2026-09-02",
+      "supports": [
+        "The municipality names Empel, Engelen, Nuland, 's-Hertogenbosch, Rosmalen and Vinkel as the six kernen used by this civic scheme.",
+        "This civic grouping is distinct from four BAG woonplaatsen and 22 BRT topographic settlement polygons."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM0796, the apostrophe-prefixed name, Noord-Brabant and Brabant-Noord agree across the generated collection, bundle, manifest and official 2025 sources.",
+      "evidenceRefs": ["E1", "E2", "E5"],
+      "notes": [
+        "Feature id and municipal code both equal GM0796.",
+        "The safety-region membership check finds exactly one region, Brabant-Noord."
+      ]
+    },
+    "geography": {
+      "status": "pass",
+      "summary": "The 2025 generalized MultiPolygon and official label point are internally coherent; the point [5.337021966971148, 51.71816505523041] lies inside the geometry.",
+      "evidenceRefs": ["E2", "E5"],
+      "notes": [
+        "Boundary edition and statistics edition are both 2025.",
+        "This verifies administrative geometry only; it does not provide elevation, flood-defence, sewer-catchment or utility geometry."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "The municipal values reproduce the official 2025 source row: population 161530, density 1475, age 65+ share 19.7% derived from 31897 people, and 32360 one-person households.",
+      "evidenceRefs": ["E1", "E2"],
+      "notes": [
+        "The 110 published neighbourhood populations sum to 161535, a difference of 5 people or 0.003%, consistent with rounded small-area data.",
+        "Published neighbourhood totals include 77860 households and 31905 residents aged 65+, differing by 8 from the municipal age count because of source rounding."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "All 110 official neighbourhoods and 14 districts are retained, and local population is exactly reconciled after scaling, but vulnerability/context completeness is uneven.",
+      "evidenceRefs": ["E1", "E2", "E3"],
+      "notes": [
+        "Population and age fields cover 110/110 neighbourhoods; population density and GP/supermarket distances cover 104/110.",
+        "Cars per household covers 85/110; multi-family housing covers 95/110; social-assistance recipients cover 96/110.",
+        "District heating and public charging-point fields are absent for all 110 neighbourhoods in this CBS edition and are not silently treated as observed zeros.",
+        "Across the nine local context signals used by the simulator, mean reported context coverage is 0.916 and the sparsest neighbourhood is 0.111."
+      ]
+    },
+    "settlements": {
+      "status": "warn",
+      "summary": "Four BAG woonplaatsen and 22 BRT settlement polygons are source-valid, but they must not be presented as one municipal-kernen count.",
+      "evidenceRefs": ["E3", "E4", "E18"],
+      "notes": [
+        "BAG woonplaatsen are 's-Hertogenbosch, Rosmalen, Nuland and Vinkel.",
+        "BRT returns 11 woonkernen, 2 deelkernen, 3 gehuchten and 6 buurtschappen, including Empel and Engelen as woonkernen.",
+        "The municipality itself also uses a six-kernen civic grouping—'s-Hertogenbosch, Rosmalen, Empel, Engelen, Nuland and Vinkel—so UI labels need the source ontology."
+      ]
+    },
+    "transport": {
+      "status": "fail",
+      "summary": "The station and transit geometry is strong and the principal road adjacencies are plausible, but GM0796's logical graph contains route-normalization duplicates and a motorway mode error that affect simulated transfers.",
+      "evidenceRefs": ["E11", "E12", "E13"],
+      "notes": [
+        "Three ProRail stations and 234 transit stop areas fall inside the municipality boundary.",
+        "The graph connects GM0796 to Maasdriel, Bernheze, Heusden, Vught and Sint-Michielsgestel over A2, A59, N279 and N617 corridors.",
+        "Two additional links are named 059 to Bernheze and Heusden alongside A59 links; deleting just those two links changes selected GM0796 service availability by as much as about 5 percentage points in sampled scenarios.",
+        "The A2 link to Vught is marked regional with nominal capacity 150 while the A2 link to Maasdriel is trunk with 260; both capacities are scenario units, not observed traffic capacities."
+      ]
+    },
+    "emergencyContext": {
+      "status": "warn",
+      "summary": "The relevant emergency context is well documented—Maas/Aa/Dommel convergence, HoWaBo storage, A2 exposure, station crowding, named nature areas and vulnerable facilities—but those assets and control relationships are not represented in the simulation inputs.",
+      "evidenceRefs": ["E6", "E7", "E8", "E9", "E10", "E14", "E15"],
+      "notes": [
+        "Local water management spans Aa en Maas, De Dommel, Rijkswaterstaat, the municipality and Brabant Water.",
+        "Jeroen Bosch Hospital is visible as a transit stop but is not a facility asset with backup, capacity or dependency data.",
+        "The model has no explicit Bossche Broek, Gement, Dieze, Aa, Maas, A2, RWZI Treurenburg, drinking-water production, station or electricity capacity nodes."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "warn",
+      "summary": "All ten presets execute at T+0/6/12/24/48/72 for every service, but passing execution does not establish local hazard calibration.",
+      "evidenceRefs": ["E6", "E7", "E8", "E10", "E17"],
+      "notes": [
+        "Severe-storm peaks at 0.519; pluvial-flood at 0.525; river-flood at 0.645; coastal-flood at 0.149; heatwave at 0.764; winter-storm at 0.512; cyberattack at 0.485; North-Netherlands earthquake at 0.010; wildfire at 0.284; compound at 0.886.",
+        "At T+24 the modeled hazard states are: river depth 2.10 m; coastal depth 0.30 m with 25.3 m/s gust; pluvial residual depth 0.46 m; heat 26.1 C with drought index 0.65; winter -6.1 C with 2.5 cm/h snow and ice index 0.45; cyber disruption 0.23; and compound 37.2 mm/h rain, 0.31 m depth, 21.4 m/s wind and cyber index 0.33.",
+        "The North-Netherlands earthquake impulse falls between the required checkpoints and displays current severity zero at all six checkpoints; peak severity 0.010 preserves the event memory.",
+        "Severe storm, winter weather and national cyber disruption are physically possible stress tests but are not driven by KNMI forecasts, observed operator incidents or local return periods."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "The latest dedicated GM0796 coverage gate passes all bounds, reconciliation, determinism, ledger and monotonic-history assertions.",
+      "evidenceRefs": [],
+      "notes": [
+        "Command run: MUNICIPALITY_AUDIT_CODE=GM0796 pnpm audit:model; result 2 tests passed in 16.55 seconds on 2026-09-02.",
+        "The integration root also reports the national ALL gate green for 342 municipalities × 10 presets × 6 checkpoints × 8 services.",
+        "For GM0796 this covers 60 municipality frames and 480 service states; the compound T+24 local details reconcile population, affected population, demand and delivery for all eight services with error at or below 1e-6.",
+        "T+24 reruns are byte-for-byte deterministic for every preset, every service availability is in [0,1], every route is capacity-bounded and every causal ledger closes."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "Municipal-scale river exposure is directionally plausible, but coastal, heat, river, pluvial and wildfire district patterns are not safe as local physical maps.",
+      "evidenceRefs": ["E6", "E8", "E9", "E10", "E17"],
+      "notes": [
+        "River risk is correctly material at municipal scale, but official scenarios distinguish Maas dike breach, Dieze at Maaspoort/Engelen and Aa at De Brand; the model instead uses distance to three national straight-line river corridors.",
+        "The coastal preset assigns GM0796 0.30 m at T+24 from exponential straight-line coast distance without elevation, defences, breach location or hydraulic connectivity.",
+        "The municipality calls the station area unusually hot and water-sensitive, while the T+24 heat district ranking is led by De Hofstad, De Brand, Maliskamp Oost, Bokhoven and rural Vinkel; Binnenstad centrum and Paleiskwartier are only 0.116 and 0.121 in the drainage view.",
+        "The local risk profile identifies Gement and Bossche Broek for nature fire, but the wildfire preset uses three national fire centres and a seeded municipal redistribution.",
+        "At the same river T+24 frame, De Kruiskamp hazardSeverity changes from 0.548 on the gas layer to 0.733 on mobility because the local seed includes service id; a physical hazard map should be invariant while asset exposure may differ."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "All eight services have explicit bounded dependency chains, but the same road-derived graph and the same population-derived hub are not valid local infrastructure models.",
+      "evidenceRefs": ["E6", "E7", "E9", "E10", "E14", "E15", "E16"],
+      "notes": [
+        "Power: direct hazard effects and logical municipal transfers are modeled, but Enexis assets, 's-Hertogenbosch West/Noord capacity areas, switching and TenneT interfaces are absent.",
+        "Water: power dependency and backup are modeled, but the documented Nuland/Vlijmen production-source relationship and distribution/storage topology are absent.",
+        "Drainage: rain/flood and power dependency are modeled, but Aa/Dommel controls, Bossche Broek storage, pumps, sewer catchments, RWZI Treurenburg and discharge constraints are absent.",
+        "Gas: flood/cyber/power effects are modeled, but Enexis gas stations, valves, pressure zones and supply interfaces are absent.",
+        "Telecom: power and battery endurance are modeled, but operator sites, fibre/radio redundancy, exchange dependencies and emergency coverage are absent.",
+        "Mobility: NWB, ProRail and GTFS give the best physical geometry, but service flow still uses generic capacities and the malformed duplicate road links.",
+        "Facilities: power dependency and backup are modeled, but Jeroen Bosch Hospital, care homes, fire stations, shelters and their capacities are not assets.",
+        "Supply: mobility dependency is modeled, but depots, supermarkets, wholesalers, fuel and emergency-distribution locations are not represented.",
+        "For every service, De Kruiskamp is labeled the hub solely because it is the most populous neighbourhood; 28 of 110 neighbourhoods receive priority 1 from population/age rules rather than verified operational priority."
+      ]
+    },
+    "causalTrace": {
+      "status": "warn",
+      "summary": "Hazard ledgers, eight non-zero headline weights summing to one, dependency edges, driver metadata and restoration counterfactuals reconcile exactly, but some labels overstate the provenance of heuristic inputs.",
+      "evidenceRefs": ["E7", "E9", "E16"],
+      "notes": [
+        "System-pressure weights are power 0.18, water 0.15, drainage 0.08, gas 0.09, telecom 0.12, mobility 0.12, facilities 0.14 and supply 0.12.",
+        "Each route exposes transferSemantics logical-proxy and each service traces direct hazards plus upstream power or mobility dependencies where applicable.",
+        "The local explanation calls population/age-derived tiers operational priority and calls De Kruiskamp a hub without an operational source; these should be labeled allocation heuristics until asset data is supplied.",
+        "Scenario assumptions and counterfactuals are inspectable, but they must not be read as actual crews, generators, inventories or operator commitments."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "Most presets show bounded residual service recovery by T+72, but the 72-hour boundary and cumulative deprivation semantics are not realistic for this municipality's high-water case.",
+      "evidenceRefs": ["E6", "E8"],
+      "notes": [
+        "River hazard severity remains 0.645 at T+48 and becomes exactly zero at T+72 because duration is capped at the display horizon; De Dommel says a severe local high-water situation can last weeks.",
+        "At river T+72, service availability is still 0.876-0.943 and system pressure 0.084, but affected population is zero; the recovery state is a generic scenario curve rather than a water-system recovery estimate.",
+        "The North-Netherlands earthquake produces zero current severity and zero affected population at T+72 for GM0796, yet cumulative essential-service deprivation reaches 807798 person-hours because nominal resilience below one is integrated even without material local event impact.",
+        "At compound T+72, hazard severity is 0.057, system pressure 0.088 and cumulative deprivation 4533034 person-hours; these figures are deterministic scenario outputs, not validated human-impact estimates."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": [
+      "power",
+      "water",
+      "drainage",
+      "gas",
+      "telecom",
+      "mobility",
+      "facilities",
+      "supply"
+    ]
+  },
+  "findings": [
+    {
+      "id": "GM0796-HYD-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Municipality-specific calibration: the river preset cannot represent a Den Bosch high-water event continuing beyond T+72.",
+      "evidence": "E8 states that the Aa/Dommel/Maas backwater situation can last weeks. In the default river preset, durationHours=60, severity is 0.645 at T+48 and exactly 0 at T+72; normalization also caps any duration at MAX_HOURS=72.",
+      "action": "Allow forcing to extend beyond the visible 72-hour window or encode an ongoing-event boundary condition; calibrate Den Bosch river stages to HoWaBo/LIWO scenarios and assert non-zero T+72 forcing for a multi-day local high-water case."
+    },
+    {
+      "id": "GM0796-HYD-002",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Shared/national model: exponential coast distance creates an unsupported 0.30 m direct coastal-flood depth in inland GM0796.",
+      "evidence": "At coastal T+24 the city has floodDepthM=0.302, systemPressure=0.294 and 34533 modeled affected people. The code derives exposure only from distance to three coast segments; E6/E8 identify local inundation mechanisms through the Maas, Aa, Dommel and Dieze, not a validated direct coastal depth field.",
+      "action": "Replace coast-distance depth with official hydraulic inundation rasters that include defences, breach/surge scenario and connected pathways; until then suppress depth outside validated coastal domains and expose remote-network disruption separately."
+    },
+    {
+      "id": "GM0796-SPAT-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Shared/national model with municipality-specific evidence: local physical hazard severity changes when the selected service layer changes.",
+      "evidence": "For one immutable GM0796 river frame at T+24, De Kruiskamp hazardSeverity ranges from 0.548 on gas to 0.733 on mobility; Binnenstad centrum ranges 0.593-0.734. simulateCityDetail seeds local damage with region.id + service and uses that seed in hazardSeverity.",
+      "action": "Create one service-invariant district hazard field per frame from official or explicit spatial forcing; calculate service-specific asset exposure and vulnerability as separate named fields. Add an all-eight-layer invariance test for every district."
+    },
+    {
+      "id": "GM0796-SPAT-002",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Municipality-specific calibration: heat, flood and wildfire allocation does not reproduce published local hotspots and mechanisms.",
+      "evidence": "E6 locates Dieze/Aa flood concern at Maaspoort/Engelen/De Brand and nature-fire concern at Gement/Bossche Broek; E10 calls the station area unusually hot and water-sensitive. Yet seeded rankings can place rural Vinkel among the highest heat districts and national fire centres drive wildfire exposure without local nature polygons.",
+      "action": "Ingest the municipal heat/stress-test layer, official flood scenarios and regional nature-fire polygons; validate rank/correlation and named-zone inclusion at GM0796 checkpoints before presenting district maps as spatial hazard."
+    },
+    {
+      "id": "GM0796-SVC-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Shared allocation model: De Kruiskamp is incorrectly treated as the hub for all eight services because it has the largest neighbourhood population.",
+      "evidence": "bundleToLocalRegions selects the largest neighbourhood as hubId, making De Kruiskamp the power, water, drainage, gas, telecom, mobility, facilities and supply hub and giving it priority 1. E6 identifies Jeroen Bosch Hospital as a critical facility; E10 identifies the station as a mobility hub; E14 identifies Nuland/Vlijmen water sources.",
+      "action": "Separate demographic vulnerability/assistance priority from infrastructure hubs. Supply per-service typed asset nodes and source provenance; show 'heuristic allocation priority' where verified assets are unavailable."
+    },
+    {
+      "id": "GM0796-NET-001",
+      "severity": "medium",
+      "category": "network",
+      "status": "open",
+      "summary": "Municipality-specific generated data: A59 is duplicated as digit-only 059 and A2-to-Vught has the wrong logical mode.",
+      "evidence": "GM0796 has A59 links plus 059 links to both Bernheze and Heusden, while E12 names the route A59. It also has an A2-to-Vught regional/150 link while A2-to-Maasdriel is trunk/260. Removing only the two 059 edges changes sampled service availabilities by up to about 0.05 because all service balancers consume the graph.",
+      "action": "Canonicalize NWB routeltr+routenr and wegnummer before key construction, deduplicate municipality-pair/canonical-route edges, and derive mode consistently from the canonical road. Regenerate and diff GM0796 degree, paths and flows."
+    },
+    {
+      "id": "GM0796-MET-001",
+      "severity": "high",
+      "category": "explainability",
+      "status": "open",
+      "summary": "Shared/national metric: cumulative essential-service deprivation integrates nominal baseline resilience shortfall as emergency deprivation.",
+      "evidence": "For the remote North-Netherlands earthquake preset, GM0796 has displayed hazard severity 0, affected population 0 and near-normal services at T+72, but deprivedPersonHours=807798. localServiceAvailabilityForHistory begins around 0.92-0.995 and integrates 1-availability for all residents before network transfers.",
+      "action": "Report event-attributable deprivation relative to an intensity-zero or normal-service counterfactual, or rename the raw integral. Document whether transfers are included and add a far-field/no-event expectation near zero."
+    },
+    {
+      "id": "GM0796-NET-002",
+      "severity": "high",
+      "category": "limitation",
+      "status": "accepted-limitation",
+      "summary": "Shared/national limitation: power, water, drainage, gas, telecom, facilities and supply use NWB road corridors only as logical transfer proxies.",
+      "evidence": "The harness confirms transferSemantics='logical-proxy' for every service route. E9, E14 and E15 demonstrate local operator/asset relationships that differ from roads; E16 explains why complete cable/pipe information is not a general public operational network register.",
+      "action": "Keep the logical-proxy label prominent and never render these as physical utility lines. Evaluate current Enexis open asset/capacity products and seek operator-approved aggregate topology; retain an explicit unavailable state for operational switching and capacity."
+    },
+    {
+      "id": "GM0796-DATA-001",
+      "severity": "low",
+      "category": "regional-data",
+      "status": "accepted-limitation",
+      "summary": "Municipality-specific source semantics: four BAG woonplaatsen, six civic kernen and 22 BRT settlements are valid but non-equivalent counts.",
+      "evidence": "E3 supplies four BAG woonplaatsen; E4 supplies 22 settlement polygons across four BRT classes; E18 names 's-Hertogenbosch, Rosmalen, Empel, Engelen, Nuland and Vinkel as civic kernen.",
+      "action": "Show ontology and publisher beside each count and do not label the 22 BRT features as 22 official towns or the four BAG entities as the only inhabited cores."
+    },
+    {
+      "id": "GM0796-VER-001",
+      "severity": "informational",
+      "category": "identity",
+      "status": "fixed",
+      "summary": "Municipality-specific verification: official identity, 2025 demography, boundary, local-region membership and transport point inclusion pass.",
+      "evidence": "The context helper verifies the label point in the geometry, 110/110 neighbourhood membership, exact code/name bundle identity, one safety region, three stations and 234 transit stops; population reconciles after a five-person rounded small-area difference.",
+      "action": "Retain source edition/retrieval metadata and repeat these checks whenever the CBS/BAG/BRT/NWB editions change."
+    },
+    {
+      "id": "GM0796-VER-002",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "Shared/national verification: deterministic numerical and causal contracts pass for GM0796.",
+      "evidence": "MUNICIPALITY_AUDIT_CODE=GM0796 pnpm audit:model passes both tests: bounded hazard/service outputs, exact ledgers, exact local population/demand/delivery reconciliation, logical route semantics, deterministic T+24 repeats and monotonic cumulative histories.",
+      "action": "Keep this harness as a non-negotiable regression gate while correcting physical inputs and semantics."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Support ongoing multi-day river forcing and replace coast-distance inundation with hydraulically valid domains.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts"
+      ],
+      "validation": "Add a GM0796 high-water fixture whose forcing is still non-zero at T+72 and whose named exposed zones agree with an official scenario; assert zero direct coastal depth unless an official connected inundation raster covers the municipality, then rerun MUNICIPALITY_AUDIT_CODE=GM0796 pnpm audit:model."
+    },
+    {
+      "summary": "Make physical district hazard forcing service-invariant and calibrate GM0796 heat, water and nature-fire geography.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/data.ts"
+      ],
+      "validation": "For one frame, assert identical district physical hazard values across all eight service selections; separately validate service asset exposure. Compare GM0796 heat ranking with the municipal heat layer and flood/fire inclusion with VRBN/HoWaBo zones."
+    },
+    {
+      "summary": "Replace population-derived universal hubs with typed, provenance-bearing per-service assets or explicitly named heuristics.",
+      "files": [
+        "apps/web/src/data.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/explainability.test.ts"
+      ],
+      "validation": "Verify that facility, mobility, water and drainage hub ids can differ; test Jeroen Bosch Hospital/station/source/pump fixtures, and prohibit the label operational priority unless an operational source is present."
+    },
+    {
+      "summary": "Canonicalize and deduplicate GM0796 NWB connections before simulation.",
+      "files": [
+        "scripts/fetch-realism-data.mjs",
+        "scripts/validate-generated-data.mjs",
+        "apps/web/public/data/transport-network.json"
+      ],
+      "validation": "Regenerate transport data and assert that GM0796 has no digit-only 059 route, no duplicate pair/canonical-route edge, and consistent A2/A59 motorway mode; snapshot the resulting logical degree and run the full municipality model gate."
+    },
+    {
+      "summary": "Make cumulative deprivation event-attributable or rename the baseline-inclusive measure.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/explainability.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts"
+      ],
+      "validation": "Add an intensity-zero/far-field test requiring event-attributable deprivation near zero, preserve monotonicity and batch/single-frame equality, and document whether logical transfers contribute to the metric."
+    }
+  ],
+  "residualLimitations": [
+    "No operator-validated operational switching, failure probability, capacity, repair, crew, generator, fuel or mutual-aid inventory is available in the model for GM0796.",
+    "Power and gas topology is not currently ingested. Enexis publishes some aggregate/open asset and congestion products, but these do not by themselves establish emergency operating topology, dependencies or available restoration capacity.",
+    "Detailed drinking-water distribution, storage, pressure zones and emergency interconnections are not verified; only Brabant Water's public Nuland/Vlijmen source relationship is evidenced.",
+    "KLIC cable and pipe information is purpose-limited and incomplete as an operational network source; no public telecom dependency topology was verified.",
+    "The municipal 2022 pluvial stress-test output, full HoWaBo/LIWO hydraulic rasters and defence/breach assumptions have not been ingested into the application.",
+    "Jeroen Bosch Hospital, care homes, fire stations, shelters, supermarkets, depots, fuel, pharmacies and emergency distribution capacity are not modeled as assets.",
+    "NWB/ProRail/GTFS geometry establishes physical mobility location, not disaster-time capacity or passability; the current GTFS snapshot cannot predict emergency operations.",
+    "CBS small-area suppression and rounding leave context gaps, especially cars per household, housing type and benefit fields; sparse neighbourhoods can have only 11.1% of supported local context signals.",
+    "Every scenario amplitude, service availability, affected-person and deprivation value remains a deterministic stress-test assumption, not a forecast, measured outage or individual-level risk estimate."
+  ],
+  "provinceReviewFlags": [
+    "Municipality-specific: reconcile Maas/Aa/Dommel/Dieze high-water forcing for 's-Hertogenbosch with Vught, Heusden, Sint-Michielsgestel, Boxtel, Maasdriel and the two water boards; an event may remain active beyond the displayed 72 hours.",
+    "Municipality-specific: review the A59/059 duplicate edges and A2 motorway-mode inconsistency, then check whether the same NWB letter/number defect recurs elsewhere in Noord-Brabant.",
+    "Municipality-specific: add the station/Paleiskwartier heat and water hotspot, Bossche Broek/Gement nature-fire context, named flood zones and critical facility/production assets before treating district maps as local truth.",
+    "Shared/national: audit coastal distance-decay outside validated hydraulic domains, service-dependent district hazard seeding, universal population hubs and baseline-inclusive deprivation across all Noord-Brabant municipalities.",
+    "Shared/national: logical utility transfer proxies must remain visibly distinct from physical electricity, drinking-water, drainage, gas and telecom topology; province aggregation must not imply operator validation."
+  ]
+}

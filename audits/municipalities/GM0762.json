@@ -1,0 +1,447 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0762",
+    "name": "Deurne",
+    "province": "Noord-Brabant",
+    "safetyRegion": "Brabant-Zuidoost"
+  },
+  "agent": {
+    "taskName": "municipality_gm0762",
+    "agentId": "/root/causal_engine_v3",
+    "completedAt": "2026-09-02T20:51:45Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "GM0762 passes the complete deterministic model contract over all ten canonical scenarios, T+0/6/12/24/48/72 and all eight essential services. The 2025 CBS identity, generalized boundary, 33,387 residents, twenty-nine neighbourhoods, five BAG places, twenty-nine BRT settlements, Deurne station, 72 transit stop areas and the section-level identities of the five A67/N270/N279 logical road links are coherent. Official nulls, exact zero-intensity behavior, local reconciliation, causal ledgers, event-attributable essential-service person-hours and map-layer invariance also pass. Release remains correction-required. The generic Rhine/Meuse/IJssel centre-distance screen gives Deurne persistent river impact even though the adopted regional profile places this high-lying region outside direct large-river influence and instead identifies smaller waterways, extreme rain, groundwater and wastewater cascades. River, pluvial and heat use exactly the same twenty-nine-neighbourhood ranking. A focused ignition inside mapped swampy deciduous forest in the Deurnsche Peel does not control local impacts and has zero current fire, smoke and drought by T+72 despite official evidence about residual peat, difficult access, scarce extinguishing water, delayed response and the 2020 fire's months-long smoke. One physical N279 section is also cited by two logical neighbour links. These are scenario-model defects, not claims that local water or fire risk is absent. Integration-ready public sources exist for context and forcing, but provider areas, 245 public water objects, 85 antenna registrations, 28 education records, five government/service records and zero in-boundary acute-care records cannot establish topology, current state, backup, stock, crews or restoration. NoData remains Unknown, all current observations remain distinct from T+72 output, and every road-derived utility transfer remains a logical proxy.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek",
+      "title": "Kerncijfers wijken en buurten 2025 — filtered rows for GM0762",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM0762%27%29&%24select=WijkenEnBuurten%2CGemeentenaam_1%2CAantalInwoners_5%2CBevolkingsdichtheid_34%2Ck_65JaarOfOuder_12%2CEenpersoonshuishoudens_30",
+      "accessedAt": "2026-09-02T20:30:15Z",
+      "edition": 2025,
+      "supports": [
+        "Official-context GM0762/Deurne identity, population 33,387, density 286 residents per square kilometre, 8,030 residents aged 65 or older and 4,865 one-person households.",
+        "The machine-readable OData table is an annual official statistical release under CC BY 4.0. Independently rounded neighbourhood rows require reconciliation; suppressed, unknown and not-applicable values must remain null rather than zero.",
+        "CBS aggregates can support transparent vulnerability and demand context but do not identify medically dependent people, household preparedness, visitors, workers or observed emergency demand."
+      ]
+    },
+    {
+      "publisher": "PDOK / CBS / Kadaster / Rijkswaterstaat / ProRail",
+      "title": "Gemeente and buurt gegeneraliseerd 2025 with BAG, BRT TOP10NL, NWB and railway context",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_gegeneraliseerd/items?f=json&limit=1000&datetime=2025-07-01T00%3A00%3A00Z",
+      "accessedAt": "2026-09-02T20:30:15Z",
+      "edition": "CBS/BAG/BRT 2025 context; NWB live OGC inspected 2 September 2026",
+      "supports": [
+        "The application consumes annual CC BY 4.0 GM0762 municipality and twenty-nine-neighbourhood generalized geometry. Its reference point [5.831185014093399, 51.43891631233445] and the BAG centres for Deurne, Helenaveen, Liessel, Neerkant and Vlierden are inside the polygon.",
+        "BAG place access is https://api.pdok.nl/kadaster/bag/ogc/v2/collections/woonplaats. BRT/TOP10NL access is https://api.pdok.nl/kadaster/brt-top10nl/ogc/v1 and contributes twenty-nine settlement labels plus national 1:10,000 topography under CC BY 4.0. TOP10NL object 345cb368-0987-5c3c-b5f3-90160a66c703, local id 127529398, is typed loofbos with dras/moerassig occurrence and contains focused point [5.8921356646208745, 51.398670857783074] in BU07620801; its 2022 source date and 2023 registration date must travel with the geometry because land cover is not live fuel, spread or an incident perimeter.",
+        "NWB OGC https://api.pdok.nl/rws/nationaal-wegenbestand-wegen/ogc/v1 is national monthly CC0 road geometry. Section-level live queries confirm eight generated A67 source records use wegnummer 067, two N270 records use 270 and three N279 records use 279. ProRail OGC https://api.pdok.nl/prorail/spoorwegen/ogc/v1/collections/station identifies Deurne station but not live rail operation or capacity.",
+        "Physical source wvkId 357167009 occurs in both generated N279 GM0762–GM0794 and GM0743–GM0762 logical links. The official road label is correct; the release question is whether one junction section is safely shared or its nominal contribution is double-counted. Exact wvkId and wegnummer provenance must be retained."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Brabant-Zuidoost",
+      "title": "Regionaal Risicoprofiel 2025–2028",
+      "url": "https://www.vrbzo.nl/wp-content/uploads/2025/04/Regionaal-Risicoprofiel-2025-2028.pdf",
+      "accessedAt": "2026-09-02T20:30:15Z",
+      "edition": "Definitive version 1.0, 2025–2028",
+      "supports": [
+        "The adopted profile covers Deurne and all hazard/service dependencies relevant to the first 72 hours. It describes Brabant-Zuidoost's relatively high position as outside direct influence from sea and large-river flooding while retaining heavy rain, high groundwater, smaller rivers and brooks such as the Dommel, Aa and Kleine Beerze, roads, railways, utilities and wastewater as credible pathways.",
+        "Its review of 2023/2024 high water attributes regional problems to smaller rivers/brooks and saturated regional and groundwater systems rather than direct Maas flooding. This directly tests the model's generic named-major-river screen but does not mean Deurne is water-safe.",
+        "The profile records the 2020 Deurnese Peel fire at about 710 hectares as the largest known Dutch nature fire and describes smoke nuisance lasting months. Nature fire, storm, heat/drought, winter, hazardous materials, cyber, electricity, drinking water, telecom, mobility, wastewater, care and supply continuity are strategic context, not live incidents or calibrated output.",
+        "This is a four-year planning publication, not a live API or forecast. No blanket machine-data licence or operational update cadence was established for its narrative and maps."
+      ]
+    },
+    {
+      "publisher": "Gemeente Deurne",
+      "title": "Natuurbrandbeheersplan Deurnsche Peel — inleiding and gebiedsomschrijving",
+      "url": "https://www.deurne.nl/natuurbrandbeheersplan/gebiedsomschrijving",
+      "accessedAt": "2026-09-02T20:30:15Z",
+      "edition": "Current web plan inspected 2 September 2026",
+      "supports": [
+        "The official plan covers roughly 2,500 hectares of peat landscape and places the Deurnsche Peel in Deurne directly beside Helenaveen and Liessel. Historic peat reached six to eight metres and residual thick peat remains; drainage makes peat more burnable and can support smouldering.",
+        "The plan identifies combustible or highly combustible vegetation and a high probability of spread after establishment. Its RIN classification concerns the probability that an established fire becomes uncontrollable, not ignition probability.",
+        "Nearly the whole area has a first fire-engine response longer than fifteen minutes and first-platoon response longer than twenty-five minutes. Nearby extinguishing water is insufficient in parts of the Deurnsche Peel and peat paths cannot reliably support heavy vehicles; turning sites, water wells, compartment boundaries, weirs and higher water levels are named mitigations.",
+        "The 2020 uncontrolled fire caused evacuation and long-duration smoke. The plan is municipality-owned dynamic planning context with periodic revision stated, but no fixed machine cadence, public API or explicit redistribution licence was established. It should constrain scenario assumptions, never be presented as current fire state."
+      ]
+    },
+    {
+      "publisher": "Gemeente Deurne",
+      "title": "Gemeentelijk Rioleringsplan Deurne 2019–2023, adopted extension and 2026 water-course documents",
+      "url": "https://www.deurne.nl/_flysystem/media/gemeentelijk-rioleringsplan-grp-deurne-2019-2023.pdf",
+      "accessedAt": "2026-09-02T20:30:15Z",
+      "edition": "2019–2023 plan extended through 2025; 2026 replacement work in progress",
+      "supports": [
+        "The dated inventory reports about 128 km combined sewer, 31 km foul sewer, 46 km storm/infiltration sewer, 206 km pressure sewer, 36 main pumping stations, 1,161 pressure-pump units, eight retention/treatment facilities, eleven external overflows, 62 storm outlets, 21 km drainage and 13,650 street inlets.",
+        "The plan reports vulnerability observed during extreme rain in 2016 and says telemetry can monitor pumps and overflows. This establishes mechanisms and inventory scope, not a public live telemetry feed, present operating state or first-72-hour restoration commitment.",
+        "The council extension is https://deurne.bestuurlijkeinformatie.nl/Document/View/c6158b20-3762-4f0a-b2b1-278230a62e13. The 2026 course document https://deurne.bestuurlijkeinformatie.nl/Document/View/3175fa00-ab28-49c6-a85b-4e46fa8ad744 says a Program Water en Riolering and neighbourhood-level hemelwaterstructuur are being developed; dated plan values must not silently become current topology.",
+        "The current Helmondseweg page https://www.deurne.nl/projecten/herinrichting-helmondseweg identifies an old sewer, a low road and heavy-rain nuisance, but planned separation/infiltration work is scheduled after the Binderendreef rail-tunnel project, with execution stated for 2028. Planned assets must not be represented as current capacity. No public native GIS licence/cadence is established; a municipality-authorized GWSW export is the preferred integration route."
+      ]
+    },
+    {
+      "publisher": "Waterschap Aa en Maas / Het Waterschapshuis",
+      "title": "Deurnsche Peel and Peel-channel projects with national IMWA/DAMO public water registers",
+      "url": "https://www.aaenmaas.nl/in-jouw-buurt/projectenkaart/peelvenen-deurnsche-peel/",
+      "accessedAt": "2026-09-02T20:30:15Z",
+      "edition": "Current public project pages and register snapshots inspected 2 September 2026",
+      "supports": [
+        "Aa en Maas describes completed retention and rewetting measures in the Deurnsche Peel, including the Helenavaart culture zone, partial damming/shallowing of the Soeloop and new weirs/pumps. Its Peel-channel page https://www.aaenmaas.nl/in-jouw-buurt/projectenkaart/groot-onderhoud-peelkanalen/ describes dry-summer shortage, increased Rijkswaterstaat inflow from 3.4 toward at least 5.4 cubic metres per second and distribution through Kanaal van Deurne, Helenavaart and Peelkanaal. These are dated system/mechanism facts, not current levels or controls.",
+        "Machine access is available through HWH Kunstwerken IMWA https://api.pdok.nl/hwh/waterschappen-kunstwerken-imwa/ogc/v2 and Waterketen DAMO https://api.pdok.nl/hwh/waterschappen-waterketen-damo/ogc/v1 by OGC API/WFS/WMS/ATOM under CC BY-SA 4.0. Kunstwerken is published weekly; DAMO is a national aggregation whose contributor completeness and cadence vary and must travel with each snapshot.",
+        "The deployed GM0762 boundary context contains 245 display-only water objects: five sewer pumps, 25 surface-water pumps and 215 weirs. The sewer-pump records include Deurne, Helenaveen, Neerkant, Vlierden and Liessel, but public status/presence and source capacities do not establish pipe/catchment topology, units unless supplied, controls, operating condition, emergency power or restoration.",
+        "No public RWZI feature lies inside the municipal boundary. That means no feature in this scoped register query, not no treatment dependency or zero wastewater capacity."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / IPO-Risicokaart / Kadaster",
+      "title": "National extreme-rain, elevation, combustible-nature and topographic context services",
+      "url": "https://data.overheid.nl/dataset/3d9640b8-a6ae-449c-88dd-0ab186094fae",
+      "accessedAt": "2026-09-02T20:30:15Z",
+      "edition": "Catalogue/current service metadata inspected 2 September 2026",
+      "supports": [
+        "Rijkswaterstaat's national 70 mm in two hours scenario is available through WMS https://geo.rijkswaterstaat.nl/services/ogc/gdr/klimaat_effect_atlas/ows layer bij_70mm_per_2uur and GeoTIFF under CC0; the catalogue record was updated 5 August 2026. It is a modeled national scenario, not an observation, forecast or calibrated Deurne incident; transparent/NoData cells remain Unknown.",
+        "AHN4 DTM is available at https://data.overheid.nl/dataset/47567-actueel-hoogtebestand-nederland--ahn--dtm through WMS/WCS at 0.5 m, acquired 2020–2022 under CC0. Terrain can constrain flow plausibility but does not supply rainfall, groundwater, drainage controls, arrival, depth or recession.",
+        "IPO/Risicokaart WFS https://servicespub.risicokaart.nl/geoserver/ISOR_RK/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ISOR_RK%3Aisor_brandbaar_natuurgebied&outputFormat=application%2Fjson&srsName=EPSG%3A4326&count=1000&bbox=5.7172%2C51.3525%2C5.9313%2C51.5042%2CEPSG%3A4326 and WMS expose Public Domain combustible-nature polygons. Thirteen bbox features include Zandbos, Brouwhuisse Heide, Bos rondom Galgenberg and Mariapeel/Mariaveen; metadata was updated 19 February 2026 but no fixed operational cadence is promised. Coverage is incomplete for Deurnsche Peel and polygons are eligibility context, not live fuel, moisture, perimeter or spread.",
+        "Kadaster TOP10NL OGC https://api.pdok.nl/kadaster/brt-top10nl/ogc/v1 supplies editioned CC BY 4.0 land cover. Its source dates and NoData must be retained; neither first-page feature counts nor static forest geometry may become live fire state."
+      ]
+    },
+    {
+      "publisher": "Stichting Mijn Aansluiting / KNMI / NDW / RDI / DUO / KVK / RIVM / Basisregistratie Ondergrond",
+      "title": "National public provider, weather, mobility, telecom, facility, care and groundwater context routes",
+      "url": "https://data.overheid.nl/en/dataset/81000-netbeheergebieden-elektriciteit--gas--media--riolering--warmte-en-water",
+      "accessedAt": "2026-09-02T20:30:15Z",
+      "edition": "Public-context services and deployed snapshots inspected 2 September 2026",
+      "supports": [
+        "Public Domain Mijn Aansluiting WMS/WFS https://public.geodata.mijnaansluiting.nl/geoserver/mijnaansluiting_open/ows identifies Enexis electricity/gas, Brabant Water drinking water and Ziggo media responsibility at the GM0762 reference point. The drainage point query returns no polygon. Provider features carry update dates, but territories are not feeder/pipe/backhaul topology, capacity, live outage or restoration state; an empty layer is Unknown rather than no drainage.",
+        "KNMI Data Platform/API https://developer.dataplatform.knmi.nl/ provides integration-ready valid-time weather datasets. Licences are dataset-specific, commonly CC BY 4.0; radar composites are available about every five minutes and nowcast horizons are short. Run time, valid time, member/version and licence must be explicit, and a current observation must never be relabeled as T+72.",
+        "NDW DATEX II https://opendata.ndw.nu/actueel_beeld.xml.gz provides national CC0 event-valid closures, incidents and traffic. RDI WFS https://antenneregister.nl/mapserver/wfs/ exposes a statutory public antenna register with licence/fixed cadence not established here. DUO RIO https://onderwijsdata.duo.nl/dataset/c416acd1-e083-4ec6-9203-3b20f98fe143 is national and refreshed daily around 06:15 under an attribution licence; KVK OGC https://api.pdok.nl/kvk/overheidsdiensten-geharmoniseerd/ogc/v1 is partial Public Domain context; RIVM acute-care https://data.rivm.nl/meta/srv/dut/catalog.search#/metadata/5cfcf748-414a-4cd0-b6a2-3512cc3e1184 is versioned CC0.",
+        "The deployed boundary snapshot contains 85 RDI antenna sites, 28 DUO education records and five KVK government/service records, while RIVM acute-care returns no facility. BRO public PDOK groundwater layers describe the register, but selected GLD measurement-series access with observation time and quality flags is required for current levels. Registry presence/absence is not coverage, capacity, occupancy, backup or availability."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM0762, Deurne, province Noord-Brabant and safety region Brabant-Zuidoost are internally and officially coherent.",
+      "evidenceRefs": ["E01", "E02", "E03"],
+      "notes": [
+        "Generated municipality code/name and feature identity equal GM0762/Deurne.",
+        "The safety-region layer assigns GM0762 to exactly one region, Brabant-Zuidoost, and E03 is that region's adopted 2025–2028 risk profile.",
+        "No identity, province, boundary/statistics-edition or safety-region mismatch was found."
+      ]
+    },
+    "geography": {
+      "status": "pass",
+      "summary": "The consumed 2025 generalized municipality/neighbourhood geometry and reference point are coherent, while peat, catchment, provider, road and scenario geographies remain distinct.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E06", "E07"],
+      "notes": [
+        "Generated reference point [5.831185014093399, 51.43891631233445] is inside the official generalized GM0762 polygon; boundaryEdition and statisticsEdition both equal 2025.",
+        "Focused point [5.8921356646208745, 51.398670857783074] is inside both TOP10NL swampy deciduous forest object 127529398 and BU07620801 Verspreide woningen bij Helenaveen.",
+        "Municipality, neighbourhood, BAG place, BRT settlement, peat/forest polygon, water catchment, provider territory, road section and selected incident footprint are not treated as interchangeable evidence."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Headline municipality statistics match CBS 2025 and rounded neighbourhood populations reconcile within the expected publication tolerance.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "Generated population 33,387, density 286, age65Pct 24.1 and one-person-household count 4,865 agree with the official municipality record.",
+        "The twenty-nine rounded neighbourhood rows sum to 33,395 residents, eight above the municipality total, a 0.024 percent publication-rounding difference. They sum to 14,580 households and 8,030 residents aged 65 or older.",
+        "Aggregate age, household, housing, car, density, land/water and access context is not individual vulnerability, medically dependent population, visitor/worker count or observed emergency demand."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "Twenty-nine neighbourhoods provide useful aggregate context, but incomplete fields and a hazard-independent allocator prevent operational prioritization.",
+      "evidenceRefs": ["E01", "E04", "E05", "E07"],
+      "notes": [
+        "Core population, age, household, business, car-count, housing, land/water and urbanity fields cover all twenty-nine neighbourhoods. Home value, multifamily and tenure cover 26/29; cars per household 25/29; assistance/disability/pension 27/29; density and GP/supermarket distance 28/29.",
+        "District-heating share and public-charging count are available in 0/29 and correctly remain null. Incomplete, suppressed, NoData and not-applicable values are never interpreted as zero.",
+        "Largest neighbourhoods are Koolhof-Zuid 3,220, Verspreide woningen bij Deurne 2,615, Liessel kern 2,415, Heiakker-West 2,270 and Heiakker-Oost 2,185.",
+        "Compound T+24 local population, affected population and all eight service demand/delivery totals reconcile, but river/pluvial/heat have an identical twenty-nine-neighbourhood order and the focused fire source does not govern its own map."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "Five BAG places and twenty-nine BRT settlement labels are coherent and remain distinct from the twenty-nine official CBS neighbourhoods.",
+      "evidenceRefs": ["E02"],
+      "notes": [
+        "BAG centres for Deurne, Helenaveen, Liessel, Neerkant and Vlierden are inside the generalized municipality polygon.",
+        "BRT contributes six woonkernen, seven gehuchten, two deelkernen and seventeen buurtschappen; these topographic labels are not population totals or operational response zones.",
+        "No out-of-boundary or municipality-identity problem was found."
+      ]
+    },
+    "transport": {
+      "status": "warn",
+      "summary": "A67/N270/N279 physical road labels pass section-level checks, but one N279 section is shared across two logical links and the graph is incomplete for access or utilities.",
+      "evidenceRefs": ["E02", "E03", "E04", "E08"],
+      "notes": [
+        "Five generated links connect Deurne to Asten, Peel en Maas, Venray and Helmond: two A67 links, one N270 link and two N279 links, totaling 11.560 km and nominal logical capacity 970.",
+        "Strict live NWB review confirms the eight A67 source records use physical wegnummer 067, both N270 records use 270 and all three N279 records use 279. This is not a route-label blending finding.",
+        "Source wvkId 357167009 is present in both generated N279 links. Until link-building semantics demonstrate safe junction sharing, one physical section can appear to contribute twice to connectivity/capacity.",
+        "Deurne station and 72 GTFS stop areas are infrastructure/schedule context. The graph omits live rail operations, local secondary access, closures, emergency throughput and repair travel. Every service reuses the five road-derived records and correctly says logical-proxy; they are not physical utility topology."
+      ]
+    },
+    "emergencyContext": {
+      "status": "warn",
+      "summary": "Strong public peat/fire, water, weather, road, provider and registry context exists, but live topology, operating state, backup, stocks and response resources remain unavailable.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "Official plans, static land cover, modeled stress layers, provider territories and public registries are kept distinct from the deterministic scenario clock; none is a T+0 observation or T+72 forecast.",
+        "The current deployed boundary context contains 245 HWH water objects, 85 RDI antenna sites, 28 DUO education records and five KVK government/service records. These remain display-only/affectsSimulation=false.",
+        "RIVM acute-care, Mijn Aansluiting drainage and in-boundary public RWZI queries return no feature. Each result is Unknown/coverage-limited rather than zero care, drainage or wastewater dependency.",
+        "No authorized feeder, pipe, pressure-zone, complete sewer/treatment chain, antenna backhaul/coverage, facility continuity, pharmacy/food/fuel stock, priority-customer, crew, fire-water availability or restoration dataset is loaded or inferred."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "warn",
+      "summary": "All ten canonical presets completed at every required checkpoint and for all eight services, but execution does not establish local calibration.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "Peak municipality severities are storm 0.589932, pluvial 0.485316, river 0.143841, coastal 0.067595, heat 0.594647, winter 0.585579, cyber 0.544868, earthquake 0.007093, wildfire 0.103818 and compound 0.903500.",
+        "At T+24 compound has rain 52.715818 mm/h, internal flood-stress amplitude 0.448587, wind 28.140280 m/s, cyber disruption 0.478012, severity 0.902347, pressure 0.586130, 20,985 modeled people under pressure and 340,033 cumulative event-attributable essential-service person-hours.",
+        "At T+72 compound retains internal flood stress 0.448587 and cyber disruption 0.062170, with severity 0.449673, pressure 0.603682, 21,811 modeled people under pressure and 1,298,593 cumulative proxy person-hours.",
+        "Other T+24 examples are storm severity 0.117206/pressure 0.304345, pluvial 0.314005/0.244811, heat 0.094583 at 23.972250 C with drought 0.525461, winter 0.584898/0.340226, cyber 0.464268/0.372915 and the remote Groningen-centred earthquake current severity zero with remembered peak 0.007093.",
+        "Canonical wildfire has zero direct flame and only transported smoke/drought at T+24; canonical coastal direct water is zero while a wind tail produces severity 0.067595. The focused Deurnsche-Peel ignition is a separate diagnostic.",
+        "All weather, water, fire, earthquake and cyber values are deterministic exercise assumptions, not observations, probabilities, warnings, attack intelligence or outage forecasts."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Finite bounds, exact no-event semantics, determinism, cumulative burden, route bounds, local reconciliation and layer invariance pass.",
+      "evidenceRefs": [],
+      "notes": [
+        "MUNICIPALITY_AUDIT_CODE=GM0762 pnpm audit:model passed both focused coverage tests across 10 presets × 6 checkpoints × 8 services in 37.18 seconds, with 36.96 seconds test execution.",
+        "Every preset at intensity zero produced exactly zero current severity, peak severity, affected population and event-attributable essential-service person-hours at all required checkpoints.",
+        "Repeated frames are deterministic; outputs are finite and bounded; cumulative person-hours are monotonic; route flow stays within effective logical capacity; all eight headline pressure weights participate and sum to one.",
+        "Compound T+24 local allocation reconciles population 33,387, affected population 20,985 and all eight demand/delivery balances, with maximum observed floating-point discrepancy 5.329e-15.",
+        "Changing among all eleven map layers leaves hazard, system pressure and affected population exactly invariant."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "The generic major-river field, common neighbourhood ordering and source-insensitive wildfire allocation contradict Deurne's official regional and peat-fire evidence.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E06", "E07"],
+      "notes": [
+        "packages/sim-core/src/model.ts:430-477 derives named-major-river exposure from municipality-reference-point distance to three approximate national line segments. GM0762 is absent from the audited exclusion list even though E03 places the region outside direct large-river influence.",
+        "The canonical river preset retains internal flood-stress amplitude 0.460541, severity 0.143841 and zero recovery for all services at T+24 and T+72 without a selected connected Aa/Soeloop/Peel/Meuse event, control state, depth, arrival, duration or recession surface.",
+        "packages/sim-core/src/model.ts:3837-3851 derives one hazardSeed from city seed, scenario seed and region id; hazard type and source geometry do not enter. River, pluvial and heat therefore rank all twenty-nine neighbourhoods identically, led by Stationsbuurt, Verspreide woningen bij Helenaveen, Bedrijventerrein Kranenmortel, Verspreide woningen bij Liessel and Bedrijventerrein De Bottel.",
+        "A focused source [5.8921356646208745, 51.398670857783074] is inside mapped swampy deciduous forest and BU07620801. At T+24 direct fire is 0.323215, smoke 0.414183, drought 0.490635 and city severity 0.361499, but Stationsbuurt ranks first at local hazard 0.424578 while the source neighbourhood ranks second at 0.423636 despite lying 9.61345 km away.",
+        "Static forest and the diagnostic are neither an observed fire nor a forecast, but they falsify source-aware allocation. E04 independently documents peat, access, response-time and extinguishing-water constraints.",
+        "The river layer emits derived-screening and fire/pluvial/heat layers synthetic evidence, so their precise local ranks must not drive dispatch, evacuation or resource prioritization."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "warn",
+      "summary": "All eight service balances and dependency stages are inspectable, but exact magnitudes are not calibrated to Deurne's operators, drainage chain, facilities or access network.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E08"],
+      "notes": [
+        "Compound T+24 availability is power 0.403382, water 0.408011, drainage 0.312198, gas 0.634512, telecom 0.240092, mobility 0.473150, facilities 0.456981 and supply 0.403427.",
+        "At T+72 compound availability is power 0.389696, water 0.410842, drainage 0.310543, gas 0.635338, telecom 0.237468, mobility 0.463951, facilities 0.363733 and supply 0.395247.",
+        "River T+24 availability is power 0.883041, water 0.674874, drainage 0.636277, gas 0.805137, telecom 0.605531, mobility 0.866359, facilities 0.834982 and supply 0.500519; by T+72 facilities falls to 0.597911 while the other seven values remain unchanged under sustained forcing.",
+        "E03–E06 support the direction and timing importance of electricity, telecom, drinking water, wastewater, mobility, facility, fire-water and supply cascades; none calibrates these exact availability, demand, delivery, reserve, backup or repair values.",
+        "The graph has no named Enexis feeder/gas zone, Brabant Water pressure area, Ziggo/backhaul path, sewer/pump/RWZI/receiving-water chain, Deurne rail operation, facility role, emergency fire-water source or food/fuel depot.",
+        "All eight services reuse the same five A67/N270/N279 road-derived records and nominal capacity 970. Emitted transferSemantics is correctly logical-proxy, but it must not imply physical utility corridors or redundancy."
+      ]
+    },
+    "causalTrace": {
+      "status": "pass",
+      "summary": "Hazard, service and municipality explanation ledgers close and preserve evidence class, dependency order, operational assumptions and counterfactual scope.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E08"],
+      "notes": [
+        "Hazard contributions sum to headline severity; every service baseline plus exact-stage deltas sums to availability; all eight weighted service shortfalls sum to municipality pressure.",
+        "System-pressure weights are power 0.18, water 0.15, drainage 0.08, gas 0.09, telecom 0.12, mobility 0.12, facilities 0.14 and supply 0.12, summing to one.",
+        "Dependency chains, aggregate local-context factors, drivers, recovery progress and restore-service counterfactual deltas are finite and arithmetically closed.",
+        "Household preparedness affects modeled people/supply consequences after physical pressure rather than physical hazard fragility. Day type, local start clock, demand, backup, network and repair multipliers are normalized and labeled assumptions; delayed interventions do not masquerade as known Deurne crews/assets.",
+        "Event-attributable essential-service person-hours integrate weighted unmet-service pressure against a matched no-event baseline; they are not observed outage-hours, casualties, displacement or welfare loss."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "Sustained-water repair gating works arithmetically, but the unsupported river forcing and rapid focused peat-fire cessation make the T+72 trajectory physically unvalidated for Deurne.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "Canonical river flood stress 0.460541 and severity 0.143841 remain active through T+72; recoveryProgress stays exactly zero for all eight services. Pressure rises from 0.262870 at T+24 to 0.296060 at T+72, affected population from 5,780 to 7,341 and cumulative event-attributable person-hours from 95,872 to 400,013. This avoids repair while forcing persists, but the forcing is unsupported.",
+        "Compound retains active flood/cyber forcing, zero recovery progress for all services, pressure 0.603682 and 1,298,593 cumulative event-attributable person-hours at T+72.",
+        "For the focused local-forest ignition, current flame, smoke, drought and severity are all zero at T+72, affected population is zero and pressure is 0.070828. Service recoveryProgress ranges from 0.716728 to 0.999777 while cumulative person-hours are 329,120.",
+        "E03–E04 document the specific 2020 peat fire's months-long smoke and present residual-peat/access/water mechanisms. They do not prove every future event persists, but they make the default rapid-cessation curve unsupported for a Deurnsche-Peel peat scenario.",
+        "Browser inspection at 1440×1000 rendered Deurne river T+72 as 31% inundation stress under derived-screening and canonical wildfire T+72 as 0% fire intensity under synthetic evidence. The context panels correctly distinguished scenario output, public context and missing data; no console or same-origin request failures occurred."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": ["power", "water", "drainage", "gas", "telecom", "mobility", "facilities", "supply"]
+  },
+  "findings": [
+    {
+      "id": "GM0762-RIVER-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "A coarse Rhine/Meuse/IJssel proximity field creates persistent direct river-flood impact in Deurne despite the adopted regional profile excluding direct large-river influence.",
+      "evidence": "packages/sim-core/src/model.ts:430-477 derives exposure from one municipality reference point and three approximate national line segments; the independently audited exclusion list omits GM0762. The canonical river run reports internal flood-stress amplitude 0.460541 and severity 0.143841 at both T+24 and T+72, with pressure 0.262870/0.296060, affected population 5,780/7,341 and cumulative event-attributable essential-service person-hours 95,872/400,013. E03 places this high-lying region outside direct large-river influence and identifies local brooks, extreme rain, saturated groundwater, wastewater and access cascades instead. E05–E06 establish Deurne-specific drainage, Soeloop, Helenavaart and Peel-channel mechanisms. No named connected hydraulic event, control state, arrival, depth, duration or recession supports the displayed value. Browser inspection renders a precise 31% T+72 inundation-stress headline with derived-screening evidence. This is a municipality-specific false-positive manifestation of a shared rule, not evidence that Deurne is water-safe.",
+      "action": "Before release, add GM0762 to the independently evidenced direct-major-river suppression until the proximity screen is replaced. Render unavailable local hydraulic-event coverage as Unknown/numerically neutral while keeping pluvial, brook, groundwater, drainage, access and indirect supply risk visibly unresolved. Durable integration must require a named connected LIWO/Aa en Maas/authorized event with edition, pathway, controls, units, resolution, NoData, arrival and recession; run focused GM0762 and national regressions."
+    },
+    {
+      "id": "GM0762-SPATIAL-001",
+      "severity": "high",
+      "category": "geography",
+      "status": "open",
+      "summary": "One hazard-independent neighbourhood hash makes Deurne river, pluvial and heat maps exactly rank-identical.",
+      "evidence": "packages/sim-core/src/model.ts:3837-3851 uses one hazardSeed based on city seed, scenario seed and region id; hazard type and source geometry are absent. River, pluvial and heat all rank the same twenty-nine neighbourhoods in the same order, led by Stationsbuurt, Verspreide woningen bij Helenaveen, Bedrijventerrein Kranenmortel, Verspreide woningen bij Liessel and Bedrijventerrein De Bottel. Their leading T+24 local severities differ only by scalar transformation: river 0.168941/0.168566/0.167730, pluvial 0.368796/0.367978/0.366153 and heat 0.111087/0.110840/0.110291. E04–E07 identify distinct peat/fire, rain, drainage, elevation and water-control geographies; they do not support a common zonal ranking.",
+      "action": "Grey or explicitly label unsupported neighbourhood ranks and prohibit their operational use. Integrate hazard-specific selected geometry: versioned RWS 70 mm/2 h WMS/GeoTIFF plus AHN and authorized local/water-board layers for pluvial flow; separately sourced heat/drought surfaces; connected selected hydraulic events; source/fuel-aware fire. Pin edition/valid time, units, resolution, licence and NoData, and add tests that independent hazards can produce different rankings."
+    },
+    {
+      "id": "GM0762-FIRE-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "An explicit ignition inside mapped Deurnsche-Peel forest does not control the local wildfire map.",
+      "evidence": "E02 places focused source [5.8921356646208745, 51.398670857783074] inside TOP10NL loofbos with dras/moerassig occurrence and BU07620801 Verspreide woningen bij Helenaveen. A focused synthetic T+24 run reports direct fire 0.323215, smoke 0.414183, drought 0.490635, city severity 0.361499, pressure 0.220114 and 3,768 affected, yet Stationsbuurt ranks first at local hazard 0.424578 while the source neighbourhood ranks second at 0.423636 despite the first being 9.61345 km from the source. E04 documents local peat fuel, constrained access, insufficient nearby water and delayed response; E07 provides partial public eligible-nature polygons. Static source evidence and this diagnostic are not an observed incident, but they falsify source-aware allocation.",
+      "action": "Keep direct-fire local ranks visibly synthetic and prohibit dispatch use. Make allocation depend on source/perimeter distance, polygon overlap and eligible fuel. Prefer IPO/Risicokaart Public Domain WFS/WMS where covered and editioned TOP10NL CC BY 4.0 as fallback; preserve gaps as Unknown. Model valid-time KNMI wind/moisture, smoke, access, extinguishing water and suppression separately."
+    },
+    {
+      "id": "GM0762-FIRE72-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The focused local-peat scenario drops fire, smoke and drought to zero by T+72 and advances nearly all services through recovery without a Deurne-specific persistence mechanism.",
+      "evidence": "The focused source has T+24 severity 0.361499 but T+72 current flame, smoke, drought and severity all equal zero, affected population zero, pressure 0.070828 and service recoveryProgress from 0.716728 to 0.999777. E03–E04 record months-long smoke in the specific 2020 Deurnese Peel event and describe residual thick peat, drainage-enhanced combustibility, difficult heavy-vehicle access, limited nearby water and planned water/compartment mitigations. Those facts do not predict any one future event's duration, but show that rapid cessation is not a conservative default for a selected peat-fire envelope.",
+      "action": "Add an explicit peat/smouldering scenario parameterization with source-class evidence, duration uncertainty, re-ignition/smoke tail, hydrology, access and water/suppression assumptions. Use the official plan as bounded calibration context, not current state. Gate response/restoration by time and resources and show an uncertainty envelope rather than claiming operator or crew performance."
+    },
+    {
+      "id": "GM0762-DRAINAGE-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "accepted-limitation",
+      "summary": "Public water objects improve Deurne context but do not establish drainage/wastewater topology, controls or restoration.",
+      "evidence": "E05's dated municipal inventory includes 36 main pumps and 1,161 pressure-pump units in a much larger and differently scoped system, while E06 contributes five sewer pumps, 25 surface-water pumps and 215 weirs as 245 display-only boundary records. The public query has no in-boundary RWZI. River T+24/T+72 drainage availability 0.636277 and compound T+24 0.312198 arise from generic equations, not inlet blockage, storage, receiving-water level, pump/weir setpoint, emergency power, treatment dependency or operator state. Helmondseweg work described for 2028 is planned, not current capacity. Registry absence is not no asset.",
+      "action": "Keep HWH IMWA/DAMO objects non-causal. Prefer a current municipality-authorized GWSW export and security-reviewed Aa en Maas connectivity/state with units, topology, controls, backup, cadence and access terms. Until then expose bounded named subsystem assumptions and Unknown state; do not infer the full network or recovery from register points or dated plans."
+    },
+    {
+      "id": "GM0762-NETWORK-001",
+      "severity": "medium",
+      "category": "network",
+      "status": "open",
+      "summary": "NWB physical road labels are correct, but wvkId 357167009 is cited by both Deurne N279 logical links and may double-count one junction section.",
+      "evidence": "E02's live official NWB records confirm all section identities: A67 source records carry wegnummer 067, N270 records 270 and N279 records 279. The same physical source wvkId 357167009 occurs in both GM0762–GM0794 and GM0743–GM0762 N279 logical links. The five links total nominal capacity 970 and are reused by all eight service layers. This is a physical provenance/junction-sharing ambiguity, not proof of a mislabeled road. Without explicit link-building semantics, one section can contribute twice to logical connectivity or capacity.",
+      "action": "Assign or clip each NWB section once per physical corridor, or document and test junction sharing so capacity is not counted twice. Preserve exact wvkId and wegnummer source fields, add a national duplicate-section invariant, and keep monthly NWB plus event-valid NDW limited to mobility/access. Every non-mobility route must remain labeled logical transfer proxy until authorized utility topology exists."
+    },
+    {
+      "id": "GM0762-CONTINUITY-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "accepted-limitation",
+      "summary": "Provider polygons, antennas, schools and public-service records do not resolve Deurne utility, care, communications or household continuity.",
+      "evidence": "E01 supports aggregate older and one-person populations; E08 identifies Enexis, Brabant Water and Ziggo responsibility plus 85 antenna, 28 education and five government/service records. Public drainage-provider and RIVM acute-care queries return no feature. None establishes feeder/pipe/backhaul topology, radio coverage, load, priority customers, backup duration, occupancy, shelter/care role, external hospital dependency, stocks or restoration. Compound T+24 service availability values are synthetic balances, not provider or facility observations.",
+      "action": "Keep provider and public registries display-only with publisher, edition, retrieval time, coverage, licence and explicit no-feature semantics. Use capacity, state, backup, stock and restoration only from authorized operator/GHOR/municipal exercise inputs; otherwise retain the smallest service-specific synthetic prior and explicit Unknown."
+    },
+    {
+      "id": "GM0762-OTHER-HAZARDS-001",
+      "severity": "medium",
+      "category": "limitation",
+      "status": "accepted-limitation",
+      "summary": "Storm, heat/drought, winter, cyber, earthquake and remote coastal/canonical-fire effects are bounded exercises, not calibrated Deurne forecasts or probabilities.",
+      "evidence": "E03 establishes these hazard families and service cascades as regionally relevant. Canonical peaks are storm 0.589932, heat 0.594647, winter 0.585579, cyber 0.544868, remote earthquake 0.007093, wildfire 0.103818 and coastal 0.067595. Coastal direct water and canonical wildfire direct flame are zero; their effects are wind and transported smoke/drought. Untargeted cyber exposure and deterministic weather functions do not use current KNMI valid-time data, target intelligence or asset geometry. They are conditional exercise consequences, not annual likelihood, warning, current observation, attack report, outage state or T+72 forecast.",
+      "action": "Keep scenario, observation, forecast and probability types distinct. Allow source/target selection; integrate versioned KNMI and other official operational data only with run/valid time, licence, quality and coverage, and use industrial/cyber/underground effects only through selected expert scenarios or authorized aggregate fragility envelopes."
+    },
+    {
+      "id": "GM0762-NODATA-001",
+      "severity": "informational",
+      "category": "regional-data",
+      "status": "fixed",
+      "summary": "The current adapter and UI preserve null, empty-coverage, NoData and display-only semantics instead of silently converting missing evidence to zero or safe.",
+      "evidence": "District-heating share and public-charging count remain null in all twenty-nine neighbourhoods and incomplete CBS attributes remain null. Empty provider-drainage, RIVM acute-care, in-boundary RWZI, Waterinfo-level/discharge and air-monitor queries are shown as absent/Unknown rather than zero service, clean air or safe water. HWH/RDI/DUO/KVK/provider records remain affectsSimulation=false. Browser context panels visibly distinguish official static/context data from scenario output.",
+      "action": "Retain typed Unknown/not-applicable/suppressed/NoData states, source coverage, retrieval time and affectsSimulation flags in every future ingestion. Test that no missing point, pixel, polygon or registry record creates zero hazard, zero service, zero need or causal simulation input."
+    },
+    {
+      "id": "GM0762-CONTRACT-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The deterministic ten-scenario contract, zero-intensity baseline, causal ledgers, reconciliation, logical-proxy labels and sustained-water recovery guard pass for GM0762.",
+      "evidence": "The focused gate passes 10 presets × 6 checkpoints × 8 services. Every zero-intensity run is exactly zero for severity, peak, affected population and cumulative event-attributable person-hours; repeated frames, finite bounds, monotonic accumulation and route bounds pass. Compound T+24 reconciles 33,387 people, 20,985 affected and all eight demand/delivery ledgers within 5.329e-15; all eleven map layers are invariant. Active river/compound water holds every service recoveryProgress at zero through T+72. Explanations label burden, operational multipliers, delayed interventions and road-derived transfers as scenario/proxy semantics. Browser inspection found no console or same-origin request failures.",
+      "action": "Preserve these regressions while correcting unsupported major-river forcing, common hazard allocation, peat-fire persistence and duplicated physical-section provenance. Passing arithmetic and rendering contracts must remain separate from local physical validation."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Suppress unsupported direct major-river forcing for GM0762 and require a selected connected local hydraulic event.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "audits/correction-ledger.json"
+      ],
+      "validation": "Smallest safe release correction: add GM0762 to the independently evidenced direct-major-river exclusion while retaining local brook, pluvial, groundwater, drainage, access and indirect supply risk as Unknown rather than safe. Durable source: require an expert-selected connected LIWO/Aa en Maas/authorized footprint with event name, pathway, controls, edition, arrival, duration/recession, units, resolution, NoData, licence and retrieval time. Without an approved footprint GM0762 must not receive a precise direct river stress or neighbourhood rank. Run unit, focused GM0762 and national ALL gates and browser-check the Unknown headline."
+    },
+    {
+      "summary": "Replace common Deurne hazard ranks with selected geometry and implement a source-aware, peat-capable wildfire envelope.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/src/data.ts",
+        "apps/web/public/data/hazards/deurne-context.json"
+      ],
+      "validation": "For pluvial flow use RWS 70 mm/2 h WMS/GeoTIFF under CC0, AHN4 0.5 m WMS/WCS under CC0 and authorized current Aa en Maas/municipal layers; preserve edition, valid time, units, resolution and NoData and do not treat modeled rain as observation. For fire, use IPO Public Domain WFS/WMS where covered and TOP10NL CC BY 4.0 editioned land cover as fallback, plus valid-time KNMI inputs and official-plan access/water/peat assumptions. Assert independent hazard ranks can differ, the source polygon governs local direct flame under equal conditions, and a selected peat scenario supports a transparent smoulder/smoke duration envelope through T+72 rather than an unconditional forecast."
+    },
+    {
+      "summary": "Integrate Deurne water/drainage context through public standards and authorized topology without promoting partial points or planned works into live state.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/data.ts",
+        "apps/web/public/data/public-context/water-assets.geojson.gz"
+      ],
+      "validation": "HWH Kunstwerken IMWA OGC is weekly and Waterketen DAMO contributor cadence/completeness varies, both under CC BY-SA 4.0; keep the 245 current public records non-causal. Seek a current municipality-authorized GWSW export and security-reviewed Aa en Maas connectivity/state for sewer, pumps, RWZI dependency, Soeloop/Helenavaart/Peel channels and receiving water, with units, controls, backup, cadence and access terms. Preserve no in-boundary RWZI and no drainage-provider polygon as Unknown; do not ingest 2028 Helmondseweg works as current."
+    },
+    {
+      "summary": "Correct duplicated N279 physical-section provenance and integrate mobility/provider/weather/registry data by discipline and valid time.",
+      "files": [
+        "apps/web/scripts/build-nl-pack.mjs",
+        "apps/web/public/data/transport-network.json",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/src/data.ts"
+      ],
+      "validation": "Retain monthly CC0 NWB geometry with exact wvkId/wegnummer and either assign wvkId 357167009 once or prove/test safe junction sharing without doubled nominal capacity; use event-valid CC0 NDW only for mobility/access. Mijn Aansluiting Public Domain provider areas assign responsibility only; KNMI datasets require dataset-specific licence/run/valid time; DUO RIO is daily attribution-licensed; KVK partial Public Domain and RIVM versioned CC0 are context; RDI licence/fixed cadence remains unresolved. None creates live capacity, backup or restoration. Keep non-road service transfers logical-proxy and add duplicate-section, evidence-class and NoData regressions."
+    }
+  ],
+  "residualLimitations": [
+    "This is a deterministic planning-model audit, not validation against an observed Deurne disaster, outage, casualty, evacuation, health, welfare or restoration dataset.",
+    "The 2025 generalized CBS boundary supports municipal aggregation but not parcel hydraulics, peat hydrology, asset ownership, response jurisdiction or exact incident geometry.",
+    "The regional profile, municipal fire plan, old sewer inventory and project pages are planning/mechanism context, not live operational state, complete machine topology or T+72 forecasts.",
+    "RWS 70 mm/2 h and AHN are national modeled-scenario/terrain layers; they do not independently provide local rainfall, groundwater, drains, controls, arrival or recession, and NoData remains Unknown.",
+    "TOP10NL forest and IPO combustible-nature polygons are static eligibility context rather than live fuel, moisture, spread, smoke, suppression or access state; the focused ignition is synthetic.",
+    "HWH/provider/antenna/facility/station/GTFS records are partial dated context, not complete topology, capacity, operating state, backup, stock or restoration commitments.",
+    "No reviewed public safe source supplies complete Enexis, Brabant Water, municipal sewer/treatment, gas, telecom, care, food/fuel or emergency-resource topology/state; security-sensitive detail was not inferred.",
+    "First-72-hour household behavior, medically dependent people, responders, mutual aid, shelters, rail operations, pharmacies, fuel/food stocks, crew travel, repair priorities and visitor/daytime demand remain scenario assumptions or Unknown."
+  ],
+  "provinceReviewFlags": [
+    "Municipality-specific release blocker: suppress GM0762 direct Rhine/Meuse/IJssel forcing until a named connected hydraulic event is selected; retain local brooks, groundwater, pluvial, drainage and access pathways as unresolved rather than safe.",
+    "Municipality-specific release blocker: make a Deurnsche-Peel source govern local direct-fire allocation and provide an explicit peat/smoulder/smoke envelope constrained by the municipal plan's access and extinguishing-water evidence.",
+    "Municipality-specific: preserve the dated municipal sewer inventory, current replacement-policy status, Soeloop/Helenavaart/Peel-channel context and planned Helmondseweg works without promoting them into current topology or state.",
+    "Municipality-specific/network: resolve physical NWB section 357167009 across the two N279 logical neighbour links without mischaracterizing its correct wegnummer 279.",
+    "Shared/national: replace centre-distance river screening and common neighbourhood hashes with selected event-specific public water, heat and fire surfaces; preserve NoData as Unknown and grey unsupported ranks.",
+    "Shared/national: add explicit peat/fuel/access/water persistence classes to wildfire recovery and keep official historic incidents as calibration context rather than deterministic predictions.",
+    "Shared/national: keep monthly NWB physical-road identity and event-valid NDW mobility separate from utilities; all road-derived non-mobility flows remain logical transfer proxies.",
+    "Shared/national: keep public provider, water, antenna, facility, care, station and groundwater records non-causal unless authorized topology/state with edition, valid time, units, licence and coverage is supplied."
+  ]
+}

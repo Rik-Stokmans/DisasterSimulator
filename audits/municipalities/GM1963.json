@@ -1,0 +1,474 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM1963",
+    "name": "Hoeksche Waard",
+    "province": "Zuid-Holland",
+    "safetyRegion": "Zuid-Holland-Zuid"
+  },
+  "agent": {
+    "taskName": "municipality_gm1963",
+    "agentId": "/root/municipality_gm0397",
+    "completedAt": "2026-09-03T05:01:32Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "GM1963's identity, 2025 CBS population control, full-resolution municipal geometry and Zuid-Holland-Zuid safety-region assignment are coherent. Fresh context reports 90,747 residents; 41 neighbourhood rows sum to 90,750 (+3, +0.003%), while rounded and missing CBS fields retain their source semantics. The regional bundle retains fourteen districts, 41 neighbourhoods, sixteen BAG places, 46 BRT settlement labels, 133 scheduled-transit stop areas and no ProRail station. All ten canonical presets execute deterministically at T+0/6/12/24/48/72 across all eight services, and numerical invariants pass. Release is nevertheless correction-required. The Hoeksche Waard is a compartmented river-delta island whose flood consequences, evacuation and reception strategy depend on selected dike sections, source waters, breach/overtopping, water controls and a relatively safer middle; the model instead emits exact river/coastal impacts without selecting any of those states. Seven unrelated hazards reuse the same complete neighbourhood order. In a controlled Tiengemeten nature-fire test, an ignition point inside the municipal and neighbourhood polygons yields exactly zero direct fire at T+11 because the municipal centre lies outside the growing radius; at T+24 the source-containing neighbourhood ranks only third. The public combustible-nature screen returns zero polygons there despite an official 2025 multi-agency island-fire exercise, so absence is a coverage gap, not safety. Only three logical road records represent access, omitting named bottleneck, ferry/boat and direction-valid state even though the A29 Heinenoordtunnel, A29 Haringvlietbrug, N217 Kiltunnel and Tiengemeten pont are operationally distinct. Public water, transport, grid, antenna, school, care and observation sources remain context: they do not prove live topology, capacity, passability, acceptance or restoration. Missing coverage is Unknown/NoData, never zero or safe.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek (CBS)",
+      "title": "E01 — Kerncijfers wijken en buurten 2025, table 86165NED, OData API",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM1963%27%29",
+      "accessedAt": "2026-09-03T04:10:00Z",
+      "edition": 2025,
+      "supports": [
+        "The fresh official municipality row identifies GM1963 Hoeksche Waard and reports 90,747 residents, density 338 per square kilometre, 24% age 65 or older and 12,036 one-person households.",
+        "The 41 generated neighbourhood rows sum to 90,750 residents, a difference of +3 or +0.003%; generated household rows sum to 39,215 and age-65-plus rows to 21,705.",
+        "Average-home and related housing fields are present for 38/41 neighbourhoods, cars per household for 35/41, while district-heating share and public-charging counts are unavailable in all 41 rows. Unavailable, suppressed and rounded cells are not zero.",
+        "CBS OData is machine-readable under CC BY 4.0; CBS describes quarterly additions for this annual table. It is official demographic/context and an allocation control, not incident-time presence, vulnerability, evacuation, injury or deprivation evidence."
+      ]
+    },
+    {
+      "publisher": "PDOK / CBS / Kadaster / Rijkswaterstaat / ProRail / OVapi",
+      "title": "E02 — Full municipal geometry, settlements and national road, rail and scheduled-transit references",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_niet_gegeneraliseerd/items?f=json&filter=statcode%3D%27GM1963%27",
+      "accessedAt": "2026-09-03T04:12:00Z",
+      "edition": "2025 full boundary; generated current-reference BAG, BRT, NWB, ProRail and GTFS editions",
+      "supports": [
+        "The generated centre [4.460931974741376, 51.772822668485915] lies inside the fresh full-resolution 2025 boundary.",
+        "The bundle contains fourteen districts, 41 neighbourhoods, sixteen BAG places and 46 BRT labels, including 27 woonkernen and nineteen smaller settlement types; it therefore preserves both main villages and dispersed places.",
+        "Only three logical boundary links are generated: A29 to Goeree-Overflakkee, A29 to Barendrecht and N217 to Dordrecht. There is no ProRail station and there are 133 GTFS stop areas.",
+        "The southern A29 record correctly retains a physical NWB corridor whose earlier administrative alias was A4; operational display should continue to prefer the signed A29 identity.",
+        "CBS boundary OGC is half-yearly/CC BY 4.0; BAG is daily/Public Domain Mark 1.0; NWB is monthly/CC0 1.0; ProRail reference geometry is manually refreshed/CC0 1.0. OVapi GTFS is free-use best-effort context without an operational SLA.",
+        "These registers support location and reference connectivity only. They do not prove live direction-specific passability, ferry/tunnel operation, throughput, evacuation suitability, utility topology or restoration."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Zuid-Holland Zuid (VRZHZ)",
+      "title": "E03 — Regionaal Risicoprofiel 2025–2028, current crisis planning and first-72-hour preparedness",
+      "url": "https://www.zhzveilig.nl/risicos",
+      "accessedAt": "2026-09-03T04:16:00Z",
+      "edition": "Regional risk profile established 5 December 2024; crisis plan and policy 2026–2029",
+      "supports": [
+        "The official matrix explicitly assigns Hoeksche Waard dike sections 21-1 and 21-2, outer-dike flooding, regional-defence breach and extreme rainfall to GM1963; the wider profile also includes heat, drought, storm, hazardous-substance transport/pipelines, extended power, digital and drinking-water disruption and vulnerable-building/care scenarios.",
+        "The profile says transition-area flood warning time depends on the relative sea and river contribution; possible breach locations remain uncertain until failure and multiple sub-scenarios may be necessary. This directly contradicts a source-free deterministic generic municipal flood.",
+        "The current regional policy frames preparedness around the first 72 hours, but documentary preparedness does not prove a live incident, activated welcome point, route, resource or capacity.",
+        "The risk profile is a multi-year human-readable policy product with no declared machine incident/resource API, fixed operational cadence or blanket reuse licence. It supports scenario selection and governance context, not live state."
+      ]
+    },
+    {
+      "publisher": "Waterschap Hollandse Delta (WSHD) / Het Waterschapshuis",
+      "title": "E04 — Hoeksche Waard multi-layer flood-safety strategy and public water-system registers",
+      "url": "https://waterwerken.wshd.nl/waterveiligheid/vergroten-veiligheid-achter-dijken-duinen",
+      "accessedAt": "2026-09-03T04:19:00Z",
+      "edition": "Hoeksche Waard strategy developed 2025; current web pages and generated HWH reference snapshot inspected September 2026",
+      "supports": [
+        "WSHD, the municipality, province and VRZHZ developed a Hoeksche Waard multi-layer-safety strategy in 2025 covering risk zoning, compartmentation, crisis support, protection of vital infrastructure and adaptive construction.",
+        "The strategy identifies a relatively safe middle as a possible reception area, public buildings as possible shelters and location-specific evacuation-route marking; it also calls for checks around care and vital infrastructure. These are candidate measures, not activated incident facts.",
+        "The public full-boundary screen finds 593 registered objects: 26 sewer pumps, three sluices, 201 surface-water pumps, four wastewater-treatment facilities and 359 weirs. Register presence or 'realized' state does not prove connectivity, control position, capacity, power, backup or operation.",
+        "Relevant machine routes are HWH/PDOK IMWA and DAMO OGC APIs. Aggregated object/water-chain products are partial and contributor-dependent, generally CC BY-SA 4.0; item dates, CRS, fields, coverage, licence and NoData must be pinned before use.",
+        "WSHD's strategy and public pages have no blanket operational-state API or licence. They support mechanism and ownership context, while live defence and intervention state remain Unknown unless separately supplied."
+      ]
+    },
+    {
+      "publisher": "Waterschap Hollandse Delta / Gemeente Hoeksche Waard",
+      "title": "E05 — Time-varying drought/salinity measures and municipal drainage context",
+      "url": "https://www.wshd.nl/actueel/nieuws/overdag-geen-wateronttrekking-hoeksche-waard-noordwest",
+      "accessedAt": "2026-09-03T04:22:00Z",
+      "edition": "Drought notices 19 and 27 August 2026; current municipal water and sewer pages inspected September 2026",
+      "supports": [
+        "On 19 August 2026 WSHD prohibited daytime surface-water withdrawal in parts of De Eendragt, De Bosschen and Oud Heinenoord because low river discharge let salt penetrate the Oude Maas and Spui; it used two temporary pumps and monitored levels, discharge, salinity and weather.",
+        "WSHD withdrew the Hoeksche Waard restriction on 27 August after rain. The issue and withdrawal prove that measure validity is temporal and spatial; the earlier notice cannot be promoted to current state or a generic heat/drought assumption.",
+        "The municipality states that Hoeksche Waard has more than 1,100 km of sewers and about 1,800 pumps, that much of the system is nearing end of life, and that rain is increasingly disconnected or stored in wadis/water-retention features. These rounded planning figures differ in scope from the 593 HWH-screened objects.",
+        "The official municipal water-overload page identifies low-lying clay, delayed infiltration after drought and shared municipal/water-board responsibilities. It is qualitative public guidance without a licensed machine catchment, capacity or live-state feed.",
+        "Use https://www.gemeentehw.nl/direct-regelen/wonen-bouwen-en-omgeving/leefomgeving/de-riolering-in-de-hoeksche-waard/ and https://www.gemeentehw.nl/direct-regelen/klacht-of-melding/overlast/wateroverlast/ as documentary context only."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / Wegschap Tunnel Dordtse Kil",
+      "title": "E06 — Named A29/N217 island crossings and operational ownership context",
+      "url": "https://www.rijkswaterstaat.nl/wegen/wegenoverzicht/a29/heinenoordtunnel-a29",
+      "accessedAt": "2026-09-03T04:25:00Z",
+      "edition": "Current asset pages and Kiltunnel notices inspected September 2026",
+      "supports": [
+        "Rijkswaterstaat identifies the A29 Heinenoordtunnel beneath the Oude Maas as the island connection to IJsselmonde, with a separate Second Heinenoordtunnel for bicycles, pedestrians and slow/agricultural traffic; the main tunnel carries about 100,000 vehicles daily and is monitored 24/7.",
+        "Rijkswaterstaat identifies the A29 Haringvlietbrug as the connection toward Goeree-Overflakkee and Noord-Brabant, carrying about 66,000 vehicles per workday and including a parallel slow-traffic lane and movable section.",
+        "The Wegschap identifies the Kiltunnel as the N217/local main connection between Hoeksche Waard and Dordrecht for motor traffic and cyclists. It is governed by a joint public body of Zuid-Holland, Dordrecht and Hoeksche Waard.",
+        "A dated May–June 2026 Kiltunnel/N217 work notice records direction-specific night closures, detours via N217/A16 and emergency-service arrangements, illustrating required valid-time and priority semantics; that expired notice is not a present closure.",
+        "Static asset identity, design traffic, monitoring and past works do not establish scenario-time passability, direction, queue, throughput or emergency priority. The public pages expose no stable machine operational API or blanket reuse licence."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Zuid-Holland Zuid / Gemeente Hoeksche Waard",
+      "title": "E07 — 2025 Tiengemeten multi-agency nature-fire and ferry-failure exercise",
+      "url": "https://www.zhzveilig.nl/nieuws/samen-oefenen-op-tiengemeten-voor-een-veilige-regio",
+      "accessedAt": "2026-09-03T04:28:00Z",
+      "edition": "Exercise report 8 October 2025",
+      "supports": [
+        "VRZHZ reports a large nature-fire exercise on Tiengemeten with many people and multiple injuries after a barbecue explosion; fire, police, ambulance, GHOR, Red Cross, KNRM, rescue brigade, Rijkswaterstaat, municipality, local BHV and VRZHZ participated.",
+        "Responders travelled by pont; when it failed, other boats had to be deployed. This establishes a locally falsifiable fire/access/mutual-aid scenario and single-crossing contingency, not an observed current incident or generic event probability.",
+        "Human-readable exercise/news pages do not declare a machine perimeter/resource API, fixed cadence or blanket reuse licence. Obtain the exercise geometry, resource log and after-action data under explicit terms before calibration."
+      ]
+    },
+    {
+      "publisher": "Informatiepunt Leefomgeving / IPO Risicokaart / Rijkswaterstaat Waterinfo",
+      "title": "E08 — Flood-scenario access, combustible-nature eligibility and point water observations",
+      "url": "https://iplo.nl/thema/water/applicaties-modellen/berichtgeving-crisismanagement/liwo/",
+      "accessedAt": "2026-09-03T04:31:00Z",
+      "edition": "LIWO 2025.1.6; Risicokaart metadata updated 19 February 2026; Waterinfo snapshot 2–3 September 2026",
+      "supports": [
+        "LIWO provides authoritative scenario maps/downloads for crisis use, but each integration must retain scenario/event, defence/breach, probability, source, units, resolution, CRS, NoData, licence, release and transform lineage. It is not a live deterministic forecast.",
+        "The public combustible-nature WFS returns zero polygons in the GM1963 bounding screen despite Tiengemeten's official nature-fire exercise. Static eligibility and dataset coverage must remain explicit; zero returned features means NoData/not represented for this use, not zero vegetation or zero fire risk.",
+        "The deployment assigns one Waterinfo observation, Heinenoord Goidschalxoord at 105 cm NAP on 2 September 2026 17:30, and five forecasts through T+48 with 97, 42, 30, 16 and 24 cm NAP. There is no T+72 point forecast.",
+        "One named point is neither a municipal inundation surface nor arbitrary scenario forcing. Observation, issue, valid and retrieval time, point support, units and quality must be preserved; missing T+72 is Unknown."
+      ]
+    },
+    {
+      "publisher": "Netbeheer Nederland / RDI / DUO / RIVM / GHOR Zuid-Holland Zuid",
+      "title": "E09 — Grid planning, antennas, schools, care coverage and operational-care limitations",
+      "url": "https://ghorzhz.nl/zorgrisicoprofiel/",
+      "accessedAt": "2026-09-03T04:34:00Z",
+      "edition": "GHOR care-risk profile established 5 December 2024; generated public reference snapshots through September 2026",
+      "supports": [
+        "The generated public context contains 52 DUO education locations and 179 RDI antenna sites, but registered sites do not prove shelter activation, occupancy, radio coverage, backhaul, power or operation.",
+        "The RIVM 2026 acute-care screen returns no facility inside the municipality. This is a coverage fact, not zero care demand or proof that no local care facilities exist; hospital/specialist pathways can cross the island's tunnel and bridge bottlenecks.",
+        "One NBNL planning postcode, 3286VR, maps to Stedin area Hoeksche Waard & Zuidelijk Dordrecht and reports withdrawal existing/required/queued 153.9/184.8/41.4 MW with 43 requests, injection 150.0/224.1/14.5 MW with 37 requests, and eleven projects. One planning postcode is not full-boundary coverage, operational headroom or outage telemetry.",
+        "GHOR's profile explicitly treats care continuity and demand-versus-supply imbalance, but it is a multi-year documentary product rather than live acceptance, staffing, occupancy, backup or dispatch capacity.",
+        "DUO is daily CC BY, RDI is a public register without a fixed operational cadence/licence for this derived snapshot, and the displayed NBNL frontend data have planning cadence but no documented stable API/licence contract. All remain affectsSimulation=false until verified."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM1963, Hoeksche Waard, Zuid-Holland and Veiligheidsregio Zuid-Holland Zuid are internally and officially coherent.",
+      "evidenceRefs": ["E01", "E02", "E03"],
+      "notes": [
+        "Generated municipality, province, region and exactly one safety-region assignment agree.",
+        "The generated centre lies inside the freshly checked 2025 full-resolution boundary.",
+        "Annual registers, policy documents, exercises, planning data, observations and synthetic exercise time remain distinct evidence classes."
+      ]
+    },
+    "geography": {
+      "status": "fail",
+      "summary": "The administrative boundary is usable, but compartmented flood and explicit fire-source geography do not control local impacts.",
+      "evidenceRefs": ["E02", "E03", "E04", "E07", "E08"],
+      "notes": [
+        "Seven unrelated hazards share the same complete 41-neighbourhood order despite distinct polders, villages, crossings, water controls, facilities and Tiengemeten.",
+        "WSHD's relatively safe middle/reception strategy and risk zoning are absent from flood allocation.",
+        "A controlled point inside Tiengemeten and Zuid-Beijerland Buitengebied produces exactly zero direct fire at T+11 because municipal-centre distance is used.",
+        "Zero combustible-nature features in the public WFS screen is a coverage limitation, not evidence of a fire-free area."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Official municipality controls and neighbourhood aggregates reconcile within negligible CBS rounding difference.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "CBS reports 90,747 residents; 41 neighbourhood rows sum to 90,750 (+3, +0.003%) and the model reconciles its local allocation to the municipal control.",
+        "The 24% age-65-plus share and 12,036 one-person households matter to warning, evacuation, heat, care and supply planning but do not identify individual needs or current presence.",
+        "Resident-equivalent impacts omit visitors, workers, pupils, patients, road users, tourists on Tiengemeten and responders."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "Forty-one neighbourhoods support census allocation, while multiple attributes and all physical lifeline states are incomplete.",
+      "evidenceRefs": ["E01", "E04", "E05", "E09"],
+      "notes": [
+        "Average-home and related fields cover 38/41 rows and cars per household 35/41; district-heating and public-charging values are absent for all 41 and remain Unknown.",
+        "The generated model's water-object count and municipal rounded sewer/pump descriptions have different scopes and cannot be reconciled by assuming missing features are zero.",
+        "Grid, care, school, antenna and water records differ in publisher, date, coverage, licence and operational meaning."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "Sixteen BAG places and 46 BRT settlement labels preserve the municipality's principal and smaller communities.",
+      "evidenceRefs": ["E02", "E07"],
+      "notes": [
+        "The bundle includes all principal named villages from Oud-Beijerland and 's-Gravendeel to Strijensas and Zuid-Beijerland.",
+        "BRT adds smaller cores, hamlets and neighbourhood labels, including Tiengemeten as a 35-resident woonkern inside Zuid-Beijerland Buitengebied.",
+        "Settlement labels and annual residents do not prove incident-time island visitors, ferry users, shelter population or care demand."
+      ]
+    },
+    "transport": {
+      "status": "fail",
+      "summary": "Three abstract road links omit distinct named crossings, ferries, directions and event-valid island access state.",
+      "evidenceRefs": ["E02", "E06", "E07"],
+      "notes": [
+        "A29 north, A29 south and N217 east are reduced to nominal 260/260/150 capacity-like values supporting only Mobility and road-logistics/Supply.",
+        "Heinenoordtunnel, Haringvlietbrug and Kiltunnel differ in owner, modes, geometry, movable/tunnel state and alternatives, none of which are represented.",
+        "Tiengemeten's pont and boat contingency are absent even though the official exercise demonstrated failure and fallback craft.",
+        "No ProRail station and 133 scheduled stop areas do not prove incident-time public transport or evacuation capacity."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "Official local flood, water, nature-fire, access and care mechanisms are available, but no selected incident/resource state drives the simulator.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08", "E09"],
+      "notes": [
+        "No selected defence/breach, water control, fire perimeter, crossing state, activated shelter/reception site, hospital acceptance, operator outage or response resource is integrated.",
+        "The official Tiengemeten exercise is a calibration fixture, not a current incident; the August drought restriction was explicitly withdrawn.",
+        "Static registers and documentary plans remain context until valid-time, coverage, licence and causal bindings are verified."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten canonical presets execute at all six mandatory checkpoints for all eight services.",
+      "evidenceRefs": ["E03", "E04", "E05", "E07", "E08", "E09"],
+      "notes": [
+        "MUNICIPALITY_AUDIT_CODE=GM1963 pnpm audit:model passed one file/two tests in 29.78 seconds.",
+        "At T+72 peak severity / maximum affected / cumulative attributable person-hours are storm 0.580410 / 15,667 / 785,408.831; pluvial 0.548241 / 15,250 / 844,724.867; river 0.866733 / 44,603 / 3,056,368.931; coastal 0.397273 / 32,074 / 2,184,562.860.",
+        "Remaining values are heat 0.703701 / 7,185 / 653,499.036; winter 0.487641 / 10,036 / 751,085.006; cyber 0.481379 / 20,439 / 1,124,832.446; earthquake 0.005287 / 0 / 9,973.168; wildfire 0.104721 / 0 / 303,785.436; compound 0.924527 / 49,552 / 3,245,548.143.",
+        "At T+24 river severity is 0.866733 with internal normalized inundation stress 2.798612 and 41,868 affected; the same severity/stress persist through T+72 while affected rises to 44,603.",
+        "Structural execution and deterministic decimals do not establish local physical accuracy."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Outputs are finite, bounded, deterministic, exact at zero intensity, selected-layer invariant and locally reconciled.",
+      "evidenceRefs": ["E01", "E02"],
+      "notes": [
+        "All mandatory structural, range, local-sum, causal-ledger and repeatability assertions in the focused municipality gate pass.",
+        "Every preset's zero-intensity run returns exact-zero hazard, affected resident-equivalents and cumulative deprived person-hours.",
+        "Changing the selected display service does not mutate hazard, pressure or affected population.",
+        "The generic internal floodDepthM-like value remains a normalized inundation-stress diagnostic under CORR-017 and is not measured metres."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "A common spatial seed and centre-distance fire logic override hazard-specific sources, compartments and eligible domains.",
+      "evidenceRefs": ["E02", "E03", "E04", "E07", "E08"],
+      "notes": [
+        "Storm, pluvial, coastal, heat, winter, cyber and wildfire share exactly the same full neighbourhood order, led by Nieuw-Beijerland Woonkern and Oud-Beijerland Zeeheldenwijk.",
+        "River differs only in its first two positions before closely following the generic order, despite official source- and breach-dependent uncertainty and compartmentation.",
+        "At T+11 an explicit Tiengemeten source [4.32, 51.742] lies inside Zuid-Beijerland Buitengebied but direct fire is exactly zero; only smoke 0.427161, severity 0.148214 and 67 affected are reported.",
+        "At T+24 direct fire becomes 0.215200 and 8,231 are affected, yet the containing neighbourhood ranks 3/41 and contributes only 65 affected."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "Exact eight-service availability exceeds verified topology, capacity, state, backup and crossing evidence.",
+      "evidenceRefs": ["E02", "E04", "E05", "E06", "E07", "E09"],
+      "notes": [
+        "At compound T+24 the model reports Power 0.453230, Water 0.390724, Drainage 0.256276, Gas 0.576407, Telecom 0.241091, Mobility 0.855008, Facilities 0.550734 and Supply 0.642405.",
+        "Only three NWB links provide modeled Mobility and explicit road-logistics/Supply routing; no verified physical topology exists for Power, Water, Drainage, Gas, Telecom or Facilities.",
+        "Provider/planning records, 593 HWH objects, 179 antennas, 52 schools and zero RIVM acute-care matches are context rather than compatible live connectivity, capacity or service state.",
+        "The 90,747 resident control remains separate from non-resident activity demand under CORR-015."
+      ]
+    },
+    "causalTrace": {
+      "status": "warn",
+      "summary": "The arithmetic causal ledger closes, but selected authority, owner, intervention, resources and evidence lineage do not.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08", "E09"],
+      "notes": [
+        "Outputs expose deterministic hazard, direct-service, interdependency, network, recovery and local-allocation components with matched totals.",
+        "Cumulative person-hours are a synthetic no-event counterfactual accounting measure, not observed outage duration or unmet need.",
+        "No selected hydraulic/fire event, defence/control/crossing state, operator topology, resource or activated action explains exact values.",
+        "Every deterioration, plateau and restoration requires owner, target, prerequisite, crew/material/fuel/water, route, start/end, valid-time evidence class and uncertainty."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "Persistent river/compound impacts and precise coastal recovery are not tied to forcing, barriers, actions or resources.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08", "E09"],
+      "notes": [
+        "River severity 0.866733, normalized stress 2.798612 and almost every service stay fixed from T+24 through T+72 while affected rises 41,868 to 44,603; Facilities alone falls 0.507572 to 0.354742.",
+        "Compound reaches 49,552 affected and critical state at T+72 while its service vector is unchanged from T+24 except Facilities falling 0.550734 to 0.365982.",
+        "Coastal direct forcing reaches zero by T+72 and only 319 remain affected with precise service recovery, but there is no selected source/defence/control state or action/resource ledger.",
+        "Sustained inundation or isolation may block restoration, but that must be an explicit scenario condition; unexplained numerical plateaus and recoveries are not decision-grade."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": ["power", "water", "drainage", "gas", "telecom", "mobility", "facilities", "supply"]
+  },
+  "findings": [
+    {
+      "id": "GM1963-FLOOD-SYSTEM-001",
+      "severity": "critical",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Source-free river and coastal scalars ignore dike sections, lower-river forcing, compartments and the safer-middle strategy.",
+      "evidence": "VRZHZ explicitly identifies Hoeksche Waard dike sections 21-1/21-2 and says warning and breach location in the sea-river transition depend on actual sea, river, weather and defence conditions. WSHD's 2025 strategy distinguishes risk zones, compartments, evacuation/shelter options, vital infrastructure and a relatively safe middle. The model selects none of these yet at T+24 river reports severity 0.866733, internal normalized inundation stress 2.798612, 41,868 affected and exact services; by T+72 affected reaches 44,603. Coastal reaches 32,074 affected without a source, defence, footprint, arrival or recession. The internal stress value is not measured metres.",
+      "action": "Retain river/coastal values only as clearly labelled derived screening and suppress exact affected/service/area claims from decision views and exports until an authority-selected LIWO/RWS/WSHD case supplies source system, forcing, dike/control/breach assumptions, compartments, footprint, units/resolution, arrival, persistence/recession, probability, CRS, NoData, licence, transform hash and reviewer. Unknown scenario is not zero flood risk."
+    },
+    {
+      "id": "GM1963-TIENGEMETEN-FIRE-001",
+      "severity": "critical",
+      "category": "geography",
+      "status": "open",
+      "summary": "Municipal-centre distance makes direct fire exactly zero while the explicit ignition is already inside Tiengemeten.",
+      "evidence": "A controlled source [4.32, 51.742] is inside both GM1963 and Zuid-Beijerland Buitengebied/Tiengemeten. At T+11 the model reports direct fire exactly 0, smoke 0.427161, severity 0.148214 and 67 affected because the growing radius has not reached the municipality centre. At T+24 direct fire is 0.215200 and 8,231 are affected, but the containing neighbourhood ranks only 3/41 and contributes 65 affected. VRZHZ's 2025 exercise selected a large nature fire with many people/injuries and a failed pont requiring boats. The public combustible-nature WFS returns zero polygons in the municipality screen, which is a coverage gap rather than safety.",
+      "action": "Block local wildfire rank and direct-fire all-clear from operational use. Intersect explicit source/perimeter with the full municipal and neighbourhood MultiPolygons plus versioned eligible fuel/vegetation; never gate containment by centroid distance. Bind issue-valid wind/humidity, fuel/moisture, visitor presence, pont/boat access, suppression water and response state. No eligible-feature record or no ignition remains Unknown."
+    },
+    {
+      "id": "GM1963-SHARED-SPATIAL-SEED-001",
+      "severity": "critical",
+      "category": "geography",
+      "status": "open",
+      "summary": "Seven unrelated hazard families reuse one complete neighbourhood ranking across a heterogeneous island.",
+      "evidence": "Storm, pluvial, coastal, heat, winter, cyber and wildfire all rank the same 41 neighbourhoods, led by Nieuw-Beijerland Woonkern and Oud-Beijerland Zeeheldenwijk and ending with Oud-Beijerland Bedrijventerrein De Hoogerwerf. Official evidence distinguishes flood compartments and safer-middle reception, low-lying clay/drainage, salinity and water-control areas, named crossings, Tiengemeten nature/access and grid/care dependencies. Cyber has no defensible reason to share a fire/flood/heat ordering.",
+      "action": "Replace the common municipality seed with hazard-specific source, eligible-domain, forcing, exposed-object and evidence-support adapters. Require unrelated presets not to silently share a full rank; absent compatible spatial support, render local allocation Unknown rather than a precise synthetic order."
+    },
+    {
+      "id": "GM1963-CROSSINGS-001",
+      "severity": "critical",
+      "category": "network",
+      "status": "open",
+      "summary": "Three abstract road links conceal distinct fixed-crossing modes plus ferry/boat contingencies central to first-72-hour access.",
+      "evidence": "The graph has only A29 north, A29 south and N217 east records with nominal 260/260/150 values. Official owners distinguish the Heinenoordtunnel, Haringvlietbrug and Kiltunnel by direction, mode, movable/tunnel state and responsibility. Tiengemeten depends on a pont and the official exercise required fallback boats when it failed. There is no local ProRail station; 133 GTFS stop areas do not prove incident operation. No direction, tunnel/bridge/ferry state, closure, queue, emergency priority, detour, destination or throughput drives Mobility/Supply.",
+      "action": "Create an authority-reviewed multimodal graph with named crossing assets, mode/direction, owner, shared physical corridor, emergency priority, detour and valid-time state. Add Tiengemeten pont and authorized boat contingencies. Keep nominal edge values dimensionless and suppress passability/capacity claims when live or exercise state is Unknown."
+    },
+    {
+      "id": "GM1963-WATER-CHAIN-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Flood, pluvial, drought and salinity effects are disconnected from catchments, controls and intervention lifecycle.",
+      "evidence": "The public screen finds 593 water objects, while the municipality describes more than 1,100 km of sewer and about 1,800 pumps under a broader scope. Neither source proves topology or state. The August 2026 Hoeksche Waard restriction shows low river discharge, salt intrusion via Oude Maas/Spui, three named polder areas, temporary pumps and monitoring; its withdrawal eight days later proves time validity. Yet pluvial T+24 reports Drainage 0.434461 and Water 0.654330, while heat reports Water 0.522574, without catchment, level area, capacity, control, salinity, power/backup or intervention inputs.",
+      "action": "Version WSHD native layers and HWH OGC coverage with item date, scope, fields, CRS, cadence, licence and NoData; reconcile but do not conflate municipal and HWH asset scopes. Add catchments, level areas, control/state lifecycle and authorized capacity/power/backup/salinity evidence. Keep register objects affectsSimulation=false until causal bindings are reviewed."
+    },
+    {
+      "id": "GM1963-LIFELINE-PROVENANCE-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Exact service availability has no verified utility topology, compatible operational state or restoration inputs.",
+      "evidence": "At compound T+24 the model reports eight exact service values from 0.241091 Telecom to 0.855008 Mobility. Public context supplies one NBNL planning postcode, 593 water objects, 179 antennas, 52 schools and zero RIVM acute-care matches; none is customer connectivity, live load/pressure/backhaul, damage, backup, switching or repair state. Only the three road proxies support Mobility and explicit road-logistics/Supply. Provider/planning geometry cannot validate Power, Water, Drainage, Gas, Telecom or Facilities decimals.",
+      "action": "Integrate authorized operator topology, outage, priority-user, backup and restoration interfaces where lawful and safe. Otherwise use minimal, versioned synthetic zones/graphs with ranges and uncertainty. Keep public planning/register/context data labelled affectsSimulation=false and suppress operator-validated-looking exact decimals."
+    },
+    {
+      "id": "GM1963-CARE-EXPOSURE-001",
+      "severity": "high",
+      "category": "exposure",
+      "status": "open",
+      "summary": "Annual residents and an empty acute-care match do not represent first-72-hour care demand, visitors or cross-island referral.",
+      "evidence": "CBS reports 90,747 residents, 24% age 65 or older and 12,036 one-person households. The RIVM acute-care screen returns zero inside GM1963, while GHOR explicitly treats care continuity and demand-supply imbalance. The municipality has 46 settlement labels including ferry-dependent Tiengemeten. The model does not represent current patients, home-care clients, tourists, workers, pupils, traffic, responders, live hospital acceptance, staff, oxygen/medicines, backup power/water or routes to external specialist care.",
+      "action": "Keep resident and non-resident activity demand separate. Add privacy-safe, time-bounded occupancy/demand ranges and authorized care continuity data; register hospitals, care sites, reception/shelter and distribution roles only with owner, activation, accessibility, staffing/capacity, supplies, backup and valid time. Empty public coverage remains Unknown."
+    },
+    {
+      "id": "GM1963-RECOVERY-001",
+      "severity": "critical",
+      "category": "service",
+      "status": "open",
+      "summary": "River and compound services plateau or worsen through T+72 without any action, resource or blocking-state ledger.",
+      "evidence": "River severity/stress and nearly every service remain fixed T+24–72 while affected rises 41,868 to 44,603 and Facilities worsens 0.507572 to 0.354742. Compound reaches 49,552 affected/critical at T+72 while every service except Facilities is unchanged from T+24 and Facilities falls 0.550734 to 0.365982. Coastal direct forcing reaches zero and exact recovery appears by T+72. No defence, pump, crossing, owner, crew, fuel, material, shelter, evacuation, repair or access action explains these trajectories.",
+      "action": "Require a typed incident/action/resource ledger at T+0/6/12/24/48/72 with authority, owner, target, prerequisite, crew/material/fuel/water, route, start/end, state, evidence time and uncertainty. Each deterioration, plateau and recovery must cite a driver; preserve arithmetic reconciliation but suppress unexplained decision-grade trajectories."
+    },
+    {
+      "id": "GM1963-OTHER-HAZARDS-001",
+      "severity": "medium",
+      "category": "limitation",
+      "status": "open",
+      "summary": "Weather, cyber, earthquake and generic wildfire outputs run structurally but lack municipality-specific calibration and scope.",
+      "evidence": "Storm, heat, winter and cyber produce maximum affected values of 15,667, 7,185, 10,036 and 20,439 without issue-valid local forcing or exposed system boundaries. Earthquake reaches only 0.005287 severity and zero affected from a fixed source, rather than a selected event/GMPE/site/fragility set. The canonical wildfire reaches zero affected and misses the controlled Tiengemeten mechanism. No local KNMI point or NDW record in a snapshot is not an all-clear.",
+      "action": "Bind weather exercises to declared synthetic forcing or versioned KNMI issue/valid products; define cyber organization/system boundaries and authorized dependencies; require selected seismic event/GMPE/site/fragility and explicit fire source/perimeter. Missing sensors, records or support remain Unknown."
+    },
+    {
+      "id": "GM1963-TEMPORAL-SEMANTICS-001",
+      "severity": "high",
+      "category": "ui",
+      "status": "open",
+      "summary": "Evidence classes and lifecycle states are not close enough to exact first-72-hour outputs to prevent stale-context misuse.",
+      "evidence": "The same interface can expose annual CBS controls, static assets, multi-year policy, a 2025 exercise, withdrawn August 2026 drought measures, a single water observation/forecast through T+48, planning grid queues and synthetic checkpoints. Generic evidence labels do not state beside each value that the flood source/defence, route state, operator topology, care capacity and recovery actions are unsupported. There is no Waterinfo T+72 forecast, and its absence cannot be interpolated into certainty.",
+      "action": "Attach publisher, dataset/version, issue/valid/retrieval time, coverage, licence, evidence class, affectsSimulation, uncertainty and NoData to every layer/value/export. Show selected scenario authority and support gates beside headline values; expire incident notices explicitly and render absent coverage Unknown rather than zero or safe."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Evidence-gate GM1963 flood outputs behind selected lower-river/delta hydraulic cases and WSHD compartments.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Without an authority-selected event, river/coastal diagnostics are labelled derived screening and exact affected/service claims are suppressed, never forced to zero. A supported case retains source waters, sea/river forcing, sections 21-1/21-2, defence/control/breach assumptions, compartments, safer-middle/reception interpretation, footprint, arrival/recession, probability, units/resolution/CRS, NoData, release/licence, transform hash and reviewer; no normalized stress is described as metres."
+    },
+    {
+      "summary": "Replace centre-distance fire and shared neighbourhood seeds with source- and mechanism-aware full-polygon adapters.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/geometry.ts",
+        "packages/sim-core/src/model.test.ts",
+        "scripts/fetch-realism-data.mjs"
+      ],
+      "validation": "A T+11 Tiengemeten source inside Zuid-Beijerland Buitengebied cannot yield a direct-fire zero from municipal-centre distance. Tests intersect source/perimeter and eligible fuels with full polygons, preserve absent vegetation coverage as Unknown, and prove unrelated hazards cannot silently share a complete 41-region order."
+    },
+    {
+      "summary": "Represent Hoeksche Waard's fixed crossings, pont and boat contingencies as typed, non-additive, valid-time routes.",
+      "files": [
+        "scripts/fetch-transport-network.mjs",
+        "apps/web/public/data/transport-network.json",
+        "packages/sim-core/src/network.ts",
+        "packages/sim-core/src/network.test.ts"
+      ],
+      "validation": "GM1963 exposes signed A29 Heinenoordtunnel and Haringvlietbrug, N217 Kiltunnel, their slow-mode distinctions, plus Tiengemeten pont/fallback boat roles with owner, direction, shared corridor, emergency priority and valid-time state. Repeated sections never add capacity; unknown passability stays Unknown."
+    },
+    {
+      "summary": "Integrate water-system, salinity and drainage evidence without promoting object registers or expired measures to live state.",
+      "files": [
+        "scripts/fetch-water-assets.mjs",
+        "scripts/fetch-realism-data.mjs",
+        "packages/sim-core/src/types.ts",
+        "apps/web/src/data.ts"
+      ],
+      "validation": "WSHD/HWH sources retain item scope, publisher, feature date, CRS, cadence, licence, coverage and NoData. Municipal and HWH asset counts are never conflated. Catchments, level areas, control/measure lifecycle, capacity, power/backup and salinity remain contextual until compatible authorized state is supplied; the 19 August restriction is visibly withdrawn on 27 August."
+    },
+    {
+      "summary": "Evidence-gate all lifelines, care/exposure and exact recovery behind topology, occupancy and action/resource support.",
+      "files": [
+        "packages/sim-core/src/network.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/components/OperationsBrief.tsx"
+      ],
+      "validation": "NWB affects Mobility and explicit road-logistics/Supply only. Utility/care views require verified topology, capacity, backup, occupancy/acceptance and restoration or labelled synthetic ranges. Residents remain separate from visitors/workers/patients/responders. Every T+0/6/12/24/48/72 change cites owner, target, action, prerequisite, resource, access, valid time, state and uncertainty."
+    },
+    {
+      "summary": "Make evidence time, scope, licence and Unknown/NoData visible beside every operational claim and export.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "apps/web/src/components/CausalExplanation.tsx",
+        "apps/web/src/components/OperationsBrief.tsx",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Annual statistics, static registers, plans, exercises, withdrawn notices, timestamped observations/forecasts and synthetic scenario outputs display distinct evidence classes. One-point Waterinfo support stops at T+48 and does not imply a T+72 municipal forecast; missing acute care, nature polygons, stations or road observations render Unknown, never zero/safe."
+    }
+  ],
+  "residualLimitations": [
+    "Complete physical electricity, gas, drinking-water, sewer/drainage, telecom, care and supply topology, control logic, live load, damage, outage, backup, crews, spares, fuel and restoration state are unavailable or security-sensitive. Public geometry, territory, queues and registers cannot honestly replace them.",
+    "LIWO and regional profiles supply scenario families, not a selected live or exercise case. Event, sea/river forcing, section/defence/control/breach assumptions, probability, units, resolution, arrival/recession, NoData and licence must be retained per case.",
+    "The relatively safe middle, compartmentation, routes and shelter/reception sites in the WSHD strategy are planning concepts until authorities select, inspect, activate and resource them for an incident.",
+    "The 2025 Tiengemeten event was an exercise, not an observed fire, current ignition or frequency estimate. Its controlled source is an audit fixture, and the public combustible-nature WFS's zero result is a coverage limitation.",
+    "CBS residents omit current visitors, workers, pupils, patients, road users, tourists and responders. Rounded and suppressed neighbourhood fields cannot identify individual mobility, health or self-reliance.",
+    "NWB, asset pages, GTFS and public notices do not establish scenario-time bridge/tunnel/ferry/road/transit operation, direction, emergency priority, destination or throughput. Past works are expired state, not present closure.",
+    "The 19 August 2026 surface-water restriction was withdrawn on 27 August. It validates salinity, polder and intervention mechanisms but must not be reused as current state.",
+    "One Waterinfo point and forecasts only through T+48 do not describe municipality-wide inundation or a selected scenario. Missing T+72, KNMI, NDW, care or feature coverage remains Unknown.",
+    "Provider/planning data, 593 screened water objects, 179 antennas, 52 schools and zero acute-care matches differ in support, cadence and licence and remain context unless a reviewed causal binding exists.",
+    "Exact hazard, affected-population, service availability, recovery and person-hour outputs are synthetic exercise results, not observations, official forecasts, operator commitments or decision-grade advice until critical/high findings are corrected and authorities review the case.",
+    "This audit covers only the first 72 hours. Flooding, displacement, salinity, drought, infrastructure repair, care effects and recovery can persist much longer."
+  ],
+  "provinceReviewFlags": [
+    "Zuid-Holland, Rijkswaterstaat, WSHD and VRZHZ should define valid GM1963 LIWO/lower-river scenarios, including sea-river contribution, dike sections 21-1/21-2, compartments, defence/control/breach state, arrival/recession, safer-middle reception, NoData and cross-boundary consequences.",
+    "Province, Rijkswaterstaat and Wegschap Tunnel Dordtse Kil should review Heinenoordtunnel, Haringvlietbrug and Kiltunnel as named direction-specific bottlenecks and establish live/exercise state contracts; municipality/VRZHZ should add ferry and boat contingencies for Tiengemeten.",
+    "Municipality, WSHD and province should reconcile municipal sewer/pump scope with HWH/WSHD registers and establish reusable machine routes for catchments, level areas, salinity, temporary measures and control state with licence, cadence and NoData.",
+    "VRZHZ, municipality, Natuurmonumenten and response partners should determine whether Tiengemeten exercise perimeter/resource/after-action data can be shared for calibration without exposing sensitive operations.",
+    "Zuid-Holland-Zuid partners should review first-72-hour care, reception, evacuation, mutual aid, supply and lifeline evidence contracts, separating public context, observation, scenario, synthetic assumption and Unknown state."
+  ]
+}

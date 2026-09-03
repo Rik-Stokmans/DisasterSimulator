@@ -1,0 +1,932 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0307",
+    "name": "Amersfoort",
+    "province": "Utrecht",
+    "safetyRegion": "Utrecht"
+  },
+  "agent": {
+    "taskName": "municipality_gm0307",
+    "agentId": "/root/municipality_gm0518",
+    "completedAt": "2026-09-02T13:33:06Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "Amersfoort's generated identity, generalized boundary, 163,298-person 2025 municipal total, 145 CBS neighbourhoods, four BAG woonplaatsen, six TOP10NL settlements, Veiligheidsregio Utrecht assignment, ten signed NWB logical routes, four ProRail stations and 196 scheduled-transit stop areas are internally coherent with current primary sources. The dedicated 10-preset × 6-checkpoint × 8-service gate passes, including deterministic replay, finite bounds, exact no-event behavior, event-attributable causal ledgers, exact municipal/local allocation and delivery reconciliation, service-layer invariance, activity-aware demand in six official zero-resident business areas and sustained-water repair blocking through T+72. Correction is nevertheless required before operational local use. At representative active checkpoints, the simulator gives exactly the same top neighbourhood ordering—Piet Mondriaanlaan e.o., Stadstuin, Kruiskamp-Noord, Klein Zwitserland-Laag and Woudzoom e.o.—for pluvial flood, river flood, heat and wildfire. Code inspection explains the identity: every canonical preset uses seed 20260831 and local hazard severity is the municipal scalar multiplied by a region-id seed, without a hazard-specific spatial exposure layer. This cannot represent the different local mechanisms documented by official sources: Eem/Randmeer and Grebbedijk inundation, hardened and groundwater-sensitive rain hotspots, cooling from Waterwingebied, or Heuvelrug fuel, wind and access conditions. River relevance itself is real—the regional risk profile explicitly states that a Grebbedijk breach can affect Amersfoort—but the persistent internal 0.756090 value is a normalized proximity screen, not a LIWO hydraulic scenario. Public sources also establish two fire posts with current northern coverage concerns, a nationally important four-direction rail junction, an RWZI, a major resolved drinking-water incident and existing heat networks; these are context, not sufficient evidence for live capacity or physical topology. All eight modeled services still share road-derived logical transfer proxies. Outputs are deterministic stress indicators, not forecasts, dispatch advice, operator restoration commitments, physical utility maps or observed affected persons.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek (CBS)",
+      "title": "Gebieden in Nederland 2025 (86059NED)",
+      "url": "https://www.cbs.nl/nl-nl/cijfers/detail/86059NED",
+      "accessedAt": "2026-09-02T13:16:49Z",
+      "edition": 2025,
+      "supports": [
+        "Official municipality code GM0307, name Amersfoort, province Utrecht, safety-region membership and population.",
+        "Independent identity check for the generated municipal record."
+      ]
+    },
+    {
+      "publisher": "Centraal Bureau voor de Statistiek (CBS)",
+      "title": "Kerncijfers wijken en buurten 2025 (86165NED)",
+      "url": "https://www.cbs.nl/nl-nl/cijfers/detail/86165NED",
+      "accessedAt": "2026-09-02T13:16:49Z",
+      "edition": "2025; current table accessed 2026",
+      "supports": [
+        "Municipality, district and neighbourhood demographics, housing, businesses, vehicles, access distances and area values used by the generated bundle.",
+        "Municipality totals of 163,298 residents, 73,602 households, 27,982 one-person households, 27,255 residents aged 65+, 72,367 homes, 10,275 non-residential buildings and 24,875 businesses.",
+        "Official zero, null, rounded and disclosure semantics for small-area statistics."
+      ]
+    },
+    {
+      "publisher": "PDOK / Centraal Bureau voor de Statistiek",
+      "title": "CBS Gebiedsindelingen 2016 tot heden OGC API",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1?f=html&lang=nl",
+      "accessedAt": "2026-09-02T13:16:49Z",
+      "edition": 2025,
+      "supports": [
+        "Official generalized municipality, district and neighbourhood geometry provenance.",
+        "GM0307 feature identity, centre containment and 145-neighbourhood membership checks."
+      ]
+    },
+    {
+      "publisher": "PDOK / Kadaster",
+      "title": "Basisregistratie Adressen en Gebouwen — woonplaats OGC collection",
+      "url": "https://api.pdok.nl/kadaster/bag/ogc/v2/collections/woonplaats",
+      "accessedAt": "2026-09-02T13:16:49Z",
+      "edition": "daily service; generated bundle retrieved 2026-08-31",
+      "supports": [
+        "Four active BAG woonplaatsen assigned to GM0307: Amersfoort, Hoogland, Hooglanderveen and Stoutenburg Noord.",
+        "All generated representative place centres pass current generalized-boundary containment checks."
+      ]
+    },
+    {
+      "publisher": "PDOK / Kadaster",
+      "title": "BRT TOP10NL plaats_multivlak OGC collection",
+      "url": "https://api.pdok.nl/kadaster/brt-top10nl/ogc/v1/collections/plaats_multivlak",
+      "accessedAt": "2026-09-02T13:16:49Z",
+      "edition": "source date 2025-07-01",
+      "supports": [
+        "Six generated settlement features: three buurtschappen, one deelkern and two woonkernen.",
+        "Settlement population is a descriptive TOP10NL attribute with a different ontology and reference basis from CBS municipal population."
+      ]
+    },
+    {
+      "publisher": "PDOK / Centraal Bureau voor de Statistiek",
+      "title": "Veiligheidsregio gegeneraliseerd 2025",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/veiligheidsregio_gegeneraliseerd",
+      "accessedAt": "2026-09-02T13:16:49Z",
+      "edition": 2025,
+      "supports": [
+        "GM0307 intersects safety region Utrecht used by the application.",
+        "The product is official response geography, not an asset, staffing or dispatch-capacity dataset."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / PDOK",
+      "title": "Nationaal Wegenbestand wegen WFS and NWB-light geometry",
+      "url": "https://service.pdok.nl/rws/nationaal-wegenbestand-wegen/wfs/v1_0?service=WFS&version=2.0.0&request=GetCapabilities",
+      "accessedAt": "2026-09-02T13:16:49Z",
+      "edition": "NWB-light 2026-08-01",
+      "supports": [
+        "Road provenance for ten generated A1, A28, N199, N227, N237 and N226 logical municipality links.",
+        "Road identity and crossings do not establish emergency throughput or physical power, water, drainage, gas, telecom, facility or supply topology."
+      ]
+    },
+    {
+      "publisher": "ProRail / PDOK",
+      "title": "ProRail stations OGC API",
+      "url": "https://api.pdok.nl/prorail/spoorwegen/ogc/v1/collections/station",
+      "accessedAt": "2026-09-02T13:16:49Z",
+      "edition": 2026,
+      "supports": [
+        "Four generated station geometries fall inside GM0307: Amersfoort Centraal, Schothorst, Vathorst and Hoevelaken.",
+        "Station geometry does not by itself establish service, ridership, evacuation capacity or disruption state."
+      ]
+    },
+    {
+      "publisher": "OVapi / NDOV-derived national GTFS",
+      "title": "National Netherlands GTFS archive used by the generated transit bundle",
+      "url": "https://gtfs.ovapi.nl/nl/gtfs-nl.zip",
+      "accessedAt": "2026-09-02T13:16:49Z",
+      "edition": "retrieved 2026-08-31; source last modified 2026-08-30",
+      "supports": [
+        "Provenance for 196 generated scheduled-transit stop areas inside GM0307.",
+        "Best-effort schedule context only, without ridership, emergency capacity, current disruption or a public SLA."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Utrecht",
+      "title": "Regionaal Risicoprofiel 2023",
+      "url": "https://vru.nl/documents/4/Regionaal_Risicoprofiel_2023.pdf",
+      "accessedAt": "2026-09-02T13:16:49Z",
+      "edition": 2023,
+      "supports": [
+        "A Grebbedijk breach can create major impact in Amersfoort, Veenendaal, Rhenen and Renswoude and can require large-scale evacuation.",
+        "DierenPark Amersfoort can be affected by nature fire or smoke, with nearby conifer forest increasing rapid-spread potential.",
+        "Regional extreme-weather, nature-fire, cyber and vital-infrastructure cascade relevance, and the explicit omission of earthquakes from the selected regionally relevant threat themes.",
+        "Long-duration incidents and scarce response capacity are material planning concerns; the profile does not calibrate municipality model values."
+      ]
+    },
+    {
+      "publisher": "Gemeente Amersfoort",
+      "title": "Watervisie Amersfoort 2021–2040",
+      "url": "https://www.amersfoort.nl/sites/default/files/Watervisie%20Amersfoort_1.pdf",
+      "accessedAt": "2026-09-02T13:16:49Z",
+      "edition": "2021–2040",
+      "supports": [
+        "Amersfoort is protected by the Eem/Randmeer dike and the Grebbedijk Rhine defence, while residual flood consequences remain relevant.",
+        "Named local waters include the Eem, Valleikanaal, Heiligenbergerbeek and Barneveldsebeek.",
+        "Meander Medisch Centrum was designed water-robust, with raised critical emergency functions and planning for possible multi-day evacuation.",
+        "Flood consequence concerns include people, roads, rail, energy, water, communications and vulnerable facilities."
+      ]
+    },
+    {
+      "publisher": "Gemeente Amersfoort",
+      "title": "Uitgangspunten Klimaatadaptief Bouwen Amersfoort",
+      "url": "https://www.amersfoort.nl/uitgangspunten-klimaatadaptief-bouwen-amersfoort",
+      "accessedAt": "2026-09-02T13:16:49Z",
+      "edition": 2026,
+      "supports": [
+        "Current local planning envelopes include 81 mm in 60 minutes for T=100 and 105 mm for T=250.",
+        "T=100 design allows at most 0.1 m street storage; T=250 requires vital and vulnerable infrastructure and facilities to remain functioning and reachable.",
+        "Parts of Amersfoort have naturally high groundwater and require explicit design treatment."
+      ]
+    },
+    {
+      "publisher": "Provincie Utrecht",
+      "title": "Klimaatstresstesten",
+      "url": "https://www.provincie-utrecht.nl/onderwerpen/energie-en-klimaat/klimaatadaptatie/klimaatstresstesten",
+      "accessedAt": "2026-09-02T13:16:49Z",
+      "edition": "updated 2026-07-30",
+      "supports": [
+        "Current provincial maps distinguish drought, extreme precipitation, heat and flooding and include infrastructure impacts.",
+        "The province points to the Vallei en Veluwe climate atlas for locally relevant spatial evidence."
+      ]
+    },
+    {
+      "publisher": "Gemeente Amersfoort",
+      "title": "Beheerplan Waterwingebied Amersfoort",
+      "url": "https://www.amersfoort.nl/sites/default/files/2025-03/beheerplan-waterwingebied-amersfoort.pdf",
+      "accessedAt": "2026-09-02T13:16:49Z",
+      "edition": 2025,
+      "supports": [
+        "The municipal heat map shows Waterwingebied's green area roughly 10 °C cooler than surrounding urban neighbourhoods.",
+        "The Hoefkwartier growth context and cooling role demonstrate a spatial heat mechanism absent from a municipality scalar plus shared seed."
+      ]
+    },
+    {
+      "publisher": "Gemeente Amersfoort",
+      "title": "Plan van aanpak Binnenstad, Kruiskamp en De Koppel 2022–2023",
+      "url": "https://www.amersfoort.nl/sites/default/files/Plan%20van%20aanpak%20Binnenstad%20Kruiskamp%20en%20De%20Koppel%202022-2023_1.pdf",
+      "accessedAt": "2026-09-02T13:16:49Z",
+      "edition": "2022–2023",
+      "supports": [
+        "Kruiskamp and De Koppel have elevated heat stress associated with hard surfaces.",
+        "Local rain and heat exposure vary by neighbourhood and mechanism rather than one common deterministic rank."
+      ]
+    },
+    {
+      "publisher": "Gemeente Amersfoort",
+      "title": "Appartementengebouwen Lichtpenweg 6 — ruimtelijke onderbouwing",
+      "url": "https://www.amersfoort.nl/ro-online/NL.IMRO.0307.OV00052-0301/t_NL.IMRO.0307.OV00052-0301.html",
+      "accessedAt": "2026-09-02T13:16:49Z",
+      "edition": null,
+      "supports": [
+        "Documented rainwater problems include the Geintunnel at Station Schothorst, the Liendertseweg underpass and Modemweg.",
+        "De Hoef's hardened surface and heat context provide local features absent from the synthetic neighbourhood pattern."
+      ]
+    },
+    {
+      "publisher": "Provincie Utrecht",
+      "title": "Hoofdcompartimentering Utrechtse Heuvelrug — rapport Borgman",
+      "url": "https://www.stateninformatie.provincie-utrecht.nl/Documenten/2-Rapport-Borgman-Hoofdcompartimentering.pdf",
+      "accessedAt": "2026-09-02T13:16:49Z",
+      "edition": null,
+      "supports": [
+        "Nature-fire compartment planning covers the Heuvelrug between Hilversum and Amersfoort.",
+        "Forest, heath and conifer vegetation and fire-management compartments are spatial controls missing from isotropic fire distance."
+      ]
+    },
+    {
+      "publisher": "Koninklijk Nederlands Meteorologisch Instituut (KNMI)",
+      "title": "Natuurbranden",
+      "url": "https://www.knmi.nl/kennis-en-datacentrum/uitleg/natuurbranden",
+      "accessedAt": "2026-09-02T13:16:49Z",
+      "edition": 2026,
+      "supports": [
+        "Physical nature-fire development requires weather, burnable material and ignition; wind affects drying and spread.",
+        "Basis for treating current direct-fire and smoke outputs as synthetic screening fields rather than local predictions."
+      ]
+    },
+    {
+      "publisher": "Koninklijk Nederlands Meteorologisch Instituut (KNMI)",
+      "title": "KNMI'23-klimaatscenario's voor Nederland",
+      "url": "https://www.knmi.nl/kennis-en-datacentrum/publicatie/knmi-23-klimaatscenario-s-voor-nederland",
+      "accessedAt": "2026-09-02T13:16:49Z",
+      "edition": "KNMI publication 23-03",
+      "supports": [
+        "National planning evidence for heavier precipitation extremes, hotter conditions, drier summers and wetter winters.",
+        "Climate scenarios do not validate the simulator's exact first-72-hour local forcing."
+      ]
+    },
+    {
+      "publisher": "Koninklijk Nederlands Meteorologisch Instituut (KNMI)",
+      "title": "ShakeMaps archive",
+      "url": "https://www.knmi.nl/nederland-nu/seismologie/shakemaps-archief",
+      "accessedAt": "2026-09-02T13:16:49Z",
+      "edition": 2026,
+      "supports": [
+        "Official event-specific ground-motion maps combine observations with a Ground Motion Prediction Equation.",
+        "Evidence standard absent from the fixed-centre exponential earthquake sensitivity field."
+      ]
+    },
+    {
+      "publisher": "Informatiepunt Leefomgeving / Rijkswaterstaat",
+      "title": "Landelijk Informatiesysteem Water en Overstromingen (LIWO)",
+      "url": "https://iplo.nl/thema/water/applicaties-modellen/berichtgeving-crisismanagement/liwo/",
+      "accessedAt": "2026-09-02T13:16:49Z",
+      "edition": "current application version 2025.1.6",
+      "supports": [
+        "LIWO provides professional flood and water-nuisance scenario layers requiring specialist interpretation.",
+        "Named scenario geometry, mechanism, arrival, depth semantics and provenance are required before making local hydraulic claims."
+      ]
+    },
+    {
+      "publisher": "Waterschap Vallei en Veluwe",
+      "title": "Rioolwater zuiveren",
+      "url": "https://www.vallei-veluwe.nl/wat-doen-wij/werken-aan-schoon-water/rioolwater-zuiveren/",
+      "accessedAt": "2026-09-02T13:16:49Z",
+      "edition": 2026,
+      "supports": [
+        "Amersfoort is one of the waterboard's sixteen publicly listed wastewater-treatment locations.",
+        "The page does not disclose local sewer catchment, live plant state, redundancy, backup or restoration topology."
+      ]
+    },
+    {
+      "publisher": "Stedin",
+      "title": "Hoogspanningsstation Amersfoort Bovenduist",
+      "url": "https://www.stedin.net/over-stedin/wat-doet-stedin/projecten-in-uw-regio/hoogspanningsstation-amersfoort-bovenduist",
+      "accessedAt": "2026-09-02T13:16:49Z",
+      "edition": 2026,
+      "supports": [
+        "A planned 150/21 kV station with three transformers and 160 MVA additional capacity is intended to serve northern and central Amersfoort areas.",
+        "Forward capacity planning does not reveal current feeder topology, outage probability, switching, backup or disaster restoration."
+      ]
+    },
+    {
+      "publisher": "Vitens",
+      "title": "Oorzaak verontreiniging drinkwater Amersfoort bekend",
+      "url": "https://www.vitens.nl/over-vitens/pers-en-nieuws/nieuws/oorzaak-verontreiniging-drinkwater-amersfoort-bekend",
+      "accessedAt": "2026-09-02T13:16:49Z",
+      "edition": "updated 2026-05-08",
+      "supports": [
+        "Two resolved 2025–2026 boil-water advisories affected the Amersfoort region; the second covered about 85,000 households.",
+        "The likely source was an ageing concrete storage cellar at Hogeweg, which was taken out of service for renovation.",
+        "The historical incident demonstrates dependency relevance but is not a current outage, calibration event or public pipe topology."
+      ]
+    },
+    {
+      "publisher": "Gemeente Amersfoort",
+      "title": "Warmtenetten in Amersfoort",
+      "url": "https://www.amersfoort.nl/warmtenetten-amersfoort",
+      "accessedAt": "2026-09-02T13:16:49Z",
+      "edition": 2026,
+      "supports": [
+        "Existing and developing collective heat networks are a current local service context.",
+        "Public policy information does not supply complete customer counts, pipe topology, isolation sections, backup autonomy or live operating state."
+      ]
+    },
+    {
+      "publisher": "Gemeente Amersfoort",
+      "title": "Biomassa in Amersfoort",
+      "url": "https://www.amersfoort.nl/biomassa-amersfoort",
+      "accessedAt": "2026-09-02T13:16:49Z",
+      "edition": 2026,
+      "supports": [
+        "Two energy installations at De Hoef and Isselt currently deliver heat to local heat networks using biomass with heat pumps and solar energy.",
+        "Heat-source context is absent from the eight-service model and cannot be reconstructed from CBS district-heating nulls."
+      ]
+    },
+    {
+      "publisher": "ProRail",
+      "title": "Amersfoort — vernieuwing in en rond Amersfoort",
+      "url": "https://www.prorail.nl/projecten/amersfoort",
+      "accessedAt": "2026-09-02T13:16:49Z",
+      "edition": "page updated 2025-04-23",
+      "supports": [
+        "Amersfoort is one of the Netherlands' busiest connecting rail points with lines to Amsterdam, Utrecht, Zwolle and Apeldoorn.",
+        "It is an important link between the Randstad and northern/eastern Netherlands and on the European North Sea–Baltic corridor.",
+        "This importance does not establish current train capacity or disruption state."
+      ]
+    },
+    {
+      "publisher": "Gemeente Amersfoort",
+      "title": "Samenvatting collegebesluiten 19 november 2025",
+      "url": "https://www.amersfoort.nl/samenvatting-collegebesluiten-19-november-2025",
+      "accessedAt": "2026-09-02T13:16:49Z",
+      "edition": "published 2025-11-19",
+      "supports": [
+        "The municipality and VRU are studying relocation of fire station Noord toward Olympus/Vathorst as Amersfoort grows.",
+        "Zuiderzeestedenbuurt-Oost and Waddeneilandenbuurt already have insufficient evening, night and weekend coverage according to the current municipal decision summary.",
+        "Public planning context does not provide live crews, vehicles or incident response."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Utrecht",
+      "title": "Brandweerposten",
+      "url": "https://vru.nl/wij-zijn-de-vru/wat-we-doen/onze-brandweer/brandweerposten/",
+      "accessedAt": "2026-09-02T13:16:49Z",
+      "edition": 2026,
+      "supports": [
+        "Public response context lists Amersfoort-Centrum and Amersfoort-Noord fire posts.",
+        "The list is not evidence of current staffing, appliance availability, response time or incident capacity."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Utrecht",
+      "title": "Brandlucht omgeving Amersfoort, Leusden en Hoevelaken",
+      "url": "https://vru.nl/incidenten/brandlucht-omgeving-amersfoort-leusden-en-hoevelaken/",
+      "accessedAt": "2026-09-02T13:16:49Z",
+      "edition": "incident published 2025-04-04",
+      "supports": [
+        "Smoke and fire odour from a nature fire near Ede reached Amersfoort, Leusden and Hoevelaken.",
+        "A remote smoke-only canonical scenario is qualitatively plausible even when direct flame support does not intersect GM0307."
+      ]
+    },
+    {
+      "publisher": "Interprovinciaal Overleg / Risicokaart",
+      "title": "Natuurbranden — ISOR_RK brandbaar natuurgebied WFS",
+      "url": "https://servicespub.risicokaart.nl/geoserver/ISOR_RK/wfs?service=WFS&request=GetCapabilities",
+      "accessedAt": "2026-09-02T13:16:49Z",
+      "edition": "data.overheid.nl metadata updated 2026-02-19",
+      "supports": [
+        "Best currently identified authoritative machine-readable national layer for forest, heath and dune areas where nature fire can arise: ISOR_RK:isor_brandbaar_natuurgebied.",
+        "The data.overheid.nl record declares public-domain reuse and public availability; the metadata should be checked at each ingestion because no fixed refresh cadence is stated.",
+        "Risk-area geometry can replace synthetic fuel eligibility but does not encode ignition, current fuel moisture, wind, access or suppression capacity."
+      ]
+    },
+    {
+      "publisher": "Provincie Utrecht / ArcGIS REST",
+      "title": "Climate-stress image services — pluvial water depth and flood probability/depth",
+      "url": "https://tiledimageservices2.arcgis.com/ckpcQvCimYKbKNW4/arcgis/rest/services/waterdiepte_neerslag_bui_140mm_2_uur/ImageServer",
+      "accessedAt": "2026-09-02T13:16:49Z",
+      "edition": "ArcGIS item 50c1afe1202e47bcb6d6299b2f3bd398 modified 2026-03-12; portal page updated 2026-07-30",
+      "supports": [
+        "Best identified official machine-readable provincial rain-stress raster for water depth after 140 mm in two hours.",
+        "Related public ArcGIS ImageServers provide overstromingsdiepte layers for 1-in-10, 1-in-100 and 1-in-1,000-year classes; source item ids and modification timestamps can be pinned.",
+        "The public ArcGIS item exposes no license metadata and no fixed update cadence, so reuse/redistribution permission must be confirmed and every acquired snapshot versioned before integration."
+      ]
+    },
+    {
+      "publisher": "Provincie Utrecht / ArcGIS REST",
+      "title": "Climate-stress image services — current heat island and 2050 apparent temperature",
+      "url": "https://tiledimageservices2.arcgis.com/ckpcQvCimYKbKNW4/arcgis/rest/services/hitteeiland_huidig__2017_/ImageServer",
+      "accessedAt": "2026-09-02T13:16:49Z",
+      "edition": "ArcGIS item dd1afd0a6ec84ca4afd406060a563cdc modified 2026-03-12; source surface labeled current 2017",
+      "supports": [
+        "Best identified official machine-readable provincial current heat-island raster; a related public ImageServer provides apparent temperature for an extremely hot 2050 high-climate-scenario day.",
+        "The current surface's 2017 reference basis must remain visible and must not be represented as a 2026 observation.",
+        "The public ArcGIS items expose no license metadata and no fixed update cadence, requiring rights confirmation, snapshot pinning and explicit vintage before redistribution or calibration."
+      ]
+    },
+    {
+      "publisher": "PDOK / Kadaster",
+      "title": "BRT TOP10NL terrein_vlak OGC API collection",
+      "url": "https://api.pdok.nl/kadaster/brt-top10nl/ogc/v1/collections/terrein_vlak",
+      "accessedAt": "2026-09-02T13:16:49Z",
+      "edition": "current OGC API; snapshot date must be pinned at acquisition",
+      "supports": [
+        "Authoritative machine-readable terrain polygons suitable for an open, reproducible burnable-land-cover eligibility baseline.",
+        "The OGC API advertises CC BY 4.0; its landing page does not state a fixed refresh cadence, so source metadata and acquisition date must accompany each snapshot.",
+        "Topography is not a fire-fuel model and must be combined with the risk-area and meteorological sources rather than used to infer suppression outcome."
+      ]
+    },
+    {
+      "publisher": "Koninklijk Nederlands Meteorologisch Instituut (KNMI)",
+      "title": "KNMI Data Platform EDR API — near-real-time meteorological observations",
+      "url": "https://api.dataplatform.knmi.nl/edr/v1/docs",
+      "accessedAt": "2026-09-02T13:16:49Z",
+      "edition": "EDR API 1.0.0; ongoing 10-minute observations",
+      "supports": [
+        "Best identified official machine-readable interface for time-stamped temperature, precipitation, wind speed and wind direction observations and for related gridded datasets exposed by the EDR API.",
+        "The near-real-time surface-observation dataset is CC BY 4.0 and reports every ten minutes, with availability a few minutes later; forecast and gridded products have dataset-specific cadence and license metadata.",
+        "Point observations alone do not create a validated local fire-spread or flood field, but they remove the need for a timeless synthetic wind control when a timestamped scenario is requested."
+      ]
+    },
+    {
+      "publisher": "Provincie Utrecht",
+      "title": "Mobiliteitsvisie — evacuatie- en herstelroutes OGC WFS",
+      "url": "https://services.geodata-utrecht.nl/geoserver/v01_1_mobiliteit_mobvis/wfs",
+      "accessedAt": "2026-09-02T13:16:49Z",
+      "edition": "current public service; data.overheid.nl record current in 2026",
+      "supports": [
+        "Best identified authoritative machine-readable provincial layer for evacuation and recovery route context; the same WFS also exposes inter/national and regional nodes, road categorization, OV connections and primary/regional defences.",
+        "The data.overheid.nl record declares public-domain reuse; no fixed update cadence is stated, so metadata and acquisition date must be pinned per build.",
+        "Policy-route geometry is not live accessibility, dispatch time or guaranteed disaster throughput."
+      ]
+    },
+    {
+      "publisher": "Rijksdienst voor Ondernemend Nederland / WarmteAtlas",
+      "title": "Warmtenetten OGC WMS",
+      "url": "https://www.warmteatlas.nl/geoserver/WarmteAtlas/wms",
+      "accessedAt": "2026-09-02T13:16:49Z",
+      "edition": "WarmteNetten layer; cadence not declared in current metadata",
+      "supports": [
+        "Best identified authoritative machine-readable national heat-network context layer, exposed as WMS layer WarmteNetten.",
+        "The data.overheid.nl record declares CC0 1.0, but the source has no stated refresh cadence and may lag current local development, so it must be cross-checked against the municipality's current pages and never treated as complete physical topology.",
+        "A rendered WMS line does not reveal customers, isolation, pressure, temperature regime, backup, outage state or restoration."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM0307, Amersfoort, province Utrecht and safety region Utrecht agree across the manifest, generated bundles and official 2025 products.",
+      "evidenceRefs": [
+        "E01",
+        "E03",
+        "E06"
+      ],
+      "notes": [
+        "Generated feature id, municipal code, regional-bundle identity and name all match GM0307/Amersfoort.",
+        "The generated centre [5.395317323856645, 52.175835219551075] lies inside the official 2025 generalized municipality polygon.",
+        "Boundary and municipality-statistics editions are both 2025; source bundles were retrieved during 2026-08-31 to 2026-09-02."
+      ]
+    },
+    "geography": {
+      "status": "pass",
+      "summary": "The municipality centre, 145 neighbourhoods and four BAG woonplaats centres pass generated geometry, containment and membership checks.",
+      "evidenceRefs": [
+        "E03",
+        "E04",
+        "E11",
+        "E13"
+      ],
+      "notes": [
+        "No BAG centre-outside-generalized-boundary review flag is present for GM0307.",
+        "Administrative polygons do not encode Eem/Valleikanaal/brook catchments, dikes, elevation, soils, groundwater, urban sealing, heat, forest fuel or emergency access.",
+        "Those missing physical layers are model-calibration limitations, not defects in the official boundary."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "The generated municipal record reproduces official 2025 totals and neighbourhood counts reconcile within expected CBS small-area rounding.",
+      "evidenceRefs": [
+        "E01",
+        "E02"
+      ],
+      "notes": [
+        "Official/generated population is 163,298, density is 2,613/km², age 65+ is 27,255 or 16.7%, and one-person households total 27,982.",
+        "Published neighbourhood population sums to 163,305, seven above the municipality total or +0.004%; neighbourhood households sum to 73,590 and age 65+ to 27,295.",
+        "The local allocator scales published neighbourhood weights back to the exact official municipality population rather than rewriting the CBS records."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "All 145 neighbourhoods and 36 declared fields are structurally retained, but coverage varies and two energy/mobility indicators are wholly unavailable.",
+      "evidenceRefs": [
+        "E02",
+        "E23",
+        "E25",
+        "E26",
+        "E37"
+      ],
+      "notes": [
+        "Core demographics, households, homes, non-residential buildings, businesses, cars and land/water area cover 145/145 neighbourhoods; address density and urbanity cover 144/145.",
+        "Average home value covers 131/145; household size, density and doctor/supermarket distance 137/145; cars per household 121/145; social fields 133/145; housing type/tenure 132/145.",
+        "District-heating percentage and public charging points cover 0/145 and remain null, not zero. Public sources independently establish heat networks, but do not supply a complete compatible neighbourhood connection dataset.",
+        "De Baken is the largest published neighbourhood at 3,495 residents. Seven neighbourhoods have an official zero-resident value; six contain non-residential buildings or businesses and receive activity-aware service demand, while Vathorst-Bovenduist contains neither and remains zero."
+      ]
+    },
+    "settlements": {
+      "status": "warn",
+      "summary": "Four BAG woonplaatsen and six BRT settlements are source-valid, non-equivalent spatial concepts whose population attributes must not be forced to the CBS total.",
+      "evidenceRefs": [
+        "E04",
+        "E05"
+      ],
+      "notes": [
+        "The BRT set contains Coelhorst, Stoutenburg Noord and Zeldert as buurtschappen, Hooglanderveen as a deelkern, and Amersfoort and Hoogland as woonkernen.",
+        "TOP10NL descriptive settlement populations total 167,090, 3,792 above the CBS municipal total or +2.32%; differing geometry, ontology and reference basis make this context rather than a reconciliation target.",
+        "Settlement population is not used as current occupancy, evacuation demand or local service allocation."
+      ]
+    },
+    "transport": {
+      "status": "warn",
+      "summary": "Ten signed NWB links, four ProRail stations and 196 GTFS stop areas are coherent, but rail/transit are display context while service transfer uses only road-derived logical proxies.",
+      "evidenceRefs": [
+        "E07",
+        "E08",
+        "E09",
+        "E27"
+      ],
+      "notes": [
+        "Generated links connect six unique neighbours: Baarn, Leusden, Nijkerk, Barneveld, Bunschoten and Soest via five A1/A28 trunk records at nominal 260 and five N199/N227/N237/N226 regional records at nominal 150.",
+        "The four station points and 196 scheduled stop areas are visible context; neither enters the mobility/supply solver, evacuation calculation or emergency throughput.",
+        "ProRail identifies Amersfoort as a busy four-direction national and international rail junction, so a road-only transfer state materially under-represents modal continuity and disruption.",
+        "Nominal route capacities are synthetic transfer units, not vehicles per hour, emergency lane capacity or an operator commitment."
+      ]
+    },
+    "emergencyContext": {
+      "status": "warn",
+      "summary": "Primary sources establish specific local water, fire, health, rail, electricity, drinking-water and heat context, but the simulator has no verified response-asset inventory or operator restoration topology.",
+      "evidenceRefs": [
+        "E10",
+        "E11",
+        "E22",
+        "E23",
+        "E24",
+        "E25",
+        "E26",
+        "E27",
+        "E28",
+        "E29",
+        "E36",
+        "E37"
+      ],
+      "notes": [
+        "The public context names Meander Medisch Centrum's water-robust design, an Amersfoort RWZI, planned Bovenduist electricity capacity, the Hogeweg water storage incident, two heat-generation sites and two fire posts with northern coverage concerns. None is represented as a typed operational asset.",
+        "All official neighbourhoods intentionally remain neutral priority 2 with isHub=false. That avoids unsupported triage but cannot represent the current named response-coverage gap or facility continuity.",
+        "Public sources do not provide current crews/appliances, dispatch state, feeder/pipe/sewer/heat topology, pressure zones, switching, backup autonomy, household stocks, train/bus capacity, restoration priority or repair timelines."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "The current build completed all ten canonical presets at T+0/6/12/24/48/72 across all eight essential services without missing or non-finite output.",
+      "evidenceRefs": [
+        "E10",
+        "E11",
+        "E17",
+        "E18",
+        "E19",
+        "E20",
+        "E21",
+        "E24",
+        "E28"
+      ],
+      "notes": [
+        "Reproduction: MUNICIPALITY_AUDIT_CODE=GM0307 pnpm audit:model; one file and two tests passed in 27.20 seconds on 2026-09-02. The current national gate is also recorded green for 342 municipalities × 10 scenarios × 6 checkpoints × 8 services.",
+        "At audited checkpoints, severe storm reaches 40.899916 mm/h rain, 23.255829 m/s wind and 0.315103 internal inundation stress; pluvial reaches 77.147947 mm/h and 0.506416; river reaches 0.756090; coastal direct flood is zero with wind up to 20.718227 m/s; heat reaches 33.679709 °C and 0.487413 drought stress; winter reaches −9.257466 °C, 27.491912 m/s wind, 4.681446 cm/h snow, 0.781370 ice and 0.685945 cold stress; cyber disruption reaches 0.446977; earthquake reaches 0.006309 g; wildfire has zero direct flame with 0.448844 smoke and 0.614830 drought; and compound reaches 55.715903 mm/h rain, 0.523543 internal inundation stress, 31.680249 m/s wind and 0.392132 cyber disruption.",
+        "Maximum modeled affected population by preset is severe storm 42,041; pluvial 31,274; river 58,476; coastal 0; heat 11,128; winter 58,534; cyber 51,297; earthquake 0; wildfire 5,840; and compound 111,139.",
+        "T+72 event-attributable deprived person-hours are severe storm 2,015,596; pluvial 1,644,408; river 3,099,323; coastal 749,487; heat 1,037,183; winter 2,566,822; cyber 2,081,223; earthquake 120,185; wildfire 947,256; and compound 6,150,135. These are synthetic pressure integrals, not observed human deprivation."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Determinism, bounds, exact no-event behavior, activity-aware local allocation, transfer reconciliation, causal-ledger closure and selected-layer invariance pass.",
+      "evidenceRefs": [],
+      "notes": [
+        "Every service availability stays in [0,1]; event dimensions, demand, delivery, affected population and event-attributable person-hours are non-negative; current severity does not exceed peak severity; cumulative event-attributable ledgers are monotonic.",
+        "At compound T+24, each of all eight service details contains 145 neighbourhood rows summing to official population 163,298 and affected population 110,459. Maximum absolute delivery/inbound reconciliation error is 5.684×10⁻14.",
+        "At compound T+24 municipal demand/delivery is power 173.6660/69.5811, water 125.5649/47.6736, drainage 95.7452/28.8223, gas 153.0618/86.0978, telecom 77.3699/13.1908, mobility 120.8905/51.9727, facilities 73.2188/24.1496 and supply 95.5080/46.0695; each local service sum exactly closes to its municipal total within floating-point tolerance.",
+        "For every preset and checkpoint, intensity zero returns exactly zero physical event dimensions, current/peak event severity, affected population and event-attributable person-hours; ambient seasonal temperature remains separate context.",
+        "Changing the selected public layer does not change physical neighbourhood hazard, municipality hazard, system pressure or affected population."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "Finite hazard screens work, but one shared seeded neighbourhood rank is reused across pluvial, river, heat and wildfire despite different documented local mechanisms.",
+      "evidenceRefs": [
+        "E10",
+        "E11",
+        "E12",
+        "E13",
+        "E14",
+        "E15",
+        "E16",
+        "E17",
+        "E18",
+        "E21",
+        "E30",
+        "E31",
+        "E32",
+        "E33",
+        "E34",
+        "E35"
+      ],
+      "notes": [
+        "Focused local-detail output at pluvial T+12, river T+24, heat T+12 and wildfire T+24 has the exact same top ten ordering. The first five are Piet Mondriaanlaan e.o., Stadstuin, Kruiskamp-Noord, Klein Zwitserland-Laag and Woudzoom e.o.; the next five are Hoefkwartier, Isselt-Oost, Vermeerkwartier-Oost, Regentesselaan e.o. and Groote Kreek e.o.",
+        "Code inspection shows every canonical preset uses seed 20260831 and local hazardSeverity equals the municipal hazard scalar multiplied by 0.82 + a region-id seeded value × 0.36. No hazard type, local exposure raster, catchment, cooling area, fuel or wind field changes that ordering.",
+        "Official evidence differentiates Eem/Randmeer and Grebbedijk flood pathways, pluvial/groundwater hotspots, roughly 10 °C cooling around Waterwingebied, hardened neighbourhood heat, and forest/conifer fire mechanisms. A common order cannot be interpreted as a sourced local hazard map.",
+        "The canonical wildfire ignition is 24.188807 km from the municipality centre, outside the 18 km direct-flame support, and produces zero direct flame but credible remote smoke. Moving the editable ignition to the municipality centre yields direct fire 0.772008, smoke 0.544673, drought 0.614830 and 27,342 affected at T+24, but still uses no fuel, land cover, wind direction, barriers, access or suppression data."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "warn",
+      "summary": "All eight service cascades execute with distinct coefficients, but every service shares road-derived logical transfers and aggregate demand rather than operator networks or emergency assets.",
+      "evidenceRefs": [
+        "E07",
+        "E11",
+        "E22",
+        "E23",
+        "E24",
+        "E25",
+        "E26",
+        "E27",
+        "E28",
+        "E29",
+        "E36",
+        "E37"
+      ],
+      "notes": [
+        "System-pressure weights cover power, water, drainage, gas, telecom, mobility, facilities and supply and sum to one; direct and dependency coefficients remain service-specific.",
+        "Compound minimum service availability reaches 0.169609 and all eight local allocations close, but values are scenario pressure, not Stedin, Vitens, waterboard, gas, telecom, facility, rail or logistics predictions.",
+        "The same ten NWB municipality-pair links are reused for all services with transferSemantics=logical-proxy. Four stations and 196 transit stop areas are not service graph edges.",
+        "The eight-service taxonomy has no collective-heat service despite current local heat networks. CBS districtHeatingPct is null for all neighbourhoods, and public pages do not justify inventing complete connections or topology.",
+        "Meander, RWZI, Hogeweg storage, heat plants and fire posts are absent as typed assets; public evidence is insufficient to assign capacity, fragility, backup or restoration state."
+      ]
+    },
+    "causalTrace": {
+      "status": "pass",
+      "summary": "Hazard, direct-service, dependency, intervention, network, allocation and reconciliation causes remain deterministic and inspectable with safe proxy labels.",
+      "evidenceRefs": [
+        "E07",
+        "E10",
+        "E11",
+        "E21",
+        "E27",
+        "E28",
+        "E29"
+      ],
+      "notes": [
+        "The harness verifies changed-driver explanations, hazard/service/system ledger closure, matched zero-intensity event-attributable accounting and deterministic repeated frames.",
+        "All official neighbourhoods have neutral priority and isHub=false; there are no synthetic local links. Every intermunicipal link identifies logical-proxy semantics rather than claiming a physical utility connection.",
+        "A clean headless Chromium run selected Amersfoort, river T+72 and the hazard layer without console or same-origin response errors. The inspector rendered GM0307, municipality and Veiligheidsregio Utrecht context, 50% normalized inundation stress and a CBS-neighbourhood drilldown to Queekhoven e.o.",
+        "The live wildfire T+24 view rendered 0% direct fire, 61% drought and 45% smoke, which safely distinguishes the remote-smoke case. UI semantics do not validate the synthetic spatial ordering."
+      ]
+    },
+    "recovery72h": {
+      "status": "pass",
+      "summary": "The sustained-water and standing-water access guards prevent generic recovery through T+72 in the canonical river and compound runs.",
+      "evidenceRefs": [
+        "E10",
+        "E11",
+        "E12",
+        "E21"
+      ],
+      "notes": [
+        "River internal flood stress remains 0.756090 at T+72, affected population remains 58,476 and recoveryProgress is exactly zero for power, water, drainage, gas, telecom, mobility, facilities and supply.",
+        "Compound internal flood stress remains 0.523543 and cyber disruption 0.051001 at T+72; affected population is 111,139 and all eight recoveryProgress values are zero.",
+        "The standing-water threshold is a conservative access screen, not a local asset-damage, recession or repair-time calibration. The river value comes from simplified proximity rather than named Grebbedijk/Eem/LIWO hydraulics.",
+        "The first 72 hours do not cover prolonged evacuation, displacement, public-health consequences, environmental effects, reconstruction or long-duration service recovery."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [
+      0,
+      6,
+      12,
+      24,
+      48,
+      72
+    ],
+    "services": [
+      "power",
+      "water",
+      "drainage",
+      "gas",
+      "telecom",
+      "mobility",
+      "facilities",
+      "supply"
+    ]
+  },
+  "findings": [
+    {
+      "id": "GM0307-SPATIAL-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Unrelated hazards reuse one exact seeded neighbourhood ranking instead of mechanism-specific Amersfoort exposure.",
+      "evidence": "At representative active checkpoints for pluvial, river, heat and wildfire, the exact same ten neighbourhoods appear in the same order, led by Piet Mondriaanlaan e.o., Stadstuin, Kruiskamp-Noord, Klein Zwitserland-Laag and Woudzoom e.o. Code inspection traces this to the same canonical scenario seed 20260831 and one region-id multiplier applied to municipal hazard severity; hazard type does not enter the local spatial seed. E10–E17 establish different local mechanisms: named dike systems and waters, specific pluvial/groundwater issues, Waterwingebied cooling and Heuvelrug forest/conifer fire conditions. The repeated order is deterministic but not physically or empirically supported.",
+      "action": "Replace the common local hazard multiplier with versioned mechanism-specific spatial adapters: named LIWO/waterboard flood scenarios; licensed rain/groundwater stress surfaces; heat/green/cooling layers; and burnable-land-cover plus wind-aware fire/plume context. Until then, label neighbourhood ordering as synthetic and do not imply hotspot accuracy. Add a fixture asserting that physically distinct Amersfoort hazard templates do not share the same full rank unless source data genuinely produces it."
+    },
+    {
+      "id": "GM0307-FLOOD-001",
+      "severity": "medium",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Major-river relevance is real, but the persistent flood field is not a named Eem/Randmeer or Grebbedijk hydraulic scenario.",
+      "evidence": "The canonical river run holds internal flood stress at 0.756090 from T+12 through T+72, reaches 58,476 affected people-equivalent and 3,099,323 event-attributable deprived person-hours. E10 explicitly says a Grebbedijk breach can affect Amersfoort, and E11 identifies both the Eem/Randmeer dike and Grebbedijk protection, so direct relevance must not be removed. However, model inspection derives the value from finite distance to three simplified major-river lines and municipal/seed factors, without named breach, dike, terrain, arrival, compartment, defence state or LIWO grid. Direct open-coast flood is zero, which is plausible for inland Amersfoort but does not cover Randmeer storm or river pathways.",
+      "action": "Keep Amersfoort eligible for a clearly named Grebbedijk scenario and separately represent Eem/Randmeer pathways, but replace the generic value with current versioned LIWO/waterboard intersections carrying mechanism, breach/scenario id, probability/context, arrival, resolution and depth/stress semantics. Preserve normalized stress presentation unless a selected official layer supports physical depth."
+    },
+    {
+      "id": "GM0307-PLUVIAL-001",
+      "severity": "medium",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Plausible rain forcing is not connected to documented local surface-water, underpass or groundwater hotspots.",
+      "evidence": "Canonical pluvial forcing reaches 77.147947 mm/h and internal flood stress 0.506416; this magnitude is within the municipality's current planning envelope of 81 mm/60 min for T=100 (E12), but that does not validate scenario probability or local water depth. E12, E15 and E16 document high-groundwater areas, hardened neighbourhoods and specific issues at the Geintunnel/Station Schothorst, Liendertseweg underpass and Modemweg. None drives the 145-neighbourhood field, which retains the same rank as heat, river and wildfire.",
+      "action": "Intersect a current licensed municipal/provincial/waterboard rain-stress and groundwater layer with neighbourhood and transport geometry, including underpass and critical-access thresholds. Expose rain duration, return-period/planning context, surface/sewer/groundwater mechanism and coverage; keep the current seeded field only as an explicitly synthetic fallback."
+    },
+    {
+      "id": "GM0307-FIRE-001",
+      "severity": "medium",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The remote wildfire case separates smoke from flame, but a local case lacks Heuvelrug fuel, wind and access controls.",
+      "evidence": "The canonical ignition is 24.188807 km from the centre, beyond the 18 km direct-fire support, and returns zero direct flame with smoke 0.448844 and drought 0.614830. E30 documents real smoke from an Ede nature fire reaching Amersfoort, so remote smoke is qualitatively plausible. A centre ignition activates direct fire 0.772008 and 27,342 affected at T+24, proving editability, but E10, E17 and E18 show that DierenPark Amersfoort, nearby conifer/forest land, fuel, wind and compartment/access conditions matter; none enters the isotropic field.",
+      "action": "Add a named Heuvelrug/DierenPark Amersfoort nature-fire template using open burnable land cover, ignition and time-stamped wind-aware spread/plume inputs. Preserve finite direct support and distinct flame/smoke labels; keep access, suppression, evacuation and firefighting capacity unknown unless VRU-approved data supports them."
+    },
+    {
+      "id": "GM0307-EMERG-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "open",
+      "summary": "Known public fire-post and current northern response-coverage context is absent from facilities and local priority state.",
+      "evidence": "E29 lists Amersfoort-Centrum and Amersfoort-Noord. E28 says Noord is being considered for relocation toward Olympus/Vathorst and that Zuiderzeestedenbuurt-Oost and Waddeneilandenbuurt already have insufficient evening, night and weekend coverage. The model has no typed post, response-area, time-dependent coverage or relocation context and gives every official neighbourhood neutral priority with no hub. Neutrality avoids fabricated dispatch but cannot expose this known planning constraint.",
+      "action": "Add source-dated public fire-post and aggregate coverage overlays as context without assigning live crews, vehicles, route availability, response time or capacity. Display named current coverage concerns and planned relocation status separately from simulated facilities availability; leave operational status explicitly unknown."
+    },
+    {
+      "id": "GM0307-RAIL-001",
+      "severity": "medium",
+      "category": "network",
+      "status": "open",
+      "summary": "A nationally important four-direction rail junction is visual context only and cannot affect mobility or supply continuity.",
+      "evidence": "The generated bundle contains four station points and 196 scheduled stop areas. E27 identifies Amersfoort as one of the busiest Dutch connecting points, linking Amsterdam, Utrecht, Zwolle and Apeldoorn and the North Sea–Baltic corridor. Yet mobility and supply transfers use only the ten NWB logical road links; no rail corridor, station interchange, service availability, bus substitution or modal dependency enters the state. Map presence can therefore be mistaken for modeled continuity.",
+      "action": "Add a typed public rail-corridor/station-interchange context layer and make modeled versus display-only modes explicit. Ingest only source-dated aggregate disruption/capacity states approved for scenario use; do not infer evacuation throughput, train loading, freight capacity or current service from station geometry or static GTFS."
+    },
+    {
+      "id": "GM0307-HEATNET-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "open",
+      "summary": "Existing collective heat networks and two heat-generation sites are outside the eight-service dependency model.",
+      "evidence": "CBS districtHeatingPct is null for all 145 neighbourhoods, correctly preserved as unknown rather than zero. Nevertheless E25 and E26 establish current heat-network development and two installations at De Hoef and Isselt supplying heat through biomass, heat pumps and solar energy. The service taxonomy covers power, water, drainage, gas, telecom, mobility, facilities and supply but not collective heat, so winter and compound continuity omit a locally real dependency. Public pages do not supply complete connections or physical network topology.",
+      "action": "Add a clearly scoped collective-heat context/service only when source-compatible coverage and approved aggregate dependency data are available. Until then, state that heat networks are unmodeled and never infer zero connections from CBS nulls or fabricate pipes, connected customers, isolation, backup, fuel stocks or restoration time."
+    },
+    {
+      "id": "GM0307-NET-001",
+      "severity": "medium",
+      "category": "network",
+      "status": "accepted-limitation",
+      "summary": "All eight essential services share NWB-derived logical corridors rather than physical operator networks.",
+      "evidence": "The same ten road links carry power, water, drainage, gas, telecom, mobility, facilities and supply in synthetic transfer units. E22–E26 establish wastewater, electricity, drinking-water and heat context but do not disclose complete feeders, pipes, valves, sewer catchments, switching, backhaul, reserve power, customer criticality or restoration priorities. Current output correctly declares transferSemantics=logical-proxy.",
+      "action": "Retain logical-transfer-proxy wording in every map, legend, inspector, brief and export. Never depict these edges as Stedin, Vitens, waterboard, gas, heat or telecom assets; use only operator-authorized, security-reviewed aggregate topology for future physical modeling."
+    },
+    {
+      "id": "GM0307-MET-001",
+      "severity": "medium",
+      "category": "limitation",
+      "status": "accepted-limitation",
+      "summary": "Storm, heat/drought, winter weather and cyber are relevant directions, but exact GM0307 trajectories are uncalibrated analytic scenarios.",
+      "evidence": "E10 prioritizes extreme weather, digital/vital-infrastructure disruption and cascading effects; E12–E18 provide planning and mechanism context. The model's 40.899916 mm/h storm rain, 33.679709 °C heat, −9.257466 °C winter minimum, 27.491912 m/s winter wind, 4.681446 cm/h snow and 0.446977 cyber disruption are deterministic analytic values, not time-stamped KNMI observations, forecasts, municipal stress grids, operator incident envelopes or current threat intelligence.",
+      "action": "Keep scenario/not-forecast labeling and expose forcing provenance and uncertainty. Use time-stamped KNMI grids, local climate-stress layers and approved anonymized operator envelopes before treating exact values or recovery curves as locally calibrated."
+    },
+    {
+      "id": "GM0307-EQ-001",
+      "severity": "low",
+      "category": "hazard",
+      "status": "accepted-limitation",
+      "summary": "The bounded remote earthquake sensitivity is not an event- or site-calibrated Amersfoort ground-motion estimate.",
+      "evidence": "The fixed Groningen-centred case reaches 0.006309 g, zero affected population and 120,185 event-attributable deprived person-hours by T+72. E10 explicitly omits earthquake from the selected regionally relevant threat themes, while E20 shows that official ShakeMaps combine measurements with a Ground Motion Prediction Equation. The generic field has no named magnitude, focal mechanism, event grid, site/soil response or uncertainty, and six-hour reporting can miss an impulse.",
+      "action": "Treat the result as remote sensitivity only. Require a named event/source and KNMI-compatible ShakeMap or validated GMPE/site-response grid before presenting exact local g or service consequences as physical evidence."
+    },
+    {
+      "id": "GM0307-ZERO-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "Shared correction verified locally: intensity zero is an exact no-event counterfactual for every preset and checkpoint.",
+      "evidence": "Focused replay of all ten canonical presets at T+0/6/12/24/48/72 with intensity=0 returns every physical event dimension, current/peak event severity, affected population and event-attributable deprived person-hours exactly zero for GM0307. Ambient seasonal temperature remains visible without being attributed to the event. This verifies the current zero-intensity and event-gated winter contracts.",
+      "action": "Retain the all-preset zero-intensity and before/after-envelope invariants in focused and national release gates."
+    },
+    {
+      "id": "GM0307-ACTIVITY-001",
+      "severity": "informational",
+      "category": "service",
+      "status": "fixed",
+      "summary": "Activity-aware demand preserves six official zero-resident business areas without inventing residential population.",
+      "evidence": "Seven GM0307 neighbourhoods have official population zero. Spooremplacement, Sportpark Zielhorst, De Hoef-Oost, Bedrijventerrein Vathorst-Zuid, Noord and Olympus contain published non-residential buildings or businesses and receive positive demand across all eight services while retaining zero population; Vathorst-Bovenduist has no recorded activity proxy and stays at zero. Local demand and delivery still reconcile exactly.",
+      "action": "Retain activity-aware zero-resident fixtures and source-null semantics. Do not convert business/non-residential proxies into residents, current occupancy, critical-facility status or emergency priority."
+    },
+    {
+      "id": "GM0307-REC-001",
+      "severity": "informational",
+      "category": "service",
+      "status": "fixed",
+      "summary": "Shared sustained-flood and standing-water guards correctly block generic repair through T+72.",
+      "evidence": "River internal flood stress remains 0.756090 and compound remains 0.523543 at T+72; recoveryProgress is exactly zero for all eight services in both cases. This verifies sustained-forcing and standing-water access safeguards locally and prevents optimistic generic repair. It does not validate either flood footprint or the threshold as local hydraulics.",
+      "action": "Retain forcing- and standing-water-gated recovery tests, then calibrate recession, access, asset damage and repair only against named local scenarios and approved operator envelopes."
+    },
+    {
+      "id": "GM0307-FLOOD-SEM-001",
+      "severity": "informational",
+      "category": "ui",
+      "status": "fixed",
+      "summary": "The live UI presents generic flood output as normalized inundation stress rather than unsupported metres.",
+      "evidence": "A clean headless browser run selected Amersfoort, river T+72 and the hazard layer. Inspector and statistics surfaces rendered 50% inundation stress/Flood stress and municipality/Veiligheidsregio Utrecht context; neighbourhood drilldown selected official CBS buurt Queekhoven e.o. No console or same-origin response error was observed. The wildfire view separately showed 0% direct fire, 61% drought and 45% smoke.",
+      "action": "Keep proxy definitions, source fidelity and logical-transfer disclaimers visible in all views and exports; presentation safety must not be used as evidence that the underlying local footprint or ordering is calibrated."
+    },
+    {
+      "id": "GM0307-DATA-001",
+      "severity": "informational",
+      "category": "regional-data",
+      "status": "accepted-limitation",
+      "summary": "CBS nulls, zeros and small aggregate differences are preserved rather than imputed as observations.",
+      "evidence": "E02 and generated context show complete core demographic/activity fields, partial housing, vehicle-ratio, social and access fields, and 0/145 district-heating/public-charging fields. Published neighbourhood population sums seven above the official municipality total, while households and age-band totals differ slightly through independent rounding/disclosure. The allocator closes to municipality totals without rewriting source records.",
+      "action": "Keep null distinct from zero, retain edition and coverage metadata, and do not infer undisclosed small-area values or force rounded source fields to reconcile."
+    },
+    {
+      "id": "GM0307-SET-001",
+      "severity": "informational",
+      "category": "regional-data",
+      "status": "accepted-limitation",
+      "summary": "BAG woonplaatsen and BRT settlements are valid but non-equivalent local geographies.",
+      "evidence": "E04 yields four BAG woonplaatsen; E05 yields six settlements across three types whose descriptive populations total 167,090 versus CBS 163,298. Geometry, ontology and reference differences explain the gap and do not establish source corruption, duplication or extra current residents.",
+      "action": "Keep source type, edition, geometry method and ontology visible; never substitute BRT descriptive settlement population for CBS municipal population or emergency occupancy."
+    },
+    {
+      "id": "GM0307-INV-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The current engine closes deterministic, allocation, counterfactual, causal and proxy-semantics contracts for GM0307.",
+      "evidence": "The dedicated model gate passes all 480 service-checkpoint cells plus hazard/network/explanation assertions; repeated frames are deterministic; values are finite/bounded; event-attributable ledgers and local totals close; selected layer cannot alter hazard; all official regions have neutral priority and no synthetic hub/link; activity-bearing zero-resident regions receive demand; and all intermunicipal transfers declare logical-proxy semantics.",
+      "action": "Retain these invariants in focused and national gates while correcting the common neighbourhood hazard rank and local mechanism gaps above."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Replace GM0307's common seeded neighbourhood hazard rank with source-specific local exposure layers and explicit fallback semantics.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "packages/sim-core/src/explainability.test.ts",
+        "apps/web/src/data.ts",
+        "apps/web/public/data/hazards/GM0307-flood-context.geojson",
+        "apps/web/public/data/hazards/GM0307-pluvial-context.geojson",
+        "apps/web/public/data/hazards/GM0307-heat-context.geojson",
+        "apps/web/public/data/hazards/GM0307-nature-fire-context.geojson"
+      ],
+      "validation": "Machine-readable source order: (1) WMCN/Rijkswaterstaat LIWO downloads/layers, current release 2025.1.6 with release-based updates and layer-specific reuse terms, for named Grebbedijk/Eem hydraulic scenarios; (2) Provincie Utrecht public ArcGIS ImageServers for waterdiepte_neerslag_bui_140mm_2_uur, overstromingsdiepte probability classes, hitteeiland_huidig__2017_ and 2050 apparent temperature—items modified 2026-03-12 and portal updated 2026-07-30, but no license or fixed cadence is declared, so confirm reuse and pin item id, modified timestamp and raster vintage; (3) Risicokaart/IPO WFS ISOR_RK:isor_brandbaar_natuurgebied, public domain and metadata updated 2026-02-19, plus PDOK BRT TOP10NL terrein_vlak OGC API, CC BY 4.0 with acquisition-date snapshot, for nature-fire eligibility; and (4) KNMI Data Platform EDR/Open Data APIs, including CC BY 4.0 near-real-time ten-minute wind/weather observations and dataset-specific gridded products. Assert that named flood, rain/groundwater, heat/cooling and Heuvelrug fire/plume fixtures intersect the appropriate GM0307 neighbourhoods and do not reuse an identical full ordering merely because they share a preset seed. Show source, license, edition/vintage, acquisition time, mechanism, scenario id, resolution, coverage and units. Use synthetic fallback only where these sources lack coverage, label it explicitly, and retain deterministic replay, selected-layer invariance and exact zero-intensity behavior; rerun MUNICIPALITY_AUDIT_CODE=GM0307 pnpm audit:model and the national ALL gate."
+    },
+    {
+      "summary": "Represent public Amersfoort emergency, rail and collective-heat context without inventing live capacity or physical topology.",
+      "files": [
+        "apps/web/public/data/facilities/GM0307.geojson",
+        "apps/web/public/data/transport-local/GM0307.geojson",
+        "apps/web/public/data/services/GM0307-heat-context.geojson",
+        "apps/web/src/data.ts",
+        "packages/sim-core/src/types.ts",
+        "apps/web/src/components/MapView.tsx",
+        "apps/web/src/components/Inspector.tsx",
+        "packages/sim-core/src/explainability.test.ts"
+      ],
+      "validation": "Machine-readable source order: (1) ProRail/PDOK station and trace OGC APIs already used by the bundle, CC0 1.0 and snapshotted from the current service at each build, for station/rail geometry; (2) Provincie Utrecht Mobiliteitsvisie OGC WFS layers for evacuatie_en_herstelroutes, OV connections, nodes and defences, public domain with no declared fixed cadence, pinning acquisition metadata; (3) BAG OGC API v2, Public Domain Mark 1.0 and daily/current-service geometry, only to locate facilities whose role is independently confirmed by the responsible authority; and (4) RVO WarmteAtlas WMS WarmteNetten, CC0 1.0 with no declared cadence and therefore cross-checked against current Amersfoort heat pages. No authoritative machine-readable VRU dataset for current Amersfoort posts, coverage, staffing or live operations was found; use the current VRU/municipality pages and published coverage material as source-dated context only, and request a VRU-approved aggregate feed before modelling operations. Add typed public fire-post/coverage, Meander/RWZI, four-direction rail/station interchange and heat-network presence with explicit display-only/modelled status. Assert that machine-readable geometry and policy pages do not fabricate current staffing, vehicles, response times, train/bus throughput, customers, pipes, feeders, backup, priority, outage state or restoration time; use synthetic fallback only for unavailable or security-sensitive topology and keep it visibly logical-proxy."
+    }
+  ],
+  "residualLimitations": [
+    "The ten canonical presets are deterministic synthetic stress tests, not KNMI forecasts, official probabilities, warnings, casualties, current incidents or operator outage predictions.",
+    "No security-sensitive Stedin, Vitens, waterboard, gas, heat, telecom, emergency-service, rail, hospital or logistics topology, switching, valves, pressure zones, customer priority, backup or restoration data is consumed.",
+    "Neighbourhood outputs use aggregate CBS polygons, label points and deterministic allocation; they do not resolve buildings, households, workers, visitors, terrain cells, sewer catchments, roads, rail corridors, forest parcels or actual assets.",
+    "No current LIWO, waterboard, municipal or provincial flood/rain raster is ingested, so generic river, pluvial, storm and compound depth-like values are not hydraulically validated observations.",
+    "Zero direct North Sea coastal flooding is plausible for inland Amersfoort but does not establish safety from Grebbedijk, Eem/Randmeer, regional-water, brook, drainage, groundwater or pluvial mechanisms.",
+    "Wildfire direct support is finite and the epicentre is editable, but fuels, land cover, ignition probability, barriers, wind-aware spread, smoke concentration, access, suppression and evacuation are not modeled.",
+    "Heat uses analytic temperature/drought controls and a shared local seed rather than urban morphology, shade, cooling sites, Waterwingebied, indoor exposure or current vulnerable-person location.",
+    "The earthquake field lacks magnitude, focal mechanism, event grid, site response and local source characterization; six-hour checkpoints can miss a short shaking impulse.",
+    "Cyber disruption is a dimensionless scenario control without threat actor, affected system, defensive posture, incident evidence, dependency boundary or operator recovery playbook.",
+    "Generic preparedness, response delay, backup, generator, repair capacity, transfer capacity and mutual-aid controls are scenario assumptions, not verified local inventories, contracts, dispatch times or commitments.",
+    "Affected population is a thresholded people-equivalent indicator, not persons known to be injured, evacuated or deprived; zero can coexist with non-zero hazard and service pressure.",
+    "Cumulative deprived person-hours are event-attributable model pressure integrals, not observed deprivation, economic loss or welfare impact.",
+    "CBS neighbourhood counts and percentages are rounded and field availability varies; close aggregate differences must not be forced to exact equality where official semantics do not support it.",
+    "BAG, BRT, CBS, NWB, ProRail and GTFS products use different ontologies, geometry generalisation, boundaries, update cycles and reference dates.",
+    "GTFS stop areas and ProRail station geometry are display context only and do not encode vehicles, ridership, operating condition, accessible capacity, evacuation throughput, freight or current disruption.",
+    "Current public electricity-congestion, heat-network, fire-cover and historical boil-advice pages are not outage likelihood, current resource state, physical topology or restoration-time evidence.",
+    "The first-72-hour horizon excludes prolonged evacuation/displacement, environmental and health effects, reconstruction, economic loss and long-duration recovery.",
+    "The VRU profile includes infectious disease, social unrest, hazardous materials, industrial, crowd, health and other emergencies outside the ten canonical presets; scenario coverage is not a complete local risk assessment."
+  ],
+  "provinceReviewFlags": [
+    "Utrecht: replace the common region-id neighbourhood hazard multiplier with versioned mechanism-specific spatial layers and prevent identical local ordering across unrelated flood, heat and fire templates unless source evidence supports it.",
+    "Amersfoort water: keep Grebbedijk, Eem/Randmeer, local brooks, sewer/surface rain, groundwater and open-coast mechanisms distinct; river relevance is confirmed, but generic centroid proximity is not a hydraulic depth or arrival model.",
+    "Amersfoort pluvial: ingest current rain/groundwater stress and critical underpass/access context, including Station Schothorst/Geintunnel, Liendertseweg and Modemweg, before claiming neighbourhood hotspot accuracy.",
+    "Utrecht heat: use green/cooling and built-environment context, including Waterwingebied's measured map contrast and hardened neighbourhoods, instead of the shared all-hazard rank.",
+    "Utrecht nature fire: add a named Heuvelrug/DierenPark Amersfoort case with burnable land, ignition and wind-aware spread/plume context while keeping live suppression and evacuation capacity unknown.",
+    "Amersfoort emergency context: expose current public Centrum/Noord posts and named northern coverage concerns as source-dated context, not proof of staffing, appliance availability, response time or priority.",
+    "Amersfoort mobility: distinguish the four-direction national rail junction and scheduled-transit context from the road-only logical service graph; never infer modal capacity from geometry.",
+    "Amersfoort heat: acknowledge existing collective heat networks and De Hoef/Isselt source sites while CBS neighbourhood coverage remains null and physical connections/topology remain unavailable.",
+    "Shared/national: retain exact zero-intensity, event-gated winter cold, finite direct-fire, activity-aware demand, selected-layer invariance, event-attributable ledgers and standing-water repair-block tests.",
+    "Shared/national: all NWB-derived essential-service flows must remain prominently labeled logical transfer proxies and never be presented as physical electricity, drinking-water, drainage, gas, heat, telecom or facility networks.",
+    "Shared/national: preserve normalized inundation-stress UI semantics for generic screens and require explicit LIWO/source provenance before rendering physical metres.",
+    "Province and safety-region reviewers must not treat grid capacity projects, historical water incidents, heat policy, rail importance, fire-station plans or waterboard facilities as live outage, fragility, staffing, dispatch or restoration evidence.",
+    "Shared/national: treat T+72 as an operational checkpoint and possible transition to prolonged crisis management, not a guaranteed restoration deadline or all-clear."
+  ]
+}

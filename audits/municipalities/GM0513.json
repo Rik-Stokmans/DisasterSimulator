@@ -1,0 +1,447 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0513",
+    "name": "Gouda",
+    "province": "Zuid-Holland",
+    "safetyRegion": "Hollands-Midden"
+  },
+  "agent": {
+    "taskName": "municipality_gm0513",
+    "agentId": "/root/municipality_gm0518",
+    "completedAt": "2026-09-03T02:54:36Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "GM0513's identity, Zuid-Holland and Veiligheidsregio Hollands-Midden assignment, full 2025 PDOK geometry, one BAG place, two BRT settlements and 54-neighbourhood census allocation are coherent. Fresh CBS reports 76,514 residents; neighbourhood rows sum to 76,525 (+11, +0.014%), and the simulator reconciles them exactly without erasing publisher rounding or NoData. All ten canonical presets execute deterministically at T+0/6/12/24/48/72 across Power, Water, Drainage, Gas, Telecom, Mobility, Facilities and Supply; finite bounds, exact-zero intensity, selected-layer invariance and arithmetic reconciliation pass. Release is nevertheless correction-required. Gouda has genuine, defence- and control-dependent flood pathways through the tidal Hollandsche IJssel, Gouwe/boezem, low polders and urban drainage, but the generic river and coast distance screens select no source water, hydrograph, Hollandsche IJsselkering or local defence state, breach/overflow, connected footprint, probability, arrival or recession. They still display 95% inundation stress and drive exact T+24/T+72 service and affected-population values. Eight unrelated hazards reuse one complete neighbourhood order; the municipal climate assessment places Kort Haarlem among the three most climate-vulnerable districts while the model ranks it eighth of nine for both pluvial and heat. Gouda's statutory water plan records 20 drainage areas, 252 km of main sewer, about 90 sewer pumps, about 250 mini-pumps and a common AWZI Gouda destination, whereas the current public snapshot contains eight sewer-pump records and no causal water or drainage graph. Seven NWB links represent only logical Mobility and assumed road-logistics/Supply; rail, waterway, bridge/lock, hospital, mutual-aid and physical utility dependencies remain context. Compound effects freeze all eight service values and affected population from T+24 to T+72 despite declining severity, without actions or resources. Public data are broadly available but must retain publisher, edition/valid time, licence, spatial/temporal resolution, coverage and NoData. Static registers, current observations, official scenarios and synthetic output remain distinct; missing data never mean zero or safe.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek (CBS)",
+      "title": "E01 — Kerncijfers wijken en buurten 2025, table 86165NED, OData API",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM0513%27%29",
+      "accessedAt": "2026-09-03T02:25:00Z",
+      "edition": 2025,
+      "supports": [
+        "The fresh official municipality row identifies GM0513 Gouda and reports 76,514 residents, 37,559 men, 38,955 women, density 4,638 per square kilometre, 15,861 residents aged 65 or older, 35,577 households, 14,212 one-person households and 9,410 business establishments.",
+        "The 54 generated neighbourhood rows sum to 76,525 residents (+11, +0.014%), 15,870 age-65-plus residents and 35,590 households. These small differences are consistent with separately rounded CBS cells and are reconciled without rewriting observations.",
+        "Annual table 86165NED is machine-readable OData under CC BY 4.0; CBS adds data to this annual edition in releases during the year. Null, suppressed, rounded and incomplete fields remain publisher states and never become zero.",
+        "This source is official demographic and vulnerability context plus a municipal allocation control. It is not incident-time presence, evacuation, injury, self-reliance, deprivation, customer connectivity or live service state."
+      ]
+    },
+    {
+      "publisher": "PDOK / CBS / Kadaster / Rijkswaterstaat / ProRail / OVapi",
+      "title": "E02 — Full municipality geometry, settlements, roads, rail and scheduled transit",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_niet_gegeneraliseerd/items/8fdaca6e-c93d-5a58-bcbf-d3c513663d47?f=json",
+      "accessedAt": "2026-09-03T02:27:00Z",
+      "edition": "CBS boundary 2025; current generated BAG, BRT, NWB, ProRail and GTFS reference editions",
+      "supports": [
+        "Fresh full-resolution GM0513 is one MultiPolygon component with one ring, 792 positions and bbox [4.659454559108685, 51.99625804215068, 4.7573298075366965, 52.04011969881707]. Generated centre [4.702791357868737, 52.01472277998127] lies inside.",
+        "The bundle contains 54 neighbourhoods in nine districts, one BAG woonplaats named Gouda and two BRT labels: Gouda as woonkern and Stolwijkersluis as deelkern. Administrative and settlement labels do not establish operational facilities or population-at-time.",
+        "Seven clipped NWB logical edges connect Gouda to Waddinxveen, Zuidplas and Krimpenerwaard through A12, N457, N207, N228 and N451. Three N207 border edges are corridor continuations, not three additive lane or throughput capacities. ProRail registers stations Gouda and Gouda Goverwelle; 95 GTFS stop areas include both stations, Groene Hart Ziekenhuis and Julianasluis.",
+        "Machine routes are the CBS boundary OGC item above, https://api.pdok.nl/kadaster/bag/ogc/v2, https://api.pdok.nl/rws/nationaal-wegenbestand-wegen/ogc/v1, https://api.pdok.nl/prorail/spoorwegen/ogc/v1/collections/station and https://gtfs.ovapi.nl/nl/gtfs-nl.zip. Boundary OGC is half-yearly/CC BY 4.0, BAG daily/Public Domain Mark 1.0, NWB monthly/CC0 1.0 and ProRail geometry CC0 with publisher-dependent refresh; OVapi GTFS is free-use best-effort without an operational SLA.",
+        "These are official register/schedule context. Geometry and schedules do not prove live direction, route passability, train/bus operation, bridge state, occupancy, emergency priority, throughput, utility topology or T+72 restoration."
+      ]
+    },
+    {
+      "publisher": "Gemeente Gouda / Stichting RIONED / Officiële bekendmakingen",
+      "title": "E03 — Water- en Rioleringsprogramma 2024–2028, climate vulnerability and municipal open data",
+      "url": "https://lokaleregelgeving.overheid.nl/CVDR717272",
+      "accessedAt": "2026-09-03T02:31:00Z",
+      "edition": "Water and sewer programme effective 22 March 2024 for 2024–2028; Programma Groen public edition December 2024; live open-data page inspected 3 September 2026",
+      "supports": [
+        "The statutory programme records 20 drainage areas all discharging to AWZI Gouda under Rijnland, 252 km of main sewer of which more than 40% is piled, 35 km of poor-quality permanently water-filled raised sewer, 291 km registered gully pipes but an expected real total above 400 km, about 90 sewer pumps including 13 above 100 cubic metres per hour and about 250 pressure-sewer mini-pumps.",
+        "It identifies limited analysis of daily hydraulic performance and fragmented system insight; older neighbourhood sewers and private/back-garden alignments are material. It treats sewers under main roads, at foundation-sensitive buildings and main discharges as critical, and adopts no-building-water/no-impassable-main-road objectives for 29.4 mm/h and 70 mm/h design cases rather than claiming that current routes are guaranteed passable.",
+        "The official Programma Groen PDF at https://www.gouda.nl/wp-content/uploads/2024/12/Publieksversie-Groen-Gouda-.pdf identifies Binnenstad, Bloemendaal and Kort Haarlem as the three most climate-vulnerable of nine districts for combined heat/water nuisance, and Plaswijck and Westergouwe as the only two at the desired level. It is policy/composite context, not an incident-time raster or observed impact.",
+        "Gouda's open-data page at https://www.gouda.nl/direct-regelen/stad-en-projecten/feiten-over-de-stad/kaarten-en-open-data/ advertises sewerage, roads, bridges, shore protection and polder levels under CC BY-SA 4.0 and warns data may change at any time. On 3 September 2026 its advertised anonymous Klimaatatlas route redirected to login and https://gis.gouda.nl/api/app/Klimaatatlas returned HTTP 401, so no analytical layer was fabricated from it.",
+        "The integration-ready public alternative is RIONED/PDOK GWSW OGC/WMS at https://api.pdok.nl/rioned/waterschappen-waterketen-gwsw/ogc/v1 under CC0 with unspecified refresh and variable contributor completeness. Request Gouda's native GWSW/catchment/asset exports with version, CRS, units, inspection and telemetry time, licence, coverage and explicit NoData before causal use."
+      ]
+    },
+    {
+      "publisher": "Hoogheemraadschap van Rijnland / Hoogheemraadschap van Schieland en de Krimpenerwaard / Het Waterschapshuis",
+      "title": "E04 — Gouda managed-water chain, drought operations and public IMWA/DAMO registers",
+      "url": "https://www.rijnland.net/actueel/nieuwsoverzicht/rijnland-aan-het-werk-in-gouda-2026-2028/",
+      "accessedAt": "2026-09-03T02:34:00Z",
+      "edition": "Rijnland project notice 28 January 2026; drought updates through July 2026; HWH deployment retrieval 3 September 2026",
+      "supports": [
+        "Rijnland's 2026–2028 Gouda programme adds peil separations and a pump at Turfmarkt/Zeugstraat and raises Mallegatsluis gates, explicitly linking subsidence, local level management and high-water protection. A planned or realised project is not current protection performance.",
+        "Rijnland's dated 2026 drought updates at https://www.rijnland.net/actueel/nieuwsoverzicht/droogteseizoen-update-maatregelen-nodig-in-rijnland/ show that salinity and low Rhine inflow can limit intake at Gouda and activate KWA/DKW transfers and additional dry-defence inspections. These are timestamped operational observations/actions from that episode, not an arbitrary scenario or T+72 forecast.",
+        "The 3 September 2026 HWH snapshot assigns 58 point records to the full GM0513 polygon: 25 surface-water pumps, 14 weirs, ten sluices, eight sewer pumps and AWZI Gouda. Managers represented are Rijnland, HHSK, HDSR, generic Waterschap and Unknown; duplicate physical names such as Julianasluis and Waaiersluis across contributors show why records are not an asset count or ready topology.",
+        "Integration endpoints are https://api.pdok.nl/hwh/waterschappen-kunstwerken-imwa/ogc/v2 and https://api.pdok.nl/hwh/waterschappen-waterketen-damo/ogc/v1 under CC BY-SA 4.0. Coverage is explicitly partial and contributor-dependent; per-feature registration dates range by manager. Missing objects/capacity remain Unknown.",
+        "Registers establish location, manager and selected design attributes only. They do not establish connected catchments, compatible capacity units, present pump/gate position, water quality, salinity, power/backup, spare capacity, defence condition, outage or restoration."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / Watermanagementcentrum Nederland / Informatiepunt Leefomgeving",
+      "title": "E05 — Hollandsche IJssel, storm-surge barrier, Waterinfo and LIWO flood scenarios",
+      "url": "https://www.rijkswaterstaat.nl/water/vaarwegenoverzicht/hollandsche-ijssel",
+      "accessedAt": "2026-09-03T02:36:00Z",
+      "edition": "Current RWS pages; LIWO release 2025.1.6; Waterinfo observation/retrieval 2 September 2026",
+      "supports": [
+        "Rijkswaterstaat identifies the Hollandsche IJssel from Gouda to Krimpen, under tidal influence up to the Waaiersluis. The Hollandsche IJsselkering at Krimpen protects the low hinterland and is actively closed on forecast high water; its state materially conditions a Gouda surge scenario.",
+        "The deployment snapshot contains one GM0513 Waterinfo point: Gouda Hollandsche IJssel, 78 cm NAP at 2026-09-02T17:30:00Z, publisher-classed normal and fresh at the 18:03Z retrieval. Waterinfo values are generally ten-minute, API-cached five minutes and CC0 unless stated, but the public service is not mission-critical.",
+        "The exact machine route is https://waterinfo.rws.nl/api/point/latestmeasurement?parameterId=waterhoogte. This point observation is not a municipal surface, barrier state, breach, inundation depth or T+72 forecast and does not calibrate the synthetic scenario clock.",
+        "LIWO is the authority-facing route for selected maximum-depth, arrival, duration, evacuation and infrastructure-exposure scenarios. Machine endpoints are https://basisinformatie-overstromingen.nl/api/v2 and https://basisinformatie-overstromingen.nl/geoserver/ows; release cadence is version-driven and no blanket redistribution licence was established from the landing pages.",
+        "A usable flood input must preserve source water, boundary hydrograph and datum, defence/barrier segment and state, breach/overflow, probability class, connected raster footprint, CRS, true units/resolution, arrival, duration/recession/dewatering, edition, licence and explicit NoData such as -9999. No layer or event selection remains Unknown, never dry/safe."
+      ]
+    },
+    {
+      "publisher": "Provincie Zuid-Holland / Rijkswaterstaat / ProRail / NDW / OVapi",
+      "title": "E06 — Julianasluis/N207, Gouwe navigation and multimodal access context",
+      "url": "https://www.zuid-holland.nl/onderwerpen/verkeer-vervoer/vaarwegen/vaarwegen/vaarwegen/vaarweg-alphen-aan-den-rijn-gouda/groot-onderhoud-julianasluis/",
+      "accessedAt": "2026-09-03T02:38:00Z",
+      "edition": "Province maintenance plan 2026–2027; FIS-VNDS catalogue 15 April 2026; NDW snapshot publication 2 September 2026; current generated NWB/ProRail/GTFS",
+      "supports": [
+        "The Province describes Julianasluis as two lock chambers, four bridges and a locally controlled complex between Hollandsche IJssel and Gouwe. It carries N207, a principal regional connection to Krimpenerwaard, local/regional cycling and walking, and a CEMT-IV navigation route.",
+        "Maintenance phases from September 2026 to May 2027 can reduce road and navigation flow and include a planned full two-chamber closure in January–February 2027. These date-bounded plans must not be silently applied to an undated exercise or treated as a current closure.",
+        "The simulator has seven NWB logical edges for Mobility and explicitly assumed road-logistics/Supply, but no rail, waterway, bridge/lock, station, bus or hospital-access edge. Its 150/260 capacity values are scenario units, not lanes, vehicles/hour, bridge throughput or verified emergency supply capacity.",
+        "Integration routes are monthly CC0 NWB, ProRail OGC, OVapi GTFS, NDW DATEX and RWS FIS-VNDS. The latter is CC0 static fairway/bridge/lock context with catalogue date 15 April 2026; operational notices are separate. NDW's 2026-09-02T15:25:00Z 72-hour snapshot had no retained situation geometry inside GM0513, which is missing scoped evidence—not proof every road or bridge is open.",
+        "Road, rail, scheduled transit and navigation require consistent direction, structures, validity, emergency priority, diversion, destination and capacity semantics. Public geometry never proves live passability or physical utilities."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Hollands Midden / Gemeente Gouda / Register Externe Veiligheidsrisico's / IPO Risicokaart",
+      "title": "E07 — Regionaal Risicoprofiel 2023–2026, Gouda risk profile and external-safety/fire context",
+      "url": "https://risicoprofiel.vrhm.nl/documenten/regionaal-risicoprofiel/vrhm-regionaal-risicoprofiel.pdf",
+      "accessedAt": "2026-09-03T02:40:00Z",
+      "edition": "Adopted VRHM profile 2023–2026; live municipal profile; REV live WMS and Risicokaart metadata current to 19 February 2026",
+      "supports": [
+        "VRHM distinguishes primary-defence breach under extreme north-westerly storm/high sea conditions from more likely regional-defence failure through high boezem or instability. It treats low terrain, density, climate change and subsidence as impact multipliers, not a universal deterministic depth.",
+        "The Gouda profile lists flood, extreme weather, earthquake, nature fire, hazardous substances, complex fire, road/rail/water incidents and loss of gas, electricity, drinking water, sewer, telecom, waste and food. The regional profile identifies Gouda's dense historic centre and narrow streets as complex-fire factors and Croda as a dangerous-substance/complex-fire example.",
+        "Gouda's official route page at https://www.gouda.nl/direct-regelen/stad-en-projecten/verkeer-vervoer-en-parkeren/ontheffing-afwijkende-route-vervoer-gevaarlijke-stoffen/ identifies A12/A20 Basisnet context and a Rotterdamseweg route to Cargill. It is regulated-route context, not a current load, release, plume or probability.",
+        "A bounded IPO Risicokaart WFS request to https://servicespub.risicokaart.nl/geoserver/ISOR_RK/wfs returned zero combustible-nature polygons around/full-boundary Gouda. The layer is Public Domain and its metadata was updated 19 February 2026; zero matching nature polygons is a scoped register result, not proof of zero vegetation, ignition, smoke or urban/industrial fire risk.",
+        "REV public WMS supplies regulated activities and attention areas live but states no fixed cadence, record timestamp or reuse-licence version; the PDOK Seveso subset is monthly CC0. Both remain non-causal until a specific incident/source, substance, valid time, meteorology and effect model are selected."
+      ]
+    },
+    {
+      "publisher": "Stichting Mijn Aansluiting / Stedin / Oasen / Netbeheer Nederland / RIVM / RDI / DUO / KNMI",
+      "title": "E08 — Public provider, electricity, care, telecom, education and weather context",
+      "url": "https://public.geodata.mijnaansluiting.nl/geoserver/mijnaansluiting_open/ows",
+      "accessedAt": "2026-09-03T02:43:00Z",
+      "edition": "Live provider query 3 September 2026; Stedin publication July 2026; RIVM acute-care 2026 v1.1; deployment snapshots 2–3 September 2026",
+      "supports": [
+        "A live public-domain WMS GetFeatureInfo at Gouda's reference point returns Stedin electricity (record updated 24 March 2026), Stedin gas (17 December 2025) and Oasen drinking water (29 December 2025), but no sewer or fixed-media polygon. One reference point is not complete municipal coverage; empty disciplines remain Unknown.",
+        "Stedin's public ArcGIS service at https://www.stedin.net/zakelijk/open-data/liggingsdata-kabels-en-leidingen exposes high/medium/low-voltage geometry and a separate gas-replacement programme. Metadata says July 2026 and annual publication with free reuse but no exact standard licence identifier. Electricity omits selected assets and connection cables; gas replacement is not the complete gas network. Neither source proves switching, pressure, load, outage or restoration.",
+        "The public NBNL sample postcode 2801SJ maps to Stedin area Bolwerk and shows 12 planning projects from 2026, but existing/required MW fields are null. Capacity/projects update at least quarterly and queues monthly; exact dataset licence and frontend endpoint stability are unstated. One sampled postcode and null fields cannot become municipal capacity or normal operation.",
+        "RIVM 2026 v1.1 CC0 data place Groene Hart Ziekenhuis inside GM0513 with a 24/7 emergency department, acute obstetrics, 20 reported treatment rooms and 26,185 reported 2025 emergency visits. RDI contributes 128 registered antenna sites with no stated WFS reuse licence/cadence, and daily DUO CC-BY data contribute 72 education locations. These are dated registers, not live acceptance, occupancy, staffing, shelter activation, radio coverage/backhaul, backup or restoration.",
+        "No KNMI station lies inside GM0513; nearest Nieuwkoop is 15.78 km away and lacked temperature and preceding-hour rain at 2026-09-02T23:30Z while reporting a 7.44 m/s gust. KNMI ten-minute data are CC BY 4.0. Missing variables and a remote point are NoData at Gouda scale, not zero or a T+72 forecast.",
+        "The joint https://energieonderbrekingen.nl/api/v2/ feed is the best public/partner route for Stedin electricity/gas disruptions but requires OAuth client credentials and can be incomplete. Without a credential or returned record the outage state is Unknown; authorized physical topology and operator restoration data are still required or must be replaced by explicitly synthetic, uncertain exercise graphs."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM0513, Gouda, Zuid-Holland and Veiligheidsregio Hollands-Midden are internally and officially coherent.",
+      "evidenceRefs": ["E01", "E02", "E07"],
+      "notes": [
+        "Generated municipality, regional bundle, province and exactly one safety-region assignment agree.",
+        "The generated centre lies inside both generated and freshly fetched full-resolution 2025 geometry.",
+        "Boundary/statistics edition, register date, observation time, official scenario and synthetic exercise time remain separate fields."
+      ]
+    },
+    "geography": {
+      "status": "fail",
+      "summary": "Administrative containment is sound, but flood and neighbourhood impact surfaces are not mechanism-specific.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05"],
+      "notes": [
+        "Full 2025 municipality geometry, not bbox or generalized overview, was used for containment.",
+        "The model does not sample Hollandsche IJssel/Gouwe water, barrier/defence, polder, terrain, sewer-catchment, heat or official climate surfaces.",
+        "Eight unrelated presets share one complete 54-neighbourhood order and contradict the municipal climate ranking for Kort Haarlem."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Official municipality controls and 54 neighbourhood rows reconcile within CBS rounding and suppression semantics.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "CBS reports 76,514 residents; published neighbourhood cells sum to 76,525 (+11, +0.014%) and model details rescale exactly to 76,514.",
+        "Municipal controls are 15,861 age-65-plus residents, 35,577 households and 14,212 one-person households; row sums differ by only +9, +13 and zero respectively.",
+        "Resident-equivalent impacts omit incident-time workers, students, passengers, visitors, patients and responders."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "All 54 neighbourhoods are present, but several attributes and all operational lifeline states remain incomplete.",
+      "evidenceRefs": ["E01", "E02", "E03", "E04", "E08"],
+      "notes": [
+        "Population, ages, businesses, cars, homes and household counts cover all 54 rows; home-value/housing percentages cover 48, assistance/AOW/disability 49 and doctor/supermarket distance 51.",
+        "District-heating percentage and public-charging counts are absent for all 54; household size/address density have one missing row. Absence remains Unknown.",
+        "Water, provider, antenna, education and care records are context of differing completeness and dates, not service topology or state."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "Gouda is preserved as BAG woonplaats and BRT woonkern, with Stolwijkersluis retained as a separate official settlement label.",
+      "evidenceRefs": ["E02"],
+      "notes": [
+        "The BAG place centre lies inside the generalized municipality geometry.",
+        "BRT distinguishes Gouda woonkern and Stolwijkersluis deelkern.",
+        "Settlement labels do not imply shelter, response post, care, supply, capacity or population-at-time."
+      ]
+    },
+    "transport": {
+      "status": "fail",
+      "summary": "Road-border proxies exist, but multimodal structures, live restrictions and operational destinations are absent.",
+      "evidenceRefs": ["E02", "E06", "E07", "E08"],
+      "notes": [
+        "Seven NWB links correctly support only Mobility and explicitly assumed road-logistics/Supply; they are not utility or facility routes.",
+        "The graph omits the operational roles and states of Gouda/Goverwelle rail, 95 scheduled stops, Julianasluis, Gouwe/Hollandsche IJssel navigation, movable bridges and hospital/mutual-aid destinations.",
+        "No retained NDW feature inside GM0513 is scoped NoData, not an all-open road network. Planned Julianasluis works require explicit exercise date before use."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "Local hospital, complex-fire, hazardous-substance, water-chain and vital-service context is visible but not causally represented.",
+      "evidenceRefs": ["E03", "E04", "E05", "E07", "E08"],
+      "notes": [
+        "VRHM identifies Gouda-specific dense historic-centre complex fire and Croda hazardous-substance context, while the canonical presets include neither urban structural fire nor industrial/hazmat release.",
+        "Groene Hart Ziekenhuis is an official 24/7 acute-care location, but live acceptance, staff, beds, backup, access and dependencies are unknown.",
+        "Water control, AWZI, provider and antenna data do not supply incident state, authority decisions or resource availability."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten canonical presets execute at all six mandatory checkpoints for all eight services.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "Final current-code rerun `MUNICIPALITY_AUDIT_CODE=GM0513 pnpm audit:model` passed one file/two tests in 29.82 seconds (29.61 seconds test time); a separate current-code focused reproduction passed one file/one test in 35.31 seconds.",
+        "At T+24 modeled severity / affected resident-equivalents / cumulative local pre-network person-hours are storm 0.210488 / 24,001 / 415,139.240666; pluvial 0.447090 / 20,265 / 380,174.225755; river 0.443779 / 38,316 / 612,252.080091; coastal 0.377309 / 30,982 / 597,058.352682; heat 0.087159 / 5,059 / 184,318.744632.",
+        "Remaining T+24 values are winter 0.745677 / 24,554 / 474,959.943461; cyber 0.403060 / 21,290 / 341,824.753631; earthquake zero current severity/affected after a T+6 peak of 0.006777; wildfire 0.113254 / 597 / 101,308.888801 with zero direct fire; compound 0.944869 / 49,827 / 771,879.307259.",
+        "At T+72 direct severity is zero for storm, pluvial, coastal, winter, earthquake and wildfire; river remains 0.443779, heat 0.087159, cyber 0.047303 and compound 0.610674. Structural execution does not validate Gouda-specific physics.",
+        "Headless Chromium at 1440×900 and 390×844 selected GM0513, river flood, Mobility and T+24/T+72 without page/console error or horizontal overflow; desktop map selection opened Kort Haarlem. Initial model readiness was 0.89/0.71 seconds and municipality selection 4.86/4.58 seconds."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Outputs are finite, bounded, deterministic, exact at zero intensity, selected-layer invariant and locally reconciled.",
+      "evidenceRefs": ["E01", "E02"],
+      "notes": [
+        "All ten intensity-zero runs give exact zero event severity, affected resident-equivalents and attributable person-hours at every checkpoint.",
+        "All service availabilities stay in [0,1], causal quantities remain finite/non-negative, and cumulative attributable burden does not decrease.",
+        "Every local detail has 54 rows summing to 76,514; all eight demand/delivery totals reconcile with maximum floating error 8.526512829121202e-14.",
+        "Changing the selected map/service layer leaves hazard, system pressure and affected population exactly invariant."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "Flood, rain, heat, storm, cyber and wildfire allocations reuse a municipal seed instead of their physical evidence domains.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E07"],
+      "notes": [
+        "Storm, pluvial, river, coastal, heat, winter, cyber and wildfire share the exact 54-neighbourhood order led by Bloemendaalseweg, Windrooskwartier/Heesterbuurt, Zomenbuurt, Componistenbuurt and De Goudse Poort.",
+        "At nine-district scale the same allocator ranks Bloemendaal first and Binnenstad second but Kort Haarlem eighth for both pluvial and heat. Gouda's climate programme identifies all three as its most vulnerable and Plaswijck/Westergouwe as the only districts at desired level; the model ranks those fourth/sixth.",
+        "Named water-side areas do not consistently lead: Industrieterrein Hollandsche IJssel ranks 44th, Gouwestroom 48th and Kadenbuurt 38th under river flood. No connected water, terrain, defence or catchment surface is sampled.",
+        "No Risicokaart nature-fire polygon matches Gouda and canonical wildfire has zero local flame; remote smoke/drought is a synthetic exercise, not evidence that urban or industrial fire is modeled."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "Eight-service balances are arithmetically coherent but exceed the verified road, sewer, water, utility, care and supply topology.",
+      "evidenceRefs": ["E03", "E04", "E06", "E08"],
+      "notes": [
+        "At compound T+24/T+72 exact availability is Power 0.405945, Water 0.361865, Drainage 0.261843, Gas 0.558341, Telecom 0.252388, Mobility 0.571771, Facilities 0.364462 and Supply 0.410908.",
+        "Only Mobility and road-logistics/Supply have routes (seven each). Power, Water, Drainage, Gas, Telecom and Facilities correctly receive no NWB topology, but their exact values remain municipality-level synthetic indices.",
+        "Official evidence supplies a 20-area sewer chain to AWZI Gouda and many water controls, yet no causal catchment/pipe/pump/treatment or power-backup graph. The eight displayed sewer-pump points are far short of the municipality's roughly 90 pumps plus 250 mini-pumps.",
+        "Provider areas, Stedin geometry, one NBNL postcode, 128 antenna sites, 72 schools, a hospital and transport registers do not establish customer connectivity, compatible capacity, backup, live state or restoration."
+      ]
+    },
+    "causalTrace": {
+      "status": "fail",
+      "summary": "Arithmetic ledgers close, but event selection, authority decisions, actions, resources and evidence-valid time do not explain local consequences.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E08"],
+      "notes": [
+        "Hazard contributions sum to headline severity, service baseline plus stage deltas sum to availability and weighted losses sum to municipality pressure.",
+        "Cumulative person-hours reconcile against a no-event local pre-network counterfactual and exclude intermunicipal transfers; they are not observed outage duration.",
+        "No scenario chooses Hollandsche IJssel/Gouwe/polder boundary conditions, barrier/gate/pump state, owner action, crew/material/fuel, route access, hospital role or operator restoration.",
+        "UI hazard mode labels the T+24 river result derived-screening and displays 44% severity plus 95% inundation stress, but supplies no adjacent municipality-specific unsupported notice; Mobility instead labels exact 36% capacity simply scenario."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "Standing-water guards work mechanically, but persistent/frozen Gouda states have no selected hydraulic or action/resource cause.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E08"],
+      "notes": [
+        "River forcing persists to T+72 at 1.424245 normalized inundation stress; seven service values remain exactly fixed, Facilities falls 0.575415 to 0.408096, affected rises 38,316 to 40,841 and all recovery fields remain zero. A persistent flood may block recovery, but this flood footprint and control state were never selected.",
+        "Compound severity falls 0.944869 to 0.610674, yet affected remains 49,827 and all eight availabilities remain exactly fixed; all recovery fields are zero while attributable burden grows from 771,879.307259 to 2,875,026.528500 person-hours.",
+        "Coastal physical forcing ends before T+72, then exact recovery ranges 0.485230–0.913437 with 11 affected and no barrier, dewatering, route or operator schedule.",
+        "Storm, pluvial, heat, winter, cyber, earthquake and wildfire also expose exact restoration trajectories without locally sourced resources, access or owner commitments."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": ["power", "water", "drainage", "gas", "telecom", "mobility", "facilities", "supply"]
+  },
+  "findings": [
+    {
+      "id": "GM0513-DATA-001",
+      "severity": "informational",
+      "category": "identity",
+      "status": "fixed",
+      "summary": "Generated Gouda identity, full boundary, region assignment, settlement structure and demographic reconciliation are coherent.",
+      "evidence": "CBS gives 76,514 residents and the 54 neighbourhood rows total 76,525 (+0.014%); the simulator preserves published values and reconciles exact municipal allocation. Fresh full PDOK geometry contains the reference point. Province and safety-region assignments agree.",
+      "action": "Retain source editions, full-resolution geometry, publisher rounding/suppression rules, published-versus-allocated totals and explicit null semantics on every refresh."
+    },
+    {
+      "id": "GM0513-FLOOD-SCENARIO-001",
+      "severity": "critical",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Generic river and coast screens turn real but conditional Gouda flood pathways into unsupported decision-facing precision.",
+      "evidence": "Gouda is connected to the tidal Hollandsche IJssel, protected by the Hollandsche IJsselkering and local primary/regional defences, and managed through Gouwe/boezem, sluices, pumps and polders. The model selects none of those states. River holds severity 0.443779 and 1.424245 stress through T+72, reports 38,316/40,841 affected and 36% Mobility; coastal gives 1.097465 stress and 30,982 affected at T+24. The UI labels river derived-screening but shows 95% inundation stress without a local unsupported notice. The preset's name 'IJssel' does not prove that its diagonal river corridor represents the Hollandsche IJssel.",
+      "action": "Retain river/coastal selectors and internal proximity scalars only as plainly labelled non-operational diagnostics because Gouda has genuine river-, regional-water- and storm-surge-mediated pathways. Suppress their direct local amplitude, ranks, affected counts and dependent service consequences until RWS/WMCN, Rijnland, HHSK and VRHM select a versioned LIWO/local event with source water, hydrograph/datum, barrier/defence/control state, breach/overflow, probability, connected footprint, depth units/resolution, arrival, recession/dewatering, licence and NoData. Never suppress unresolved local flood risk to safe/zero."
+    },
+    {
+      "id": "GM0513-SPATIAL-SEED-001",
+      "severity": "critical",
+      "category": "geography",
+      "status": "open",
+      "summary": "Eight unrelated hazard families reuse one neighbourhood order and contradict Gouda's published climate vulnerability.",
+      "evidence": "Storm, pluvial, river, coastal, heat, winter, cyber and wildfire have exactly the same 54-neighbourhood order. At district scale, pluvial and heat both rank Bloemendaal first, Binnenstad second, Plaswijck fourth, Westergouwe sixth and Kort Haarlem eighth. Gouda's 2024 public climate assessment identifies Binnenstad, Bloemendaal and Kort Haarlem as most vulnerable and Plaswijck/Westergouwe as the only two at desired level. The source is a composite policy assessment, so it rejects the common seed but does not calibrate exact impacts.",
+      "action": "Replace the common seed with hazard-family-specific eligible domains and event surfaces: native rain/sewer/catchment/terrain, urban heat/green, water/defence, wind, seismic, cyber-system and fire/smoke evidence. Require a support gate and regression preventing unrelated full-rank reuse; missing native coverage remains Unknown."
+    },
+    {
+      "id": "GM0513-DRAINAGE-CHAIN-001",
+      "severity": "critical",
+      "category": "service",
+      "status": "open",
+      "summary": "Public drainage coverage is materially incomplete and no causal 20-area sewer/AWZI chain supports exact service values.",
+      "evidence": "Gouda's statutory programme records 20 drainage areas to AWZI Gouda, 252 km main sewer, 35 km poor-quality water-filled raised sewer, more than 400 km likely gully pipes, roughly 90 sewer pumps and 250 mini-pumps. The current full-boundary HWH snapshot supplies eight sewer-pump points and one AWZI; the model has zero Drainage or Water routes. It still displays Drainage 0.445350 for pluvial and 0.264095 for river at T+24. Register status/capacity and missing records do not establish topology, live operation or no asset.",
+      "action": "Integrate Gouda's versioned native GWSW/catchment/pipe/pump/overflow/treatment graph plus inspection and authorized telemetry; use public PDOK GWSW/DAMO/IMWA only with deduplication, units, CRS, coverage, date, licence and NoData. Model power/backup, controls, spare capacity and AWZI/access dependencies only when verified; otherwise show explicit synthetic ranges/Unknown, never eight points as completeness."
+    },
+    {
+      "id": "GM0513-RECOVERY-LEDGER-001",
+      "severity": "critical",
+      "category": "explainability",
+      "status": "open",
+      "summary": "Compound and sustained-flood plateaus lack named blockers, actions and resources through T+72.",
+      "evidence": "Compound severity falls 0.944869 to 0.610674 from T+24 to T+72, but 49,827 affected and all eight service values stay exactly frozen while every recovery field is zero and burden reaches 2.875 million person-hours. River keeps seven services fixed, Facilities worsens and affected grows under an unselected footprint. Coastal recovers at exact service-specific rates after forcing ends without barrier, dewatering, access, owner or repair evidence.",
+      "action": "Require a typed incident/action/resource ledger at all six checkpoints: authority/owner, target, prerequisite, crew/material/fuel/water, route/access, start/end, state, observation/issue/valid time, evidence class and uncertainty. Every deterioration, plateau and recovery must cite an active causal condition and preserve counterfactual reconciliation."
+    },
+    {
+      "id": "GM0513-MULTIMODAL-ACCESS-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "Logical road edges omit Gouda's rail, bridge/lock, waterway, transit and destination-specific access dependencies.",
+      "evidence": "The seven NWB proxy edges capture A12/N roads for Mobility and Supply but not Gouda/Goverwelle stations, 95 GTFS stops, Julianasluis's N207/two-lock/four-bridge complex, Gouwe/Hollandsche IJssel navigation or Groene Hart Ziekenhuis access. Three N207 boundary edges are series continuations, not additive throughput. Scenario capacity 150/260 has no physical unit. No retained NDW feature is not an open-road assertion, and dated maintenance is not active without a scenario date.",
+      "action": "Build a direction- and structure-aware multimodal graph from NWB, provincial structures, ProRail, valid GTFS/operations, FIS-VNDS and Notices to Skippers. Preserve corridor identity and a single physical capacity ceiling, date-bound restrictions, emergency priority, alternatives, destination role and Unknown live state. Keep road geometry prohibited from utility/facility topology."
+    },
+    {
+      "id": "GM0513-LIFELINE-PROVENANCE-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Exact Power, Water, Gas, Telecom, Facilities and Supply values lack compatible physical topology and live operator state.",
+      "evidence": "Centre-point provider context finds Stedin and Oasen but no sewer/media polygon; Stedin public power geometry is incomplete and its gas product is only a replacement programme. One NBNL postcode has null capacity fields, and 128 antennas/72 schools/one hospital are registers. No public source establishes customer connectivity, load/pressure, switching/valves, backhaul, backup, outage, crews or restoration, while exact service values are presented to whole-percent UI precision.",
+      "action": "Integrate authorized operator topology, outage, backup, priority-user and restoration data where security agreements allow; use Energieonderbrekingen API with credentials and explicit completeness. Keep provider, Stedin, NBNL, antenna, facility and water geometry affectsSimulation=false absent a verified binding. Otherwise publish minimal versioned synthetic zones/graphs with ranges and uncertainty."
+    },
+    {
+      "id": "GM0513-CARE-AID-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "Groene Hart Ziekenhuis and cross-boundary care, aid and supply have no route, capacity or backup state.",
+      "evidence": "RIVM identifies a 24/7 SEH and acute obstetrics at Groene Hart Ziekenhuis, with 20 reported treatment rooms and 26,185 2025 visits; GTFS contains the hospital stop. The model has no Facilities route and no patient/staff/supply presence, hospital acceptance/diversion, generator endurance, bridge/rail/road access, mutual-aid destination or logistics throughput. A register role and annual visits cannot be converted into live availability.",
+      "action": "Add authority-reviewed care and aid nodes with role, activation, staffing/capacity, critical supplies, backup endurance, valid time and explicit multimodal routes to regional alternatives. Keep absent operational fields Unknown and never infer a shelter or response capacity from a building/school/hospital point alone."
+    },
+    {
+      "id": "GM0513-FIRE-INDUSTRIAL-001",
+      "severity": "high",
+      "category": "limitation",
+      "status": "open",
+      "summary": "Gouda's historic-centre complex fire and hazardous-substance contexts have no canonical incident family.",
+      "evidence": "VRHM explicitly identifies Gouda's dense historic centre, narrow streets and older buildings as complex-fire factors and Croda as a dangerous-substance/complex-fire example. Gouda identifies Basisnet and Rotterdamseweg-to-Cargill transport context. The canonical wildfire exercise has zero local flame and remote smoke/drought; zero matching Risicokaart nature polygons says nothing about urban structural or industrial fire. REV/route tiles are static context, not an incident.",
+      "action": "Add separately selected urban-complex-fire and industrial/hazmat exercise families only from authority-approved sources, with ignition/release, substance, building/installation, wind/plume/heat/overpressure, firewater/access, vulnerable objects, shelter/evacuation, valid time and uncertainty. Keep REV and route registers non-causal; no selected event remains Unknown."
+    },
+    {
+      "id": "GM0513-OTHER-HAZARDS-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Storm, heat, winter, cyber, earthquake and wildfire execute but remain synthetic exercises without Gouda-specific event or exposure support.",
+      "evidence": "At T+24 the model reports 24,001 affected for storm, 5,059 for heat, 24,554 for winter and 21,290 for cyber. Heat does not sample the local heat-vulnerability surface; cyber defines no local system boundary. Earthquake is a weak remote synthetic pulse with zero affected, and wildfire has zero direct flame but 597 affected from remote smoke/drought. Nearest KNMI data contain missing variables and are not aligned to the scenario clock. None of these values is an observed event or forecast.",
+      "action": "Require explicit event/source, issue and valid time, spatial support, exposed objects, uncertainty and municipality-hazard-service support before decision-facing precision. Use KNMI radar/warnings/observations, climate surfaces, KNMI seismic products, Risicokaart/BGT vegetation/buildings and authorized cyber scope in their native roles; never extrapolate sparse points or missing variables to zero."
+    },
+    {
+      "id": "GM0513-EVIDENCE-UI-001",
+      "severity": "high",
+      "category": "ui",
+      "status": "open",
+      "summary": "Responsive desktop/mobile controls expose unsupported exact results more prominently than their evidence limits.",
+      "evidence": "Desktop and 390×844 mobile runs had no runtime/console error or horizontal overflow and exposed all municipality/disaster/layer/checkpoint controls; desktop selected Kort Haarlem. River/Hazard shows '44% Scenario severity', '95% inundation stress' and 'derived-screening'; Mobility shows '36% Accessible capacity', critical, at both T+24 and T+72 as evidence class scenario. Waterinfo, defence, NDW, FIS, AHN and KNMI caveats appear lower in the inspector but no adjacent message says Gouda's flood footprint/service consequence is unsupported. Twelve checkpoint button nodes exist in the responsive DOM for six checkpoints, so keyboard/screen-reader duplication needs regression review.",
+      "action": "Gate hero values, local ranks, causal bars and export by municipality-hazard-service support. Put event/source/topology/NoData/valid-time warnings beside the hero, name the synthetic or official scenario, and distinguish current observation, official scenario, register context, synthetic result and Unknown. Retain the responsive named controls and add keyboard/screen-reader tests that expose one logical six-checkpoint set per layout."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Evidence-gate Gouda river/coastal forcing while retaining real flood pathways as unresolved.",
+      "files": ["packages/sim-core/src/types.ts", "packages/sim-core/src/model.ts", "packages/sim-core/src/model.test.ts", "packages/sim-core/src/municipality-coverage.test.ts", "apps/web/src/components/Inspector.tsx"],
+      "validation": "Best machine sources are authority-selected LIWO API/OGC (https://basisinformatie-overstromingen.nl/api/v2 and https://basisinformatie-overstromingen.nl/geoserver/ows; version-driven, blanket licence not established), HWH Keringen IMWA (https://api.pdok.nl/hwh/waterschappen-keringen-imwa/ogc/v1; CC BY-SA 4.0, provider-supplied), RWS Waterinfo (generally ten-minute, CC0 unless stated) and annual full PDOK geometry (CC BY 4.0). Require Hollandsche IJssel/Gouwe/polder source, hydrograph/datum, barrier/defence/control state, breach/overflow, probability, connected footprint, unit/resolution, arrival/recession/dewatering, edition/licence/NoData and expert review. Until then internal distance scalars are non-operational and direct local impacts render Unknown."
+    },
+    {
+      "summary": "Replace common neighbourhood ordering with Gouda mechanism-specific exposure surfaces.",
+      "files": ["packages/sim-core/src/model.ts", "packages/sim-core/src/geometry.ts", "packages/sim-core/src/model.test.ts", "scripts/fetch-realism-data.mjs", "apps/web/src/data.ts"],
+      "validation": "Integrate municipality-native climate/GWSW data after anonymous access and metadata are resolved, national 0.5 m AHN4 WMS/WCS (2020–2022 acquisition, CC0), national 70 mm/2 h pluvial WMS (CC0), BRO observations (CC0), KNMI issue-valid weather and official fire/seismic sources. Preserve source event, CRS, units, resolution, edition/time, licence, coverage and NoData. Regress the official nine-district climate ordering, named water-side zones and unrelated-rank independence without treating a policy composite as exact calibration."
+    },
+    {
+      "summary": "Build the 20-area sewer/AWZI managed-water chain from complete governed data rather than sparse register points.",
+      "files": ["scripts/fetch-water-assets.mjs", "scripts/fetch-realism-data.mjs", "packages/sim-core/src/network.ts", "packages/sim-core/src/types.ts", "apps/web/src/data.ts"],
+      "validation": "Best public routes are Gouda's native GWSW export plus RIONED/PDOK GWSW OGC/WMS (CC0, refresh unspecified), HWH DAMO and IMWA (CC BY-SA 4.0, contributor-dependent) and Gouda open data (CC BY-SA 4.0, change-driven). Reconcile the municipal counts of 20 areas, 252 km main sewer, approximately 90 pumps, approximately 250 mini-pumps and AWZI destination; preserve duplicate/partial/unknown records, units and dates. Causal use additionally requires connectivity, telemetry, controls, power/backup, capacity and authority approval."
+    },
+    {
+      "summary": "Extend Gouda to a direction-aware multimodal operations graph without promoting roads to utilities.",
+      "files": ["scripts/fetch-municipalities.mjs", "scripts/fetch-realism-data.mjs", "packages/sim-core/src/network.ts", "packages/sim-core/src/network.test.ts", "apps/web/src/data.ts"],
+      "validation": "Use monthly CC0 NWB, ProRail OGC/CC0, feed-valid OVapi GTFS, NDW DATEX CC0, Province structure data and FIS-VNDS CC0 plus timestamped Notices to Skippers. Represent A12/N207/N457/N228/N451, Gouda/Goverwelle rail, Julianasluis/Gouwe/Hollandsche IJssel, bridges/locks, alternatives, Groene Hart and mutual-aid/supply destinations with direction, one physical capacity ceiling, validity, emergency priority and Unknown state. NWB remains Mobility and explicit road-logistics/Supply only."
+    },
+    {
+      "summary": "Evidence-gate physical lifelines and care while expanding authorized public/partner ingestion.",
+      "files": ["packages/sim-core/src/network.ts", "packages/sim-core/src/types.ts", "apps/web/src/data.ts", "apps/web/src/components/OperationsBrief.tsx"],
+      "validation": "Use Mijn Aansluiting territories (Public Domain, provider timestamps), Stedin electricity geometry/gas-replacement context (July 2026 annual, free reuse with no standard licence ID), NBNL planning (quarterly/monthly, exact licence/API stability unstated), Energieonderbrekingen OAuth API and RIVM 2026 v1.1 CC0 care. Exact impacts require compatible topology, state, capacity, backup and valid time; empty provider/API results display Unknown. Groene Hart and alternatives require route, acceptance, staffing, supplies and backup, not annual register counts."
+    },
+    {
+      "summary": "Add separately governed Gouda complex-fire and industrial/hazardous-material exercises.",
+      "files": ["packages/sim-core/src/types.ts", "packages/sim-core/src/model.ts", "apps/web/src/config.ts", "apps/web/src/components/Inspector.tsx"],
+      "validation": "Use live REV WMS only as context unless item time/licence is resolved, monthly CC0 PDOK Seveso where applicable, Public Domain Risicokaart, BAG/BGT and VRHM/Gouda approved incident definitions. A selected scenario names source, substance/ignition, release, effect model, issue/valid time, weather, vulnerable objects, access/firewater, shelter/evacuation and uncertainty. Zero nature polygons never suppress urban/industrial fire."
+    },
+    {
+      "summary": "Make all first-72-hour changes and UI claims conditional on traceable incident/action/resource evidence.",
+      "files": ["packages/sim-core/src/model.ts", "packages/sim-core/src/types.ts", "apps/web/src/components/CausalExplanation.tsx", "apps/web/src/components/Inspector.tsx", "apps/web/src/components/OperationsBrief.tsx"],
+      "validation": "At T+0/6/12/24/48/72 every deterioration, plateau and restoration cites driver, authority/owner, target, prerequisite, crew/material/fuel/water, route/access, start/end, state, issue/observation/valid time, evidence class and uncertainty. Desktop/mobile put scope and NoData beside exact values, expose one logical six-checkpoint control set and prevent Gouda river/coastal/compound states from appearing decision-grade without local causal support."
+    }
+  ],
+  "residualLimitations": [
+    "Complete physical electricity, gas, drinking-water, sewer/drainage, telecom, care and supply topology, control logic, live load/pressure, outage, backup, crews, materials, fuel and restoration state are unavailable, incomplete or security-sensitive. Public geometry and provider territories cannot honestly replace them.",
+    "The municipal climate assessment is a useful nine-district policy composite, not an incident raster or exact heat/rain calibration. Gouda's advertised Klimaatatlas endpoint required login during audit despite its public page saying no login; native layers were not guessed or scraped around access control.",
+    "LIWO and water-authority flood layers require expert selection and per-layer licence/NoData review. A current Waterinfo point is not a connected inundation footprint or arbitrary T+72 forecast.",
+    "The Hollandsche IJsselkering, primary/regional defences, Gouwe/boezem, sluices, pumps and low polders create multiple conditional pathways. Retaining this risk does not validate either generic river or coast amplitude.",
+    "HWH water records are partial and may duplicate a physical structure across managers; registered or realised status does not establish current operation, capacity, gate/pump position, defence performance or connectivity.",
+    "NWB, ProRail, GTFS, NDW and FIS-VNDS do not establish scenario-time road/rail/bus/navigation operation, bridge/lock position, emergency priority, hospital access, evacuation suitability or throughput. No current record is not an open route.",
+    "Provider WMS results are point queries with partial/overlapping discipline coverage. Empty sewer/media results never mean no provider or no service, and Stedin's gas-replacement layer is not its full gas network.",
+    "RIVM, RDI and DUO locate dated care, antenna and education registrations but do not establish incident-time occupancy, staffing, acceptance, shelter role, radio coverage/backhaul, power/backup, capacity or restoration.",
+    "REV, Basisnet and municipal route rules identify regulated context, not a current dangerous-goods movement, industrial release, plume, probability or service effect. Risicokaart's zero local nature polygon is not an urban/industrial fire all-clear.",
+    "Sparse KNMI and air-quality point observations, current warnings and current road/water snapshots are not municipal fields or scenario forecasts. Missing variables and absent points remain NoData/Unknown.",
+    "Exact hazard, affected population, service availability, recovery and person-hour values remain synthetic/derived exercise outputs—not observations, official forecasts, operator commitments or decision-grade advice—until critical/high findings are corrected and authorities review the selected event.",
+    "The audit covers only the first 72 hours; flood, displacement, salinity, subsidence, wastewater, care/supply and infrastructure repair effects may last longer."
+  ],
+  "provinceReviewFlags": [
+    "GM0513-FLOOD-SCENARIO-001 — Zuid-Holland, RWS/WMCN, Rijnland, HHSK and VRHM should retain Gouda's real Hollandsche IJssel/Gouwe/polder and storm-surge-mediated risk but suppress generic decision-facing river/coastal precision pending a selected, versioned hydraulic event and defence/control state.",
+    "GM0513-DRAINAGE-CHAIN-001 — Gouda and Rijnland should supply governed native GWSW/catchment/telemetry metadata and reconcile the public eight-pump snapshot against the official approximately 90 pumps, 250 mini-pumps, 20 drainage areas and AWZI chain without converting incomplete coverage to zero.",
+    "GM0513-SPATIAL-SEED-001 — Gouda/Zuid-Holland should review hazard-specific rain, heat, terrain, water and exposed-object layers; Kort Haarlem's published climate vulnerability conflicts with the common model order.",
+    "GM0513-MULTIMODAL-ACCESS-001 and GM0513-CARE-AID-001 — Province, RWS, ProRail, municipality and VRHM should review Julianasluis/N207, A12/N roads, Gouda rail/transit, waterways, bridge/lock state, Groene Hart and mutual-aid/supply destinations as a dated multimodal graph.",
+    "GM0513-LIFELINE-PROVENANCE-001 and GM0513-FIRE-INDUSTRIAL-001 — VRHM, Gouda and operators should define privacy/security-safe lifeline evidence plus separate historic-centre complex-fire and industrial/hazmat exercises. Registers must not masquerade as live topology, capacity, incident or restoration."
+  ]
+}

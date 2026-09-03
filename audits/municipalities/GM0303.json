@@ -1,0 +1,541 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0303",
+    "name": "Dronten",
+    "province": "Flevoland",
+    "safetyRegion": "Flevoland"
+  },
+  "agent": {
+    "taskName": "municipality_gm0303",
+    "agentId": "/root/nl_realism_audit",
+    "completedAt": "2026-09-02T22:40:00Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "GM0303 passes the complete deterministic execution contract over all ten canonical scenarios, T+0/6/12/24/48/72 and all eight essential services. Its CBS/PDOK identity, generalized 2025 boundary, 44,856 residents, 42 neighbourhoods and Flevoland safety-region assignment reconcile. Release remains correction-required. The Rhine, Meuse & IJssel preset holds a precise 1.6707 normalized flood-stress value through T+72, 22,809 affected people-equivalent and 1,494,970.29 cumulative deprived person-hours without selecting an IJssel-Ketelmeer-Reevediep, defence, breach/overtopping or polder event. The pluvial result ignores Dronten's official 63.4 mm/hour T=100+10% stress-test footprint, sewer design levels, pumps and dewatering dependencies, while the harmonized public water-asset layer returns zero objects because of contributor NoData. Eight unrelated nonzero standalone hazards reuse exactly one complete neighbourhood ranking, and a controlled fire source in mapped Roggebotzand forest ranks its containing neighbourhood only twelfth of 42. Public provider areas, grid-planning values, one current water-level point, antenna/facility registers and static transport geometry are useful typed context but do not validate physical topology, capacity, live state, backup, stock or restoration. The updated engine correctly restricts unqualified NWB links to mobility and supply; those eight links are still logical, non-additive, static road/logistics proxies rather than incident-state crossing or multimodal capacity. Exact outputs remain deterministic exercise values, not observations, warnings, forecasts or operator commitments.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek",
+      "title": "Kerncijfers wijken en buurten 2025 — filtered rows for GM0303",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM0303%27%29&%24select=WijkenEnBuurten%2CGemeentenaam_1%2CAantalInwoners_5%2CBevolkingsdichtheid_34%2Ck_65JaarOfOuder_12%2CEenpersoonshuishoudens_30",
+      "accessedAt": "2026-09-02T22:09:23Z",
+      "edition": 2025,
+      "supports": [
+        "Official-context GM0303/Dronten identity, population 44,856, density 134 residents per square kilometre, 8,621 people aged 65 or older (19.2%) and 6,595 one-person households.",
+        "The machine-readable OData table is an annual CC BY 4.0 statistical release, last modified 25 June 2026. Published small-area counts are rounded and some values are suppressed, unavailable or not applicable; null and Unknown must never become zero.",
+        "CBS aggregates support deterministic population reconciliation and vulnerability context, not event-time visitors, medically dependent people, household preparedness, evacuation behaviour or observed service demand."
+      ]
+    },
+    {
+      "publisher": "PDOK / CBS / Kadaster / Rijkswaterstaat / ProRail",
+      "title": "Generalized municipality and neighbourhood geography with BAG, BRT TOP10NL, NWB and rail context",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_gegeneraliseerd/items?f=json&limit=1000&datetime=2025-07-01T00%3A00%3A00Z",
+      "accessedAt": "2026-09-02T22:09:23Z",
+      "edition": "CBS/BAG 2025; NWB 1 August 2026; BRT and ProRail collections inspected 2 September 2026",
+      "supports": [
+        "The CC BY 4.0 generalized CBS centre [5.7113565333542295, 52.50079782871325] lies inside GM0303. All three BAG woonplaats label points—Biddinghuizen, Dronten and Swifterbant—lie inside; BAG is available through https://api.pdok.nl/kadaster/bag/ogc/v2/collections/woonplaats under Public Domain Mark 1.0.",
+        "BRT TOP10NL at https://api.pdok.nl/kadaster/brt-top10nl/ogc/v1 is CC BY 4.0 with rotating feature updates and supplies five settlement labels plus source-scaled terrain. It is cartographic context, not event-time occupancy, fuel moisture or access state.",
+        "Monthly CC0 NWB geometry is downloadable at https://downloads.rijkswaterstaatdata.nl/nwb-wegen/geogegevens/shapefile/NWB-light/01-08-2026.zip. The generated graph has eight logical series edges on A6, N305, N306, N307 and N309; common physical-corridor identifiers must not be summed as independent measured capacity.",
+        "ProRail's CC0 OGC API https://api.pdok.nl/prorail/spoorwegen/ogc/v1 has a manual cadence and assigns station Dronten. Static geometry and GTFS schedules do not prove train operation, tunnel/crossing passability, incident throughput or restoration."
+      ]
+    },
+    {
+      "publisher": "Gemeente Dronten",
+      "title": "Gemeentelijk Rioleringsplan Dronten 2022–2028",
+      "url": "https://www.dronten.nl/wp-content/uploads/2025/09/Gemeente-Dronten_GRP_DEF-21-juli-2022.pdf",
+      "accessedAt": "2026-09-02T22:14:00Z",
+      "edition": "Adopted programme 2022–2028; PDF republished September 2025",
+      "supports": [
+        "The municipality manages about 340 km of gravity sewer plus drainage, pumps and gullies. It distinguishes conventional sewer design around RIONED bui 8 (19.8 mm) from future bui 10 (35.7 mm); neither number is a live capacity guarantee.",
+        "Its prior stress test covers Biddinghuizen, Dronten and Swifterbant using a T=100+10% event of 63.4 mm in one hour and considers infrastructure, trees and topography. This is official planning-model evidence, not a current observation or arbitrary T+72 forecast.",
+        "Pumps require continuous operation and telemetry. The plan says a pump defect or power failure can fill the sewer and after several hours cause untreated water to spill into buildings, streets or surface water, and calls for neighbourhood-specific flow, capacity, failure risk, emptying time, permissible outage and emergency-diversion analysis.",
+        "No blanket machine-data licence or fixed GIS refresh cadence was stated. The integration-ready path is an authorized, versioned municipal export of the stress-test depths/model information, sewer catchments, pump classes and NoData—not inference from the PDF."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Flevoland",
+      "title": "Regionaal Risicoprofiel Flevoland 2024 and official Dronten incident records",
+      "url": "https://samen.vrfgv.nl/wp-content/uploads/2024/11/RRP-2024-Flevoland-Definitief.pdf",
+      "accessedAt": "2026-09-02T22:14:00Z",
+      "edition": "RRP 2024 supporting policy 2025–2028; incident pages current to 2026",
+      "supports": [
+        "The profile says almost all Flevoland except Urk and Schokland lies below NAP and emphasizes surface water, water-management assets, A6/A27, rail, waterways, pipelines, high voltage, the Drontermeer rail tunnel and more than 600 wind turbines. It prioritizes storm/rain, cold, heat, power, voice/data, cyber, flooding and nature fire.",
+        "Walibi Holland in Dronten is identified as a high visitor-concentration and risk-stacking context. Static CBS residents therefore do not represent event-time population, transport demand or refuge/supply needs.",
+        "The official 2 September 2022 record https://www.veiligheidsregioflevoland.nl/@1917/kortsluiting-hoogspanningsverbinding/ documents a regional power interruption near Dronten, no trains between Lelystad and Dronten, electrical fires and road effects. It is historical dependency evidence, not a probability or restoration calibration.",
+        "The official 11 August 2026 Roggebotzand record https://www.veiligheidsregioflevoland.nl/incident/?incident=256d380c-679c-4186-a72a-53ceaef935e5 documents a hard-to-reach vegetation fire, helicopter guidance, three engines, a water tanker, precautionary evacuation and land-manager water support. This one observed incident cannot be reused as the canonical fire perimeter, spread rate or future T+72 outcome. The profile/incident pages state no blanket reuse licence or fixed feed cadence."
+      ]
+    },
+    {
+      "publisher": "Waterschap Zuiderzeeland",
+      "title": "Gemaal Colijn, Ketelmeer/Vossemeer dike reinforcement and legal water-system registers",
+      "url": "https://www.zuiderzeeland.nl/wat-doet-het-waterschap/gemalen-in-flevoland/gemaal-colijn/",
+      "accessedAt": "2026-09-02T22:14:00Z",
+      "edition": "Current asset/project/register pages inspected 2 September 2026",
+      "supports": [
+        "Gemaal Colijn in Dronten drains the polder toward Ketelmeer every day because seepage continues without rain. Published context gives Lage Vaart and Hoge Vaart targets of -6.20 and -5.20 m NAP, about 314 million cubic metres per year, one 550 cubic metre/minute and two 500 cubic metre/minute pumps, and automatic level control; these are design/context values, not live operation or available capacity.",
+        "The current project page https://www.zuiderzeeland.nl/projecten-en-werkzaamheden/versterking-ketelmeerdijk-vossemeerdijk/versterking-ketelmeerdijk-vossemeerdijk-verkenningsfase-versterking-ketelmeerdijk-vossemeerdijk/ says the exploration runs May 2025 through end 2027. The dikes do not meet the raised 2017 future norm but are explicitly still safe now; that nuance forbids converting the project into a current failure assumption.",
+        "The legal water-register page https://www.zuiderzeeland.nl/wat-doet-het-waterschap/water-op-peil-houden/legger-vaarten-en-tochten/ maps location, requirements and maintenance responsibility for waterways, bridges, weirs, pumps and locks. Register geometry does not prove connectivity, direction, condition, operation, backup or restoration.",
+        "Machine-readable ArcGIS layers are exposed at https://services.arcgis.com/84oM5NriBghHdQ3Z/arcgis/rest/services/zzl_gebied/FeatureServer for water bodies, primary waterways, dikes, objects and polders in EPSG:28992 JSON. Coverage is the Zuiderzeeland area; a blanket reuse licence and fixed refresh cadence were not established, so they require source confirmation and must remain affectsSimulation=false until a reviewed causal mapping exists."
+      ]
+    },
+    {
+      "publisher": "WMCN / Rijkswaterstaat / IPLO / KNMI / Provincie Flevoland",
+      "title": "Authoritative flood-scenario, water-level, weather/seismic and seepage integration routes",
+      "url": "https://iplo.nl/thema/water/applicaties-modellen/berichtgeving-crisismanagement/liwo/",
+      "accessedAt": "2026-09-02T22:14:00Z",
+      "edition": "LIWO 2025.1.6; live Waterinfo/KNMI services and province catalogue inspected 2 September 2026",
+      "supports": [
+        "LIWO is an irregularly released expert-use scenario library; release 2025.1.6 is available via OGC at https://basisinformatie-overstromingen.nl/geoserver/ows. WMCN explicitly recommends specialist water-manager interpretation. A run must retain selected scenario/release, defence/breach/overtopping case, source water body, boundary hydrograph and datum, depth/velocity/arrival/recession, probability, resolution, layer-specific licence and NoData. It is not a current forecast.",
+        "RWS Waterinfo provides observations, forecasts and expectations with distinct valid times. The deployed bundle contains one level point, Dronten Reevesluis noord: -19 cm NAP observed 2 September 2026 17:30Z and retrieved 18:03Z. The generally ten-minute point observation is neither a municipality surface nor a synthetic T+72 state; source-component licence terms must be retained.",
+        "KNMI EDR https://developer.dataplatform.knmi.nl/edr-api supplies spatial/temporal CoverageJSON or GeoJSON observations and forecasts; ten-minute observations and hourly validated/gridded products have dataset-specific terms, commonly CC BY 4.0, and require an API key with documented request limits. Dataset, issue/observation/valid time, lead, units and quality must remain attached. KNMI FDSN https://rdsa.knmi.nl/fdsnws/event/1/ is an automatic event catalogue, not a ShakeMap or local damage surface.",
+        "Province Flevoland's CC0 seepage/infiltration dataset https://data.overheid.nl/dataset/e552282c-3676-4007-95ac-9304641f54db is available through WMS https://geo2.flevoland.nl/geoserver/Extern/wms and WFS https://geo2.flevoland.nl/geoserver/Extern/wfs in mm/day. It is static susceptibility/context, not event-time pumping, groundwater or flooding. Its separate subsidence/freeboard scenarios have 2020/2036/2050/2085/2100 horizons and cannot be silently treated as a 72-hour forecast."
+      ]
+    },
+    {
+      "publisher": "Netbeheer Nederland / Stichting Mijn Aansluiting / Rijksinspectie Digitale Infrastructuur / DUO",
+      "title": "Public service territories, grid-planning capacity and infrastructure/register context for Dronten",
+      "url": "https://data.partnersinenergie.nl/capaciteitskaart/totaal/afname",
+      "accessedAt": "2026-09-02T22:14:00Z",
+      "edition": "Planning/provider/register snapshots retrieved in 2026",
+      "supports": [
+        "The machine planning sample for postcode 8251VX identifies Liander service area OS DRONTEN 10-1i. Withdrawal reports 72 MW existing, 67 MW required, a 10.7 MW queue and 80 requests; injection reports 117 MW existing, 60 MW required, an 80 MW queue and 66 requests, with 27 projects earliest 2030. Capacity/projects are published at least quarterly and queues monthly. This one large-user planning polygon is not current load, feeder topology, outage or household restoration; the open-data statement does not give an exact licence identifier in the sampled payload and frontend endpoints may change.",
+        "The Public Domain provider WMS https://public.geodata.mijnaansluiting.nl/geoserver/mijnaansluiting_open/ows identifies Liander electricity (last updated 24 March 2026), Liander gas (17 December 2025), Vitens water (7 September 2025) and Ziggo media (7 September 2025) at the municipal reference point; no drainage polygon is returned. A point result is not full municipal coverage, topology, capacity, service state or responsibility for every address.",
+        "RDI's public WFS https://antenneregister.nl/mapserver/wfs/ returns 125 installation records inside GM0303. Licence and fixed refresh cadence were not stated in the service inspected. Antenna locations do not establish radio coverage, capacity, traffic, power/backhaul dependency, priority or incident state.",
+        "DUO's daily location-use feed https://onderwijsdata.duo.nl/dataset/c416acd1-e083-4ec6-9203-3b20f98fe143 returns 33 records and states CC BY without a version in the inspected metadata. School/location use is not shelter, reception, student occupancy, accessibility, backup or stock."
+      ]
+    },
+    {
+      "publisher": "Rijksoverheid / RIVM / KVK",
+      "title": "First-72-hour preparedness, acute-care and public-organization context",
+      "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/veiligheidsregios-en-crisisbeheersing/wat-zit-er-in-een-noodpakket",
+      "accessedAt": "2026-09-02T22:14:00Z",
+      "edition": "Current guidance inspected 2 September 2026; RIVM acute-care v1.1 published 3 July 2026",
+      "supports": [
+        "National guidance recommends supplies for 72 hours, including three litres of water per person per day, food, radio, power bank and medicines, with a half-yearly check. It is advice, not measured Dronten household readiness, a guaranteed aid time or a recovery deadline.",
+        "The 17 November 2025 national explanation https://www.rijksoverheid.nl/actueel/nieuws/2025/11/17/minister-van-oosten-presenteert-informatieboekje-bereid-je-voor-op-een-noodsituatie says authorities and responders prioritize the hardest-hit during the first 72 hours and most people should be largely self-reliant. It does not authorize simulated delivery, evacuation or restoration outcomes.",
+        "RIVM's CC0 acute-care dataset v1.1 at https://datacatalogus.rivm.nl/dataset.xhtml?persistentId=doi:10.21945/8E767B2D-9CED-4A85-A95D-3AC1A608C663 contains no acute-hospital point inside GM0303. Straight-line reference distances from the municipal centre are about 18.8 km to St Jansdal Harderwijk, 27.9 km to Isala Zwolle and 36.2 km to Flevoziekenhuis Almere; those are not road travel, acceptance, staffing or live capacity.",
+        "The Public Domain KVK harmonized OGC API https://api.pdok.nl/kvk/overheidsdiensten-geharmoniseerd/ogc/v1 is explicitly partial and returns no government-location point in the generalized boundary. Empty output remains Unknown and cannot prove no municipal crisis facility, distribution site or reception function."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "Official code, name, province, safety region and 2025 source editions agree.",
+      "evidenceRefs": [
+        "E01",
+        "E02",
+        "E04"
+      ],
+      "notes": [
+        "Manifest, generated bundle and model uniquely identify GM0303 as Dronten in Flevoland and assign Veiligheidsregio Flevoland.",
+        "BoundaryEdition and statisticsEdition are both 2025. Current 2026 observations/registers, multi-year plans and the synthetic exercise clock retain separate temporal semantics.",
+        "No municipality-code, name, province, safety-region, centre-containment or headline-population mismatch was found."
+      ]
+    },
+    "geography": {
+      "status": "warn",
+      "summary": "Generalized administrative geometry is internally coherent, but polder, dike, lake, canal, sewer and woodland mechanisms require source-resolution geometry.",
+      "evidenceRefs": [
+        "E02",
+        "E03",
+        "E05",
+        "E06"
+      ],
+      "notes": [
+        "Generated centre [5.7113565333542295, 52.50079782871325] and all three BAG woonplaats label points lie inside the official generalized boundary.",
+        "The five BRT settlement labels are Biddinghuizen, Dronten, Ketelhaven, Roggebotsluis and Swifterbant. Generalized polygons and labels cannot establish hydraulic connectivity, dike compartments, drainage catchments, woodland fuel, population presence or incident access.",
+        "Dronten's polder drainage to Ketelmeer, Reevesluis/Reevediep connections and Ketelmeer/Vossemeer defences require authoritative event geometry and state; proximity or containment alone cannot establish flooding or service failure."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Official 2025 headline values agree and rounded neighbourhood populations reconcile within CBS publication semantics.",
+      "evidenceRefs": [
+        "E01"
+      ],
+      "notes": [
+        "Generated and official population is 44,856, density is 134 per square kilometre, age65Pct is 19.2 and one-person-household count is 6,595.",
+        "The 42 neighbourhood rows sum to 44,845, eleven below the municipality total (-0.025%); deterministic allocation reconciles exactly to 44,856.",
+        "Official zero-population Poort van Dronten remains zero. Aggregate counts do not identify medically dependent residents, care occupants, workers, tourists, event visitors, responders or household stocks."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "All 42 neighbourhoods load and public context is broad, but local hazard surfaces and operational service fields remain absent or incomplete.",
+      "evidenceRefs": [
+        "E01",
+        "E03",
+        "E05",
+        "E06",
+        "E07",
+        "E08"
+      ],
+      "notes": [
+        "Population covers 42/42 rows; home value, benefit indicators and complete housing pairs cover 36; household size, doctor/supermarket distance and density cover 41; cars per household covers 31. District-heating and public-charging values are usable in 0/42 rows and correctly remain null rather than zero.",
+        "Largest published neighbourhoods are De Gilden 5,755, De Munten 3,940, Oud-Dronten 3,340, Bloemenbuurt 2,340 and De Manege 1,995 before total reconciliation.",
+        "The deployed HWH harmonized asset file returns zero water objects inside GM0303 even though E03 and E05 document sewers, pumps, waterways and Gemaal Colijn. That is a contributor/coverage gap, not evidence of no assets."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "BAG and BRT place identities are coherent; their label points remain non-causal context.",
+      "evidenceRefs": [
+        "E02",
+        "E04"
+      ],
+      "notes": [
+        "BAG contains Biddinghuizen, Dronten and Swifterbant, with all label points inside the generalized GM0303 boundary.",
+        "BRT contains two gehuchten and three woonkernen: Biddinghuizen, Dronten, Ketelhaven, Roggebotsluis and Swifterbant.",
+        "Place labels cannot establish event-time occupants, Walibi visitors, isolation, utilities, reception, supply or evacuation capacity."
+      ]
+    },
+    "transport": {
+      "status": "warn",
+      "summary": "Road, rail and transit context is reproducible, but the graph remains static, logical and incomplete for incident mobility, crossings and acute-care access.",
+      "evidenceRefs": [
+        "E02",
+        "E04",
+        "E05",
+        "E08"
+      ],
+      "notes": [
+        "The graph has eight NWB logical edges to five neighbours: A6 to Noordoostpolder/Lelystad; N307 to Lelystad/Kampen; N309 to Elburg/Lelystad; and N305/N306 to Zeewolde. Shared physical-corridor identifiers make series edges non-additive.",
+        "The updated engine limits unqualified NWB edges to mobility and supply. This removes false power/water/drainage/gas/telecom/facility topology, but road/logistics capacity is still a generalized scenario unit without valid-time bridge, tunnel, lock, incident, direction, mode or throughput state.",
+        "Station Dronten and 61 GTFS stop areas are static infrastructure/schedule context. No current NDW situation intersects the municipality in the deployed snapshot; absence never means every road is open and a current snapshot cannot be projected silently to T+72.",
+        "No acute hospital point lies inside GM0303, so access to Harderwijk, Zwolle or Almere is a first-72-hour dependency. Straight-line distance is not route time, acceptance, staff, bed or generator state."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "Official safety-region, municipal, water-board and 72-hour guidance exists, but the simulator has no event-time action, resource, visitor or completion ledger.",
+      "evidenceRefs": [
+        "E03",
+        "E04",
+        "E05",
+        "E08"
+      ],
+      "notes": [
+        "The regional profile identifies priority hazards, infrastructure interdependence, visitor concentrations and vulnerable households; municipal and water-board plans define owners and preparedness. Plans and roles do not prove event-time actions or outcomes.",
+        "The model does not record requested/confirmed/started/completed/failed interventions, authority, trigger, issue/valid/expiry time, crews, vehicles, pump/generator/fuel state, emergency water, food/medicine stock, hospital acceptance, shelter/reception capacity or equitable access.",
+        "National 72-hour kit guidance is not measured local stock and 72 hours is neither a relief-arrival guarantee nor a recovery deadline. Walibi and other visitors require explicit event-time population rather than silent inclusion in the 44,856 resident denominator."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten presets produce complete finite deterministic output at all six checkpoints and all eight services; calibration and semantic failures are recorded separately.",
+      "evidenceRefs": [
+        "E03",
+        "E04",
+        "E05",
+        "E06",
+        "E07",
+        "E08"
+      ],
+      "notes": [
+        "The focused gate executed severe storm, pluvial flood, river flood, coastal flood, heatwave, winter storm, cyberattack, earthquake, wildfire and compound at T+0/6/12/24/48/72 for power, water, drainage, gas, telecom, mobility, facilities and supply.",
+        "At T+24 severity / post-network pressure / affected people-equivalent / cumulative local pre-network event-attributable person-hours are storm 0.1351 / 0.3128 / 10,922 / 177,150.34; pluvial 0.2293 / 0.2300 / 5,688 / 139,335.12; river 0.5298 / 0.4792 / 21,434 / 383,433.40; coastal 0.0756 / 0.1421 / 132 / 60,625.80; heat 0.0767 / 0.1701 / 1,905 / 76,126.85.",
+        "Remaining T+24 values are winter 0.7236 / 0.3777 / 15,021 / 282,124.89; cyber 0.3685 / 0.3109 / 10,802 / 178,178.57; earthquake 0 / 0.1090 / 0 / 51,448.27; wildfire 0.1604 / 0.1647 / 1,564 / 76,781.92; compound 0.8690 / 0.5373 / 25,107 / 360,085.34.",
+        "River pressure/affected/person-hours progresses T+0 0.0545/0/0, T+6 0.2130/4,611/7,217.90, T+12 0.4303/18,346/120,489.01, T+24 0.4792/21,434/383,433.40, T+48 0.5009/22,809/935,675.59 and T+72 0.5009/22,809/1,494,970.29. These are exercise outputs, not observations or forecasts."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "The focused gate passes deterministic, finite, baseline, causal, allocation, reconciliation and monotonic-burden contracts.",
+      "evidenceRefs": [],
+      "notes": [
+        "MUNICIPALITY_AUDIT_CODE=GM0303 pnpm audit:model passes both tests on current code across ten presets, six checkpoints and eight services.",
+        "Every intensity-zero run has exactly zero event severity, affected people-equivalent and event-attributable deprived person-hours at every checkpoint; repeated output and web/core preset parity pass.",
+        "All 42 local rows allocate exactly 44,856 residents. Maximum population reconciliation error is 3.552713678800501e-14, maximum demand error 4.263256414560601e-14 and maximum delivery error 3.552713678800501e-14.",
+        "Changing the selected service produces maximum local-hazard delta zero; cumulative event-attributable person-hours are monotonic and declared logical-route ceilings hold."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "One common neighbourhood order and a failed Roggebotzand source-containment test cannot represent Dronten's mechanism-specific geography.",
+      "evidenceRefs": [
+        "E02",
+        "E03",
+        "E04",
+        "E05",
+        "E06"
+      ],
+      "notes": [
+        "At T+24 severe storm, pluvial flood, river flood, coastal flood, heatwave, winter storm, cyberattack and canonical wildfire have the exact same complete 42-neighbourhood order, led by De Kruidentuin, Centrum Swifterbant, Buitengebied Swifterbant, Centrum Biddinghuizen, Bedrijventerrein Spelwijk, Bloemenbuurt, De Kolk and De Kaai. Earthquake is an all-zero local tie; compound differs through saturation.",
+        "That equality cannot represent separate polder/defence, rainfall/topography/sewer, heat/vulnerability, wind, snow/ice, cyber-target, woodland/fire and smoke mechanisms.",
+        "A controlled source [5.808, 52.563] lies inside official BU03030550 Buitengebied Dronten and a BRT TOP10NL coniferous-forest feature near Roggebotzand. At T+24 direct fire is 0.2751, smoke 0.5203, drought 0.6339 and severity 0.3672, yet the containing neighbourhood ranks 12/42 at local hazard 0.4057 while unrelated De Kruidentuin reaches 0.4323. BRT source actuality 2019 proves reproducible cartographic containment, not a 2026 ignition, fuel condition or spread."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "All eight service balances are inspectable, but exact availability and dependencies are not calibrated to Dronten's physical lifelines.",
+      "evidenceRefs": [
+        "E03",
+        "E04",
+        "E05",
+        "E07",
+        "E08"
+      ],
+      "notes": [
+        "At river T+24 availability is power 49.25%, water 47.16%, drainage 30.42%, gas/heating 68.55%, telecom 44.14%, mobility 69.48%, facilities 50.27% and supply 57.25%. No cited operator or authority validates those exact values, dependency coefficients or repair paths.",
+        "The engine now correctly restricts source=NWB links without an explicit service list to mobility and supply. Those roads remain logical transfer proxies; they are not power feeders, potable-water pipes, sewer/polder-control paths, gas mains, telecom backhaul or facility networks.",
+        "E03/E05 establish sewer-pump-power and polder-management dependencies; E04 documents past electricity-rail-road cascades. Public provider territories, NBNL planning figures, water-register geometry, antenna and facility points remain non-causal context and do not supply live topology, load, pressure/quality, setpoints, backup, stock, crews or restoration.",
+        "Drinking-water quantity, pressure and quality; wastewater sewering; surface-water/polder control; emergency logistics; and healthcare continuity require separate states rather than one exact percentage per broad service."
+      ]
+    },
+    "causalTrace": {
+      "status": "warn",
+      "summary": "Stage arithmetic and metric scope are disclosed, but Dronten-specific event evidence, valid time and physical semantics are not persistent in every presentation.",
+      "evidenceRefs": [
+        "E03",
+        "E05",
+        "E06",
+        "E07",
+        "E08"
+      ],
+      "notes": [
+        "Deprived person-hours quarter-hour-integrates event-attributable weighted local pre-network service shortfall against a matched no-event baseline. Current system pressure and affected people-equivalent are post-network snapshots. These deliberately different scopes are not observed customers, casualties or outages.",
+        "Browser checks at 1440×900 and 390×844 with reduced motion for GM0303 river/water T+24 showed no horizontal overflow or console errors and announced 'Drinking water. Dronten: critical, 47% available.' The mobile document measured 390 px client and scroll width, opened the details panel, exposed the Reevesluis context and retained the correct T+24 aria-valuetext. The inspector provides generic deterministic/logical-transfer caveats but no Dronten-specific warning that no IJssel-Ketelmeer-Reevediep/defence/polder event is selected.",
+        "The compound preset has unsupportedDimensions empty even though its T+72 joint forcing and local allocation are synthetic and no official joint Dronten event is bound. Arithmetic closure cannot substitute for evidence coverage.",
+        "Current Waterinfo/NDW/provider observations, static official scenario/context layers, adopted plans and synthetic future checkpoints must remain separate evidence/time classes in maps, cards, announcements and exports."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "River/compound persistence and all recovery curves are deterministic but uncalibrated to Dronten hydraulics, operators, crossings, facilities, supplies or interventions.",
+      "evidenceRefs": [
+        "E03",
+        "E04",
+        "E05",
+        "E06",
+        "E07",
+        "E08"
+      ],
+      "notes": [
+        "River direct severity/stress reaches 0.5298/1.6707 at T+12 and remains identical through T+72. At T+48 and T+72 all eight service availabilities are an exact plateau: power 0.4925, water 0.4716, drainage 0.3042, gas 0.6855, telecom 0.4414, mobility 0.6948, facilities 0.3473 and supply 0.5725. No selected hydrograph, defence state, inundation arrival/recession or operator plan supports this.",
+        "Pluvial direct stress clears at T+48 after a modeled T+6 rain rate of 79.374 mm/hour, yet E03's official 63.4 mm/hour scenario footprint, pumps, catchments and emptying times are not sampled. Coastal direct water remains zero, which covers only the narrow North Sea distance screen and says nothing about IJsselmeer/Ketelmeer/randmeer setup, regional water, polder drainage or indirect service effects.",
+        "Compound T+48 and T+72 pressure/affected are exactly 0.5688/27,100 and all eight availabilities plateau at 0.4608/0.4738/0.3705/0.6292/0.3089/0.1946/0.4107/0.6084 while water stress remains 0.3280. Persistent exercise impact may be conservative, but these values are not an official joint-event forecast or restoration commitment.",
+        "No event-time utility switching, sewer/polder telemetry, crossing status, crew/fuel/spares, acute-care acceptance, temporary water/reception point, household stock, visitor movement or action completion is ingested. Seventy-two hours is a planning horizon, not a recovery deadline."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [
+      0,
+      6,
+      12,
+      24,
+      48,
+      72
+    ],
+    "services": [
+      "power",
+      "water",
+      "drainage",
+      "gas",
+      "telecom",
+      "mobility",
+      "facilities",
+      "supply"
+    ]
+  },
+  "findings": [
+    {
+      "id": "GM0303-FLOOD-SCENARIO-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The river preset presents a large persistent Dronten impact without a selected IJssel-Ketelmeer-Reevediep, defence or polder event.",
+      "evidence": "River forcing rises from zero at T+0 to severity/stress 0.1865/0.5881 at T+6 and 0.5298/1.6707 at T+12, then holds through T+72. Post-network pressure/affected people-equivalent is T+6 0.2130/4,611, T+12 0.4303/18,346, T+24 0.4792/21,434, and T+48/T+72 0.5009/22,809. E04–E06 establish below-NAP, IJssel-Ketelmeer/randmeer, dike, sluice, seepage and pumped-polder context, but the run selects no water body/hydrograph/datum, defence or breach/overtopping state, connected footprint, depth unit, probability, arrival, duration/recession or dewatering path. The model index 1.6707 is not observed metres or probability.",
+      "action": "Label the exact local magnitude and neighbourhood field unsupported/diagnostic and display local water impact as Unknown until an authority-selected, versioned LIWO/Zuiderzeeland/RWS exercise case is bound. Retain scenario/release ID, water body and boundary hydrograph/datum, defence/breach/overtopping state, connected depth/velocity/arrival/recession, probability, resolution, licence, coverage and NoData. Keep the current Reevesluis point observation separate."
+    },
+    {
+      "id": "GM0303-PLUVIAL-DRAINAGE-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Pluvial and drainage results omit Dronten's official extreme-rain footprint, sewer designs, pump dependencies and polder dewatering chain.",
+      "evidence": "The synthetic pluvial run peaks at 79.374 mm/hour at T+6, produces 0.3174 normalized flood stress and exactly 58.56% drainage availability at T+12/T+24, then clears direct water by T+48. E03 uses a distinct T=100+10% 63.4 mm/hour stress test for Biddinghuizen, Dronten and Swifterbant; it distinguishes sewer design events and says pump/power failure can cause overflow after several hours. E05 documents Gemaal Colijn and polder control. The deployed HWH layer returns zero objects in GM0303 despite this official infrastructure, proving contributor NoData rather than an asset-free municipality.",
+      "action": "Integrate an authorized versioned municipal stress-test raster/model-information export and reviewed Zuiderzeeland catchment, legal-object and polder layers with CRS, rain duration, depth/threshold units, edition, licence, coverage and NoData. Model wastewater and surface-water/polder control separately; live pump/telemetry, capacity, backup and emptying time stay Unknown unless authorized. Validate T+0/6/12/24/48/72 against selected event mass balance and dewatering assumptions."
+    },
+    {
+      "id": "GM0303-SPATIAL-001",
+      "severity": "high",
+      "category": "geography",
+      "status": "open",
+      "summary": "Eight unrelated nonzero standalone hazards reuse exactly one complete 42-neighbourhood ranking.",
+      "evidence": "At T+24 severe storm, pluvial flood, river flood, coastal flood, heatwave, winter storm, cyberattack and canonical wildfire rank every neighbourhood identically, led by De Kruidentuin, Centrum Swifterbant, Buitengebied Swifterbant, Centrum Biddinghuizen, Bedrijventerrein Spelwijk, Bloemenbuurt, De Kolk and De Kaai. Earthquake is an all-zero local tie and compound differs through saturation. This common ordering cannot represent the distinct polder/defence, rainfall/sewer, heat/vulnerability, wind, snow/ice, cyber-target, woodland/fire and smoke mechanisms supported by E03–E06.",
+      "action": "Mark all eight GM0303 neighbourhood hazard layers unsupported until mechanism-specific, coverage-aware inputs replace the common seed. Use selected hydraulic/pluvial surfaces, KNMI valid-time weather, demographic/building vulnerability, named cyber target sets and source/perimeter-based fire inputs. Preserve units, edition/valid time, resolution, licence, coverage and NoData; assert unrelated hazards no longer have an identical complete order."
+    },
+    {
+      "id": "GM0303-FIRE-SOURCE-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "A controlled fire source inside mapped Roggebotzand forest fails source-containment plausibility.",
+      "evidence": "The controlled point [5.808, 52.563] lies inside official BU03030550 Buitengebied Dronten and a BRT TOP10NL coniferous-forest polygon near Roggebotzand. At T+24 direct fire is 0.2751, smoke 0.5203, drought 0.6339 and severity 0.3672, but the containing neighbourhood ranks 12/42 at local hazard 0.4057 while unrelated De Kruidentuin reaches 0.4323. BRT feature actuality 2019 is aged land-cover context. E04's observed 11 August 2026 Roggebotzand incident supports access, suppression-water and precautionary-evacuation relevance, not this source, rank, spread rate or future event.",
+      "action": "Make configured source containment/distance a release invariant. Combine a named source/perimeter with versioned fuel eligibility and moisture, valid-time wind, barriers, smoke transport, access, extinguishing water and suppression state; retain NoData and keep direct flame distinct from remote smoke. Do not infer ignition or calibrate T+72 from one historical/current incident."
+    },
+    {
+      "id": "GM0303-LIFELINE-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Exact states for eight lifelines lack Dronten physical topology, capacity, backup and restoration calibration.",
+      "evidence": "At river T+24 the model reports power 49.25%, water 47.16%, drainage 30.42%, gas/heating 68.55%, telecom 44.14%, mobility 69.48%, facilities 50.27% and supply 57.25% available. The current route rule correctly confines unqualified NWB edges to mobility and supply, so this is no longer an all-service road-topology defect. E03–E08 provide only municipal/water-board design context, provider territories, one electricity planning sample, antenna and facility points, historical cascades and zero in-boundary acute-hospital points. None validates exact feeder/pipe/sewer/backhaul, flow, load, pressure/quality, control, priority, backup, stock, crew or restoration semantics.",
+      "action": "Keep NWB as a logical mobility and explicitly assumed logistics/repair-access proxy only. Give each service topologySemantics, source/version, uncertainty and calibration status. Use only security-reviewed operator, water-board and GHOR mappings; otherwise retain the smallest transparent aggregate synthetic fallback. Split drinking-water quantity/pressure/quality, wastewater, surface-water/polder control, healthcare access and stocked emergency supply, and prohibit exact operator claims."
+    },
+    {
+      "id": "GM0303-MOBILITY-CARE-001",
+      "severity": "medium",
+      "category": "network",
+      "status": "open",
+      "summary": "Static logical roads and schedules do not represent stateful crossings, multimodal alternatives or external acute-care access during the first 72 hours.",
+      "evidence": "Eight NWB series edges connect five neighbours and share A6/N307/N309 physical-corridor identities; they are non-additive generalized ceilings. Station Dronten and 61 GTFS stop areas add static schedule context. E02/E04/E05 identify the Drontermeer rail tunnel, roads, water structures and cross-service incident history. The deployed NDW query returns zero current situations and RIVM returns zero acute-hospital points inside GM0303. Neither empty result establishes open routes, functioning rail or absent healthcare need, and the current snapshot is not a T+72 forecast.",
+      "action": "Represent bridges, tunnels, sluices and key road/rail crossings as valid-time, mode-specific stateful assets; keep series-edge corridor identity non-additive. Add timestamped NDW/ProRail/GTFS operational evidence only within its validity and never convert an empty query to open. Model acute-care destinations, route travel, acceptance/diversion, staff and backup as distinct Unknown/confirmed states."
+    },
+    {
+      "id": "GM0303-RESPONSE-72H-001",
+      "severity": "high",
+      "category": "explainability",
+      "status": "open",
+      "summary": "The first-72-hour exercise lacks an auditable action/resource ledger and event-time visitor, refuge, supply and facility states.",
+      "evidence": "E04 identifies Walibi visitor concentration, vulnerable groups, safety-region priorities and historical cascading effects; E03/E05 define municipal and water-board systems and responsibilities; E08 gives national self-reliance guidance. The simulation holds 44,856 residents in deterministic neighbourhood allocations and does not record visitor population, warnings, evacuation/reception, opened distribution points, potable-water delivery, food/medicine/fuel stock, responder crews/vehicles, pump/generator state, hospital acceptance or intervention completion. Official plans, 72-hour kits and authority roles are not guaranteed outcomes.",
+      "action": "Add an optional action/resource ledger with proposed/requested/confirmed/started/completed/failed/cancelled state, responsible authority, trigger and units, issue/valid/expiry time, resource/capacity, dependency, confidence and source. Add event-time residents/workers/visitors with uncertainty and authorized refuge/reception/distribution/facility states. Never turn plans or kit guidance into automatic effects or a 72-hour recovery promise."
+    },
+    {
+      "id": "GM0303-OTHER-HAZARDS-001",
+      "severity": "medium",
+      "category": "limitation",
+      "status": "accepted-limitation",
+      "summary": "Storm, heat/drought, winter, cyber, earthquake, coastal and canonical wildfire remain generic scenario families rather than locally calibrated Dronten forecasts.",
+      "evidence": "E04 supports storm/rain, heat, cold, power/data/cyber, flood and nature-fire planning, but not the model's exact forcing or recovery. At T+24 storm severity is 0.1351, heat 0.0767, winter 0.7236, cyber 0.3685, earthquake direct ground motion zero, coastal direct flood stress zero and canonical wildfire direct flame zero with smoke/drought. No selected KNMI issue/valid time, local heat surface, named cyber target/attack path, earthquake ShakeMap/site response, North Sea/IJsselmeer boundary or canonical fire perimeter calibrates them. A narrow coastal or earthquake zero excludes only that modeled mechanism and is not an all-clear.",
+      "action": "Keep scenario, official static context, current observation, forecast, warning and probability labels distinct. Integrate KNMI data only with dataset/issue/valid/lead time/units/quality/licence; require named cyber targets, selected ground-motion grids and named fire sources/perimeters for local claims. Explicitly state that coastal zero excludes IJsselmeer/Ketelmeer/randmeer, regional-water, drainage and indirect effects."
+    },
+    {
+      "id": "GM0303-NODATA-TIME-001",
+      "severity": "medium",
+      "category": "regional-data",
+      "status": "open",
+      "summary": "Typed public context preserves many gaps, but Dronten-specific coverage and valid-time warnings are not yet complete in the scenario UI.",
+      "evidence": "The bundle correctly retains zero/null distinctions: one true zero-population neighbourhood; 0/42 usable district-heat and charging fields; zero HWH assets, drainage provider polygon, RIVM air stations, in-boundary hospitals, KVK government points, KNMI 365-day event origins and current NDW situations. It also labels one Reevesluis observation and provider/planning/register data as context. But a browser check announces exact T+24 river-water availability without an adjacent Dronten-specific message that the local IJssel-Ketelmeer/polder event and service calibration are missing; compound reports no unsupported dimension despite synthetic joint forcing.",
+      "action": "Retain explicit Unknown, suppressed, not-applicable and NoData states with publisher, edition, observation/issue/valid/retrieval time, coverage, licence and affectsSimulation. Add GM0303-specific water/fire evidence gaps to inspector, announcements and exports; make compound unsupported dimensions honest. Regression-test that empty queries never create zero hazard, functioning service, open road, clean air or a future T+72 state."
+    },
+    {
+      "id": "GM0303-CONTRACT-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The deterministic scenario contract, baseline attribution, reconciliation, layer invariance and NWB service-scope guard pass for GM0303.",
+      "evidence": "The focused model gate passes two tests over ten presets, six checkpoints and eight services. Zero-intensity output, repeated frames, preset parity, finite/bounded values, route ceilings, local population and service reconciliation, monotonic event-attributable person-hours and selected-layer local-hazard invariance pass. Deprived person-hours is explicitly cumulative local pre-network matched-baseline shortfall, while affected people-equivalent is current post-network pressure. Unqualified NWB routes now support only mobility and supply.",
+      "action": "Preserve these regressions while adding event provenance, mechanism-specific spatial allocation, source containment, typed service topology, valid-time mobility/healthcare state and first-72-hour action/resource semantics. Passing arithmetic and coherent scope labels are necessary but do not establish physical calibration or operational validation."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Bind Dronten river, coastal and pluvial water outputs to explicit authority-selected hydraulic and drainage evidence.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/public/data/hazards/GM0303-water-context.json",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Until selected evidence exists, local depth/impact is visibly Unknown and exact river/coastal/pluvial magnitudes are diagnostic. A supported run retains LIWO/Zuiderzeeland/RWS/municipal scenario and release ID, water body/boundary/datum, rain depth/duration, defence/breach/control state, connected footprint, depth/velocity/arrival/recession/dewatering, probability, resolution, licence, coverage and NoData. Current Reevesluis observations remain separate."
+    },
+    {
+      "summary": "Integrate Dronten municipal drainage and Zuiderzeeland polder context without converting public register geometry into live operations.",
+      "files": [
+        "apps/web/public/data/public-context/GM0303-drainage-context.json",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "A versioned, licensed municipal stress-test/model-information export and reviewed water-board catchments/legal assets retain CRS, units, rainfall duration, edition, coverage and NoData. HWH zero is displayed as contributor NoData. Wastewater and surface-water/polder control remain distinct, and pump topology, telemetry, capacity, backup and restoration stay Unknown unless authorized and valid-time evidence exists."
+    },
+    {
+      "summary": "Replace the common GM0303 neighbourhood seed and enforce local wildfire source-containment plausibility.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/public/data/hazards/GM0303-spatial-context.json",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Before correction, eight nonzero standalone T+24 hazards have one identical complete 42-row order. After integrating mechanism-specific, coverage-aware inputs, unrelated hazards can rank differently. A controlled Roggebotzand source ranks BU03030550 within a defined near-source band while direct flame, smoke, fuel/moisture, wind, barriers, access, extinguishing water and suppression remain separate and source-dated."
+    },
+    {
+      "summary": "Keep physical lifelines separate from NWB and add valid-time mobility, crossing, healthcare and logistics semantics.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/public/data/transport-network.json",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Preserve the current NWB mobility/supply-only guard and non-additive physical-corridor IDs. Bridges, tunnels, sluices, rail and road alternatives carry mode, validity, source, state and Unknown capacity. Electricity, gas, potable water, wastewater/polder control, telecom and facilities use only security-reviewed topology or visibly aggregate synthetic fallback. Empty NDW/RIVM results never mean open roads or no care dependency."
+    },
+    {
+      "summary": "Add an auditable Dronten first-72-hour action, visitor, facility and supply-state contract.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/AnalyticsDrawer.tsx",
+        "apps/web/public/data/public-context/GM0303-response-context.json"
+      ],
+      "validation": "Each action has authority, trigger/units, proposed/requested/confirmed/started/completed/failed/cancelled status, issue/valid/expiry time, resource/capacity, dependency, confidence and source. Visitor populations and opened reception/distribution/facility states are time-stamped and uncertain; water, food, medicine, fuel, hospital acceptance, staff, generators, crews and vehicles remain Unknown until confirmed. Plans and 72-hour guidance never auto-complete actions."
+    },
+    {
+      "summary": "Preserve evidence-class, temporal, metric-scope and NoData semantics in every map, card, announcement and export.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "apps/web/src/components/statistics/statisticsCatalog.ts",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/App.tsx"
+      ],
+      "validation": "Every value exposes observed/context/scenario/derived class, issue/observation/valid/retrieval time, units, coverage, uncertainty, licence and affectsSimulation. GM0303 river/fire and synthetic compound gaps are adjacent to precise values and screen-reader announcements. Current observations cannot initialize future checkpoints silently; empty queries remain Unknown. Local pre-network cumulative person-hours stays visibly distinct from current post-network pressure/affected people-equivalent."
+    }
+  ],
+  "residualLimitations": [
+    "This is a deterministic first-72-hour planning-model audit, not a KNMI, Rijkswaterstaat, WMCN, Waterschap Zuiderzeeland, Veiligheidsregio Flevoland, municipality, province or operator forecast, warning, probability, evacuation order, casualty estimate or restoration commitment.",
+    "The 2025 generalized CBS boundary and neighbourhoods are suitable for overview aggregation, not parcel hydraulics, dike compartments, water/land separation, drainage catchments, woodland fuels, asset ownership, incident perimeters or emergency routes.",
+    "No selected IJssel-Ketelmeer-Reevediep/randmeer boundary condition, named defence/control state, breach/overtopping case, connected inundation footprint, depth/velocity, arrival/recession, probability or NoData mask drives GM0303.",
+    "The municipal 63.4 mm/hour T=100+10% test is an official static planning scenario, not observed rain or a T+72 forecast. Its native depth/model-information surface is not deployed and sewer/pump/polder representation must be confirmed before causal use.",
+    "HWH zero water objects is contributor NoData. Municipal and Zuiderzeeland registers describe legal/design context without guaranteed live completeness, connectivity, capacity, flow direction, setpoint, condition, operation, backup or restoration.",
+    "Current Waterinfo, NDW, provider and other snapshots have distinct observation/retrieval/valid times. Missing records mean Unknown, not zero hazard, open road, functioning service, clean air or a valid future state.",
+    "NWB, ProRail and GTFS are static geometry/schedule context. The updated NWB service restriction is correct, but it still does not establish crossing state, incident throughput, rail operation, evacuation capacity or T+72 continuity.",
+    "No complete safe public source supplies Liander feeder/gas topology, Vitens distribution pressure/quality topology, municipal sewer connectivity, water-board live controls, telecom backhaul, facility dependencies, supplies, backups, crews or restoration. Sensitive details were not inferred.",
+    "NBNL planning capacity is not current load or outage; provider polygons are not full topology; RDI installations are not coverage/backhaul/state; DUO and KVK locations are not shelters/distribution points; RIVM acute-care roles are not live acceptance, staff or generator fuel.",
+    "The controlled Roggebotzand point is synthetic and tests source containment only. BRT source actuality is 2019 and the observed 2026 incident is one event, not canonical ignition, fuel/moisture, spread, smoke, access, suppression or recovery calibration.",
+    "Cyber lacks a named target, architecture and attack path; earthquake lacks a selected event, ShakeMap and site response; heat/winter/storm lack selected KNMI issue-valid forcing; coastal zero does not cover IJsselmeer/Ketelmeer/regional water.",
+    "Household preparedness, medically dependent residents, Walibi/other visitors, mutual aid, reception/refuge/water points, food/medicine/fuel, staff, vehicles and repair priorities remain assumptions or Unknown. Official 72-hour guidance is not measured readiness or an aid/recovery deadline.",
+    "Affected population is a current post-network people-equivalent threshold metric, while deprived person-hours is a cumulative local pre-network matched-baseline service-pressure proxy. Neither is identified customers, casualties, displacement, welfare loss or economic damage; six-hour checkpoints can miss fast rain, wind and control changes."
+  ],
+  "provinceReviewFlags": [
+    "Municipality-specific release blocker: require an authority-selected IJssel-Ketelmeer-Reevediep/defence/polder event before treating stress 1.6707, 22,809 affected people-equivalent or a T+72 plateau as local flood evidence; a current Reevesluis point is not that event.",
+    "Municipality-specific release blocker: integrate Dronten's 63.4 mm/hour municipal stress-test footprint and reviewed Zuiderzeeland drainage/polder context while retaining HWH zero as NoData and all live pump/control fields as Unknown.",
+    "Municipality-specific release blocker: eight unrelated hazards share one complete neighbourhood order and the controlled Roggebotzand fire source ranks its containing neighbourhood 12/42. Replace the common seed and enforce source-containment/distance tests.",
+    "Municipality-specific: add a persistent Dronten evidence-gap label for river/coastal/polder/fire and compound scenarios; exact screen-reader announcements must not sound observed or calibrated when local evidence is absent.",
+    "Municipality-specific: include Walibi/event visitors, external acute-care access, crossings, reception/distribution and water-board/municipal/safety-region actions only as time-stamped authorized states, never implied by static registers or plans.",
+    "Shared/national: preserve the corrected NWB mobility/supply-only rule and physical-corridor non-additivity; public roads must never become physical electricity, gas, potable-water, drainage, telecom or facility topology.",
+    "Shared/national: preserve evidence class, issue/observation/valid/retrieval time, coverage, licence, affectsSimulation and NoData in maps and exports. Current observations, static official context, plans and synthetic T+72 output must never be presented as one operational state."
+  ]
+}

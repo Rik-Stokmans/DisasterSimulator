@@ -1,0 +1,402 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM1735",
+    "name": "Hof van Twente",
+    "province": "Overijssel",
+    "safetyRegion": "Twente"
+  },
+  "agent": {
+    "taskName": "municipality_gm1735",
+    "agentId": "/root/municipality_gm0244",
+    "completedAt": "2026-09-03T05:12:35Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "GM1735 is identity-correct, deterministic and numerically complete across the required ten presets, six checkpoints and eight services, but its outputs are not locally calibrated first-72-hour forecasts. The canonical river preset assigns 0.666361 legacy flood amplitude, 7,518 affected people-equivalent at T+24 and an unchanged direct hazard through T+72 without selecting a Regge, brook or Twentekanaal event, although the current regional risk profile says Twente has no primary defences and only limited, mainly rural river-overflow exposure. Nine nonzero presets reuse the same T+24 top-five neighbourhood order, and a controlled fire point inside official Twickel-area mixed woodland ranks its containing neighbourhood only 21st of 48. Public water, transport, grid, communications, school and acute-care context is useful but explicitly does not establish live topology, capacity, availability or restoration. River outputs and local rankings therefore need suppression or replacement with source-specific surfaces; all operational gaps must remain Unknown rather than zero or safe.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek / PDOK / Kadaster",
+      "title": "GM1735 official 2025 municipality statistics, generalized geography, BAG places and BRT topography",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM1735%27%29",
+      "accessedAt": "2026-09-03T05:00:00Z",
+      "edition": "CBS 2025; BAG/BRT/PDOK services inspected 3 September 2026",
+      "supports": [
+        "The annual CC BY 4.0 CBS table and generated coherent snapshot identify GM1735 as Hof van Twente and report 35,660 residents, density 168 per square kilometre, 26.4% aged 65 or older and 4,891 one-person households. Published small-area values can be rounded, suppressed, unavailable or not applicable; null and Unknown must not become zero.",
+        "The CC BY 4.0 generalized CBS centre [6.584086466791603, 52.22549317405073] lies inside the GM1735 multipolygon. All seven BAG woonplaats label points—Ambt Delden, Bentelo, Delden, Diepenheim, Goor, Hengevelde and Markelo—lie inside; BAG at https://api.pdok.nl/kadaster/bag/ogc/v2/collections/woonplaats is Public Domain Mark 1.0.",
+        "BRT TOP10NL at https://api.pdok.nl/kadaster/brt-top10nl/ogc/v1 is CC BY 4.0 and supplies 24 settlement labels and source-scaled terrain. Point [6.6847, 52.2717] lies inside BU17350806 Verspreide huizen Deldeneresch and official BRT polygon NL.TOP10NL 121371088 typed bos: gemengd bos, with source actuality 2022 and registration in 2023. This proves geometry containment only, not current fuel, ignition, spread, access or fire-water supply.",
+        "The 48 published neighbourhood rows sum to 35,665, five above the municipal total (+0.014%); deterministic allocation reconciles exactly to 35,660. Register population excludes event-time visitors, commuters, care occupancy, medical dependency and household stocks."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / ProRail / OVapi",
+      "title": "NWB road, ProRail station and scheduled public-transport inputs for Hof van Twente",
+      "url": "https://downloads.rijkswaterstaatdata.nl/nwb-wegen/geogegevens/shapefile/NWB-light/01-08-2026.zip",
+      "accessedAt": "2026-09-03T05:01:00Z",
+      "edition": "NWB 1 August 2026; ProRail and OVapi snapshots retrieved 31 August–3 September 2026",
+      "supports": [
+        "The monthly CC0 NWB input generates ten logical boundary links to seven municipalities: A1, N755 and N752 to Rijssen-Holten; N346 to Lochem and Hengelo; N740 and N824 to Berkelland; N347 to Haaksbergen and Wierden; and N741 to Almelo. Repeated route names are physical-corridor series links and their generalized scenario ceilings are not additive measured throughput.",
+        "The municipality describes access through A1 and A35, Goor and Delden stations and the Twentekanaal. The generated boundary graph includes A1 but not a direct A35 edge; this can be consistent with A35 access lying just beyond the boundary, yet the resulting indirect access, junction Azelo, internal village links, canal/rail crossings and incident passability are not represented.",
+        "ProRail's CC0 OGC service locates Goor and Delden stations and the GTFS preprocessing finds 89 stop areas. Geometry and schedules do not prove event-time road or rail operation, passenger/freight capacity, evacuation throughput, emergency priority or restoration.",
+        "No current NDW situation in the deployed bounded snapshot was assigned to GM1735. That empty result is limited snapshot coverage, not proof that every local route is open."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Twente",
+      "title": "Regionaal Risicoprofiel Twente 2025",
+      "url": "https://www.vrtwente.nl/sites/vrt/files/2025-12/Regionaal%20Risicoprofiel%20Twente%202025.pdf",
+      "accessedAt": "2026-09-03T05:02:00Z",
+      "edition": "2025, formally included with the adopted VRT 2026–2029 policy package on 23 April 2026",
+      "supports": [
+        "The profile says Twente is relatively high, has no dike rings or primary defences, and that the Regge and cross-border Dinkel can cause local nuisance; overflow risk is limited, short-lived under long/heavy rainfall and mainly in rural areas. Several-days-delayed river effects depend on prolonged regional or German rainfall. This qualitative regional assessment is not a local hydrograph, inundation raster or probability.",
+        "Short intense rain can make roads impassable, affect emergency access and cause local electricity/GSM/sewer effects. Heat, drought, storm, winter weather, service disruption, hazardous transport and cyber-initiated crises are credible regional pathways, but the document supplies no GM1735 numeric curve or live incident state.",
+        "Nature-fire impact depends on fuel, dryness, weather, access, escape, vulnerable/recreational occupancy and fire-water availability; open water may be unavailable in drought and large water transport takes time. Static BRT woodland and a synthetic origin cannot substitute for these variables.",
+        "The profile identifies A1/A35 and rail as central corridors, Twentekanaal water supply/shipping, regional ageing and interdependent vital infrastructure. It describes risk and influence measures, not confirmed T+0–72 actions, crews, facility acceptance or restoration. No general machine-reuse licence was found on the PDF."
+      ]
+    },
+    {
+      "publisher": "Gemeente Hof van Twente",
+      "title": "Omgevingsvisie 2040, municipal sewer/water guidance and climate-adaptation policy",
+      "url": "https://omgevingsvisie.hofvantwente.nl/de-hof-in-2040/leefbaar-hof-van-twente/onze-visie-op-het-thema-voor-2040-1",
+      "accessedAt": "2026-09-03T05:03:00Z",
+      "edition": "Current official vision/pages inspected 3 September 2026; extended GRP 2021–2024",
+      "supports": [
+        "The municipality identifies Goor-Herikerberg between Markelo and Goor as the drinking-water abstraction area supplying Hof van Twente. It describes drought effects on groundwater, agriculture, nature, drinking water and drying brooks, and states that low and heavily paved areas are vulnerable to intense rain. This is planning evidence, not extraction output, potable reserve, pressure, quality or outage telemetry.",
+        "The municipality says its sewer assessment moved from 20 mm/hour to 70 mm/hour and that sewerage cannot process every severe rainfall event. Its service page at https://www.hofvantwente.nl/direct-regelen/melding-klacht-en-bezwaar/melding-en-verzoek/melding-riool-en-water/ explicitly says an outer-area pressure-sewer alarm may result from blockage or power loss and means wastewater is not removed; parks, playfields and wadis may hold rainfall longer.",
+        "The extended GRP 2021–2024 expects residents and businesses to retain rainwater where reasonable and accepts more water-on-street within limits. Neither the vision, page nor PDF exposes current pipe/pump connectivity, design exceedance, maintenance condition, backup power or a licence-stable operational API.",
+        "The current policy text identifies the A1/A35, Goor/Delden rail and Twentekanaal, and the distributed cores and countryside. Planning statements should inform evidence questions, not automatically alter a synthetic incident state."
+      ]
+    },
+    {
+      "publisher": "Waterschap Vechtstromen / Het Waterschapshuis / Rijkswaterstaat",
+      "title": "Twente climate atlas, Goor wastewater catchment, harmonized water assets and Waterinfo observations",
+      "url": "https://www.vechtstromen.nl/werk/klimaat-veiligheid/klimaatatlas-twente/",
+      "accessedAt": "2026-09-03T05:04:00Z",
+      "edition": "Twente climate atlas 2019/2050 outlook with six-year review; current project and machine snapshots inspected 3 September 2026",
+      "supports": [
+        "The official Twente climate atlas contains modelled water-nuisance, heat, drought and overflow layers for urban and rural areas. The publisher says it is a theoretical 2050 vulnerability picture, not a prediction; some extreme-rain layers omit sewer outflow while municipal stress-test layers include it. Any integration must retain scenario, assumptions, resolution, coverage, version and NoData rather than treating colours as live depth.",
+        "Vechtstromen states at https://www.vechtstromen.nl/projecten/actuele-projecten/zuiveringen-kaderrichtlijn-water/zuivering-goor/ that RWZI Goor receives wastewater from Goor, Stokkum and Diepenheim and discharges after treatment into Holtdijksbeek in the Regge catchment. Its staged upgrade began in February 2026 and is intended to continue treatment; project status is not proof of incident-time capacity or continuity.",
+        "The deployed CC BY-SA 4.0 HWH OGC routes https://api.pdok.nl/hwh/waterschappen-kunstwerken-imwa/ogc/v2 and https://api.pdok.nl/hwh/waterschappen-waterketen-damo/ogc/v1 contain 499 point assets inside GM1735: seven sewer pumps, RWZI Goor, thirteen surface-water pumps and 478 weirs. Managers are Vechtstromen for 445, Rijn en IJssel for 46 and unspecified for eight; only thirteen records have a non-null capacity. HWH says national contributor completeness varies. Points, labels and realised status do not prove topology, live operation, units, backup or spare capacity.",
+        "The deployed RWS Waterinfo snapshot has four CC0 observations at 2 September 2026 17:30Z: Markelo discharge 0.82 m3/s and Markelo/Delden-lock water levels. Waterinfo measurements are generally ten-minute but can be delayed and the public service is not mission-critical. No assigned forecast exists. These points are not a municipal surface, threshold exceedance, selected Regge event or T+72 forecast."
+      ]
+    },
+    {
+      "publisher": "Stichting Mijn Aansluiting / Netbeheer Nederland / RDI / DUO / RIVM",
+      "title": "Public provider territories, grid-planning sample, antenna register, education and acute-care context",
+      "url": "https://data.partnersinenergie.nl/capaciteitskaart/totaal/afname",
+      "accessedAt": "2026-09-03T05:05:00Z",
+      "edition": "Provider/register/planning snapshots retrieved in 2026; RIVM acute-care v1.1",
+      "supports": [
+        "The Public Domain WMS https://public.geodata.mijnaansluiting.nl/geoserver/mijnaansluiting_open/ows identifies Coteq electricity/gas, Vitens drinking water and Ziggo media at the municipal reference point, each last updated 7 September 2025; no drainage provider is returned. A single-point territory query is not municipality-wide completeness, topology, coverage quality, capacity, outage or restoration.",
+        "The sampled NBNL GO Goor area identifies Coteq/Enexis planning context: withdrawal 72.2 MW existing and 43.7 MW required with 4.5 MW/37-request queue; injection 72.2/67.9 MW with 48.4 MW/21-request queue; twelve projects, earliest 2026. Capacity/projects are at least quarterly and queues monthly. The single DUO-postcode lookup and exact licence-not-found status make this large-user planning context, not current load, feeder topology, emergency reserve or a T+72 forecast.",
+        "RDI's public WFS returns 105 antenna-installation sites assigned by polygon, 46 marked mobile communication and 33 fixed link; service capabilities state no fees/access constraints but no reuse licence or fixed refresh. DUO's daily RIO snapshot, CC BY with unspecified version, returns 23 education records. Neither establishes coverage, traffic/backhaul/power, shelter role, occupancy, staff, generator endurance, supplies or live status.",
+        "RIVM acute-care v1.1, published 3 July 2026 under CC0, has no SEH/acute-obstetric point inside GM1735. This national questionnaire result is not zero healthcare, zero demand or proof that an external hospital will accept patients; travel time, diversion, staffing and continuity remain Unknown."
+      ]
+    },
+    {
+      "publisher": "Gemeente Hof van Twente",
+      "title": "Local first-72-hour preparedness guidance and Lokaal Hitteplan Hof van Twente",
+      "url": "https://www.hofvantwente.nl/direct-regelen/wonen-en-leven/veiligheid/goed-voorbereid-op-een-noodsituatie/",
+      "accessedAt": "2026-09-03T05:06:00Z",
+      "edition": "Current pages inspected 3 September 2026; heat plan announced 2 June 2026",
+      "supports": [
+        "The municipality advises a household emergency kit for the first 72 hours, a household contact/meeting/help plan, NL-Alert, RTV Oost 89.4 FM and attention to medication and neighbours needing help. This is preparedness guidance, not measured household stock, communications coverage, a distribution promise or a recovery deadline.",
+        "The heat plan page at https://www.hofvantwente.nl/actueel/gemeente-en-partners-ondertekenen-lokaal-hitteplan/ states that municipality, care/welfare bodies, older-person organisations, Red Cross and GGD agreed actions before, during and after heat, initially focused on older people living at home, triggered with the national heat plan. It does not publish person-level coverage, roster, resources, action completion or outcomes.",
+        "The guidance and heat-plan announcement are public narrative sources without a fixed machine cadence or blanket data licence. They support action categories and responsibility questions only; all event-time activation, contact, resource and completion states remain Unknown until confirmed."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "Official code, name, province, safety region, centre and headline demography agree.",
+      "evidenceRefs": ["E01", "E03"],
+      "notes": [
+        "Manifest, generated context and model uniquely identify GM1735 as Hof van Twente in Overijssel and assign Veiligheidsregio Twente.",
+        "BoundaryEdition and statisticsEdition are both 2025. Current 2026 observations, older source features, policy horizons and the synthetic exercise clock retain separate temporal semantics.",
+        "No code, name, province, safety-region, centre-containment or headline-population mismatch was found."
+      ]
+    },
+    "geography": {
+      "status": "warn",
+      "summary": "Administrative and settlement geometry is coherent, but Regge/brook/Twentekanaal, drainage and woodland mechanisms require source-resolution coverage.",
+      "evidenceRefs": ["E01", "E03", "E04", "E05"],
+      "notes": [
+        "The municipality centre and all seven BAG place label points lie inside the generalized multipolygon; BRT adds 24 named settlements, including fifteen buurtschappen and two gehuchten.",
+        "The current regional profile establishes no primary defence rings, limited Regge overflow and high-sand rainfall dependence. A generic major-river distance screen cannot encode local streams, control structures, drainage, saturation or Twentekanaal supply.",
+        "Climate-atlas rasters, HWH control points and BRT woodland have different editions, scenarios, resolutions and licences. NoData, areas outside coverage and missing operational attributes must stay explicit."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Official 2025 totals agree and rounded neighbourhood populations reconcile within CBS publication semantics.",
+      "evidenceRefs": ["E01", "E03", "E07"],
+      "notes": [
+        "Generated and official population is 35,660, density 168 per square kilometre, age65Pct 26.4 and one-person households 4,891.",
+        "The 48 neighbourhood populations sum to 35,665, five above the municipality total (+0.014%); deterministic allocation reconciles exactly to 35,660. Published neighbourhood households sum to 15,430 and age65+ rows to 9,405.",
+        "Largest published neighbourhoods are Markelo 3,780, Centrum-Goor 3,195, Vossenbrink en De Braak 2,485, De Whee II-Zuid 1,865 and Hengevelde 1,710. Counts do not establish homebound vulnerability, current care, visitors or household supplies."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "All neighbourhoods load, but official attributes have bounded missingness and operational hazards/services remain non-causal or Unknown.",
+      "evidenceRefs": ["E01", "E04", "E05", "E06"],
+      "notes": [
+        "All 48 rows provide core population fields. District heat and public charging are missing in 48/48; home value in five; household size, doctor/supermarket distance and density in one; cars per household in six; and key housing/tenure pairs in four. Nulls remain null, not zero.",
+        "The 499 water assets are strong register context, but 486 lack a capacity value and the thirteen values present cannot be treated as comparable throughput without unit, topology and operating state. Unspecified manager stays Unknown.",
+        "Provider, grid-planning, antenna, school and acute-care sources carry explicit coverage and time semantics; none is an event-time availability or resource feed."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "Seven BAG places and 24 BRT settlement labels are spatially coherent; their emergency roles and transient population remain Unknown.",
+      "evidenceRefs": ["E01", "E02", "E04"],
+      "notes": [
+        "The BAG places are Ambt Delden, Bentelo, Delden, Diepenheim, Goor, Hengevelde and Markelo; all place centres are inside the generalized boundary.",
+        "BRT adds smaller named localities across the large countryside. Dataset-purpose differences do not prove missing residents or facilities.",
+        "Settlement labels and 89 transit stop areas do not establish isolated households, event-time occupancy, evacuation demand, reception points, supply hubs or route access."
+      ]
+    },
+    "transport": {
+      "status": "warn",
+      "summary": "The road/rail baseline is reproducible and service-limited, but first-72-hour internal, A35, bridge/canal/rail-crossing and live passability state is unresolved.",
+      "evidenceRefs": ["E02", "E03", "E04", "E06"],
+      "notes": [
+        "Ten NWB logical edges connect seven neighbours over A1, N755, N752, N346, N740, N824, N347 and N741. Default 260/150 capacities are scenario units; routes sharing a corridor are non-additive.",
+        "The engine correctly restricts unqualified NWB edges to mobility and road-logistics supply. They are not electricity, gas, water, drainage, telecom or facility topology.",
+        "Official local/regional sources identify A35/A1, junction Azelo, two rail stations and Twentekanaal as material corridors. Boundary-edge geometry omits their internal junction/crossing dependencies and cannot prove incident-time access or hospital/supply travel.",
+        "No GM1735 NDW item is not an all-open claim. Road, rail, canal and bridge acceptance must be time-stamped Unknown unless a valid observation or incident decision covers them."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "Official first-72-hour guidance and heat/nature-fire roles exist, but the simulator has no auditable local action, resource or decision state.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07"],
+      "notes": [
+        "A usable GM1735 run needs time/authority/status/resource records for warning and communication; homebound and care outreach; fire/water decisions; road/rail control; medical transfers; reception/evacuation; temporary drinking water; fuel, food and medicines; utility repair and mutual aid.",
+        "The local heat plan establishes a partner network and trigger concept, but not which residents were contacted, staff available or actions completed. Household 72-hour guidance is not measured readiness.",
+        "Twenty-three school records are not shelters and empty local acute-care output is not zero care. Hospital acceptance, travel, staffing, backup and supplies outside the boundary remain Unknown.",
+        "Operator control, sensitive topology, crew locations and inventories are appropriately absent from open sources; use authorized aggregates or visibly synthetic assumptions, never fabricated detail."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten canonical presets produce complete finite deterministic results at all six checkpoints and for all eight services; realism failures are recorded separately.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07"],
+      "notes": [
+        "The mandatory and focused gates executed severe storm, pluvial flood, river flood, coastal flood, heatwave, winter storm, cyberattack, earthquake, wildfire and compound at T+0/6/12/24/48/72 for power, water, drainage, gas, telecom, mobility, facilities and supply.",
+        "At T+24 severity / post-network pressure / affected people-equivalent / cumulative local pre-network event-attributable person-hours are storm 0.098520 / 0.265177 / 6,289 / 109,578.63; pluvial 0.190096 / 0.208365 / 3,435 / 103,236.59; river 0.208789 / 0.289630 / 7,518 / 143,867.89; coastal 0.047658 / 0.095100 / 0 / 28,303.37; heat 0.093432 / 0.191243 / 2,575 / 92,196.11.",
+        "Remaining T+24 values are winter 0.444402 / 0.232566 / 4,651 / 126,824.30; cyber 0.466214 / 0.361023 / 11,105 / 189,199.19; Groningen earthquake 0 / 0.087252 / 0 / 32,729.68; wildfire 0.117517 / 0.136314 / 0 / 48,654.97; compound 0.840118 / 0.546906 / 20,443 / 328,313.29.",
+        "These are deterministic exercise outputs. Affected people-equivalent and system pressure are post-network snapshots; person-hours is cumulative event-attributable weighted local pre-network service shortfall against a matched no-event baseline. None is an observation, customer count, casualty estimate, forecast or operator promise."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "The mandatory gate passes determinism, finiteness, bounds, baseline, causal, allocation, reconciliation and monotonic-burden contracts.",
+      "evidenceRefs": [],
+      "notes": [
+        "MUNICIPALITY_AUDIT_CODE=GM1735 pnpm audit:model passes both tests on current code across ten presets, six checkpoints and eight services.",
+        "Every intensity-zero run has zero event severity, affected people-equivalent and event-attributable person-hours; repeated output and web/core preset parity pass.",
+        "All 48 local rows reconcile exactly to 35,660 residents and preserve published zero/null semantics; service-layer selection leaves local hazard unchanged, person-hours is monotonic and declared route ceilings hold.",
+        "Passing arithmetic and deterministic contracts does not calibrate local hazard, topology, service state, response or restoration."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "A shared neighbourhood ranking across unrelated hazards and failed controlled-fire source containment invalidate local spatial interpretation.",
+      "evidenceRefs": ["E01", "E03", "E04", "E05"],
+      "notes": [
+        "At T+24 all nine nonzero canonical presets share the same top-five hazard order: 't Kip, Verspreide huizen Deldenerbroek, Diepenheim-Noord, Verspreide huizen Markelerbroek and De Whee I. Earthquake is a zero tie. This cannot represent separate rain/sewer/topography, Regge/brook, wind, heat, winter, cyber-target, woodland/fire/smoke and coastal-indirect mechanisms.",
+        "A controlled source [6.6847, 52.2717] lies inside official mixed woodland and BU17350806 Verspreide huizen Deldeneresch. At T+24 direct fire is 0.274133, smoke 0.452739, drought 0.546816 and severity 0.342576, yet the containing neighbourhood ranks 21/48 while 't Kip leads at 0.403752.",
+        "The canonical fire at T+24 has zero direct fire but nonzero smoke 0.284100 and drought 0.505805, so indirect exposure can be displayed only with its explicit synthetic origin and uncertainty. The controlled source itself is synthetic and validates containment/ranking behavior, not real ignition.",
+        "River T+24 similarly ranks 't Kip first rather than deriving a footprint from the Regge, brooks, Twentekanaal, controls or the official climate atlas."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "All eight service balances are inspectable, but exact percentages and dependency curves are not calibrated to GM1735 lifelines, operators or facilities.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E06", "E07"],
+      "notes": [
+        "At river T+24 availability is power 74.19%, water 69.77%, drainage 60.38%, gas/heating 84.50%, telecom 68.27%, mobility 69.32%, facilities 74.49% and supply 65.36%. No cited authority/operator validates those exact values, coefficients, reserves or repair paths.",
+        "The NWB guard correctly limits roads to mobility and supply. Public Coteq/Vitens/Ziggo territories, one GO Goor NBNL planning sample and RDI sites remain affectsSimulation=false and do not support physical topology or availability.",
+        "HWH assets and E05's Goor–Stokkum–Diepenheim wastewater relation establish meaningful context, but not full pipe/catchment connectivity, flows, setpoints, condition, backup power or restoration. Potable water, wastewater drainage and regional water control require distinct states.",
+        "No safe complete public source supplies electricity/gas feeders, drinking-water pipes, telecom backhaul, facility dependencies, stocks, crews or repair estimates. Preserve aggregate synthetic fallback with explicit uncertainty and operator override."
+      ]
+    },
+    "causalTrace": {
+      "status": "fail",
+      "summary": "Evidence classes exist, but unsupported local pathway, target and operational dimensions are not declared by the hazard outputs.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07"],
+      "notes": [
+        "River labels spatialEvidence derived-screening and unsupportedDimensions=[] while presenting exact GM1735 severity and persistent local impact without a named source water body, rainfall/hydrograph, control/defence state, footprint, depth, arrival or recession.",
+        "The shared top-five ordering and controlled-fire rank show that a generic local susceptibility multiplier can dominate spatial results. A causal trace must identify each surface and list every unresolved dimension rather than implying local support.",
+        "Current Waterinfo/provider context, the 2019/2050 climate atlas, source-scaled BRT, policy pages and synthetic T+0–72 states have different time and evidence classes and must not be fused.",
+        "Cyber output needs an explicit target and scope; earthquake needs a selected epicentre/magnitude/ground-motion method. An absent observation or target must be Unknown/unsupported, never silently inferred."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "River/compound persistence and all recovery curves are deterministic but unsupported by local hydrology, operators, routes, facilities, resources or completed interventions.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07"],
+      "notes": [
+        "River severity/legacy flood amplitude reaches 0.208789/0.666361 at T+12 and remains exactly unchanged through T+72. Pressure/affected/person-hours progress from 0.289630/7,518/143,867.89 at T+24 to 0.304440/8,261/579,094.72 at T+72 without a Regge hydrograph, soil saturation, control state, arrival/recession or dewatering evidence.",
+        "River T+72 availability plateaus at power 0.741916, water 0.697664, drainage 0.603832, gas 0.844966, telecom 0.682680, mobility 0.693218, facilities 0.639105 and supply 0.653578. None is an operator promise or observed status.",
+        "Compound T+72 severity/pressure/affected/person-hours is 0.330646/0.584025/22,309/1,243,966.92, with availability power 0.448544, water 0.376093, drainage 0.332542, gas 0.563386, telecom 0.279955, mobility 0.568848, facilities 0.353027 and supply 0.418623. This is a synthetic exercise, not an official joint forecast.",
+        "No time-stamped action completion, warning reach, fire-water setup, road/rail acceptance, medical acceptance, temporary water/reception, crew/fuel/spares, household stock or utility switching is ingested. Seventy-two hours is a preparedness horizon, not a recovery deadline."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": ["power", "water", "drainage", "gas", "telecom", "mobility", "facilities", "supply"]
+  },
+  "findings": [
+    {
+      "id": "GM1735-F01",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The river preset produces precise persistent direct impact without a selected Regge/brook/Twentekanaal event and conflicts with the regional limited-overflow context.",
+      "evidence": "E03 says Twente has no dike rings/primary defences and Regge/Dinkel overflow is limited, short-lived under rainfall and mainly rural. The focused run instead holds legacy flood amplitude 0.666361 and severity 0.208789 from T+12 through T+72, reaching 8,261 affected people-equivalent without a named hydrologic boundary condition or footprint.",
+      "action": "Suppress GM1735 direct river numbers as unsupported unless a versioned named event intersects a source-specific footprint. Integrate authorized Regge/brook stress-test or water-board hydraulic layers with rainfall/hydrograph, control state, arrival/recession, resolution, licence and NoData; retain generic major-river indirect effects separately."
+    },
+    {
+      "id": "GM1735-F02",
+      "severity": "high",
+      "category": "geography",
+      "status": "open",
+      "summary": "Unrelated hazards reuse one neighbourhood priority pattern rather than their physical local pathways.",
+      "evidence": "At T+24 each of the nine nonzero presets has the same top five—'t Kip, Verspreide huizen Deldenerbroek, Diepenheim-Noord, Verspreide huizen Markelerbroek and De Whee I—despite E03–E05 documenting distinct rain, stream, heat/drought, woodland and infrastructure mechanisms.",
+      "action": "Remove the shared synthetic multiplier from the physical hazard rank. Until separate versioned surfaces exist, render the municipality amplitude uniformly or label neighbourhood hazard unresolved; then validate per-hazard rank diversity and source geometry."
+    },
+    {
+      "id": "GM1735-F03",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "A controlled woodland fire does not prioritize the source-containing neighbourhood.",
+      "evidence": "Source [6.6847, 52.2717] is inside a 2022 BRT mixed-forest polygon and BU17350806 Verspreide huizen Deldeneresch. At T+24 direct fire 0.274133 and smoke 0.452739 are reported, yet that neighbourhood ranks 21/48 while 't Kip ranks first.",
+      "action": "Drive direct fire from source distance, BRT/BBK fuel class, current drought/weather, barriers, access and fire-water coverage; test that an interior source ranks its containing/adjacent polygons first unless an explicit directional spread trace explains otherwise."
+    },
+    {
+      "id": "GM1735-F04",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Exact service availability and restoration values lack local operator evidence.",
+      "evidence": "River T+24 produces eight exact availability percentages while E05/E06 only establish context assets, provider territories and planning samples. They do not establish Coteq/Vitens/Ziggo topology, live state, wastewater control, dependencies, backup or repairs.",
+      "action": "Keep public records affectsSimulation=false. Mark service values as aggregate synthetic scenarios and Unknown operationally; accept only operator-authorized aggregate outage, backup and restoration inputs with scope and valid time."
+    },
+    {
+      "id": "GM1735-F05",
+      "severity": "medium",
+      "category": "regional-data",
+      "status": "accepted-limitation",
+      "summary": "The large public water-asset inventory has partial coverage and extensive missing capacity semantics.",
+      "evidence": "HWH returns 499 points, but 486 have null capacity, eight lack manager and HWH warns contributor completeness varies. Even non-null capacity values lack enough unit/connectivity/state context for comparable model throughput.",
+      "action": "Retain the points, two water-board managers, source collection, retrieval time and nulls in context. Do not sum capacities or infer resilience; seek water-board-authorized catchment/control aggregates and maintain coverage/NoData masks."
+    },
+    {
+      "id": "GM1735-F06",
+      "severity": "medium",
+      "category": "network",
+      "status": "accepted-limitation",
+      "summary": "NWB captures boundary corridors but not the first-72-hour internal and external access chain.",
+      "evidence": "Ten logical edges cover A1 and seven N-routes, while official sources identify A35, Azelo, Goor/Delden rail and Twentekanaal as material. Internal village roads, crossings, live restrictions and medical/supply destinations are absent; no local NDW record is not proof of openness.",
+      "action": "Retain NWB only for mobility/supply and its non-additive corridor semantics. Add internal critical crossings and destination routes from NWB/ProRail/RWS with live validity where available; otherwise expose passability and acceptance as Unknown operator/incident decisions."
+    },
+    {
+      "id": "GM1735-F07",
+      "severity": "medium",
+      "category": "service",
+      "status": "open",
+      "summary": "Local care, shelter and supply readiness are not evidenced by register points.",
+      "evidence": "RIVM v1.1 returns no acute-care point inside GM1735 and DUO returns 23 education locations. Neither states external hospital acceptance, travel time, shelter/reception role, occupancy, staff, backup, medicines, food, water or fuel.",
+      "action": "Never convert empty acute-care output to zero demand or adequate access, and never auto-designate schools as shelters. Add time-stamped authorized facility role, acceptance, route, capacity, backup and stock aggregates or leave them Unknown."
+    },
+    {
+      "id": "GM1735-F08",
+      "severity": "high",
+      "category": "explainability",
+      "status": "open",
+      "summary": "The causal trace fails to declare unsupported spatial and operational dimensions.",
+      "evidence": "River reports derived-screening with unsupportedDimensions=[] despite no event footprint/hydrograph/control state; cyber has no named target; precise service curves have no operator state. Current observations, 2050 screening and synthetic future time are distinct evidence classes.",
+      "action": "Populate unsupported dimensions and keep a persistent local evidence note beside map, brief and export. Record source/version/retrieval/valid time/coverage/licence/assumptions/NoData and prevent context sources from silently becoming forcing."
+    },
+    {
+      "id": "GM1735-F09",
+      "severity": "high",
+      "category": "limitation",
+      "status": "open",
+      "summary": "No auditable first-72-hour action and resource ledger exists for the dispersed municipality.",
+      "evidence": "E03/E07 establish warning, self-reliance, vulnerable-person outreach, fire-water/access concerns and a heat-plan trigger, but the model ingests no authority, trigger, assignment, resource, status, valid time or completion record.",
+      "action": "Add an Unknown-first action ledger for warning, welfare/home-care checks, fire-water setup, water controls, road/rail decisions, medical transfer, reception/evacuation, temporary drinking water, food/fuel/medicine, utility repair and mutual aid. Separate planned, assigned, confirmed and completed."
+    },
+    {
+      "id": "GM1735-F10",
+      "severity": "low",
+      "category": "regional-data",
+      "status": "accepted-limitation",
+      "summary": "Published neighbourhood nulls and current-context absences are correctly distinguishable from official zero but require persistent UI treatment.",
+      "evidence": "District heat/charging are null for 48/48 and several other CBS fields are incomplete; no local RWS forecast, acute-care point, KNMI station, PM2.5 station or bounded NDW record is assigned. These are coverage gaps, not zeros or all-clear conditions.",
+      "action": "Retain null/Unknown/NoData separately from published zero across maps, statistics, tooltips, exports and simulation inputs; expose denominator, edition, retrieval/valid time and coverage."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Suppress unsupported GM1735 direct river impact and replace it only with a named Regge/brook/Twentekanaal hydraulic or stress-test event carrying explicit evidence semantics.",
+      "files": ["packages/sim-core/src/model.ts", "packages/sim-core/src/types.ts", "apps/web/src/components/MapView.tsx", "apps/web/src/App.tsx"],
+      "validation": "For GM1735, river with no selected supported footprint reports direct local hazard Unknown/unsupported and no precise direct affected count; a fixture with a versioned intersecting Regge footprint reproduces its arrival/recession and NoData mask."
+    },
+    {
+      "summary": "Remove the common neighbourhood hazard ordering and correct source-aware wildfire localization.",
+      "files": ["packages/sim-core/src/model.ts", "packages/sim-core/src/model.test.ts"],
+      "validation": "At T+24 unrelated presets no longer share one complete/top-five order; controlled wildfire [6.6847, 52.2717] ranks BU17350806 and physically adjacent polygons first unless an explicit wind/barrier trace explains a different order."
+    },
+    {
+      "summary": "Preserve HWH, Waterinfo, provider, NBNL, RDI, DUO and RIVM inputs as non-causal context with complete source and Unknown semantics.",
+      "files": ["apps/web/src/data.ts", "apps/web/src/App.tsx", "apps/web/src/components/MapView.tsx"],
+      "validation": "UI/API fixtures show retrieval/valid time, coverage, version, licence, affectsSimulation=false and NoData; 486 missing water capacities, absent forecast/acute-care/current records and empty drainage-provider result never render as zero, safe, open or available."
+    },
+    {
+      "summary": "Add GM1735 first-72-hour route/destination state while retaining NWB exclusively for mobility and supply.",
+      "files": ["apps/web/public/data/transport-network.json", "packages/sim-core/src/model.ts", "apps/web/src/components/MapView.tsx"],
+      "validation": "A1/A35 access, Azelo, Goor/Delden rail, canal/rail/bridge crossings and external acute-care/supply destinations have auditable source and passability/acceptance valid time or explicit Unknown; no NWB road transfers power, water, drainage, gas, telecom or facilities."
+    },
+    {
+      "summary": "Implement an Unknown-first action/resource ledger for GM1735 emergency operations.",
+      "files": ["packages/sim-core/src/types.ts", "packages/sim-core/src/model.ts", "apps/web/src/App.tsx"],
+      "validation": "At T+0/6/12/24/48/72 each warning, welfare, fire-water, water-control, route, care, reception, resupply and repair action shows authority, trigger, assignment, status, source/valid time and resource evidence; absent facts remain Unknown and no action alters recovery before confirmed completion."
+    }
+  ],
+  "residualLimitations": [
+    "No public source reviewed provides complete, safe-to-publish Coteq/Enexis electricity, gas, Vitens drinking-water, wastewater, telecom or facility topology, live control state, backup endurance, inventories, crews or restoration estimates for GM1735.",
+    "The 2019 Twente climate atlas is a 2050 screening/model product reviewed on a stated six-year cycle; layer-specific API stability, export licence, exact version and complete NoData semantics were not established during this audit.",
+    "HWH asset completeness varies by contributing water board; register points and realised status do not prove connectivity or current operation. Waterinfo observations cover only four dated points and no assigned forecast.",
+    "BRT fuel and settlement data, CBS resident counts and DUO/RIVM locations omit event-time visitors, recreation, commuters, home-care dependency, transient occupancy, shelter role and household supplies.",
+    "The model's affected population is people-equivalent and deprived person-hours is a weighted scenario burden, not observed customers, casualties, evacuations or clinical outcomes.",
+    "Current public observations and warnings may change after completion; every operational display requires independent retrieval and validity times and must degrade to Unknown when stale or outside coverage."
+  ],
+  "provinceReviewFlags": [
+    "Coordinate a province-wide rule that suppresses major-river direct impact in high-sand Twente municipalities unless a named LIWO/water-board event footprint supports it; keep Regge/Dinkel/brook and IJssel indirect pathways distinct.",
+    "Review Twente climate-atlas/3Di layer access, six-year edition, scenario assumptions, sewer-included versus sewer-omitted variants, licence and NoData once for all fourteen municipalities.",
+    "Test the repeated neighbourhood ranking and source-containment defect across Overijssel woodland, brook-valley, urban-pluvial and heat contexts before province approval.",
+    "Reconcile Hof van Twente's dual water-board coverage, HWH completeness and Regge/Twentekanaal water-control semantics without summing point capacities or exposing sensitive operations.",
+    "Audit A1/A35/Azelo, rail and Twentekanaal crossing/access chains and external acute-care destinations consistently across Hof van Twente, Hengelo, Almelo, Rijssen-Holten, Haaksbergen, Berkelland and Lochem.",
+    "Require Unknown-first first-72-hour action and resource reporting for rural/dispersed municipalities, including homebound older residents, recreation, fire-water, temporary drinking water and last-mile resupply."
+  ]
+}

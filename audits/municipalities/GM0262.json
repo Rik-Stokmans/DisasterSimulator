@@ -1,0 +1,486 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0262",
+    "name": "Lochem",
+    "province": "Gelderland",
+    "safetyRegion": "Noord- en Oost-Gelderland"
+  },
+  "agent": {
+    "taskName": "municipality_gm0262",
+    "agentId": "/root/municipality_gm0396",
+    "completedAt": "2026-09-03T07:16:16Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "Lochem's official/generated 2025 identity, 34,316 residents, 36 neighbourhoods, six districts, ten BAG woonplaatsen, 26 BRT settlement labels, nine road-border records, Lochem station and 70 scheduled-transit stop areas are substantially coherent. Neighbourhood rows total 34,325 residents, nine above the municipality control (+0.026%), which the allocator reconciles without rewriting published rows. All ten canonical presets execute deterministically at T+0/6/12/24/48/72 across all eight services with finite bounds, exact zero-event behavior, causal-ledger closure, service-layer invariance and monotone event-attributable burden. Release is nevertheless correction-required. Lochem's own environment assessment places material dike-failure exposure in the western IJssel side, particularly Eefde and Epse, while most of the municipality and most of Lochem town have limited exposure; the generic river run instead holds a 1.332595 floodDepthM field from T+12 through T+72, ranks Eefde 29th and Gorssel 32nd of 36, reports 14,116 affected people-equivalent and 1,066,939.504 cumulative deprived person-hours at T+72, yet selects no gauge/hydrograph, dike ring or defence state, breach, LIWO/KEA footprint, probability class, arrival or recession. Nine nonzero T+24 hazard outputs reuse the exact same 36-neighbourhood order rather than official IJssel, Berkel/brook, short/long rain, heat, groundwater and nature-fire geography. Canonical wildfire has zero local flame despite VNOG recording 3,442 hectares of nature area; a controlled source at the Het Groote Veld neighbourhood centre produces direct flame but ranks its source area 30th. Public WRIJ scenario layers, Waterinfo points and HWH assets improve context but do not provide operational water/sewer/utility topology. Nine NWB records reduce to seven physical numbered corridors and cannot establish route passability, village isolation, rail/bus operation or external acute-care access. Lochem's current 72-hour page confirms that emergency-support-point locations/functions are still being investigated. Missing observations, T+48/T+72 Waterinfo forecasts, operator topology, support capacity, stock, backup and restoration remain Unknown or NoData, never zero or safe.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek / PDOK / Kadaster",
+      "title": "E01 — GM0262 official 2025 municipality, neighbourhood, woonplaats and settlement inputs",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?$filter=WijkenEnBuurten%20eq%20%27GM0262%20%20%20%20%27&$select=WijkenEnBuurten,Gemeentenaam_1,AantalInwoners_5,Bevolkingsdichtheid_34,k_65JaarOfOuder_12,Eenpersoonshuishoudens_30",
+      "accessedAt": "2026-09-03T07:08:00Z",
+      "edition": "CBS Wijken en buurten 2025; generated CBS/BAG/BRT snapshots retrieved 31 August 2026; full CBS feature retrieved 3 September 2026",
+      "supports": [
+        "The annual official CBS row identifies GM0262 as Lochem and reports 34,316 residents, density 161/km², 10,412 residents aged 65-plus and 4,856 one-person households. CBS/PDOK data are CC BY 4.0 and demographic context, not current occupancy or individual vulnerability.",
+        "The generated centre [6.3549707410159355,52.181438032804145] lies inside the 2025 boundary. The overview MultiPolygon has 196 coordinate positions; a fresh non-generalized CBS 2025 feature has 5,405, so the overview is display/selection geometry rather than a hydraulic, forest, road or asset mask.",
+        "Thirty-six neighbourhood rows in six districts sum to 34,325 residents (+9, +0.026%), 15,310 households and 10,405 independently rounded residents aged 65-plus. The simulation reconciles them to the municipality control without silently treating the difference as missing people.",
+        "BAG supplies ten woonplaatsen and BRT 26 labels: eleven woonkernen, thirteen buurtschappen and two gehuchten. BAG/PDOK is Public Domain Mark 1.0 and BRT is CC BY 4.0; labels, polygons and CBS population rows retain distinct provenance and semantics."
+      ]
+    },
+    {
+      "publisher": "Gemeente Lochem",
+      "title": "E02 — Environment assessment, current extreme-weather context and sewer-system semantics",
+      "url": "https://www.lochem.nl/fileadmin/internet-doc/Wonen-Leven-Vervoer/omgevingsvisie/visie/achtergrond/Omgevingseffectrapport_omgevingsvisie_Lochem_2040.pdf",
+      "accessedAt": "2026-09-03T07:09:00Z",
+      "edition": "Omgevingsvisie 2040 environment assessment, climate-atlas 2023 context; current municipal pages inspected 3 September 2026",
+      "supports": [
+        "The assessment says a western area near the IJssel has a medium annual probability class (1/30–1/300) for flooding deeper than 20 cm, with Eefde and Epse in that class; most of GM0262 and most of Lochem town have limited flood consequence. It attributes sensitive IJssel-side cores to a regional-dike failure. This is official scenario/context evidence, not a current forecast or defence failure.",
+        "For intense rain it maps maximum depth from 70 mm in one hour (T100), says the Berkel surroundings are especially susceptible and records high Berkel levels after August 2010 rain. A separate 120 mm/48 h T100 product maps duration, including agricultural loss after multiday standing water. These distinct static scenarios must not be collapsed or projected as current observations.",
+        "The current municipal page separately identifies heavy-rain sensitivity along the Berkel and IJssel, heat vulnerability among older people in the cores, drought on sandy land south of Lochem and near Gorssel, and a small IJssel-side dike-failure area. Those mechanisms require different spatial evidence.",
+        "Lochem has three sewer systems: gravity sewers in most cores, pressure sewers mainly in the countryside, and individual IBA treatment in the countryside. Rainwater must not enter pressure sewers because it can cause faults and damage. The page gives maintenance/reporting context but no public machine topology, capacity, pump state or restoration feed; no standard reuse licence or update cadence is stated."
+      ]
+    },
+    {
+      "publisher": "Waterschap Rijn en IJssel / Gemeente Lochem",
+      "title": "E03 — KEA_DATA municipality-specific rain, regional-flood, heat and road-passability scenario layers",
+      "url": "https://opengeo.wrij.nl/arcgis/rest/services/Klimaat/KEA_DATA/MapServer",
+      "accessedAt": "2026-09-03T07:10:00Z",
+      "edition": "Public ArcGIS service inspected 3 September 2026; underlying scenario editions not stated in service metadata",
+      "supports": [
+        "Lochem layers 191–194 publish short/long T100/T1000 rainfall maximum-depth rasters; 202/207 duration rasters; 203–206 affected-building polygons; and 198–201 road-passability polylines distinguishing all-traffic, emergency-only and impassable classes.",
+        "Layers 195, 208 and 209 cover heat stress, overflow points and walking distance to cool areas. Layers 196/197 provide regional-defence inundation-depth scenarios for T100 and T1000. These are official modeled scenarios/context, not observations, live road state or a forecast through T+72.",
+        "Layer 191 exposes Map/Query capability and an RD New raster extent x=207569–230737, y=457024.5–473584.5; feature layers can return JSON/GeoJSON/PBF. This is integration-ready spatial evidence if its scenario version, resolution, units, NoData/mask, model lineage and expert interpretation are retained.",
+        "The service description, copyright text, fixed update cadence and standard reuse licence are blank/unstated. Terms and the native scenario edition must be resolved before bundling, redistribution or causal use; uncovered/masked cells remain Unknown rather than zero depth."
+      ]
+    },
+    {
+      "publisher": "Waterschap Rijn en IJssel / Rijkswaterstaat / Het Waterschapshuis",
+      "title": "E04 — Berkel–Twentekanaal system, current Waterinfo snapshot and partial water-asset register",
+      "url": "https://www.wrij.nl/projecten/natuurlijke-berkel-tussen-lochem-almen",
+      "accessedAt": "2026-09-03T07:11:00Z",
+      "edition": "WRIJ project status current at access; HWH retrieved 3 September 2026; Waterinfo observations 2 September and rolling forecasts 3 September 2026",
+      "supports": [
+        "WRIJ is restoring the Berkel between Lochem and Almen, allowing limited flooding in places, retaining/evacuating water through named works and adding a Twentekanaal intake for dry periods; project completion is planned for end-2026. WRIJ says its wider region is drought-sensitive and the Berkel/Schipbeek are exceptional because Twentekanaal water can be admitted.",
+        "The partial HWH assignment contains 163 points in GM0262: 147 weirs, six surface-water pumps and ten sewer pumps, including named Lochem, Kanaalstraat, Gorssel, Harfsen, Laren, Almen and Epse sewer pumps. IMWA Kunstwerken and Waterketen DAMO are contributor-dependent national registers, retrieved 3 September 2026 under CC BY-SA 4.0.",
+        "Waterinfo's 2 September 17:30Z snapshot assigns four fresh observations to GM0262: Almen discharge -1.15 m³/s and level 1006 cm NAP, Eefde-sluis-boven 1007 cm NAP and Eefde-sluis-beneden 169 cm NAP. Publisher classes are normal except the lower Eefde point, which is labelled lowered level; sign/direction and station meaning must be preserved rather than interpreted as municipal safety.",
+        "The rolling forecast has only Eefde-sluis-beneden water levels in GM0262 through T+24: 174/175/177/180 cm NAP at T+1/+6/+12/+24. The national endpoint returns no T+72 water-level features and no T+48/T+72 discharge features. Waterinfo is CC0, public/non-mission-critical and point-based; missing horizons are NoData, and neither observations nor forecasts are a flood footprint, defence state, sewer state or operational order."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Noord- en Oost-Gelderland",
+      "title": "E05 — Regionaal Risicoprofiel and Dekkings- en spreidingsplan 2025–2028",
+      "url": "https://www.vnog.nl/sites/default/files/2024-11/VNOG%20Risicoprofiel%202025-2028_def.pdf",
+      "accessedAt": "2026-09-03T07:12:00Z",
+      "edition": "Risk profile adopted 12 December 2024; planning period 2025–2028; appendix and coverage plan inspected 3 September 2026",
+      "supports": [
+        "VNOG prioritises flooding, nature fire, extreme weather, prolonged heat/drought and loss of electricity, drinking water and telecom/ICT/cyber. It says damaging earthquake intensity is not expected in its area, so the Groningen preset is a remote exercise rather than a Lochem event forecast.",
+        "The risk-profile appendix records 3,442 hectares (34.42 km²) of nature area in Lochem and uses forest running-fire/heath-fire scenarios. A current strategic regional area total is eligibility/context, not an ignition, perimeter, fuel-moisture state, probability, plume or evacuation order.",
+        "The coverage plan lists volunteer/free-response posts at Lochem, Laren, Almen, Barchem and Gorssel. It assigns tank engines to each and planned specialist capacities including WTS500 at Lochem/Gorssel, a water tanker at Laren and warning/reconnaissance at Almen. These are coverage-plan resources, not live crew/appliance availability or guaranteed incident capacity.",
+        "The fixed plans have multi-year governance validity and no machine incident cadence or standard reuse licence stated; no local dispatch, resource, route, care, evacuation or restoration commitment can be inferred."
+      ]
+    },
+    {
+      "publisher": "Provincie Gelderland / Veiligheidsregio Noord- en Oost-Gelderland",
+      "title": "E06 — Official landscape-area geometry for Het Groote Veld and source-focused wildfire audit",
+      "url": "https://geoportaal.gelderland.nl/gisserver/rest/services/Omgevingsverordening/Omgevingsverordening/MapServer/45",
+      "accessedAt": "2026-09-03T07:13:00Z",
+      "edition": "Current Omgevingsverordening feature service inspected 3 September 2026; dataset edition/cadence not stated at layer level",
+      "supports": [
+        "The province's queryable RD New landscape-area layer returns Het Groote Veld at [6.385708519499623,52.13893656248514], the published centre of BU02620106 Verspreide huizen Het Veen en Grote Veld. The layer supports Map/Query/Data and JSON/GeoJSON/PBF but states no layer-level description, copyright text, version or cadence.",
+        "VNOG's nature-area total and official landscape geometry establish that direct local nature-fire planning is material, but this landscape layer alone does not prove fuel type, ignition probability, current moisture, fire perimeter or response accessibility. Native land-cover/fuel and incident evidence is still required.",
+        "A controlled T+24 model source at that coordinate produces direct fire 0.346762, smoke 0.397795, severity 0.371446 and 3,802 affected people-equivalent, but its containing neighbourhood ranks 30/36 at local severity 0.332150 while Exel ranks first at 0.434811.",
+        "The coordinate is a transparent source-containment diagnostic, not an assertion of an incident. Resolve the province service's reuse terms before caching; use TOP10NL land cover or an authoritative fire-fuel product with explicit edition/licence/NoData as needed."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / Provincie Gelderland / ProRail / OVapi / RIVM",
+      "title": "E07 — Road, rail, scheduled-transit and external acute-care access context",
+      "url": "https://service.pdok.nl/rws/nationaal-wegenbestand-wegen/wfs/v1_0?service=WFS&version=2.0.0&request=GetCapabilities",
+      "accessedAt": "2026-09-03T07:14:00Z",
+      "edition": "NWB-Light 1 August 2026; ProRail and OVapi snapshots retrieved 31 August–3 September 2026; RIVM acute-care v1.1 published 3 July 2026",
+      "supports": [
+        "The monthly CC0 NWB graph has nine 150-scenario-unit mobility/supply records to five neighbours. They reduce to N332, N826, N346, N821, N825, N348 and N312 physical identities; N346 and N348 each appear on opposite municipal sides and are non-additive series/boundary proxies.",
+        "Lochem is the single CC0 ProRail station inside GM0262. OVapi GTFS v9543, retrieved 31 August and valid 30 August–12 December 2026 under free-use/best-effort/no-SLA terms, yields 70 in-boundary stop areas; schedules/geometry do not establish live train/bus operation, accessible vehicles, passenger demand or evacuation capacity.",
+        "A dated May 2026 Eefdese Brug closure forced emergency services and bus 81 to detour via the lock while parallel N348 works constrained alternatives; the bridge later reopened. This is a historical operational example, not current closure or future scenario input, but it demonstrates why border-road geometry and GTFS cannot establish Eefde/Gorssel access.",
+        "RIVM acute-care v1.1 CC0 has no emergency department in GM0262. Gelre Zutphen is nearest to the municipality reference point at 11.42 km straight-line but reports limited opening; Deventer Ziekenhuis is 14.23 km and reports a 24/7 department. Questionnaire status and distance are not travel time, route state, acceptance, occupancy, staffing, diversion or generator endurance."
+      ]
+    },
+    {
+      "publisher": "Gemeente Lochem / Netbeheer Nederland / RDI / DUO / KNMI / RIVM",
+      "title": "E08 — Current 72-hour preparedness, electricity-planning, communications, schools and monitoring gaps",
+      "url": "https://www.lochem.nl/veiligheid-en-crisis/weerbaarheid-en-veerkracht",
+      "accessedAt": "2026-09-03T07:15:00Z",
+      "edition": "Current municipal page inspected 3 September 2026; public deployment snapshots retrieved 31 August–2 September 2026",
+      "supports": [
+        "Lochem says residents should support themselves and one another for the first 72 hours with water, food, medicines, radio, power bank, cash and a household/neighbour plan. It says municipalities and safety regions are still investigating and experimenting with emergency-support-point locations and functions; points are for information and are not shelters. No local location/capacity is therefore confirmed.",
+        "One NBNL postcode sample maps to Liander area OS LOCHEM 10-1i and reports 19.6 MW/27-request withdrawal and 27 MW/18-request injection queues, 28 projects and earliest year 2028. NBNL is at-least-quarterly/monthly planning context with open-data status but no exact standard licence identifier found; one sample is not full municipal coverage, live load, outage, reserve or restoration.",
+        "RDI assigns 106 antenna installations: 55 mobile, 29 fixed-link, five broadcast, two other-mobile and fifteen amateur; no standard reuse licence or fixed cadence is stated. Daily attribution-licensed DUO assigns 26 education locations: fifteen primary, one secondary, three special and seven other registered. Registers do not establish coverage/backhaul/power, present occupancy, shelter role, accessibility, capacity, staff, stock or operation.",
+        "No KNMI weather station, RIVM PM2.5 point or 365-day KNMI seismic origin lies inside GM0262. Hupsel weather is nearest at 24.17 km, Hellendoorn-Luttenbergerweg PM2.5 at 23.23 km and an induced M1.30 Geelbroek origin at 87.02 km. KNMI weather/seismic are CC BY 4.0; current RIVM air values are indicative hourly point observations with no standard reuse licence stated. No-match is not zero local weather, smoke/air exposure or seismic hazard."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM0262, Lochem, Gelderland and safety region Noord- en Oost-Gelderland agree across official and generated 2025 inputs.",
+      "evidenceRefs": ["E01", "E05"],
+      "notes": [
+        "Municipality code/name, province, safety-region membership and boundary/statistics edition agree.",
+        "The generated municipality reference point lies inside both generalized and full 2025 geometry.",
+        "No identity, municipality-control or safety-region contradiction was found."
+      ]
+    },
+    "geography": {
+      "status": "warn",
+      "summary": "The administrative extent is coherent, but the generalized outline and one BAG representative point require explicit non-analytic semantics.",
+      "evidenceRefs": ["E01", "E02", "E03", "E06"],
+      "notes": [
+        "The 196-position overview MultiPolygon and 5,405-position full CBS feature serve different purposes; neither alone is a hydraulic catchment, flood compartment, forest/fuel surface or access network.",
+        "The BAG representative centre for Kring van Dorth [6.337308372238483,52.2284645973593] falls outside both the generalized and fresh non-generalized CBS 2025 GM0262 geometry even though the BAG feature is assigned to GM0262. Retain the feature with an explicit source-edition/spatialMismatch flag and review the join; do not delete or relocate it by inference.",
+        "IJssel defences, Berkel/brook and Twentekanaal pathways, rain/sewer/groundwater, nature areas and village access cannot be inferred from the municipality centre."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "The 2025 municipality control and neighbourhood rows reconcile within independent CBS publication rounding.",
+      "evidenceRefs": ["E01", "E08"],
+      "notes": [
+        "Official/generated population is 34,316, density 161/km², age 65-plus is 10,412 or 30.3%, and one-person households are 4,856.",
+        "Neighbourhood population is 34,325 (+9, +0.026%), households 15,310 and independently rounded age65-plus rows 10,405; the allocator reconciles without changing the source observations.",
+        "Registered residents exclude incident-time visitors, workers, pupils, patients, carers, rail/bus users, responders and evacuees."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "Core neighbourhood context is complete, but sparse publication fields and public infrastructure registers retain source coverage and NoData.",
+      "evidenceRefs": ["E01", "E02", "E03", "E04", "E08"],
+      "notes": [
+        "Core statistics cover 36/36 neighbourhoods; cars per household covers 34/36, district heating 0/36 and public charging 0/36. Null and suppressed fields are not imputed as zero.",
+        "WRIJ scenario layers, 163 partial HWH objects, four Waterinfo observations, one NBNL sample, 106 antenna sites and 26 education records have different dates, coverage, licences and evidence classes.",
+        "Public context remains non-causal until governed adapters preserve publisher, dataset/version, issue/valid/retrieval time, units, coverage, NoData, uncertainty, licence and affectsSimulation."
+      ]
+    },
+    "settlements": {
+      "status": "warn",
+      "summary": "Ten BAG woonplaatsen and 26 BRT labels represent Lochem's dispersed cores, but Kring van Dorth's representative point has a reproducible boundary mismatch.",
+      "evidenceRefs": ["E01", "E07"],
+      "notes": [
+        "BAG contains Almen, Barchem, Eefde, Epse, Gorssel, Harfsen, Joppe, Kring van Dorth, Laren and Lochem; BRT adds rural locality labels including Ampsen, Oolde, Verwolde, Groot/Klein Dochteren, Het Groote Veld vicinity and Zwiep.",
+        "Kring van Dorth's BAG representative point is outside both checked CBS municipal geometries; the polygon/source assignment and point must be reviewed without treating a representative centre as proof of containment.",
+        "Places and labels do not establish population, current occupancy, flood/fire-zone membership, route access, service continuity or response capacity."
+      ]
+    },
+    "transport": {
+      "status": "fail",
+      "summary": "Seven physical numbered road identities, one station and scheduled transit cannot establish first-72-hour village, care or supply access.",
+      "evidenceRefs": ["E02", "E04", "E05", "E07"],
+      "notes": [
+        "Nine border records represent N332, N826, N346, N821, N825, N348 and N312; repeated N346/N348 sides are non-additive and every 150-unit value is an explicit scenario proxy for mobility/supply only.",
+        "The graph omits internal village branches, bridges/underpasses, Berkel/Twentekanaal crossings, live segment direction/passability, rail/bus operation, evacuation load, responder routing and repair access.",
+        "Lochem station and 70 GTFS stops are static schedule/reference context. The Eefdese Brug example demonstrates that closure and detour can invalidate schedules and alternatives.",
+        "Acute emergency care is outside the municipality, and neither straight-line distance nor questionnaire opening status proves time-dependent access or receiving capacity."
+      ]
+    },
+    "emergencyContext": {
+      "status": "warn",
+      "summary": "Strong official water, nature-fire, lifeline and 72-hour preparedness context exists, but incident selection and operational readiness remain unknown.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "Evidence supports distinct clocks for an IJssel defence threat, Berkel/brook or flash-rain event, nature fire/smoke, heat/drought, winter weather and prolonged utility/cyber disruption.",
+        "Lochem's 30.3% age65-plus and 4,856 one-person households support aggregate outreach planning, not individual targeting or an assumption of low self-reliance.",
+        "Emergency-support-point locations and additional functions remain under investigation; no public source confirms local shelter, emergency-water, care, stock, staffing, backup or restoration capacity.",
+        "Timestamped weather, air, Waterinfo, warning and route observations must remain observed/replay context and cannot silently become canonical T+0 or T+72 forcing."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten canonical presets execute at all six mandatory checkpoints for all eight services.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E06", "E08"],
+      "notes": [
+        "Initial MUNICIPALITY_AUDIT_CODE=GM0262 pnpm audit:model passed two tests across severe-storm, pluvial-flood, river-flood, coastal-flood, heatwave, winter-storm, cyberattack, earthquake, wildfire and compound at T+0/6/12/24/48/72 for power, water, drainage, gas, telecom, mobility, facilities and supply.",
+        "Focused inline Vite runs captured all T+24/T+72 outputs, the complete six-checkpoint trajectories and a controlled Het Groote Veld source without creating a scratch test file.",
+        "At T+24 severity / pressure / affected people-equivalent / cumulative person-hours are storm 0.097125 / 0.228224 / 4,266 / 112,370.574; pluvial 0.118148 / 0.166109 / 1,262 / 75,990.427; river 0.417033 / 0.411067 / 13,105 / 269,043.640; coastal 0.025109 / 0.080206 / 0 / 15,346.906; heat 0.085598 / 0.168048 / 1,356 / 72,885.664.",
+        "Remaining T+24 values are winter 0.687984 / 0.265504 / 6,068 / 209,190.067; cyber 0.474524 / 0.326177 / 9,001 / 181,259.884; earthquake 0 / 0.075476 / 0 / 25,784.091; wildfire 0.115702 / 0.129219 / 0 / 41,976.621; compound 0.821972 / 0.466585 / 15,789 / 303,053.290.",
+        "These are deterministic exercise indices, modeled people-equivalent and matched-no-event service person-hours, not observations, probabilities, measured customer outages, casualties, economic loss or operator commitments."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Determinism, finite bounds, exact no-event behavior, allocation, reconciliation, causal closure and cumulative-burden contracts pass.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "All eight availability values remain in [0,1], and hazard dimensions, demand, delivery, affected people-equivalent and deprived person-hours remain finite and non-negative.",
+        "Zero-intensity scenarios return exact zero event hazard, affected population and event-attributable burden; repeats are deterministic and cumulative burden is monotone.",
+        "Every service allocates all 36 neighbourhoods and exactly 34,316 residents; local demand/delivery reconcile to municipality totals and changing selected service does not change hazard values.",
+        "Arithmetic validity does not validate hydraulic, fire, utility, route, facility, occupancy, intervention or recovery meaning."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "A common source-insensitive neighbourhood seed contradicts official IJssel, rain, heat, water-system and nature-fire geography.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E06"],
+      "notes": [
+        "At T+24 storm, pluvial, river, coastal/wind, heat, winter, cyber, wildfire and compound all use the exact complete 36-neighbourhood order, starting Exel, Verspreide huizen Zwarte Veen en Barchemse Enk, Epse, Verspreide huizen Oolde, Lochem-Zuid, Zwiep and Verspreide huizen Joppe.",
+        "River ranks Eefde 29th and Gorssel 32nd while the municipality identifies western IJssel-side exposure, especially Eefde/Epse, and says most of Lochem town is limited. No selected event surface supports the model order.",
+        "A controlled source at the Het Groote Veld neighbourhood centre produces direct local flame but ranks its containing neighbourhood 30/36, behind the common urban/rural sequence. The source coordinate is a diagnostic, not an incident claim.",
+        "packages/sim-core/src/model.ts derives hazardSeed from city seed, scenario seed and region id without disaster family, source containment or evidence surface. Administrative centres and a hash are not substitutes for defence/breach cells, rain/catchment/sewer surfaces, heat/shade/vulnerability, ignition/perimeter/fuel or cyber target geometry."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "Road-only transfer is correctly scoped, but exact water, drainage, utilities, telecom, facilities and supply recovery lack physical evidence.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E07", "E08"],
+      "notes": [
+        "The nine NWB records affect only mobility and road logistics/supply, avoiding false physical electricity/gas/water equivalence; their capacity, utilization and recovery are still scenario proxies without event-valid passability.",
+        "The Berkel, Twentekanaal, surface-water structures, gravity/pressure/IBA wastewater and potable supply are distinct systems. HWH points and Waterinfo stations neither connect them nor establish power dependency, telemetry, current operation, backup or restoration.",
+        "Liander planning-area, RDI antenna, DUO school, ProRail/GTFS and external hospital records establish context but not complete topology, switching, backhaul, priority customers, occupancy, staff, stock, vehicle, generator or acceptance state.",
+        "At river T+72 availability is drainage 0.334583, facilities 0.407189, telecom 0.469876, water 0.496877, power 0.553224, gas 0.715958, mobility 0.787616 and supply 0.789936. No cited authority validates these exact values."
+      ]
+    },
+    "causalTrace": {
+      "status": "fail",
+      "summary": "The arithmetic ledger closes, but source selection, valid time and accountable first-72-hour decisions are absent from the causal graph.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "Hazard contributions sum to severity, service-stage contributions reconstruct availability and municipality pressure closes numerically.",
+        "The river path selects no local gauge/boundary hydrograph, defence segment/state, breach/overtopping, footprint, probability class, arrival or recession. The 1.332595 floodDepthM property is normalized internally to a 0.888396 inundation-stress contribution and must not be shown as a sourced local metre prediction.",
+        "Public layers remain context-only, but trace does not select KEA rain/flood cells, Berkel/Twentekanaal state, sewer/pump state, ignition/perimeter/plume, route/rail/bus state, external care acceptance or a named cyber target.",
+        "T+0–6 needs evidence/event selection, warning validation, coordination activation and defence/route/fire surveillance; T+6–24 needs shelter/evacuation, closures, assisted-resident/care and public-information decisions; T+24–48 needs verified service/air/water/care/logistics status; T+48–72 needs repair/dewatering, re-entry and unresolved-needs review. Actions need owner, trigger, request, confirmation, resource, execution, verification, expiry and rollback."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "Persistent flood disruption is conservative, but exact plateaus and recoveries are not tied to Lochem events, operators, access or actions.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E07", "E08"],
+      "notes": [
+        "River floodDepthM/severity stays exactly 1.332595/0.417033 from T+12 through T+72. Seven service values are unchanged from T+24 to T+72 while facilities falls from 0.556617 to 0.407189; affected rises from 13,105 to 14,116 and burden reaches 1,066,939.504 person-hours without a selected IJssel event or recovery plan.",
+        "Compound T+24–T+72 holds floodDepthM 0.198201, while severity declines 0.821972 to 0.266916 but pressure rises 0.466585 to 0.499240, affected rises 15,789 to 17,369 and burden reaches 1,164,297.386. T+72 service availability ranges from telecom 0.213998 to mobility 0.809955 without operator calibration.",
+        "Heat remains severity 0.085598 and drought 0.475542 at T+72 while affected rounds to zero; this cannot mean no residual health, water, agriculture, nature, care or supply burden. Canonical wildfire returns zero flame/smoke/drought at T+72 although a real local fire could require extended patrol, smoke, access and recovery.",
+        "No current support-point capacity, household stock, care-home/pharmacy status, emergency-water distribution, utility switching, fuel/spares, crew milestone, bridge/rail state or hospital acceptance is ingested. The 72-hour preparedness horizon is not a restoration deadline or aid guarantee."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": ["power", "water", "drainage", "gas", "telecom", "mobility", "facilities", "supply"]
+  },
+  "findings": [
+    {
+      "id": "GM0262-SPATIAL-001",
+      "severity": "high",
+      "category": "geography",
+      "status": "open",
+      "summary": "Nine unrelated nonzero T+24 hazards reuse one full neighbourhood order, independent of mechanism and source.",
+      "evidence": "Storm, pluvial, river, coastal/wind, heat, winter, cyber, wildfire and compound order all 36 neighbourhoods identically, led by Exel, Zwarte Veen/Barchemse Enk, Epse, Oolde and Lochem-Zuid. packages/sim-core/src/model.ts derives hazardSeed from city seed, scenario seed and region id without hazard family, source containment or a public evidence surface. E02–E06 document distinct IJssel, Berkel/brook, short/long rain, heat, groundwater and nature mechanisms.",
+      "action": "V3 release gate: label every local rank unsupported and prohibit dispatch, evacuation or resource prioritization from it. Replace the common hash with hazard-specific source/eligibility/susceptibility surfaces on full geometry, preserve Unknown masks and add regressions for materially different rankings plus source/perimeter containment."
+    },
+    {
+      "id": "GM0262-IJSSEL-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The river preset creates precise persistent Lochem impact without selecting the geographically bounded IJssel defence-failure mechanism.",
+      "evidence": "At T+24/T+72 the model holds floodDepthM 1.332595 and severity 0.417033; affected rises 13,105 to 14,116 and cumulative burden reaches 1,066,939.504. E02 says meaningful exposure is western near the IJssel, with Eefde/Epse in the medium >20 cm probability class and most of Lochem limited, yet Eefde ranks 29th and Gorssel 32nd. No gauge/hydrograph, dike ring/segment, defence state, breach/overtopping, LIWO/KEA footprint, probability band, true depth, arrival or recession is selected.",
+      "action": "V3 release gate: keep the amplitude only as a visibly unsupported diagnostic and suppress operational exposure/recovery claims. Add a WMCN/RWS/WRIJ-approved IJssel contract retaining gauge/datum/units, issue/valid time, boundary hydrograph, defence and breach state, versioned connected footprint, probability/scenario class, depth/arrival/duration/recession, uncertainty, NoData and licence."
+    },
+    {
+      "id": "GM0262-PLUVIAL-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Pluvial output ignores available duration-specific Lochem depth, building and road-passability evidence.",
+      "evidence": "At T+6 the model reports synthetic rain 45.206544 mm/h and floodDepthM 0.123185; at T+24 it reports severity 0.118148, 1,262 affected and 75,990.427 person-hours by the common rank. E02/E03 distinguish 70 mm/1 h and 120 mm/48 h T100 mechanisms and publish short/long T100/T1000 depths, affected buildings, duration and emergency-road passability. None drives the result, and pressure-sewer/rainwater, Berkel/brook and antecedent groundwater state are omitted.",
+      "action": "V3 release gate: expose the synthetic hyetograph and never present floodDepthM as a sampled local depth. Integrate versioned KEA cells/lines with scenario duration, unit, resolution, model lineage, mask/NoData, coverage and licence; connect catchment/sewer/groundwater and route-depth semantics only after expert validation."
+    },
+    {
+      "id": "GM0262-WILDFIRE-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The canonical wildfire omits direct Lochem fire and the focused fire map does not follow its Het Groote Veld source.",
+      "evidence": "VNOG records 3,442 ha of Lochem nature area and E06 confirms Het Groote Veld official landscape geometry. Canonical T+24 has zero flame, smoke 0.298065 and drought 0.467406. Moving the source to BU02620106's official/generated centre produces direct fire 0.346762, smoke 0.397795 and 3,802 affected, but the containing neighbourhood ranks 30/36 while Exel ranks first. The source is a controlled diagnostic, not an incident.",
+      "action": "V3 release gate: preserve canonical remote smoke as a separate exercise and mark local consequence unsupported. For a local scenario require named ignition/perimeter, authoritative fuel/land cover, moisture/drought, wind/plume, residents/visitors, routes/escape, suppression water and valid-time response state; test that source-containing eligible cells govern direct flame."
+    },
+    {
+      "id": "GM0262-WATERCHAIN-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Generic water and drainage scores collapse Berkel/Twentekanaal control, surface water, three wastewater systems and potable supply.",
+      "evidence": "E02/E04 distinguish gravity sewer, rural pressure sewer, IBA, Berkel flow and Twentekanaal intake. The public overlay has 163 partial HWH points and four current Waterinfo observations, but point inventory/status/capacity does not establish connectivity, direction, compatible units, control, power, telemetry, live operation or restoration. River T+72 water is exactly 0.496877 and drainage 0.334583 without operator evidence.",
+      "action": "Split potable quantity/pressure, potable quality/advisory, wastewater conveyance/treatment and surface-water control. Keep HWH/Waterinfo/WRIJ geometry typed context until source licence, catchment/topology, units, direction, current state, backup and operator authorization are validated; unavailable or security-sensitive facts remain Unknown."
+    },
+    {
+      "id": "GM0262-MOBILITY-CARE-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "Seven numbered corridor identities cannot establish village isolation, multimodal operation or external acute-care reachability.",
+      "evidence": "Nine NWB records are mobility/supply-only 150-unit proxies; repeated N346/N348 sides are non-additive. The graph omits internal village branches, crossings and live passability. Lochem station and 70 GTFS stops are static. The 2026 Eefdese Brug closure disrupted a key alternative and bus 81, illustrating time dependence. No emergency department is local; Gelre Zutphen at 11.42 km is limited-hours and Deventer at 14.23 km reports 24/7, but neither distance nor questionnaire status guarantees reachability or acceptance.",
+      "action": "Build an internal multimodal reachability graph from NWB/BGT, authoritative bridge/canal, ProRail and GTFS geometry; bind NDW/operator messages only by issue/valid time. Model resident, ambulance, fire, evacuation, supply and repair destinations separately. Keep vehicles, live service, hospital acceptance, occupancy, staffing and backup Unknown unless confirmed."
+    },
+    {
+      "id": "GM0262-LIFELINE-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "Exact power, gas, telecom, facility and supply availability lacks complete physical topology, state, backup and restoration evidence.",
+      "evidence": "The current graph correctly restricts NWB edges to mobility/supply. One Liander planning sample, 106 RDI installations, 26 DUO locations and external acute-care records do not expose complete feeder/gas/pipe/backhaul/facility/inventory topology or live switching, traffic, priority, occupancy, stock, staff, generator endurance and restoration. Compound T+72 exact availability ranges from telecom 0.213998 to mobility 0.809955 without a named incident or operator trajectory.",
+      "action": "Keep each non-road service an aggregate synthetic proxy with visible uncertainty. Ingest only operator-authorized privacy/security-safe service zones, dependency types and restoration ranges with explicit topology semantics, source/valid time and affectsSimulation; provider/planning territories and public points never imply physical flow or operational state."
+    },
+    {
+      "id": "GM0262-72H-001",
+      "severity": "medium",
+      "category": "explainability",
+      "status": "open",
+      "summary": "The first-72-hour view lacks a validated action, authority, resource and restoration ledger.",
+      "evidence": "Lochem asks residents to prepare for 72 hours but says support-point locations/functions are still being investigated and points are not shelters. Plans/registers do not confirm incident-time evacuation, emergency water, care, stock, crew, bridge/rail/bus, shelter, support-point or restoration actions. River and compound nonetheless expose exact persistent service trajectories and affected counts through T+72.",
+      "action": "At T+0/6/12/24/48/72 add proposed/requested/confirmed/completed/cancelled actions with responsible municipality/VNOG/WRIJ/operator, trigger, source, issue/valid time, expiry, geography, dependency, resource/capacity, confidence, verification and rollback. Never promote a school, fire station or planned support point into an active role without confirmation."
+    },
+    {
+      "id": "GM0262-GEOMETRY-001",
+      "severity": "medium",
+      "category": "regional-data",
+      "status": "open",
+      "summary": "Kring van Dorth's BAG representative centre conflicts with both checked CBS 2025 municipality geometries.",
+      "evidence": "The BAG feature is assigned to GM0262, but representative point [6.337308372238483,52.2284645973593] is outside the generalized overview and a fresh 5,405-position non-generalized CBS 2025 MultiPolygon. Other identity totals are coherent. A representative point is not the woonplaats polygon and the conflict can arise from product/join/edition semantics; it must not be silently snapped or treated as proof the place is outside Lochem.",
+      "action": "Retain the BAG feature and original point/polygon provenance, add spatialMismatch=true, and review full polygon intersection and edition alignment against BAG and CBS. Do not delete, relocate, reassign or derive population/access from the point without authoritative resolution."
+    },
+    {
+      "id": "GM0262-HAZARDS-001",
+      "severity": "medium",
+      "category": "limitation",
+      "status": "accepted-limitation",
+      "summary": "Storm, coastal/wind, heat/drought, winter, cyber, earthquake and compound are coherent stress screens but lack Lochem event calibration.",
+      "evidence": "E02/E05/E08 support severe weather, heat/drought, vital-infrastructure and cyber planning, while direct North Sea inundation and damaging Groningen-style shaking are not local mechanisms. Coastal T+24 has zero direct inundation but 17.092426 m/s wind; earthquake T+24 is zero current shaking but 25,784.091 cumulative person-hours from prior forcing; heat persists at T+72; cyber has no named target; compound selects no confirmed multi-hazard event. Current weather/air/seismic points are not locally continuous or aligned future inputs.",
+      "action": "Retain as visibly synthetic parameterized exercises with sensitivity and separate direct/indirect effects. Require valid-time KNMI forecast/replay input, named cyber target/architecture and selected earthquake event plus ground-motion/site fragility before operational claims. Direct zero, residual consequence, Unknown and not applicable must remain distinct."
+    },
+    {
+      "id": "GM0262-NODATA-001",
+      "severity": "medium",
+      "category": "ui",
+      "status": "open",
+      "summary": "Missing horizons, stations, register coverage and null fields require explicit multi-state semantics.",
+      "evidence": "GM0262 has 0/36 district-heating and charging values, two missing cars-per-household values, no local KNMI/RIVM PM2.5/seismic point, no local emergency department and no local T+48/T+72 Waterinfo forecast. HWH is explicitly partial, RDI/DUO/NBNL do not prove operational coverage, and KEA metadata/masks require resolution. These are Unknown/NoData—not zero infrastructure, hazard, flow, exposure or outage. In contrast, canonical coastal water and earthquake T+24 ground motion are narrow model zeros.",
+      "action": "Use one map/API/export state contract: observed/modeled value including zero, Unknown/not covered, and not applicable. Always show publisher, version/edition, issue/valid/retrieval time, units, coverage/completeness, licence, confidence and affectsSimulation. Add tests preventing empty intersections, missing forecast horizons, null CBS fields and raster masks from rendering safe/normal/zero."
+    },
+    {
+      "id": "GM0262-INVARIANTS-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The deterministic numerical and semantic contract passes for GM0262 on the audited build.",
+      "evidence": "The focused harness passes all ten presets, six checkpoints and eight services. Values are finite/bounded, zero-event behavior exact, all 36 neighbourhoods and 34,316 residents reconcile, demand/delivery and causal ledgers close, service selection leaves hazard unchanged, route flows stay within declared logical capacity and cumulative event-attributable burden is monotone.",
+      "action": "Retain the focused gate in CI and add regressions for mechanism-specific rankings, focused-source containment, IJssel event contracts, KEA coverage/NoData, water-chain typing, internal reachability, evidence validity and explicit Unknown rendering."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Retire GM0262's common neighbourhood hazard seed and make rain, heat, wildfire, earthquake and cyber allocation evidence- and coverage-aware.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/public/data/hazards/GM0262-spatial-context.json"
+      ],
+      "validation": "Before correction, nine nonzero T+24 outputs share the exact full 36-neighbourhood order; a source at BU02620106 ranks that neighbourhood 30/36 despite direct fire 0.346762. Require distinct hazard surfaces and Unknown masks, source/perimeter containment, full-geometry zonal sampling, explicit evidence class/licence and exact service-layer invariance."
+    },
+    {
+      "summary": "Replace the generic major-river field with an explicitly selected IJssel defence-failure and footprint contract.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/public/data/hazards/GM0262-water-context.json",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Before correction, floodDepthM 1.332595 persists T+12–T+72 and places Eefde 29th/Gorssel 32nd without an event. Require a versioned gauge/datum/hydrograph, defence segment/state and breach/overtopping, connected LIWO/KEA footprint, probability class, depth/arrival/recession, uncertainty, NoData, licence and water-manager approval; verify western Eefde/Epse exposure without overgeneralizing the rest of Lochem."
+    },
+    {
+      "summary": "Integrate Lochem's duration-specific KEA rain, building, road-passability and heat layers with governed metadata and NoData.",
+      "files": [
+        "apps/web/src/data.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/MapView.tsx",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Keep 70 mm/1 h, 120 mm/48 h and short/long T100/T1000 products distinct. Resolve WRIJ version, model lineage, resolution, units, mask/NoData, coverage, cadence and reuse licence before caching. Test source-native building/road classes, catchment/sewer context, and uncovered cells remaining Unknown rather than zero."
+    },
+    {
+      "summary": "Separate managed-water, wastewater, potable and other physical lifelines from public point inventories and road logistics.",
+      "files": [
+        "scripts/fetch-water-assets.mjs",
+        "apps/web/public/data/public-context/water-assets.geojson.gz",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Retain 163 HWH objects and Waterinfo Almen/Eefde points as typed context. Split surface-water control, gravity/pressure/IBA wastewater and potable pressure/quantity/quality; validate catchment, direction, units, current/forecast validity, backup and source-specific terms. NWB remains mobility and assumed road logistics only; sensitive/unavailable topology and state stay Unknown."
+    },
+    {
+      "summary": "Add internal multimodal/access dependencies, evidence time modes, geometry mismatch handling and an auditable 72-hour action ledger.",
+      "files": [
+        "apps/web/public/data/transport-network.json",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/data.ts",
+        "apps/web/src/components/MapView.tsx",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/AnalyticsDrawer.tsx",
+        "apps/web/public/data/public-context/GM0262-response-context.json"
+      ],
+      "validation": "Use NWB/BGT/bridge/canal/ProRail/GTFS geometry and valid-time NDW/operator state for village, care, supply and repair reachability without inferring live operation. Preserve Kring van Dorth's BAG geometry/point provenance with spatialMismatch until resolved. Add synthetic/observed/replay/forecast modes and proposed/requested/confirmed/completed/cancelled actions; unconfirmed support points, hospital acceptance, vehicles, stocks, crews and restoration remain Unknown."
+    }
+  ],
+  "residualLimitations": [
+    "This is a deterministic first-72-hour planning stress test, not a KNMI, Rijkswaterstaat, WMCN, WRIJ, VNOG, municipality or operator forecast, warning, probability, evacuation order, casualty estimate or restoration promise.",
+    "No expert-selected IJssel gauge/hydrograph, dike ring/segment, defence state, breach/overtopping, connected footprint, depth unit, arrival/recession, probability class or NoData mask is ingested for GM0262.",
+    "The floodDepthM property and internally normalized inundation stress are derived screening values; they are not observed or officially modeled local metres and must not be used for evacuation or route thresholds.",
+    "Current Almen/Eefde Waterinfo values are point observations/forecasts tied to their valid times, not a municipal hydraulic surface, defence state, sewer condition or automatic canonical scenario input.",
+    "Waterinfo has no local T+48/T+72 forecast in the deployment snapshot; this is NoData and not a zero-water or safe-horizon statement.",
+    "The 196-position generalized boundary and common seed do not resolve channels, defences, terrain, catchments, sewers, buildings, paving, shade, forests/fuels, facilities, roads, households or individuals.",
+    "Kring van Dorth's representative BAG point conflicts with both CBS geometries; the BAG polygon/source assignment is retained pending authoritative join/edition review.",
+    "CBS neighbourhood values are rounded/suppressed; the +9 population difference and null district-heat, charging and car values are publication semantics, not missing or zero people/assets.",
+    "KEA layers are official static scenarios but their native edition, model lineage, resolution/units, mask, cadence and reuse licence are not stated in service metadata and require confirmation before causal use.",
+    "HWH point registers are partial and do not establish complete connected topology, compatible capacities, control rules, live operation, power dependency, backup or restoration.",
+    "WRIJ's Berkel/Twentekanaal project and drought context describe system mechanisms and planned/current works, not incident-time flow, extraction availability, drinking-water state or guaranteed project completion.",
+    "No complete public causal Liander feeder/switching, Vitens pipe/pressure/quality, gas pressure-district, municipal sewer/IBA, telecom backhaul or operator restoration topology is authorized in the model.",
+    "One NBNL sample is large-user planning/queue context rather than municipality coverage, current load, customer outage, emergency reserve or restoration state.",
+    "RDI installations do not establish operator coverage, backhaul, traffic, power/backup, damage, congestion, availability or restoration; its WFS gives no fixed cadence or standard reuse licence.",
+    "NWB, ProRail and GTFS are static context and do not establish incident-time roads, crossings, trains, buses, throughput, evacuation, repair access or logistics continuity.",
+    "RIVM hospital questionnaire data and straight-line distance do not establish ambulance time, route accessibility, acceptance, occupancy, staffing, diversion, generator fuel or backup endurance.",
+    "DUO locations do not establish command, reception, shelter, care or distribution roles; emergency-support-point locations/functions remain under investigation and points are not shelters.",
+    "Wildfire lacks a canonical local ignition/perimeter, authoritative fuel/moisture surface, valid-time wind/plume, visitors, access and suppression-water model; the focused coordinate is only a reproducible diagnostic.",
+    "Cyber lacks a named target, architecture, attack path and detection/containment state; earthquake lacks a selected event, local ground-motion/site-response surface and asset fragility.",
+    "No local KNMI weather, RIVM PM2.5 or recent seismic point is available; nearest-point observations are not a continuous local field or a forecast through T+72.",
+    "Household and support-point 72-hour guidance is a preparedness horizon, not measured household stock, guaranteed aid arrival, equality of access or a recovery deadline.",
+    "Event-attributable essential-service person-hours is a matched-no-event weighted availability proxy, not customer outage-hours, people simultaneously without every service, casualties, displacement or welfare loss; six-hour checkpoints can miss rapid change and 72 hours excludes prolonged flood, contamination, drought, fire and reconstruction."
+  ],
+  "provinceReviewFlags": [
+    "Gelderland/WMCN/RWS/WRIJ/Lochem/VNOG: select and version an IJssel event with gauge/datum, boundary hydrograph, defence/breach state, connected footprint, depth/arrival/recession and NoData; suppress local operational claims until Eefde/Epse/Gorssel geography is hydraulically validated.",
+    "Gelderland/WRIJ/Lochem: replace the common neighbourhood seed using short/long T100/T1000 rain, building, road-passability, heat, Berkel/brook, groundwater and sewer evidence; resolve KEA model edition and reuse terms before causal integration.",
+    "Gelderland/VNOG/Brandweer/terrain managers: validate Het Groote Veld, Lochemse Berg, Gorsselse Heide and other local nature-fire source/perimeter, fuel/moisture, plume, visitors, access and suppression-water pathways without exposing sensitive operational detail.",
+    "Gelderland/RWS/municipality/ProRail/OV/care partners: validate internal village/crossing access, Eefdese Brug and canal alternatives, rail/bus continuity and time-dependent reachability to Gelre Zutphen/Deventer; static geometry and questionnaire status do not prove continuity.",
+    "Gelderland/operators/WRIJ/KNMI/RDI/RIVM/DUO: keep public water, utility-planning, antenna, school, weather, air and care data typed by publisher/version/time/coverage/licence; unavailable or security-sensitive topology, state, capacity, backup, stock, crew, support-point and restoration facts remain Unknown."
+  ]
+}

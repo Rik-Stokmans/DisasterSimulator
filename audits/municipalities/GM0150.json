@@ -1,0 +1,486 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0150",
+    "name": "Deventer",
+    "province": "Overijssel",
+    "safetyRegion": "IJsselland"
+  },
+  "agent": {
+    "taskName": "municipality_gm0150",
+    "agentId": "/root/nl_realism_audit",
+    "completedAt": "2026-09-02T21:08:48Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "Deventer's generated 2025 identity, population, neighbourhood, settlement and safety-region inputs reconcile, and the focused deterministic gate passes every one of the ten presets, six checkpoints and eight services. Release remains correction-required. Nine unrelated nonzero presets reuse exactly the same complete 69-neighbourhood ordering; a controlled wildfire source in Buitengebied Lettele en Okkenbroek ranks its containing neighbourhood only 25th while Handelspark De Weteringen ranks first. The IJssel preset reports normalized inundation stress 1.6597 and 51,044 affected people-equivalent at T+24 without selecting an IJssel boundary condition, defence state, connected flood footprint, arrival or recession, even though Deventer publishes local road and ferry thresholds at 4.50, 6.10 and 6.30 m NAP. Pluvial output does not sample the public Overijssel 70 mm/2 h raster, municipal 64 mm/1 h and 119 mm/48 h stress criteria, catchments or road-depth thresholds. All eight services reuse six A1/N-road border links, omitting the three-water-board managed-water system, rail and internal IJssel crossings, physical Enexis/Vitens/telecom systems, Deventer Ziekenhuis, stocks and live restoration. Public CBS/PDOK, municipal, safety-region, water-board, Waterinfo/LIWO, provincial, KNMI, NWB/ProRail/NDW, RDI, RIVM and DUO sources can materially improve typed context and explicitly selected scenarios. Unavailable or security-sensitive topology, incident state, backups, crews and restoration must remain Unknown or transparently synthetic.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek / PDOK / Kadaster",
+      "title": "E01 — Official 2025 municipality, neighbourhood, safety-region and settlement inputs",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM0150%27%29",
+      "accessedAt": "2026-09-02T20:58:22Z",
+      "edition": 2025,
+      "supports": [
+        "GM0150 identity, province Overijssel, generalized boundary, 104,301 residents, density 799/km², 19.5% aged 65+ and 19,715 one-person households",
+        "Sixty-nine neighbourhoods, fifteen districts, seven BAG woonplaatsen and twenty-two BRT settlement labels; no BAG reference point lies outside the independently generalized municipality boundary",
+        "Published neighbourhood population sums to 104,270, thirty-one below the municipality total (-0.03%) because CBS small-area values can be rounded or suppressed; the published zero-population De Scheg neighbourhood remains an exact zero",
+        "CBS municipality/neighbourhood and safety-region OGC/OData are annual CC BY 4.0; BAG woonplaatsen use Public Domain Mark 1.0; BRT TOP10NL is CC BY 4.0 and delivered in rotating update areas: https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1 and https://api.pdok.nl/brt/top10nl/ogc/v1",
+        "Generalized administrative geometry supports overview aggregation, not river-, defence-, catchment-, sewer-, building-, road-, forest- or asset-precision intersection"
+      ]
+    },
+    {
+      "publisher": "Gemeente Deventer",
+      "title": "E02 — IJssel high-water thresholds, water partners and local climate-adaptation criteria",
+      "url": "https://www.deventer.nl/water/hoogwater-in-deventer",
+      "accessedAt": "2026-09-02T20:20:00Z",
+      "edition": "Current high-water and partner pages accessed 2026-09-02; Deventer Klimaatadaptatieprogramma October 2021",
+      "supports": [
+        "Deventer says IJssel high water occurs almost annually and directs users to Waterinfo for actual, expected and historical levels",
+        "The municipality publishes operationally relevant local thresholds: Wellepad/Pothoofd close at 4.50 m NAP; Bolwerksweg/Twelloseweg close and the ferry becomes inaccessible at 6.10 m; wave overtopping of the wall is possible around 6.10 m; the Welle is submerged/inaccessible at 6.30 m",
+        "Deventer names Waterschap Drents Overijsselse Delta, Waterschap Rijn en IJssel for Bathmen, Waterschap Vallei en Veluwe for De Worp, and Vitens as water partners: https://www.deventer.nl/water/waterpartners",
+        "The 2021 programme uses 64 mm/1 h and 119 mm/48 h stress tests, calls for extreme-rain and annual-high-water playbooks with alternate-route bottlenecks, and separately calls for heat and drought/low-water protocols: https://www.deventer.nl/fileadmin/deventer_website/Duurzaamheid/deventer-klimaatadaptatieprogramma.pdf",
+        "Those thresholds and plans are official context, not current closures, selected hydraulic scenarios, forecasts, probabilities or proof that an action is active; the PDF exposes no stable machine API, fixed refresh cadence or explicit open reuse licence and its current implementation status must be revalidated"
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio IJsselland",
+      "title": "E03 — IJsselland risk, crisis-role and first-72-hour electricity-outage context",
+      "url": "https://www.vrijsselland.nl/wp-content/uploads/2022/12/Strategische-beleidsagenda-2023-2026-.pdf",
+      "accessedAt": "2026-09-02T20:20:00Z",
+      "edition": "Strategic agenda 2023–2026; current public outage guidance accessed 2026-09-02",
+      "supports": [
+        "The safety region links storms, prolonged rain, heat and high river water; low river levels and water scarcity with nature fire; and power, gas, water and digital outage with vulnerable groups and prolonged crises",
+        "It identifies dense historic Hansa-city fabric, old buildings and difficult emergency access as regional concerns and assigns multidisciplinary coordination, information management, GHOR and municipal population-care roles",
+        "Its public power-outage guidance distinguishes effects at 2–4 hours, deterioration beyond 8 hours and disruption of fuel, shops, traffic, emergency services, water pressure and toilets over 24–72 hours: https://www.vrijsselland.nl/stroomuitval-2/",
+        "The guidance asks residents to prepare for the first 72 hours and says temporary water or reception points may be established and emergency-power priorities considered; these are planning statements, not guaranteed actions, capacity, equitable access or restoration deadlines",
+        "The agenda is at the end of its 2023–2026 horizon and the pages provide no machine event API or explicit open reuse licence; current incident plans and decisions require authority confirmation"
+      ]
+    },
+    {
+      "publisher": "Waterschap Drents Overijsselse Delta / Waterschap Rijn en IJssel / Het Waterschapshuis",
+      "title": "E04 — Deventer managed-water assets, legal maps and observed 2026 low-IJssel operations",
+      "url": "https://www.wdodelta.nl/tijdelijke-noodpomp-aan-risico-op-droogvallende-sloten",
+      "accessedAt": "2026-09-02T20:20:00Z",
+      "edition": "Observed operation 2026-08-12; HWH deployment snapshot and water-board services accessed 2026-09-02",
+      "supports": [
+        "The Deventer boundary intersects 123 public HWH point records: five sewer pumps, one sluice, fifteen surface-water pumps, one wastewater-treatment works and 101 weirs; manager attribution includes WDODelta, Rijn en IJssel, Vallei en Veluwe, generic and unknown records",
+        "Named context includes RWZI Deventer and pump records at Deventer, Bathmen, Loo-Bathmen, Okkenbroek, Bedrijvenpark A1 and Hagenvoorde; points do not establish connected flow, compatible capacity units, current operation, backup or restoration",
+        "On 12 August 2026 WDODelta reported that historically low IJssel water prevented normal operation at gemaal Ankersmit; a temporary emergency pump could not replace full capacity and was used to maintain the Deventer harbour, Overijssels Kanaal, Soestwetering and Zandwetering while smaller waterways could dry",
+        "HWH IMWA is an integration-ready weekly OGC API and HWH DAMO an integration-ready contributor-dependent OGC API, both CC BY-SA 4.0: https://api.pdok.nl/hwh/waterschappen-kunstwerken-imwa/ogc/v2 and https://api.pdok.nl/hwh/waterschappen-waterketen-damo/ogc/v1",
+        "WDODelta exposes current legal-map ArcGIS REST services at https://gis.wdodelta.nl/arcgis/rest/services; Rijn en IJssel reports annual Legger updates and exposes https://opengeo.wrij.nl/arcgis/rest/services/VigerendeLegger/MapServer. Source-specific licence/field semantics and full coverage must be confirmed before bundling"
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / Watermanagementcentrum Nederland via IPLO",
+      "title": "E05 — Timestamped Deventer water level, IJssel context and authoritative flood-scenario access",
+      "url": "https://waterinfo.rws.nl/api/point/latestmeasurement?parameterId=waterhoogte",
+      "accessedAt": "2026-09-02T18:03:18Z",
+      "edition": "Waterinfo observation 2026-09-02T17:30:00Z; LIWO release 2025.1.6",
+      "supports": [
+        "The deployment snapshot assigns one Deventer water-level and zero discharge observations by municipality polygon; the Deventer station reported 70 cm NAP at 17:30 UTC, classified as verlaagde waterstand and 33 minutes old at retrieval",
+        "LMW measurements are generally produced every ten minutes and the API response is cached for five minutes; Waterinfo content is CC0 unless an individual component says otherwise and the public service is not mission-critical",
+        "Rijkswaterstaat identifies the IJssel as a Rhine branch passing Deventer and provides water-level, shipping, bridge and lock context: https://www.rijkswaterstaat.nl/water/vaarwegenoverzicht/ijssel",
+        "LIWO is a WMCN product for professionals preparing for water nuisance and flood events; IPLO says correct interpretation requires water-manager expertise: https://iplo.nl/thema/water/applicaties-modellen/berichtgeving-crisismanagement/liwo/",
+        "LIWO's OGC endpoint is https://basisinformatie-overstromingen.nl/geoserver/ows; layer-specific source editions and reuse conditions must be verified, and an expert-selected event is required before a footprint affects simulation",
+        "A current station value is observed/replay context only—not a continuous surface, defence threshold, breach, inundation depth, future T+72 forecast or calibration for the synthetic preset. Zero discharge stations is NoData, never zero flow or safety"
+      ]
+    },
+    {
+      "publisher": "Provincie Overijssel",
+      "title": "E06 — Public pluvial, heat and road-vulnerability stress-test services",
+      "url": "https://services.geodataoverijssel.nl/geoserver/LIP/wms?service=WMS&request=GetCapabilities&version=1.3.0",
+      "accessedAt": "2026-09-02T20:20:00Z",
+      "edition": "Rain layer published 2022-06-20, revised 2023-07-11, metadata 2025-07-22; Rivus heat layer published/revised 2022",
+      "supports": [
+        "The WMS exposes Waterdiepte_bui_hevige_neerslag_70mm, an Overijssel-wide 70 mm in two hours, current-climate approximately 1/100-year static stress-test surface whose classes can be sampled for Deventer",
+        "The rain dataset metadata declares as-needed cadence and CC0: https://metadata.geodataoverijssel.nl/metadata/dataset/5439c0ac-4932-4cba-b12e-e8a5f7071300.xml",
+        "The WMS also exposes LIP_Hittestresss_Rivus; its downloadable TIFF models relative surface/shade sensitivity, has as-needed cadence and Public Domain Mark 1.0 metadata: https://metadata.geodataoverijssel.nl/metadata/dataset/6f1f4403-fd96-4a90-9f1f-1914afacbd3a.xml",
+        "LIP_Kwetsbaarheid_hoofdwegen_Rivus models road usability under 60 mm/1 h using depth classes below 10 cm, 10–30 cm and at least 30 cm, but catalogue access/reuse terms must be resolved before redistribution",
+        "These products are official scenario/context layers, not current observations, warnings, forecasts or incident-time road closures. Catalogue metadata refresh does not update the physical model; coverage and NoData must remain explicit"
+      ]
+    },
+    {
+      "publisher": "Koninklijk Nederlands Meteorologisch Instituut",
+      "title": "E07 — Valid-time weather, forecast and earthquake-event services",
+      "url": "https://developer.dataplatform.knmi.nl/edr-api",
+      "accessedAt": "2026-09-02T20:20:00Z",
+      "edition": "Current API documentation and deployment datasets accessed 2026-09-02",
+      "supports": [
+        "KNMI's versioned OGC EDR API provides spatial/time observation and forecast collections through https://api.dataplatform.knmi.nl/edr/v1 and requires an API key",
+        "KNMI radar composites are integration-ready five-minute observations under CC BY 4.0; ingestion must retain dataset/version, issue and valid time, lead, unit, processing status and spatial method",
+        "KNMI's automatically updated FDSN event catalogue is available under the RDSA default CC BY 4.0 terms at https://rdsa.knmi.nl/fdsnws/event/1/",
+        "Event-specific ShakeMap grids including peak ground acceleration are available at https://rdsa.knmi.nl/shakemaps/2/ under CC BY 4.0",
+        "A current radar image or event point is observed/replay context, not a future scenario or T+72 forecast; an event point is not a ground-motion field, fragility, damage estimate or probability"
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / ProRail / NDW / RIVM / RDI / DUO / Stichting Mijn Aansluiting",
+      "title": "E08 — Public transport, acute-care, telecom, education and provider-area context",
+      "url": "https://downloads.rijkswaterstaatdata.nl/nwb-wegen/geogegevens/shapefile/NWB-light/01-08-2026.zip",
+      "accessedAt": "2026-09-02T20:20:00Z",
+      "edition": "NWB 2026-08-01; RIVM acute-care 2026 v1.1; other deployment snapshots retrieved 2026-09-02",
+      "supports": [
+        "The generated graph contains six NWB municipal-border links—two A1, two N348, N344 and N337—to Voorst, Olst-Wijhe, Rijssen-Holten and Lochem, totaling 1,120 synthetic capacity units; these are logical road corridors, not measured throughput",
+        "ProRail's manually updated CC0 OGC API locates Deventer and Deventer Colmschate stations and rail traces: https://api.pdok.nl/prorail/spoorwegen/ogc/v1. The bundle also contains 155 GTFS stop areas; static geometry does not establish operation",
+        "The deployed NDW DATEX II snapshot is CC0 unless stated otherwise and valid-time observed/replay context; one certain real vehicleObstruction record intersects GM0150 with start 2026-09-02T14:58:31.750Z and no end: https://opendata.ndw.nu/actueel_beeld.xml.gz",
+        "The CC0 RIVM 2026 v1.1 questionnaire locates Deventer Ziekenhuis 3.486 km straight-line from the municipal centre, reporting 24/7 emergency and acute obstetric care, eighteen treatment rooms and 17,439 visits in 2025: https://datacatalogus.rivm.nl/dataset.xhtml?persistentId=doi%3A10.21945%2F8E767B2D-9CED-4A85-A95D-3AC1A608C663",
+        "The RDI WFS intersects 191 antenna sites, including 93 mobile sites and 274 mobile antennas, but states no reuse licence or fixed cadence and does not provide coverage, operator, backhaul, load, power/backup or state: https://antenneregister.nl/mapserver/wfs/",
+        "DUO's daily approximately-06:15 RIO snapshot contains 78 education records and uses Creative Commons Attribution with version unspecified: https://onderwijsdata.duo.nl/dataset/c416acd1-e083-4ec6-9203-3b20f98fe143",
+        "Mijn Aansluiting provider polygons at the municipal reference point identify Enexis for electricity/gas, Vitens for drinking water and Ziggo for media, while drainage is empty/incomplete; the Public Domain polygons are responsibility context, not full-boundary topology, service, outage or restoration state"
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "The generated code, name, province and safety-region assignment agree with official 2025 inputs.",
+      "evidenceRefs": ["E01", "E03"],
+      "notes": [
+        "Feature id, municipality bundle code and bundle name all equal GM0150 / Deventer.",
+        "The official 2025 safety-region layer assigns GM0150 uniquely to Veiligheidsregio IJsselland.",
+        "Administrative editions, static plans/stress tests, current observations and synthetic scenario time are recorded separately."
+      ]
+    },
+    "geography": {
+      "status": "warn",
+      "summary": "The centre lies inside the generalized boundary, but overview geometry cannot resolve the IJssel, defences, three catchments, urban drainage, rural fuel and infrastructure pathways.",
+      "evidenceRefs": ["E01", "E02", "E04", "E05", "E06"],
+      "notes": [
+        "Generated centre [6.241641898413668, 52.26947227722283] lies inside the 2025 generalized municipality polygon.",
+        "Official evidence distinguishes the IJssel/Welle/De Hoven corridor, Bathmen and De Worp water-board responsibilities, urban rain/heat, the eastern rural area, roads, rail and managed-water assets.",
+        "Use full-resolution source geometry plus explicit land/water, coverage and NoData masks before intersecting hydraulic, rain, heat, drought, fire, transport or facility exposure."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Municipal totals match CBS 2025 and neighbourhood population reconciles within documented publication rounding.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "Official/generated population is 104,301, density 799/km², age 65+ is 19.5% and one-person households number 19,715.",
+        "Published neighbourhood population sums to 104,270, thirty-one below the municipality total (-0.03%); deterministic allocation reconciles exactly to 104,301.",
+        "De Scheg has published zero population and remains exact zero after allocation.",
+        "Resident counts do not identify commuters, tourists, hospital/care occupants, people present at event time, individual vulnerability or household emergency stocks."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "All 69 neighbourhood rows load, but several CBS fields are incomplete and none is a hazard footprint or live service state.",
+      "evidenceRefs": ["E01", "E02", "E06"],
+      "notes": [
+        "Largest published neighbourhoods are Dorp Schalkhaar 5,690, Dorp Bathmen 4,590, Dorp Diepenveen 4,565, Borgele 3,670 and Deltabuurt 3,110.",
+        "Home value and housing-form/tenure fields are available for 64/69 neighbourhoods, household size 67/69, cars per household 60/69, benefit fields 66/69 and doctor/supermarket distance 68/69; district heating and public charging have 0/69 usable values.",
+        "Null remains Unknown, never zero. Provincial rasters and local plans can add mechanism-specific detail only with evidence class, units, edition/valid time, licence, coverage, NoData and declared affectsSimulation semantics."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "Seven BAG woonplaatsen and twenty-two BRT settlement labels are retained without a reference-point boundary mismatch.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "BAG woonplaatsen are Bathmen, Colmschate, Deventer, Diepenveen, Lettele, Okkenbroek and Schalkhaar.",
+        "BRT supplies twelve buurtschappen, one deelkern and nine woonkernen, including Deventer, De Hoven-area rural labels, Bathmen and the eastern villages.",
+        "Settlement labels are cartographic context and do not establish event-time occupancy, isolation, service availability or municipal identity."
+      ]
+    },
+    "transport": {
+      "status": "warn",
+      "summary": "Road aliases, transit stops and rail stations load, but the six-link graph omits Deventer's internal IJssel crossings, rail/bridge/ferry state and time-dependent access.",
+      "evidenceRefs": ["E02", "E05", "E08"],
+      "notes": [
+        "Six NWB links expose A1, N337, N344 and N348 identities to Voorst, Olst-Wijhe, Rijssen-Holten and Lochem with 1,120 total synthetic units; physical corridor aliases resolve.",
+        "Two ProRail stations and 155 GTFS stop areas intersect the generalized boundary.",
+        "Municipal IJssel thresholds explicitly change Wellepad, Pothoofd, Bolwerksweg, Twelloseweg and ferry access, but those internal, water-level-conditioned states are absent from the graph.",
+        "A current NDW obstruction is valid-time observed/replay context, not a T+72 closure. Static roads, stops, rail and hospital straight-line distance do not establish evacuation, ambulance, repair or supply reachability."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "Official crisis and 72-hour preparedness context exists, but event-time decisions, actions, reception/water points, occupants, stocks, crews and continuity states are absent.",
+      "evidenceRefs": ["E02", "E03", "E08"],
+      "notes": [
+        "The municipality calls for separate rain, annual-high-water, heat and drought playbooks; VR IJsselland defines multidisciplinary roles and outage phases. Neither confirms an action for the selected exercise.",
+        "Deventer Ziekenhuis, 78 DUO records and 191 RDI sites are public context, not confirmed emergency function, opening, staffing, access, stock, backup or capacity.",
+        "First-72-hour self-reliance and possible temporary water/reception points are preparedness guidance, not measured household stock, equitable access, guaranteed aid or restoration."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten canonical presets produce complete finite output at every required checkpoint and service; evidential contradictions are recorded separately.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E06", "E07"],
+      "notes": [
+        "The focused matrix executed severe storm, pluvial flood, river flood, coastal flood, heatwave, winter storm, cyberattack, earthquake, wildfire and compound at T+0/6/12/24/48/72 across power, water, drainage, gas, telecom, mobility, facilities and supply.",
+        "At T+24 severity / system pressure / affected people-equivalent / cumulative event-attributable service person-hours are storm 0.1333 / 0.2948 / 22,754 / 410,220.66; pluvial 0.1372 / 0.2426 / 15,073 / 248,335.56; river 0.5186 / 0.4874 / 51,044 / 930,163.19; coastal 0.0418 / 0.0887 / 0 / 78,782.76; heat 0.1143 / 0.1800 / 5,880 / 353,414.96.",
+        "Remaining T+24 values are winter 0.6464 / 0.3370 / 28,951 / 586,257.64; cyber 0.3835 / 0.3369 / 28,928 / 467,160.35; earthquake 0 / 0.0819 / 0 / 84,125.18; wildfire 0.1317 / 0.1502 / 1,502 / 156,523.66; compound 0.8256 / 0.5847 / 65,344 / 869,962.63.",
+        "At T+72 river remains severity 0.5186, normalized inundation stress 1.6597, pressure 0.5157 and 55,213 affected; heat remains severity 0.1143/drought 0.6351 but affected rounds to zero; compound remains severity 0.3063, pressure 0.6078 and 68,741 affected. These are deterministic exercise estimates, never observations, probabilities, warnings or operator forecasts.",
+        "Cumulative event-attributable service person-hours are integrated against a matched no-event baseline; they are not customer outage-hours, people simultaneously without every service, casualties or economic loss."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "The focused gate passes deterministic, finite, exact-zero, causal, allocation, reconciliation and monotonic-burden contracts.",
+      "evidenceRefs": [],
+      "notes": [
+        "MUNICIPALITY_AUDIT_CODE=GM0150 pnpm audit:model passed both tests on current code across 10 presets × 6 checkpoints × 8 services.",
+        "All intensity-zero runs have exactly zero current/peak severity, affected people-equivalent and event-attributable person-hours at every checkpoint.",
+        "Every local map allocates exactly 104,301 residents and all 69 neighbourhoods; maximum reconciliation and delivery error is 1.4210854715202004e-13 and maximum demand error is 5.684341886080802e-14.",
+        "Changing selected service leaves every local hazard value exactly invariant, cumulative event-attributable person-hours are monotonic against the matched no-event baseline, and route flows remain within declared logical capacity."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "A common neighbourhood seed conflicts with Deventer's distinct IJssel, pluvial, heat, rural-fire, cyber, earthquake and infrastructure geographies.",
+      "evidenceRefs": ["E02", "E04", "E05", "E06", "E07"],
+      "notes": [
+        "At T+24 all nine nonzero presets—storm, pluvial, river, coastal, heat, winter, cyber, wildfire and compound—have the exact same complete 69-neighbourhood order, beginning Handelspark De Weteringen, Graveland, Rode Dorp, Landsherenkwartier, Swormink, Blauwenoord, Raambuurt and Deltabuurt.",
+        "For the river preset De Hoven ranks 12th, Centrum 33rd, Industrieterrein 38th and Bergkwartier 63rd; no selected IJssel footprint, defence state or terrain supports those ranks.",
+        "A controlled T+24 wildfire source at [6.2999058445686495, 52.2797551883567] lies in BU01501403 Buitengebied Lettele en Okkenbroek. The run has municipality direct fire 0.4237, smoke 0.4448 and drought 0.5185, but the containing neighbourhood gets local hazard 0.4609 and ranks 25/69 while Handelspark De Weteringen ranks first at 0.5172.",
+        "The test coordinate is a neighbourhood reference point, not proof of ignition or fuel eligibility; the reproducible contradiction is that a direct source does not control local allocation. No source-native rain/heat/drought surface, named cyber target or event-specific ground-motion grid controls the common order."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "All eight balances are inspectable, but one six-road graph cannot represent physical utilities, managed water, telecom, care or stocked logistics.",
+      "evidenceRefs": ["E03", "E04", "E08"],
+      "notes": [
+        "Power, water, drainage, gas, telecom, mobility, facilities and supply all reuse six NWB links and 1,120 abstract capacity units because the routes declare no supportedServices. The UI calls connectivity logical, but exact values can still imply physical precision.",
+        "At compound T+24 modeled availability is power 0.3856, water 0.4126, drainage 0.3016, gas 0.6063, telecom 0.2493, mobility 0.5106, facilities 0.4558 and supply 0.4194; no cited authority or operator validates those exact values.",
+        "Public context identifies Enexis/Vitens/Ziggo responsibility at one reference point, 123 managed-water records, 191 RDI sites, Deventer Ziekenhuis and education locations, but not complete topology, switching, pressure/quality, backhaul, priority customers, stock, backup or live state.",
+        "Surface-water control, wastewater conveyance/treatment and potable quantity/pressure/quality are distinct causal systems. The generic water/drainage scores and road graph cannot represent them safely.",
+        "The empty drainage-provider polygon is incomplete/Unknown provider-area coverage, never evidence that no drainage responsibility or service exists."
+      ]
+    },
+    "causalTrace": {
+      "status": "fail",
+      "summary": "Arithmetic closes, but IJssel and source-allocation evidence and physical-network meaning do not; derived screens and road proxies overstate causal support.",
+      "evidenceRefs": ["E02", "E04", "E05", "E06", "E08"],
+      "notes": [
+        "Service-stage deltas, weighted pressure, local demand/delivery and matched-no-event person-hour arithmetic reconcile for the full matrix.",
+        "The major-river preset uses municipality-centre distance to schematic national Rhine/Meuse/IJssel lines. It selects no Deventer gauge/boundary condition, defence state, breach/overtopping, connected footprint, terrain, arrival or recession yet reports derived-screening local impact.",
+        "The coastal preset produces zero direct inundation stress and zero affected people-equivalent at T+24, while retaining modest indirect wind/system pressure; that is a model screen, not proof of immunity or a current regional-supply impact.",
+        "NWB geometry supports road mobility and potentially logistics/repair access. It cannot establish electricity, drinking-water, sewer, surface-water, gas, radio-backhaul, patient-transfer or inventory connectivity.",
+        "Current Waterinfo/NDW/weather observations, dated official plans, static official stress/scenario layers and synthetic model output remain distinct evidence classes and must not blend into one operational-looking state."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "The 72-hour curves are numerically coherent but not calibrated to Deventer's water control, road/ferry thresholds, operators, hospital access, support points, stocks or public-action timelines.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E08"],
+      "notes": [
+        "River severity/inundation stress stays exactly 0.5186/1.6597 from T+12 through T+72; water availability stays 0.5029 from T+24 through T+72, while facilities falls from 0.6144 at T+24 to 0.4117 at T+48/T+72. No selected IJssel event or operator plan validates those plateaus.",
+        "Compound remains critical at T+72 with service availability power 0.3632, water 0.4091, drainage 0.2987, gas 0.6033, telecom 0.2348, mobility 0.4928, facilities 0.3668 and supply 0.4051; exact recovery has no event or operator calibration.",
+        "Heat retains severity 0.1143 and drought 0.6351 at T+72 while affected people-equivalent is zero; that threshold result cannot mean absence of residual health, potable-water, vegetation, care or supply burden.",
+        "No warning, water-board pump/weir/sluice state, road/ferry/rail state, utility switching, crew/fuel/spares, hospital acceptance, temporary water/reception point, household stock or action completion is ingested. A 72-hour preparedness horizon is not a recovery deadline."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": ["power", "water", "drainage", "gas", "telecom", "mobility", "facilities", "supply"]
+  },
+  "findings": [
+    {
+      "id": "GM0150-SPATIAL-001",
+      "severity": "high",
+      "category": "geography",
+      "status": "open",
+      "summary": "Nine unrelated nonzero hazards reuse one complete neighbourhood ranking, and a controlled eastern-rural wildfire source ranks its containing area only 25th.",
+      "evidence": "At T+24 storm, pluvial, river, coastal, heat, winter, cyber, wildfire and compound order all 69 neighbourhoods identically, starting Handelspark De Weteringen, Graveland, Rode Dorp, Landsherenkwartier and Swormink. With a controlled source inside BU01501403, direct fire is 0.4237 but the source area ranks 25/69 while Handelspark ranks first. E02–E07 distinguish IJssel hydraulics, source-native rain/heat, catchments, rural fuel, valid-time weather and event-specific earthquake fields. The common order is not calibrated exposure.",
+      "action": "V3 release gate: mark every unsupported local ranking as synthetic/unvalidated and prevent operational prioritization. Replace the common seed with hazard-specific eligibility/susceptibility surfaces and explicit Unknown masks. Integrate full-resolution provincial, water-board/LIWO, KNMI, BGT/land-cover and event evidence only with source class, units, edition/valid time, licence, completeness and affectsSimulation. Add regressions requiring materially different ranks for distinct mechanisms and direct source/perimeter containment while preserving exact hazard invariance across selected service layers."
+    },
+    {
+      "id": "GM0150-IJSSEL-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The river preset gives precise, persistent Deventer impact without a selected IJssel event, defence state or connected hydraulic footprint.",
+      "evidence": "The preset reports severity 0.5186, normalized inundation stress 1.6597, 51,044 affected and 930,163.19 cumulative service person-hours at T+24; severity/stress persist unchanged through T+72 and affected rises to 55,213. E02 publishes local access thresholds at 4.50, 6.10 and 6.30 m NAP, while E05 provides a current 0.70 m NAP observation and LIWO scenario access. The model uses generic centre-to-river distance and selects none of gauge/boundary level, discharge, defence segment/state, breach/overtopping, terrain, connected footprint, arrival or recession. Inundation stress is normalized, not metres.",
+      "action": "V3 release gate: label the current result as an uncalibrated derived screen and prohibit operational road/ferry, exposure or evacuation claims. Add an explicit IJssel scenario contract retaining source/gauge, datum and units, boundary level/discharge hydrograph, issue/valid time, defence segment/state, breach/overtopping assumption, versioned LIWO footprint, true depth, arrival/duration/recession, probability/scenario class, uncertainty, NoData, licence and water-manager approval. Implement Wellepad/Pothoofd/Bolwerksweg/Twelloseweg/ferry rules only as sourced threshold actions and never infer them from normalized stress."
+    },
+    {
+      "id": "GM0150-PLUVIAL-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The pluvial preset produces exact Deventer impact without using available official rain-depth, heat, route-vulnerability or managed-water evidence.",
+      "evidence": "At T+6 the model reports rain forcing 44.753 and normalized inundation stress 0.1440; at T+24 it reports severity 0.1372, stress 0.1900, 15,073 affected and 248,335.56 cumulative service person-hours, distributed by the common seed. E02 defines distinct 64 mm/1 h and 119 mm/48 h municipal exercises and calls for bottleneck/alternate-route playbooks. E06 publishes a CC0 70 mm/2 h water-depth surface and a relative heat TIFF; its 60 mm/1 h road layer has depth-dependent accessibility but unresolved reuse access. None drives the result, and forcing/stress must not be presented as an observed depth.",
+      "action": "V3 release gate: expose the input hyetograph, units, static scenario edition, model coverage and NoData and label current values parameterized/synthetic. Future calibration: sample the versioned Overijssel raster/heat TIFF on full-resolution geometry, connect catchments and road-depth rules, and retain terrain/sewer/open-water inclusion, true depth, arrival/recession, uncertainty, licence and affectsSimulation. Use the 64/119 mm municipal criteria as separate named exercises rather than interchangeable thresholds; uncovered cells remain Unknown, never zero."
+    },
+    {
+      "id": "GM0150-WATERCHAIN-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "The simulator collapses three water-board catchments, IJssel intake constraints, surface-water control, wastewater and potable-water pathways into generic water/drainage scores.",
+      "evidence": "E02 identifies WDODelta, Rijn en IJssel in Bathmen, Vallei en Veluwe in De Worp and Vitens. E04 intersects 123 HWH point records, including RWZI Deventer and pumps/weirs, and documents a 2026 low-IJssel event where Ankersmit could not pump normally and a temporary pump lacked full capacity. The model instead exposes one water and one drainage score over the same six roads, without catchments, flow direction, compatible units, operating state, wastewater treatment, potable pressure/quality/advisory or backup. At river T+24 water is exactly 0.5029 and drainage 0.3327 without operator calibration.",
+      "action": "V3 release gate: show HWH, legal-map and observed operations only as typed context and split potable quantity/pressure, potable quality/advisory, wastewater conveyance/treatment and surface-water level/drainage semantics. Future calibration should use licensed legal maps plus operator-authorized aggregate catchments/topology/state with direction, units, valid time and backup. Confirm source-specific reuse terms before redistribution; missing topology/state remains Unknown and point inventory never implies operation."
+    },
+    {
+      "id": "GM0150-LIFELINE-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "One road-derived logical graph is cloned into all eight lifelines and lacks operator-calibrated topology, state, backup and restoration.",
+      "evidence": "Every service reuses six A1/N-road links and 1,120 abstract capacity units because no route declares supportedServices. E04/E08 identify managed water, likely Enexis/Vitens/Ziggo responsibility at one point, 191 RDI sites, acute care and education context, but not complete physical connectivity, switching, potable pressure/quality, gas districts, backhaul, priority customers, stock, backup or live state. At compound T+24 exact modeled availability ranges from telecom 0.2493 to gas 0.6063 without operator validation.",
+      "action": "V3 release gate: restrict NWB links to mobility and explicitly assumed logistics/repair access; label every other network as an aggregate synthetic dependency proxy with uncertainty. Future work may ingest operator-authorized, privacy/security-safe service zones and aggregate dependency/restoration ranges with topology semantics and units. Unavailable or sensitive topology/state remains Unknown; provider territories establish responsibility context only and utility flow must never be inferred from roads."
+    },
+    {
+      "id": "GM0150-MOBILITY-CARE-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "Six municipal-border roads cannot represent water-level-conditioned IJssel crossings, internal routes, rail/transit and acute-care reachability in the first 72 hours.",
+      "evidence": "The graph has six border links but no Wellepad, Pothoofd, Bolwerksweg, Twelloseweg, ferry, internal bridge, local street, rail or hospital node/state. E02 gives exact water-level-conditioned closures; E08 supplies two rail stations, 155 GTFS stops, one timestamped NDW obstruction and Deventer Ziekenhuis 24/7 acute-care questionnaire context. A static hospital role and 3.486 km straight-line distance do not prove ambulance travel, route accessibility or hospital acceptance.",
+      "action": "V3 release gate: label connectivity as logical and stop deriving care/access certainty from the border graph. Build a multimodal internal graph from NWB, BGT, ProRail, GTFS and authoritative bridge/ferry/waterway geometry, preserve ownership and static versus observed state, and use NDW only in valid-time observed/replay mode. Compute time-dependent reachability for residents, ambulances, evacuation, supply and repair; leave acceptance, staff, occupancy, vehicles and crossing state Unknown unless confirmed."
+    },
+    {
+      "id": "GM0150-EVIDENCE-TIME-001",
+      "severity": "medium",
+      "category": "ui",
+      "status": "open",
+      "summary": "The UI separates current Waterinfo context from the scenario, but does not bind the synthetic IJssel state to a local gauge, threshold, defence or footprint.",
+      "evidence": "A reproducible Chromium check at 1440×900 and 390×844 selected GM0150, river-flood, Drinking water and T+24/T+72. The UI labels output 'Official context + scenario', calls NWB a logical transfer proxy, says the one water-level/zero discharge observations do not affect simulation and explicitly says no station means NoData, never zero/safe. It announces 50% water at both T+24 and T+72 and marks forcing beyond 72 h. Yet the timestamped current Deventer value (0.70 m NAP at 17:30 UTC) sits beside a synthetic state with no selected 4.50/6.10/6.30 m threshold, gauge alignment, defence or LIWO event. There were no console errors or horizontal overflow; mobile document width equaled 390 px, although the open details sheet overlays the timeline until closed.",
+      "action": "Retain the existing evidence-class, logical-topology and NoData warnings. Add an explicit simulation-mode and input contract above scenario output: synthetic/observed/replay/forecast, publisher/dataset/version, issue/valid/retrieval time, temporal alignment, unit/datum, coverage, uncertainty and affectsSimulation. For IJssel exercises show selected gauge/hydrograph, local threshold status, defence/footprint state and Unknown fields; never visually imply that the current Waterinfo value is the T+24/T+72 input. Preserve a closeable focus-managed mobile details sheet and live announcement of time/service state."
+    },
+    {
+      "id": "GM0150-72H-001",
+      "severity": "medium",
+      "category": "explainability",
+      "status": "open",
+      "summary": "The first-72-hour dashboard lacks a validated action, authority, resource and restoration ledger and can turn preparedness guidance into operational certainty.",
+      "evidence": "E02 calls for separate high-water, extreme-rain, heat and drought playbooks; E03 distinguishes 2–4 h, beyond-8 h and 24–72 h electricity-outage effects and possible temporary water/reception points. None confirms an intervention, location, capacity, start, completion or restoration for this exercise. HWH/RIVM/RDI/DUO/provider context carries no confirmed incident-time operation, facility role, access, staff, stock, crew or backup state. Exact modeled river water availability stays 0.5029 from T+24 to T+72 and compound remains critical, but no authority/operator trajectory supports those values.",
+      "action": "Add an action ledger with proposed/requested/confirmed/completed/cancelled state, responsible municipality/safety region/water board/operator, source, issue and valid time, expiry, geography, dependency, resource/capacity and confidence. At T+0/6/12/24/48/72 show current hazard, all eight availability scores, affected people-equivalent, cumulative event-attributable person-hours and unresolved inputs. Show reception, emergency-water, evacuation, hospital and restoration actions only after authority/operator confirmation; label 72 hours as an exercise/preparedness horizon, never a guarantee."
+    },
+    {
+      "id": "GM0150-HAZARDS-001",
+      "severity": "medium",
+      "category": "limitation",
+      "status": "accepted-limitation",
+      "summary": "Coastal, storm, winter, heat/drought, cyber, earthquake, wildfire and compound outputs are coherent screens but lack Deventer event and asset calibration.",
+      "evidence": "E02/E03/E04/E06/E07 support locally relevant severe weather, heat/drought/low-water, digital disruption and nature-fire pathways, while Deventer has indirect regional exposure to coastal disruption and low expected damaging earthquake exposure. The presets select no valid-time storm/heat/winter forecast, named cyber target/architecture, event-specific ground-motion grid or canonical fire perimeter/fuel field. Coastal T+24 has zero direct inundation stress/affected but nonzero indirect pressure; earthquake current severity is zero yet cumulative event-attributable service person-hours is 84,125.18; heat remains severity 0.1143/drought 0.6351 at T+72 while affected rounds to zero; compound remains critical without a confirmed multi-hazard event.",
+      "action": "Retain these as visibly synthetic parameterized stress tests with uncertainty and sensitivity. Use official valid-time KNMI products only in explicit observed/replay or forecast modes; require a named cyber target and attack/containment path, selected earthquake event plus ground-motion/fragility, and named fire source/perimeter plus fuel/moisture/wind/access before direct consequences. Preserve direct versus indirect, current zero, residual consequence, Unknown and not applicable as distinct states."
+    },
+    {
+      "id": "GM0150-NODATA-001",
+      "severity": "medium",
+      "category": "ui",
+      "status": "open",
+      "summary": "Empty, null, masked and true-zero inputs require explicit multi-state semantics to prevent false safety and false absence.",
+      "evidence": "GM0150 has no mapped drainage provider, zero Waterinfo discharge observations, no RIVM PM2.5 station and no usable district-heating/public-charging neighbourhood values; car, housing, benefit and proximity fields have partial coverage. These mean missing/incomplete mapping, no listed station or suppressed/unavailable values—not no service, flow, smoke, infrastructure or outage. In contrast, De Scheg has official zero residents, coastal direct inundation at T+24 is a scoped model zero, and the model preserves exact zero-population allocation. Raster masks and unmodelled areas likewise must not become zero depth or safety.",
+      "action": "Use one shared state contract across maps, legends, tables, tooltips, APIs and exports: measured/modeled value including zero, Unknown/not covered, and not applicable. Show publisher, edition, issue/valid/retrieval time, unit, completeness, licence, confidence and affectsSimulation for every layer. Add regressions that empty provider/facility/incident/station intersections, null CBS fields and hydraulic/raster masks cannot render as safe, normal, no infrastructure or zero service."
+    },
+    {
+      "id": "GM0150-INVARIANTS-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The focused numerical and semantic invariants pass for GM0150 on the audited build.",
+      "evidence": "The focused harness passes two tests covering all ten presets, six checkpoints and eight services. Outputs are finite and bounded, intensity-zero semantics are exact, 104,301 residents and all 69 neighbourhoods reconcile in every local map, maximum reconciliation/delivery error is 1.4210854715202004e-13 and demand error 5.684341886080802e-14, selected service cannot change local hazard, route flow stays within declared logical capacity, and cumulative event-attributable person-hours are monotonic against the matched no-event baseline.",
+      "action": "Retain the focused gate in CI and add regressions for distinct hazard rankings, source containment, local IJssel contracts, pluvial coverage/NoData, managed-water semantics, service-specific topology, internal reachability, valid-time evidence and multi-state rendering."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Retire the shared GM0150 neighbourhood seed and make pluvial, heat, wildfire, earthquake and cyber allocation source- and coverage-aware.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/public/data/hazards/GM0150-spatial-context.json"
+      ],
+      "validation": "Before correction, all nine nonzero T+24 presets share the exact full 69-neighbourhood order. A controlled source inside BU01501403 with direct fire 0.4237 ranks the containing neighbourhood 25/69. Require mechanism-specific surfaces and Unknown masks, materially different rankings, direct source/perimeter containment, explicit provincial raster coverage, deterministic regeneration and exact service-layer-invariant local hazard."
+    },
+    {
+      "summary": "Replace the generic major-river screen with an explicit, defence- and threshold-bound IJssel hydraulic contract for Deventer.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/public/data/hazards/GM0150-water-context.json",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Before correction, river severity/stress is 0.5186/1.6597 from T+12 to T+72 without a selected event. Require a versioned source/gauge and NAP datum, boundary hydrograph, defence state, breach/overtopping assumption, connected LIWO footprint, true units, arrival/recession, scenario class, uncertainty, NoData, licence and expert approval. Test sourced 4.50/6.10/6.30 m road/ferry rules separately from normalized inundation stress and keep the current 0.70 m observation temporally separate."
+    },
+    {
+      "summary": "Separate managed-water and physical lifelines from the six-link NWB logical transfer graph.",
+      "files": [
+        "scripts/fetch-water-assets.mjs",
+        "apps/web/public/data/public-context/water-assets.geojson.gz",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Retain 123 HWH records and WDODelta/WRIJ legal-map features as context until catchment, direction, compatible units, state, licence and backup are validated. Split potable pressure/quantity, quality/advisory, wastewater and surface-water control. Enforce service-specific topologySemantics, evidence class, publisher/version/valid time/completeness and affectsSimulation. NWB applies only to mobility and assumed logistics/repair access; sensitive or unavailable topology remains Unknown or clearly aggregate synthetic."
+    },
+    {
+      "summary": "Add internal multimodal reachability, acute-care dependencies and an auditable first-72-hour action ledger.",
+      "files": [
+        "apps/web/public/data/transport-network.json",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/AnalyticsDrawer.tsx",
+        "apps/web/public/data/public-context/GM0150-response-context.json"
+      ],
+      "validation": "Use NWB/BGT/ProRail/GTFS and authoritative IJssel bridge/ferry/waterway geometry for internal access; use NDW only when valid-time aligned and apply municipal water-level rules only to the matching assets. Validate time-dependent reachability to Deventer Ziekenhuis without treating straight-line distance or questionnaire role as availability. Add proposed/requested/confirmed/completed/cancelled actions with owner, source, valid time, expiry, geography and confidence; unconfirmed reception/water points, stock, crew and hospital acceptance remain Unknown."
+    },
+    {
+      "summary": "Add valid-time KNMI/Waterinfo/NDW modes and make evidence class, data absence and uncertainty explicit for every map and export.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "apps/web/src/data.ts",
+        "apps/web/src/components/MapView.tsx",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/AnalyticsDrawer.tsx"
+      ],
+      "validation": "Canonical exercises remain synthetic. Optional observed/replay/forecast modes retain dataset/version, issue and valid time, lead, datum/unit, grid/station method, processing status, retrieval and uncertainty. Every metric/layer/export distinguishes observed, official context, official scenario and synthetic; exposes licence, completeness and affectsSimulation; and renders measured/modeled zero, Unknown and not applicable distinctly. Browser regressions cover 1440×900 and 390×844, focus/live announcements and non-overflow."
+    }
+  ],
+  "residualLimitations": [
+    "This is a deterministic first-72-hour planning stress test, not a KNMI, Rijkswaterstaat, WMCN, water-board, VR IJsselland or operator forecast, warning, probability estimate, evacuation order, casualty model or restoration promise.",
+    "No expert-selected IJssel boundary hydrograph, gauge/datum, defence state, breach/overtopping path, connected footprint, arrival/recession, verified depth unit or NoData mask is ingested for GM0150; normalized inundation stress is not metres.",
+    "The current Deventer Waterinfo observation is timestamped context only; it is not a continuous hydraulic surface, future T+72 input, road/ferry action trigger or validation of the synthetic river event.",
+    "The generalized CBS boundary and common neighbourhood seed do not resolve river channels, land/water, defences, elevation, catchments, sewers, buildings, paving, shade, rural fuel, facilities, roads, households, visitors or individual vulnerability.",
+    "CBS neighbourhood values are rounded or suppressed; the -31 population difference is publication semantics, De Scheg's exact zero is preserved, and null district-heat, charging, car, housing, proximity or benefit fields are Unknown rather than zero.",
+    "The Overijssel rain, heat and road products are official static stress/context layers; catalogue updates do not make the physical model current or observed, and coverage/NoData and reuse terms must be checked layer by layer.",
+    "LIWO 2025.1.6 requires water-manager interpretation and a selected source scenario; its public endpoint's layer-specific editions, conditions and reuse licence must be verified before redistribution or causal use.",
+    "HWH point registers and water-board legal maps do not define complete connected catchments, compatible capacities, current operation, backup or restoration; source-specific legal status, cadence and licences vary.",
+    "Provider territories identify likely responsibility at one municipal reference point, not full-boundary coverage, connectivity, capacity or state; missing drainage mapping remains Unknown.",
+    "No complete public causal Enexis feeder/switching, Vitens pipe/pressure/quality, gas pressure-district, municipal sewer, telecom backhaul or operator restoration topology is authorized in the model.",
+    "RDI antenna records do not establish operator, coverage, backhaul, traffic, power/backup, damage, congestion, availability or restoration; the WFS states no fixed cadence or reuse licence.",
+    "All eight services currently reuse six road-derived logical corridors and cannot be interpreted as physical utility, managed-water, wastewater, telecom, patient-transfer or stocked-logistics networks.",
+    "NWB, ProRail and GTFS are static context and do not establish incident-time road, bridge, ferry, rail or bus operation, throughput, evacuation, clearance or repair access.",
+    "The single current NDW obstruction record is one valid-time observed/replay message, not a future scenario input or complete route-state inventory.",
+    "RIVM hospital role and straight-line distance do not establish ambulance travel time, reachability, acceptance, staffing, occupancy, diversion, generator/fuel or backup endurance.",
+    "DUO points do not establish command, reception, shelter, care or distribution roles; facilities and supply lack verified care-home, pharmacy, stock, depot, vehicle and staff state.",
+    "Wildfire lacks a canonical local ignition/perimeter, land-cover/fuel and moisture surface, valid-time wind, access and suppression-water model; a neighbourhood reference point is only a reproducible test input.",
+    "Cyber lacks a named target, architecture, attack path and detection/containment state; earthquake lacks a selected event, local ground-motion/site-response surface and asset fragility.",
+    "KNMI radar and seismic snapshots are current observations relative to their valid times, not aligned future inputs; no forecast collection/version, issue time or lead is selected for the canonical exercises.",
+    "Household and temporary water/reception-point 72-hour guidance is a preparedness horizon, not measured Deventer stock, guaranteed aid arrival, equality of access or a recovery deadline.",
+    "Event-attributable essential-service person-hours is a matched-no-event weighted availability proxy, not customer outage-hours, casualties, displacement or welfare loss; six-hour checkpoints can miss rapid changes and 72 hours excludes prolonged inundation, contamination, drought, fire and reconstruction."
+  ],
+  "provinceReviewFlags": [
+    "Overijssel/WMCN/RWS/water boards/municipality/VR IJsselland: select and version an IJssel event, gauge/datum, boundary hydrograph, defence state, connected footprint and NoData mask; validate local 4.50/6.10/6.30 m road/ferry thresholds and suppress operational claims until the hydraulic path is defensible.",
+    "Overijssel/Deventer/Rivus/water boards: replace the common neighbourhood order using full-resolution 70 mm/2 h rain, heat, municipal 64 mm/1 h and 119 mm/48 h exercises, catchment and road-depth evidence; keep official planning, stress-test, observed and simulated classes separate.",
+    "Overijssel/VR IJsselland/Brandweer/terrain managers: validate eastern-rural wildfire eligibility, source/perimeter, fuel/moisture, wind, road access, suppression water and smoke pathways without exposing sensitive operational detail.",
+    "Overijssel/RWS/Province/municipality/ProRail/OV/care partners: validate internal IJssel bridges/ferry, rail/bus and time-dependent access to Deventer Ziekenhuis; static points and straight-line distance do not establish emergency reachability.",
+    "Overijssel/operators/KNMI/RDI/RIVM: use licensed provincial, LIWO, water-board/HWH, KNMI, Mijn Aansluiting, RDI, RIVM, DUO, NWB, ProRail and NDW data as typed context or explicitly selected valid-time input; unavailable/security-sensitive topology, state, capacity, backup and restoration remain Unknown or transparently synthetic."
+  ]
+}

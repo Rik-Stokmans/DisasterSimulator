@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-31T18:11:04.521Z",
+  "source": {
+    "title": "OVapi national Netherlands GTFS (NDOV-derived)",
+    "url": "https://gtfs.ovapi.nl/nl/gtfs-nl.zip",
+    "readme": "https://gtfs.ovapi.nl/README",
+    "underlyingSource": "https://www2.ndovloket.nl/",
+    "inputMethod": "download",
+    "usage": "Free use under OVapi terms; best effort, no SLA, and do not represent or impersonate listed operators.",
+    "retrievedAt": "2026-08-31T18:11:04.521Z",
+    "lastModified": "Sun, 30 Aug 2026 15:52:57 GMT",
+    "etag": "\"6a9451d9=cc5ccd3\"",
+    "inputBytes": 214289619,
+    "inputSha256": "1b2f3de0b08cabd29909c64191cb4139a1e8bbac2d21694300e1edde0bece4d7"
+  },
+  "feed": {
+    "publisherName": "OVapi",
+    "publisherUrl": "http://www.ovapi.nl",
+    "feedId": "NL",
+    "language": "nl",
+    "startDate": "20260830",
+    "endDate": "20261212",
+    "version": "9543"
+  },
+  "processing": {
+    "bbox": [
+      2.5,
+      50.5,
+      7.8,
+      53.8
+    ],
+    "selectedBy": "scheduled trip-record count",
+    "maxShapes": 14000,
+    "maxStops": 45000,
+    "maxOutputPoints": 1500000,
+    "toleranceScale": 1,
+    "toleranceMetresByMode": {
+      "bus": 55,
+      "urban-rail": 20,
+      "rail": 35,
+      "ferry": 100
+    },
+    "routeGeometryClipping": "Liang-Barsky line clipping to bbox",
+    "routeGeometrySimplification": "iterative Douglas-Peucker",
+    "routeGeometryDeduplication": "direction-independent SHA-256 of simplified geometry per mode",
+    "stopGrouping": "GTFS parent stations, otherwise normalized name plus approximately 35–55 metre coordinate grid"
+  },
+  "counts": {
+    "routeRows": 3167,
+    "tripRows": 837160,
+    "inputStopRows": 73377,
+    "stopsInsideBounds": 72918,
+    "groupedStops": 33424,
+    "inputShapeRows": 7173502,
+    "inputShapes": 11831,
+    "candidateShapes": 11831,
+    "selectedShapes": 11831,
+    "omittedByShapeLimit": 0,
+    "selectedInputPoints": 7173502,
+    "invalidPoints": 0,
+    "clippedOutShapes": 0,
+    "clippedParts": 11832,
+    "simplifiedPoints": 378545,
+    "deduplicatedGeometries": 3026,
+    "outputRouteGeometries": 8805,
+    "outputRouteGeometriesByMode": {
+      "bus": 7982,
+      "urban-rail": 559,
+      "rail": 237,
+      "ferry": 27
+    }
+  },
+  "files": {
+    "transit-routes-bus.geojson": {
+      "bytes": 9251740,
+      "sha256": "e4eab6742951b365352348027c083b65c559f20a5bebf99531cadeccceeabf34",
+      "featureCount": 7982
+    },
+    "transit-routes-urban-rail.geojson": {
+      "bytes": 594841,
+      "sha256": "26092979525dd13759929fe3c659ec179843fb05b64d1964768dadc44387d9d8",
+      "featureCount": 559
+    },
+    "transit-routes-rail.geojson": {
+      "bytes": 485391,
+      "sha256": "9825750f9cb8127d478b2ca72504fa29843b3e2bb0f1e322e7914896f1234820",
+      "featureCount": 237
+    },
+    "transit-routes-ferry.geojson": {
+      "bytes": 20448,
+      "sha256": "241e28078290e9f63aa83529eb34570416c15d556c1f7932a3fa6369b9c150f2",
+      "featureCount": 27
+    },
+    "transit-stops.geojson": {
+      "bytes": 11275939,
+      "sha256": "e9aed69ff014ebc487218e4ca36b6c0b89734761a762398174acec3092224ab8",
+      "featureCount": 33424
+    }
+  },
+  "caveats": [
+    "OVapi is a best-effort NDOV-derived aggregate without an SLA.",
+    "scheduled_trip_records ranks map relevance but is not trips per day or passenger demand.",
+    "stop_times.txt is intentionally not processed; these assets cannot answer journey-planning questions.",
+    "Vehicle capacity, ridership, disruption probability and disaster impacts are not present in GTFS.",
+    "The bounding box includes a small cross-border buffer but excludes distant international route sections."
+  ]
+}

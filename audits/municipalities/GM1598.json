@@ -1,0 +1,421 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM1598",
+    "name": "Koggenland",
+    "province": "Noord-Holland",
+    "safetyRegion": "Noord-Holland-Noord"
+  },
+  "agent": {
+    "taskName": "municipality_gm1598",
+    "agentId": "/root/municipality_gm0397",
+    "completedAt": "2026-09-03T05:56:30Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "GM1598's identity, Noord-Holland-Noord safety-region assignment, 2025 boundary and CBS resident control are coherent. Fresh context reports 23,821 residents; 60 neighbourhood rows sum to 23,845 (+24, +0.101%), a small difference that preserves CBS rounding and suppression semantics. The bundle contains ten districts, sixty neighbourhoods, ten BAG places, twenty-five BRT settlement labels, eight logical road records, Obdam station and 32 scheduled-transit stop areas. All ten canonical presets execute deterministically at T+0/6/12/24/48/72 across eight services and pass structural/numerical contracts. Release is nevertheless correction-required. Koggenland is a low-lying, dispersed West-Friesland polder municipality whose credible flood behaviour depends on Markermeer/IJsselmeer and boezem levels, the Westfriese Omringdijk and other primary/regional defences, distinct level areas, pumps, weirs, sewers, receiving water and power. The generic coastal preset instead reports severity 0.637631, 10,538 affected and 1.807534 normalized inundation stress at T+24 without selecting any boundary condition, defence/failure case or footprint; this is not 1.81 physical metres. Seven unrelated hazards reuse exactly the same full neighbourhood order, while the major-river preset's zero result tests only its narrow configured source and is not evidence of safety from lake, boezem, polder or rainfall pathways. A7/N-road records and Obdam's static rail/transit references omit internal route, crossing, destination and incident state. Exact utility, care, supply and recovery trajectories have no verified topology, capacity, backup, crew or action basis. Public observations, plans, projects and registers remain contextual; missing local care, air, Waterinfo, seismic, traffic and government matches are Unknown/NoData, never zero or safe.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek (CBS)",
+      "title": "E01 — Kerncijfers wijken en buurten 2025, table 86165NED, OData API",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM1598%27%29",
+      "accessedAt": "2026-09-03T05:04:00Z",
+      "edition": 2025,
+      "supports": [
+        "The official municipality row identifies GM1598 Koggenland and reports 23,821 residents, density 297 per square kilometre, 22.4% age 65 or older and 3,107 one-person households.",
+        "The 60 published neighbourhood rows sum to 23,845 residents (+24, +0.101%), 10,010 households and 5,335 residents aged 65 or older; the small difference retains annual rounding and suppression semantics.",
+        "Average-home values cover 54/60 rows, household size 58/60, cars per household 47/60, benefit recipients 56/60 and doctor/supermarket distance 57/60; district-heating share and public-charging counts cover zero rows and must not become zero.",
+        "CBS OData is machine-readable under CC BY 4.0, with quarterly additions described for this annual table. It controls resident allocation, not incident-time presence, self-reliance, livestock, pupils, patients, workers, visitors or deprivation."
+      ]
+    },
+    {
+      "publisher": "PDOK / CBS / Kadaster / Rijkswaterstaat / ProRail / OVapi",
+      "title": "E02 — Full municipal geometry, settlements and road, rail and scheduled-transit reference inputs",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_niet_gegeneraliseerd/items?f=json&filter=statcode%3D%27GM1598%27",
+      "accessedAt": "2026-09-03T05:06:00Z",
+      "edition": "2025 boundary/statistics and current generated BAG, BRT, NWB, ProRail and GTFS reference snapshots",
+      "supports": [
+        "The generated centre [4.949817325422831, 52.642128954841276] lies inside the fresh 2025 municipal boundary.",
+        "The bundle retains ten districts, 60 neighbourhoods, ten BAG places and 25 BRT labels: fourteen woonkernen, five deelkernen, one gehucht and five buurtschappen.",
+        "Eight logical road records identify A7 south/north/further north plus N243, N247, two N508 links and N194 to six neighbouring municipalities. All three A7 records share physical corridor NWB-road-7; the two N508 records likewise describe series sections, not additive redundancy.",
+        "Obdam is the only ProRail station inside the boundary and 32 GTFS stop areas are assigned. Static geometry/timetables do not prove incident-time train, bus or road operation, rural access, direction, passability, emergency priority, destination or throughput.",
+        "CBS boundary OGC is half-yearly/CC BY 4.0; BAG is daily/Public Domain Mark 1.0; BRT is CC BY 4.0; NWB is monthly/CC0 1.0; ProRail is manually refreshed/CC0 1.0. OVapi GTFS is free-use best-effort context without an operational SLA.",
+        "Nominal road values of 260 and 150 are generalized scenario units and repeated series links must never be summed as independent corridor capacity."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Noord-Holland Noord (VRNHN)",
+      "title": "E03 — Regionaal Crisisplan 2025, Beleidsplan 2024–2027 and current 72-hour preparedness guidance",
+      "url": "https://www.vrnhn.nl/ons-werk/crisisbeheersing",
+      "accessedAt": "2026-09-03T05:43:00Z",
+      "edition": "Regionaal Crisisplan 2025; Beleidsplan 2024–2027; public guidance current at retrieval",
+      "supports": [
+        "The crisis plan describes responsibilities, authorities, partner coordination and flexible scaling for short and prolonged crises; it is an operational-planning document, not a live staffing, resource or incident feed.",
+        "The 2024–2027 policy programme specifically prepares for extreme weather and electricity failure and seeks stronger information, societal resilience and readiness for prolonged crises. Policy ambition is not event state or a calibrated trajectory.",
+        "Current regional guidance promotes an emergency kit, personal plan, reliable information and mutual assistance so households can manage the first 72 hours. It does not establish that every resident, care recipient or visitor is prepared.",
+        "The pages provide public planning and preparedness evidence but no stable machine-readable action/resource API, exercise clock, operational capacity cadence or machine reuse licence in the inspected responses."
+      ]
+    },
+    {
+      "publisher": "Hoogheemraadschap Hollands Noorderkwartier (HHNK)",
+      "title": "E04 — Westfriese Omringdijk, Koggenland boezemkades and water-system project context",
+      "url": "https://www.hhnk.nl/werk-in-de-buurt-koggenland",
+      "accessedAt": "2026-09-03T05:18:00Z",
+      "edition": "Current public water-board pages and project lifecycle inspected 3 September 2026",
+      "supports": [
+        "HHNK identifies local work on boezemkades at Oudendijk/Schardam, Drechterlandsedijk/Walingsdijk and Mijzenpolder, plus Markermeer/IJsselmeer dike-cover maintenance and the wider Markermeerdijken reinforcement programme.",
+        "The Westfriese Omringdijk is a 126-kilometre historic ring dike. The published Scharwoude breach account concerns 1675 and is heritage/mechanism context, never current failure probability or condition.",
+        "The Drechterlandsedijk/Walingsdijk page describes improvement between Avenhorn and Rustenburg, coordination with Koggenland and utilities, and works expected from September 2026 to March 2027. Expected/planned work cannot be treated as started, completed, open or closed without valid-time confirmation.",
+        "The deployment HWH/PDOK screen returns 275 points: fifteen sewer pumps, one wastewater-treatment point, 64 surface-water pumps, one sluice and 194 weirs. Aggregation is partial/contributor-dependent under CC BY-SA 4.0 and does not establish catchments, connectivity, capacity, settings, power/backup, control or live operation.",
+        "HHNK peilbesluiten expose adopted level decisions, including Westerkogge, and establish distinct managed level areas. A legal target-level decision is static control context rather than an incident-time gauge, pump command or achieved level."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / Watermanagementcentrum Nederland / IPLO",
+      "title": "E05 — Markermeer and Waterbericht context plus LIWO 2025.1.6 flood information",
+      "url": "https://www.rijkswaterstaat.nl/water/vaarwegenoverzicht/markermeer",
+      "accessedAt": "2026-09-03T05:22:00Z",
+      "edition": "Current operator pages; Waterbericht current service; LIWO release 2025.1.6",
+      "supports": [
+        "Rijkswaterstaat describes the Markermeer between Noord-Holland, Flevoland and the IJsselmeer and publishes current water-level/navigation context; Houtribdijk separates Markermeer and IJsselmeer. This establishes the relevant waterbody, not a selected flood boundary condition.",
+        "Waterbericht combines current water situation and outlook, automatically updating roughly hourly and extending at most 48 hours. It is time-bounded official guidance rather than a T+72 local inundation product or arbitrary scenario forcing.",
+        "No Waterinfo observation or forecast point is assigned to GM1598 in the deployment. Missing municipal points and horizons remain NoData and do not prove a normal lake/boezem level, dry neighbourhood or safe defence.",
+        "LIWO 2025.1.6 provides downloadable professional flood layers requiring specialist water-manager interpretation. A selected case must retain source/boundary condition, defence/failure/control state, footprint, native units/resolution, arrival/persistence/recession, probability, CRS, issue/valid time, licence and NoData."
+      ]
+    },
+    {
+      "publisher": "Gemeente Koggenland",
+      "title": "E06 — Programma Stedelijk Water en Riolering 2023–2027, climate adaptation and societal resilience",
+      "url": "https://www.koggenland.nl/groen-en-water",
+      "accessedAt": "2026-09-03T05:27:00Z",
+      "edition": "Programma Stedelijk Water en Riolering 2023–2027 and current municipal public pages",
+      "supports": [
+        "The municipality addresses extreme rain, drought and heat through its urban-water/sewer programme, regional climate stress test and adaptation strategy, while explaining owners' responsibility for rainwater on their own sites.",
+        "The programme says regional stress maps should be refined at neighbourhood level and identifies possible chlorinated-water overflow to ditches during intense rain. A planned refinement or qualitative mechanism is not a local depth, sewer capacity, overflow event or safe threshold.",
+        "Municipal resilience guidance says electricity, water and internet can fail and assistance may be delayed, and points residents to emergency preparation. It is preparedness context, not measured household stock, outage probability or response capacity.",
+        "The inspected programme/page responses do not provide a live machine-readable sewer topology, asset state, pump capacity, failure, crew, backup-power or restoration feed; reuse terms were not stated."
+      ]
+    },
+    {
+      "publisher": "ProRail / OV operators / Dijklander Ziekenhuis / RIVM",
+      "title": "E07 — Obdam rail and scheduled-transit context with cross-boundary acute-care destinations",
+      "url": "https://www.dijklander.nl/afdelingen/spoedeisende-hulp",
+      "accessedAt": "2026-09-03T05:48:00Z",
+      "edition": "Current operator/provider pages and RIVM acute-care questionnaire 2026 v1.1",
+      "supports": [
+        "Obdam station and scheduled local buses/buurtbuses connect dispersed villages outward, but reference infrastructure and timetables do not establish scenario-time vehicles, staffing, disruptions, accessibility, substitutions or capacity.",
+        "The RIVM 2026 v1.1 national acute-care screen returns no emergency department inside GM1598. Absence of an in-boundary point is a coverage/location fact, not absence of care demand or proof that facilities are unavailable.",
+        "Dijklander describes emergency departments in Hoorn and Purmerend, with Hoorn providing broader trauma capability and 24/7 paediatrician, anaesthetist and operating-team presence; severe head/chest trauma may go to Amsterdam UMC. These are cross-boundary referral contexts, not live acceptance, occupancy or route guarantees.",
+        "Provider pages and annual questionnaires do not expose incident-time ambulance position, dispatch, staffing, hospital acceptance, bed/theatre capacity, backup endurance or restoration. Provider-page machine reuse terms were not stated; RIVM data are CC0 1.0."
+      ]
+    },
+    {
+      "publisher": "Netbeheer Nederland / RDI / DUO / KNMI / RIVM / Rijkswaterstaat / NDW",
+      "title": "E08 — Public lifeline, facility, warning and observation deployment screens",
+      "url": "https://data.partnersinenergie.nl/capaciteitskaart/totaal/afname",
+      "accessedAt": "2026-09-03T05:35:00Z",
+      "edition": "Deployment snapshots retrieved 31 August–3 September 2026",
+      "supports": [
+        "One NBNL sample postcode, 1641LS, maps to OS OTERLEEK 10-2i and Liander. It reports withdrawal existing/required/queue 23/21/5.2 MW with fifteen requests, injection 42/22/15 MW with thirteen requests and 33 projects from 2026. This is large-user planning/queue context, not feeder topology, live load, emergency reserve, outage or restoration.",
+        "The municipal screens contain 41 RDI antenna installations—22 mobile, twelve fixed-link, six amateur and one broadcast—and eleven DUO education locations—nine primary and two other registered uses. Registers do not prove coverage, backhaul, occupancy, shelter status, accessibility, supplies or operation.",
+        "The inside-boundary KNMI Berkhout station observation at 2 September 2026 23:30 UTC reports 17 degrees Celsius, 87% humidity, wind 197.9 degrees at 4.45 m/s, gust 6.6 m/s and zero last-hour rain/intensity. It is one timestamped observation, not gridded forcing, a forecast or an all-clear.",
+        "The KNMI warning retrieval contains no warning records; the fallback issue time is 2 September 2026 21:36 UTC and horizon is 48 hours. No GM1598 government-service, seismic, NDW-current-situation, RIVM acute-care/PM2.5 or Waterinfo point is assigned. Empty/sparse matching is Unknown/NoData, not zero hazard, disruption, pollution, care need or service continuity.",
+        "NBNL context updates at least quarterly and queues monthly but its frontend endpoint/licence is not a stable exact dataset contract. RDI cadence/licence is unstated; DUO is daily under CC Attribution version unspecified; KNMI is ten-minute/CC BY 4.0; RIVM acute care is annual/CC0 1.0; Waterinfo and NDW are CC0 unless stated. All remain affectsSimulation=false context."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM1598, Koggenland, Noord-Holland and Veiligheidsregio Noord-Holland-Noord are internally and officially coherent.",
+      "evidenceRefs": ["E01", "E02", "E03"],
+      "notes": [
+        "Generated municipality, province and exactly one safety-region assignment agree.",
+        "The generated centre lies inside the fresh full-resolution 2025 municipal boundary.",
+        "Annual registers, plans/projects, timestamped observations, short forecasts, official scenarios and synthetic model values remain distinct evidence classes."
+      ]
+    },
+    "geography": {
+      "status": "fail",
+      "summary": "Administrative geography is coherent, but lake, defence, boezem, polder, rainfall and hazard-specific geography do not govern local impacts.",
+      "evidenceRefs": ["E02", "E04", "E05", "E06"],
+      "notes": [
+        "Storm, pluvial, coastal, heat, winter, cyber and wildfire share exactly the same complete 60-neighbourhood hazard-severity order at T+24.",
+        "Coastal output has no selected Markermeer/IJsselmeer level, defence/failure case or polder propagation footprint; pluvial output has no catchment, sewer, pump, weir or receiving-water state.",
+        "The river preset's exact zero is a narrow major-river source result and does not establish safety from Markermeer, boezem, regional-defence, groundwater or extreme-rain pathways.",
+        "Full polygons, managed level areas and mechanism-eligible domains—not a generic municipality seed—must govern containment and ranking."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Official resident controls and neighbourhood aggregates reconcile within a small CBS rounding/suppression difference.",
+      "evidenceRefs": ["E01", "E03", "E07"],
+      "notes": [
+        "CBS reports 23,821 residents; the 60 published neighbourhood rows sum to 23,845 (+24, +0.101%), while model allocations reconcile to the municipal control.",
+        "The 22.4% age-65-plus share and 3,107 one-person households inform aggregate assistance pressure but never identify individual vulnerability.",
+        "Residents remain separate from pupils, patients, care residents, visitors, workers, road/rail users, agricultural activity, livestock, volunteers and responders under CORR-015."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "Sixty fine-grained neighbourhoods support census allocation, while material statistics and all live physical lifeline state remain incomplete.",
+      "evidenceRefs": ["E01", "E04", "E07", "E08"],
+      "notes": [
+        "Most supported CBS fields cover 47–60 rows; district-heating and public-charging cover zero. Suppressed/null fields remain Unknown/NoData.",
+        "Water objects, grid planning, antennas, schools, rail/transit, hospital pages and preparedness actions have incompatible coverage, cadence, licence and operational meaning.",
+        "Registered assets, legal levels, scheduled services and provider locations do not establish connectivity, occupancy, capacity, state or recovery."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "Ten BAG places and 25 BRT labels preserve Koggenland's villages, lint settlement and dispersed polder places.",
+      "evidenceRefs": ["E02", "E04", "E06"],
+      "notes": [
+        "BAG retains Avenhorn, Berkhout, De Goorn, Hensbroek, Obdam, Oudendijk, Scharwoude, Spierdijk, Ursem and Zuidermeer; no BAG centre falls outside the generalized boundary.",
+        "BRT also retains smaller places including Baarsdorpermeer, Berkmeer, Bobeldijk, Grosthuizen, Noorddijk, Noordermeer, Oostmijzen, Rustenburg and Wogmeer.",
+        "Settlement labels are reference context, not incident-time presence, water-system connectivity, accessibility or protection."
+      ]
+    },
+    "transport": {
+      "status": "fail",
+      "summary": "Reference A7/N-roads, Obdam station and transit are present, but series identity, rural access, internal crossings, disruptions and care/supply destinations are not operationally represented.",
+      "evidenceRefs": ["E02", "E07", "E08"],
+      "notes": [
+        "Three A7 records are portions of one north-south physical corridor and two N508 records are series sections; neither set is additive redundancy.",
+        "The graph omits incident state for local road/rail crossings, village approaches and routes from dispersed settlements to external Dijklander acute care and regional supply/repair destinations.",
+        "Obdam station and 32 stop areas are static references; zero deployed NDW situations does not prove roads are open.",
+        "A valid-time operational graph must retain mode, direction, restriction, detour, accessibility, destination and unit-bearing throughput."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "Official water, project, warning, mobility, care and 72-hour evidence is not selected into incident, action or resource state.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "No selected lake/boezem/rain event, defence case, pump state, road/rail disruption, hospital acceptance or utility condition drives outputs.",
+        "The Avenhorn–Rustenburg boezemkade work is expected/planned for September 2026–March 2027 and must not silently become a completed defence or current closure.",
+        "The KNMI observation and warning snapshot have explicit issue/valid times; canonical scenarios have no reference date unless explicitly supplied.",
+        "No-warning and empty municipal incident/facility screens cannot validate an arbitrary first-72-hour exercise."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten canonical presets execute at all six mandatory checkpoints for all eight services.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "The initial MUNICIPALITY_AUDIT_CODE=GM1598 pnpm audit:model gate passed one file/two tests in 30.70 seconds; structural execution does not establish local calibration.",
+        "Maximum checkpoint severity / maximum affected / T+72 attributable person-hours are storm 0.487301 / 4,407 / 263,552.886; pluvial 0.254376 / 297 / 104,325.645; river 0 / 0 / 0; coastal 0.637631 / 10,538 / 750,328.536; heat 0.468647 / 376 / 97,850.195.",
+        "Remaining values are winter 0.757133 / 5,155 / 363,960.026; cyber 0.539503 / 5,790 / 302,709.066; earthquake 0.028874 / 0 / 22,604.120; wildfire 0.152865 / 749 / 120,138.210; compound 0.881544 / 12,009 / 829,738.794.",
+        "Deterministic decimals are synthetic exercise outputs, not observations, forecasts or operator commitments."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Outputs are finite, deterministic, exact at zero intensity, selected-layer invariant and locally reconciled.",
+      "evidenceRefs": ["E01", "E02"],
+      "notes": [
+        "All required structural, range, local-sum, causal-ledger and repeatability checks pass under the current contract.",
+        "Every preset's zero-intensity run returns exact-zero event hazard, affected resident-equivalents and event-attributable deprivation.",
+        "Changing the display service does not mutate hazard, pressure or affected population.",
+        "The legacy floodDepthM field is normalized inundation stress under CORR-017, not measured metres; coastal 1.807534 demonstrates why it must never be displayed as depth."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "A shared local seed overrides distinct water, weather, fire/smoke, cyber and infrastructure geography.",
+      "evidenceRefs": ["E02", "E04", "E05", "E06"],
+      "notes": [
+        "Storm, pluvial, coastal, heat, winter, cyber and wildfire share the same 60-neighbourhood T+24 order, led by Avenhorn Buitenroede en omgeving, De Goorn Verspreide huizen, Weerestraat en omgeving, Reigerlaan Obdam en omgeving and Duinweid en omgeving.",
+        "The common bottom includes Baarsdorpermeer, Wieken en omgeving, Dorpsweg en omgeving, Reigerlaan Ursem en omgeving and Hensbroek Verspreide huizen, without mechanism-specific evidence.",
+        "Wildfire at T+24 has zero direct fire, smoke 0.342416 and 749 affected while retaining the shared order; no ignition, perimeter, remote source, wind-aligned plume or observation supports it.",
+        "The compound preset differs, but that does not validate any of the single-hazard spatial rankings."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "Exact eight-service availability exceeds verified road, utility, water, telecom, care and supply topology/state evidence.",
+      "evidenceRefs": ["E02", "E04", "E07", "E08"],
+      "notes": [
+        "At compound T+24 availability is Power 0.434689, Water 0.442233, Drainage 0.334398, Gas 0.594899, Telecom 0.240802, Mobility 0.826624, Facilities 0.555651 and Supply 0.820461.",
+        "Only eight generalized NWB links support Mobility and explicit road-logistics/Supply; rail, care, water-control and destination state are absent and no verified physical routes exist for other services.",
+        "One grid-planning point, 275 partial water objects, 41 antennas, eleven schools and external care pages are not compatible live topology, capacity, backup or restoration evidence.",
+        "Official residents and non-resident activity-demand weights remain separate under CORR-015."
+      ]
+    },
+    "causalTrace": {
+      "status": "warn",
+      "summary": "The numerical causal ledger closes, but authority-selected causes, owners, interventions and resources remain absent.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "Outputs expose hazard, direct-service, interdependency, network, recovery and local-allocation components with matched totals.",
+        "Cumulative person-hours are synthetic no-event counterfactual accounting, not observed outage duration, casualties, evacuated people or unmet care.",
+        "No selected water event, defence/pump operation, road/rail restriction, utility network or hospital acceptance explains exact trajectories.",
+        "Each action/change requires owner, target, prerequisite, route, crew/material/fuel/water, start/end, state, evidence class and uncertainty."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "Coastal residual impact, compound persistence and exact service recovery lack incident/action/resource explanations through T+72.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "Coastal severity and stress fall to zero by T+72 but 190 affected remain and Facilities is 0.748720 after 750,328.536 person-hours, without lake recession, defence, polder drainage, access or care action state.",
+        "Compound normalized stress remains 0.340063 from T+24 to T+72 while severity falls 0.881544 to 0.334399, affected rises 11,102 to 12,009, seven service values remain exactly fixed and Facilities falls from 0.555651 to 0.362346.",
+        "Storm and pluvial reach zero direct severity/affected by T+72 after 263,552.886 and 104,325.645 person-hours, but Supply remains 0.838319 and 0.803241 without pumping, access, restocking, crew or reopening state.",
+        "Sustained disruption and recovery can be plausible, but exact first-72-hour paths require explicit incident, resource, constraint and action ledgers."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": ["severe-storm", "pluvial-flood", "river-flood", "coastal-flood", "heatwave", "winter-storm", "cyberattack", "earthquake", "wildfire", "compound"],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": ["power", "water", "drainage", "gas", "telecom", "mobility", "facilities", "supply"]
+  },
+  "findings": [
+    {
+      "id": "GM1598-MARKERMEER-FLOOD-001",
+      "severity": "critical",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The coastal preset asserts severe Koggenland inundation without selecting a Markermeer/IJsselmeer, defence or polder case.",
+      "evidence": "HHNK and RWS establish a managed West-Friesland system involving Markermeer/IJsselmeer, Westfriese Omringdijk and other defences, boezem/level areas, pumps, weirs and receiving waters. The generic coastal run instead reports severity 0.637631, 10,538 affected and legacy floodDepthM 1.807534 at T+24 without a lake boundary condition, defence/failure/control state, footprint, arrival or recession. The 1.807534 value is normalized stress, not 1.81 metres. The river preset's exact zero tests only the configured major-river source and is not evidence of safety from lake, boezem, polder or rainfall flooding.",
+      "action": "Suppress exact local coastal/river impacts until an authority-selected LIWO/HHNK/RWS case supplies waterbody/boundary condition, defence/failure/control state, footprint, native units/resolution, arrival/persistence/recession, probability, CRS, issue/valid time, licence, NoData, transform hash and reviewer. Keep direct and indirect effects separate; Unknown is not safe."
+    },
+    {
+      "id": "GM1598-SHARED-SPATIAL-001",
+      "severity": "critical",
+      "category": "geography",
+      "status": "open",
+      "summary": "Seven unrelated hazards reuse one complete neighbourhood order across Koggenland's villages and managed polders.",
+      "evidence": "Storm, pluvial, coastal, heat, winter, cyber and wildfire share the exact T+24 order across all 60 neighbourhoods, from Avenhorn Buitenroede/De Goorn Verspreide huizen to Baarsdorpermeer/Reigerlaan Ursem/Hensbroek Verspreide huizen. Official sources distinguish lake/boezem boundaries, rain/sewer catchments, weather exposure, fire/smoke sources and infrastructure targets. Cyber and heat have no defensible reason to share rainfall and wildfire ranks.",
+      "action": "Replace the municipality seed with hazard-specific source, eligible-domain, forcing, exposed-object and evidence-support adapters using full polygons. Require cross-preset tests that unrelated hazards do not silently share a full order; missing compatible spatial support must show Unknown rather than a precise ranking."
+    },
+    {
+      "id": "GM1598-BOEZEM-POLDER-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Pluvial and Drainage outputs ignore level areas, boezem/polder chains, sewers, pumps, receiving waters and power state.",
+      "evidence": "HHNK legal level decisions and 275 partial water objects establish a managed system, while the municipal programme calls for neighbourhood-level stress refinement and recognizes intense-rain overflow mechanisms. Pluvial T+24 nevertheless reports stress 0.170234, 297 affected and Drainage 0.670629 without a rain raster, catchment, sewer capacity, pump/weir/sluice topology or settings, receiving-water level, power/backup or control state.",
+      "action": "Version HHNK-native catchments, peilgebieden, boezem/watercourses, sewers and HWH objects with feature date, scope, CRS, cadence, licence and NoData. Bind capacity, connectivity, flow direction, receiving level, controls and power/backup only after authority review; public registers remain affectsSimulation=false."
+    },
+    {
+      "id": "GM1598-DIJK-PROJECT-TIME-001",
+      "severity": "high",
+      "category": "explainability",
+      "status": "open",
+      "summary": "Current boezemkade investigations and expected works lack lifecycle and valid-time state.",
+      "evidence": "HHNK publishes investigation/improvement projects at Oudendijk/Schardam, Mijzenpolder and Drechterlandsedijk/Walingsdijk, with Avenhorn–Rustenburg work expected from September 2026 through March 2027. These sources describe planned/expected work and coordination, not confirmed start, completion, traffic restriction, residual defence reliability or live protection. The model contains no project lifecycle or reference-date gate.",
+      "action": "Represent authority projects with planned/confirmed/active/completed/cancelled state, source issue/retrieval/valid dates, affected geometry/assets/modes, temporary measures and uncertainty. Apply them only when confirmed and overlapping the explicit exercise clock; never infer current closure or completed protection from expected dates."
+    },
+    {
+      "id": "GM1598-A7-RAIL-CARE-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "A7/N-road series, Obdam rail/transit and external acute-care routes lack typed incident state and destination capacity.",
+      "evidence": "Three A7 links are one physical corridor and two N508 links are series sections, not parallel capacity. Obdam is the sole station and 32 stop areas are scheduled references. No RIVM emergency department lies inside GM1598; Dijklander Hoorn/Purmerend are cross-boundary destinations with different capabilities, and some severe trauma goes farther. Exact Mobility/Facilities/Supply values omit direction, rural approaches, crossing/route disruption, train/bus operation, ambulance availability, hospital acceptance, priority and unit-bearing throughput. Zero NDW matches is NoData, not open roads.",
+      "action": "Build an authority-reviewed multimodal graph with physical-corridor identity, mode/direction, internal approaches/crossings, timetable and valid restrictions. Bind privacy-safe ambulance/care, evacuation, supply and repair destinations through availability/acceptance interfaces; keep static assets and annual capacity distinct from live state."
+    },
+    {
+      "id": "GM1598-RURAL-DEMAND-001",
+      "severity": "high",
+      "category": "demography",
+      "status": "open",
+      "summary": "Resident allocation does not establish incident-time presence or rural agricultural, institutional and transient service demand.",
+      "evidence": "CBS controls 23,821 residents and aggregate vulnerability indicators across many small neighbourhoods, while BAG/BRT retain dispersed villages and polder places. Pupils, patients, care residents, commuters, visitors, road/rail users, agricultural businesses/livestock, volunteers and responders are not residents and have no event-time presence source. Treating registered schools or aggregate establishments as people would violate CORR-015.",
+      "action": "Keep resident population authoritative and separate from clearly labelled, timestamped non-resident presence/activity demand by service. Use privacy-safe official aggregates or ranges where available; retain Unknown where absent and never invent people, livestock, criticality or measured utility load from a register."
+    },
+    {
+      "id": "GM1598-WILDFIRE-SMOKE-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The wildfire preset produces a precise Koggenland smoke impact without a selected local or remote source.",
+      "evidence": "At T+24 the canonical wildfire has direct fire zero, smoke 0.342416 and 749 affected while its neighbourhood order exactly matches pluvial, heat and cyber. No ignition/perimeter, remote-source plume, issued wind/humidity field, smoke observation/forecast, fuel geometry, population presence, access or suppression action is cited. The single Berkhout observation is time-specific weather, not a plume or arbitrary scenario forcing.",
+      "action": "Require an explicit source/perimeter or clearly labelled remote-source plume, event-valid weather and fuel/smoke inputs before local wildfire impacts are shown. Retain source time, geometry, uncertainty, people present, access, extinguishing water and suppression state; absent source is Unknown/no selected event, not a synthetic observed plume."
+    },
+    {
+      "id": "GM1598-LIFELINE-PROVENANCE-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Exact service availability has no verified operator topology, live capacity, backup or restoration state.",
+      "evidence": "At compound T+24 exact availability ranges from Telecom 0.240802 to Mobility 0.826624. One Liander planning postcode, 275 partial water objects, 41 antennas, eleven schools, scheduled transit and external care do not provide feeder/customer or pipe topology, live load/pressure/backhaul, damage, priority users, backup, switching, repair crew or restoration commitments. NWB supports Mobility and explicit road-logistics/Supply only.",
+      "action": "Integrate authorized operator topology, outage, priority-user, backup and restoration data where lawful and safe. Otherwise expose minimal versioned synthetic zones/graphs with ranges and uncertainty. Keep public planning/register layers affectsSimulation=false and suppress operator-validated-looking exact decimals."
+    },
+    {
+      "id": "GM1598-TEMPORAL-RECOVERY-001",
+      "severity": "critical",
+      "category": "service",
+      "status": "open",
+      "summary": "Coastal residual effects, compound persistence and exact recovery lack incident/action/resource explanations through T+72.",
+      "evidence": "Coastal direct severity/stress is zero at T+72 but 190 affected remain and Facilities is 0.748720 after 750,328.536 person-hours. Compound stress remains 0.340063, affected rises 11,102 to 12,009, seven services are exactly fixed and Facilities worsens between T+24/T+72. Storm/pluvial direct effects reach zero while Supply remains reduced. No lake/recession, defence, pumping, road/rail reopening, grid switching, care acceptance, restocking, crew, fuel, material or access state explains these paths.",
+      "action": "Require a typed incident/action/resource ledger at T+0/6/12/24/48/72 with authority, owner, target, prerequisite, route, crew/material/fuel/water, start/end, state, evidence time and uncertainty. Each deterioration, plateau, residual effect and recovery must cite a driver; suppress unsupported decision-grade trajectories."
+    },
+    {
+      "id": "GM1598-EVIDENCE-UI-001",
+      "severity": "high",
+      "category": "ui",
+      "status": "open",
+      "summary": "Plans, projects, observations, forecasts, missing matches and synthetic values need adjacent evidence-class and NoData gates.",
+      "evidence": "The interface can combine annual CBS, a 2024–2027 policy programme, 2025 crisis plan, future/current dike projects, one timestamped KNMI observation, a 48-hour warning/water outlook, one grid-planning postcode and empty local Waterinfo/NDW/care/air/seismic/government matches. None alone establishes an arbitrary scenario. Exact synthetic values—including legacy 1.807534 floodDepthM—can be mistaken for observations or metres.",
+      "action": "Attach publisher, dataset/version, issue/valid/retrieval time, coverage, licence, evidence class, affectsSimulation, uncertainty and NoData to every layer/value/export. Show project lifecycle and explicit exercise/reference time; stale or non-overlapping state deactivates, missing horizons/matches render Unknown and normalized inundation stress is never labelled depth/metres."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Bind GM1598 lake/boezem and pluvial scenarios to authority-selected water, defence, polder and control cases.",
+      "files": ["packages/sim-core/src/types.ts", "packages/sim-core/src/model.ts", "packages/sim-core/src/model.test.ts", "apps/web/src/components/Inspector.tsx"],
+      "validation": "Coastal/river exact impacts are suppressed without a selected LIWO/HHNK/RWS boundary/defence/failure/control case. Supported cases retain lake/boezem level, defences, footprint, units, resolution, arrival/persistence/recession, probability, CRS, issue/valid time, licence, NoData, transform hash and reviewer. Pluvial follows catchments/pumps/receiving levels. Normalized stress is never labelled metres."
+    },
+    {
+      "summary": "Replace the shared GM1598 neighbourhood seed with mechanism-aware full-polygon allocation.",
+      "files": ["packages/sim-core/src/model.ts", "packages/sim-core/src/geometry.ts", "packages/sim-core/src/model.test.ts", "scripts/fetch-realism-data.mjs"],
+      "validation": "Selected lake/boezem/polder and rain footprints govern flood ranks; explicit fire/smoke sources control affected geometry. Unrelated hazards cannot silently share all 60 ranks, and missing spatial support remains Unknown."
+    },
+    {
+      "summary": "Add lifecycle/reference-time gating for HHNK projects and all current operational context.",
+      "files": ["packages/sim-core/src/types.ts", "apps/web/src/data.ts", "apps/web/src/components/OperationsBrief.tsx", "apps/web/src/components/CausalExplanation.tsx"],
+      "validation": "Planned, expected, confirmed, active, completed and cancelled states are distinct. Avenhorn–Rustenburg and other works affect an exercise only when authority-confirmed and valid-time-overlapping; projects never silently imply closure or completed protection."
+    },
+    {
+      "summary": "Add valid-time Koggenland road, rail, transit and cross-boundary care/supply route state.",
+      "files": ["scripts/fetch-transport-network.mjs", "apps/web/public/data/transport-network.json", "apps/web/public/data/public-context/transport-restrictions.json", "packages/sim-core/src/network.ts", "packages/sim-core/src/network.test.ts", "apps/web/src/data.ts"],
+      "validation": "A7 and N508 series identities are non-additive; Obdam rail/transit and village approaches retain mode/direction/timetable/restrictions. Care/supply routes have destinations and units. Empty NDW matches never mean open, and current data apply only to overlapping exercise time."
+    },
+    {
+      "summary": "Integrate HHNK water topology and evidence-gate lifelines, care, non-resident demand and first-72-hour recovery.",
+      "files": ["scripts/fetch-water-assets.mjs", "scripts/fetch-realism-data.mjs", "packages/sim-core/src/network.ts", "packages/sim-core/src/types.ts", "apps/web/src/components/OperationsBrief.tsx"],
+      "validation": "Water data retain publisher, feature date, collection, scope, CRS, cadence, licence and NoData; peilgebieden/pumps/sewers/controls remain context until connected capacity/power/state exists. NWB affects Mobility and explicit road Supply only. Utilities/care require verified state or labelled ranges. Residents remain separate from non-resident activities under CORR-015."
+    },
+    {
+      "summary": "Expose evidence class, lifecycle, licence, clock alignment, support and Unknown/NoData beside every operational value and export.",
+      "files": ["packages/sim-core/src/types.ts", "apps/web/src/components/CausalExplanation.tsx", "apps/web/src/components/OperationsBrief.tsx", "apps/web/src/components/Inspector.tsx"],
+      "validation": "Annual statistics, plans/projects, observations, forecasts/warnings, registers and synthetic checkpoints are distinct. Current context requires explicit reference-date overlap and expiry; empty local matches display Unknown/NoData rather than zero/safe; normalized inundation stress is never displayed as physical depth."
+    }
+  ],
+  "residualLimitations": [
+    "Complete physical electricity, gas, drinking-water, sewer/drainage, telecom, care and supply topology, live load, outage, backup, crews, spares, fuel and restoration state are unavailable or security-sensitive. Public geometry, plans and registers cannot replace them.",
+    "No selected LIWO/HHNK/RWS case establishes a GM1598 Markermeer/IJsselmeer or boezem boundary condition, defence state, breach/overtopping footprint, polder propagation or arrival/recession. A generic value is not evidence and an unsupported zero is not safety.",
+    "The historic 1675 Scharwoude breach establishes heritage/mechanism context only. It cannot support a modern failure probability, protection judgement or scenario footprint.",
+    "HHNK boezemkade investigations and expected 2026–2027 work are project-lifecycle evidence, not confirmed current restriction, failure, completed protection or asset condition; authority confirmation and reference-time matching are required.",
+    "Waterbericht is short-horizon general guidance and no local Waterinfo point is assigned. Neither can be extrapolated to a synthetic severe case or T+72; missing locations/horizons remain NoData.",
+    "CBS residents omit pupils, patients, care residents, visitors, commuters, workers, road/rail users, agricultural businesses/livestock, volunteers and responders. Aggregate age/household statistics cannot identify individual vulnerability or event-time presence.",
+    "Dijklander and RIVM pages do not expose incident-time ambulance availability, dispatch, staffing, hospital acceptance, occupancy, backup or restoration; protected operational information must not be inferred.",
+    "NWB, ProRail and GTFS do not prove scenario-time road, railway or transit operation, emergency priority, accessibility, detours, destination or throughput. A7/N508 series links are not independent redundancy.",
+    "No explicit current ignition, perimeter or remote smoke plume supports the wildfire output. A single station weather observation cannot be converted to a local plume forecast without source/time/wind geometry.",
+    "One Liander planning postcode, partial water objects, antennas and schools have different support, cadence and licences and remain affectsSimulation=false without reviewed causal bindings.",
+    "The Berkhout observation is valid only at one time/location; a no-warning snapshot and no municipally assigned NDW, Waterinfo, PM2.5, acute-care, seismic or government point are coverage/time facts, not zero hazard, disruption, pollution, care need or continuity.",
+    "Exact hazard, affected-population, service, recovery and person-hour outputs remain synthetic exercise results, not observations, official forecasts, operator commitments or decision-grade advice until critical/high findings are corrected and authorities review the case.",
+    "This audit covers only the first 72 hours. Flood displacement, agricultural/livestock effects, care interruption, contamination and infrastructure recovery can persist much longer."
+  ],
+  "provinceReviewFlags": [
+    "Province Noord-Holland, Veiligheidsregio Noord-Holland-Noord, HHNK, Rijkswaterstaat and GM1598 should select valid Markermeer/IJsselmeer/boezem/defence/polder and pluvial cases, retaining boundary/control state, arrival/recession, uncertainty and NoData.",
+    "HHNK and municipality should review a privacy-safe peilgebied–boezem–pump–sewer–receiving-water dependency schema and lifecycle/valid-time treatment for Oudendijk/Schardam, Mijzenpolder and Avenhorn–Rustenburg works.",
+    "Province, Rijkswaterstaat, municipality, ProRail, transit and emergency partners should review A7/N243/N247/N508/N194, Obdam rail and dispersed-village approaches as direction- and mode-specific, non-additive, valid-time mobility/care/supply routes.",
+    "Municipality, GHOR, ambulance provider, Dijklander and regional care partners should review privacy-safe first-72-hour care continuity and cross-boundary Hoorn/Purmerend/Amsterdam access through protected interfaces rather than public inference.",
+    "Noord-Holland-Noord partners should turn 72-hour preparedness into typed but activation-gated warning, household support, evacuation/shelter, medical, utility, supply and recovery actions, separating plan, project, observation, forecast, official scenario, live state, synthetic assumption and Unknown."
+  ]
+}

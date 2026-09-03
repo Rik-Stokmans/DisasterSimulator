@@ -1,0 +1,466 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0677",
+    "name": "Hulst",
+    "province": "Zeeland",
+    "safetyRegion": "Zeeland"
+  },
+  "agent": {
+    "taskName": "municipality_gm0677",
+    "agentId": "/root/municipality_gm0397",
+    "completedAt": "2026-09-03T05:40:10Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "GM0677's identity, Zeeland safety-region assignment, full 2025 boundary and CBS resident control are coherent. Fresh context reports 27,378 residents; 48 published neighbourhood rows sum to 27,380 (+2, +0.007%), a negligible difference that preserves CBS rounding and suppression semantics. The bundle contains fifteen districts, 48 neighbourhoods, fifteen BAG places, 60 BRT settlement labels and 59 scheduled-transit stop areas, but no rail station. All ten canonical presets execute deterministically at T+0/6/12/24/48/72 across eight services and pass structural and numerical contracts. Release is nevertheless correction-required. Hulst is a rural, Belgian-border municipality behind primary Westerschelde defences with distinct polders, drainage systems, villages and combustible woodland. The coastal preset reports 1,948 affected and severe mobility degradation at T+24 while direct inundation stress remains zero and no Westerschelde surge, defence, breach, coupure or polder case is selected. Eight unrelated hazards reuse exactly the same full neighbourhood severity order. A controlled ignition inside the official Waterwingebied St-Jansteen polygon leaves its containing Buitengebied Clinge only 33rd of 48. The logical graph has only two road clips toward Terneuzen, omitting N290's Belgian-border continuation and incident-valid tunnel, bridge, transit, care, supply and mutual-aid routes. Public water assets, grid planning, antennas, schools, care pages, observations and plans remain contextual rather than live topology or commitments. Missing municipal records are Unknown/NoData, never zero or safe.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek (CBS)",
+      "title": "E01 — Kerncijfers wijken en buurten 2025, table 86165NED, OData API",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM0677%27%29",
+      "accessedAt": "2026-09-03T04:21:00Z",
+      "edition": 2025,
+      "supports": [
+        "The official municipality row identifies GM0677 Hulst and reports 27,378 residents, density 136 per square kilometre, 27.5% age 65 or older and 4,583 one-person households.",
+        "The 48 published neighbourhood rows sum to 27,380 residents (+2, +0.007%), 12,950 households and 7,510 residents aged 65 or older. The small difference retains annual rounding and suppression semantics.",
+        "Average-home values cover 42/48 rows, cars per household 39/48, disability/AOW/assistance 43/48 and doctor/supermarket distance 47/48; district-heating share and public-charging counts cover zero rows and must not become zero.",
+        "CBS OData is machine-readable under CC BY 4.0, with quarterly additions described for this annual table. It controls resident allocation, not incident-time presence, disability, evacuation ability, injury or deprivation."
+      ]
+    },
+    {
+      "publisher": "PDOK / CBS / Kadaster / Rijkswaterstaat / ProRail / OVapi",
+      "title": "E02 — Full municipal geometry, settlements and road, rail and scheduled-transit reference inputs",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_niet_gegeneraliseerd/items?f=json&filter=statcode%3D%27GM0677%27",
+      "accessedAt": "2026-09-03T04:23:00Z",
+      "edition": "2025 boundary/statistics and current generated BAG, BRT, NWB, ProRail and GTFS reference snapshots",
+      "supports": [
+        "The generated centre [4.089575446163689, 51.31125704898271] lies inside the fresh 2025 municipal boundary.",
+        "The bundle retains fifteen districts, 48 neighbourhoods, fifteen BAG places and 60 BRT labels: 23 woonkernen, four deelkernen, 26 gehuchten and seven buurtschappen.",
+        "The BAG label points for Kloosterzande and Ossenisse fall outside the generalized display boundary even though the places belong to GM0677; full geometry and administrative membership must govern inclusion rather than label-point clipping.",
+        "Only two logical road records connect to GM0715 Terneuzen: N258 and N290. There is no ProRail station and 59 GTFS stop areas are assigned, including Hulst Busstation/Huisartsenpost and village stops.",
+        "CBS boundary OGC is half-yearly/CC BY 4.0; BAG is daily/Public Domain Mark 1.0; BRT is CC BY 4.0; NWB is monthly/CC0 1.0; ProRail is manually refreshed/CC0 1.0. OVapi GTFS is free-use best-effort context without an operational SLA.",
+        "Nominal road values of 150 are scenario units; reference links and schedules do not prove direction, border continuity, passability, queue, accessible evacuation, incident capacity or operation."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Zeeland",
+      "title": "E03 — Regionaal Crisisplan 2026–2029, legacy Regionaal Risicoprofiel 2020–2023 and current shelter/evacuation guidance",
+      "url": "https://lokaleregelgeving.overheid.nl/CVDR754715/1",
+      "accessedAt": "2026-09-03T04:27:00Z",
+      "edition": "Crisis plan 2026–2029; publicly available risk profile 2020–2023 retained as expired historical baseline; current Zeelandveilig guidance",
+      "supports": [
+        "The current strategic crisis plan coordinates with neighbouring Dutch safety regions and Belgian provinces; tactical incident and disaster plans, operational handbooks and maps sit below it. The public plan is governance evidence, not an operational resource or live-state feed.",
+        "The latest public regional risk profile located is explicitly the expired 2020–2023 edition. It prioritizes sea flooding, nuclear installations, hazardous-material transport, societal disruption/cyber and other utility, storm and nature-fire risks; it must be displayed as a historical planning baseline rather than current event state.",
+        "Current public guidance distinguishes evacuation from sheltering, advises closing doors/windows and ventilation when sheltering, moving high during flooding, anticipating traffic congestion and helping vulnerable people.",
+        "Zeeland's iodine guidance distinguishes distance/age/pregnancy groups around Borssele and Doel and says tablets are taken only on government instruction based on a release and wind. It supports a cross-border nuclear action protocol, not a current release, dose, zone assignment or blanket instruction.",
+        "These human-readable sources have publication/validity context but no stable public incident-resource API, operational cadence or stated blanket reuse licence."
+      ]
+    },
+    {
+      "publisher": "Waterschap Scheldestromen / Rijkswaterstaat Watermanagementcentrum Nederland / IPLO / Het Waterschapshuis",
+      "title": "E04 — Scheldestromen 2025 work and water-defence services, Kruispolder and drainage projects, and LIWO 2025.1.6",
+      "url": "https://geo.scheldestromen.nl/arcgis/rest/services/Extern/EXT_ALG_DSO_2025/FeatureServer",
+      "accessedAt": "2026-09-03T04:31:00Z",
+      "edition": "Scheldestromen 2025 feature services and programme material; LIWO release 2025.1.6",
+      "supports": [
+        "The official 2025 service publishes primary and regional water barriers, primary/secondary/tertiary waters, pumps and related managed objects. A separate water-defence service publishes barriers, norm trajectories, gates, culverts, pumping stations and sluices; the service responses inspected do not state a reuse licence, so no licence is inferred.",
+        "The Kruispolder project places the Hulst polder system behind the Westerschelde sea dike and names Boudeloo/Kruispolder dikes, Walsoorden and Paal pumps, weirs, culverts and watercourses between Lamswaarde, Vogelkreek, Mariapolder and Graauw.",
+        "Scheldestromen's 2025 programme identifies Ossenisse surface-water return into sewer as a pumping-system load and names Kloosterzande runoff and Heikant drainage measures. These are local system evidence, not live control or guaranteed present capacity.",
+        "The deployment HWH/PDOK screen returns 153 points: fifteen sewer pumps, two wastewater-treatment points, ten surface-water pumps, one sluice and 125 weirs. Aggregation is partial and contributor-dependent under CC BY-SA 4.0 and does not establish connectivity, capacity, settings, power/backup or operation.",
+        "LIWO 2025.1.6 provides downloadable professional flood layers requiring specialist water-manager interpretation. A selected case must retain source/defence/failure, footprint, native units/resolution, arrival/persistence, probability, CRS, licence and NoData."
+      ]
+    },
+    {
+      "publisher": "Interprovinciaal Overleg / Risicokaart / Veiligheidsregio Zeeland",
+      "title": "E05 — Official combustible-nature eligibility at Waterwingebied St-Jansteen and historical Hulst firefighting-water context",
+      "url": "https://servicespub.risicokaart.nl/geoserver/ISOR_RK/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ISOR_RK%3Aisor_brandbaar_natuurgebied&outputFormat=application%2Fjson",
+      "accessedAt": "2026-09-03T04:35:00Z",
+      "edition": "Risicokaart metadata updated 19 February 2026; St-Jansteen feature begins validity 6 December 2005; historical incident page 16 August 2025",
+      "supports": [
+        "The official Public Domain WFS contains Waterwingebied St-Jansteen in GM0677, attributed to municipality Hulst and classified as mixed woodland. Its old feature-validity date must remain visible and does not establish current ignition or fuel condition.",
+        "The controlled audit origin [4.0768451379794, 51.257689182576655] lies inside this official polygon and CBS neighbourhood Buitengebied Clinge.",
+        "A Zeelandveilig report of a 16 August 2025 grass fire at Absdaalseweg, Hulst says a water tanker was required because nearby firefighting water was unavailable. It is a historical access/resource example, not current shortage or a prediction for St-Jansteen.",
+        "Eligibility and an incident report do not establish ignition, perimeter, fuel moisture, smoke, people present, access, current extinguishing-water availability, crews or suppression state."
+      ]
+    },
+    {
+      "publisher": "Provincie Zeeland / N.V. Westerscheldetunnel",
+      "title": "E06 — N290 Kapellebrug cross-border corridor and current Westerschelde/Sluiskil tunnel information",
+      "url": "https://pcportal.zeeland.nl/voortgangsrapportage-grote-projecten-ps-febmrtapr-2025/project-modal/traverse-kapellebrug",
+      "accessedAt": "2026-09-03T04:39:00Z",
+      "edition": "Province project reporting 2025 and current tunnel-operator information inspected September 2026",
+      "supports": [
+        "Province Zeeland states that N290 connects N61/N62 through Zaamslag and Hulst to the Netherlands–Belgium border at Kapellebrug and carries traffic to Belgium. Its diversion discussion uses N290, Tractaatweg and E34.",
+        "The model's two municipal logical road records both terminate at Terneuzen and contain no Belgian boundary node, continuation or cross-border destination. This is a source-coverage omission, not proof that Belgian routes are unavailable.",
+        "The Westerscheldetunnel operator publishes current status for the Westerschelde and Sluiskil tunnels and approach roads. For planned Sluiskiltunnel closures it publishes fixed U64/U65 diversion via the bridge, demonstrating that tunnel state and a specific alternate route matter.",
+        "Project and operator webpages do not provide a blanket machine reuse licence or complete 72-hour route-capacity API. Retrieval-time status must carry issue/valid time, confirmation and expiry rather than being assumed indefinitely."
+      ]
+    },
+    {
+      "publisher": "ZorgSaam Zorggroep Zeeuws-Vlaanderen / RIVM",
+      "title": "E07 — Hulst ambulance and residential-care locations, 24/7 acute-care referral to Terneuzen and national accessibility context",
+      "url": "https://www.zorgsaam.org/ziekenhuis/specialismen-afdelingen/ambulancedienst/wie-zijn-wij/",
+      "accessedAt": "2026-09-03T04:43:00Z",
+      "edition": "Current provider pages and RIVM 2024 acute-care accessibility analysis",
+      "supports": [
+        "ZorgSaam publishes ambulance posts at Hulst, Terneuzen and Oostburg and says most patients go to De Honte in Terneuzen. It notes that posts may not be sufficiently staffed during busy periods and names temporary coverage locations including Vogelwaarde.",
+        "ZorgSaam's emergency department at De Honte is open 24/7. Provider pages also list care locations in Hulst, Kloosterzande and Sint Jansteen, establishing local care and cross-boundary access dependencies without exposing incident-time occupancy or capacity.",
+        "RIVM's 2024 accessibility analysis classifies De Honte as sensitive for 56,100 residents in that annual model. This older model result is planning context, not live acceptance or a GM0677-specific forecast.",
+        "The deployment's 2026 v1.1 RIVM acute-care screen returns no point inside GM0677. That spatial match is NoData for an in-boundary acute-care facility, consistent with referral to Terneuzen; it is not zero care demand, ambulance coverage or accessible capacity.",
+        "Provider webpages have no machine-readable live staffing/acceptance/backup/restoration contract or stated machine reuse licence; RIVM acute-care data are annual under CC0 1.0."
+      ]
+    },
+    {
+      "publisher": "Netbeheer Nederland / RDI / DUO / KNMI / RIVM / Rijkswaterstaat / NDW",
+      "title": "E08 — Public lifeline, facility and observation deployment screens",
+      "url": "https://data.partnersinenergie.nl/capaciteitskaart/totaal/afname",
+      "accessedAt": "2026-09-03T04:47:00Z",
+      "edition": "Deployment snapshots retrieved 31 August–3 September 2026",
+      "supports": [
+        "One NBNL sample postcode, 4569AP, maps to Stedin service area TT220_10 Cambron. Existing and required withdrawal/injection are null; the withdrawal queue reports 7.6 MW and fourteen requests, the injection queue reports zero MW and zero requests, and eleven projects have earliest dates from 2026. Null remains Unknown and a scoped queue zero does not establish spare or live grid capacity.",
+        "The municipal screens contain 65 RDI antenna installations and seventeen DUO education locations. Registered installations and schools do not prove coverage/backhaul/power, occupancy, shelter role, accessibility, supplies or operation.",
+        "Zeeland's KNMI warning snapshot reports level zero at retrieval and no KNMI observation is assigned inside GM0677. A provincial warning is issue-time context with a short window, not gridded local forcing or an all-clear for arbitrary exercises.",
+        "No GM0677 Waterinfo observation/forecast, NDW situation, RIVM acute-care point, PM2.5 station or KNMI seismic event is assigned. Sparse point/register matching is a coverage fact; absence remains Unknown rather than zero hazard, disruption, pollution or care need.",
+        "NBNL planning/queue context updates at least quarterly/monthly but the frontend endpoint and exact licence are not a stable dataset contract. RDI cadence/licence is unstated; DUO is daily under CC Attribution version unspecified; KNMI is ten-minute/CC BY 4.0; RIVM acute care is annual/CC0 1.0; Waterinfo and NDW are CC0 unless stated. All remain affectsSimulation=false context."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM0677, Hulst, Zeeland and Veiligheidsregio Zeeland are internally and officially coherent.",
+      "evidenceRefs": ["E01", "E02", "E03"],
+      "notes": [
+        "Generated municipality, province and exactly one safety-region assignment agree.",
+        "The generated centre lies inside the fresh full-resolution 2025 municipal boundary.",
+        "Annual registers, expired and current plans, static risk geometry, current webpages, retrieval-time observations and synthetic checkpoints remain separate evidence classes."
+      ]
+    },
+    "geography": {
+      "status": "fail",
+      "summary": "Administrative geometry is coherent, but Westerschelde, polder/drainage and combustible-nature geography does not govern local impacts.",
+      "evidenceRefs": ["E02", "E04", "E05"],
+      "notes": [
+        "Severe storm, pluvial, coastal, heat, winter, cyber and wildfire share exactly the same complete 48-neighbourhood hazard-severity order at T+24; river is municipality-wide exact zero.",
+        "A controlled source inside Waterwingebied St-Jansteen and Buitengebied Clinge ranks its containing neighbourhood 33/48.",
+        "Coastal output has no selected Westerschelde surge/defence/breach/polder case; pluvial output has no catchment, sewer, pump, weir or control state.",
+        "Kloosterzande and Ossenisse label-point/display-boundary mismatches require full geometry and administrative membership rather than point clipping."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Official resident controls and neighbourhood aggregates reconcile within negligible CBS rounding difference.",
+      "evidenceRefs": ["E01", "E03", "E07"],
+      "notes": [
+        "CBS reports 27,378 residents; the 48 published neighbourhood rows sum to 27,380 (+2, +0.007%), while model allocations reconcile to the municipal control.",
+        "The 27.5% age-65-plus share and 4,583 one-person households inform aggregate assistance pressure but never identify individual vulnerability.",
+        "Residents remain separate from pupils, patients, care residents, visitors, seasonal/temporary workers, border/road users and responders under CORR-015."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "Forty-eight neighbourhoods support census allocation, while material statistics and every live physical lifeline state remain incomplete.",
+      "evidenceRefs": ["E01", "E04", "E07", "E08"],
+      "notes": [
+        "Supported CBS fields cover 39–48 rows; district-heating and public-charging cover zero. Suppressed/null fields remain Unknown/NoData.",
+        "Water objects, static nature polygons, one grid-planning postcode, antennas, schools and care pages have incompatible coverage, cadence, licence and operational meaning.",
+        "Registered assets and provider locations do not establish connections, occupancy, capacity, state or recovery."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "Fifteen BAG places and 60 BRT labels preserve Hulst's polder villages, border settlements and dispersed rural context.",
+      "evidenceRefs": ["E02", "E04", "E05", "E07"],
+      "notes": [
+        "BAG retains Clinge, Graauw, Heikant, Hengstdijk, Hulst, Kapellebrug, Kloosterzande, Kuitaart, Lamswaarde, Nieuw Namen, Ossenisse, Sint Jansteen, Terhole, Vogelwaarde and Walsoorden.",
+        "BRT distinguishes 23 woonkernen, four deelkernen, 26 gehuchten and seven buurtschappen; this is reference geography, not incident-time presence.",
+        "Label points outside generalized display geometry do not invalidate official place membership and must not delete exposure or access."
+      ]
+    },
+    "transport": {
+      "status": "fail",
+      "summary": "The graph contains only N258/N290 clips toward Terneuzen and omits Belgian-border continuity and incident-valid tunnel, care and supply routes.",
+      "evidenceRefs": ["E02", "E06", "E07"],
+      "notes": [
+        "Both logical road links terminate at GM0715; N290's official continuation to the Belgian border at Kapellebrug and onward destinations is absent.",
+        "There is no rail station. Fifty-nine scheduled bus-stop areas, including Hulst Busstation/Huisartsenpost, do not prove scenario-time service or accessible evacuation.",
+        "The N61/N62/Tractaatweg, Sluiskiltunnel and U64/U65 bridge diversion matter for Terneuzen acute care and Zeeland access but have no typed incident state in the municipal graph.",
+        "Routes lack direction, junction, border procedure, closure/expiry, detour, emergency priority, queue, mode accessibility and unit-bearing throughput."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "Official water, nature, cross-border, technological-risk, care and first-72-hour evidence is not selected into incident/action/resource state.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "No selected Westerschelde flood case, ignition/perimeter, road/tunnel/border restriction, hospital acceptance, utility state or public action drives outputs.",
+        "The canonical presets contain no explicit nuclear/radiological or hazardous-material plume incident despite Zeeland's public risk and shelter/iodine protocols.",
+        "Current planning guidance and household actions are not activated sites, orders, capacities or commitments.",
+        "A level-zero provincial warning and empty municipal observation/incident screens cannot validate an arbitrary first-72-hour exercise."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten canonical presets execute at all six mandatory checkpoints for all eight services.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "The initial and final MUNICIPALITY_AUDIT_CODE=GM0677 pnpm audit:model gates each passed one file/two tests.",
+        "Maximum checkpoint severity / maximum affected / T+72 attributable person-hours are storm 0.298574 / 2,274 / 171,897.169; pluvial 0.381099 / 5,030 / 292,800.841; river 0 / 0 / 0; coastal 0.031769 / 1,948 / 54,809.702.",
+        "Remaining values are heat 0.411380 / 518 / 134,205.887; winter 0.580799 / 5,965 / 347,612.762; cyber 0.508348 / 7,801 / 381,153.355; earthquake 0.000937 / 0 / 1,035.137; wildfire 0.093773 / 0 / 105,867.269; compound 0.891178 / 16,752 / 1,031,262.929.",
+        "Structural execution and deterministic decimals do not establish local empirical validity."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Outputs are finite, bounded, deterministic, exact at zero intensity, selected-layer invariant and locally reconciled.",
+      "evidenceRefs": ["E01", "E02"],
+      "notes": [
+        "All required structural, range, local-sum, causal-ledger and repeatability checks pass.",
+        "Every preset's zero-intensity run returns exact-zero hazard, affected resident-equivalents and cumulative deprived person-hours.",
+        "Changing the display service does not mutate hazard, pressure or affected population.",
+        "The legacy floodDepthM field is normalized inundation stress under CORR-017, not measured metres."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "A shared local seed overrides distinct Westerschelde, rainfall, nature, weather, cyber and infrastructure geography.",
+      "evidenceRefs": ["E02", "E04", "E05"],
+      "notes": [
+        "Storm, pluvial, coastal, heat, winter, cyber and wildfire share the same 48-neighbourhood T+24 order, led by Zoetevaart, Durpe, Zandewijk and Kern Heikant; river has exact-zero values and input-order ties.",
+        "Audit point [4.0768451379794, 51.257689182576655] lies inside official Waterwingebied St-Jansteen and CBS Buitengebied Clinge.",
+        "At T+11/T+24 direct fire is 0.355010, smoke 0.456431 and municipal severity 0.397535; Buitengebied Clinge ranks 33/48 while Zoetevaart ranks first. Source-neighbourhood affected is only 11/14 against municipal 3,803/4,931.",
+        "The point is a controlled audit fixture derived from static eligibility, not a current ignition or probability."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "Exact eight-service availability exceeds verified utility, water, care, border and multimodal topology/state evidence.",
+      "evidenceRefs": ["E02", "E04", "E06", "E07", "E08"],
+      "notes": [
+        "At compound T+24 availability is Power 0.474562, Water 0.362673, Drainage 0.338440, Gas 0.565087, Telecom 0.234563, Mobility 0.647540, Facilities 0.509579 and Supply 0.447210.",
+        "Only two generalized NWB edges support Mobility and explicit road-logistics/Supply; cross-border continuation, tunnel/detour and care routing are absent and no verified physical routes exist for the other services.",
+        "One grid-planning postcode with null capacities, 153 partial water objects, 65 antennas, seventeen schools and no local acute-care point are not compatible live topology/capacity/backup/restoration evidence.",
+        "Official residents and non-resident activity-demand weights remain separate under CORR-015."
+      ]
+    },
+    "causalTrace": {
+      "status": "warn",
+      "summary": "The numerical causal ledger closes, but authority-selected causes, owners, interventions and resources remain absent.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "Outputs expose hazard, direct-service, interdependency, network, recovery and local-allocation components with matched totals.",
+        "Cumulative person-hours are synthetic no-event counterfactual accounting, not observed outage duration, casualties or unmet care.",
+        "No selected water/fire/plume event, border/road/tunnel restriction, utility network, hospital acceptance or public order explains exact trajectories.",
+        "Each change requires owner, target, prerequisite, route, crew/material/fuel/water, start/end, state, evidence class and uncertainty."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "Compound persistence, unsupported coastal recovery and exact service paths lack action/resource and valid-state explanations.",
+      "evidenceRefs": ["E03", "E04", "E06", "E07", "E08"],
+      "notes": [
+        "Compound normalized flood stress 0.526736 remains fixed from T+24 to T+72 while severity falls 0.878648 to 0.448638 and affected rises 15,868 to 16,752; seven services remain exactly fixed while Facilities worsens from 0.509579 to 0.345918.",
+        "Coastal direct severity/affected reach zero by T+72 after 54,809.702 person-hours, yet Mobility remains 0.810233 and Supply 0.835964 without a selected surge/defence case, reopening or resupply action.",
+        "Storm and pluvial also reach zero direct severity/affected by T+72 after 171,897.169 and 292,800.841 person-hours without clearance, pumps, grid switching, water distribution, crews or access state.",
+        "Sustained disruption and recovery can be plausible, but exact first-72-hour values require explicit incident, resource and action states."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": ["power", "water", "drainage", "gas", "telecom", "mobility", "facilities", "supply"]
+  },
+  "findings": [
+    {
+      "id": "GM0677-WESTERSCHELDE-FLOOD-001",
+      "severity": "critical",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The coastal preset reports affected residents and severe mobility loss but zero inundation stress without a selected Westerschelde defence case.",
+      "evidence": "Scheldestromen data and Kruispolder documentation identify the Westerschelde sea dike, primary/regional barriers, norm trajectories, sluices, pumps, culverts and named polder systems. Yet coastal T+24 reports severity 0.031769, 1,948 affected, Mobility 0.326565 and Supply 0.564169 while normalized inundation stress is exactly zero. No surge level, defence/coupure/failure, polder footprint, arrival or persistence explains the result. River exact zero is only the scoped direct-river output and cannot imply safety from estuarine/coastal flooding, rainfall/drainage or external cascades. The field is normalized stress, not metres.",
+      "action": "Suppress exact local coastal/river impacts until an authority-selected LIWO/Scheldestromen/RWS case supplies source, water level, defence/coupure/failure/control state, footprint, native units/resolution, arrival/persistence, probability, CRS, issue/valid time, licence, NoData, transform hash and reviewer. Separate direct inundation from wind, mobility, supply and external effects; Unknown is not safe."
+    },
+    {
+      "id": "GM0677-STJANSTEEN-FIRE-001",
+      "severity": "critical",
+      "category": "geography",
+      "status": "open",
+      "summary": "An explicit ignition inside official Waterwingebied St-Jansteen leaves its containing neighbourhood 33rd of 48.",
+      "evidence": "Risicokaart identifies Waterwingebied St-Jansteen as combustible mixed woodland. Audit point [4.0768451379794, 51.257689182576655] is inside that polygon and Buitengebied Clinge. At T+11/T+24 fire is 0.355010, smoke 0.456431 and municipal severity 0.397535, yet the containing neighbourhood ranks 33/48 while Zoetevaart ranks first. The origin is controlled, not an actual fire. A historical Hulst grass fire also demonstrates that local extinguishing-water access can matter but does not prove current state.",
+      "action": "Block local fire ranking from operational use. Require source/perimeter intersection with full neighbourhood and versioned combustible polygons, plus issue-valid wind/humidity, fuel moisture, people present, access, extinguishing water, crews and suppression state. Preserve old feature dates and render absent current ignition as Unknown."
+    },
+    {
+      "id": "GM0677-SHARED-SPATIAL-001",
+      "severity": "critical",
+      "category": "geography",
+      "status": "open",
+      "summary": "Eight unrelated hazards reuse one complete neighbourhood order across coastal polders, border woodland, villages and Hulst town.",
+      "evidence": "Severe storm, pluvial, coastal, heat, winter, cyber and wildfire have the same full T+24 ordering, and a controlled wildfire run retains it; river is exact-zero with tied input order. Official sources distinguish Westerschelde barriers/polders, named drainage systems, St-Jansteen woodland, border/road/tunnel routes, settlements and service domains. Cyber and heat have no defensible reason to share fire and rainfall rank.",
+      "action": "Replace the municipality seed with hazard-specific source, eligible-domain, forcing, exposed-object and evidence-support adapters. Require cross-preset tests that unrelated hazards do not silently share a full order; missing compatible spatial support must show Unknown rather than precise ranking."
+    },
+    {
+      "id": "GM0677-PLUVIAL-WATER-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Pluvial and drainage outputs ignore local polder/sewer pathways, catchments, controls, power dependencies and operating state.",
+      "evidence": "Scheldestromen sources name Kruispolder/Mariapolder waters, Walsoorden/Paal pumps, weirs, culverts, Vogelkreek, Ossenisse sewer backflow/pump loading, Kloosterzande runoff and Heikant drainage work. The partial public screen has 153 points, but no connectivity or current state. Pluvial T+24 reports normalized stress 0.510858, 5,030 affected and Drainage 0.503626 without catchment rainfall, sewer/pump/weir capacity, settings, power/backup, receiving-water level or completed-project state.",
+      "action": "Version Scheldestromen-native catchments/level areas/watercourses/sewers and HWH objects with feature date, scope, CRS, cadence, licence and NoData. Bind capacity, connectivity, control settings, receiving level, power/backup and project lifecycle only after review. Registers remain affectsSimulation=false; empty/missing state is Unknown."
+    },
+    {
+      "id": "GM0677-CROSSBORDER-ROUTES-001",
+      "severity": "critical",
+      "category": "network",
+      "status": "open",
+      "summary": "The mobility graph terminates at Terneuzen and omits N290's Belgian-border continuation, tunnel/diversion state and cross-border destinations.",
+      "evidence": "Province Zeeland describes N290 through Hulst to the Belgian border at Kapellebrug and traffic connections using N290, Tractaatweg and E34. The generated graph exposes only N258 and N290 links to GM0715, with no border node or Belgian route. There is no rail station; GTFS is scheduled context only. Westerschelde/Sluiskil tunnel and U64/U65 bridge-diversion state can affect regional care, supply, evacuation and mutual aid, but no direction-specific valid-time state or unit-bearing capacity drives Mobility/Supply.",
+      "action": "Build an authority-reviewed cross-border multimodal graph from monthly CC0 NWB, Belgian authoritative road data and validated operator/transit sources. Retain endpoints, direction, shared corridors, border interfaces, tunnel/bridge state, diversion, issue/expiry, accessibility, emergency priority and units; bind routes to care, evacuation, supply and mutual-aid destinations without inferring sensitive operations."
+    },
+    {
+      "id": "GM0677-CARE-RURAL-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "Rural ambulance coverage, local care sites and 24/7 acute-care referral to Terneuzen are absent from service and route state.",
+      "evidence": "ZorgSaam identifies an ambulance post in Hulst, temporary coverage including Vogelwaarde, care locations in Hulst/Kloosterzande/Sint Jansteen and a 24/7 emergency department at De Honte, Terneuzen. It also notes possible insufficient post staffing at busy times. CBS reports 27.5% age 65 or older. The RIVM local screen returns no acute-care point only because the relevant hospital is outside the polygon; exact Facilities/Mobility do not include live staffing, acceptance, ambulance position, tunnel/road/border state, backup or care-site continuity.",
+      "action": "Represent care locations, ambulance coverage and cross-boundary referral as typed, privacy-safe dependencies. Consume authorized acceptance/staffing/backup and route state where available; otherwise show Unknown or reviewed ranges. Do not infer individual vulnerability from CBS age/household data or zero care from an empty in-boundary facility screen."
+    },
+    {
+      "id": "GM0677-TECHNOLOGICAL-PLUME-001",
+      "severity": "high",
+      "category": "limitation",
+      "status": "open",
+      "summary": "Nuclear/radiological and hazardous-material plume incidents important to Zeeland and its Belgian border have no explicit canonical scenario.",
+      "evidence": "The public regional profile prioritizes nuclear installations and hazardous-material transport and the current crisis plan requires Belgian coordination. Zeelandveilig publishes conditional shelter/evacuation/ventilation and iodine instructions tied to government orders, release location and wind. The ten canonical presets contain no nuclear, radiological or chemical plume source, dispersion, dose/action zone or authoritative public-order state; storm/cyber/compound outputs cannot be relabelled as these hazards.",
+      "action": "Add an activation-gated technological/plume scenario adapter or explicitly mark the risk out of scope. Require authoritative incident source, substance/release class, issued wind/dispersion footprint, valid time, uncertainty, public-order provenance and zone-specific shelter/evacuate/ventilation/iodine actions. Never synthesize a current release or medication instruction."
+    },
+    {
+      "id": "GM0677-LIFELINE-PROVENANCE-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Exact service availability has no verified operator topology, live capacity, backup or restoration state.",
+      "evidence": "At compound T+24 availability ranges from Telecom 0.234563 to Mobility 0.647540. Public screens contain one Stedin planning postcode whose main capacity fields are null, 153 water objects, 65 antennas and seventeen schools. These do not provide feeder/customer or pipe topology, live load/pressure/backhaul, damage, priority users, backup, switching, repair crews or restoration commitments. A withdrawal queue and projects are planning context; an injection queue zero is not spare or live capacity.",
+      "action": "Integrate authorized operator topology, outage, priority-user, backup and restoration data where lawful and safe. Otherwise expose minimal versioned synthetic zones/graphs with ranges and uncertainty. Keep public planning/register layers affectsSimulation=false and suppress operator-validated-looking exact decimals."
+    },
+    {
+      "id": "GM0677-TEMPORAL-RECOVERY-001",
+      "severity": "critical",
+      "category": "service",
+      "status": "open",
+      "summary": "Compound persistence and exact storm, pluvial and coastal recovery lack incident/action/resource explanations through T+72.",
+      "evidence": "Compound flood stress remains 0.526736 and seven services are exactly fixed T+24–T+72 while affected rises 15,868 to 16,752 and Facilities falls 0.509579 to 0.345918. Coastal, storm and pluvial direct severity/affected fall to zero by T+72 after 54,809.702, 171,897.169 and 292,800.841 person-hours. No defence/control state, road/tunnel reopening, pump/sewer intervention, grid switching, hospital action, public order, crew, fuel, material, water or access constraint explains these paths.",
+      "action": "Require a typed incident/action/resource ledger at T+0/6/12/24/48/72 with authority, owner, target, prerequisite, route, crew/material/fuel/water, start/end, state, evidence time and uncertainty. Every deterioration, plateau, residual effect and recovery must cite a driver; preserve arithmetic but suppress unsupported decision-grade trajectories."
+    },
+    {
+      "id": "GM0677-EVIDENCE-UI-001",
+      "severity": "high",
+      "category": "ui",
+      "status": "open",
+      "summary": "Current and expired plans, static geometry, projects, provider pages, observations, missing matches and synthetic values need adjacent evidence and NoData gates.",
+      "evidence": "The interface can combine annual CBS, a current 2026–2029 crisis plan, an expired 2020–2023 risk profile, 2005-valid nature geometry, 2025 water/projects, current provider/operator pages, one grid-planning postcode, a level-zero warning and empty municipal Waterinfo/NDW/acute-care/air/seismic matches. None alone establishes arbitrary scenario state. Exact synthetic decimals and missing-record zeros can be mistaken for observed precision or safety.",
+      "action": "Attach publisher, dataset/version, issue/valid/retrieval time, coverage, licence, evidence class, affectsSimulation, uncertainty and NoData to every layer/value/export. Show plan/project lifecycle and webpage TTL beside claims; expired or unconfirmed state deactivates and absent records render Unknown/not-in-scope, never zero/safe."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Bind GM0677 coastal and pluvial scenarios to authority-selected Westerschelde, defence, polder, catchment and water-control cases.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Coastal and river exact impacts are suppressed without a selected LIWO/Scheldestromen/RWS source/defence/coupure/failure/control case. Supported cases retain footprint, units, resolution, arrival/persistence, probability, CRS, issue/valid time, licence, NoData, transform hash and reviewer. Pluvial follows catchments, sewers, pumps and receiving-water/control state. Normalized stress is never labelled metres."
+    },
+    {
+      "summary": "Replace the shared GM0677 neighbourhood seed with source- and mechanism-aware full-polygon allocation.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/geometry.ts",
+        "packages/sim-core/src/model.test.ts",
+        "scripts/fetch-realism-data.mjs"
+      ],
+      "validation": "A source inside Waterwingebied St-Jansteen and Buitengebied Clinge responds consistently rather than ranking 33/48; eligibility age/scope remain visible. Selected water/rain footprints govern coastal/pluvial ranks, unrelated hazards cannot silently share a full order and generalized label-point mismatch does not remove official places. Missing support remains Unknown."
+    },
+    {
+      "summary": "Add authority-reviewed Belgian-border, road, tunnel, bridge, transit and care routes with valid-time state.",
+      "files": [
+        "scripts/fetch-transport-network.mjs",
+        "apps/web/public/data/transport-network.json",
+        "packages/sim-core/src/network.ts",
+        "packages/sim-core/src/network.test.ts",
+        "apps/web/src/data.ts"
+      ],
+      "validation": "N290 retains its Kapellebrug border continuation and authorized Belgian interface; N258/N61/N62/Tractaatweg, Sluiskiltunnel/U64/U65 and bus/care paths retain direction, shared corridor, closures, detours, accessibility, emergency priority, issue/expiry and unit-bearing capacity. De Honte and ambulance/care dependencies are explicit; stale or missing state is not availability."
+    },
+    {
+      "summary": "Integrate Scheldestromen water-system topology and controls without promoting partial registers or projects to live state.",
+      "files": [
+        "scripts/fetch-water-assets.mjs",
+        "scripts/fetch-realism-data.mjs",
+        "packages/sim-core/src/types.ts",
+        "apps/web/src/data.ts"
+      ],
+      "validation": "Scheldestromen/HWH data retain publisher, feature date, collection, scope, CRS, cadence, licence and NoData. Polders, level areas, sewers, waters, dikes, weirs, sluices and pumps remain context until compatible capacity, setting, receiving level, power/backup and valid state are supplied; incomplete collections and missing fields remain Unknown."
+    },
+    {
+      "summary": "Add an activation-gated technological/plume pathway and evidence-gate lifelines, care and first-72-hour actions.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/network.ts",
+        "apps/web/src/components/OperationsBrief.tsx"
+      ],
+      "validation": "Nuclear/radiological/chemical exercises require an authoritative source, substance/release class, issued wind/footprint and public order; absent activation is out-of-scope/Unknown. NWB affects Mobility and explicit road-logistics/Supply only. Utilities/care require verified topology, capacity, backup, acceptance and restoration or labelled ranges. Every checkpoint change cites owner, target, prerequisites, resources, access, state and uncertainty; residents remain separate from non-resident demand."
+    },
+    {
+      "summary": "Expose evidence class, lifecycle, licence, spatial support and Unknown/NoData beside every operational value and export.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "apps/web/src/components/CausalExplanation.tsx",
+        "apps/web/src/components/OperationsBrief.tsx",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Annual statistics, current/expired plans, projects, old static eligibility, current webpages, observations, warnings and synthetic checkpoints are distinct. Null NBNL values and empty municipal observation/facility matches display Unknown/not-in-scope, while scoped queue zero remains narrowly labelled and never becomes spare capacity or safety."
+    }
+  ],
+  "residualLimitations": [
+    "Complete physical electricity, gas, drinking-water, sewer/drainage, telecom, care and supply topology, live load, outage, backup, crews, spares, fuel and restoration state are unavailable or security-sensitive. Public geometry, plans and registers cannot replace them.",
+    "No selected LIWO/Scheldestromen/RWS hydraulic case establishes a GM0677 Westerschelde surge, defence/coupure/failure footprint, polder propagation or arrival/persistence. A generic result is not evidence, and a zero does not prove safety.",
+    "The 2020–2023 regional risk profile is expired and retained only as a public historical baseline. The 2026–2029 crisis plan is strategic governance evidence rather than a live resource or tactical-state feed.",
+    "Risicokaart establishes static combustible eligibility only. It does not establish ignition, fuel moisture, perimeter, people present, access, extinguishing water or suppression; the St-Jansteen source is an audit fixture.",
+    "The 2025 Absdaalseweg fire report is a historical resource/access example, not evidence of a present fire, current water shortage or future incident behaviour.",
+    "CBS residents omit pupils, patients, care residents, visitors, seasonal/temporary workers, border/road users and responders. Aggregate age/household statistics cannot identify personal vulnerability or incident-time presence.",
+    "ZorgSaam and RIVM pages do not expose incident-time ambulance staffing, hospital acceptance, care occupancy, backup or restoration; protected operational information must not be reconstructed publicly.",
+    "NWB, GTFS and tunnel/project pages do not prove scenario-time road, border, tunnel, bridge or bus service, emergency priority, accessibility, detours, destination or throughput.",
+    "One Stedin planning postcode has null core capacity values; its queue and projects do not establish live local topology, capacity, outage or restoration. RDI antennas, DUO schools and water objects likewise remain affectsSimulation=false without reviewed causal bindings.",
+    "A level-zero warning and no municipally assigned KNMI observation, Waterinfo, NDW, PM2.5, acute-care or seismic point are coverage/time facts, not zero hazard, disruption, pollution or care need.",
+    "Nuclear/radiological and hazardous-material plume hazards are not represented by the ten canonical presets. Public shelter, evacuation, ventilation and iodine guidance cannot be activated without an authoritative incident and order.",
+    "Exact hazard, affected-population, service, recovery and person-hour outputs remain synthetic exercise results, not observations, official forecasts, operator commitments or decision-grade advice until critical/high findings are corrected and authorities review the case.",
+    "This audit covers only the first 72 hours. Flood displacement, pollution, care interruption, agricultural impacts and infrastructure recovery can persist much longer."
+  ],
+  "provinceReviewFlags": [
+    "Province Zeeland, Veiligheidsregio Zeeland, Waterschap Scheldestromen, Rijkswaterstaat and GM0677 should select valid Westerschelde/primary-defence/coupure/polder and pluvial/drainage cases, retaining arrival/persistence, controls, project lifecycle, uncertainty and NoData.",
+    "Province, Rijkswaterstaat, municipality, Belgian road authorities, tunnel operator, transit and emergency partners should review N290 Kapellebrug/E34, N258/N61/N62/Tractaatweg, Sluiskiltunnel/U64/U65 and bus routes as direction-specific, valid-time mobility/care/supply/mutual-aid corridors.",
+    "Safety-region, Province, municipality, land manager and fire partners should determine whether Waterwingebied St-Jansteen fuel, access, extinguishing-water, visitor and resource data can support exercises without exposing sensitive operations.",
+    "Veiligheidsregio Zeeland, Belgian partners, RIVM/ANVS and hazardous-material authorities should define activation-gated nuclear/radiological/chemical exercise sources, dispersion and public-order evidence; the simulator must never invent a release or iodine instruction.",
+    "Municipality, GHOR, ZorgSaam and ambulance partners should review privacy-safe local care continuity, rural coverage and cross-boundary De Honte access through protected interfaces rather than public inference.",
+    "Zeeland partners should turn public shelter/evacuation, ventilation, vulnerable-person support and household preparedness guidance into typed but activation-gated communication, care, supply and lifeline actions, separating plan, current state, synthetic assumption and Unknown."
+  ]
+}

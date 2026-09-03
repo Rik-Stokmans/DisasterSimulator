@@ -1,0 +1,464 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0377",
+    "name": "Bloemendaal",
+    "province": "Noord-Holland",
+    "safetyRegion": "Kennemerland"
+  },
+  "agent": {
+    "taskName": "municipality_gm0377",
+    "agentId": "/root/municipality_gm0518",
+    "completedAt": "2026-09-02T17:39:24Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "Bloemendaal's generated identity, 2025 CBS totals, safety-region membership, five BAG woonplaatsen, two ProRail stations and 48 GTFS stop areas are coherent. The 22 neighbourhood population rows total 23,585, seven below the official 23,592 residents (-0.030%), consistent with independent CBS publication rounding; unavailable district-heating and charging fields remain null rather than zero. All ten canonical presets execute deterministically at T+0/6/12/24/48/72 across all eight services, with exact-zero, finite-bound, causal-ledger, local allocation, reconciliation, cumulative-burden and selected-layer invariants passing. Release remains correction-required because locally operational spatial claims are unsupported. The coastal preset reports a 2.217045-metre municipality scalar, 14,887 affected people-equivalent and 100% inundation stress at T+24 without selecting a Rijnland defence failure, surge level, connected footprint, probability, arrival or dewatering curve. Coastal, pluvial, heat and wildfire maps reuse the identical synthetic neighbourhood order: Duinlustpark ranks first and Verspreide huizen Bloemendaal last, although that 1,699-hectare, 100-resident buurt contains much of the beach/dunes and 153 non-residential buildings. The municipal stress test instead identifies specific Bennebroek and Bloemendaal depressions, while VRK says more than half the municipality is dune/forest, summer beach use adds thousands of visitors and N200/N201 congestion constrains response. The canonical wildfire is a remote smoke/drought exercise with zero direct flame locally. Five N200/N206/N208 border links are also copied into all eight lifelines with nominal 150-unit capacities, not physical utility topology. Public registries remain context-only; unavailable or security-sensitive connectivity, capacity, telemetry, backup, staffing, stock and restoration are not fabricated.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek (CBS)",
+      "title": "Kerncijfers wijken en buurten 2025, table 86165NED, OData API",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=WijkenEnBuurten%20eq%20%27GM0377%20%20%20%20%27&%24select=WijkenEnBuurten%2CGemeentenaam_1%2CAantalInwoners_5%2CBevolkingsdichtheid_34%2Ck_65JaarOfOuder_12%2CEenpersoonshuishoudens_30",
+      "accessedAt": "2026-09-02T17:20:00Z",
+      "edition": 2025,
+      "supports": [
+        "A fresh official GM0377 row gives Bloemendaal, 23,592 residents, density 593 per square kilometre, 6,572 residents aged 65+ and 3,311 one-person households.",
+        "Municipality and neighbourhood attributes, plus CBS rounding, suppression and null semantics, support reconciliation without converting unavailable values to zero.",
+        "The OData table is machine-readable and reusable under CC BY 4.0; CBS labels it 2025 data, modified 25 June 2026, with quarterly additions where source variables become available. It is demographic context, not live occupancy, hazard exposure or response priority."
+      ]
+    },
+    {
+      "publisher": "PDOK / CBS / Kadaster / Rijkswaterstaat / ProRail",
+      "title": "CBS Gebiedsindelingen 2025 non-generalized geometry and national reference APIs",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_niet_gegeneraliseerd/items?f=json&limit=10&datetime=2025-07-01T00%3A00%3A00Z&bbox=4.48%2C52.28%2C4.66%2C52.45",
+      "accessedAt": "2026-09-02T17:21:00Z",
+      "edition": "2025 boundaries; current generated transport editions",
+      "supports": [
+        "Fresh full-resolution GM0377 is one component and one ring with 1,713 positions. The generated overview polygon retains that topology with 103 positions; estimated areas are 40.397 and 40.549 square kilometres, a 0.38% overview difference.",
+        "The generated centre and the five BAG woonplaatsen Aerdenhout, Bennebroek, Bloemendaal, Overveen and Vogelenzang are contained. Bloemendaal and Overveen stations, 48 GTFS stop areas and five N200/N206/N208 logical border links are represented.",
+        "CBS boundary OGC data are annual and CC BY 4.0; BAG is daily/Public Domain Mark, NWB is monthly/CC0 1.0, ProRail reference data are editioned/CC0, and GTFS has a feed-validity window. These are administrative, geometry and schedule context, not current people, closures, evacuation throughput or utility connectivity.",
+        "The non-generalized boundary, not the overview polygon, is required for intersecting dunes, defences, flood rasters, low points, roads and assets."
+      ]
+    },
+    {
+      "publisher": "Gemeente Bloemendaal",
+      "title": "Strategie en uitvoeringsagenda klimaatadaptatie Bloemendaal en Heemstede and Programma Water 2022–2026",
+      "url": "https://gemeenteraad.bloemendaal.nl/Documenten/02-Strategie-en-uitvoeringsagenda-klimaatadaptatie-gemeenten-Bloemendaal-en-Heemstede-2021002888.pdf",
+      "accessedAt": "2026-09-02T17:22:00Z",
+      "edition": "Council strategy and Water Programme 2022–2026",
+      "supports": [
+        "The municipal stress-test material identifies 10–20 centimetres of street water at De Ruyterlaan/Van Gendtlaan in Bennebroek, Iepenlaan/Platanenlaan/Kinheimweg and Lage Duin en Daalseweg/Arnoldlaan under its stated design rain assumptions.",
+        "The municipal water programme explains that local stress maps remain model results, that simply enlarging pumps has limited effect, and that sea influence generally moderates heat while cool-place access is broadly available.",
+        "The current municipal climate page documents separated rainwater collection, infiltration/drainage and temporary surface storage as relevant mechanisms.",
+        "These public pages/PDFs provide fixed policy and stress-test evidence, not live water depth or a standard machine export. No stable API, raster resolution, fixed refresh cadence or explicit standard reuse licence is stated; those metadata must be obtained before ingestion."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Kennemerland (VRK)",
+      "title": "Bloemendaal municipality risk page and Regionaal Risicoprofiel Kennemerland 2023–2030",
+      "url": "https://risicoprofiel.vrk.nl/gemeenten/bloemendaal.html",
+      "accessedAt": "2026-09-02T17:23:00Z",
+      "edition": "Risk profile adopted 10 July 2023 for 2023–2030",
+      "supports": [
+        "VRK states that more than half of Bloemendaal is dune and forest, including Natura 2000, and that longer drought makes these areas more susceptible to uncontrollable nature fire.",
+        "On summer days the beach and horeca attract thousands of visitors; congestion between Zandvoort, Bloemendaal, Heemstede and Haarlem on N200/N201 affects emergency-service deployment and access to beach, dune and forest.",
+        "The regional profile says coastal nature fire can trap people, threaten homes/care facilities, require large evacuation and external assistance, be difficult to access and take days to extinguish; it also recognizes flood, storm/cluster rain, heat/drought, electricity, gas, drinking-water, ICT and infrastructure cascades.",
+        "This is authoritative fixed planning evidence, not a live ignition, perimeter, visitor count, traffic feed, response-resource inventory or restoration promise. It exposes no standard machine API, fixed update cadence or explicit redistribution licence."
+      ]
+    },
+    {
+      "publisher": "Hoogheemraadschap van Rijnland",
+      "title": "Legger primaire waterkeringen and Bloemendaal beach/sea-defence policy",
+      "url": "https://www.rijnland.net/zakelijk/legger/legger-primaire-keringen/",
+      "accessedAt": "2026-09-02T17:24:00Z",
+      "edition": "Current page; latest stated register actualization 2023",
+      "supports": [
+        "The legal register records the position, required dimensions and maintenance responsibility for every dune and primary dike in Rijnland's management area and is updated regularly; the latest stated actualization was in 2023.",
+        "Rijnland identifies Bloemendaal's dunes as the primary North Sea defence and uses reach-specific modelling and future dune-growth zones in its beach policy.",
+        "Register/defence geometry is authoritative context, not present condition, breach probability, failed segment, surge, inundation footprint, arrival time or dewatering performance.",
+        "The public page and interactive register do not state a standard redistribution licence or contractual refresh interval; capture the governing decision, source version and terms before caching."
+      ]
+    },
+    {
+      "publisher": "Het Waterschapshuis / Dutch water boards via PDOK",
+      "title": "Waterschappen Kunstwerken IMWA and Waterketen DAMO OGC APIs",
+      "url": "https://api.pdok.nl/hwh/waterschappen-kunstwerken-imwa/ogc/v2?f=html",
+      "accessedAt": "2026-09-02T17:25:00Z",
+      "edition": "Application snapshot inspected 2 September 2026",
+      "supports": [
+        "The generated official-context intersection contains 19 water objects: three sewer pumps and 16 surface-water pumps, including named Bennebroek, Vogelenzang, Aerdenhout, Reigersbos, Bennebroekerpolder, De Bokkedoorns, Mariënduin and Parnassiakade context.",
+        "Kunstwerken IMWA and Waterketen DAMO are machine-readable OGC APIs and reusable under CC BY-SA 4.0; objects carry provider/source timestamps but contributor completeness varies and no single contractual refresh cadence is promised.",
+        "Point/register presence does not prove catchment connectivity, capacity, control logic, current availability, emergency power or restoration. The application correctly keeps these objects official-context with affectsSimulation=false."
+      ]
+    },
+    {
+      "publisher": "Interprovinciaal Overleg / Risicokaart",
+      "title": "Natuurbranden — brandbaar natuurgebied WFS/WMS",
+      "url": "https://data.overheid.nl/dataset/13235-natuurbranden",
+      "accessedAt": "2026-09-02T17:26:00Z",
+      "edition": "Metadata updated 19 February 2026",
+      "supports": [
+        "The public dataset delineates forest, heath and dune areas where a nature fire can arise and exposes OGC WFS/WMS through servicespub.risicokaart.nl.",
+        "Data.overheid identifies IPO as owner, Public Domain as licence and 19 February 2026 as the metadata update; no guaranteed operational refresh interval is stated.",
+        "This is integration-ready combustible-area eligibility/context, not an ignition, observed incident perimeter, fuel/moisture grid, spread forecast, evacuation zone or response state. No-data must remain unknown rather than non-burnable."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / Watermanagementcentrum Nederland",
+      "title": "Waterinfo and Landelijk Informatiesysteem Water en Overstromingen (LIWO)",
+      "url": "https://www.rijkswaterstaat.nl/water/waterdata",
+      "accessedAt": "2026-09-02T17:27:00Z",
+      "edition": "Current services inspected 2 September 2026",
+      "supports": [
+        "Waterinfo provides current, expected and historical water levels, waves, wind and related measurements with parameter/location-specific cadence; many water-level series are ten-minute observations.",
+        "LIWO is the official professional flood-planning system and its OGC services expose named maximum-depth, duration, warning-time, flow-speed and protected/unprotected coastal scenario layers.",
+        "Observations can support a timestamped replay and LIWO can support an expert-selected exercise footprint; neither is evidence that a defence has failed now. Layer id, event, probability, version, unit, resolution, CRS, issue/valid time, no-data and terms must be retained.",
+        "No guaranteed LIWO refresh cadence or explicit standard redistribution licence was established from the public service, so these remain review requirements rather than invented metadata."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM0377, Bloemendaal, Noord-Holland and safety region Kennemerland are internally and officially coherent.",
+      "evidenceRefs": ["E01", "E02", "E04"],
+      "notes": [
+        "Generated feature id, municipality bundle code/name, province and exactly one safety-region membership agree.",
+        "Boundary/statistics editions are 2025 and the generated centre is inside the municipality polygon.",
+        "VRK's current profile explicitly includes Bloemendaal among its nine municipalities."
+      ]
+    },
+    "geography": {
+      "status": "warn",
+      "summary": "Administrative topology is coherent, but the 103-position overview polygon and one centre cannot resolve coast, dunes, depressions, defences or access routes.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05"],
+      "notes": [
+        "Generated and fresh non-generalized GM0377 each have one component and one ring; the approximate 0.38% area difference reveals no material component loss.",
+        "The full-resolution boundary has 1,713 positions versus 103 in the overview geometry and must be used for all local spatial intersections.",
+        "Beach/dune, wooded estates, built villages and Bennebroek low points are distinct mechanisms that a municipal centre cannot assign."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Generated municipal totals reproduce official 2025 CBS values and neighbourhood population reconciles within publication precision.",
+      "evidenceRefs": ["E01", "E02", "E04"],
+      "notes": [
+        "Official/generated population is 23,592, density 593/km², age 65+ is 6,572 or 27.9%, and one-person households total 3,311.",
+        "Published neighbourhood population sums to 23,585, seven below the municipality total (-0.030%); households sum to 10,045 and rounded age-65-plus rows to 6,560.",
+        "The allocator reconciles to 23,592 without rewriting source rows. Resident totals do not include the thousands of summer beach visitors highlighted by VRK."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "All 22 official neighbourhoods and available aggregates are retained, but publication gaps and neutral synthetic priorities limit operational use.",
+      "evidenceRefs": ["E01", "E02", "E03", "E04"],
+      "notes": [
+        "All 22 neighbourhoods are present. Cars per household is available for 21/22; district-heating share and public charging points are unavailable for 22/22 and correctly remain null.",
+        "CBS resident/household attributes neither locate present people nor establish individual vulnerability, facility need, coastal/pluvial/fire exposure or response priority.",
+        "Compound T+24 has 22 local rows and reconciles municipality population, affected people-equivalent and all eight service demand/delivery totals."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "Five BAG woonplaatsen and five BRT settlement labels are represented without being substituted for neighbourhoods or physical footprints.",
+      "evidenceRefs": ["E02", "E03", "E04"],
+      "notes": [
+        "Aerdenhout, Bennebroek, Bloemendaal, Overveen and Vogelenzang label centres lie inside the generalized boundary.",
+        "Settlement labels do not define the beach, dune/forest, flood compartment, sewer catchment or present visitor population.",
+        "Bloemendaal aan Zee is represented through neighbourhood/stop context rather than invented as a separate populated BAG woonplaats."
+      ]
+    },
+    "transport": {
+      "status": "warn",
+      "summary": "Official road, rail and scheduled-transit context is present, but it does not model beach/duin access, congestion, evacuation or physical lifelines.",
+      "evidenceRefs": ["E02", "E04"],
+      "notes": [
+        "Five logical border routes connect N206 to Hillegom/Noordwijk, N200 to Haarlem/Zandvoort and N208 to Haarlem; each carries nominal capacity 150 scenario units.",
+        "Bloemendaal and Overveen stations plus 48 GTFS stop areas, including beach stops, are schedule/reference context without passengers, vehicle accessibility, live operation or evacuation throughput.",
+        "VRK identifies N200/N201 summer congestion as a response constraint, but the causal graph has no visitor load, live closure/congestion match, beach access branch, evacuation destination or emergency-routing rule."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "Authoritative dune-fire, visitor/access, defence and drainage context is visible or documented but does not enter incident state, exposure or response prioritization.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "Context inside the overview footprint includes 19 public water objects, five government points, zero RIVM acute-care locations and 19 DUO education locations; these correctly remain non-causal registers.",
+        "VRK's dune-fire and summer visitor/access mechanisms, the municipality's named pluvial low points and Rijnland's defence system do not change hazard rank, resident exposure, route state or service restoration.",
+        "No reviewed public source supplies live crews, shelter activation/capacity, facility occupancy, grid switching, drinking-water pressure, sewer control, telecom backhaul, stocks, backups or restoration commitments."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten canonical presets execute at all six checkpoints across all eight services with complete finite output.",
+      "evidenceRefs": ["E03", "E04", "E05", "E07", "E08"],
+      "notes": [
+        "MUNICIPALITY_AUDIT_CODE=GM0377 pnpm audit:model passed one file/two tests in the final current-code rerun (29.51 seconds; 29.32 seconds in tests). A focused reproduction and headless browser workflow also passed.",
+        "Peak severity / maximum affected / T+72 attributable deprived person-hours are storm 0.298731 / 5,219 / 121,326.012; pluvial 0.300703 / 3,805 / 123,531.248; river 0 / 120 / 0; coastal 0.695633 / 14,887 / 738,663.256; heat 0.451862 / 2,338 / 81,095.239.",
+        "The remaining values are winter 0.481859 / 7,544 / 203,029.107; cyber 0.599609 / 6,870 / 324,024.065; earthquake 0.010382 / 0 / 7,682.886; wildfire 0.147790 / 307 / 100,854.766; compound 0.847841 / 13,882 / 785,979.650.",
+        "At T+24 coastal reports derived-screening inundation stress 2.217045, gust 28.861834 m/s and 14,887 affected people-equivalent. Compound reports rain 36.361966 mm/h, standing-water stress 0.234525, gust 22.848616 m/s and cyber disruption 0.526036, affecting 13,251.",
+        "The Rhine/Meuse/IJssel preset has exact zero direct local forcing; its 120 T+72 affected-equivalent is an indirect logical-network state and produces zero event-attributable person-hours. Earthquake is a remote Groningen exercise; wildfire is a remote smoke/drought exercise with zero direct flame. Storm, pluvial, heat, winter, cyber and compound forcing are deterministic synthetic exercises, not observations or warnings."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Determinism, finite bounds, exact no-event semantics, local allocation, reconciliation, monotone burden and selected-layer invariance pass.",
+      "evidenceRefs": [],
+      "notes": [
+        "All service availability stays in [0,1]; hazard dimensions, demand, delivery, affected people-equivalent and event-attributable person-hours remain finite and non-negative.",
+        "For every preset/checkpoint, intensity zero gives exactly zero current/peak event severity, affected population and event-attributable essential-service person-hours.",
+        "Compound T+24 local rows sum to 23,592 residents and 13,251 affected people-equivalent; all eight demand/delivery totals reconcile with maximum floating discrepancy 2.66×10^-15.",
+        "Repeated frames are deterministic, cumulative event-attributable burden never decreases, route flow respects effective capacity, and all eleven map-layer selections leave hazard, system pressure and affected population exactly invariant."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "One shared neighbourhood seed overrides documented coastal, pluvial, heat and dune-fire geography.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E07", "E08"],
+      "notes": [
+        "At T+24 coastal, pluvial, heat and wildfire have the identical order: Duinlustpark, Bloemendaal, Oude Kern Bennebroek, Aerdenhout-Centrum and Leidsevaart-Bloemhof lead, while Verspreide huizen Bloemendaal is last.",
+        "The last-ranked neighbourhood has only 100 registered residents but covers 1,699 hectares, much of the beach/dunes, and 153 non-residential buildings. Coastal severity is 0.595266 there versus 0.800349 in Duinlustpark; the same rank repeats for physically unrelated hazards.",
+        "Meerwijk ranks 16/22 for pluvial exposure even though PDOK address geocoding places the municipality's named De Ruyterlaan/Van Gendtlaan depression in that Bennebroek neighbourhood.",
+        "The coastal scalar is derived from municipality-centre distance to a simplified coast and selects no defence segment, hydraulic connection, arrival or recession. The canonical remote wildfire has zero local direct flame and cannot test the locally defining dune ignition/access pathway."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "All eight service balances calculate coherently, but identical road proxies replace physical sector topology and local visitor/facility dependencies.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E06"],
+      "notes": [
+        "Compound T+24 availability is power 0.228466, water 0.511402, drainage 0.474036, gas 0.676006, telecom 0.374713, mobility 0.364291, facilities 0.673969 and supply 0.514054.",
+        "Every service exposes the same five N200/N206/N208 route IDs, each with nominal 150-unit capacity and transferSemantics logical-proxy. Flow differs, but no source establishes roads as electricity, drinking-water, drainage, gas, telecom or facility transfer edges.",
+        "Even with zero local river forcing, T+72 pressure is 0.143615, drainage availability 0.712977 and 120 modeled people-equivalent are under pressure through indirect proxy-network state; this is not evidence of a Rijnland, PWN, Liander or operator outage.",
+        "Public pump, provider, cable, station, facility and transit geometry can scope responsibility/context, but does not safely supply connectivity, capacity, current state, backup or restoration."
+      ]
+    },
+    "causalTrace": {
+      "status": "pass",
+      "summary": "Hazard, service and municipality explanation ledgers close and the UI exposes scenario versus derived-screening evidence without making public context causal.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E08"],
+      "notes": [
+        "Hazard contributions sum to headline severity; each service baseline plus ordered stage deltas sums to availability; eight weighted service-pressure contributions sum to municipality system pressure.",
+        "Drivers, dependencies, interventions, local demand/vulnerability terms and restoration counterfactuals are finite and arithmetically closed. Preparedness changes modeled consequences after physical pressure rather than altering hazard fragility.",
+        "At coastal T+24 the browser displays 'Scenario · evidence class derived-screening' and an explicit RWS/ROR/HWH caveat saying the visible registers are not a selected breach/depth/arrival/performance scenario.",
+        "A 1440×1000 headless Chromium path loaded without page/console/local-response errors, selected Bloemendaal, coastal T+24 and the dune neighbourhood by map click, then exposed the remote-wildfire zero-flame state. Initial readiness was 0.993 s, municipality 0.085 s, scenario 0.125 s, checkpoint 1.801 s and drilldown 0.774 s; timings are diagnostics, not hazard evidence."
+      ]
+    },
+    "recovery72h": {
+      "status": "warn",
+      "summary": "Sustained standing water correctly blocks repair, but coastal recession/dewatering and all operator restoration magnitudes remain uncalibrated.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E08"],
+      "notes": [
+        "Compound retains 0.234525 standing-water stress and 0.068416 cyber disruption at T+72, remains critical with 13,882 affected people-equivalent and keeps all eight recoveryProgress values at zero.",
+        "Coastal direct water and wind forcing are zero by T+72, yet 1,091 remain modeled under pressure; service recovery ranges 0.491877–0.953366 and availability 0.588932–0.928890 without a defence, surge hydrograph, breach closure, drainage/dewatering, access or operator repair model.",
+        "Storm, pluvial, winter, earthquake and wildfire forcing has ended by T+72 without reducing cumulative attributable person-hours; heat/cyber follow their preset schedules.",
+        "The corrected zero-intensity and sustained-flood mechanics work as designed, but no source validates Bloemendaal's precise recovery percentage or timing."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": [
+      "power",
+      "water",
+      "drainage",
+      "gas",
+      "telecom",
+      "mobility",
+      "facilities",
+      "supply"
+    ]
+  },
+  "findings": [
+    {
+      "id": "GM0377-DATA-001",
+      "severity": "informational",
+      "category": "identity",
+      "status": "fixed",
+      "summary": "Generated identity, regional membership, settlement context and 2025 demographic totals are coherent.",
+      "evidence": "Code, name, province, safety region and editions agree. CBS gives 23,592 residents; neighbourhood rows sum to 23,585 (-0.030%), a normal publication difference reconciled without changing observations. Five BAG places are contained.",
+      "action": "Retain source edition, retrieval time, null semantics, full-resolution boundary access and published-versus-allocated reconciliation on every refresh."
+    },
+    {
+      "id": "GM0377-NODATA-001",
+      "severity": "informational",
+      "category": "regional-data",
+      "status": "fixed",
+      "summary": "Unavailable neighbourhood attributes remain unknown rather than becoming false zero observations.",
+      "evidence": "District-heating share and public charging count are unavailable for all 22 neighbourhoods and cars per household for one; generated rows preserve null. Zero would incorrectly assert observed absence.",
+      "action": "Keep explicit availability/completeness metadata and make all aggregators, UI labels and correction adapters preserve no-data != zero."
+    },
+    {
+      "id": "GM0377-COASTAL-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "A generic coast-distance scalar is presented as precise direct inundation without a selected defence failure or hydraulic event.",
+      "evidence": "At T+24 the preset reports 2.217045 m, 14,887 affected people-equivalent, critical status and 100% inundation stress; T+72 burden reaches 738,663.256 person-hours. Rijnland identifies a primary dune defence and reach-specific policy, but the model selects no segment/state, surge, probability, connected footprint, arrival, duration or dewatering curve.",
+      "action": "Require an expert-selected, versioned LIWO/Rijnland coastal scenario intersected with full-resolution GM0377. Until then mark direct depth and local exposure unsupported/unknown while retaining only separately evidenced indirect scenario effects."
+    },
+    {
+      "id": "GM0377-SPATIAL-001",
+      "severity": "high",
+      "category": "geography",
+      "status": "open",
+      "summary": "Coastal, pluvial, heat and wildfire reuse one synthetic neighbourhood ranking and contradict local terrain evidence.",
+      "evidence": "All four T+24 maps rank Duinlustpark first and the 1,699-hectare dune/beach neighbourhood Verspreide huizen Bloemendaal last. Meerwijk ranks 16/22 for pluvial exposure although municipal evidence identifies De Ruyterlaan/Van Gendtlaan water depressions there. The same order cannot represent coast/defence connectivity, low points, urban heat and ignition/smoke geometry simultaneously.",
+      "action": "Replace the shared seed with hazard-specific, versioned spatial adapters. Suppress hotspot language and label neighbourhood values synthetic until each adapter retains source, scenario, resolution, no-data and uncertainty."
+    },
+    {
+      "id": "GM0377-WILDFIRE-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The canonical wildfire is a remote smoke exercise and does not test Bloemendaal's defining dune/forest fire pathway.",
+      "evidence": "At T+24 direct flame is zero, drought 0.695894, smoke 0.321413 and 307 people-equivalent are affected. VRK says more than half the municipality is dune/forest and highlights entrapment, evacuation, difficult access, large crew demand and multi-day extinguishing; the dune neighbourhood nevertheless ranks last under the shared seed.",
+      "action": "Keep the preset labelled remote smoke and add a separately named local dune-fire exercise using IPO combustible-area geometry and event-valid KNMI weather; where no public incident/spread feed exists, use the smallest transparent versioned synthetic ignition/perimeter and never imply an observed fire."
+    },
+    {
+      "id": "GM0377-VISITOR-001",
+      "severity": "high",
+      "category": "demography",
+      "status": "open",
+      "summary": "Resident allocation omits thousands of summer beach visitors and their documented access/evacuation demand.",
+      "evidence": "VRK says summer beach/horeca use adds thousands of people and N200/N201 congestion affects response. The dune/beach neighbourhood has only 100 registered residents but 153 non-residential buildings and multiple beach stops; modeled exposure, facility demand and route pressure remain resident-seeded and season-insensitive to an explicit visitor load.",
+      "action": "Add a clearly sourced day/time visitor-demand scenario using public municipal/GTFS/NDW/approved count data where terms permit; otherwise publish a transparent scenario range. Keep current traffic observations time-stamped and distinct from simulated T+0–72 demand."
+    },
+    {
+      "id": "GM0377-NETWORK-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "Five road-border links are copied into all eight services and cannot support physical outage or restoration claims.",
+      "evidence": "Identical N200/N206/N208 IDs and nominal 150-unit capacities appear for power, water, drainage, gas, telecom, mobility, facilities and supply. Zero local river forcing still produces indirect drainage availability 0.712977 and 120 modeled people-equivalent at T+72. No public evidence maps those roads to Rijnland/PWN/Liander/gas/telecom/facility connectivity or capacity.",
+      "action": "Use NWB/NDW/ProRail/GTFS only for matched mobility/supply state and build separate safe aggregate sector adapters. Retain logical-proxy labels and never attribute exact availability or restoration to an operator without authorized evidence."
+    },
+    {
+      "id": "GM0377-FACILITY-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "open",
+      "summary": "Facility continuity and shelter/education roles are synthetic despite an older population and visitor peaks.",
+      "evidence": "The municipality has 27.9% residents aged 65+. Context contains zero RIVM acute-care locations, 19 DUO education uses and five government points, but none provides shelter activation, attendance, staffing, generator endurance, supplies, accessibility or transfer capacity. Compound T+24 facilities availability 0.673969 is therefore a generic index.",
+      "action": "Keep RIVM/DUO/KVK/BAG registers non-causal, add authorized municipal/VRK facility-role and continuity data where releasable, and preserve occupancy, staffing, backups and capacity as unknown otherwise."
+    },
+    {
+      "id": "GM0377-TOPOLOGY-001",
+      "severity": "medium",
+      "category": "limitation",
+      "status": "accepted-limitation",
+      "summary": "Complete physical utility, facility, stock, backup and restoration topology is unavailable or security-sensitive.",
+      "evidence": "HWH/Rijnland assets, Liander geometry, provider territories, RIVM/DUO points and transport references do not safely supply connectivity, switching, pressure, flow, redundancy, telemetry, staffing, stocks, backups or repair resources. Exact service values remain synthetic indices, not operator forecasts.",
+      "action": "Use public aggregate zones and authorized owner interfaces where safe; otherwise retain unknown fields and service-specific synthetic aggregate fallbacks without operator attribution or reverse-engineering sensitive infrastructure."
+    },
+    {
+      "id": "GM0377-CONTRACT-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The complete numerical, causal, allocation, checkpoint and sustained-flood contract passes for GM0377.",
+      "evidence": "The focused gate covers ten presets, six checkpoints and eight services. Values are finite/deterministic, zero intensity is exact, local totals reconcile, causal ledgers close, cumulative burden is monotone, layer selection is invariant and continuing compound water blocks premature restoration.",
+      "action": "Keep GM0377 and national ALL coverage in regression and add defence-source, hazard-specific neighbourhood rank, visitor/access and sector-network assertions."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Replace GM0377's generic coastal scalar with a selected defence-dependent hydraulic scenario while preserving unknown/no-data semantics.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/public/data/hazards/GM0377-coastal-context.json",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/MapView.tsx"
+      ],
+      "validation": "Best public sources are RWS/WMCN LIWO OGC at https://basisinformatie-overstromingen.nl/geoserver/ows (named depth, duration, flow and warning-time scenario grids; layer-specific resolution/version; no guaranteed cadence or explicit standard redistribution licence established), Rijnland's primary-defence register at https://www.rijnland.net/zakelijk/legger/legger-primaire-keringen/ (object/reach legal geometry, updated regularly with latest stated actualization 2023; licence identifier/contractual interval unstated), and Waterinfo parameter-specific, often ten-minute observations. Clip with annual non-generalized PDOK CBS geometry (CC BY 4.0), never the overview polygon. Require expert selection of event, defence segment/state, surge, probability, depth unit, arrival/recession, CRS, resolution, no-data, issue/valid time and terms. Until approved, direct depth/exposure remains unknown. If no releasable scenario exists, use one smallest named/versioned synthetic failure footprint and label all dependent output hypothetical."
+    },
+    {
+      "summary": "Integrate local pluvial/heat terrain evidence and remove the shared neighbourhood ordering.",
+      "files": [
+        "scripts/fetch-realism-data.mjs",
+        "apps/web/public/data/hazards/GM0377-climate-context.json",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "First obtain the municipality's stress-test rasters behind its adopted strategy for De Ruyterlaan/Van Gendtlaan, Iepenlaan/Platanenlaan/Kinheimweg and Lage Duin en Daalseweg/Arnoldlaan; the public PDF/page has no stable machine export, raster resolution, refresh cadence or standard licence, so confirm these before caching. Use PDOK AHN WMS/WCS https://service.pdok.nl/rws/ahn/wcs/v1_0 (0.5-m latest mosaic; open-data service, licence version to be recorded from metadata) and BGT daily CC0 surfaces only as covariates/flow-path context, not observed water. Klimaateffectatlas WMS/GeoTIFF/GeoPackage https://www.klimaateffectatlas.nl/nl/faq is CC BY 4.0 and updated several times per year, but its publisher says national maps are unsuitable for local decisions; use as explicit screening only. Bind KNMI Data Platform radar/weather files (5-/10-minute products, notifications, CC BY 4.0) to named replay valid times, never as simulated depth. Validate no-data != zero, Meerwijk/local hotspot differentiation, exact allocation and stable source metadata."
+    },
+    {
+      "summary": "Add a separately named local dune-fire/visitor-access exercise without converting land cover or current traffic into an incident forecast.",
+      "files": [
+        "apps/web/public/data/hazards/GM0377-wildfire-context.json",
+        "packages/sim-core/src/scenarios.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/scenarios.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Use IPO/Risicokaart brandbaar natuurgebied WFS https://servicespub.risicokaart.nl/geoserver/ISOR_RK/wfs?service=WFS&request=GetCapabilities (forest/heath/dune polygons, Public Domain, metadata updated 19 February 2026, no guaranteed incident cadence) only as an ignition-eligibility mask. Use KNMI event-valid 5-/10-minute wind, humidity and temperature (CC BY 4.0, file/product cadence) for a named replay. Use RWS NWB monthly CC0, NDW timestamped DATEX II observations and feed-valid GTFS only for matched access/reference; none supplies evacuation capacity. VRK planning evidence has no machine cadence/licence and is not a perimeter. No reviewed public source provides a local live fire-spread, fuel-moisture, visitor-occupancy or response-resource feed, so fallback must be a smallest versioned synthetic ignition/perimeter plus explicit visitor-demand range, escape/access and suppression-water assumptions. Test zero flame outside the footprint and prevent a shared seed from relocating it."
+    },
+    {
+      "summary": "Separate mobility/supply routes from safe aggregate electricity, water, drainage, gas, telecom and facility networks.",
+      "files": [
+        "scripts/fetch-realism-data.mjs",
+        "scripts/apply-audited-lifelines.mjs",
+        "apps/web/public/data/transport-network.json",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/MapView.tsx"
+      ],
+      "validation": "For mobility/supply use RWS NWB OGC https://api.pdok.nl/rws/nationaal-wegenbestand-wegen/ogc/v1 (monthly, CC0 1.0), event-valid NDW DATEX II (timestamped observed state; CC0 where dataset metadata states it), ProRail reference geometry (editioned/CC0) and OVapi GTFS (feed-validity cadence) with explicit beach/N200 access matching; none alone gives throughput or evacuation capacity. For drainage/water use HWH IMWA/DAMO OGC https://api.pdok.nl/hwh/waterschappen-waterketen-damo/ogc/v1 (CC BY-SA 4.0, provider-supplied timestamps, variable completeness) only as topology context until connectivity/capacity is authorized. Liander ArcGIS geometry is CC BY 4.0, fixed cadence unstated and territory-limited; Stichting Mijn Aansluiting provider WMS/WFS is Public Domain with provider-specific timestamps and partial/overlapping disciplines. No reviewed public source safely supplies complete PWN, sewer, electricity, gas, telecom, facility, stock, backup or restoration topology, so use clearly synthetic service-specific aggregate nodes and never reuse road IDs outside mobility/supply."
+    },
+    {
+      "summary": "Add safe facility-role/continuity context without inventing live capacity for Bloemendaal's older residents or visitors.",
+      "files": [
+        "scripts/fetch-public-facilities.mjs",
+        "apps/web/public/data/facilities/GM0377-context.json",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Retain RIVM 2026 emergency-department questionnaire locations (CC0, dated annual questionnaire release), daily DUO RIO education uses (Creative Commons Attribution, version unstated) and KVK/PDOK government-service points (Public Domain Mark) as official context only; GM0377 currently has zero RIVM acute-care locations, 19 education uses and five government points. BAG daily/Public Domain Mark building/use-purpose data can add structural context but not shelter role. Request authorized municipality/VRK safe aggregate shelter, care, cooling-site and continuity interfaces with issue time and access terms. If none is public, keep activation, occupancy, staffing, accessible transport, generator/fuel endurance, supplies and patient-transfer capacity unknown and retain a plainly synthetic aggregate facilities index."
+    }
+  ],
+  "residualLimitations": [
+    "This audits a deterministic first-72-hour exercise model, not a forecast, emergency instruction, flood assessment, evacuation plan, wildfire forecast or operator commitment.",
+    "CBS 2025 values are rounded/suppressed and neighbourhood totals need not equal the municipality total; null district-heating, charging and car indicators are unknown, not zero.",
+    "Resident population excludes present beach, park, horeca, school, station and event visitors; no authoritative timestamped occupancy is consumed.",
+    "The overview boundary is suitable for selection, not for coast, dune, defence, raster, low-point, road, catchment or asset intersection; use full-resolution PDOK geometry.",
+    "Rijnland defence registers describe legal/physical context, not condition, failure, live level, footprint, probability, arrival, flow or dewatering performance.",
+    "LIWO and Klimaateffectatlas layers are modeled scenarios/screens and require expert selection, version, units, resolution, probability/no-data semantics, reuse terms and local validation before causal use.",
+    "Waterinfo and KNMI observations/nowcasts can support provenance or a named replay but do not create a generic T+72 forecast, inundation surface, fire perimeter, outage or restoration path.",
+    "VRK profiles are planning evidence; they do not expose live visitors, traffic, crews, evacuation capacity, facility state, extinguishing water or incident perimeters.",
+    "IMWA/DAMO assets, provider areas, Liander geometry, RIVM/DUO/KVK points, GTFS, NWB and ProRail data are partial context and do not establish connectivity, operational capacity, live state, backups or priority.",
+    "No complete public physical electricity, drinking-water, wastewater, gas, telecom, facility, fuel, stock, staff, backup, repair or restoration topology is consumed; security-sensitive gaps remain unknown or synthetic.",
+    "The Groningen earthquake and remote-wildfire presets are exercises rather than local events; cyber has no local threat/asset evidence and weather presets remain synthetic unless explicitly replayed.",
+    "Recovery beyond T+72, coastal morphology, cross-border effects into Haarlem/Zandvoort/Heemstede/Hillegom/Noordwijk and mutual-aid constraints remain outside locally validated scope."
+  ],
+  "provinceReviewFlags": [
+    "Noord-Holland/Rijnland/Rijkswaterstaat: require an expert-selected, versioned LIWO coastal event tied to an explicit Bloemendaal dune-defence state before releasing direct coastal depth/exposure.",
+    "Noord-Holland/Bloemendaal/Rijnland: publish or authorize a stable machine export, resolution, design rain, edition, no-data semantics, cadence and reuse licence for the local pluvial/heat/drought stress-test layers.",
+    "Kennemerland/VRK/Noord-Holland: define and review a separate Bloemendaal dune-fire and seasonal beach-visitor/access exercise; risk-area geometry is not an incident perimeter and current NDW state is not simulated future traffic.",
+    "Noord-Holland/RWS/NDW/ProRail/transport operators: represent N200/N201, beach/duin access and evacuation constraints for mobility/supply without converting reference roads, stops or observations into throughput.",
+    "Noord-Holland utility, water, telecom, health, facility and logistics operators: publish or authorize safe aggregate continuity/outage/restoration interfaces where possible; retain unavailable physical topology and operational state as unknown rather than deriving them from roads or registries."
+  ]
+}

@@ -1,0 +1,729 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0141",
+    "name": "Almelo",
+    "province": "Overijssel",
+    "safetyRegion": "Twente"
+  },
+  "agent": {
+    "taskName": "municipality_gm0141",
+    "agentId": "/root/causal_engine_v3",
+    "completedAt": "2026-09-02T12:35:27Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "Almelo's 2025 identity, generalized boundary, municipal totals, 71 CBS neighbourhoods, three BAG woonplaatsen and transport context are coherent, and the dedicated 10-preset by 6-checkpoint by 8-service deterministic gate passes. The current engine also passes exact zero-intensity, service-layer-invariant hazard, causal-ledger, event-attributable person-hour, logical-transfer, sustained-water recovery and local reconciliation checks. Its newer activity-aware allocation correctly preserves the official zero residents in Bedrijvenpark Twente and Bedrijventerrein XL Businesspark while assigning both non-zero service demand from registered establishments and non-residential buildings. The result is nevertheless correction-required. The canonical 'Rhine, Meuse & IJssel high water' preset assigns Almelo an internal 0.544323 m depth-like value continuously from T+12 through T+72, 18,656 modeled residents under service pressure and 1,061,939 cumulative deprived person-hours at T+72. Current Veiligheidsregio Twente evidence says Twente has no dike rings or primary barriers, its relevant rivers are the Regge and Dinkel mainly in rural land, and its flood risk is local, limited and short-lived; Almelo's official climate-adaptation note explicitly classifies overflowing brooks and canals as water nuisance rather than water-safety flooding. This is a municipality-specific false positive caused by a shared 50 km centroid-to-simplified-IJssel proximity field. Almelo does have real pluvial, brook and canal risk, including the Banisgemaal dependency, so correction must distinguish mechanisms rather than suppress all flooding. The public UI appropriately renders the internal value as an inundation-stress percentage and labels service transfers as logical proxies, but neither presentation safety nor numerical consistency validates the underlying local hazard eligibility, asset dependencies or restoration trajectory.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek",
+      "title": "Kerncijfers wijken en buurten 2025 — filtered municipality row GM0141",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM0141%27%29&%24select=WijkenEnBuurten%2CAantalInwoners_5%2CBevolkingsdichtheid_34%2Ck_65JaarOfOuder_12%2CEenpersoonshuishoudens_30",
+      "accessedAt": "2026-09-02T12:26:51Z",
+      "edition": 2025,
+      "supports": [
+        "Official GM0141 population 74,776, density 1,113 per square kilometre, age 65+ count 15,634 and one-person-household count 12,879.",
+        "Reference values used to check the generated municipality and neighbourhood reconciliation."
+      ]
+    },
+    {
+      "publisher": "PDOK / Centraal Bureau voor de Statistiek",
+      "title": "Gemeente gegeneraliseerd 2025",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_gegeneraliseerd/items?f=json&limit=1000&datetime=2025-07-01T00%3A00%3A00Z",
+      "accessedAt": "2026-09-02T12:26:51Z",
+      "edition": 2025,
+      "supports": [
+        "Official GM0141 code, Almelo name and generalized administrative geometry.",
+        "Municipality-centre point-in-polygon and province checks."
+      ]
+    },
+    {
+      "publisher": "PDOK / Centraal Bureau voor de Statistiek",
+      "title": "Buurt gegeneraliseerd 2025",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/buurt_gegeneraliseerd",
+      "accessedAt": "2026-09-02T12:26:51Z",
+      "edition": 2025,
+      "supports": [
+        "Seventy-one official neighbourhood geometries and twelve district groupings in GM0141.",
+        "Spatial basis for the generated local statistics and allocation context."
+      ]
+    },
+    {
+      "publisher": "PDOK / Kadaster",
+      "title": "BAG woonplaats OGC API",
+      "url": "https://api.pdok.nl/kadaster/bag/ogc/v2/collections/woonplaats",
+      "accessedAt": "2026-09-02T12:26:51Z",
+      "edition": 2026,
+      "supports": [
+        "Three active BAG woonplaatsen associated with GM0141: Aadorp, Almelo and Bornerbroek.",
+        "BAG woonplaats is a different ontology from BRT settlements and CBS neighbourhoods."
+      ]
+    },
+    {
+      "publisher": "PDOK / Kadaster",
+      "title": "BRT TOP10NL plaats_vlak OGC API",
+      "url": "https://api.pdok.nl/kadaster/brt-top10nl/ogc/v1/collections/plaats_vlak",
+      "accessedAt": "2026-09-02T12:26:51Z",
+      "edition": 2026,
+      "supports": [
+        "Five BRT settlement polygons assigned to GM0141: Aadorp, Almelo, Bavinkel, Bornerbroek and Tusveld.",
+        "Settlement type and population are contextual attributes, not a replacement for CBS municipality totals."
+      ]
+    },
+    {
+      "publisher": "PDOK / Centraal Bureau voor de Statistiek",
+      "title": "Veiligheidsregio gegeneraliseerd 2025",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/veiligheidsregio_gegeneraliseerd",
+      "accessedAt": "2026-09-02T12:26:51Z",
+      "edition": 2025,
+      "supports": [
+        "GM0141 intersects exactly one safety region, Twente."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / PDOK",
+      "title": "Nationaal Wegenbestand wegen WFS capabilities and NWB-light geometry",
+      "url": "https://service.pdok.nl/rws/nationaal-wegenbestand-wegen/wfs/v1_0?service=WFS&version=2.0.0&request=GetCapabilities",
+      "accessedAt": "2026-09-02T12:26:51Z",
+      "edition": "NWB-light 2026-08-01",
+      "supports": [
+        "Road-source provenance for the generated A1, A35, N36, N746, N743, N741, N349 and Oosterweilandweg municipal links.",
+        "Road identity and geometry do not establish emergency throughput or any utility network."
+      ]
+    },
+    {
+      "publisher": "ProRail / PDOK",
+      "title": "ProRail stations and railway traces OGC API",
+      "url": "https://api.pdok.nl/prorail/spoorwegen/ogc/v1/collections/station",
+      "accessedAt": "2026-09-02T12:26:51Z",
+      "edition": 2026,
+      "supports": [
+        "Almelo and Almelo de Riet station geometries lie inside the generalized municipal boundary.",
+        "Rail presence does not provide train availability, dangerous-goods state or evacuation capacity."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Twente",
+      "title": "Regionaal Risicoprofiel Twente 2025",
+      "url": "https://www.vrtwente.nl/sites/vrt/files/2025-12/Regionaal%20Risicoprofiel%20Twente%202025.pdf",
+      "accessedAt": "2026-09-02T12:26:51Z",
+      "edition": "2025, adopted 2026",
+      "supports": [
+        "Twente lies relatively high, has no dike rings or primary barriers, and has limited flood risk associated principally with local Regge/Dinkel and heavy-rain effects.",
+        "The profile characterizes local floods during prolonged or intense rain as spatially limited and short-lived and describes storm-flood risk as small, shallow and mainly rural.",
+        "Almelo-specific context includes a hazardous-goods railway through dense urban areas, the N36, two Seveso establishments, Urenco, ZGT, Heracles, industry and logistics.",
+        "Regional evidence supports extreme rain, storm, heat, drought, wildfire, winter-weather, cyber, electricity, drinking-water and telecom cascade concerns while not calibrating the simulator's values.",
+        "The assessed chance of earthquakes is very small; the discussed salt-cavern concerns are mainly around Hengelo and Enschede."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Twente / Overheid.nl",
+      "title": "Beleidsplannen en risicoprofielen — formal publication",
+      "url": "https://zoek.officielebekendmakingen.nl/bgr-2026-1272.html",
+      "accessedAt": "2026-09-02T12:26:51Z",
+      "edition": 2026,
+      "supports": [
+        "The general board of Veiligheidsregio Twente formally adopted the Regionaal Risicoprofiel Twente on 23 April 2026.",
+        "The 2025 risk-profile PDF is the current formally published regional evidence used in this audit."
+      ]
+    },
+    {
+      "publisher": "Gemeente Almelo",
+      "title": "Almelose klimaatadaptatiestrategie, ambities en scenario — discussienota voor oordeelsvorming",
+      "url": "https://almelo.bestuurlijkeinformatie.nl/Document/View/e971ca14-391b-4e6c-b738-1814a38da365",
+      "accessedAt": "2026-09-02T12:26:51Z",
+      "edition": 2021,
+      "supports": [
+        "The municipal strategy-development note states that water safety is not an Almelo issue and treats overflowing brooks and canals as water nuisance.",
+        "Local tests and ambitions use 45 mm/h and 70 mm/h rain, road-water thresholds of 10 cm and 25 cm, hospital and emergency-route accessibility, and a two-hour water-on-road aspiration for existing routes in the 10–25 cm class.",
+        "The risk analysis identified eight unacceptable and 44 undesirable local situations, demonstrating hotspot rather than municipality-uniform semantics.",
+        "The note also documents local heat and drought adaptation priorities."
+      ]
+    },
+    {
+      "publisher": "Gemeente Almelo",
+      "title": "Aanpassen aan veranderend klimaat",
+      "url": "https://www.almelo.nl/duurzaamheid-en-energie/aanpassen-aan-veranderend-klimaat",
+      "accessedAt": "2026-09-02T12:26:51Z",
+      "edition": 2026,
+      "supports": [
+        "The current municipal public page identifies extreme heat, long dry periods and heavy rain as growing local concerns.",
+        "Municipal climate context supports these scenario directions but not the simulator's exact forcing or service-loss values."
+      ]
+    },
+    {
+      "publisher": "Waterschap Vechtstromen",
+      "title": "Banisgemaal — projectinformatie",
+      "url": "https://www.vechtstromen.nl/projecten/actuele-projecten/gemalen-oppervlaktewater/banisgemaal/project-informatie/",
+      "accessedAt": "2026-09-02T12:26:51Z",
+      "edition": 2026,
+      "supports": [
+        "Almelo is low and flat where multiple brooks converge, and the Banisgemaal remains in service to remove excess water during intense rain.",
+        "The pumping asset lies between the Loolee and Kanaal Almelo-Nordhorn and is undergoing renovation planning.",
+        "This is a real drainage dependency absent from the current generic neighbourhood allocator."
+      ]
+    },
+    {
+      "publisher": "Waterschap Vechtstromen",
+      "title": "Forse regen zorgt voor overlast, Banisgemaal ingezet",
+      "url": "https://www.vechtstromen.nl/@43453/forse-regen-zorgt-overlast-banisgemaal/",
+      "accessedAt": "2026-09-02T12:26:51Z",
+      "edition": null,
+      "supports": [
+        "During prolonged or intense rain, the Banisgemaal is used roughly once or twice a year and pumps about 10,000 litres per second from the Loolee through Kanaal Almelo-Nordhorn toward the Twentekanaal.",
+        "The documented mechanism is rain, brook, canal and pumping-system water management, not direct Rhine/Meuse/IJssel inundation."
+      ]
+    },
+    {
+      "publisher": "Provincie Overijssel",
+      "title": "Overstromingskaarten Overijssel bijgewerkt",
+      "url": "https://www.overijssel.nl/nieuws/overstromingskaarten-overijssel-bijgewerkt/",
+      "accessedAt": "2026-09-02T12:26:51Z",
+      "edition": 2025,
+      "supports": [
+        "Updated public maps describe scenario probability classes and consequences, and about 80 percent of scenarios were renewed by the end of 2025.",
+        "The update adds small-brook and unembanked-water scenarios where possible, providing a more defensible eligibility source than centroid distance."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat",
+      "title": "Watermodellen en applicaties — LIWO",
+      "url": "https://www.rijkswaterstaat.nl/zakelijk/open-data/modellen-en-applicaties/watermodellen",
+      "accessedAt": "2026-09-02T12:26:51Z",
+      "edition": 2026,
+      "supports": [
+        "LIWO contains map layers for professionals preparing for water nuisance and flooding.",
+        "Official spatial scenario products exist and are methodologically different from the current three-line proximity field."
+      ]
+    },
+    {
+      "publisher": "Coteq Netbeheer",
+      "title": "Hoeveel transportcapaciteit is er in Almelo beschikbaar?",
+      "url": "https://coteqnetbeheer.nl/faq/transportcapaciteit-almelo",
+      "accessedAt": "2026-09-02T12:26:51Z",
+      "edition": 2026,
+      "supports": [
+        "Coteq publicly identifies Almelo-Mosterdpot and Almelo-Urenco supply context and states that no capacity is available for new large-connection consumption or feed-in requests.",
+        "Grid-congestion and planning evidence must not be converted into failure probability, outage extent, switching topology or restoration time."
+      ]
+    },
+    {
+      "publisher": "Vitens",
+      "title": "Mogelijk minder water uit de kraan in Noordoost-Twente",
+      "url": "https://www.vitens.nl/over-vitens/pers-en-nieuws/nieuws/drinkwater-noordoost-twente",
+      "accessedAt": "2026-09-02T12:26:51Z",
+      "edition": 2026,
+      "supports": [
+        "Vitens documents warm/dry-weather capacity pressure in the Noordoost-Twente drinking-water system.",
+        "Only four Almelo addresses are connected to that specific system, so the notice cannot justify a municipality-wide Almelo water reduction.",
+        "Public information does not disclose Almelo pipe, reservoir, isolation, pressure-zone or emergency-supply topology."
+      ]
+    },
+    {
+      "publisher": "KNMI",
+      "title": "KNMI'23-klimaatscenario's voor Nederland",
+      "url": "https://www.knmi.nl/kennis-en-datacentrum/publicatie/knmi-23-klimaatscenario-s-voor-nederland",
+      "accessedAt": "2026-09-02T12:26:51Z",
+      "edition": "KNMI'23",
+      "supports": [
+        "National climate-scenario context for warming, drought and summer precipitation extremes.",
+        "Climate paths are uncertain scenarios rather than municipality forecasts or observed emergency forcing."
+      ]
+    },
+    {
+      "publisher": "KNMI",
+      "title": "Natuurbranden",
+      "url": "https://www.knmi.nl/kennis-en-datacentrum/uitleg/natuurbranden",
+      "accessedAt": "2026-09-02T12:26:51Z",
+      "edition": 2026,
+      "supports": [
+        "Wildfire occurrence depends on weather, burnable material and an ignition source.",
+        "Distance from a national scenario epicentre alone cannot establish local direct-fire or smoke concentration."
+      ]
+    },
+    {
+      "publisher": "KNMI",
+      "title": "ShakeMaps archief",
+      "url": "https://www.knmi.nl/nederland-nu/seismologie/shakemaps-archief",
+      "accessedAt": "2026-09-02T12:26:51Z",
+      "edition": 2026,
+      "supports": [
+        "Official Groningen ShakeMaps combine observed station motion with a Groningen-specific ground-motion prediction equation.",
+        "A defensible local g-value is event-specific and is not established by a generic exponential distance decay."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Twente / Overheid.nl",
+      "title": "Regionaal Crisisplan",
+      "url": "https://lokaleregelgeving.overheid.nl/CVDR764048",
+      "accessedAt": "2026-09-02T12:26:51Z",
+      "edition": "effective 2026-07-10",
+      "supports": [
+        "The current regional crisis plan covers flash and prolonged, policy-intensive crises across municipalities and partners.",
+        "A first-72-hour model is an operational checkpoint tool and cannot imply that crisis organization or recovery ends at T+72."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM0141, Almelo, Overijssel and safety region Twente agree across the manifest, generated files and official 2025 geography.",
+      "evidenceRefs": [
+        "E01",
+        "E02",
+        "E06",
+        "E09"
+      ],
+      "notes": [
+        "The feature id, municipal code, regional-bundle code and name all agree.",
+        "The municipality intersects exactly one generated safety region, Twente.",
+        "Boundary and municipal-statistics editions are both 2025."
+      ]
+    },
+    "geography": {
+      "status": "pass",
+      "summary": "The 2025 generalized boundary, municipality centre and assigned local label points are internally coherent.",
+      "evidenceRefs": [
+        "E02",
+        "E03",
+        "E04"
+      ],
+      "notes": [
+        "The generated centre [6.65951955535561, 52.34353478530282] is inside the official generalized municipal geometry.",
+        "All three BAG woonplaats centres and audited CBS local regions are assigned without an out-of-boundary label-point review flag.",
+        "Generalized administrative polygons are not parcel, terrain, catchment, sewer, dike or inundation boundaries."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Official municipality demography is exact and published neighbourhood rounding reconciles closely without erasing true zeroes.",
+      "evidenceRefs": [
+        "E01",
+        "E03"
+      ],
+      "notes": [
+        "Generated municipality population is 74,776, density 1,113/km², age 65+ share 20.9% and one-person households 12,879; CBS reports 15,634 residents aged 65+.",
+        "Published neighbourhood population sums to 74,780, a difference of +4 (+0.005%); men plus women sum to 74,775, age 65+ to 15,620, households to 33,855 and one-person households to 12,875.",
+        "Bedrijvenpark Twente and Bedrijventerrein XL Businesspark retain official population=0 and households=0 rather than treating zero as missing."
+      ]
+    },
+    "regionalDetail": {
+      "status": "pass",
+      "summary": "The 71-neighbourhood bundle exposes all 36 expected fields and the current allocator uses aggregate residential and non-residential context transparently.",
+      "evidenceRefs": [
+        "E03"
+      ],
+      "notes": [
+        "Population, age bands, household counts, businesses, non-residential buildings, cars, land and water are available for all 71 neighbourhoods.",
+        "Average-home and multi-family fields cover 65/71; cars per household 61/71; doctor/supermarket distance and population density 69/71; applicable benefit fields 66/71.",
+        "District-heating percentage and public charging points have 0/71 usable observations and remain null; null is not evidence of zero infrastructure.",
+        "Neighbourhood sums include 8,235 establishments, 4,830 non-residential buildings, 6,718 ha land and 219 ha inland water.",
+        "Bedrijvenpark Twente combines zero residents with 235 establishments and 267 non-residential buildings; XL Businesspark combines zero residents with 30 establishments and 32 non-residential buildings."
+      ]
+    },
+    "settlements": {
+      "status": "warn",
+      "summary": "BAG and BRT settlement products are valid but use different membership and population semantics.",
+      "evidenceRefs": [
+        "E04",
+        "E05",
+        "E09"
+      ],
+      "notes": [
+        "BAG yields Aadorp, Almelo and Bornerbroek; BRT yields those three woonkernen plus Bavinkel as a deelkern and Tusveld as a buurtschap.",
+        "BRT settlement population totals 73,705, which is 1,071 below the CBS municipality total (1.43%); this is an ontology/reference-date caveat, not a failed municipality population reconciliation.",
+        "The regional profile also describes part of Mariaparochie in the municipality; that narrative geography must not be forced into BAG or BRT as if all products used identical boundaries."
+      ]
+    },
+    "transport": {
+      "status": "warn",
+      "summary": "Road, rail, station and transit presence is plausible, but only the road-derived graph participates in modeled service transfer and none of its capacities is emergency throughput.",
+      "evidenceRefs": [
+        "E07",
+        "E08",
+        "E09"
+      ],
+      "notes": [
+        "The generated logical graph has eleven NWB links to Wierden, Borne, Twenterand, Tubbergen and Hof van Twente, including A1, A35, N36, N746, N743, N741 and N349 identities.",
+        "Almelo and Almelo de Riet stations and 159 scheduled-transit stop areas fall inside the municipality.",
+        "The current service graph does not model rail or the Twentekanaal/Kanaal Almelo-de Haandrik as mobility, supply or dangerous-goods dependencies despite their documented local relevance.",
+        "Nominal route capacities 260 and 150 are synthetic transfer units and are reused for non-mobility services."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "Current primary sources identify important Almelo emergency assets and corridors that are absent from the operational state and local priority model.",
+      "evidenceRefs": [
+        "E09",
+        "E13",
+        "E14",
+        "E17",
+        "E18",
+        "E22"
+      ],
+      "notes": [
+        "The simulator has no explicit ZGT hospital, Banisgemaal, Urenco, Vivochem, SARPI, Heracles stadium, 380 kV context, rail dangerous-goods corridor, canal port or public response-location object.",
+        "All official CBS neighbourhoods intentionally have neutral operational priority and no fabricated utility hub; this is safer than demographic inference but means the facilities and response layers are not locally operational.",
+        "Coteq congestion and named-station information is planning context, not an outage or restoration calibration; Vitens' Noordoost-Twente warning covers only four Almelo addresses.",
+        "Primary public sources do not provide staffing, fuel, backup autonomy, switching, valves, pressure zones, customer criticality or sensitive operator topology; those values remain unknown."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten canonical presets execute at T+0/6/12/24/48/72 across all eight services for GM0141 without missing or non-finite state.",
+      "evidenceRefs": [
+        "E09",
+        "E11",
+        "E12",
+        "E19",
+        "E20",
+        "E21"
+      ],
+      "notes": [
+        "Reproduction: MUNICIPALITY_AUDIT_CODE=GM0141 pnpm audit:model; both coverage tests passed in 26.62 seconds during the final focused run.",
+        "Peak severities are severe-storm 0.688097, pluvial-flood 0.420111, river-flood 0.168217, coastal-flood 0.008242, heatwave 0.539758, winter-storm 0.708390, cyberattack 0.437877, earthquake 0.088822, wildfire 0.127005 and compound 0.906009.",
+        "At T+24, severe storm reports 0.341708 depth-like flood stress and 17,956 residents under pressure; pluvial 0.381189 and 13,485; river 0.544323 and 13,816; coastal direct depth zero with 20.604435 m/s wind and zero residents under pressure; heat has 23.252891 °C plus 0.475462 drought and 6,146; winter has -8.046015 °C, 3.748439 cm/h snow, 0.634755 ice and 20,351; cyber has 0.373104 disruption and 22,359; the earthquake impulse has ended after 0.017491 g at T+6; wildfire has zero direct flame plus 0.297524 smoke and zero residents under pressure; compound has 0.393971 flood stress, 51.406261 mm/h rain, 29.071543 m/s wind, 0.384149 cyber disruption and 54,078 residents under pressure.",
+        "At T+72 the river scenario still reports 0.544323 flood stress, 18,656 residents under pressure and 1,061,939 cumulative deprived person-hours; compound still reports 0.393971, 58,679 and 2,710,067 respectively.",
+        "A headless Chromium check of the live local app selected Almelo, the river preset, hazard layer and T+72: all 11 map layers were available, the hero rendered '36% inundation stress', the fidelity badge stated 'logical service transfers', and no console/page error occurred. This verifies current UI semantics, not physical calibration."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Bounds, determinism, exact no-event behavior, local allocation, service ledgers and layer invariance pass.",
+      "evidenceRefs": [],
+      "notes": [
+        "All audited hazards, demand, delivery, reserve and explanation values are finite; service availability remains in [0,1], severity does not exceed remembered peak severity, and event-attributable deprived person-hours are monotonic.",
+        "Every canonical preset at intensity zero and every required checkpoint has exactly zero event severity, peak severity, physical event dimensions, affected population and event-attributable deprived person-hours, verifying CORR-009 locally.",
+        "At compound T+24, selecting any of the eleven public layers produces exactly identical GM0141 hazard, system-pressure and affected-population state.",
+        "At compound T+24, local demand/delivery totals reconcile to the municipality/gateway to at most 7.11e-15 for all eight services: power 79.910634/34.309540, water 57.497579/12.492030, drainage 43.842826/14.861709, gas 71.072837/31.663230, telecom 35.428547/4.096796, mobility 55.357104/37.414582, facilities 33.640594/13.330604 and supply 43.734179/6.978715.",
+        "The coverage harness also checks deterministic repetition, hazard/service/system cause-ledger closure, local population and affected-population reconciliation, neutral priority, no synthetic local hub/link, all-service weight sum and logical-proxy transfer typing."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "Coastal and direct-fire screening behave conservatively, but the major-river result contradicts current local/regional evidence and pluvial allocation lacks Almelo's actual catchments and hotspots.",
+      "evidenceRefs": [
+        "E09",
+        "E11",
+        "E13",
+        "E14",
+        "E15",
+        "E16",
+        "E20",
+        "E21"
+      ],
+      "notes": [
+        "packages/sim-core/src/model.ts riverExposure uses distance to three simplified Rhine/Meuse/IJssel line segments with a 50 km support. That alone gives Almelo the persistent 0.544323 depth-like value; there is no intersected catchment, breach, waterbody, terrain or hydraulic scenario.",
+        "Current Twente evidence says the region has no dike rings or primary barriers and describes relevant flooding as limited Regge/Dinkel and local heavy-rain effects; Almelo's municipal source classifies overflowing brooks/canals as water nuisance. The named Rhine/Meuse/IJssel preset is therefore locally ineligible on current evidence.",
+        "Severe-storm, pluvial and compound forcing are qualitatively relevant, but the generated municipal depth-like state cannot locate the eight unacceptable and 44 undesirable hotspots, road thresholds, Loolee catchment or Banisgemaal-controlled drainage pathway.",
+        "Direct coastal depth is exactly zero, which is appropriate for inland Almelo; wind remains a separately traceable indirect driver.",
+        "The finite wildfire correction yields direct flame exactly zero while retaining wider smoke stress. The separation is safe, but smoke is not a wind/dispersion/concentration plume.",
+        "The Groningen-centred earthquake is a synthetic distance-decay stress case. It is not a KNMI event ShakeMap and must remain separate from the small assessed Twente underground-incident likelihood and primarily Hengelo/Enschede salt-cavern geography."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "warn",
+      "summary": "All eight services and activity-aware local allocation execute transparently, but public Almelo assets, modalities and operator dependencies are not represented as operational topology.",
+      "evidenceRefs": [
+        "E09",
+        "E13",
+        "E14",
+        "E17",
+        "E18",
+        "E22"
+      ],
+      "notes": [
+        "System-pressure weights cover all eight services and sum to one: power 0.18, water 0.15, drainage 0.08, gas 0.09, telecom 0.12, mobility 0.12, facilities 0.14 and supply 0.12.",
+        "At compound T+24, zero-resident Bedrijvenpark Twente receives positive demand for every service from service-specific activity weights: power 1.316099, water 0.429046, drainage 0.385413, gas 0.806839, telecom 0.478146, mobility 1.041344, facilities 0.157020 and supply 0.468308. XL Businesspark likewise receives positive demand for all eight. This verifies CORR-015 while preserving resident population zero.",
+        "Those establishment/building coefficients redistribute a fixed municipal demand total; they are not employment, occupancy, industrial-process load, measured customer demand, asset criticality or added daytime population.",
+        "Generic power and mobility dependency, reserve and restoration relationships are present, but no Banisgemaal power dependency, ZGT continuity state, Coteq/Vitens zone, telecom site, facility backup or emergency-supply depot is consumed.",
+        "All intermunicipal service balances share NWB-derived logical corridors. Rail, canal and operator networks do not participate in the solver."
+      ]
+    },
+    "causalTrace": {
+      "status": "warn",
+      "summary": "Causal and counterfactual accounting is inspectable and UI proxy labels are substantially correct, while the trace cannot make an unsupported local hazard mechanism true.",
+      "evidenceRefs": [
+        "E09",
+        "E11",
+        "E17",
+        "E18"
+      ],
+      "notes": [
+        "Typed hazard, direct-loss, dependency, backup, recovery, intervention, demand, local-context and network contributions reconcile; drivers and counterfactual metadata identify scenario assumptions.",
+        "Local physical hazard is exactly invariant across service-layer selection; service-specific context changes demand and availability allocation rather than the hazard field.",
+        "Every route transfer declares transferSemantics=logical-proxy. In the running UI, the map fidelity badge and causal explanation explicitly state logical service transfers and explain that the NWB graph is not physical utility topology.",
+        "The UI converts floodDepthM to 'inundation stress' and does not expose the 0.544323 internal value as observed metres. The remaining defect is the false non-zero major-river eligibility and downstream consequence, not a missing unit disclaimer.",
+        "Deprived person-hours integrate event-attributable weighted essential-service pressure above a matched no-event baseline. They are a deterministic model proxy, not observed outage/customer deprivation and not a post hoc count of identified residents.",
+        "Generator-priority and mutual-aid effects are delayed/ramped and labeled scenario assumptions rather than actual dispatched crews, generators or commitments."
+      ]
+    },
+    "recovery72h": {
+      "status": "warn",
+      "summary": "Standing-water recovery guards pass mechanically, but the locally false river field and uncalibrated compound persistence make the resulting 72-hour restoration picture unsuitable for Almelo operations.",
+      "evidenceRefs": [
+        "E09",
+        "E11",
+        "E13",
+        "E14",
+        "E22"
+      ],
+      "notes": [
+        "For canonical river flooding, all eight direct service recoveryProgress values remain exactly zero at T+12, T+24, T+48 and T+72 while the 0.544323 standing-water field persists, verifying CORR-011/CORR-016 mechanics.",
+        "For compound at T+72, all eight recoveryProgress values are exactly zero while the model retains 0.393971 standing water and 0.049963 cyber disruption; this avoids instantaneous restoration but inherits an uncalibrated municipality-wide water premise.",
+        "At T+72 the other cumulative deprived person-hour proxies are severe storm 1,031,609, pluvial 642,231, coastal 379,282, heat 337,510, winter 1,231,903, cyber 877,135, earthquake 147,889 and wildfire 251,716.",
+        "Actual recovery would depend on hotspot recession, Banisgemaal/other drainage operation, access, asset inspection, switching, contamination, facility backup, crews, fuel and mutual aid. None is locally calibrated, and the regional crisis plan does not make T+72 an automatic all-clear."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [
+      0,
+      6,
+      12,
+      24,
+      48,
+      72
+    ],
+    "services": [
+      "power",
+      "water",
+      "drainage",
+      "gas",
+      "telecom",
+      "mobility",
+      "facilities",
+      "supply"
+    ]
+  },
+  "findings": [
+    {
+      "id": "GM0141-FLOOD-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Municipality-specific false positive: the Rhine/Meuse/IJssel high-water preset gives Almelo sustained direct inundation from a centroid-distance screen.",
+      "evidence": "packages/sim-core/src/model.ts riverExposure measures the GM0141 label point against three simplified river segments, assigns any point within 50 km a positive exponential exposure, and baseHazard converts it to a depth-like value. The focused canonical run returns 0.191602 at T+6 and exactly 0.544323 at T+12/T+24/T+48/T+72, with 18,656 resident-equivalents under service pressure and 1,061,939 deprived person-hours at T+72. E09 states that Twente has no dike rings or primary barriers, identifies Regge/Dinkel rather than Rhine/Meuse/IJssel, and describes flood effects as local, limited and short. E11 explicitly classifies Almelo brook/canal overflow as water nuisance rather than water safety. This is local evidence exposing a shared national proximity-screen limitation.",
+      "action": "Until official scenario masks are loaded, make GM0141 ineligible for direct forcing from the specifically named Rhine/Meuse/IJssel preset. Do not suppress Almelo pluvial, brook or canal risk. Replace municipality exceptions with intersected Overijssel/LIWO scenarios that distinguish major-river, small-brook, canal, pluvial and drainage-system pathways and expose source, scenario id, probability class, resolution and coverage."
+    },
+    {
+      "id": "GM0141-PLUVIAL-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Almelo's real pluvial and brook/canal risk is reduced to a seeded municipality-wide stress field that cannot represent its documented hotspots or water-management system.",
+      "evidence": "The canonical pluvial run reports 80.506569 mm/h at T+6 and retains 0.381189 depth-like stress at T+12/T+24; compound retains 0.393971 through T+72 and blocks all direct repair. E11 instead documents 45/70 mm/h local tests, road-depth thresholds, an accessibility objective, eight unacceptable and 44 undesirable sites, and a two-hour duration objective for a defined road-depth band. E13-E14 identify Almelo's low/flat convergence of brooks and the Banisgemaal's 10,000 L/s Loolee-to-canal function. The model consumes none of those geometries, thresholds, catchments or control states and seeds the same municipal hazard basis across all 71 neighbourhoods.",
+      "action": "Ingest licensed municipal/provincial stress-test or flood-scenario rasters, catchment/road passability context and public aggregate drainage-control dependencies. Keep uncalibrated outputs as unitless stress, represent water presence and recession spatially, and validate that dry neighbourhoods remain dry while known hotspots and response routes receive source-backed state."
+    },
+    {
+      "id": "GM0141-DRAIN-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "open",
+      "summary": "The drainage layer omits the publicly documented Banisgemaal and Loolee/canal dependency central to heavy-rain management in Almelo.",
+      "evidence": "E13 locates the still-operational Banisgemaal between the Loolee and Kanaal Almelo-Nordhorn and explains that it is activated during intense rain; E14 reports about 10,000 L/s pumping during prolonged/heavy rain. The current drainage service uses generic hazard weights, a generic power dependency, synthetic backup and NWB logical transfers. There is no typed pump/control/catchment state or renovation constraint in the local explanation.",
+      "action": "Add the Banisgemaal as public contextual infrastructure with source, function and explicit unknown capacity/backup/reliability fields; model only approved aggregate dependency and state. Never infer sensitive controls, current operability, remaining redundancy or failure probability from the public project page."
+    },
+    {
+      "id": "GM0141-FAC-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "open",
+      "summary": "The facilities/emergency context omits ZGT and Almelo's publicly identified high-consequence sites and event node.",
+      "evidence": "E09 identifies ZGT Almelo, Urenco, the Seveso establishments Vivochem and SARPI, the compact historic centre, the hazardous-goods railway, N36 and Heracles crowds as municipality-specific risk context. The generated operational model contains no facility/industrial/event asset objects; all CBS neighbourhoods retain neutral priority and facilities are allocated from aggregate population/business/building context only. Neutrality avoids inventing priority, but the output cannot support actual triage, continuity or route decisions.",
+      "action": "Add security-reviewed public context nodes with typed roles and source provenance, beginning with ZGT and public emergency/risk locations. Presence must not imply occupancy, beds, staff, generator fuel, response capacity, fragility or availability; those fields remain unknown unless the responsible organization supplies approved aggregate data."
+    },
+    {
+      "id": "GM0141-MOB-001",
+      "severity": "medium",
+      "category": "network",
+      "status": "open",
+      "summary": "The service solver omits Almelo's rail and canal dependencies despite displaying two stations and rail geometry.",
+      "evidence": "The data check finds Almelo and Almelo de Riet stations and 159 transit stop areas. E09 identifies A1/A35, the N36, an international hazardous-goods railway through dense Almelo, the Twentekanaal branch/Kanaal Almelo-de Haandrik and growing use of the XL Businesspark quay. Only eleven NWB municipal road links participate in mobility, supply and all non-mobility transfer calculations; trains, vessels, modal substitution, closures and dangerous-goods exposure do not.",
+      "action": "Keep observed road, rail, station, transit and waterway geometry distinct from modeled capacity. Add scenario-specific public closure/detour and modal-availability relationships before making emergency-throughput or redundancy claims; do not infer trains, vehicles, vessels, dangerous-goods loads or response times from geometry alone."
+    },
+    {
+      "id": "GM0141-NET-001",
+      "severity": "medium",
+      "category": "network",
+      "status": "accepted-limitation",
+      "summary": "All eight essential services share road-derived logical transfer corridors rather than physical operator networks.",
+      "evidence": "The same eleven NWB edges carry power, water, drainage, gas, telecom, mobility, facilities and supply in synthetic units. E17-E18 and E09 provide operator/service context but no feeders, pipes, valves, pressure zones, switching, backhaul, reserve power, customer domains or restoration priorities. The current type correctly emits transferSemantics=logical-proxy, and the UI repeats that disclaimer.",
+      "action": "Retain logical-transfer-proxy wording in maps, legends, inspector, explanations and exports and never depict the edges as Coteq, TenneT, Vitens, sewer, gas or telecom assets. Introduce service-specific topology only from operator-authorized, security-reviewed aggregate zones."
+    },
+    {
+      "id": "GM0141-EQ-001",
+      "severity": "medium",
+      "category": "hazard",
+      "status": "accepted-limitation",
+      "summary": "The Groningen-centred earthquake stress tail is not a locally validated ground-motion or Twente underground-risk scenario.",
+      "evidence": "The canonical run reaches 0.017491 g at T+6, zero current shaking at T+24 and 147,889 cumulative deprived person-hours at T+72. E21 explains that official ShakeMaps are event-specific and combine measurements with a Groningen-specific GMPE. E09 assesses Twente earthquake probability as very small and discusses salt-cavern concerns mainly around Hengelo/Enschede, a different mechanism from the preset. A generic exponential epicentre-distance curve cannot validate either local g or recovery burden.",
+      "action": "Require a named magnitude/source and KNMI ShakeMap or validated GMPE/site-response grid before treating g as physical. Keep Groningen shaking, local induced seismicity, subsidence and cavern incidents as separate scenario mechanisms and label unsupported tails as hypothetical stress."
+    },
+    {
+      "id": "GM0141-MET-001",
+      "severity": "medium",
+      "category": "limitation",
+      "status": "accepted-limitation",
+      "summary": "Storm, heat/drought, winter weather and cyber are credible directions for Twente but their exact Almelo forcing and service trajectories are uncalibrated.",
+      "evidence": "E09, E11, E12 and E19 support severe rain, wind, heat, drought, snow/ice and vital-service cascades, while E09 also says cyber incidents can initiate vital-sector disruption and recover unpredictably. The exact model values come from analytic envelopes and deterministic seeds rather than KNMI observation/forecast grids, local stress-test rasters, operator incident distributions or threat intelligence. The default cyber case also applies a generic local target weight when no municipalities are selected.",
+      "action": "Keep scenario/not-forecast labeling and expose forcing provenance and uncertainty. Use time-stamped KNMI data, official local climate layers and approved anonymized operator envelopes for future calibration; do not turn grid congestion or regional cyber concern into outage probability."
+    },
+    {
+      "id": "GM0141-WINTER-001",
+      "severity": "low",
+      "category": "explainability",
+      "status": "open",
+      "summary": "The winter preset retains a small event severity when only ordinary seasonal temperature remains.",
+      "evidence": "At T+0 and T+72, canonical winter-storm has no modeled wind, snow or ice and temperature 1.351309 °C, yet current severity is 0.011920. Intensity zero correctly produces exact zero, so this is not the old zero-intensity defect; packages/sim-core/src/model.ts calculates coldStress from absolute seasonal temperature inside the winter event branch even when its weather envelope is zero. The result attributes matched ambient cold to the event headline.",
+      "action": "Separate ambient seasonal cold context from event-attributable cold anomaly, or multiply the winter event cold-stress contribution by its event envelope. Add before-arrival and after-envelope tests while preserving exact intensity-zero behavior."
+    },
+    {
+      "id": "GM0141-FIRE-001",
+      "severity": "informational",
+      "category": "hazard",
+      "status": "fixed",
+      "summary": "Shared finite-fire-footprint correction verified locally: Almelo receives no direct flame from the distant canonical ignition while smoke remains separate.",
+      "evidence": "The focused run returns wildfireIntensity=0 at every required checkpoint and separately reaches smokeSeverity=0.297524 and droughtSeverity=0.562505. This satisfies CORR-010's interim contract and avoids a country-wide direct-fire tail. E09 and E20 still require fuel, land cover, ignition, wind, access and bluswater for any local physical claim.",
+      "action": "Retain finite direct-fire support and separate smoke semantics. Future calibration should use burnable land cover, ignition and wind-aware spread for flame plus meteorological dispersion and health thresholds for smoke."
+    },
+    {
+      "id": "GM0141-DEMAND-001",
+      "severity": "informational",
+      "category": "service",
+      "status": "fixed",
+      "summary": "Shared activity-allocation correction verified locally: zero-resident industrial areas now carry transparent non-residential service demand.",
+      "evidence": "Bedrijvenpark Twente remains population=0 while its 235 establishments and 267 non-residential buildings produce positive demand and delivery for all eight services at compound T+24. XL Businesspark does the same from 30 establishments and 32 non-residential buildings. Explanations identify the service-specific activity weight, and municipality totals still reconcile exactly. This verifies CORR-015 without inventing residents.",
+      "action": "Retain the separate resident and aggregate-activity semantics. Add employment, time-of-day occupancy, industrial-process and critical-asset load only from sourced privacy-safe inputs, never by relabeling business weights as measured demand or population."
+    },
+    {
+      "id": "GM0141-ZERO-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "Shared zero-intensity correction verified locally for all ten presets and six checkpoints.",
+      "evidence": "For every canonical preset at T+0/6/12/24/48/72, intensity=0 returns maximum current severity=0, peak severity=0, affected population=0 and event-attributable deprived person-hours=0; every physical event dimension and hazard-ledger event contribution is also zero in the coverage gate. Seasonal temperature remains context only. This verifies CORR-009.",
+      "action": "Keep the all-preset no-event invariant in focused and national release gates."
+    },
+    {
+      "id": "GM0141-REC-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "Shared sustained/standing-water repair gates prevent instantaneous restoration in the current Almelo river and compound runs.",
+      "evidence": "RecoveryProgress is exactly zero for power, water, drainage, gas, telecom, mobility, facilities and supply at T+12/T+24/T+48/T+72 in river flooding and at T+72 in compound while standing water exceeds the explicit screening threshold. This verifies CORR-011 and CORR-016 mechanics. It does not validate the river exposure or compound water persistence that activates the gate.",
+      "action": "Retain forcing/water-gated recovery tests, then calibrate recession, access and asset restoration against source-specific local scenarios and approved operator envelopes."
+    },
+    {
+      "id": "GM0141-SET-001",
+      "severity": "informational",
+      "category": "regional-data",
+      "status": "accepted-limitation",
+      "summary": "Three BAG woonplaatsen and five BRT settlements are valid non-equivalent views of Almelo.",
+      "evidence": "E04 produces Aadorp, Almelo and Bornerbroek, while E05 also retains Bavinkel and Tusveld. BRT population totals 73,705 versus the CBS municipality total 74,776. This difference reflects source ontology/reference semantics and does not justify changing the exact CBS municipal total.",
+      "action": "Keep source type, edition and ontology visible; do not merge BAG/BRT counts or treat BRT settlement population as emergency occupancy."
+    },
+    {
+      "id": "GM0141-INV-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The current engine closes its deterministic calculation, counterfactual, local-allocation and UI proxy-semantics contracts for GM0141.",
+      "evidence": "The dedicated model gate passes; repeated frames are deterministic; all values are finite/bounded; cause ledgers and local totals close; local hazard is invariant across selected service layers; all official regions use neutral priority and no synthetic hub; every intermunicipal service edge declares logical-proxy; UI inspection exposes eleven map layers, inundation stress rather than observed metres, and the logical-transfer disclaimer without browser errors.",
+      "action": "Retain these invariants in the national release gate while correcting the unsupported river eligibility and local physical/asset calibration gaps above."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Remove GM0141 from unsupported direct Rhine/Meuse/IJssel forcing and replace centroid proximity with named official flood-mechanism eligibility.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "packages/sim-core/src/types.ts",
+        "apps/web/src/data.ts",
+        "apps/web/public/data/hazards/overijssel-flood-scenarios.geojson"
+      ],
+      "validation": "As an interim primary-source-backed safeguard, assert GM0141 direct river floodDepthM/severity is zero for the specifically named Rhine/Meuse/IJssel preset at T+0/6/12/24/48/72 while pluvial, storm and locally eligible brook/canal context remain unaffected. The durable fixture must intersect an official Overijssel/LIWO scenario with municipality/neighbourhood geometry and expose mechanism, source, scenario id, probability class, resolution and coverage before emitting a local physical depth. Re-run MUNICIPALITY_AUDIT_CODE=GM0141 pnpm audit:model and the national ALL gate."
+    },
+    {
+      "summary": "Represent Almelo's pluvial/brook/canal hotspots, water recession and Banisgemaal context without inventing hydraulic precision or sensitive controls.",
+      "files": [
+        "apps/web/public/data/hazards/GM0141-pluvial-context.geojson",
+        "apps/web/public/data/services/GM0141-drainage-context.geojson",
+        "apps/web/src/data.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/explainability.test.ts",
+        "apps/web/src/components/MapView.tsx"
+      ],
+      "validation": "Using a licensed municipal/provincial fixture, assert dry areas remain dry; sourced hotspots, road-depth/passability classes and the Loolee/canal catchment remain distinct; Banisgemaal appears as a public contextual dependency with unknown reliability/backup unless separately sourced; recession and repair blocking use spatial state rather than one municipal scalar. Without the fixture, show only unitless stress and explicit unverified coverage."
+    },
+    {
+      "summary": "Add public Almelo facility/risk nodes and modal transport context while keeping operational capacities unknown.",
+      "files": [
+        "apps/web/public/data/facilities/GM0141.geojson",
+        "apps/web/public/data/transport-local/GM0141.geojson",
+        "apps/web/src/data.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/components/MapView.tsx",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Expose ZGT and other approved public context with source and role, plus distinct road/rail/waterway geometry and scenario closure state. Assert that presence never fabricates beds, staff, fuel, backup, dangerous-goods load, vehicle/vessel availability, throughput, response time, topology or priority. All utility flows must remain logical proxies unless an operator-authorized aggregate adapter is present."
+    },
+    {
+      "summary": "Remove ordinary seasonal cold from winter event severity outside the event envelope.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/explainability.test.ts"
+      ],
+      "validation": "For GM0141 winter-storm, assert event-attributable severity and event hazard contribution are zero before arrival and after the weather envelope when wind, snow and ice are zero and only matched seasonal temperature remains; retain visible ambient temperature, exact intensity-zero behavior and non-zero event severity during the actual cold/snow/ice envelope."
+    }
+  ],
+  "residualLimitations": [
+    "The ten canonical presets are deterministic stress tests, not KNMI forecasts, official event probabilities, warnings, casualty estimates, current incidents or operator outage predictions.",
+    "No security-sensitive Coteq, TenneT, Enexis, Vitens, gas, telecom, Vechtstromen, hospital or emergency-service topology, switching, control, priority-customer or restoration data is consumed.",
+    "Neighbourhood outputs use aggregate CBS polygons, label points and deterministic allocation; they do not resolve buildings, parcels, terrain, sewer catchments, actual water depth, households, workers, visitors or individual vulnerability.",
+    "Official Overijssel/LIWO flood-scenario geometry is not ingested, so river, pluvial, severe-storm and compound depth-like values are not hydraulically validated local observations.",
+    "The finite wildfire footprint remains a geometric planning proxy without land cover, fuel, ignition, slope, suppression or wind-aware spread; smoke is not atmospheric concentration or health exposure.",
+    "The earthquake field lacks a named magnitude/event, event-specific ShakeMap, site response and local underground-mechanism model.",
+    "Coteq congestion is connection-capacity context and cannot establish current service fragility, outage probability or restoration time; Vitens' Noordoost-Twente warning must not be generalized beyond the four stated Almelo addresses.",
+    "The facilities layer lacks verified ZGT beds/staff/occupancy, backup fuel, pharmacy stocks, emergency-service resources, public support points, care catchments or activation performance.",
+    "Emergency supply lacks Almelo household preparedness observations, supermarket/pharmacy stocks, depots, vehicles, water distribution points and last-mile delivery plans.",
+    "Generic backup, preparedness, repair capacity, network capacity, generator-priority and mutual-aid controls are bounded scenario assumptions, not verified local inventories, dispatches or commitments.",
+    "The ten-presets scope does not model Almelo's Seveso, Urenco/nuclear, hazardous-goods rail, dense-inner-city fire, crowd, traffic or industrial incidents identified in the current regional profile.",
+    "The first-72-hour horizon excludes prolonged displacement, health outcomes, environmental contamination, economic loss, reconstruction and long-duration crisis governance.",
+    "Six-hour reporting checkpoints can miss short impulses such as earthquake shaking and fast cloudburst access loss; peak-memory fields improve visibility but do not create temporal validation.",
+    "CBS values are rounded and field availability varies; BAG, BRT, CBS municipality/neighbourhood and safety-region products use distinct ontologies and sometimes reference dates."
+  ],
+  "provinceReviewFlags": [
+    "Overijssel/Twente: audit every municipality inside the shared 50 km IJssel proximity support for false direct Rhine/Meuse/IJssel eligibility; use official scenario masks rather than adding broad exclusions.",
+    "Almelo-specific: remove only unsupported major-river forcing while retaining and separately calibrating Loolee, local brooks, canals, pluvial hotspots and Banisgemaal-controlled drainage.",
+    "Overijssel: ingest the December 2025 updated probability/consequence scenarios with explicit mechanism and coverage; do not turn map-screen presence into exact municipal metres without appropriate depth/arrival layers.",
+    "Twente: distinguish Regge, Dinkel, Vecht, small-brook, unembanked-water, canal, urban runoff and drainage-system mechanisms from Rhine/Meuse/IJssel high water.",
+    "Almelo/Twente: add public ZGT, water-control, Seveso/nuclear, crowd and hazardous-goods context as typed evidence while leaving capacity, fragility, backup, controls and response resources unknown.",
+    "Almelo/Twente: include rail and waterway closure/redundancy context separately from NWB roads before emergency mobility, supply or dangerous-goods claims.",
+    "Shared/national: preserve service-specific business/non-residential allocation and official zero residents, then add daytime people/process load only from sourced privacy-safe inputs.",
+    "Shared/national: all road-derived essential-service transfers must remain prominently labeled logical proxies and must never be presented as physical electricity, water, drainage, gas, telecom or facility networks.",
+    "Shared/national: correct winter baseline cold leakage outside the event envelope while retaining exact zero-intensity behavior.",
+    "Shared/national: remote earthquake and smoke tails require named event/dispersion provenance before physical or health interpretation.",
+    "Twente drinking water: do not extrapolate Vitens' Noordoost-Twente 2026 capacity notice to all of Almelo; the operator explicitly states that only four Almelo addresses use that system.",
+    "Shared/national: treat T+72 as an operational checkpoint and possible transition to prolonged crisis management, not a guaranteed restoration deadline or all-clear."
+  ]
+}

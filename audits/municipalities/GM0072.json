@@ -1,0 +1,495 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0072",
+    "name": "Harlingen",
+    "province": "Fryslân",
+    "safetyRegion": "Fryslân"
+  },
+  "agent": {
+    "taskName": "municipality_gm0072",
+    "agentId": "/root/municipality_gm0072",
+    "completedAt": "2026-09-03T05:48:43+02:00"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "Harlingen's generated 2025 identity, generalized boundary, 16,210 residents, 12 neighbourhoods, three BAG woonplaatsen, five BRT settlements and Veiligheidsregio Fryslân assignment are coherent. Published neighbourhood populations reconcile exactly to the municipality, null CBS fields remain unavailable rather than zero, and the complete deterministic ten-preset, six-checkpoint and eight-service model gate passes. The first-72-hour operational representation nevertheless requires correction. Current Veiligheidsregio Fryslân material identifies three distinct local water mechanisms: a Wadden Sea/primary-defence event, the explicitly named Tjerk Hiddessluis collision/failure scenario with major city inundation and electricity loss within one hour, and polder/boezem flooding when wind constrains discharge. The simulator instead produces 1.9136 m of coastal water at T+6 through T+24 from coast-distance alone, 0.2079 m of pluvial water from density and a common seed, and no sluice, defence, tide, breach/overtopping, boezem, polder, drainage-catchment or arrival-time state. The same neighbourhood order is reused across storm, pluvial, coastal, wildfire and compound hazards, making Oosterpark the highest generic local exposure while the port, old centre, local drainage sites and Tjerk Hiddessluizen have no causal geometry. Mobility contains only the two inland sides of one A31/N31 physical corridor; the two rail stations and official Harlingen–Terschelling/Vlieland ferry lifelines remain visual context although the Waddenpromenade handles about 800,000 travellers annually. Resident-only exposure therefore misses transient terminal/port populations, and the model cannot represent sea/rail interruption, terminal congestion, island support or multimodal evacuation. Public registries expose the Tjerk Hiddessluizen, local pumps and Harlingen wastewater treatment and official sources establish port dangerous-goods and electricity-congestion context, but they do not validate network connectivity, live state, backup, capacity or restoration. Exact service availability, affected people-equivalent, person-hours and T+72 recovery are transparent deterministic exercise outputs—not forecasts, observed outages, operator commitments or casualty estimates.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek",
+      "title": "E01 — Kerncijfers wijken en buurten 2025, GM0072 municipality and neighbourhood rows",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM0072%27%29&%24select=WijkenEnBuurten%2CAantalInwoners_5%2CBevolkingsdichtheid_34%2Ck_65JaarOfOuder_12%2CEenpersoonshuishoudens_30",
+      "accessedAt": "2026-09-03T05:48:43+02:00",
+      "edition": 2025,
+      "supports": [
+        "Official GM0072 population of 16,210, density of 649 residents per square kilometre, age-65-plus share of 27.5% and 3,159 one-person households.",
+        "Reference totals for generated-data and neighbourhood-allocation reconciliation."
+      ]
+    },
+    {
+      "publisher": "PDOK / Centraal Bureau voor de Statistiek / Kadaster",
+      "title": "E02 — CBS Gebiedsindelingen 2025 and BAG woonplaats geography",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_gegeneraliseerd/items?f=json&limit=1000&datetime=2025-07-01T00%3A00%3A00Z",
+      "accessedAt": "2026-09-03T05:48:43+02:00",
+      "edition": 2025,
+      "supports": [
+        "Authoritative generalized GM0072 code, name and boundary used by the simulator.",
+        "Twelve CBS neighbourhoods in three districts and three active BAG woonplaatsen: Harlingen, Midlum and Wijnaldum.",
+        "The generated municipal label point lies inside the boundary; the Harlingen BAG polygon-derived centre falls outside the independently generalized CBS boundary and is a geometry/generalization warning, not absence."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Fryslân",
+      "title": "E03 — Current risk profile for the municipality of Harlingen",
+      "url": "https://www.risicosinfryslan.nl/gemeente/harlingen",
+      "accessedAt": "2026-09-03T05:48:43+02:00",
+      "edition": "Regionaal Risicoprofiel 2026–2029; incident lists through January 2026",
+      "supports": [
+        "Harlingen-specific applicability of sea, mainland and polder flooding, water nuisance, cold, heat and drought.",
+        "Old dense centre, vulnerable functions, fire/explosion/toxic stationary and transport risks, Wadden pollution, professional/recreational shipping and all principal utility-outage classes.",
+        "Current profile population of 16,188 is a different reference date from CBS 2025 and does not contradict the generated 16,210 figure.",
+        "Nature fire and earthquake are not selected as Harlingen municipality risks in the current profile; this is not an all-hazards safety declaration."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Fryslân",
+      "title": "E04 — Overstroming uit zee: defective Tjerk Hiddessluis scenario",
+      "url": "https://www.risicosinfryslan.nl/risico/overstroming-uit-zee",
+      "accessedAt": "2026-09-03T05:48:43+02:00",
+      "edition": "Regionaal Risicoprofiel 2026–2029; incident lists through January 2026",
+      "supports": [
+        "A severe storm leaves a cargo vessel disabled and it damages both Tjerk Hiddessluis door sets, allowing Wadden Sea water inland.",
+        "The planning scenario says large parts of Harlingen inundate and most city electricity fails within one hour, sharply constraining protective action.",
+        "The source classifies the scenario as very unlikely and serious and links an official Rijkswaterstaat inundation map; it is planning context rather than a forecast or current failure probability."
+      ]
+    },
+    {
+      "publisher": "Wetterskip Fryslân",
+      "title": "E05 — Primary-water-defence duty-of-care autumn inspection 2025",
+      "url": "https://www.wetterskipfryslan.nl/news/rapportage-waterveiligheid-zorgplicht-primaire-keringen-2025.pdf",
+      "accessedAt": "2026-09-03T05:48:43+02:00",
+      "edition": "autumn inspection 2025",
+      "supports": [
+        "Primary defences were inspected for the storm season and required pre-season defects were reported repaired.",
+        "Work included Wadden Sea dike asphalt and partial replacement of degraded asphalt, especially on Harlingen's Noorderhavendam.",
+        "Deferred Elasticoast work at Harlingen's southern pier was an inspection attention point; register or inspection state cannot be converted into assumed event performance."
+      ]
+    },
+    {
+      "publisher": "Gemeente Harlingen",
+      "title": "E06 — Climate adaptation and local water-management policy",
+      "url": "https://www.harlingen.nl/thema-klaar-voor-klimaatverandering",
+      "accessedAt": "2026-09-03T05:48:43+02:00",
+      "edition": "current municipal environment vision, accessed 2026-09-03",
+      "supports": [
+        "Harlingen identifies sea-level rise, high water, cloudbursts, salinisation and constrained discharge of inland fresh water as its leading climate-water issues.",
+        "Policy calls for dike adaptation, sewer changes, surface storage, delayed discharge and water-and-soil-led development.",
+        "These policies establish mechanisms and adaptation needs, not present hydraulic performance or an incident-time state."
+      ]
+    },
+    {
+      "publisher": "Gemeente Harlingen",
+      "title": "E07 — Gerrit Schuilstraat sewer reconstruction and climate-resilient redesign",
+      "url": "https://www.harlingen.nl/rioolconstructie",
+      "accessedAt": "2026-09-03T05:48:43+02:00",
+      "edition": "current project page, accessed 2026-09-03",
+      "supports": [
+        "The Gerrit Schuilstraat, Horscamp, Roniaweg, Cronenburglaan and Saltryperlaan area contained locations identified as especially sensitive to water nuisance.",
+        "The project replaces a combined sewer with separate foul-water and storm-water drainage and two wadis.",
+        "Project evidence is spatially relevant but does not establish all-city sewer capacity, completion state at every location or storm performance."
+      ]
+    },
+    {
+      "publisher": "Gemeente Harlingen / Rijkswaterstaat",
+      "title": "E08 — Waddenpromenade passenger gateway and Wadden-island ferry accessibility",
+      "url": "https://www.harlingen.nl/Waddenpromenade",
+      "accessedAt": "2026-09-03T05:48:43+02:00",
+      "edition": "current municipal project page, accessed 2026-09-03",
+      "supports": [
+        "The Waddenpromenade is the departure point for approximately 800,000 travellers per year to Vlieland and Terschelling.",
+        "The terminal connects car, bicycle, bus, pedestrian, parking, rail and ferry flows, so annual passengers are material transient-exposure context but not a simultaneous population count.",
+        "The simulator's GTFS snapshot contains Harlingen–Terschelling and Harlingen–Vlieland ferry geometries, while Rijkswaterstaat's main-waterway network also names both links; schedules do not guarantee incident-time operation or capacity."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat",
+      "title": "E09 — Main waterway network FeatureServer, including Harlingen ferry links",
+      "url": "https://geo.rijkswaterstaat.nl/arcgis/rest/services/GDR/bri/FeatureServer/5",
+      "accessedAt": "2026-09-03T05:48:43+02:00",
+      "edition": "live ArcGIS service accessed 2026-09-03",
+      "supports": [
+        "Machine-readable national-waterway network records for Veer Harlingen–Terschelling and Veer Harlingen–Vlieland and the Harlingen–Kornwerderzand waterway.",
+        "Static corridor identity only; it does not state sailing, berth, tide, weather, emergency priority, vessel or throughput state."
+      ]
+    },
+    {
+      "publisher": "Port of Harlingen / Gemeente Harlingen",
+      "title": "E10 — Havenverordening Harlingen 2020",
+      "url": "https://portofharlingen.nl/wp-content/uploads/2024/09/Havenverordening-Harlingen-2020.pdf",
+      "accessedAt": "2026-09-03T05:48:43+02:00",
+      "edition": 2020,
+      "supports": [
+        "The harbour has explicit operating rules for inland, sea and combination tankers carrying dangerous substances and residues.",
+        "Sea tankers outside an oil harbour require gas-expert declaration, closed tanks and prior notification to the harbour master.",
+        "Regulation establishes credible hazardous-material and maritime incident pathways, not current cargo inventories, berth occupancy or release contours."
+      ]
+    },
+    {
+      "publisher": "Het Waterschapshuis / PDOK",
+      "title": "E11 — IMWA water-control works and DAMO water-chain public registries",
+      "url": "https://api.pdok.nl/hwh/waterschappen-kunstwerken-imwa/ogc/v2?f=html",
+      "accessedAt": "2026-09-03T05:48:43+02:00",
+      "edition": "generated snapshot retrieved 2026-09-01; live registry accessed 2026-09-03",
+      "supports": [
+        "Public registry context identifies the small and large Tjerk Hiddessluizen, local surface-water pumps and rwzi Harlingen in or adjacent to GM0072.",
+        "The data is integration-ready CC BY-SA 4.0 context, but several capacities are null and register state is not live operation, connectivity, backup or restoration."
+      ]
+    },
+    {
+      "publisher": "Liander",
+      "title": "E12 — Congestion area Harlingen advance notice",
+      "url": "https://www.liander.nl/-/media/files/vooraankondigingen-transportschaarstepublicaties/publicaties-24-10-2024/noordwest-friesland-vlieland-en-schiermonnikoog/20241017-vooraankondigingsdocument-congestiegebied-harlingen-v13.pdf",
+      "accessedAt": "2026-09-03T05:48:43+02:00",
+      "edition": "17 October 2024, version 1.3",
+      "supports": [
+        "Liander reports structural congestion risk in the service area of the Harlingen distribution station and planned network expansion.",
+        "Congestion is a connection/transport-capacity constraint and must not be equated to outage likelihood, incident damage, customer state or restoration time."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM0072, Harlingen, Fryslân and Veiligheidsregio Fryslân are coherent in the generated 2025 sources.",
+      "evidenceRefs": ["E01", "E02", "E03"],
+      "notes": [
+        "The generated municipality feature ID, regional bundle code/name and label point all validate.",
+        "The current VRF page reports 16,188 inhabitants, a source-date difference rather than an identity conflict with CBS 2025."
+      ]
+    },
+    "geography": {
+      "status": "warn",
+      "summary": "The generalized municipality geometry is valid, but water-rich coastal generalization and a BAG centre mismatch cannot support local hazard placement.",
+      "evidenceRefs": ["E02", "E04", "E05"],
+      "notes": [
+        "The municipality centre lies inside GM0072 and all 12 neighbourhood points are retained.",
+        "The Harlingen BAG polygon-derived centre lies outside the independently versioned CBS generalized boundary; do not infer absence or move the woonplaats without full-resolution geometry review.",
+        "Administrative and neighbourhood polygons are not tide, defence, flood-compartment, polder, sewer-catchment or port-operating geometry."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "The official 16,210 residents reconcile exactly across all 12 published neighbourhoods.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "The generated bundle sums to 7,810 households and 4,460 residents aged 65+.",
+        "Neighbourhood counts are rounded CBS publications and must not be interpreted as address-level vulnerability."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "All 36 statistic keys exist, but missing and suppressed values remain Unknown and the public context is not an operational asset state.",
+      "evidenceRefs": ["E01", "E11", "E12"],
+      "notes": [
+        "District heating and public charging have zero source coverage; several housing, benefit, car and access fields have one or two missing neighbourhoods.",
+        "A register point, provider area or congestion notice does not establish connectivity, live availability, backup, failure probability or emergency restoration."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "Three active BAG woonplaatsen and five BRT settlement areas are preserved without conflating settlement and administrative concepts.",
+      "evidenceRefs": ["E02"],
+      "notes": [
+        "Harlingen, Midlum and Wijnaldum are the active BAG woonplaatsen; the BRT adds Saltrijp and Voorrijp as descriptive small settlements.",
+        "BAG and BRT membership does not assign emergency resources or response priority."
+      ]
+    },
+    "transport": {
+      "status": "warn",
+      "summary": "Static road, rail, bus and ferry evidence is present, but the causal graph contains only the two inland sides of the A31/N31 corridor.",
+      "evidenceRefs": ["E08", "E09"],
+      "notes": [
+        "Generated roads connect Waadhoeke by A31 and Súdwest-Fryslân by N31 under one NWB-road-31 physical corridor.",
+        "Harlingen and Harlingen Haven stations, 23 transit stop areas and both island ferries are context only; no incident-time bridge, rail, sailing, berth or terminal state is modeled.",
+        "Static GTFS trip-record counts are schedule records, not passenger or emergency throughput."
+      ]
+    },
+    "emergencyContext": {
+      "status": "warn",
+      "summary": "Strong current authority evidence exists for local water, port, vulnerable-population and utility risks, but it is not yet connected to the simulation state.",
+      "evidenceRefs": ["E03", "E04", "E05", "E10", "E11"],
+      "notes": [
+        "The Tjerk Hiddessluis scenario is unusually specific and time-critical and should be selectable separately from a generic coastal preset.",
+        "Public sources do not expose current sensitive utility topology, port cargo state, response inventory, reception capacity or restoration commitments."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "The mandatory ten-preset, six-checkpoint, eight-service deterministic matrix passes for GM0072.",
+      "evidenceRefs": ["E01", "E02"],
+      "notes": [
+        "All requested snapshots exist and all values remain finite and bounded.",
+        "A passing software contract does not validate physical Harlingen calibration."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Population, affected population, demand, delivery, ledgers, route ceilings, determinism and cumulative person-hours satisfy the harness.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "All 16,210 residents and 12 neighbourhoods reconcile for every service in the compound T+24 detail frame.",
+        "Exact numerical closure describes model bookkeeping, not observed customer impact."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "Generic distance, density and seed fields contradict the source-specific spatial mechanisms needed for Harlingen.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07"],
+      "notes": [
+        "The coastal preset reports 1.9136 m at T+6, T+12 and T+24 without a selected defence/breach/sluice state or official depth raster.",
+        "Oosterpark ranks first under severe storm, pluvial, coastal and wildfire at T+24, followed by Trebolbuurt and Industriehaven, showing reuse of one generic local order across distinct mechanisms.",
+        "The named Tjerk Hiddessluizen, port, old centre, polder/boezem system and documented drainage-sensitive streets do not determine local arrival or depth."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "All eight services reuse logical road transfer while authoritative local water, ferry, rail, port and electricity dependencies remain context only.",
+      "evidenceRefs": ["E08", "E09", "E10", "E11", "E12"],
+      "notes": [
+        "At coastal T+24 modeled availability ranges from 0.2999 drainage to 0.6612 gas without operator calibration.",
+        "The model cannot express a sluice-to-inundation-to-electricity cascade, constrained inland discharge, wastewater release, loss of ferry/rail access or port hazardous-material escalation.",
+        "NWB is valid for mobility and assumed logistics access only; it is not power, drinking-water, wastewater, gas or telecom topology."
+      ]
+    },
+    "causalTrace": {
+      "status": "warn",
+      "summary": "Internal contribution and counterfactual ledgers close, but the initiating assets and pathways are synthetic rather than source-selected.",
+      "evidenceRefs": ["E04", "E11"],
+      "notes": [
+        "Hazard and availability contributions reconcile exactly to displayed values.",
+        "The trace cannot currently answer whether water came through the primary defence, Tjerk Hiddessluizen, polder/boezem, pluvial runoff or sewer surcharge, nor which actual dependency caused a service change."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "T+72 service and person-hour outcomes are not backed by a local action, resource, operator or restoration ledger.",
+      "evidenceRefs": ["E03", "E04", "E08", "E12"],
+      "notes": [
+        "Coastal T+72 labels recovering with 3,023 people under pressure and 612,514 cumulative weighted deprived person-hours; compound T+72 remains critical with 11,834 people and 671,571 person-hours.",
+        "These exact values do not reflect confirmed sluice closure, rescue, reception, ferry/rail operation, utility crews, backup endurance, port containment or operator restoration.",
+        "The 72-hour horizon is suitable for exercises, not an assurance that high water, contamination, port interruption or utilities recover within it."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": ["power", "water", "drainage", "gas", "telecom", "mobility", "facilities", "supply"]
+  },
+  "findings": [
+    {
+      "id": "GM0072-FLOOD-COASTAL-001",
+      "severity": "critical",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Generic coastal proximity is presented as precise Harlingen depth and service impact without selecting the named sluice or primary-defence scenario.",
+      "evidence": "E04 identifies a Tjerk Hiddessluis collision/failure pathway with substantial city inundation and electricity loss within one hour; E05 establishes maintained primary-defence and harbour-dam context; E11 identifies both sluice registry points. The model instead reports exactly 1.9136 m from T+6 through T+24, 10,256 residents under pressure and critical status at T+24 based only on a generic coastline segment and seed. No tide, water level, vessel/sluice state, defence state, breach/overtopping location, arrival, flow, depth raster, recession or NoData mask is selected.",
+      "action": "Retain coast proximity only as a non-operational screening diagnostic. Suppress decision-facing local depth, affected people and dependent-service impacts until a versioned expert-selected LIWO/LDO/VRF/Wetterskip event identifies source water, Tjerk Hiddessluis or defence failure/overtopping state, tide/boundary condition, footprint, native units/resolution/NoData, arrival/recession, uncertainty and approval. Add the defective-sluice event as a distinct Harlingen scenario rather than treating every coastal preset as that failure."
+    },
+    {
+      "id": "GM0072-FLOOD-POLDER-RIVER-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The zero major-river result and generic pluvial curve do not represent Harlingen's polder, boezem, canal, discharge and sewer pathways.",
+      "evidence": "The named Rhine/Meuse/IJssel river preset is zero at all checkpoints, which is appropriate only for that narrow direct-source screen. E03/E06 identify polder flooding, water nuisance, high water, freshwater discharge constraints and salinisation; current VRF polder planning describes wind-constrained discharge and failure after several wet days. Pluvial T+12/T+24 is a synthetic 0.2079 m and T+24 affects 843 residents without KNMI rain-grid selection, terrain, surface-flow, sewer capacity, boezem levels, pump state or local catchments.",
+      "action": "Retain the explicit zero for direct Rhine/Meuse/IJssel forcing but label local polder/boezem/canal/discharge pathways Unknown, never safe. Build separate source classes for Wadden sea, Tjerk Hiddessluizen, primary defence, Friese boezem/polder and pluvial/sewer flooding. Couple versioned KNMI precipitation and water-level conditions to AHN terrain, waterboard level/catchment/defence data and municipal sewer surfaces; do not reuse river or coastal distance as a substitute."
+    },
+    {
+      "id": "GM0072-PLUVIAL-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Documented drainage-sensitive streets and changing sewer configuration are absent from the local flood allocation.",
+      "evidence": "E07 identifies Gerrit Schuilstraat, Horscamp, Roniaweg, Cronenburglaan and Saltryperlaan as containing especially water-nuisance-sensitive locations and describes replacement of combined sewer with foul/storm-water separation and two wadis. The model ranks whole CBS neighbourhoods by a common seed and density and neither records project/asset valid time nor distinguishes sewer surcharge, surface runoff and receiving-water restriction.",
+      "action": "Ingest a municipality-approved stress-test/sewer-catchment layer with project-valid dates, rain event, terrain, paving, inlet/culvert/pump assumptions, units and NoData. Until available, present the named locations as dated official context and the numeric local pluvial surface as synthetic/Unknown rather than calibrated depth."
+    },
+    {
+      "id": "GM0072-SPATIAL-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "One common local ordering is reused across physically different hazards.",
+      "evidence": "At T+24 the descending order starts Oosterpark, Trebolbuurt, Industriehaven en omgeving, Koningsbuurt and Verspreide huizen Harlingen under severe storm, pluvial flood, coastal flood and wildfire. Exact values scale but ranks are identical. This cannot locate a Tjerk Hiddessluis inflow, port release, old-centre fire, drainage hotspot, heat exposure or a named ignition/perimeter. The resident-zero Industriehaven also receives a hazard value but no transient or asset exposure.",
+      "action": "Retire the shared neighbourhood seed. Generate mechanism-specific local surfaces using source/perimeter/flow geometry and land/asset context, retaining full-resolution geometry, valid time, uncertainty and NoData. Add regressions that materially different hazards do not share the same full ranking and that resident-zero industrial/port areas retain asset and transient exposure without inventing resident counts."
+    },
+    {
+      "id": "GM0072-PORT-INDUSTRIAL-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Port, dangerous-goods, shipping, Wadden-pollution and old-centre fire pathways are missing from the ten generic presets.",
+      "evidence": "E03 selects explosion and toxic incidents at stationary facilities, dangerous-goods transport, professional/recreational shipping, Wadden pollution and dense old-centre fire for Harlingen. E10 regulates dangerous-substance tankers and shows these are concrete harbour pathways. None has a source vessel/facility, cargo/substance class, containment state, wind/tide transport, exclusion zone, exposed transient population or response action in the model; generic wildfire is not an industrial or built-environment fire model.",
+      "action": "Add bounded, authority-approved port/maritime and built-environment scenario families using public Bal/Seveso/risicokaart aggregates, harbour/waterway geometry and generic substance classes where lawful. Current cargo, berth and sensitive response detail stays Unknown. Never turn absence of public inventory into zero risk or infer inventories from vessel type."
+    },
+    {
+      "id": "GM0072-MOBILITY-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "Road-only municipal links omit the rail, ferry, harbour and terminal lifelines central to Harlingen and the islands.",
+      "evidence": "The causal graph contains A31 to Waadhoeke and N31 to Súdwest-Fryslân, the north and south sides of physical corridor NWB-road-31. E08/E09 and the app's own GTFS/ProRail snapshot establish Harlingen–Terschelling, Harlingen–Vlieland, Harlingen and Harlingen Haven stations, 23 stop areas and multimodal terminal flows. These remain display context and cannot be interrupted or used for evacuation, island support, patient transfer, supply or responder access.",
+      "action": "Build a typed multimodal graph from NWB/BGT bridge and lock objects, ProRail, GTFS and RWS waterway/ferry geometry. Represent road, rail, bus, ferry, berth, harbour entrance and pedestrian terminal access separately with valid-time open/restricted/closed/Unknown state. Schedules and static geometry are not guaranteed capacity; emergency priority and actual sailings require operator/authority confirmation."
+    },
+    {
+      "id": "GM0072-EXPOSURE-001",
+      "severity": "high",
+      "category": "demography",
+      "status": "open",
+      "summary": "Resident-only exposure omits material ferry-terminal, port, tourism, workforce and vessel populations.",
+      "evidence": "Every modeled demand and affected-person total is bounded to 16,210 residents. E08 reports about 800,000 annual Waddenpromenade travellers, while E03 identifies large public functions and more-than-500-person functions. Annual throughput is not simultaneous occupancy, but it proves that a resident-only denominator can materially understate people present at terminal, parking, trains, buses, harbour facilities and vessels. Industriehaven en omgeving has official zero residents and therefore no affected people despite port activity.",
+      "action": "Keep resident counts immutable and add a separate time-indexed transient exposure ledger by terminal/port/event zone with source period, flow-versus-stock semantics, uncertainty and double-count controls. Derive concurrent ranges from authorized ferry/terminal/visitor data; when unavailable show transient population Unknown, never zero or an annual count as simultaneous occupancy."
+    },
+    {
+      "id": "GM0072-UTILITIES-WATERCHAIN-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Public water-control, wastewater and electricity evidence is not represented as typed causal dependencies.",
+      "evidence": "E11 exposes the two Tjerk Hiddessluizen, rwzi Harlingen and local pumps as register context; E12 reports structural congestion around distribution station Harlingen. At coastal T+24 the model gives power 0.3320, water 0.4095, drainage 0.2999, gas 0.6612, telecom 0.3046, mobility 0.4477, facilities 0.5298 and supply 0.3484, but all reuse road-derived logical transfer and generic dependencies. The sources validate neither those values nor pressure/quality, sewer catchments, feeder/switching, backup or restoration.",
+      "action": "Separate surface-water control, wastewater, drinking-water quantity/pressure, drinking-water quality/advisory, power, gas and telecom into explicit evidence-typed graphs. Use IMWA/DAMO and provider/open geometry as context, then authorized aggregate service zones and dependencies where available. Sensitive/unavailable connectivity, current state, backup and recovery remain Unknown; congestion must not be presented as outage probability."
+    },
+    {
+      "id": "GM0072-OTHER-HAZARDS-001",
+      "severity": "medium",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Wind, heat, winter, wildfire, earthquake and cyber outputs are coherent stress tests but lack Harlingen event and target calibration.",
+      "evidence": "E03 supports wind-linked high water, heat, drought, cold, utility and hybrid/cyber disruption context but does not select a local curve. The model reports wildfire severity 0.1353 and 105 affected at T+24 although current Harlingen risk selection does not include nature fire; any small green-area or regional-smoke pathway remains unmodeled/Unknown. Earthquake peaks at severity 0.1015 at T+6 and accumulates 69,996 weighted person-hours by T+72 without a named KNMI event, local ground-motion surface or fragility. Cyber has no named target, architecture or detection/containment path.",
+      "action": "Retain these as explicitly synthetic exercises with parameter sensitivity. Suppress direct municipality-scale wildfire consequences until eligible fuel/source/perimeter and response access are selected; preserve regional smoke separately. Require valid-time KNMI weather or ShakeMap input for observed/replay modes and a named cyber target and attack/containment path before claiming direct Harlingen consequences."
+    },
+    {
+      "id": "GM0072-72H-001",
+      "severity": "high",
+      "category": "explainability",
+      "status": "open",
+      "summary": "The first-72-hour view has no auditable warning, decision, action, resource or restoration state.",
+      "evidence": "E04's official sluice scenario develops within one hour, faster than the simulator's six-hour audit checkpoints and with limited protective action. The model nevertheless reports exact T+72 recovery/criticality and person-hours without sluice/defence observation, alert issue time, evacuation or vertical-shelter decision, terminal and corridor status, reception site, port control, resource request, crew arrival, backup endurance or operator restoration confirmation.",
+      "action": "Add finer early checkpoints and a first-72-hour action ledger with proposed/requested/confirmed/started/completed/cancelled state, owner, source, issue/valid/expiry time, geography, dependency and confidence. At each checkpoint expose unresolved critical inputs. Never convert a synthetic intervention multiplier or preparedness recommendation into a confirmed action, open shelter, available ferry, stocked depot or restoration promise."
+    },
+    {
+      "id": "GM0072-NODATA-001",
+      "severity": "medium",
+      "category": "ui",
+      "status": "open",
+      "summary": "Null, missing, out-of-boundary and zero records require explicit semantics across maps and exports.",
+      "evidence": "District-heating and charging statistics have no published neighbourhood values; water-asset capacities are often null; current port cargo, transient occupancy, utility topology, backup and live incident state are unavailable; one BAG-derived centre lies outside generalized GM0072; Industriehaven has an official resident zero. The direct major-river result is a modeled zero only for the named Rhine/Meuse/IJssel screen. None of these states establishes no infrastructure, no people present, no local water pathway or safety.",
+      "action": "Enforce separate measured/modeled zero, Unknown/not covered, not applicable and outside/generalization states in legends, tooltips, tables, APIs and exports. Show publisher, edition, issue/valid/retrieval time, unit, spatial/temporal support, licence, completeness, confidence and affectsSimulation. Add regressions that an official resident zero can coexist with Unknown transient/asset exposure and that null capacity never becomes zero or operational."
+    },
+    {
+      "id": "GM0072-INVARIANTS-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The focused numerical and semantic contract passes on the audited build.",
+      "evidence": "MUNICIPALITY_AUDIT_CODE=GM0072 pnpm audit:model passed two tests. It covered all ten presets, six checkpoints and eight services; values stayed finite/bounded, 16,210 residents and 12 neighbourhoods reconciled, demand/delivery error remained within tolerance, routes stayed within declared logical capacity, hazard stayed invariant under service selection, ledgers closed, T+24 was deterministic and cumulative event-attributable weighted person-hours were monotonic.",
+      "action": "Retain the focused gate in CI and add source-specific Harlingen regressions for coastal scenario selection, narrow major-river zero semantics, hazard-specific local ranks, resident-zero/transient exposure, multimodal lifelines, explicit utility topology semantics, early-hour actions and NoData rendering."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Replace generic Harlingen coast-distance output with selected, versioned Tjerk Hiddessluis/primary-defence/LIWO scenario contracts.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/public/data/hazards/GM0072-water-context.json",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Before correction, coastal depth is 1.9136 m from T+6 through T+24 without a selected event. Require source-water and scenario ID, sluice/defence state, tide/boundary condition, footprint, native resolution/unit/NoData, arrival/recession, uncertainty, licence and authority review. Coast proximity remains a non-operational diagnostic; no selected scenario means local depth and causal impacts are Unknown."
+    },
+    {
+      "summary": "Add distinct Friese-boezem/polder/discharge and pluvial/sewer mechanisms and retire the common neighbourhood seed.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/public/data/hazards/GM0072-pluvial-context.json"
+      ],
+      "validation": "Retain direct Rhine/Meuse/IJssel zero without implying all-water safety. Before correction, storm, pluvial, coastal and wildfire share the same T+24 local order. Require mechanism-specific maps, materially distinct ranks, documented drainage-sensitive locations as dated context, and explicit Unknown masks where hydraulic or sewer inputs are absent."
+    },
+    {
+      "summary": "Build Harlingen multimodal lifelines and separate resident from transient terminal/port exposure.",
+      "files": [
+        "apps/web/public/data/transport-network.json",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/network.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/public/data/public-context/GM0072-response-context.json"
+      ],
+      "validation": "Represent the A31/N31 physical corridor, internal critical crossings, Harlingen/Harlingen Haven rail, bus, pedestrian terminal and Harlingen–Terschelling/Vlieland ferries as typed non-additive modes with valid-time state. Keep 16,210 residents immutable; add concurrent transient ranges without converting 800,000 annual trips into simultaneous occupants or zero-resident port areas into no exposure."
+    },
+    {
+      "summary": "Separate water-control, wastewater, potable water, power, gas and telecom dependencies from NWB and add port/maritime hazard context.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/network.ts",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/public/data/public-context/GM0072-port-utility-context.json"
+      ],
+      "validation": "NWB remains mobility/logistics access only. Public IMWA/DAMO/harbour/operator records carry evidence class and affectsSimulation=false until connectivity/state is validated. Unavailable sensitive topology remains Unknown. Test Tjerk Hiddessluis-to-water-to-power and discharge-to-drainage chains only when scenario inputs are explicitly selected; congestion cannot trigger an outage by itself."
+    },
+    {
+      "summary": "Add a Harlingen first-72-hour action ledger, finer rapid-onset checkpoints and explicit evidence/NoData semantics.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/AnalyticsDrawer.tsx"
+      ],
+      "validation": "Exercise the official within-one-hour sluice pathway at sub-six-hour checkpoints. Actions must have owner, source, proposed/requested/confirmed/completed/cancelled state, valid/expiry time and confidence. Every value and export distinguishes observed, official context, official scenario and synthetic, and distinguishes zero, Unknown, not applicable and generalized/outside geometry."
+    }
+  ],
+  "residualLimitations": [
+    "This is a deterministic first-72-hour planning stress test, not a KNMI/Rijkswaterstaat/WMCN/Wetterskip/VRF/operator forecast, warning, probability estimate, evacuation order, casualty model or restoration commitment.",
+    "No expert-selected Harlingen LIWO/LDO event, Tjerk Hiddessluis or defence failure/overtopping state, Wadden tide/boundary condition, connected footprint, arrival/recession, verified depth unit or NoData mask drives the simulation.",
+    "The current VRF defective-sluice narrative is an official planning scenario, not a prediction, current structural assessment or license to reuse its casualty bands as deterministic outputs.",
+    "Primary-defence inspection and asset-register status do not establish performance during the selected event; deferred or repaired maintenance items must not be converted to failure probabilities.",
+    "CBS generalized municipality/neighbourhood polygons do not resolve shoreline, quay, defence, flood compartment, polder, boezem, sewer catchment, building, terrain, paving, shade, fuel, facility, household or vessel exposure.",
+    "The Harlingen BAG polygon-derived centre mismatch is likely a water-rich/generalization artefact; full-resolution independently versioned geometry is required before treating it as an error.",
+    "CBS neighbourhood values are rounded or suppressed. Null district-heating, charging, housing, benefit, vehicle and accessibility fields are Unknown, while Industriehaven's resident count is an official zero that does not imply zero workers, travellers or assets.",
+    "The 800,000 annual Waddenpromenade travellers demonstrate transient scale but do not establish simultaneous occupancy, origin/destination, vulnerability or event-time presence.",
+    "Static NWB, ProRail, GTFS and RWS waterway/ferry geometry does not establish incident-time road, bridge, lock, rail, bus, berth, sailing or navigation status, throughput, evacuation or emergency priority.",
+    "No complete public causal Liander feeder/switching, Vitens pipe/pressure/quality, gas district/valve, municipal sewer, telecom backhaul or provider restoration topology is authorized in the model.",
+    "IMWA/DAMO register records expose assets but not connected catchments, direction, compatible emergency capacities, live operation, power dependency, backup, crews or restoration; null capacity is not zero.",
+    "Liander congestion is capacity-allocation context, not outage likelihood, current customer impact, physical topology or restoration duration.",
+    "Port rules and public risk profiles establish hazard classes but not current substances, quantities, berth/vessel occupancy, containment, plume/spill geometry or response resources; these remain Unknown or scenario assumptions.",
+    "The current Harlingen risk list does not select nature fire or earthquake; that is not proof of impossibility, but direct local consequences remain uncalibrated until a named source/perimeter or KNMI event and fragility are supplied.",
+    "Cyber disruption lacks a named target, architecture, attack path, detection and containment state; generic availability loss is not an observed or forecast incident.",
+    "No validated inventory is available for shelters/reception, care-home occupants, medical acceptance, port response, pumps/generators, fuel, food/water stocks, crews, vehicles or household preparedness.",
+    "Event-attributable essential-service person-hours is a matched-no-event weighted availability proxy, not customer outage-hours, casualties, evacuation, displacement or welfare loss; six-hour checkpoints miss rapid changes and 72 hours excludes prolonged contamination and reconstruction."
+  ],
+  "provinceReviewFlags": [
+    "Fryslân/VRF/Wetterskip/Rijkswaterstaat/WMCN: validate the current defective-Tjerk-Hiddessluis and primary-defence scenarios, source-water and defence state, native depth/arrival/recession products and NoData; suppress decision-facing generic coastal output until selected.",
+    "Fryslân/Wetterskip/municipality: distinguish Wadden, boezem/polder/discharge, pluvial/sewer and salinisation pathways; verify the status and spatial interpretation of drainage-sensitive locations and public IMWA/DAMO assets.",
+    "Fryslân/RWS/ProRail/municipality/Doeksen/VRF: validate multimodal road, rail, ferry, berth and terminal dependencies, emergency priority and time-dependent access to Harlingen and the islands without treating schedules as guaranteed capacity.",
+    "Fryslân/municipality/Port/VRF/Omgevingsdienst: define lawful aggregate port, dangerous-goods, shipping, Wadden-pollution and old-centre fire scenarios while keeping cargo, occupancy and sensitive response state Unknown unless confirmed.",
+    "Fryslân/CBS/municipality/terminal and tourism partners: add concurrent transient exposure ranges for the Wadden gateway and port, preserving resident and flow/stock semantics and explicit uncertainty.",
+    "Fryslân/operators/municipality: validate privacy- and security-safe aggregate utility service zones, dependencies, backup and restoration ranges; never reuse NWB as physical utilities or turn congestion and missing data into outage/safety claims."
+  ]
+}

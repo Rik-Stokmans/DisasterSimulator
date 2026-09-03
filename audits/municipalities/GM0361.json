@@ -1,0 +1,704 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0361",
+    "name": "Alkmaar",
+    "province": "Noord-Holland",
+    "safetyRegion": "Noord-Holland-Noord"
+  },
+  "agent": {
+    "taskName": "municipality_gm0361",
+    "agentId": "/root/nl_realism_audit",
+    "completedAt": "2026-09-02T12:00:27Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "Alkmaar's generated 2025 identity, generalized boundary, municipal totals, 66 neighbourhoods, 17 BAG places and 17 BRT settlements are coherent, and the dedicated 10-preset by 6-checkpoint by 8-service numerical gate passes. Determinism, finite bounds, local-to-municipal reconciliation, neutral neighbourhood priority, service-layer-invariant local hazard, logical-transfer disclosure, exact zero-intensity behavior and event-attributable deprivation also pass. The current activity-aware allocator correctly preserves Boekelermeer-Zuid's official zero residents while assigning it non-zero service demand from 201 non-residential buildings and 215 establishments. The result is nevertheless correction-required: those transparent coefficients only redistribute a fixed municipal demand total, provide no worker occupancy or critical-asset state, and still assign the industrial neighbourhood zero affected people-equivalent. That is material because the official Alkmaar flood example centers on the Boekelermeerpolder, 3,450–4,000 people including workers, HVC and TAQA. The coastal preset's precise 2.203 m municipality-wide value and 82,473 affected people-equivalent at T+24 are generated only from centroid-to-coast distance and are not a named hydraulic scenario. Official planning instead uses breach-specific evolving footprints and warns that its own fictive-but-realistic examples are only directional. The combined gas-and-heating layer also omits Alkmaar's public HVC heat-network dependency, and the facilities layer omits the municipality's four published 72-hour support points and Noordwest's acute hospital. These outputs remain deterministic planning stress indices, not local forecasts, operator topology, evacuation capacity or restoration commitments.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek",
+      "title": "Kerncijfers wijken en buurten 2025 — municipality row GM0361",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM0361%27%29&%24select=WijkenEnBuurten%2CAantalInwoners_5%2CBevolkingsdichtheid_34%2Ck_65JaarOfOuder_12%2CEenpersoonshuishoudens_30",
+      "accessedAt": "2026-09-02T12:00:27Z",
+      "edition": 2025,
+      "supports": [
+        "Official GM0361 population 112,896, density 1,023 per square kilometre, age-65-plus count and 23,067 one-person households.",
+        "Reference municipality totals used to check the generated feature and local reconciliation."
+      ]
+    },
+    {
+      "publisher": "Centraal Bureau voor de Statistiek",
+      "title": "Kerncijfers wijken en buurten 2025 — Boekelermeer-Zuid BU03610308",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=WijkenEnBuurten%20eq%20%27BU03610308%27&%24select=WijkenEnBuurten%2CAantalInwoners_5%2CNietWoningvoorraad_37%2CBedrijfsvestigingenTotaal_95",
+      "accessedAt": "2026-09-02T12:00:27Z",
+      "edition": 2025,
+      "supports": [
+        "Boekelermeer-Zuid has an official resident count of zero while containing 201 non-residential buildings and 215 business establishments.",
+        "Primary evidence that zero residential population does not imply zero infrastructure, economic or daytime emergency demand."
+      ]
+    },
+    {
+      "publisher": "PDOK / Centraal Bureau voor de Statistiek",
+      "title": "Gemeente gegeneraliseerd 2025",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_gegeneraliseerd/items?f=json&limit=1000&datetime=2025-07-01T00%3A00%3A00Z",
+      "accessedAt": "2026-09-02T12:00:27Z",
+      "edition": 2025,
+      "supports": [
+        "Authoritative 2025 generalized GM0361 municipality geometry and identifier.",
+        "Boundary used for municipality-center and local label-point checks."
+      ]
+    },
+    {
+      "publisher": "PDOK / Centraal Bureau voor de Statistiek",
+      "title": "Buurt gegeneraliseerd 2025",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/buurt_gegeneraliseerd",
+      "accessedAt": "2026-09-02T12:00:27Z",
+      "edition": 2025,
+      "supports": [
+        "Sixty-six official neighbourhood geometries in eleven district groups for GM0361.",
+        "Spatial basis for the generated 36-field regional statistics bundle."
+      ]
+    },
+    {
+      "publisher": "PDOK / Kadaster",
+      "title": "BAG woonplaats OGC API",
+      "url": "https://api.pdok.nl/kadaster/bag/ogc/v2/collections/woonplaats",
+      "accessedAt": "2026-09-02T12:00:27Z",
+      "edition": 2026,
+      "supports": [
+        "Seventeen active BAG woonplaatsen are associated with GM0361.",
+        "All generated BAG place centers fall inside the 2025 generalized municipality boundary in this audit."
+      ]
+    },
+    {
+      "publisher": "PDOK / Kadaster",
+      "title": "BRT TOP10NL plaats_vlak OGC API",
+      "url": "https://api.pdok.nl/kadaster/brt-top10nl/ogc/v1/collections/plaats_vlak",
+      "accessedAt": "2026-09-02T12:00:27Z",
+      "edition": 2026,
+      "supports": [
+        "Seventeen generated settlement polygons: fourteen woonkernen, two deelkernen and one buurtschap.",
+        "BRT settlement ontology is distinct from BAG woonplaatsen and CBS municipal population."
+      ]
+    },
+    {
+      "publisher": "PDOK / Centraal Bureau voor de Statistiek",
+      "title": "Veiligheidsregio gegeneraliseerd",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/veiligheidsregio_gegeneraliseerd",
+      "accessedAt": "2026-09-02T12:00:27Z",
+      "edition": 2025,
+      "supports": [
+        "GM0361 belongs to exactly one safety region, Noord-Holland-Noord.",
+        "Safety-region geography supports governance context, not facility or utility capacity."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / PDOK",
+      "title": "Nationaal Wegenbestand wegvakken",
+      "url": "https://service.pdok.nl/rws/nationaal-wegenbestand-wegen/wfs/v1_0?service=WFS&version=2.0.0&request=GetCapabilities",
+      "accessedAt": "2026-09-02T12:00:27Z",
+      "edition": "NWB 2026",
+      "supports": [
+        "Road identities and geometry underlying eleven generated GM0361 municipality-boundary links.",
+        "A9, N9, N242, N243, N244, N245, N246, N508 and N512 are transport context only, not utility links."
+      ]
+    },
+    {
+      "publisher": "ProRail / PDOK",
+      "title": "ProRail stations OGC API",
+      "url": "https://api.pdok.nl/prorail/spoorwegen/ogc/v1/collections/station",
+      "accessedAt": "2026-09-02T12:00:27Z",
+      "edition": 2026,
+      "supports": [
+        "Station geometries for Alkmaar and Alkmaar Noord inside GM0361.",
+        "Station presence does not itself establish emergency service, rolling-stock or evacuation capacity."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Noord-Holland Noord",
+      "title": "Regionaal Risicoprofiel Noord-Holland Noord 2022–2023",
+      "url": "https://www.vrnhn.nl/sites/vrnhn/files/2022-03/Regionaal%20risicoprofiel%202022%20-%202023%20VRNHN.pdf",
+      "accessedAt": "2026-09-02T12:00:27Z",
+      "edition": "2022–2023; current profile linked by VRNHN",
+      "supports": [
+        "Regional risks include long-duration electricity loss, primary-barrier or polder flooding, extreme weather, nature fire in coastal dunes and digital disruption.",
+        "Electricity-loss impacts include telecom, traffic, rail and business-process cascades.",
+        "Earthquakes near Alkmaar/Bergen are outside the profile because assessed probability and physical effects are very small."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Noord-Holland Noord and North-Holland water/crisis partners",
+      "title": "Interregionaal Multidisciplinair Plan voor het bepalen van het Handelingsperspectief bij een (dreigende) overstroming — Boekelermeer example",
+      "url": "https://www.vrnhn.nl/sites/vrnhn/files/2023-11/231201%20AB%20Agendabundel%20v2.pdf",
+      "accessedAt": "2026-09-02T12:00:27Z",
+      "edition": 2023,
+      "supports": [
+        "The Boekelermeer example models failure of the Boekelerdijk along the Noord-Hollands Kanaal, 2–2.5 m maximum local water and spread toward Akersloot/Alkmaardermeer over 72 hours.",
+        "The affected area contains 3,450–4,000 people, many of them workers, is mainly industrial and contains HVC and TAQA; no residential district is hit in that example.",
+        "HVC is threatened within one to two hours and long-duration district-heating loss is described; TAQA shutdown has gas-transport consequences.",
+        "The plan explicitly labels examples fictive but realistic and directional rather than one-to-one predictions; actual response needs current water images and scenario-specific data."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Noord-Holland Noord",
+      "title": "Regionaal Crisisplan 2025",
+      "url": "https://www.vrnhn.nl/sites/vrnhn/files/downloads/RCP%20VRNHN%202025%20v1.0.pdf",
+      "accessedAt": "2026-09-02T12:00:27Z",
+      "edition": 2025,
+      "supports": [
+        "VRNHN defines an operation longer than 72 hours as long-duration and requires a different organizational approach.",
+        "CoPI develops short-term scenarios under four hours and starts within thirty minutes; the ROT at De Hertog in Alkmaar starts within forty-five minutes.",
+        "Continuity plans are being updated for the context of a 72-hour electricity outage; the plan allocates roles among crisis management, population care, fire, GHOR, police and partners."
+      ]
+    },
+    {
+      "publisher": "Gemeente Alkmaar",
+      "title": "Voorbereiden op een crisis",
+      "url": "https://www.alkmaar.nl/voorbereiden-op-een-crisis/",
+      "accessedAt": "2026-09-02T12:00:27Z",
+      "edition": 2026,
+      "supports": [
+        "Alkmaar publishes four long-power-outage support points at fire stations in Alkmaar-Centrum, Koedijk, Stompetoren and De Rijp.",
+        "The points are intended for emergency reporting when 112 is unavailable, first aid, information and charging medical equipment.",
+        "NH Nieuws 88.9 FM, NL-Alert while available, neighbour assistance and a 72-hour home kit are explicit local response instructions."
+      ]
+    },
+    {
+      "publisher": "Hoogheemraadschap Hollands Noorderkwartier",
+      "title": "Evaluatie bestrijding wateroverlast juni 2021",
+      "url": "https://www.hhnk.nl/_flysystem/media/evaluatierapport-bestrijding-wateroverlast-juni-2021.pdf",
+      "accessedAt": "2026-09-02T12:00:27Z",
+      "edition": 2021,
+      "supports": [
+        "Extreme rain exposed a bottleneck in the Schermerboezem at Alkmaar, kept western branches high and forced temporary shutdown of Baafjespolder pumping.",
+        "The report records sewer water emerging through street inlets in central Alkmaar, pump and storage constraints, and highly heterogeneous water levels.",
+        "Actual response included staged crisis operation and supplemental mobile pumps, not a municipality-uniform drainage coefficient."
+      ]
+    },
+    {
+      "publisher": "Hoogheemraadschap Hollands Noorderkwartier",
+      "title": "Aanleg Bergingsgebied Sammerspolder",
+      "url": "https://www.hhnk.nl/aanleg-bergingsgebied-sammerspolder",
+      "accessedAt": "2026-09-02T12:00:27Z",
+      "edition": 2024,
+      "supports": [
+        "The approximately 5,000-hectare basin west of Alkmaar proved vulnerable in June 2021.",
+        "Sammerspolder pumping, the Schermerboezem and Alkmaar's hydraulically constrained urban water system are explicit local dependencies."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / Informatiepunt Leefomgeving",
+      "title": "Landelijk Informatiesysteem Water en Overstromingen",
+      "url": "https://iplo.nl/thema/water/applicaties-modellen/berichtgeving-crisismanagement/liwo/",
+      "accessedAt": "2026-09-02T12:00:27Z",
+      "edition": 2026,
+      "supports": [
+        "Credible flood assessment requires scenario-specific spatial layers such as depth, arrival time and probability context.",
+        "A straight-line centroid-to-coast distance cannot establish an exact local inundation depth."
+      ]
+    },
+    {
+      "publisher": "Liander",
+      "title": "Uitbreiding stroomnet Boekelermeer in Alkmaar",
+      "url": "https://www.liander.nl/regio/noord-holland/alkmaar/helix",
+      "accessedAt": "2026-09-02T12:00:27Z",
+      "edition": 2026,
+      "supports": [
+        "Liander is expanding the Boekelermeer medium-voltage network with a fifteen-kilometre cable route and new or replaced electricity rooms.",
+        "The public page describes an overloaded/insufficient local network but does not disclose feeder, switching or restoration topology.",
+        "Congestion and expansion are capacity context, not disaster outage probability."
+      ]
+    },
+    {
+      "publisher": "PWN",
+      "title": "Where PWN supplies drinking water",
+      "url": "https://www.pwn.nl/veelgestelde-vragen?vraag=waar-levert-pwn",
+      "accessedAt": "2026-09-02T12:00:27Z",
+      "edition": 2026,
+      "supports": [
+        "PWN lists Alkmaar in its public drinking-water supply area.",
+        "The page establishes provider context but not Alkmaar pressure zones, feed paths, isolation valves or emergency distribution sites."
+      ]
+    },
+    {
+      "publisher": "HVC",
+      "title": "Regio Alkmaar groen verwarmd",
+      "url": "https://www.hvcgroep.nl/warmtenet-alkmaar/regio-alkmaar-groen-verwarmd",
+      "accessedAt": "2026-09-02T12:00:27Z",
+      "edition": 2026,
+      "supports": [
+        "The regional heat network is fed by HVC's bio-energy plant at Jadestraat and runs through Boekelermeer, Overdie, Kooimeer, Oudorp, De Nollen and Vroonermeer toward Dijk en Waard.",
+        "Public heat-network geography is materially different from a generic gas service and creates a local source/corridor dependency."
+      ]
+    },
+    {
+      "publisher": "Noordwest Ziekenhuisgroep",
+      "title": "Spoedeisende hulp",
+      "url": "https://www.nwz.nl/afdelingen-overzicht/spoedeisende-hulp",
+      "accessedAt": "2026-09-02T12:00:27Z",
+      "edition": 2026,
+      "supports": [
+        "A hospital emergency department operates at the Alkmaar location on Wilhelminalaan.",
+        "A sourced critical facility exists but its capacity, backup autonomy, occupancy and incident catchment are not represented by the generic facilities index."
+      ]
+    },
+    {
+      "publisher": "Rijksoverheid",
+      "title": "Energie, drinkwater, internet, zorg en bereikbaarheid tijdens een crisis",
+      "url": "https://www.rijksoverheid.nl/themas/recht-veiligheid-en-defensie/dreiging-in-nederland/energie-drinkwater-internet-zorg-bereikbaarheid-tijdens-crisis",
+      "accessedAt": "2026-09-02T12:00:27Z",
+      "edition": 2025,
+      "supports": [
+        "National guidance documents cross-service dependencies among electricity, communications, water, heating, care and mobility.",
+        "After more than 24 hours without safe tap water, drinking-water companies place central taps and must provide three litres per person per day.",
+        "The first 72 hours are a preparedness horizon, not a promise that utilities or the crisis are restored by T+72."
+      ]
+    },
+    {
+      "publisher": "KNMI",
+      "title": "Aardbevingen bij Alkmaar en Bergen aan Zee",
+      "url": "https://www.knmi.nl/over-het-knmi/nieuws/aardbevingen-bij-alkmaar-en-bergen-aan-zee",
+      "accessedAt": "2026-09-02T12:00:27Z",
+      "edition": 2001,
+      "supports": [
+        "KNMI recorded magnitude 3.2 and 2.8 earthquakes near Alkmaar in September 2001 and a magnitude 2.7 event near Bergen aan Zee in October 2001.",
+        "KNMI associated the shallow local events with gas extraction; they are a different source from the simulator's Groningen epicentre."
+      ]
+    },
+    {
+      "publisher": "Gemeente Alkmaar",
+      "title": "Beleidsplan Klimaatadaptatie Alkmaar 2024–2028",
+      "url": "https://zoek.officielebekendmakingen.nl/gmb-2024-385828.pdf",
+      "accessedAt": "2026-09-02T12:00:27Z",
+      "edition": 2024,
+      "supports": [
+        "Alkmaar recorded more than 80 millimetres of rain in 1.5 hours on 18 June 2021; roads, streets, tunnels and cellars flooded.",
+        "Damage hotspots include the centre, north Overdie and De Mare, while the Bergerweg rail underpass became impassable.",
+        "Central Alkmaar lies relatively high on a strandwal; deeper worst-case flooding concentrates in outer areas and polders including De Hoef, Vroonermeer and Boekelermeer.",
+        "Local policy requires model results to be tested against observations and Alkmaar-specific hydrology."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat",
+      "title": "Autoweg N9 — information and works",
+      "url": "https://www.rijkswaterstaat.nl/wegen/wegenoverzicht/n9",
+      "accessedAt": "2026-09-02T12:00:27Z",
+      "edition": 2026,
+      "supports": [
+        "The N9 begins at Kooimeerplein in Alkmaar and connects to the A9 and N99 corridor.",
+        "Public road presence does not establish emergency throughput, detour capacity or flood passability."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM0361 identity, name, province and safety-region assignment are coherent.",
+      "evidenceRefs": ["E01", "E03", "E07"],
+      "notes": [
+        "Feature id, feature code, regional bundle code and name all agree on GM0361 Alkmaar.",
+        "The municipality belongs to exactly one generated safety region, Noord-Holland-Noord."
+      ]
+    },
+    "geography": {
+      "status": "pass",
+      "summary": "The 2025 generalized geometry, center and local label points pass the audit geometry checks.",
+      "evidenceRefs": ["E03", "E04", "E05"],
+      "notes": [
+        "The municipality center [4.8031996654, 52.6049530050] is inside the generated polygon.",
+        "All 66 neighbourhood label points and all 17 assigned BAG place centers are inside the generalized boundary in the current audit.",
+        "The geometry is generalized administrative geography, not a cadastral, dike-compartment or hydraulic boundary."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Official municipal demography is preserved and neighbourhood rounding reconciles closely.",
+      "evidenceRefs": ["E01", "E02", "E04"],
+      "notes": [
+        "Official population is 112,896, density 1,023 per square kilometre, age 65+ share 21.4% and one-person households 23,067.",
+        "Published neighbourhood populations sum to 112,890, a difference of -6 (-0.005%); the allocator reconciles to the municipality total without overwriting published zeroes.",
+        "The official zero in Boekelermeer-Zuid is correctly retained as demographic truth and is no longer treated as absence of service demand; registered establishments and non-residential buildings now provide separate allocation weight."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "The 66-neighbourhood bundle is rich and internally valid; business/building context now informs local demand allocation, but it is not occupancy, asset criticality or measured load and two infrastructure fields have no usable values.",
+      "evidenceRefs": ["E02", "E04", "E17", "E19"],
+      "notes": [
+        "All 36 expected fields are present; most have 100% coverage.",
+        "Average home value and several housing/benefit fields cover 63 of 66 neighbourhoods; cars per household covers 60 of 66; doctor and supermarket distance cover 65 of 66.",
+        "District-heating percentage and public charging points have 0 of 66 usable values. Null means unavailable, not zero presence.",
+        "The bundle passes businesses and non-residential buildings into service-specific activity weights. These coefficients redistribute the fixed municipal demand total and are explicitly not measured load, employment, occupancy or operator capacity."
+      ]
+    },
+    "settlements": {
+      "status": "warn",
+      "summary": "BAG and BRT settlement datasets are valid but non-equivalent ontologies and should remain visibly separate.",
+      "evidenceRefs": ["E05", "E06"],
+      "notes": [
+        "The bundle has 17 active BAG woonplaatsen and 17 BRT settlement polygons: 14 woonkernen, two deelkernen and one buurtschap.",
+        "BAG includes Ursem while the BRT sample includes Omval; this is not a population reconciliation failure and the source types must not be silently merged.",
+        "No settlement count is used as emergency population, shelter or facility capacity."
+      ]
+    },
+    "transport": {
+      "status": "warn",
+      "summary": "Road, rail and transit presence is plausible context, but the graph is not emergency mobility capacity.",
+      "evidenceRefs": ["E08", "E09", "E24"],
+      "notes": [
+        "The generated graph has eleven NWB-derived links to seven neighbours, including A9 and eight N-road identities; no alias or unknown-neighbour review flag is raised.",
+        "Alkmaar and Alkmaar Noord stations and 152 transit stop areas fall inside the municipality.",
+        "Nominal capacities 260 and 150 are synthetic transfer units and are reused for non-mobility services; they are not vehicles per hour, evacuation capacity or operator topology."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "Authoritative Alkmaar emergency nodes, responsibilities and sector-specific dependencies exist but are absent from the operational model.",
+      "evidenceRefs": ["E10", "E11", "E12", "E13", "E19", "E20"],
+      "notes": [
+        "The model has no explicit support-point, hospital, fire-station, HVC, TAQA, drinking-water tap, command-location or staffed-resource objects.",
+        "Alkmaar publishes four support points for long-duration power loss, while VRNHN defines CoPI/ROT roles and start norms; the facilities layer remains an undifferentiated neighbourhood index.",
+        "The public sources identify roles and locations, not sensitive capacity, fuel, staffing or utility control topology; those unknowns must remain unknown."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All 10 canonical presets, 6 required checkpoints and 8 services execute for GM0361 without missing or non-finite state.",
+      "evidenceRefs": ["E10", "E11", "E14", "E22", "E23"],
+      "notes": [
+        "MUNICIPALITY_AUDIT_CODE=GM0361 pnpm audit:model passes both harness tests; the matrix covers 480 service-checkpoint cells plus hazards, routes and explanations.",
+        "At T+24: severe-storm severity is 0.0547 with 35,280 affected people-equivalent; pluvial-flood is 0.1753 with 0.243 m and 32,846; river-flood is exactly zero; coastal-flood is 0.7217 with 2.203 m and 82,473; heatwave has 0.5999 drought and 2,852; winter-storm is 0.6839 with 44,363; cyberattack is 0.5051 with 37,142; earthquake has ended after a 0.00705 g T+6 checkpoint; wildfire has zero direct flame but 0.3072 smoke at T+12/T+24; compound is 0.8319 with 0.252 m, 39.844 mm/h, 24.46 m/s wind, 0.5201 cyber disruption and 84,855.",
+        "These are deterministic scenario outputs, not validation against observed Alkmaar event series."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Bounds, ledgers, determinism, local reconciliation and counterfactual invariants close.",
+      "evidenceRefs": [],
+      "notes": [
+        "Hazard severity, availability, utilization and affected population remain bounded; demand, delivery and reserves are finite and non-negative.",
+        "Hazard, service-availability and system-pressure ledgers reconcile; T+24 repeats exactly for every preset.",
+        "Across all ten presets and six checkpoints, intensity zero gives zero event fields, zero affected people-equivalent and zero event-attributable deprived person-hours.",
+        "Compound T+24 local population, affected population, demand and delivery reconcile for every service within the harness tolerances."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "The reference coastal depth and local distribution are not hydraulically plausible enough for Alkmaar-specific claims.",
+      "evidenceRefs": ["E11", "E14", "E15", "E16", "E23"],
+      "notes": [
+        "The model derives 2.203 m from municipality-centroid distance to one of three coast segments, not from a dike, breach, elevation, compartment or arrival-time layer.",
+        "The official Boekelerdijk example is concentrated in a primarily industrial polder and evolves spatially for 72 hours; it cannot validate a municipality-wide direct-depth number.",
+        "Local hazard severity is correctly invariant across service layers, but its neighbourhood variation is deterministic seeded modulation rather than terrain or hydraulic exposure.",
+        "The zero Rhine/Meuse/IJssel preset is sensible for its stated name, but no canonical scenario represents Alkmaar's Schermerboezem, regional-kering or Noord-Hollands Kanaal breach mechanism."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "Generic cross-service dependencies and activity-aware local demand allocation execute consistently, but Alkmaar's most consequential public dependencies, worker exposure and critical assets remain missing.",
+      "evidenceRefs": ["E02", "E11", "E14", "E17", "E18", "E19", "E20", "E21"],
+      "notes": [
+        "The engine models power dependencies for water, drainage, gas, telecom and facilities and mobility dependency for supply, with synthetic backup windows.",
+        "At compound T+24, Boekelermeer-Zuid has local hazard 0.6952 and non-zero demand/delivery for all eight services from the current activity weights, but still zero affected people-equivalent because that allocation is capped by official resident population.",
+        "The activity weights use registered establishments and non-residential building counts to redistribute municipality-total demand; they do not add or measure worker, industrial-process, HVC, TAQA or other critical-asset load.",
+        "The combined gas-and-heating state cannot express loss of the HVC source and heat corridor separately from gas distribution or TAQA gas transport.",
+        "No PWN, Liander, HVC, telecom, hospital, sewer-pump or emergency-supply topology, verified backup autonomy or operator restoration data is consumed."
+      ]
+    },
+    "causalTrace": {
+      "status": "warn",
+      "summary": "Mathematical causal accounting is inspectable and closes, while physical attribution remains scenario-level rather than operator-calibrated.",
+      "evidenceRefs": ["E11", "E12", "E21"],
+      "notes": [
+        "Direct hazard, recovery, power/mobility dependency, intervention and logical network contributions reconcile numerically.",
+        "Deprived person-hours integrate the event-attributable all-service pressure against a matched no-event baseline and are a pre-network/local pressure proxy, not observed customer outage-hours.",
+        "Every service transfer is correctly labeled logical-proxy; road-derived connectivity must never be described as a physical cable, pipe, mast, sewer or operator flow.",
+        "Official response uses evolving information and responsible organizations; a closed synthetic ledger does not validate a real causal graph."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "The 72-hour trajectory is numerically coherent but not calibrated to Alkmaar flood persistence, asset damage or crisis-organization phases.",
+      "evidenceRefs": ["E11", "E12", "E13", "E14", "E21"],
+      "notes": [
+        "Coastal depth is 2.203 m at T+24 and exactly zero at T+48, while 81,517 people-equivalent remain affected and drainage, water, telecom, facilities and supply remain at critical/failed levels; by T+72 drainage is still critical and cumulative deprivation is 4.547 million person-hours.",
+        "The official Boekelermeer example describes continued spatial spread through 72 hours and potentially irreparable HVC damage with long-duration heat loss.",
+        "VRNHN treats more than 72 hours as a transition to long-duration crisis organization, while Alkmaar's support points and household guidance are continuity measures, not a recovery deadline.",
+        "Crews, access, contamination, pumping, switching, backup fuel, mutual aid, spare parts, facility priority and operator restoration envelopes are not locally calibrated."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": [
+      "power",
+      "water",
+      "drainage",
+      "gas",
+      "telecom",
+      "mobility",
+      "facilities",
+      "supply"
+    ]
+  },
+  "findings": [
+    {
+      "id": "GM0361-ALLOC-001",
+      "severity": "high",
+      "category": "regional-data",
+      "status": "open",
+      "summary": "The new activity weights retain Boekelermeer-Zuid in service allocation, but worker exposure and critical industrial assets remain outside the ledgers.",
+      "evidence": "E02 reports zero residents, 201 non-residential buildings and 215 establishments in BU03610308. The current model correctly preserves zero residents and, at compound T+24, allocates non-zero demand/delivery in Boekelermeer-Zuid for power 0.992/0.210, water 0.345/0.124, drainage 0.295/0.031, gas 0.628/0.367, telecom 0.370/0.062, mobility 0.772/0.291, facilities 0.126/0.017 and supply 0.364/0.220. However, affected people-equivalent remains zero and the coefficients only redistribute a resident-derived municipality total. E11's official example centers on this industrial area, counts 3,450–4,000 people including workers and identifies HVC/TAQA cascades.",
+      "action": "Keep the official resident zero and the transparent non-residential proxy, but add separate sourced daytime-person and critical-asset exposure ledgers. Use privacy-safe employment/occupancy where available and typed public facilities/assets; do not convert workers into resident population or imply the current coefficients are measured utility load."
+    },
+    {
+      "id": "GM0361-FLOOD-001",
+      "severity": "critical",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The precise 2.203 m coastal output is an unsupported municipality-wide hydraulic claim.",
+      "evidence": "The canonical coastal preset reports 2.203 m at T+6, T+12 and T+24, 82,473 affected people-equivalent at T+24 and seeds hazard across all 66 neighbourhoods. The value is computed from the municipality centroid's distance to a simplified coastline. E11 and E16 require a named breach/scenario, evolving footprint, elevation/compartments and arrival-time context; E11 also warns its own example is only directional. E23 identifies central Alkmaar's higher strandwal and deeper-risk outer polders, contradicting municipality-uniform interpretation.",
+      "action": "Do not emit metres or local inundation polygons from coast distance. Ingest approved LIWO/HHNK scenario layers with breach/scenario id, extent, depth, arrival time, timestamp, resolution and uncertainty; otherwise label the output a unitless coastal stress screen."
+    },
+    {
+      "id": "GM0361-FLOOD-002",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Alkmaar's supported canal, boezem, regional-barrier and polder mechanisms are absent as a distinct scenario path.",
+      "evidence": "E11 models Boekelerdijk failure beside the Noord-Hollands Kanaal after high water combined with drought or a cluster shower. E14–E15 document the Schermerboezem bottleneck, local pump shutdowns and constrained drainage. River-flood correctly remains zero because it is explicitly Rhine, Meuse and IJssel high water, while pluvial-flood is rainfall runoff and coastal-flood is a coast-distance proxy; none represents the supported mechanism.",
+      "action": "Add separately named primary-barrier, regional-kering/canal and boezem-polder scenario components rather than relabeling coastal or major-river forcing. Use HHNK/LIWO footprints and make hazard eligibility and provenance inspectable."
+    },
+    {
+      "id": "GM0361-REC-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Flood recession and recovery are not damage-state calibrated to the official 72-hour Alkmaar example.",
+      "evidence": "Modeled coastal depth drops from 2.203 m at T+24 to exactly zero at T+48 because the generic 42-hour forcing ends, even though major service failure persists. E11 describes water continuing to spread toward Akersloot and Alkmaardermeer through T+72 and HVC damage capable of causing long-duration heating loss. E12 explicitly treats more than 72 hours as long-duration crisis operation.",
+      "action": "Separate forcing, spatial inundation/recession, asset damage and restoration states. Keep water in source/receiving compartments according to a hydraulic scenario and make source-specific HVC, drainage, access and utility damage persist until explicit inspection/repair conditions are satisfied."
+    },
+    {
+      "id": "GM0361-HEAT-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "One generic 'Gas & heating' service hides Alkmaar's distinct HVC heat network and TAQA gas-transport cascade.",
+      "evidence": "E19 identifies a public HVC source and corridor through named Alkmaar neighbourhoods. E11 says the Boekelermeer flood example threatens HVC within one to two hours, can produce long-duration heat loss in multiple municipalities and separately affects TAQA gas transport. The simulator exposes one population-distributed gas state, consumes no heat-network context, and all 66 CBS district-heating values are unavailable.",
+      "action": "Split gas distribution, district heating and building-level heat dependency in state, maps and explanations. Add only public/approved HVC source and aggregate service-zone context, keep TAQA transport separate from household gas, and leave sensitive valves/controls/topology undisclosed."
+    },
+    {
+      "id": "GM0361-FAC-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "The facilities layer omits Alkmaar's four published 72-hour support points and its acute hospital.",
+      "evidence": "E13 names support points at Helderseweg 8, Zonneweid 2, Dres 36 and Driemaster 2 and assigns emergency reporting, first aid, information and medical-device charging functions. E20 identifies Noordwest's Alkmaar emergency department. The model has no facility dataset and allocates a generic facilities index to each CBS neighbourhood with neutral priority.",
+      "action": "Add these public sites as typed context nodes with source, role and activation condition. Presence must not imply verified staffing, capacity, fuel or availability; add those only through VRNHN/municipality/provider-approved feeds, and model access/catchments explicitly before response-time claims."
+    },
+    {
+      "id": "GM0361-NET-001",
+      "severity": "high",
+      "category": "network",
+      "status": "accepted-limitation",
+      "summary": "Eleven NWB road links are reused as logical transfers for every service and are not utility topology.",
+      "evidence": "E8 validates road identity and geometry only. The same eleven edges to seven neighbours carry power, water, drainage, gas, telecom, mobility, facilities and supply in synthetic units. E17–E19 establish operators and selected public context but no feeder, pipe, pressure-zone, backhaul, valve, pumping or switching graph. Current transferSemantics correctly remains logical-proxy.",
+      "action": "Retain prominent logical-transfer-proxy language in map, legend, tooltip, explanation and export. Never draw or name these links as physical utility assets. Add service-specific adapters only from operator-authorized and security-reviewed aggregate topology."
+    },
+    {
+      "id": "GM0361-DRAIN-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "open",
+      "summary": "The drainage layer misses documented Schermerboezem, pumping and urban sewer bottlenecks.",
+      "evidence": "E14 records limited discharge at Alkmaar, high western-boezem water, temporary Baafjespolder pump shutdown, sewer water emerging in central Alkmaar and varied pump/storage performance. E15 calls Alkmaar's urban system hydraulically constrained. The simulator instead applies one municipal pluvial depth plus seeded neighbourhood/service multipliers and a generic continuous power dependency.",
+      "action": "Represent drainage catchments, boezem/polder compartments and a small set of public aggregate pump/storage dependencies. Calibrate thresholds and restoration only with HHNK/municipal data; otherwise show a stress index and uncertainty rather than hydraulic performance."
+    },
+    {
+      "id": "GM0361-EQ-001",
+      "severity": "medium",
+      "category": "hazard",
+      "status": "open",
+      "summary": "A remote Groningen earthquake proxy creates unsupported Alkmaar service deprivation despite negligible local headline impact.",
+      "evidence": "The canonical Groningen-centred preset gives Alkmaar 0.00705 g at T+6, zero affected people-equivalent at every checkpoint, yet accumulates 117,434 event-attributable deprived person-hours by T+72. E10 places local Alkmaar/Bergen earthquakes outside the regional profile because assessed physical effects are very small. E22 documents separate gas-extraction events near Alkmaar; neither source validates an exponential distance-only Groningen PGA or its service recovery tail.",
+      "action": "Require a named magnitude/source and official KNMI ShakeMap or validated GMPE/site-response grid before showing local g. Bound or threshold unsupported remote tails, keep local induced seismic sources distinct, and label any retained value as hypothetical scenario forcing rather than risk."
+    },
+    {
+      "id": "GM0361-FIRE-001",
+      "severity": "medium",
+      "category": "limitation",
+      "status": "accepted-limitation",
+      "summary": "Finite direct-fire support behaves safely, but the Veluwe smoke tail is not a plume or health forecast.",
+      "evidence": "The default wildfire preset gives GM0361 zero direct wildfire intensity at all checkpoints and smoke 0.3072 at T+12/T+24, with zero affected people-equivalent but 583,594 cumulative deprivation person-hours by T+72. E10 supports regional coastal-duin fire risk, not this Veluwe-centred transport field. No wind, atmospheric dispersion, concentration or exposure threshold drives the smoke value.",
+      "action": "Retain the direct-flame finite footprint and separate smoke semantics. Future calibration should use burnable land cover, ignition and wind-aware spread for fire, plus KNMI/dispersion inputs and health thresholds for smoke."
+    },
+    {
+      "id": "GM0361-MET-001",
+      "severity": "medium",
+      "category": "limitation",
+      "status": "accepted-limitation",
+      "summary": "Storm, pluvial, heat/drought, winter and cyber directions are credible stress cases, not locally calibrated values or probabilities.",
+      "evidence": "E10, E14, E15 and E23 support the qualitative hazards and cross-service disruption. The exact GM0361 rain, wind, temperature, snow/ice, drought and cyber fields still come from analytic envelopes and deterministic seeds rather than KNMI grids, sewer/stress-test rasters, operator incident histories or threat intelligence.",
+      "action": "Keep scenario/not-forecast labeling and expose forcing provenance. Future calibration should ingest time-stamped KNMI observations/forecasts, official climate-stress layers and anonymized operator restoration distributions with uncertainty."
+    },
+    {
+      "id": "GM0361-MOB-001",
+      "severity": "medium",
+      "category": "network",
+      "status": "open",
+      "summary": "Road, station and stop presence cannot support the current evacuation or emergency-throughput interpretation.",
+      "evidence": "E8, E9 and E24 validate eleven boundary-road links, two stations and major corridors, but not closures, bridge/tunnel systems, passability, available trains/buses, vehicles, traffic demand, clearance or responder travel time. E11 requires scenario-specific passability and evacuation planning and says public transport can help but is not large capacity.",
+      "action": "Separate observed geometry from synthetic transfer capacity. Add public critical-structure and closure/detour relationships, scenario passability, timetable/vehicle assumptions and uncertainty before using mobility for evacuation or response-time decisions."
+    },
+    {
+      "id": "GM0361-SUP-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "open",
+      "summary": "Emergency-supply readiness uses a national household proxy and omits local support and water-distribution operations.",
+      "evidence": "The canonical default householdPreparedness is 0.44, not an Alkmaar measurement. E13 publishes support points, and E21 describes household stocks plus central drinking-water taps after more than 24 hours of unsafe supply. No household inventory, PWN emergency point, supermarket/pharmacy stock, depot, vehicle, vulnerable-person need or last-mile plan is consumed.",
+      "action": "Expose preparedness as an editable uncertain assumption; split supply into water, food, medicines, warmth/power, information and cash. Add sourced activation rules and public distribution sites without inventing stocks, staffing or throughput."
+    },
+    {
+      "id": "GM0361-UI-001",
+      "severity": "medium",
+      "category": "ui",
+      "status": "open",
+      "summary": "The affected people-equivalent display is resident-based and can hide daytime exposure in a zero-resident industrial district.",
+      "evidence": "At compound T+24 the municipality reports 84,855 affected people-equivalent, while Boekelermeer-Zuid reports zero affected people-equivalent despite hazard 0.6952 and non-zero demand/delivery across all services. E11 describes 3,450–4,000 people in the official example footprint, many of them workers. The headline is a modeled resident-equivalent under service pressure, not every person physically present, every exposed worker or every critical asset.",
+      "action": "Label the current metric as resident/model-equivalent, show daytime-person and critical-asset exposure as separate sourced quantities when available, and never let zero resident exposure read as an empty or consequence-free area. Include the distinction in map tooltips, cards, charts and exports."
+    },
+    {
+      "id": "GM0361-WINTER-001",
+      "severity": "low",
+      "category": "explainability",
+      "status": "open",
+      "summary": "The winter-storm headline retains a small event severity outside its active envelope from seasonal baseline temperature.",
+      "evidence": "At T+0 and T+72, winter-storm has no wind, snow or ice and air temperature 1.37 °C, yet hazard severity is 0.0116; the intensity-zero matched scenario correctly reports zero. The cold-stress formula uses baseline seasonal temperature even when the storm envelope is zero, so the headline can attribute ordinary scenario-season cold to the event.",
+      "action": "Compute winter event cold stress as the delta from the matched no-event seasonal temperature or clearly separate ambient cold context from event severity. Add pre-event and post-envelope regression checks."
+    },
+    {
+      "id": "GM0361-DATA-001",
+      "severity": "low",
+      "category": "regional-data",
+      "status": "accepted-limitation",
+      "summary": "CBS rounding and partial field coverage are handled correctly but limit neighbourhood inference.",
+      "evidence": "Neighbourhood population differs from the municipality row by six people; several housing and benefit fields are present for 63 of 66, cars per household for 60, and heating/charging for none. Nulls are preserved and published percentage pairs are not forced to 100.",
+      "action": "Keep field coverage visible, preserve nulls and official rounding, and never infer household-level vulnerability, heat-network absence or charging absence from these aggregates."
+    },
+    {
+      "id": "GM0361-INV-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The current engine closes its deterministic causal, local-allocation and counterfactual contracts for GM0361.",
+      "evidence": "The focused two-test gate passes the full matrix. All service ledgers close; local totals reconcile; local hazard is identical across service selections; official regions use neutral priority and no fabricated hub; intensity zero is exact; person-hours are monotonic and event-attributable; every intermunicipal service edge declares logical-proxy semantics.",
+      "action": "Retain these invariants in the national release gate while correcting the physical exposure, non-residential demand and facility/service semantics above."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Replace GM0361 coast-distance metres with named, sourced and time-evolving flood scenario layers and add the distinct Noord-Hollands Kanaal/Schermerboezem pathways.",
+      "files": [
+        "apps/web/public/data/hazards/noord-holland-flood-scenarios.geojson",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts"
+      ],
+      "validation": "For a licensed official Boekelerdijk/LIWO fixture, assert dry areas remain dry, Boekelermeerpolder cells receive sourced depth and arrival time, spread remains scenario-specific through T+72, and output includes source/scenario/resolution/uncertainty. If no fixture is loaded, assert the UI emits only a unitless screen and never metres."
+    },
+    {
+      "summary": "Complete the current aggregate non-residential allocation with separately sourced daytime-person and critical-asset exposure, without changing official resident population.",
+      "files": [
+        "apps/web/src/data.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/explainability.test.ts"
+      ],
+      "validation": "Retain the current invariant that Boekelermeer-Zuid remains population=0 while its 201 non-residential buildings and 215 establishments produce non-zero, source-explained allocation weights and demand. Add separate worker/daytime and critical-asset ledgers only from sourced inputs, test that affected-resident remains zero without erasing those ledgers, and preserve exact municipality reconciliation for every metric."
+    },
+    {
+      "summary": "Separate gas distribution from district heating and represent the public HVC source/corridor as contextual dependency rather than generic population weighting.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/config.ts",
+        "apps/web/src/components/statistics/statisticsCatalog.ts",
+        "apps/web/public/data/services/alkmaar-heating-context.geojson"
+      ],
+      "validation": "A sourced HVC source outage must affect only declared aggregate heat service areas and explain the cascade separately from household gas and TAQA transport; unknown customers/topology remain unknown, and no road-derived edge may be presented as a heat pipe."
+    },
+    {
+      "summary": "Add Alkmaar's published long-outage support points and Noordwest acute-care location as typed public facility context.",
+      "files": [
+        "apps/web/public/data/facilities/GM0361.geojson",
+        "apps/web/src/data.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/components/MapView.tsx"
+      ],
+      "validation": "Show the four municipality support points with their published activation/use semantics and the Noordwest SEH as a distinct facility type. Assert that source presence never invents staffing, capacity, fuel or availability, and test keyboard/map-table access to every site."
+    },
+    {
+      "summary": "Correct unsupported hazard attribution tails and winter baseline leakage.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/explainability.test.ts"
+      ],
+      "validation": "Require named earthquake magnitude/source and ground-motion provenance before local g is treated as physical; retain finite wildfire flame and separate smoke; assert winter event severity is zero before and after the event envelope when only matched seasonal baseline cold remains."
+    },
+    {
+      "summary": "Clarify resident affected people-equivalent and 72-hour recovery/long-duration-transition semantics.",
+      "files": [
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/OperationsBrief.tsx",
+        "apps/web/src/components/statistics/statisticsCatalog.ts",
+        "packages/sim-core/src/model.ts"
+      ],
+      "validation": "At GM0361 compound T+72, render 80,595 resident/model-equivalent affected beside 0.251 m modeled water and critical municipality state; at Boekelermeer-Zuid T+24, show zero residents affected without hiding non-residential demand or potential daytime presence. Surface VRNHN's post-72-hour long-duration transition as response context, not an automatic restoration target."
+    }
+  ],
+  "residualLimitations": [
+    "The ten presets are deterministic stress tests, not KNMI forecasts, official probabilities, casualty estimates, current incidents or operator outage predictions.",
+    "No security-sensitive Liander/TenneT, PWN, HVC, gas, telecom, HHNK, hospital or emergency-service topology, switching, control, priority-customer or restoration data is consumed.",
+    "Neighbourhood outputs use aggregate CBS areas and deterministic seeds; they do not resolve buildings, parcels, dike compartments, terrain, sewer catchments, asset fragility, workers or transient populations.",
+    "The official IMPH Boekelermeer example is itself fictive but realistic and directional; it is evidence for mechanism, spatial heterogeneity and planning dependencies, not a calibration truth to copy one-to-one.",
+    "BAG woonplaatsen, BRT settlements, CBS neighbourhoods and municipality boundaries have distinct ontologies and reference dates and must remain separately attributed.",
+    "NWB, ProRail and transit data verify transport presence only; they do not provide evacuation demand, passability, timetable reliability, usable vehicles, clearance or responder travel time.",
+    "Public HVC and Liander pages identify selected context but cannot establish failure probability, backup autonomy, isolation domains or restoration duration.",
+    "The PWN service-area page does not expose Alkmaar pressure zones, feeds, redundancy, emergency taps or contamination/isolation topology.",
+    "The facilities layer has no verified beds, staff, occupancy, generator fuel, medicine stock, catchments, mutual aid or activation performance.",
+    "The household preparedness parameter is a scenario assumption, not an Alkmaar survey or inventory.",
+    "The first-72-hour window excludes long-term displacement, environmental contamination, public health, economic loss, reconstruction and recovery beyond the VRNHN long-duration transition.",
+    "Six-hour checkpoints can miss short impulses such as earthquake shaking; peak memory helps display but is not temporal validation."
+  ],
+  "provinceReviewFlags": [
+    "Noord-Holland: replace centroid-to-coast eligibility with official primary-barrier, regional-kering, canal, boezem and polder scenario masks for every municipality.",
+    "Noord-Holland: use the interregional flood plan's fictive-but-realistic examples as mechanism tests, never as universal deterministic depth fields.",
+    "Alkmaar/Noord-Holland: retain the new non-residential allocation weights, then review every zero/low-resident business park, port, industrial and agricultural area for separate privacy-safe daytime-person and critical-asset exposure.",
+    "Alkmaar/region: separate HVC district heating, household gas distribution and TAQA/national gas transport in both model and UI.",
+    "Alkmaar/HHNK: model the Schermerboezem bottleneck, regional barriers and public aggregate pumping/storage dependencies distinctly from urban runoff and sea surge.",
+    "Noord-Holland-Noord: ingest public emergency support points and typed critical facilities consistently, without fabricating staffing, capacity or resilience.",
+    "Noord-Holland-Noord: review earthquake service tails against the regional profile and a named KNMI source/ground-motion product; do not infer risk from distance alone.",
+    "Noord-Holland-Noord: keep coastal-duin fire and remote smoke as separate mechanisms with land-cover and meteorology eligibility.",
+    "Shared/national: all NWB-derived service transfers must remain labeled logical proxies and must not be presented as physical electricity, water, gas, heating, drainage or telecom topology.",
+    "Shared/national: treat T+72 as an operational checkpoint and possible transition to long-duration crisis organization, not a guaranteed all-clear or restoration deadline."
+  ]
+}

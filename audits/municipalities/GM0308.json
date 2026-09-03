@@ -1,0 +1,509 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0308",
+    "name": "Baarn",
+    "province": "Utrecht",
+    "safetyRegion": "Utrecht"
+  },
+  "agent": {
+    "taskName": "municipality_gm0308",
+    "agentId": "/root/nl_realism_audit",
+    "completedAt": "2026-09-02T14:43:08Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "Baarn's generated identity and 2025 administrative data are coherent: 25,184 residents, 21 neighbourhoods in five districts, two BAG woonplaatsen, four BRT settlements, Baarn station, 26 grouped transit-stop areas and eight NWB-derived municipal links. The complete ten-preset, six-checkpoint and eight-service contract passes, including determinism, exact zero-event behavior, service-layer-invariant hazard, event-attributable deprived person-hours and exact local population/demand/delivery reconciliation. Release is nevertheless correction-required. All eight presets with nonzero neighbourhood hazard at T+24 reuse exactly the same neighbourhood rank order, although official evidence distinguishes low Eemland polder and Eem/Eemmeer flood pathways, urban/sewer pluvial pathways and the wooded Lage Vuursche heat/drought/nature-fire pathway. The preset labelled Rhine, Meuse & IJssel high water assigns Baarn severity 0.1944 at T+24 and 7,590 affected residents at T+72 using only a centroid-to-three-line-segments proximity function; it does not model the Eem, Eemmeer, dikes, polders, pumps, inundation depth or arrival time and therefore cannot support that precise local claim. Roads are also copied into all eight logical service networks, while public service-area and water-management datasets do not provide physical utility topology or live operating state. Public CBS/PDOK, province, water-board, KNMI, ProRail/NWB and service-area data should be integrated wherever their semantics support it; sensitive or unavailable feeder, pipe, telecom, crew, stock and restoration detail must remain explicitly synthetic and uncertain.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek / PDOK / Kadaster",
+      "title": "E01 — Kerncijfers wijken en buurten 2025 and administrative geometries for GM0308",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM0308%27%29",
+      "accessedAt": "2026-09-02T14:35:55Z",
+      "edition": 2025,
+      "supports": [
+        "The official municipality row identifies GM0308 Baarn with 25,184 residents, density 774 residents per square kilometre, 6,445 residents aged 65 or older and 4,447 one-person households.",
+        "The app's machine-readable administrative inputs are the annual CBS OData/PDOK 2025 municipality, district, neighbourhood and safety-region editions under CC BY 4.0, plus BAG woonplaatsen under Public Domain Mark 1.0; the generated label point lies inside the generalized municipality geometry.",
+        "Annual administrative polygons and resident statistics are official context, not observations of people present, hazard footprints, sewer catchments, utility zones or emergency demand."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / PDOK / ProRail / OVapi",
+      "title": "E02 — Machine-readable road, railway-station and scheduled-transit context",
+      "url": "https://service.pdok.nl/rws/nationaal-wegenbestand-wegen/wfs/v1_0?service=WFS&version=2.0.0&request=GetCapabilities",
+      "accessedAt": "2026-09-02T14:35:55Z",
+      "edition": "NWB-Light 2026-08-01; transit feed version 9543",
+      "supports": [
+        "NWB is an official road-geometry source published as CC0 and refreshed monthly; the current generated snapshot yields A1, A27, N221, N414 and N415 crossings from Baarn to Amersfoort, Eemnes, Laren, Bunschoten and Soest, but contains no disaster passability, evacuation demand or utility capacity.",
+        "ProRail public OGC station/trace layers are machine-readable CC0 context. The app identifies one station point, Baarn, but does not model rail service, rolling stock, passenger loads, bridge/track availability or recovery.",
+        "The OVapi GTFS snapshot was retrieved 2026-08-31 and is valid 2026-08-30 through 2026-12-12 under free-use terms without an SLA; its 26 grouped Baarn stop areas describe planned service geography, not live operations, ridership, facility identity or emergency capacity."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Utrecht",
+      "title": "E03 — Regionaal Risicoprofiel VRU 2023",
+      "url": "https://vru.nl/documents/4/Regionaal_Risicoprofiel_2023.pdf",
+      "accessedAt": "2026-09-02T14:35:55Z",
+      "edition": 2023,
+      "supports": [
+        "The regional profile's major-river cases concern the Nederrijn/Lek and Grebbedijk pathways and name other exposed municipalities; it does not provide a calibrated Rhine/Meuse/IJssel impact value for Baarn.",
+        "It separately describes severe-rain utility failures, Randmeren water-level effects during storm, storm/ice power loss, heat/drought, cyber and cascading dependencies among energy, drinking water, ICT/telecom and water management.",
+        "For nature fire, the profile identifies Lage Vuursche as a tourist draw and emphasizes wooded-area access, vulnerable care/recreation populations, roads/fences and limited extinguishing-water pressure as locally relevant conditions.",
+        "The document is official scenario and regional-context evidence, not an observed municipal hazard raster, live asset inventory, crew roster or restoration commitment."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Utrecht",
+      "title": "E04 — Regionaal Crisisplan Veiligheidsregio Utrecht 2024–2027, interim update 2025",
+      "url": "https://vru-prod-minio.fourdigits.nl/media/documents/Regionaal_Crisisplan_Veiligheidsregio_Utrecht_2024-2027_tussentijdse_actualisatie_2025.pdf",
+      "accessedAt": "2026-09-02T14:35:55Z",
+      "edition": "2024–2027, updated 2025",
+      "supports": [
+        "VRU uses an adaptive, situation-led crisis organization: CaCo, CoPI, ROT, Team Bevolkingszorg, GBT and RBT have distinct coordination roles and GRIP is an initial composition rather than a deterministic severity or recovery scale.",
+        "CoPI coordinates place-based operational work; ROT supports effects that cannot be handled locally, scarce-resource coordination and scenario thinking; municipal and regional policy teams cover strategic decisions.",
+        "The plan supplies governance and coordination semantics, not municipality-specific staff, response-time, emergency-water, fuel, shelter, logistics-stock or repair-capacity values."
+      ]
+    },
+    {
+      "publisher": "Gemeente Baarn",
+      "title": "E05 — Baarn nature-fire, Lage Vuursche climate works and first-72-hour preparedness pages",
+      "url": "https://www.baarn.nl/natuurbranden",
+      "accessedAt": "2026-09-02T14:35:55Z",
+      "edition": 2026,
+      "supports": [
+        "Baarn states that the village and wooded area of Lage Vuursche will receive an area-based nature-fire approach from 2026 considering nature, roads, use and risk; keeping emergency access clear is explicitly relevant.",
+        "The municipality's current Lage Vuursche project page at https://www.baarn.nl/herinrichting-lage-vuursche documents replacement of a mixed 1970 sewer with separate foul-water and rainwater systems during February 2026 through the first quarter of 2027; it says intense rain can overload sewers and put polluted water in streets or ponds, while heat and drought are also increasing.",
+        "The current preparedness page at https://www.baarn.nl/voorbereiden-op-een-noodsituatie says power, water and internet can fail and asks households to prepare to manage the first 72 hours with an emergency kit, plan and mutual help.",
+        "These pages are official current local context. They are not machine-readable incident feeds and do not establish a measured neighbourhood preparedness percentage, live sewer capacity or emergency response availability."
+      ]
+    },
+    {
+      "publisher": "Provincie Utrecht / Klimaateffectatlas / Rijkswaterstaat",
+      "title": "E06 — Provincial climate-adaptation rasters and Eemland water-system context",
+      "url": "https://www.provincie-utrecht.nl/onderwerpen/bodem-en-water/water-en-bodem-sturend/bodem-en-water-als-fundament",
+      "accessedAt": "2026-09-02T14:35:55Z",
+      "edition": 2026,
+      "supports": [
+        "The province distinguishes the high sandy Utrechtse Heuvelrug from low Eemland polders and states that in prolonged wet periods Eemland water must drain through the Eem and Eemmeer, while deep polders and outside-dike areas are particularly vulnerable; drought affects groundwater, nature, agriculture and drinking-water supply differently.",
+        "The province publishes machine-readable RD/EPSG:28992 climate-adaptation rasters at https://gis.provincie-utrecht.nl/server/rest/services/Water/w01_7_Klimaatadaptatie_raster/MapServer, including 70 mm/2 h and 140 mm/2 h rain, heat, drought and flood layers. The public service states no explicit reuse licence or guaranteed update cadence, so redistribution and refresh policy require publisher confirmation.",
+        "Klimaateffectatlas downloads at https://www.klimaateffectatlas.nl/nl/faq are generally GeoPackage/GeoTIFF/WMS under CC BY 4.0 and are updated several times per year, but resolution and interpretation differ by map and national layers are indicative rather than sufficient for local decisions.",
+        "Rijkswaterstaat's ROR risk-area OGC API at https://api.pdok.nl/rws/overstromingen-risicogebied/ogc/v1 is CC0 but belongs to the 2018 reporting cycle with no planned update; it is official screening context, not local depth, arrival-time or pump-failure calibration."
+      ]
+    },
+    {
+      "publisher": "Het Waterschapshuis / Waterschap Vallei en Veluwe / Stichting Mijn Aansluiting",
+      "title": "E07 — Public water-management objects, water-system observations and utility service areas",
+      "url": "https://api.pdok.nl/hwh/waterschappen-kunstwerken-imwa/ogc/v2",
+      "accessedAt": "2026-09-02T14:35:55Z",
+      "edition": "current public services, accessed 2026-09-02",
+      "supports": [
+        "The HWH/PDOK IMWA OGC API contains pumps, weirs, locks, culverts and other water-management works, is updated weekly and is published under CC BY-SA; companion water-management-area, defence and surface-water services are also machine-readable, with service-specific CC BY-SA 4.0 or CC0 terms.",
+        "Waterschap Vallei en Veluwe states at https://www.vallei-veluwe.nl/wat-doen-wij/werken-aan-voldoende-water/schouwen/ that Eemland/Arkemheen polder ditches are periodically inspected because reduced conveyance can worsen rainfall nuisance; its current water-status page provides regularly updated observations but not a guaranteed municipality-scale disaster forecast.",
+        "Stichting Mijn Aansluiting publishes WMS/WFS service areas for electricity, gas, media, sewer, heat and water at https://public.geodata.mijnaansluiting.nl/geoserver/mijnaansluiting_open/wfs?service=wfs&version=2.0.0&request=getcapabilities. Data.overheid records public-domain reuse and update on 2026-08-14, but these are connection-offer/provider areas, not physical feeder, pipe, telecom, operating-state or restoration topology.",
+        "Water objects and service areas are integration-ready official context only after manager, edition, object completeness and licence are retained; they must not be promoted to live causal assets without operator validation."
+      ]
+    },
+    {
+      "publisher": "Koninklijk Nederlands Meteorologisch Instituut / NIPV",
+      "title": "E08 — Machine-readable meteorological/seismic observations and professional nature-fire risk information",
+      "url": "https://dataplatform.knmi.nl/en/dataset/10-minute-in-situ-meteorological-observations-1-0",
+      "accessedAt": "2026-09-02T14:35:55Z",
+      "edition": "version 1.0 and current API catalogue",
+      "supports": [
+        "KNMI's station observations are published every ten minutes, generally within minutes, can be backfilled for seven days and are CC BY 4.0; they are official near-real-time observations at station scale, not a Baarn neighbourhood field or forecast.",
+        "KNMI also provides radar/nowcast and keyless FDSN earthquake event/station/data-select and ShakeMap products through https://developer.dataplatform.knmi.nl/apis. Each product version, spatial/temporal resolution, validation state and reuse terms must be pinned at ingestion rather than assuming station observations represent the whole municipality.",
+        "NIPV's Risico Index Natuurbranden at https://nipv.nl/informatievoorziening/voorzieningen/risico-index-natuurbranden/ uses seventeen parameters on a one-kilometre grid for professional users; no public bulk API, reuse licence or guaranteed cadence was found, so it is official context pending an agreement, not a distributable calibration layer.",
+        "Where RIN or operational smoke/fire data cannot be licensed, the smallest honest fallback is a declared synthetic ignition combined with authoritative land cover, drought and wind transport, with ensemble uncertainty rather than a fixed municipality-wide scalar."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM0308 identity, name, province and safety-region membership are coherent.",
+      "evidenceRefs": [
+        "E01",
+        "E04"
+      ],
+      "notes": [
+        "Feature id, municipal code and regional bundle identify Baarn in Utrecht and Veiligheidsregio Utrecht.",
+        "The focused audit context resolves the expected manifest entry and no contradictory official identity was found."
+      ]
+    },
+    "geography": {
+      "status": "pass",
+      "summary": "The 2025 generalized municipal geometry and generated label point pass the audit checks.",
+      "evidenceRefs": [
+        "E01",
+        "E06"
+      ],
+      "notes": [
+        "The generated center [5.2738392973, 52.2069242123] lies inside the generalized municipality boundary.",
+        "The boundary is suitable for selection and administrative choropleths, not for distinguishing the Eemland polder, Heuvelrug, surface-water catchments, hydraulic compartments or utility zones."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Official municipality totals and generated neighbourhood allocations reconcile within publication rounding.",
+      "evidenceRefs": [
+        "E01"
+      ],
+      "notes": [
+        "Official 2025 population is 25,184, density 774, age 65-plus count 6,445 and one-person-household count 4,447.",
+        "Published neighbourhood population sums to 25,180, four fewer than the municipality total (-0.016%); the model allocator reconciles local population exactly to 25,184.",
+        "Affected population is resident-equivalent and excludes commuters, visitors, tourists in Lage Vuursche, rail passengers, patients and other time-varying occupants."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "Neighbourhood coverage is usable, but some statistics are null and activity remains an aggregate proxy.",
+      "evidenceRefs": [
+        "E01",
+        "E03",
+        "E05"
+      ],
+      "notes": [
+        "The bundle contains 21 neighbourhoods in five districts and 36 statistic fields; population, age, households and businesses are present.",
+        "Cars and households are unavailable in three of 21 neighbourhoods, while district-heating share and public-charging points are unavailable in all 21; these correctly remain null rather than zero.",
+        "No neighbourhood has an official zero resident count in this bundle. Activity demand is an aggregate proxy and does not represent Lage Vuursche visitors, people in care, workforce or facility occupancy."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "BAG woonplaatsen and BRT settlement concepts are retained distinctly.",
+      "evidenceRefs": [
+        "E01"
+      ],
+      "notes": [
+        "The bundle contains two BAG woonplaatsen, Baarn and Lage Vuursche, with no generated center outside the municipal geometry.",
+        "Four BRT settlement polygons identify Baarn, Eembrugge, Lage Vuursche and Soestdijk; these descriptive polygons are not resident totals, response zones or service catchments."
+      ]
+    },
+    "transport": {
+      "status": "warn",
+      "summary": "Authoritative transport geometry is present, but passability, capacity and modal dependencies are synthetic or absent.",
+      "evidenceRefs": [
+        "E02",
+        "E03"
+      ],
+      "notes": [
+        "Eight municipal road links cover A1, A27, N221, N414 and N415 crossings to five neighbours; their nominal capacities are model classes, not observed emergency throughput.",
+        "Baarn station and 26 grouped transit-stop areas are visualization context only. Scheduled stop labels, including Meander/Ziekenhuis names, do not establish current facilities or service state.",
+        "Rail, road, bus, walking/cycling, bridge, treefall and nature-area access can fail differently, but the current causal graph has one road-derived municipal abstraction."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "Official first-72-hour guidance and crisis roles are documented but not represented as observable resources or decisions.",
+      "evidenceRefs": [
+        "E03",
+        "E04",
+        "E05"
+      ],
+      "notes": [
+        "VRU's CaCo, CoPI, ROT, Team Bevolkingszorg, GBT and RBT roles cannot be inferred from the municipality's model status label.",
+        "The model has no live warnings, incident perimeter, closures, staff, crews, extinguishing-water, emergency-water distribution, shelter, backup fuel, supply stock, mutual aid or public-warning reach.",
+        "The fixed 0.44 household-preparedness value is explicitly a national editable scenario proxy, not a measured Baarn or neighbourhood statistic."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "The complete deterministic 10 × 6 × 8 numerical contract passes for GM0308.",
+      "evidenceRefs": [
+        "E03",
+        "E05"
+      ],
+      "notes": [
+        "MUNICIPALITY_AUDIT_CODE=GM0308 pnpm audit:model passed all canonical presets at T+0, +6, +12, +24, +48 and +72 for power, water, drainage, gas, telecom, mobility, facilities and supply.",
+        "Selected T+24 outputs are: storm severity 0.1051 and 9,107 affected; pluvial severity 0.1283 and 5,562 affected; river severity 0.1944 and 6,109 affected; coastal direct water stress zero but 792 affected through indirect wind/service effects; heat severity 0.1159 and 2,313 affected; winter severity 0.8029 and 9,192 affected; cyber severity 0.3779 and 7,430 affected; earthquake peak ground acceleration 0.00656 g and zero affected; wildfire flame zero with smoke 0.4209 and 1,362 affected; compound severity 0.8185 and 20,184 affected.",
+        "At T+72 river forcing remains active and gives 7,590 affected with availability power 0.7619, water 0.6264, drainage 0.4824, gas 0.7614, telecom 0.5751, mobility 0.7057, facilities 0.5571 and supply 0.6347. Compound remains critical with 20,190 affected. These are deterministic synthetic scenario outputs, not measurements, forecasts or official decisions."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Determinism, bounds, ledgers, zero-event semantics and local reconciliation pass.",
+      "evidenceRefs": [
+        "E01"
+      ],
+      "notes": [
+        "All tested values are finite and bounded, service delivery does not exceed demand, causal ledgers and counterfactual deltas reconcile, and repeated frames are deterministic.",
+        "Intensity zero yields exact zero event hazard, zero affected population and zero event-attributable deprived person-hours for all ten presets and all checkpoints.",
+        "Every focused local view contains 21 neighbourhoods and reconciles exactly to 25,184 residents; affected totals reconcile for all services and maximum demand/delivery error is 1.4210854715202004e-14.",
+        "Local hazard is exactly identical across all eight service views, official resident values are preserved/reconciled without fabricated zero populations, and deprivation is event-attributable against a matched no-event baseline."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "Neighbourhood patterns and the named major-river mechanism are not spatially or hydraulically defensible for Baarn.",
+      "evidenceRefs": [
+        "E03",
+        "E05",
+        "E06",
+        "E07"
+      ],
+      "notes": [
+        "At T+24 the eight presets with nonzero local hazard—storm, pluvial, river, heat, winter, cyber, wildfire and compound—have exactly the same rank order across all 21 neighbourhoods because they share one canonical seed and the local field lacks hazard-specific spatial inputs.",
+        "The common order starts Schoonoordpark, Transvaal, Verspreide huizen Lage Vuursche, Lage Vuursche, Componistenwijk, Professorenwijk, Centrum and Amaliapark, irrespective of whether the cause is rain, river water, heat, cyber or wildfire.",
+        "Official sources instead distinguish low Eemland/Eem/Eemmeer water pathways, built sewer-overload pathways and wooded Lage Vuursche nature-fire/drought pathways; public provincial point samples likewise yield materially different drought and urban-heat values across those zones.",
+        "The river calculation is a municipality-centroid distance screen against three simplified named-river segments with 50 km support, not an Eem/Eemmeer catchment, dike-breach, depth, arrival-time, pump or inundation model."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "Eight-service cascades are inspectable but are not calibrated to Baarn assets, topology or operating state.",
+      "evidenceRefs": [
+        "E02",
+        "E03",
+        "E05",
+        "E07"
+      ],
+      "notes": [
+        "Every service receives eight route records derived from the same road crossings; supplied/NWB connectivity is correctly described as a logical transfer proxy, never physical power, water, drainage, gas, telecom, facility or supply topology.",
+        "Public service-area polygons can identify responsible connection providers, and water-board layers can identify public pumps, weirs and water-management zones, but neither proves live flow, switching, backup autonomy, failure state or restoration capacity.",
+        "The Lage Vuursche sewer replacement, Eemland drainage context, Stedin capacity context and public-water objects are not active typed dependencies in the simulation.",
+        "No safe complete public source was found for feeder, pipe, valve, telecom-control, facility-backup, crew, fuel or restoration topology; unavailable or security-sensitive detail must remain the smallest transparent synthetic zonal graph with ranges."
+      ]
+    },
+    "causalTrace": {
+      "status": "warn",
+      "summary": "Causal arithmetic is auditable, but most local coefficients remain scenario assumptions.",
+      "evidenceRefs": [
+        "E03",
+        "E04",
+        "E07",
+        "E08"
+      ],
+      "notes": [
+        "Hazard, service-availability, system-pressure and intervention ledgers reconcile and explanations disclose that road connectivity is a logical proxy.",
+        "Direct coastal water stress is zero for Baarn at T+24 while wind creates indirect service effects; the UI must retain that distinction instead of implying coastal inundation.",
+        "Generic vulnerability, backup, capacity, response-delay, repair and household-preparedness coefficients lack Baarn operator calibration, so exact values and apparent physical units must remain visibly synthetic.",
+        "The earthquake value of 0.00656 g is generated from distance to a fixed Groningen point rather than a selected KNMI event or ShakeMap; wildfire smoke lacks an event-specific ignition, wind-transport and vegetation footprint."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "The first-72-hour window is implemented, but response and recovery are not locally calibrated and some status transitions overstate certainty.",
+      "evidenceRefs": [
+        "E03",
+        "E04",
+        "E05",
+        "E08"
+      ],
+      "notes": [
+        "River forcing correctly persists beyond the display horizon and compound forcing remains active, preventing generic recovery during continuing severe hazard.",
+        "Heat forcing and drought remain active at T+72 under the 336-hour preset, yet municipality status is operational with zero affected residents; wildfire and cyber also return to operational/zero affected while cumulative event-attributable deprivation continues. These transitions are internally possible but lack local health, operator, reserve or restoration calibration.",
+        "Winter peaks at T+24 with 9,192 affected and accumulates 509,274 deprived person-hours by T+72; no primary source supports those precise Baarn impacts or recovery rates.",
+        "Official 72-hour preparedness guidance is not a service-restoration promise. Resource availability, warnings, incident footprint, closures, role activation, care needs, emergency water, fuel, shelter and mutual aid need provenance-bearing incident inputs."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [
+      0,
+      6,
+      12,
+      24,
+      48,
+      72
+    ],
+    "services": [
+      "power",
+      "water",
+      "drainage",
+      "gas",
+      "telecom",
+      "mobility",
+      "facilities",
+      "supply"
+    ]
+  },
+  "findings": [
+    {
+      "id": "GM0308-SPAT-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Eight physically different hazards reuse exactly one seeded Baarn neighbourhood ranking.",
+      "evidence": "The focused T+24 probe finds identical rank order across all 21 neighbourhoods for storm, pluvial, river, heat, winter, cyber, wildfire and compound. E03, E05 and E06 instead distinguish Eemland water pathways, built sewer-overload pathways and wooded Lage Vuursche drought/nature-fire pathways; E06 exposes hazard-specific public rasters.",
+      "action": "Replace the shared random local modulation with disaster-specific, versioned spatial adapters. Sample validated provincial/water-manager pluvial, drought, heat and flood layers and authoritative land cover; retain layer, scenario, resolution, date, hash, licence and confidence. Add a regression that different physical footprints cannot collapse to one rank order solely because presets share a seed."
+    },
+    {
+      "id": "GM0308-RIVER-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The Rhine, Meuse & IJssel high-water output attributes a precise Baarn impact without modelling Baarn's relevant hydraulic pathways.",
+      "evidence": "The current centroid-to-three-line-segments screen gives Baarn river severity 0.1944 and 6,109 affected at T+24, then 7,590 affected at T+72. E03 does not define a calibrated major-river Baarn impact, while E06 identifies the relevant local wet pathway as low Eemland polders draining through the Eem and Eemmeer. No Eem, Eemmeer, dike, pump, depth, arrival or breach scenario enters the value.",
+      "action": "Do not present this as an official local prediction. Rename it normalized major-river proximity stress or mark Baarn direct impact unsupported until a versioned expert-selected inundation scenario is available. Build separate Rhine/Lek, Eem/Eemmeer/Randmeren and pluvial adapters using LIWO/provincial/water-manager layers with depth, arrival, persistence and scenario provenance."
+    },
+    {
+      "id": "GM0308-FIRE-001",
+      "severity": "medium",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The fixed wildfire misses direct Lage Vuursche exposure while its smoke field has no event-specific transport basis.",
+      "evidence": "The canonical event is fixed near [5.75, 52.18], so Baarn flame is zero; smoke is 0.4209 at T+12/T+24 and drives 1,362 affected at T+24. E03 and E05 specifically identify Lage Vuursche's wooded, recreational, access and care/vulnerability context, but ignition, vegetation, weather transport and evacuation/access are absent.",
+      "action": "Make ignition/perimeter editable and ingest authoritative land cover plus KNMI wind/drought inputs. Pursue licensed NIPV RIN data for professional calibration; until available, label ignition, spread, smoke and response as synthetic ensembles and include recreation/daytime occupancy separately from resident exposure."
+    },
+    {
+      "id": "GM0308-FLOOD-SEM-001",
+      "severity": "medium",
+      "category": "explainability",
+      "status": "open",
+      "summary": "Coastal and river labels can obscure whether Baarn is directly inundated or only indirectly disrupted.",
+      "evidence": "At T+24 the coastal preset has zero local water stress but wind 16.43 m/s and 792 modeled affected residents through service effects. E03 separately supports Randmeren wind/water-level consequences, and E06 describes Eem/Eemmeer/polder flooding; neither is equivalent to direct North Sea surge at Baarn.",
+      "action": "Expose direct inundation, wind, upstream/network and supply-chain contributions separately in map legend, operation brief and exports. Add explicit source/scenario names and prevent a coastal label from being interpreted as a local sea-water depth layer."
+    },
+    {
+      "id": "GM0308-WATER-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "open",
+      "summary": "Available public drainage and water-management context is display-only and disconnected from failure/recovery logic.",
+      "evidence": "E05 documents an active Lage Vuursche mixed-to-separated sewer replacement and E06/E07 document Eemland conveyance, Eem/Eemmeer drainage and public water-management objects. The current municipality simulation has no typed catchment, pump, sewer state or power dependency; any displayed Lage Vuursche pump is context only and its public record does not establish live capacity.",
+      "action": "Ingest the weekly HWH IMWA objects/areas/defences and validated provincial/water-board layers as typed, provenance-bearing context. Activate pump/sewer dependencies only after manager and operational semantics are verified; otherwise use an editable synthetic catchment state that is explicitly not live."
+    },
+    {
+      "id": "GM0308-NET-001",
+      "severity": "medium",
+      "category": "network",
+      "status": "accepted-limitation",
+      "summary": "The eight municipal road links are logical transfer proxies for every service, not utility topology.",
+      "evidence": "All eight service layers contain the same eight A1/A27/N-road-derived route records. E02 supports those roads only; E07 can supply provider/service areas and water-management objects, but neither source establishes physical electricity, gas, drinking-water, drainage, telecom, facility or supply flow and restoration.",
+      "action": "Split mobility from non-mobility service graphs. Integrate public provider areas and aggregate outage/status feeds where licences permit; keep non-public or security-sensitive topology as minimal synthetic zones with ranges, explicit provenance and sensitivity analysis. Never infer pipes or feeders from NWB."
+    },
+    {
+      "id": "GM0308-FAC-001",
+      "severity": "medium",
+      "category": "regional-data",
+      "status": "open",
+      "summary": "First-72-hour critical facilities, care locations and transient populations are not represented as verified nodes or loads.",
+      "evidence": "E03 emphasizes vulnerable care/recreation populations and access in nature areas. The bundle contains resident/activity aggregates and scheduled stop names, but a GTFS label such as Meander or Ziekenhuis is not a verified current facility, occupancy, backup, care dependency, shelter or emergency-supply site.",
+      "action": "Build a typed, time-stamped facility registry from public authoritative organization/facility datasets plus municipality/operator confirmation. Keep identity, capacity, occupancy, backup and availability as separate fields; do not derive a facility or its operational state from a transit stop."
+    },
+    {
+      "id": "GM0308-72H-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "open",
+      "summary": "The first-72-hour view lacks official role activation and observable response resources.",
+      "evidence": "E04 describes an adaptive CaCo/CoPI/ROT/Team Bevolkingszorg/GBT/RBT structure and E05 frames 72 hours as household preparedness, not restoration. The model instead applies a national 0.44 preparedness proxy and generic response/repair parameters without warnings, crews, emergency water, fuel, shelter, stock, closures or mutual aid.",
+      "action": "Add an incident timeline and input contract for warning/source time, GRIP and team activation, closures, verified crews, extinguishing/emergency water, backup fuel, shelter, critical supply and mutual aid. Every field must show official observed, scenario, synthetic or unknown status and as-of time."
+    },
+    {
+      "id": "GM0308-CLIMATE-EQ-001",
+      "severity": "medium",
+      "category": "hazard",
+      "status": "accepted-limitation",
+      "summary": "Weather, heat, winter and earthquake outputs are bounded scenarios but their exact Baarn magnitudes are uncalibrated.",
+      "evidence": "The model reports -9.37 °C, 26.92 m/s wind, 4.548 cm snow and 0.7604 ice for the T+24 winter event; heat/drought persists through T+72 while modeled affected residents return to zero; earthquake peak is 0.00656 g from a fixed Groningen source. E08 offers official observation/event products, but none of these exact values is tied to a selected KNMI observation, warning grid, event or ShakeMap.",
+      "action": "Retain scenario-only labels and distinguish official observation, forecast, warning, scenario and synthetic forcing. Add versioned KNMI station/radar/nowcast and FDSN/ShakeMap adapters with spatial interpolation caveats, product-specific licence, validation state and timestamps; calibrate recovery separately from forcing."
+    },
+    {
+      "id": "GM0308-DATA-001",
+      "severity": "low",
+      "category": "demography",
+      "status": "accepted-limitation",
+      "summary": "Resident statistics reconcile, but null fields and visitor exposure constrain local interpretation.",
+      "evidence": "The 21-neighbourhood sum is four residents below the municipality total and is reconciled exactly. Cars/households are incomplete in three neighbourhoods, heating and charging are null everywhere, and E03/E05 establish material Lage Vuursche recreation that resident counts do not capture.",
+      "action": "Keep official nulls as unknown, disclose reconciliation, and add optional time-of-day visitor/workforce/patient surfaces only from licensed aggregate sources with separate denominators and uncertainty. Do not infer people from business or scheduled-trip counts."
+    },
+    {
+      "id": "GM0308-INV-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The current deterministic accounting and proxy semantics pass the Baarn municipality harness.",
+      "evidence": "The full matrix passes finite bounds, exact zero-event behavior, determinism, causal and counterfactual reconciliation, event-attributable person-hours, preserved official resident semantics, service-invariant local hazard and exact municipality/local population-demand-delivery totals. Explanations identify NWB connectivity as a logical transfer proxy.",
+      "action": "Retain these invariants in the national gate and add Baarn regressions for hazard-specific neighbourhood fields, explicit flood-pathway/semantics and direct-versus-indirect exposure before accepting the corrections."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Replace Baarn's shared seeded neighbourhood modulation and unsupported named-river precision with source-specific spatial hazard adapters.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "scripts/fetch-realism-data.mjs (or a new versioned hazard-layer importer)"
+      ],
+      "validation": "GM0308 pluvial, Eemland/Eem-Eemmeer flood, heat/drought and Lage Vuursche nature-fire fields use distinct versioned source footprints; unrelated hazards no longer share an identical rank solely because of a common seed. Every flood output exposes pathway, depth/stress semantics, arrival/persistence, source release, hash, resolution, licence and confidence; absent hydraulic calibration is labelled unsupported rather than precise."
+    },
+    {
+      "summary": "Separate direct inundation from indirect wind/network effects in scenario names, map legends, briefs and exports.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/components/MapLegend.tsx",
+        "apps/web/src/components/OperationsBrief.tsx"
+      ],
+      "validation": "For GM0308 coastal T+24, the UI and export report direct water stress 0 separately from wind and service cascades; Eem/Eemmeer/Randmeren and Rhine/Lek cases have distinct labels and cannot be mistaken for North Sea inundation."
+    },
+    {
+      "summary": "Integrate public provider areas and water-management context without inferring unavailable physical utility topology.",
+      "files": [
+        "scripts/fetch-realism-data.mjs",
+        "apps/web/src/data.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts"
+      ],
+      "validation": "HWH/PDOK objects and Mijn Aansluiting service areas retain publisher, manager, edition, cadence, licence, completeness and context-only status. Road capacity affects mobility; it does not silently become physical power/water/gas/telecom capacity. Any causal synthetic zone is visibly labelled, editable and sensitivity-tested."
+    },
+    {
+      "summary": "Add typed facilities, transient exposure and first-72-hour response/resource state with explicit provenance.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/ScenarioControls.tsx",
+        "apps/web/src/components/OperationsBrief.tsx"
+      ],
+      "validation": "Resident and transient denominators remain separate; a transit-stop label cannot create a facility. Warning, role activation, incident perimeter, closures, crews, water, fuel, shelter, stocks and mutual aid show observed/scenario/synthetic/unknown class, source and as-of time. Unavailable values remain unknown and no unpublished sensitive asset is rendered."
+    },
+    {
+      "summary": "Connect canonical forcing to versioned KNMI weather/seismic inputs while preserving scenario mode and calibrating recovery independently.",
+      "files": [
+        "scripts/fetch-realism-data.mjs (or dedicated KNMI ingestion)",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/components/ScenarioControls.tsx"
+      ],
+      "validation": "Every weather/seismic value declares observation, forecast, warning, official scenario or synthetic mode; KNMI product/version, timestamp, resolution, validation state and licence are shown. Heat forcing remains active through the first 72 hours under the 336-hour event, while affected/recovery transitions cite separately calibrated assumptions rather than implying KNMI observation."
+    }
+  ],
+  "residualLimitations": [
+    "No reviewed public source provides safe, complete and current electricity feeder, gas/drinking-water pipe, sewer-control, telecom-control, facility-backup, crew, fuel, stock or restoration topology for Baarn. Such detail must not be guessed from roads or public points.",
+    "Provincial climate rasters are machine-readable but their public service exposes no explicit reuse licence or guaranteed cadence; redistribution and automated refresh need publisher confirmation.",
+    "Klimaateffectatlas layers are indicative at national scale and vary in resolution and method; local operational decisions require water-manager/municipality validation.",
+    "HWH IMWA objects are aggregated from contributing water managers and completeness/attributes vary. A public object is not evidence of current condition, operating state, capacity, backup or failure.",
+    "Mijn Aansluiting areas identify providers that offer connections, not live physical topology, supply direction, outage state, capacity or restoration.",
+    "NIPV RIN is professional one-kilometre risk information; no public bulk API, reuse licence or fixed update cadence was found during this audit.",
+    "CBS statistics are annual resident/household aggregates. They do not include people present at a particular hour, visitors to Lage Vuursche, individual vulnerability, asset location, occupancy or response priority.",
+    "OVapi GTFS is a best-effort scheduled feed without SLA; stops/trips are not actual service, passenger load, facility identity, disaster passability or restoration.",
+    "Exact hazard intensities, affected totals, service availability, backup hours, flows, interventions and deprived person-hours remain synthetic scenario outputs, not forecasts, observations, operator commitments or official emergency decisions.",
+    "The audit covers display hours 0–72. Longer heat/drought, high-water, ecological, infrastructure-repair, displacement and recovery consequences continue beyond the operational window."
+  ],
+  "provinceReviewFlags": [
+    "Audit all Eemland municipalities against explicit Eem/Eemmeer/Randmeren, dike, polder and pump pathways; do not substitute centroid distance to Rhine/Meuse/IJssel segments for hydraulic connectivity.",
+    "Require distinct pluvial, river/regional-water, heat/drought and nature-fire fields across Utrecht. The common seeded neighbourhood ordering is a national model defect, not a Baarn-only issue.",
+    "Develop a Utrechtse Heuvelrug/Lage Vuursche nature-fire and recreation/access review spanning Baarn, De Bilt, Soest and adjacent municipalities, using licensed authoritative land-cover/risk inputs and explicit transient populations.",
+    "Keep Randmeren wind-driven water-level effects distinct from North Sea coastal inundation for Baarn, Eemnes and Bunschoten; display direct and indirect effects separately.",
+    "Review water-management objects, sewer works and power-dependent pumping across Vallei en Veluwe/municipal systems with manager and completeness metadata before any causal activation.",
+    "Separate NWB mobility links from power, drinking-water, drainage, gas, telecom, facilities and supply graphs across Utrecht; integrate public service areas, but keep security-sensitive topology transparently synthetic.",
+    "Create province-wide typed critical-facility and first-72-hour resource contracts without inferring facilities from GTFS stop names or publishing unverified emergency sites."
+  ]
+}

@@ -1,0 +1,458 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0160",
+    "name": "Hardenberg",
+    "province": "Overijssel",
+    "safetyRegion": "IJsselland"
+  },
+  "agent": {
+    "taskName": "municipality_gm0160",
+    "agentId": "/root/municipality_gm0518",
+    "completedAt": "2026-09-03T03:41:53Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "GM0160's identity, Overijssel and Veiligheidsregio IJsselland assignment, full 2025 PDOK boundary, 29 BAG woonplaatsen, 68 BRT settlements and 74-neighbourhood census allocation are coherent. Fresh CBS reports 63,415 residents; published neighbourhood rows sum to 63,430, a 15-person/0.024% difference consistent with independent rounding, while household and age controls also differ only slightly. All ten canonical presets execute deterministically at T+0/6/12/24/48/72 across Power, Water, Drainage, Gas, Telecom, Mobility, Facilities and Supply; finite bounds, exact-zero intensity, selected-layer invariance and arithmetic reconciliation pass. Release is nevertheless correction-required. The preset labelled Rhine, Meuse and IJssel holds an exact 0.504514 inundation stress in Hardenberg through T+72 without representing the Overijsselse Vecht, its hydrograph, retention areas Noord and Zuid Meene, defences, controls, terrain, arrival or recession. Vechtstromen explicitly reports that Rhine and IJssel levels do not determine levels in its management area. Eight unrelated hazards reuse one complete 74-neighbourhood order, and a controlled ignition inside the official Klimberg nature-fire polygon ranks containing Rheezerveen only 25th. Municipal sources report roughly 400 km sewer, 88 pumping stations and more than 2,000 pressure-sewer units, whereas partial public points have no causal connectivity, capacity or live state. Ten NWB boundary links correctly support only Mobility and road-logistics/Supply; no graph represents the German border, N34/N36/rail/bridge destination dependencies, water systems, physical utilities, facilities or care. Compound output worsens all eight services from T+24 to T+72 while every recovery field is zero and no action/resource explains the trajectory. Public sources offer strong context and several integration paths, but catalogue edition, observation/valid time, licence, resolution, coverage and NoData must stay explicit. Static registers, current observations, official scenarios and synthetic exercise outputs are not interchangeable, and missing data never mean zero or safe.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek (CBS)",
+      "title": "E01 — Kerncijfers wijken en buurten 2025, table 86165NED, OData API",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM0160%27%29",
+      "accessedAt": "2026-09-03T03:15:00Z",
+      "edition": 2025,
+      "supports": [
+        "The fresh official municipality row identifies GM0160 Hardenberg and reports 63,415 residents, 32,346 men, 31,069 women, density 203 per square kilometre, 13,077 residents aged 65 or older, 25,861 households, 7,694 one-person households and 7,320 business establishments.",
+        "The 74 published neighbourhood rows sum to 63,430 residents, 25,830 households, 7,690 one-person households and 13,065 residents aged 65 or older. Differences of +15, -31, -4 and -12 from separately rounded municipality controls are retained rather than forced to equality.",
+        "The national OData table is an annual 2025 statistical edition under CC BY 4.0, with additions and revisions during the release cycle. Municipality and neighbourhood are the spatial resolutions; the data are annual context, not incident-time presence.",
+        "Null, suppressed, rounded and incomplete cells retain publisher semantics. CBS may support vulnerability context and reconciliation, but not live evacuation, injury, care demand, customer connectivity, visitors, workers or service availability."
+      ]
+    },
+    {
+      "publisher": "PDOK / CBS / Kadaster / Rijkswaterstaat / ProRail / OVapi",
+      "title": "E02 — Full municipality geometry, settlements, roads, rail and scheduled transit",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_niet_gegeneraliseerd/items/66684b57-10af-5c7a-85fa-8e73d79ccb72?f=json",
+      "accessedAt": "2026-09-03T03:16:00Z",
+      "edition": "CBS boundary 2025; BRT source date 2025-07-01; NWB geometry 2026-08-01; OVapi feed 2026-08-30 through 2026-12-12",
+      "supports": [
+        "Fresh full-resolution GM0160 is one MultiPolygon component with one ring, 6,557 positions and bbox [6.303063686453454, 52.46560324783504, 6.76669390916804, 52.674049271295075]. Generated centre [6.56748158471114, 52.592518775070346] lies inside.",
+        "The generated bundle contains all 74 neighbourhoods in 29 districts, 29 BAG woonplaatsen and 68 unsimplified BRT settlements: 15 woonkernen, two deelkernen, 50 buurtschappen and one gehucht. These preserve Hardenberg's polycentric and dispersed rural geography without assigning operational roles.",
+        "Ten clipped NWB logical links cover N377 to De Wolden, N48 to Ommen, N36 to Twenterand and Ommen, N34 to Coevorden, N48 to De Wolden, N377 to Dalfsen, N341 and N343 to Twenterand, and N377 to Coevorden. Each generated nominal capacity is 150, so parallel/series segments must not be added as independent physical throughput.",
+        "ProRail stations Gramsbergen, Hardenberg and Mariënberg lie inside, and the generated spatial check retains 146 GTFS stop areas including Hardenberg Ziekenhuis and Dedemsvaart Busstation. No Germany node or border route is represented.",
+        "Machine routes include the OGC item above, https://api.pdok.nl/kadaster/bag/ogc/v2, https://api.pdok.nl/kadaster/brt-top10nl/ogc/v1, https://api.pdok.nl/rws/nationaal-wegenbestand-wegen/ogc/v1, https://api.pdok.nl/prorail/spoorwegen/ogc/v1/collections/station and https://gtfs.ovapi.nl/nl/gtfs-nl.zip. CBS/BRT are CC BY 4.0 and edition-based, BAG is daily/Public Domain Mark 1.0, NWB is monthly/CC0 1.0, ProRail is CC0 with publisher-dependent refresh, and OVapi is free-use best effort without an operational SLA.",
+        "These are official geometry, registers and schedules. They do not prove live road, rail or bus operation, passability, emergency priority, throughput, occupancy, German continuity, utility topology, facility capacity or T+72 restoration. Missing records stay Unknown."
+      ]
+    },
+    {
+      "publisher": "Gemeente Hardenberg",
+      "title": "E03 — Programma Klimaat, Water en Biodiversiteit 2023-2027 and municipal sewer inventory",
+      "url": "https://www.hardenberg.nl/kleurtgroen/programma-klimaat-water-en-biodiversiteit/hoe-werkt-het",
+      "accessedAt": "2026-09-03T03:17:00Z",
+      "edition": "Council-established programme 2023-2027; current public inventory retrieved 2026-09-03",
+      "supports": [
+        "The municipality reports about 400 km sewer, 88 pumping stations, more than 2,000 pressure-sewer units and 160 hectares of surface water. Its detailed inventory lists 520 km pressure sewer, 2,072 pumps, 88 pumping stations, 185 km combined gravity sewer, 128 km infiltration/stormwater gravity sewer, 91 km foul gravity sewer, 22,000 gullies, 38 combined overflows, 28,000 parcel connections, 11 buffer facilities, 77 hectares dry ditch, 34 hectares wet ditch, 52 hectares ponds and one hectare wadi.",
+        "Approximately two thirds of the gravity sewer is combined. During cloudbursts the system can overflow dirty wastewater into ponds or ditches, while the large rural area depends on pressure sewers. This makes rainfall, catchment, overflow, surface-water and power/control state causally relevant to Water and Drainage.",
+        "The programme was established for 2023-2027 and the HTML inventory is current policy/system context. It has no standard feature API, explicit open-data licence, fixed refresh cadence, pipe-scale connectivity, capacities, telemetry or live state; programme dates never prove current completion or operation.",
+        "The best public machine route is RIONED/PDOK GWSW OGC at https://api.pdok.nl/rioned/waterschappen-waterketen-gwsw/ogc/v1, CC0 with contributor-dependent coverage and refresh, supplemented by a governed native municipal GWSW/catchment export. Missing assets and attributes remain Unknown, never absent or zero."
+      ]
+    },
+    {
+      "publisher": "Waterschap Vechtstromen / Het Waterschapshuis / Rijkswaterstaat",
+      "title": "E04 — Vecht high-water, retention, drought operations and public managed-water observations/registers",
+      "url": "https://www.vechtstromen.nl/actueel/nieuwsservice/nieuwsarchief/2026/februari/nieuwsbrief-2-februari-2026/@47040/oefening-retentiegebieden-noord-zuid/",
+      "accessedAt": "2026-09-03T03:18:00Z",
+      "edition": "Waterbeheerprogramma 2022-2027; retention exercise published 2026-01-28; Waterinfo observation 2026-09-02T17:30Z; HWH snapshot retrieved 2026-09-03T01:38:15Z",
+      "supports": [
+        "Noord and Zuid Meene are emergency retention areas for critical Overijsselse Vecht high water protecting Coevorden and Hardenberg. Vechtstromen's exercise closes coupures only after a critical threshold, so hydrograph, authority decision, timing, access, defence and contractor action are essential causal inputs.",
+        "Vechtstromen's November 2023 operational account at https://www.vechtstromen.nl/@44644/bodem-verzadigd-watersysteem-vol/ explicitly says Rhine and IJssel levels do not affect levels in its management area; high Vecht discharge, canals, brooks, saturated soil and local systems are distinct. Its 2025 cross-border project at https://www.vechtstromen.nl/actueel/nieuwsservice/nieuwsarchief/2025/februari/nieuwsbrief-17-februari-2025/@46131/regionale-start-europees-project/ involves Hardenberg, WDODelta, German Landkreis Grafschaft Bentheim, Vechteverband and other partners.",
+        "Current drought operations at https://www.vechtstromen.nl/actueel/nieuws/@47539/beperkingen-schutten-sluizen-vecht/ report that restrictions at De Haandrik, Hardenberg, Mariënberg and Junne were lifted on 27-28 August 2026 after rain and demand changed, and that supply can come via IJssel and Twentekanaal. This is timestamped observed operating context, not the simulator's event or a T+72 forecast.",
+        "The public HWH snapshot contains 481 points inside full GM0160: 415 weirs, 42 surface-water pumps, 17 sewer pumps, five sluices and two wastewater plants named Dedemsvaart and Hardenberg; managers include Vechtstromen, WDODelta and null/unspecified. OGC endpoints https://api.pdok.nl/hwh/waterschappen-kunstwerken-imwa/ogc/v2 and https://api.pdok.nl/hwh/waterschappen-waterketen-damo/ogc/v1 are CC BY-SA 4.0, partial and provider-dependent; the keringen endpoint https://api.pdok.nl/hwh/waterschappen-keringen-imwa/ogc/v1 is a CC0 national register with no reliable fixed cadence found.",
+        "One public Waterinfo point lies inside: Holtheme Vecht observed 916 cm NAP at 2026-09-02T17:30Z, about 33 minutes old when captured. Rijkswaterstaat Waterinfo is generally ten-minute CC0/public data but not mission-critical; one gauge is not an inundation surface, forecast hydrograph, defence state or municipality-wide T+72 field.",
+        "The LIWO catalogue at https://iplo.nl/thema/water/applicaties-modellen/berichtgeving-crisismanagement/liwo/ exposes API https://basisinformatie-overstromingen.nl/api/liwo.ws and WMS https://basisinformatie-overstromingen.nl/geoserver/ows for deployment 2025.1.6/dataset projects/deltares-rws/liwo/2025_0_1. Releases are irregular and each scenario needs model/source date, mechanism, breach/defence assumptions, bands/units, arrival/duration/recession, native resolution, coverage, NoData and licence pinned; a national composite is expert context, not a selected local event or forecast."
+      ]
+    },
+    {
+      "publisher": "Provincie Overijssel / Veiligheidsregio Drenthe / Gemeente Hardenberg",
+      "title": "E05 — Climate-impact layers and N34/N36/Vecht access context",
+      "url": "https://services.geodataoverijssel.nl/geoserver/LIP/wms?service=WMS&request=GetCapabilities&version=1.3.0",
+      "accessedAt": "2026-09-03T03:20:00Z",
+      "edition": "Overijssel rain layer created/revised 2022-06-20, published 2023-07-11, metadata updated 2025-07-22; heat metadata updated 2026-04-17; VRD profile 2025; mobility plan adopted 2020 with 2026-2028 execution",
+      "supports": [
+        "Overijssel WMS layer Waterdiepte_bui_hevige_neerslag_70mm models 70 mm in two hours in current climate, approximately T100, in five centimetre depth classes. Metadata https://metadata.geodataoverijssel.nl/metadata/dataset/5439c0ac-4932-4cba-b12e-e8a5f7071300.xml declares 1,000 m spatial resolution, as-needed cadence and CC0. It is a static scenario, not current rain or a T+72 prediction; transparent/NoData cells are Unknown until publisher semantics are confirmed.",
+        "Overijssel layer LIP_Hittestresss_Rivus is 2022 physical heat sensitivity at three-metre resolution with as-needed cadence and Public Domain Mark 1.0; metadata is https://metadata.geodataoverijssel.nl/metadata/dataset/6f1f4403-fd96-4a90-9f1f-1914afacbd3a.xml and GeoTIFF download is advertised. Surface, shadow and green context are not air-temperature observation, forecast, population or health impact.",
+        "The province also publishes LIP_Kwetsbaarheid_hoofdwegen_Rivus for a 60 mm/one-hour scenario with <10, 10-30 and >=30 cm road-water classes. Its reuse terms and NoData need resolution before causal ingestion; scenario depth does not prove passability without vehicle, duration, flow and authority rules.",
+        "The official 2025 Veiligheidsregio Drenthe profile at https://www.vrd.nl/publish/pages/2221/04-3b_vrd_regionaal_risicoprofiel_2025_inclusief_aanpassingen_1_.pdf says a saturated system/high outside and groundwater can require emergency storage; in an extreme event N34 Hardenberg-Coevorden closure has a real chance, 70 mm in one hour can overwhelm water/sewer and low roads, and high water normally offers days of warning for action. It is public periodic planning context, with no standard API or stated reuse licence, not a closure or prediction.",
+        "Hardenberg's mobility page https://www.hardenberg.nl/mobiliteit identifies N34, N36, N343, N377 and N341 as backbones. Its current Europaweg project page https://www.hardenberg.nl/verkeer-en-wegen/veilig-op-weg/reconstructie-europaweg describes roughly 10,000 vehicles/day and a 2027 Prins Bernhardbrug-over-Vecht replacement whose full closure diverts through N34, J.C. Kellerlaan and N343. Planned works are current context, not assumed scenario closure or capacity.",
+        "The municipality's border page https://www.hardenberg.nl/plannen-projecten/duurzaam-hardenberg/windpark-duitsland confirms its eastern Kloosterhaar/Balderhaar boundary against Wielen/Itterbeck and cooperation with German Uelsen/Emlichheim. It establishes cross-border context but not an incident route, mutual-aid agreement or live availability."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio IJsselland / Brandweer IJsselland",
+      "title": "E06 — Strategic policy and observed Rheezerveen nature-fire response",
+      "url": "https://www.vrijsselland.nl/natuurbrand-rheezerveen/",
+      "accessedAt": "2026-09-03T03:21:00Z",
+      "edition": "Observed incident published 2026-08-13; strategic agenda 2023-2026; vehicle announcement published 2025-05-02",
+      "supports": [
+        "The official 13 August 2026 Rheezerveen incident account records a very large nature fire, extra units and materials, wetting from three positions, a sandy path used as stopline, assistance by Brandweer Twente's drone team, smoke and contact with camping De Klimberg without evacuation. This historical observed incident demonstrates source locality, access, water, actions and cross-regional resources; it is not the canonical current event.",
+        "VRIJ's public strategic agenda at https://www.vrijsselland.nl/wp-content/uploads/2022/12/Strategische-beleidsagenda-2023-2026-.pdf establishes regional risk, population-care and partner context including Hardenberg and the water boards. It is periodic planning, no live resource/capacity feed and no stated reuse licence.",
+        "The 2 May 2025 page https://www.vrijsselland.nl/bosbrandbestrijdingsvoertuigen/ says new 4,000-litre terrain vehicles for Hardenberg, Ommen, Dalfsen and Staphorst were planned for delivery in Q3 2026. A planned delivery date cannot establish procurement completion, location, crew readiness, fuel, maintenance or incident availability.",
+        "No public VRIJ source reviewed supplies dispatch-time crews, resources, water, access, command, evacuation decisions, restoration state or T+72 commitments. Those states require authorized operational evidence and remain Unknown."
+      ]
+    },
+    {
+      "publisher": "IPO Risicokaart / REV / NLOG",
+      "title": "E07 — Nature-fire, external-safety and gas-field registers",
+      "url": "https://servicespub.risicokaart.nl/geoserver/ISOR_RK/wfs",
+      "accessedAt": "2026-09-03T03:22:00Z",
+      "edition": "Risicokaart metadata updated 2026-02-19; REV live public service retrieved 2026-09-03; NLOG Hardenberg extraction-plan decision 2018",
+      "supports": [
+        "A bounded official WFS query returns two GM0160 source polygons, Diffeler veld and Klimberg, with mixed forest/heath attributes and validity beginning 2012-08-03. The layer is Public Domain with no guaranteed operational cadence; it is eligible nature-fire context, not ignition, fuel/moisture, perimeter, smoke, access, people or suppression state. Missing polygons stay Unknown.",
+        "REV WFS https://rev-portaal.nl/geoserver/wfs?service=WFS&version=2.0.0&request=GetCapabilities provides public GeoJSON/GML/CSV/Shapefile. A quick point screen within full GM0160 found 187 records: 88 gas tanks, 30 digesters, 19 natural-gas/mining locations, 13 refuelling locations, 13 wind records, six packaged-storage records and one ammonia-refrigeration point at Plukon Dedemsvaart, plus other categories; no contained Seveso point appeared in this scoped screen.",
+        "REV has per-record registration timestamps, but no stable fixed service cadence or reuse-licence version was established. A point screen is not a legal location determination and register presence is not inventory, process condition, incident, plume, emergency zone, topology or current operation; zero matches in a class are not proof of absence.",
+        "NLOG's official decision page https://www.nlog.nl/en/node/828 records the 2018 Hardenberg extraction plan for Hardenberg, Hardenberg-Oost and Den Velde, expected production through 2033, less than four centimetres expected subsidence and Seismic Risk Category I, the lowest category. This is static planning context, not current production, seismic observation, ground motion or damage.",
+        "NLOG offers public map/download services whose exact dataset licence, edition and refresh must be pinned at ingestion. An industrial/mining scenario needs an authority-selected installation/source, inventory, weather/ground field, exposed objects and actions; it must not be inferred from a generic earthquake or cyber preset."
+      ]
+    },
+    {
+      "publisher": "RIVM / Stichting Mijn Aansluiting / Netbeheer Nederland / RDI / DUO / NDW / KNMI",
+      "title": "E08 — Public care, provider, grid, telecom, education, road, weather and seismic context",
+      "url": "https://datacatalogus.rivm.nl/dataset.xhtml?persistentId=doi:10.21945/8E767B2D-9CED-4A85-A95D-3AC1A608C663",
+      "accessedAt": "2026-09-03T03:23:00Z",
+      "edition": "RIVM 2026 v1.1 published 2026-07-03; provider records updated 2025-09-07; operational snapshots 2026-08-31 to 2026-09-03",
+      "supports": [
+        "RIVM's 2026 v1.1 CC0 acute-care survey locates Saxenburgh Medisch Centrum, Jan Weitkamplaan 4a, inside GM0160 with 24/7 emergency department, acute obstetrics, nine rooms and 10,660 visits in 2025. This is annual facility/register context, not live occupancy, staffing, diversion, generator endurance, clinical capacity or route availability.",
+        "Public Domain Mijn Aansluiting WMS https://public.geodata.mijnaansluiting.nl/geoserver/mijnaansluiting_open/ows at the municipal reference point returns Enexis electricity, Coteq gas and Vitens water, records last updated 2025-09-07, but no media/sewer feature at that point. A point query is not full coverage or connectivity; empty layers remain Unknown.",
+        "One NBNL sample postcode 7796HJ maps to HDB Hardenberg/Enexis: withdrawal existing 51 MW, required 45.2 and queue 11.9 MW/60 requests; injection existing 47.1, required 58.4 and queue 28.4 MW/41 requests; TenneT class 3 both ways and 13 projects from 2026. Capacity/projects refresh at least quarterly and queues monthly, but one postcode and unstated exact licence/API stability are planning only, not topology, reserve, live load, outage or restoration.",
+        "The public RDI snapshot retains 169 antenna registrations inside and daily DUO data retain 51 education uses; RDI WFS cadence/licence are unstated and DUO is CC BY with version unspecified. Registers do not prove coverage/backhaul/power/backup, shelter use, occupancy or capacity. The CC0 NDW snapshot published 2026-09-02T15:25Z retains no municipality-assigned situation, which is scoped NoData rather than an all-open-road conclusion.",
+        "No KNMI ten-minute station lies inside. Hoogeveen is nearest at 17.39 km and observed 16 C, 4.55 m/s gust and zero preceding-hour rain at 2026-09-02T23:30Z. KNMI ten-minute observations and FDSN catalogue are generally CC BY 4.0; no 365-day origin inside GM0160 does not establish zero ground motion, future probability or mining safety, and an external point observation is not a municipal event field/T+72 forecast.",
+        "RIVM air monitoring has no station inside and the nearest reviewed station is Hellendoorn at 25.3 km; no station is not clean air or no smoke. The best public current electricity/gas outage route is https://energieonderbrekingen.nl/api/v2/, but OAuth client credentials are required and records may be incomplete. Complete physical utility/care/telecom topology, state, capacity, backup and restoration remain unavailable or security-sensitive; any synthetic fallback must be minimal, versioned and visibly uncertain."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM0160, Hardenberg, Overijssel and Veiligheidsregio IJsselland are internally and officially coherent.",
+      "evidenceRefs": ["E01", "E02", "E06"],
+      "notes": [
+        "Generated municipality, province, regional bundle and exactly one safety-region assignment agree.",
+        "The generated centre lies inside freshly fetched full-resolution 2025 municipality geometry.",
+        "Boundary/statistics edition, register date, observation time, official scenario time and synthetic exercise clock remain distinct."
+      ]
+    },
+    "geography": {
+      "status": "fail",
+      "summary": "Administrative containment is sound, but Vecht, rain and fire surfaces and neighbourhood allocation are not source-specific.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E06", "E07"],
+      "notes": [
+        "Full 2025 municipality geometry, not a bbox or generalized overview, was used for identity, asset and source-containment checks.",
+        "The river preset does not sample the Vecht, retention areas, water levels, terrain, defences, controls, tributaries, sewers or recession.",
+        "Eight unrelated hazards reuse one 74-neighbourhood order; a controlled official Klimberg ignition ranks containing Rheezerveen 25th."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Official municipality controls and all 74 neighbourhood rows reconcile within CBS's independently rounded publication semantics.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "The model preserves the municipality control of 63,415 while published neighbourhood cells sum to 63,430, a +15/0.024% rounding difference.",
+        "Neighbourhood households differ by -31, one-person households by -4 and age-65-plus by -12 from separate municipality controls; no forced imputation was used.",
+        "Resident-equivalent impacts omit incident-time workers, students, visitors, campsite guests, patients, transit passengers and responders."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "All 74 neighbourhoods are present, but selected statistics and all operational lifeline states remain incomplete.",
+      "evidenceRefs": ["E01", "E02", "E03", "E04", "E08"],
+      "notes": [
+        "Population, age, households, businesses and most core indicators cover 74/74 rows; address density covers 73, home/tenure 69, household size/benefits 72, doctor/supermarket/density 71 and cars per household 61, while district heating and public charging are absent for all 74.",
+        "Null statistical fields remain null and are not imputed to zero.",
+        "Water, provider, antenna, education, care, weather and road records have different dates and coverage and remain context unless a valid causal binding is supplied."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "Hardenberg's polycentric core and dispersed settlement structure is preserved without inventing operational roles.",
+      "evidenceRefs": ["E02", "E05", "E06"],
+      "notes": [
+        "Twenty-nine BAG woonplaatsen and 68 full BRT settlement polygons are retained; BRT distinguishes 15 woonkernen, two deelkernen, 50 buurtschappen and one gehucht.",
+        "Hardenberg, Dedemsvaart, Gramsbergen, Mariënberg, Slagharen, Balkbrug and dispersed/border communities remain geographically reviewable.",
+        "Settlement labels and census population do not establish fire cover, shelter, care, supply, occupancy or incident-time presence."
+      ]
+    },
+    "transport": {
+      "status": "fail",
+      "summary": "Dutch road-border proxies and rail/stops exist, but destination-specific, German, bridge, live and emergency-access states are absent.",
+      "evidenceRefs": ["E02", "E05", "E06", "E08"],
+      "notes": [
+        "Ten NWB links correctly support only Mobility and explicit road-logistics/Supply; repeated N34/N36/N37x corridor sections are not additive physical capacity.",
+        "The graph has no Germany node, internal rural/nature-fire access, Prins Bernhardbrug/Vecht crossing state, ambulance/care route or rail/bus dependency despite three stations and 146 scheduled stop areas.",
+        "Zero GM0160-assigned NDW situations is scoped missing current evidence, not proof that N34, N36, provincial roads, rail, bridges, local roads or the border are open."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "Official Vecht, retention, nature-fire, water, care, mining, industrial and utility contexts are material but not causally represented.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "Noord/Zuid Meene threshold activation and coupure closure, the observed Rheezerveen response and cross-regional drone support are absent from the action/resource graph.",
+        "Saxenburgh acute care, wastewater plants, sewers, gas/mining fields, ammonia refrigeration, provider areas and cross-border water/access relationships remain static or narrative context.",
+        "No public source supplies incident-time dispatch, facility/utility capacity, occupancy, topology, outage, control state, owner actions or restoration commitments."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten canonical presets execute at all six mandatory checkpoints for all eight services.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "Current-code MUNICIPALITY_AUDIT_CODE=GM0160 pnpm audit:model passed one file/two tests in 30.09 seconds; pnpm audit:context -- GM0160 also passed, and a separate focused reproduction passed one file/one test in 25.83 seconds.",
+        "At T+24 modeled severity / affected resident-equivalents / cumulative local pre-network person-hours are storm 0.252425 / 27,054 / 371,368.814792; pluvial 0.321989 / 10,154 / 257,365.434879; river 0.156431 / 8,130 / 206,115.670582; coastal 0.018706 / 0 / 25,265.541044; heat 0.082821 / 725 / 125,523.888323.",
+        "Remaining T+24 values are winter 0.647712 / 19,734 / 397,343.282478; cyber 0.497291 / 20,091 / 377,505.492327; earthquake zero current severity/affected after a T+6 peak of 0.104293 and 0.033374 g; wildfire 0.131055 / 0 / 85,304.904698 with zero direct fire; compound 0.949429 / 43,160 / 687,759.963449.",
+        "At T+72 direct severity is zero for storm, pluvial, coastal, winter, earthquake and wildfire; river remains 0.156431, heat 0.082821, cyber 0.058362 and compound 0.551533. Structural execution does not validate Hardenberg-specific physics.",
+        "Headless Chromium at 1440x900 and 390x844 selected GM0160, river flood, Mobility and T+24/T+72 without page/console error or horizontal overflow; desktop map drilldown opened Heemserveen. Initial readiness was 0.993/0.870 seconds and municipality selection 2.134/2.203 seconds."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Outputs are finite, bounded, deterministic, exact at zero intensity, selected-layer invariant and locally reconciled.",
+      "evidenceRefs": ["E01", "E02"],
+      "notes": [
+        "All ten intensity-zero runs give exact zero event severity, affected resident-equivalents and attributable person-hours at all checkpoints.",
+        "All eight service availabilities remain within [0,1], causal quantities are finite/non-negative and cumulative attributable burden does not decrease.",
+        "Every local detail has 74 rows summing to exactly 63,415 allocated residents; all eight demand/delivery totals reconcile with maximum floating error 1.4210854715202004e-14.",
+        "Changing the selected map/service layer leaves hazard, system pressure and affected population exactly invariant."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "Flood, rain, heat, storm, cyber and wildfire allocations reuse a municipal seed instead of their physical evidence domains.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E06", "E07"],
+      "notes": [
+        "Storm, pluvial, river, coastal, heat, winter, cyber and wildfire share the exact 74-neighbourhood order led by Verspreide huizen Oud-Bergentheim, Ydenhoogte, Havezate Es, Verspreide huizen Bruchterveld and Diffelen; Industriegebied is last.",
+        "A five-resident neighbourhood ranks second across those unrelated hazards, while no Vecht/tributary, rain-depth, heat, cyber-system, weather or fire-eligibility surface determines the order.",
+        "With ignition moved inside the official Klimberg polygon at [6.554817307692308, 52.57459807692308], direct municipal fire reaches 0.591638 at T+11 but containing Rheezerveen ranks 25/74; generic remote leaders remain first.",
+        "No selected event source, water path, urban-heat field, smoke/wind field, exposed-object geometry or operational boundary supports these ranks."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "Eight-service balances are arithmetically coherent but exceed verified road, sewer, utility, care and response topology.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E06", "E08"],
+      "notes": [
+        "At compound T+24 availability is Power 0.240452, Water 0.366693, Drainage 0.267336, Gas 0.527211, Telecom 0.164676, Mobility 0.745016, Facilities 0.272060 and Supply 0.521320; all eight worsen by T+72.",
+        "Only Mobility and road-logistics/Supply have ten route proxies each. Power, Water, Drainage, Gas, Telecom and Facilities correctly receive no NWB topology, yet their exact municipality-level values remain unsupported synthetic indices.",
+        "Municipal inventory, 481 partial HWH points, provider territories, one NBNL postcode, 169 antennas, 51 schools and one hospital survey do not establish compatible connectivity, capacity, controls, backup, incident state or restoration.",
+        "N34/N36/rail/bridge and German/cross-regional access are not linked to facility, emergency, supply or water destinations."
+      ]
+    },
+    "causalTrace": {
+      "status": "fail",
+      "summary": "Arithmetic ledgers close, but event selection, authority decisions, actions, resources and valid-time evidence do not explain local consequences.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "Hazard contributions sum to headline severity, service baseline plus stage deltas sum to availability, and weighted losses sum to municipality pressure.",
+        "Cumulative person-hours reconcile against a no-event local pre-network counterfactual and exclude intermunicipal transfers; they are not observed outage duration.",
+        "No scenario chooses a local Vecht/rain/fire/industrial source, retention/defence/control state, operator, hospital role, crew, material, fuel, water, route or repair action.",
+        "Current code returns an empty unsupportedDimensions array for compound despite absent local physical and operational evidence."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "Standing-water guards operate mechanically, but Hardenberg plateaus and recoveries have no selected physical or action/resource cause.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E08"],
+      "notes": [
+        "River forcing holds at 0.504514 through T+72; seven service values remain exactly fixed, Facilities falls 0.800697 to 0.710534, affected rises 8,130 to 9,258 and all recovery fields stay zero. Persistent flooding can block recovery, but this Vecht footprint was never selected.",
+        "Compound severity falls 0.949429 to 0.551533 from T+24 to T+72, yet affected rises 43,160 to 44,357 and every availability worsens, including Power 0.240452 to 0.212515, Telecom 0.164676 to 0.151441 and Mobility 0.745016 to 0.722004. All recovery fields remain zero while burden grows to 2,702,117.420712 person-hours.",
+        "Coastal local flood forcing is zero, but T+24 service losses generate 25,265.541044 person-hours and T+72 exact recovery fractions range from 0.491287 to 0.957875 without a local coastal pathway or owner schedule.",
+        "Storm, pluvial, heat, winter, cyber, earthquake and wildfire expose exact restoration trajectories without local resources, access, decision time or operator commitments."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": ["power", "water", "drainage", "gas", "telecom", "mobility", "facilities", "supply"]
+  },
+  "findings": [
+    {
+      "id": "GM0160-DATA-001",
+      "severity": "informational",
+      "category": "identity",
+      "status": "fixed",
+      "summary": "Generated Hardenberg identity, full boundary, region assignment, settlements and demographic reconciliation are coherent.",
+      "evidence": "CBS gives 63,415 residents; the 74 independently rounded neighbourhood cells sum to 63,430, a 15-person/0.024% difference. Fresh full PDOK geometry contains the reference point, and province/safety-region assignments agree.",
+      "action": "Retain source editions, full-resolution geometry, published-versus-allocated totals, rounding/suppression rules and explicit null semantics on every refresh."
+    },
+    {
+      "id": "GM0160-RIVER-SUPPORT-001",
+      "severity": "critical",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The major-river preset creates unsupported Hardenberg precision without modelling its actual Overijsselse Vecht system.",
+      "evidence": "The scenario is labelled Rhine, Meuse and IJssel and uses schematic sources, while Vechtstromen explicitly says Rhine/IJssel levels do not affect water levels in its area. Nevertheless Hardenberg receives exactly 0.504514 inundation stress through T+72, 8,130 then 9,258 affected and exact service consequences without a Vecht hydrograph, Noord/Zuid Meene activation, coupures, defences, terrain, tributaries, controls, arrival or recession.",
+      "action": "Retain an inland-river relevance flag and selector only as a clearly non-operational diagnostic. Suppress exact depth/amplitude, neighbourhood ranks, affected counts and dependent service/recovery claims for GM0160 until Vechtstromen/WDODelta select a versioned Vecht scenario with source, hydrograph, footprint, defences/controls, arrival and recession. Preserve Vecht, local water, retention and indirect access/supply as Unknown—not safe/zero."
+    },
+    {
+      "id": "GM0160-COASTAL-SCOPE-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Zero direct coastal water is plausible only for a narrow North Sea screen; exact local service loss and recovery remain unsupported.",
+      "evidence": "The coastal preset gives zero direct flood in landlocked Hardenberg but still produces severity 0.018706, 25,265.541044 person-hours and Mobility 0.858727 at T+24, then exact eight-service recovery and 96,963.930649 cumulative person-hours by T+72. No local coastal inundation pathway or incident-specific national network state is selected.",
+      "action": "Retain zero only as a narrowly labelled direct North Sea inundation result under the selected standalone screen. Suppress decision-facing neighbourhood/service/recovery precision; do not generalize it to Vecht, pluvial, groundwater, sewer, evacuation or national-supply safety. Require explicit cross-regional network evidence for indirect consequences."
+    },
+    {
+      "id": "GM0160-SPATIAL-SEED-001",
+      "severity": "critical",
+      "category": "geography",
+      "status": "open",
+      "summary": "Eight unrelated hazards reuse one complete neighbourhood order instead of mechanism-specific exposure.",
+      "evidence": "Storm, pluvial, river, coastal, heat, winter, cyber and wildfire all rank all 74 neighbourhoods identically, led by Verspreide huizen Oud-Bergentheim, five-resident Ydenhoogte, Havezate Es, Verspreide huizen Bruchterveld and Diffelen; Industriegebied is last. No Vecht/rain/heat/fire/weather/cyber surface supports this ordering.",
+      "action": "Replace the municipal seed with hazard-family-specific eligible domains and event surfaces, preserve NoData and require an explicit municipality-hazard support gate. Add a regression that unrelated hazards cannot silently reuse a complete ordering."
+    },
+    {
+      "id": "GM0160-FIRE-CONTAINMENT-001",
+      "severity": "critical",
+      "category": "hazard",
+      "status": "open",
+      "summary": "A controlled ignition inside official Klimberg fails local source-containment ranking.",
+      "evidence": "Moving the fire source to [6.554817307692308, 52.57459807692308] inside the official Klimberg polygon and Rheezerveen yields peak direct municipal fire 0.591638 at T+11, but containing Rheezerveen ranks 25/74 while generic remote leaders remain first. The observed August 2026 Rheezerveen fire required three wetting positions, a sandy stopline, extra resources and a Twente drone team.",
+      "action": "Intersect a selected ignition/perimeter with versioned IPO/BGT vegetation, fuel/moisture, wind/smoke, people/recreation, routes and response-water evidence. The source cell/polygon must lead direct exposure unless an explicit physical model explains otherwise; authority actions/resources require their own valid-time state."
+    },
+    {
+      "id": "GM0160-DRAINAGE-CHAIN-001",
+      "severity": "critical",
+      "category": "service",
+      "status": "open",
+      "summary": "Static municipal inventory and partial water points cannot support exact Water or Drainage values.",
+      "evidence": "Hardenberg reports 520 km pressure sewer, 2,072 pumps, 88 stations, 185 km combined gravity sewer, 128 km infiltration/stormwater sewer, 38 combined overflows and extensive ditches/ponds. HWH exposes 481 points but no causal catchment/pipe/control/capacity/live graph. The model has zero Water/Drainage routes yet reports pluvial Water 0.687198 and Drainage 0.514802 at T+24.",
+      "action": "Integrate governed native GWSW/catchment/pipe/pump/overflow/RWZI/topographic topology and the versioned Overijssel rain layers. Record CRS, units, native resolution, scenario duration/return period, coverage, licence and NoData; add power/backup, telemetry, capacity, controls and recession only when verified. Incomplete HWH/GWSW records remain Unknown."
+    },
+    {
+      "id": "GM0160-ACCESS-NETWORK-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "N34/N36/rail/Vecht crossings and the German border lack destination-specific, live and emergency semantics.",
+      "evidence": "Ten NWB boundary proxies cover Dutch N34/N36/N341/N343/N377/N48 corridors; there are three stations and 146 scheduled stop areas. Official evidence identifies potential N34 Hardenberg-Coevorden high-water closure and a future Prins Bernhardbrug closure/detour, while the municipality borders German Wielen/Itterbeck. The graph has no German node, bridge/rail/bus state, internal rural access, emergency priority, hospital route or compatible throughput.",
+      "action": "Build a destination-aware multimodal graph using monthly CC0 NWB, ProRail CC0, feed-valid OVapi GTFS, CC0 NDW DATEX and authorized Dutch/German road, rail, bridge, dispatch and care/supply states. Represent direction, crossings, shared physical bottlenecks, validity, emergency priority and Unknown live state; retain NWB only for Mobility and explicit road-logistics/Supply."
+    },
+    {
+      "id": "GM0160-RECOVERY-LEDGER-001",
+      "severity": "critical",
+      "category": "explainability",
+      "status": "open",
+      "summary": "Sustained river and compound trajectories lack named blockers, actions and resources through T+72.",
+      "evidence": "River freezes seven services, worsens Facilities and increases affected population under an unselected footprint. Compound severity falls, but all eight services worsen, affected rises to 44,357 and every recovery field stays zero while burden reaches 2,702,117.420712 person-hours. Other presets recover at exact rates without local owner actions or resources.",
+      "action": "Require a typed incident/action/resource ledger at all six checkpoints: authority/owner, target, prerequisite, crew/material/fuel/water, route/access, start/end, state, issue/observation/valid time, evidence class and uncertainty. Every deterioration, plateau and restoration must cite an active causal condition and retain counterfactual reconciliation."
+    },
+    {
+      "id": "GM0160-LIFELINE-PROVENANCE-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Exact physical-lifeline values lack compatible topology, live state, capacity and evidence-valid time.",
+      "evidence": "Centre-point provider context identifies Enexis, Coteq and Vitens but not municipal coverage or connectivity. One NBNL postcode gives planning MW/queues; 169 antennas and 51 schools are registers. Power, Water, Drainage, Gas, Telecom and Facilities have no route graph but expose exact percentages and recovery.",
+      "action": "Integrate authorized operator topology, outage, backup, priority-user and restoration evidence where security agreements allow, including authenticated Energieonderbrekingen records. Keep provider WMS, NBNL, RDI, DUO and planning data affectsSimulation=false absent a verified binding; otherwise use minimal versioned synthetic zones with ranges and explicit uncertainty."
+    },
+    {
+      "id": "GM0160-CARE-SUPPLY-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "Saxenburgh care, cross-boundary mutual aid and rural supply lack operational destinations, capacity and access.",
+      "evidence": "RIVM locates a 24/7 SEH and acute obstetrics at Saxenburgh with nine surveyed rooms, but annual survey fields do not supply current staffing, occupancy, acceptance, diversion or backup. The model has no Facilities route or hospital node, and official Rheezerveen response shows real cross-regional resource/access dependencies not represented by road proxies.",
+      "action": "Add authority-reviewed care, fire, aid and supply destinations with role, activation, staffing/capacity, critical stocks, backup endurance, valid time and routes to alternatives. Annual visits, geometry and schedules never become live capacity; absent dispatch/acceptance records remain Unknown."
+    },
+    {
+      "id": "GM0160-INDUSTRIAL-MINING-001",
+      "severity": "high",
+      "category": "limitation",
+      "status": "open",
+      "summary": "Gas extraction and registered external-safety activities lack a canonical incident family and must not be mapped to generic earthquake/cyber output.",
+      "evidence": "NLOG records Hardenberg, Hardenberg-Oost and Den Velde fields in the 2018 plan, less than four centimetres expected subsidence and lowest seismic risk category. A scoped REV screen retains many gas tanks, digesters, mining/gas locations and one ammonia-refrigeration point. The generic earthquake peaks at 0.033374 g without selecting a field, event, ground-motion surface, building fragility or operator action, and there is no industrial-release preset.",
+      "action": "Use NLOG/SodM/BRO and REV as non-causal context until an authority-approved gas/mining instability or hazardous-material exercise selects a source, inventory, event/monitoring field, weather, exposed objects and protective actions. Keep industrial, mining, tectonic earthquake and cyber scopes separate; no selected event remains Unknown."
+    },
+    {
+      "id": "GM0160-OTHER-HAZARDS-UI-001",
+      "severity": "high",
+      "category": "ui",
+      "status": "open",
+      "summary": "Responsive controls work, but storm, rain, heat, winter, cyber and earthquake precision and evidence scope remain decision-risky.",
+      "evidence": "Desktop and 390x844 mobile runs had no runtime/console error or overflow, and desktop drilled into Heemserveen. The UI shows 89% Mobility at both river T+24 and T+72 as scenario evidence, while no adjacent GM0160 warning explains that the preset omits the Vecht. It advertises 1,200 NDW records in the evidence panel although the municipality-level screen retained none, creating a scope ambiguity. Twelve button nodes represent six logical checkpoints across responsive layouts. No event-valid KNMI field, local heat/road-ice exposure, cyber boundary or seismic ground field supports exact values.",
+      "action": "Gate hero values, ranks, causal bars and export by municipality-hazard-service support. Place event/source/topology/NoData/valid-time warnings beside the result, distinguish national feed counts from municipality matches, label observed/context/scenario/synthetic roles, and expose one logical six-checkpoint set to keyboard and screen-reader users."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Evidence-gate GM0160 river/coastal forcing while retaining real Vecht and indirect risks as unresolved.",
+      "files": ["packages/sim-core/src/types.ts", "packages/sim-core/src/model.ts", "packages/sim-core/src/model.test.ts", "packages/sim-core/src/municipality-coverage.test.ts", "apps/web/src/components/Inspector.tsx"],
+      "validation": "For river, retain only a non-operational inland-river relevance flag until Vechtstromen/WDODelta selects a Vecht hydrograph and footprint; suppress the current 0.504514 depth/amplitude, ranks, affected and dependent service precision. For coastal, retain zero only for direct standalone North Sea water and suppress unsupported local service/recovery precision; do not infer safety for Vecht/pluvial/groundwater/sewer or national networks. Best public routes are LIWO deployment 2025.1.6 API/WMS (irregular editions, per-layer licence/resolution/NoData), HWH IMWA/DAMO/keringen (CC BY-SA 4.0/CC0, provider-dependent), Waterinfo ten-minute observations (CC0, not mission-critical) and governed water-board scenarios/telemetry. Require source, hydrograph, defence/control state, CRS/units, arrival and recession."
+    },
+    {
+      "summary": "Replace common ranks and make Klimberg/Rheezerveen fire exposure source-contained.",
+      "files": ["packages/sim-core/src/model.ts", "packages/sim-core/src/geometry.ts", "packages/sim-core/src/model.test.ts", "scripts/fetch-realism-data.mjs", "apps/web/src/data.ts"],
+      "validation": "Use IPO Risicokaart WFS isor_brandbaar_natuurgebied (Public Domain, metadata 2026-02-19, static eligibility with 2012 feature validity/no guaranteed cadence), daily CC0 BGT, KNMI ten-minute/radar/warning products (CC BY 4.0 with issue/valid time), and authority ignition/perimeter/resource data. Preserve CRS, geometry validity, source time, wind, fuel/moisture, people, routes, response water, licence and NoData. Regress unrelated-order independence and require the selected source polygon to lead direct exposure unless physics documents why not."
+    },
+    {
+      "summary": "Build Hardenberg's managed Vecht/sewer chain from complete governed data rather than inventory and partial points.",
+      "files": ["scripts/fetch-water-assets.mjs", "scripts/fetch-realism-data.mjs", "packages/sim-core/src/network.ts", "packages/sim-core/src/types.ts", "apps/web/src/data.ts"],
+      "validation": "Best public routes are RIONED/PDOK GWSW OGC (CC0, contributor refresh/completeness unspecified), HWH DAMO/IMWA (CC BY-SA 4.0, provider-dependent) and Overijssel WMS/download 70 mm/two-hour layer (CC0, 1,000 m, as-needed; NoData unresolved). Request native GWSW/catchment/pipe/pump/overflow/RWZI, Vecht/retention/defence and telemetry exports. Reconcile 520 km pressure sewer, 2,072 pumps, 88 stations, 38 combined overflows and named plants/controls. Causal use requires topology, units, power/backup, capacity, control/valid time and authority approval; missing stays Unknown."
+    },
+    {
+      "summary": "Create a destination-aware Dutch/German multimodal access, care, fire and supply graph.",
+      "files": ["scripts/fetch-municipalities.mjs", "scripts/fetch-realism-data.mjs", "packages/sim-core/src/network.ts", "packages/sim-core/src/network.test.ts", "packages/sim-core/src/types.ts", "apps/web/src/data.ts"],
+      "validation": "Use monthly CC0 NWB, ProRail CC0, feed-valid OVapi GTFS best effort, CC0 NDW DATEX and authorized road/rail/bridge/dispatch/care data. Represent N34/N36/N341/N343/N377/N48, Prins Bernhardbrug/Vecht crossings, three stations, Germany, internal rural/nature-fire access, Saxenburgh and alternatives with country, direction, one physical bottleneck ceiling, validity, emergency priority and Unknown live state. Static routes/schedules do not prove passability, capacity or resource readiness."
+    },
+    {
+      "summary": "Evidence-gate physical utilities, telecom and facilities while expanding public/authorized inputs.",
+      "files": ["packages/sim-core/src/network.ts", "packages/sim-core/src/types.ts", "apps/web/src/data.ts", "apps/web/src/components/OperationsBrief.tsx"],
+      "validation": "Use Mijn Aansluiting WMS (Public Domain, provider timestamps, point/territory context), NBNL planning data (quarterly capacity/projects, monthly queues; exact licence/API stability unstated), authenticated Energieonderbrekingen API, RIVM care 2026 v1.1 CC0, RDI WFS and daily DUO CC-BY only in stated roles. Exact consequences require compatible topology, connectivity, state, capacity, backup and valid time; empty provider/incident results show Unknown. Security-sensitive topology may use a minimal authority-reviewed synthetic graph with version/ranges, never static geometry as operation."
+    },
+    {
+      "summary": "Separate industrial/mining, earthquake, cyber and weather exercises and require local support.",
+      "files": ["packages/sim-core/src/types.ts", "packages/sim-core/src/model.ts", "apps/web/src/config.ts", "apps/web/src/components/Inspector.tsx"],
+      "validation": "Use REV WFS/exports (public live service, per-record timestamps; fixed cadence/licence unresolved), NLOG/SodM/BRO, KNMI FDSN/weather (CC BY 4.0) and Overijssel climate layers only in their native roles. An authority-selected exercise must name source/system, issue/valid time, geometry/ground/plume/weather field, exposed objects, uncertainty and protective actions. Absence of a point or station is Unknown and must not map to zero or a different hazard family."
+    },
+    {
+      "summary": "Make first-72-hour recovery and UI precision conditional on traceable actions, resources and evidence support.",
+      "files": ["packages/sim-core/src/model.ts", "packages/sim-core/src/types.ts", "apps/web/src/components/CausalExplanation.tsx", "apps/web/src/components/Inspector.tsx", "apps/web/src/components/OperationsBrief.tsx"],
+      "validation": "At T+0/6/12/24/48/72 every deterioration, plateau and restoration cites driver, authority/owner, target, prerequisite, crew/material/fuel/water, route/access, start/end, completion state, issue/observation/valid time, evidence class and uncertainty. Desktop/mobile must place GM0160 scope and NoData beside exact values, distinguish national NDW feed size from municipality matches, expose one logical six-checkpoint control set and prevent unsupported Vecht/coastal/common-rank/lifeline results from appearing decision-grade."
+    }
+  ],
+  "residualLimitations": [
+    "Complete physical electricity, gas, drinking-water, sewer/drainage, telecom, care and supply topology, control logic, live load/pressure, outage, backup, crews, materials, fuel and restoration state are unavailable, incomplete or security-sensitive. Public geometry and provider territories cannot honestly replace them.",
+    "Vechtstromen evidence establishes that the Overijsselse Vecht and retention actions matter and that Rhine/IJssel water levels are not its direct driver. It does not provide a selected event hydrograph, inundation footprint, defence/control state, arrival, duration or recession for this simulation.",
+    "LIWO catalogue release, scenario/model date, mechanism, defence/breach, depth bands/units, arrival/duration/recession, native resolution, coverage, NoData and licence are separate fields. A national composite layer is not a local event or forecast.",
+    "The Overijssel 70 mm/two-hour scenario and VRD's 70 mm/one-hour narrative have different forcing and assumptions; neither is a current observation or arbitrary T+72 forecast. Transparent raster cells remain Unknown until NoData semantics are confirmed.",
+    "HWH points and defence lines are partial/provider-dependent. Registered/realised status does not establish current operation, capacity, connectivity, gate/pump position, water quality, defence performance or restoration.",
+    "IPO nature-fire polygons identify eligible land only. They do not establish current fuel, moisture, ignition, perimeter, smoke, access, people, water supply or response and cannot prove non-polygon areas safe.",
+    "Observed Rheezerveen actions demonstrate plausible resource and access mechanisms but cannot be replayed as availability or response for another event; the announced Q3 2026 vehicles are not assumed delivered or ready.",
+    "NWB, ProRail, GTFS and NDW do not establish scenario-time road/rail/bus operation, bridge/border passability, emergency priority, ambulance travel, care acceptance, evacuation suitability or throughput. No current municipality record is not an open route.",
+    "RIVM, RDI and DUO registers do not establish incident-time occupancy, staffing, acceptance, shelter role, radio coverage/backhaul, backup or capacity. Saxenburgh's annual survey is not a live operational feed.",
+    "Provider WMS and one NBNL postcode identify responsibility/planning only. They do not establish customer connectivity, switching/valves, current load/pressure, outage, reserve, damage or restoration; empty provider layers remain Unknown.",
+    "REV/NLOG registrations and plans do not establish current inventory, production, release, ground motion or incident. A scoped zero record count never proves legal absence or safety, and mining/industrial evidence must not be conflated with generic earthquake or cyber output.",
+    "Sparse current KNMI, air, water and road observations are not continuous municipal fields or scenario forecasts. Hoogeveen's zero preceding-hour rain, no internal air monitor and no local seismic origin are timestamped/scoped observations, not safe or zero future conditions.",
+    "Exact hazard, affected-population, service-availability, recovery and person-hour values remain synthetic or derived exercise outputs—not observations, official forecasts, dispatch records, operator commitments or decision-grade advice—until critical/high findings are corrected and authorities review the selected event. This audit covers only the first 72 hours."
+  ],
+  "provinceReviewFlags": [
+    "GM0160-RIVER-SUPPORT-001 and GM0160-COASTAL-SCOPE-001 — Overijssel, Vechtstromen, WDODelta, Hardenberg and VRIJ should retain only non-operational Vecht/direct-coastal scope diagnostics, suppress unsupported exact local precision and preserve local/indirect water pathways as Unknown pending selected events.",
+    "GM0160-FIRE-CONTAINMENT-001 and GM0160-SPATIAL-SEED-001 — Hardenberg, VRIJ, Brandweer IJsselland, Vechtstromen and land managers should review source-contained fire, rain, heat and water surfaces; an ignition inside Klimberg currently ranks Rheezerveen only 25th.",
+    "GM0160-DRAINAGE-CHAIN-001 — Hardenberg and both relevant water boards should provide governed native GWSW/catchment/telemetry metadata and reconcile public points against the official sewer inventory without converting incomplete coverage to zero.",
+    "GM0160-ACCESS-NETWORK-001 and GM0160-CARE-SUPPLY-001 — VRIJ, Hardenberg, neighbouring Dutch/German authorities, road/rail managers and Saxenburgh should review N34/N36/Vecht crossings, German access, mutual aid, care and supply as validity-aligned operational dependencies.",
+    "GM0160-LIFELINE-PROVENANCE-001 and GM0160-INDUSTRIAL-MINING-001 — Province, VRIJ, operators, SodM/NLOG and REV custodians should define privacy/security-safe lifeline and external-safety evidence. Registers and plans must never masquerade as live topology, capacity, incident or restoration."
+  ]
+}

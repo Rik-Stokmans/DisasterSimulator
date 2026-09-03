@@ -1,0 +1,480 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0228",
+    "name": "Ede",
+    "province": "Gelderland",
+    "safetyRegion": "Gelderland-Midden"
+  },
+  "agent": {
+    "taskName": "municipality_gm0228",
+    "agentId": "/root/nl_realism_audit",
+    "completedAt": "2026-09-02T23:37:55Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "GM0228 is identity-correct, deterministic and numerically complete across the required ten presets, six checkpoints and eight services, but it is not locally calibrated enough for release as an operational Ede first-72-hour forecast. The model presents a persistent precise major-river impact without an Ede hydraulic event; eight unrelated hazards reuse exactly one complete neighbourhood order; and a controlled wildfire source inside the official Reemst neighbourhood and BRT heathland ranks Reemst only 39th of 71. This is especially material in a municipality whose official risk context emphasizes the Veluwe, visitors, recreation, military activity, nature fire, heat/drought and essential infrastructure. Static public roads are now correctly restricted to mobility and supply, yet exact utility/facility states and recovery remain synthetic. The UI discloses derived screening and some NoData correctly, but its hazard-layer announcement says 22% available when the visible weighted service availability is about 50% and the 22% value is only Mobility, while no adjacent Ede-specific warning explains that the river event and local calibration are unsupported.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek / PDOK / Kadaster",
+      "title": "E01 — GM0228 official 2025 statistics, generalized geography, BAG places and BRT topography",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM0228%27%29&%24select=WijkenEnBuurten%2CGemeentenaam_1%2CAantalInwoners_5%2CBevolkingsdichtheid_34%2Ck_65JaarOfOuder_12%2CEenpersoonshuishoudens_30",
+      "accessedAt": "2026-09-02T22:35:00Z",
+      "edition": "CBS 2025; BAG/BRT/PDOK services inspected 2 September 2026",
+      "supports": [
+        "The annual CC BY 4.0 CBS table identifies GM0228 as Ede and reports 124,214 residents, density 390 per square kilometre, 19.6% aged 65 or older and 19,056 one-person households. Published small-area values may be rounded, suppressed, unavailable or not applicable; null and Unknown must not become zero.",
+        "The CC BY 4.0 generalized CBS centre [5.748787917613249, 52.08424110669539] lies inside GM0228. All ten BAG woonplaats label points—Bennekom, De Klomp, Deelen, Ede, Ederveen, Harskamp, Hoenderloo, Lunteren, Otterlo and Wekerom—lie inside; BAG is exposed through https://api.pdok.nl/kadaster/bag/ogc/v2/collections/woonplaats under Public Domain Mark 1.0.",
+        "BRT TOP10NL at https://api.pdok.nl/kadaster/brt-top10nl/ogc/v1 is CC BY 4.0 and supplies source-scaled terrain and thirty settlement labels. A controlled point [5.798988319575035, 52.07630619528323] is inside BU02289051 Reemst and a BRT terrain polygon typed heide, with source actuality 2020. This proves geometry containment only, not current fuel, ignition, spread, access or suppression.",
+        "The 71 published neighbourhood rows sum to 124,230, sixteen above the official municipality total (+0.013%); the deterministic allocation reconciles exactly to 124,214. Registered residents do not include event-time visitors, commuters, care occupants or responders."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / ProRail / OVapi / NDW",
+      "title": "E02 — Authoritative road, rail, timetable and current road-event context",
+      "url": "https://downloads.rijkswaterstaatdata.nl/nwb-wegen/geogegevens/shapefile/NWB-light/01-08-2026.zip",
+      "accessedAt": "2026-09-02T22:40:00Z",
+      "edition": "NWB 1 August 2026; ProRail, GTFS and NDW snapshots retrieved August–September 2026",
+      "supports": [
+        "Monthly CC0 NWB geometry is available by download and WFS at https://service.pdok.nl/rws/nationaal-wegenbestand-wegen/wfs/v1_0?service=WFS&version=2.0.0&request=GetCapabilities. The generated graph has fourteen logical edges to seven neighbours on A12, A30, N224, N233, N304, N310, N781, N801 and N804. Repeated A12 links share physical corridor NWB-road-12 and cannot be summed as independent capacity.",
+        "ProRail's CC0 OGC services identify Ede Centrum, Veenendaal-De Klomp, Ede-Wageningen and Lunteren inside the generalized boundary. The retrieved OVapi GTFS feed supplies 212 stop-area records and is static schedule context made available on a best-effort basis; neither geometry nor timetable proves event-time operation, access, passenger capacity, evacuation throughput or restoration.",
+        "The deployed NDW DATEX snapshot intersects GM0228 with zero records. NDW is a current partial event feed with its own publication/valid times, not an all-road status surface, and zero matching records means Unknown rather than every road open through T+72.",
+        "The current engine correctly permits unqualified source=NWB edges to affect only Mobility and Supply. The route capacities 260 and 150 are generalized exercise units, not observed vehicles, freight, emergency access or restoration capacity."
+      ]
+    },
+    {
+      "publisher": "Veiligheids- en Gezondheidsregio Gelderland-Midden",
+      "title": "E03 — Regional risk profile and crisis-management policy for Gelderland-Midden",
+      "url": "https://vggm.nl/risicoprofielen",
+      "accessedAt": "2026-09-02T22:46:00Z",
+      "edition": "Risk profile 2020–2023 plus draft July 2026 profile under municipal consultation; adopted crisis policy 2025–2026",
+      "supports": [
+        "The July 2026 official draft profile at https://cms.vggm.nl/sites/default/files/2026-07/Regionaal%20Risicoprofiel%20VGGM.pdf was under municipal consultation until 2 October 2026 and is not yet an adopted calibration source. It describes Ede as a major city/economic centre and highlights the Veluwe's millions of visitors, recreation and military use, Ede industrial areas, Ziekenhuis Gelderse Vallei and Deelen.",
+        "The draft distinguishes river flooding from extreme rain/regional water, and describes Rhine/Waal/IJssel travel time, possible mass evacuation and cascading utility effects. The older published 2020–2023 location-bound source-risk table does not mark Ede as a direct flood-source municipality; neither document selects a GM0228 hydrograph, defence failure, inundation footprint or impact curve.",
+        "The regional nature-fire section describes roughly 36,000 hectares of forest and 8,000 hectares of heath, intense Veluwe tourism/recreation/military use and vital infrastructure. Heat, drought, extreme rain, electricity, gas/heat, drinking water, wastewater and data/telecom are distinct mechanisms and functional chains; the new method embeds digital threats within vital services rather than treating every cyber event as one municipality-wide forcing.",
+        "The adopted policy plan https://cms.vggm.nl/sites/default/files/2024-11/Beleidsplan%20crisisbeheersing%20Gelderland-Midden%202025-2026_vastgesteld%20AB%2011-09-2024.pdf identifies municipal Bevolkingszorg, GHOR, safety-region coordination and functional-chain responsibilities. Plans establish governance, not event-time completion, resource availability, household readiness or restoration percentages. No machine API, fixed update cadence or blanket data reuse licence was stated for the documents."
+      ]
+    },
+    {
+      "publisher": "Gemeente Ede / Veiligheids- en Gezondheidsregio Gelderland-Midden",
+      "title": "E04 — Local first-72-hour guidance, emergency support-point status and nature-fire evidence",
+      "url": "https://www.ede.nl/in-de-gemeente-ede/veiligheid/wat-kunt-u-doen-bij-een-noodsituatie",
+      "accessedAt": "2026-09-02T22:52:00Z",
+      "edition": "Current municipal pages and 21 April 2026 incident report inspected 2 September 2026",
+      "supports": [
+        "Ede's preparedness page says assistance may not be immediately available and households should be able to manage the first 72 hours, naming Radio Gelderland 88.9 FM and a household plan/kit. It is guidance, not measured readiness, a guaranteed aid-arrival time or a service-recovery deadline.",
+        "The official page https://www.ede.nl/in-de-gemeente-ede/veiligheid/wat-kunt-u-doen-bij-een-noodsituatie/noodsteunpunten says locations for emergency support points are still being investigated. No Ede support point may therefore be represented as active, stocked, staffed or reachable without a time-stamped authority confirmation.",
+        "Ede labels local nature-fire probability high. Its 21 April 2026 report at https://www.ede.nl/nieuws/nieuwsbericht-21-4 describes a two-to-three-hectare military-heath fire between Ede and Otterlo, twelve responding vehicles and a local road closure. That is a historical event with its own time/perimeter, not a template for a future T+72 fire.",
+        "VGGM's regional evacuation model at https://vggm.nl/nieuw-regionaal-model-ontruimingsplan-natuurbranden-voor-recreatieterreinen requires recreation operators to know guest counts, escape routes, staff, materials and traffic/on-foot options while emergency services handle response, closures and communication. This makes transient population and site-specific evacuation material. The web pages have no stable machine feed, fixed cadence or general reuse licence and should remain source-dated official context."
+      ]
+    },
+    {
+      "publisher": "Waterschap Vallei en Veluwe / Het Waterschapshuis",
+      "title": "E05 — Public pluvial scenario, water-system register and current regional water context",
+      "url": "https://www.vallei-veluwe.nl/actueel/cijfers-en-meetgegevens/",
+      "accessedAt": "2026-09-02T22:58:00Z",
+      "edition": "70 mm/hour scenario October–November 2025; register inspected 2 September 2026; waterbeeld updated 2 September 2026",
+      "supports": [
+        "The water board exposes open datasets/downloads/WFS and climate-atlas source data. Its public ArcGIS tile service https://tiles.arcgis.com/tiles/ug8NBKcLHVNmdmdt/arcgis/rest/services/Waterdiepte_Blokbui_70_mm_in_1_uur/MapServer contains a Tygron/Aveco de Bondt 70 mm in one hour water-depth scenario for the regional climate atlas. It is a model scenario rather than an observation or forecast; the inspected item did not state licenseInfo, so causal reuse remains blocked until terms are resolved.",
+        "The official water-system register is available at https://services1.arcgis.com/ug8NBKcLHVNmdmdt/arcgis/rest/services/Legger_Watersysteem/FeatureServer in RD New. Its item was updated 8 June 2026, describes public availability without restrictions and is revised following adopted subareas rather than a fixed daily cadence. Legal watercourses, structures and maintenance zones do not prove hydraulic connectivity, live operation, setpoints, power backup or spare capacity.",
+        "The regional Waterbeeld at https://www.vallei-veluwe.nl/actueel/waterbeeld/ was updated 2 September 2026 and reported drought, low groundwater, uneven rainfall and local water-quality issues including Ede. It is current regional observed/contextual information, not a spatially complete Ede surface or a T+72 forecast.",
+        "The deployed HWH harmonized water-asset files and RWS Waterinfo context contain zero local GM0228 objects/points. HWH APIs https://api.pdok.nl/hwh/kunstwerken-imwa/ogc/v2 and https://api.pdok.nl/hwh/waterketen-damo/ogc/v1 are CC BY-SA 4.0 with contributor-dependent coverage and cadence. Their empty local result is NoData, not no drains, pumps, weirs, treatment assets, water pathways or flood risk."
+      ]
+    },
+    {
+      "publisher": "WMCN / Rijkswaterstaat / KNMI",
+      "title": "E06 — Authoritative flood-scenario, water-observation, weather and seismic integration routes",
+      "url": "https://iplo.nl/thema/water/applicaties-modellen/berichtgeving-crisismanagement/liwo/",
+      "accessedAt": "2026-09-02T23:04:00Z",
+      "edition": "LIWO 2025.1.6; live RWS/KNMI services inspected 2 September 2026",
+      "supports": [
+        "LIWO release 2025.1.6 is an irregular expert scenario library exposed through OGC at https://basisinformatie-overstromingen.nl/geoserver/ows. Any causal use must preserve scenario/release, source water body, boundary hydrograph and datum, defence/breach/overtopping state, connected footprint, depth/velocity/arrival/recession/dewatering, probability, native resolution, layer licence, coverage and NoData. LIWO is not a live forecast and does not itself select an Ede event.",
+        "RWS Waterinfo at https://www.rijkswaterstaat.nl/water/waterdata supplies observations and expectations with distinct observation/issue/valid times. No deployed point falls inside GM0228; even a nearby point would not be a municipal hydraulic surface, defence condition or permission to extrapolate through T+72.",
+        "KNMI EDR at https://developer.dataplatform.knmi.nl/edr-api exposes OGC EDR CoverageJSON/GeoJSON weather observations and forecasts at dataset-specific ten-minute, hourly or daily cadence, with API-key limits. Dataset licences are commonly CC BY 4.0 but must be retained per collection, along with issue/observation/valid time, lead, units, quality and NoData.",
+        "KNMI FDSN at https://rdsa.knmi.nl/fdsnws/event/1/ exposes an automatically updated/reviewed CC BY 4.0 earthquake-event catalogue. Zero catalogued events within the deployed 365-day GM0228 filter is not zero seismic hazard, and catalogue points are not ShakeMaps, damage fields or future probabilities."
+      ]
+    },
+    {
+      "publisher": "Liander / Vitens / Netbeheer Nederland / Stichting Mijn Aansluiting / RDI / RIVM / DUO / KVK",
+      "title": "E07 — Public service territory, grid-planning, communications, care and facility context",
+      "url": "https://www.liander.nl/over-ons/open-data",
+      "accessedAt": "2026-09-02T23:10:00Z",
+      "edition": "Provider/register/planning snapshots retrieved in 2026; RIVM acute-care v1.1",
+      "supports": [
+        "Liander exposes electricity/gas ArcGIS/WFS downloads and APIs; some datasets are expressly CC BY 4.0, but historical consumption is aggregated/jittered and no public file supplies safe live feeder switching, dependencies or restoration. The Public Domain WMS https://public.geodata.mijnaansluiting.nl/geoserver/mijnaansluiting_open/ows identifies Liander power and gas, Vitens drinking water and Ziggo media at the municipal reference point, with provider dates from September 2025 to March 2026, but no drainage provider. A point territory is not municipality completeness, topology, capacity, quality, outage or restoration.",
+        "The NBNL machine sample identifies OS EDE 10-2i planning context: withdrawal 69 MW existing versus 85 MW required, with 22.5 MW and 77 requests queued; injection 91/64 MW with 77.0 MW and 54 requests queued; TenneT class 3/3 and 27 projects with earliest year 2030. Capacity/projects are generally quarterly and queues monthly. They are large-user planning data, not present load, household service, outage, feeder topology or T+72 reserve; no precise reuse-licence identifier was found in the sampled payload.",
+        "RDI's public WFS returns 238 antenna-installation records but stated licence/cadence was not established. RIVM acute-care v1.1 is CC0 and identifies Ziekenhuis Gelderse Vallei with 24/7 emergency department, acute obstetrics, sixteen treatment rooms and 22,000 visits reported for 2025. DUO's daily CC BY location feed supplies 111 education records; the partial Public Domain KVK harmonized feed returns zero government-service points. Registrations do not prove radio coverage/backhaul/power, emergency role, opening, access, live occupancy, acceptance, staffing, backup or stock; empty partial output remains Unknown.",
+        "Vitens' official Gelderland and water-quality pages identify Veluwe groundwater and Edesebos production/quality context; live disruptions are separately published through waterstoring.nl. This makes the deployed zero HWH water-object count a coverage limitation rather than proof of no local potable-water infrastructure. Security-sensitive physical topology should use operator-authorized aggregates or visibly synthetic fallback, never be reconstructed from public territory or address data."
+      ]
+    },
+    {
+      "publisher": "Rijksoverheid",
+      "title": "E08 — National first-72-hour household preparedness guidance",
+      "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/veiligheidsregios-en-crisisbeheersing/wat-zit-er-in-een-noodpakket",
+      "accessedAt": "2026-09-02T23:14:00Z",
+      "edition": "Current guidance inspected 2 September 2026",
+      "supports": [
+        "National guidance recommends supplies for 72 hours, including three litres of water per person per day, food, radio, power bank and medicines, with periodic checking. It is guidance, not measured Ede household inventory, a delivery promise or a recovery service-level agreement.",
+        "The associated explanation that responders prioritize the hardest-hit while many people initially rely on themselves is planning context. It does not validate simulated evacuation, reception, distribution, healthcare continuity, repair or restoration states.",
+        "The page is public information rather than a machine operational feed; it has no event-time municipality coverage, observation time, stock measurement, fixed data cadence or blanket machine-data licence."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "Official code, name, province, safety region, centre and headline demography agree.",
+      "evidenceRefs": ["E01", "E03"],
+      "notes": [
+        "Manifest, generated context and model uniquely identify GM0228 as Ede in Gelderland and assign Veiligheidsregio Gelderland-Midden.",
+        "BoundaryEdition and statisticsEdition are both 2025. Current 2026 observations, older catalogues, plans/scenarios and the synthetic exercise clock retain separate temporal semantics.",
+        "No code, name, province, safety-region, centre-containment or headline-population mismatch was found."
+      ]
+    },
+    "geography": {
+      "status": "warn",
+      "summary": "Generalized administrative geography is coherent, but Veluwe terrain, catchments, defences, drainage and utility mechanisms need source-resolution coverage.",
+      "evidenceRefs": ["E01", "E03", "E05", "E06"],
+      "notes": [
+        "The centre and all ten BAG woonplaats label points lie inside the generalized GM0228 boundary; BRT supplies thirty additional settlement labels and source-scaled terrain.",
+        "Administrative polygons cannot substitute for Rhine/IJssel flood compartments, regional catchments, drainage areas, groundwater, woodland/heath fuel, smoke transport, utility areas or emergency access.",
+        "The BRT heath containment check is reproducible but its 2020 source actuality is not current fuel or incident state. LIWO and the water-board layers require their native geometry, edition, licence, event semantics and NoData."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Official 2025 totals agree and rounded neighbourhood populations reconcile within CBS publication semantics.",
+      "evidenceRefs": ["E01", "E03", "E04", "E08"],
+      "notes": [
+        "Generated and official population is 124,214, density is 390 per square kilometre, age65Pct is 19.6 and one-person-household count is 19,056.",
+        "The 71 published neighbourhood rows sum to 124,230, sixteen above the municipality total (+0.013%); deterministic allocation reconciles exactly to 124,214.",
+        "Largest published neighbourhoods are Reehorst 4,650, Centrum Lunteren 4,410, Halderbrink 4,255, Centrum Ede 4,075 and De Laar 3,905. Counts do not identify visitors, recreation occupancy, military presence, care residents, medical dependence, evacuation behaviour or household stocks."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "All neighbourhoods load, but missing socioeconomic fields and operational hazard/service fields remain Unknown or synthetic.",
+      "evidenceRefs": ["E01", "E05", "E07"],
+      "notes": [
+        "Most count fields cover 71/71 neighbourhoods, but average home value covers 64, household size 70, cars per household 59, benefit fields 65, doctor/supermarket distance and density 69, and housing pairs 66. District heat and public charging are usable in 0/71 and correctly remain null rather than zero.",
+        "The deployed HWH/RWS local count is zero even though official Vitens and water-board context establishes relevant local/regional systems. Contributor/source absence remains Unknown.",
+        "Provider, planning, antenna, hospital, education and government records add useful context but no event-time demand, availability, role, backup, stock or restoration."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "BAG and BRT place identities are spatially coherent; labels remain non-causal context.",
+      "evidenceRefs": ["E01", "E03", "E04"],
+      "notes": [
+        "BAG includes ten woonplaatsen and all label points lie inside the generalized boundary. BRT adds thirty labels: sixteen buurtschappen, five gehuchten and nine woonkernen.",
+        "Dataset differences reflect purpose and scale rather than proof of missing residents or services.",
+        "Place labels cannot establish event-time population, visitor occupancy, isolation, utility connection, reception/distribution role or evacuation capacity."
+      ]
+    },
+    "transport": {
+      "status": "warn",
+      "summary": "Road, rail and stop context is reproducible and correctly service-limited, but generalized capacities and current-state coverage are not operational evidence.",
+      "evidenceRefs": ["E02", "E03", "E04", "E07"],
+      "notes": [
+        "Fourteen NWB logical edges connect Arnhem, Apeldoorn, Barneveld, Renkum, Renswoude, Veenendaal and Wageningen. A12 consecutive edges share NWB-road-12 and are non-additive; the current model restricts all unqualified NWB edges to Mobility and Supply.",
+        "Four stations and 212 GTFS stop-area records are geometry/schedule context. Neither proves operations, closures, access, passenger capacity or emergency throughput.",
+        "Zero local NDW records is Unknown, not an open-network observation. Nature-fire evacuation requires event-specific routes, guest counts, traffic/on-foot decisions and closures."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "Official roles and 72-hour guidance are present as context, but Ede actions, transient demand, support points, capacities and decisions are not modelled as auditable state.",
+      "evidenceRefs": ["E03", "E04", "E07", "E08"],
+      "notes": [
+        "VGGM distinguishes safety-region coordination, GHOR, municipal Bevolkingszorg, recreation-operator duties and functional-chain operator authority. The simulator has no authority/trigger/status/resource ledger for warning, evacuation, reception, temporary water, healthcare continuity, traffic management, repair or mutual aid.",
+        "Ede says emergency support-point locations are still being investigated. No such point may be assumed open, stocked, staffed, powered, connected or reachable.",
+        "The RIVM hospital, DUO locations, RDI antennas and empty partial KVK output do not establish emergency roles, opening, capacity, acceptance, staff, backup, fuel or supplies. The 72-hour guidance is not measured preparedness or a restoration promise."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten canonical presets produce complete finite deterministic results at all six checkpoints and for all eight services; realism failures are recorded separately.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "The focused gate executed severe storm, pluvial flood, river flood, coastal flood, heatwave, winter storm, cyberattack, earthquake, wildfire and compound at T+0/6/12/24/48/72 for power, water, drainage, gas, telecom, mobility, facilities and supply.",
+        "At T+24 severity / post-network pressure / affected people-equivalent / cumulative local pre-network event-attributable person-hours are storm 0.050689 / 0.222023 / 14,355 / 292,172.00; pluvial 0.306540 / 0.280049 / 24,509 / 480,617.31; river 0.390077 / 0.476484 / 58,886 / 906,706.16; coastal 0.051782 / 0.108513 / 0 / 107,081.63; heat 0.085235 / 0.189801 / 8,716 / 287,668.90.",
+        "Remaining T+24 values are winter 0.646248 / 0.330118 / 33,271 / 687,613.56; cyber 0.408518 / 0.329953 / 33,243 / 570,244.82; Groningen earthquake 0 / 0.081854 / 0 / 57,482.01; wildfire 0.264700 / 0.217903 / 13,634 / 267,200.38; compound 0.855099 / 0.534569 / 69,051 / 1,121,673.79.",
+        "These are deterministic exercise outputs. Affected people-equivalent and system pressure are post-network snapshots; deprived person-hours is cumulative event-attributable weighted local pre-network service shortfall against a matched no-event baseline. None is an observation, customer count, casualty estimate, forecast or operator promise."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "The focused gate passes deterministic, finite, baseline, causal, allocation, reconciliation and monotonic-burden contracts.",
+      "evidenceRefs": [],
+      "notes": [
+        "MUNICIPALITY_AUDIT_CODE=GM0228 pnpm audit:model passes both tests on current code across ten presets, six checkpoints and eight services.",
+        "Every intensity-zero run has zero event severity, affected people-equivalent and event-attributable deprived person-hours; repeated output and web/core preset parity pass.",
+        "All 71 local rows reconcile exactly to 124,214 residents and preserve CBS zero/null semantics; service-layer selection leaves local hazard unchanged, cumulative event-attributable person-hours is monotonic and declared logical-route ceilings hold.",
+        "Passing arithmetic and deterministic contracts does not calibrate local hazard, topology, service availability, response or recovery."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "A common neighbourhood order across unrelated hazards and failed fire source-containment ranking invalidate municipality-level spatial interpretation.",
+      "evidenceRefs": ["E01", "E03", "E04", "E05", "E06"],
+      "notes": [
+        "At T+24 severe storm, pluvial flood, river flood, coastal flood, heatwave, winter storm, cyberattack and canonical wildfire have the exact same complete 71-neighbourhood order (hash 58a8c9312143), led by Beatrixpark, De Bossen, Stationsbuurt, De Velden en Beken and Dikkenberg. Earthquake is an all-zero local tie; compound differs through saturation.",
+        "That equality cannot represent distinct river/catchment/defence, rainfall/sewer/topography, heat/vulnerability, wind, snow/ice, cyber-target, heath/woodland/fire and smoke mechanisms.",
+        "A controlled source [5.798988319575035, 52.07630619528323] lies inside BU02289051 Reemst and an official BRT heath polygon. At T+24 direct fire is 0.421451, smoke 0.410129, drought 0.475706 and severity 0.425697, yet Reemst ranks only 39/71 at 0.414083, while Beatrixpark ranks first at 0.498878.",
+        "The controlled source is synthetic and tests containment only; BRT source actuality 2020 and the April 2026 historical fire do not describe future ignition, fuel/moisture, spread, smoke, access, suppression or recovery."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "All eight service balances are inspectable, but precise values and dependencies are not calibrated to Ede's physical lifelines, care facilities or transient demand.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E07", "E08"],
+      "notes": [
+        "At river T+72 availability/reserve is power 57.43%/5.86 h, water 48.94%/12.20 h, drainage 37.45%/3.96 h, gas/heating 73.01%/17.04 h, telecom 51.75%/4.82 h, mobility 22.09%/5.02 h, facilities 41.67%/9.88 h and supply 70.19%/6.30 h. No cited authority/operator validates those exact values, dependency coefficients or repair paths.",
+        "The current source=NWB guard correctly restricts public roads to Mobility and Supply and the UI calls this logical rather than physical utility topology. Static route capacities still do not represent live passability, evacuation or freight throughput.",
+        "Water-board and provider geometry does not supply catchment/network connectivity, live flow/pressure/quality, operating state, backup, condition or restoration. Drinking water, wastewater, regional drainage, groundwater and flood control require separate states.",
+        "Provider territories, NBNL planning values, RDI installations and facility registers remain context. No safe complete public source supplies electricity/gas feeders, drinking-water pipes, telecom backhaul, hospital dependencies, stocks, crews or restoration; visibly aggregate synthetic fallback is appropriate."
+      ]
+    },
+    "causalTrace": {
+      "status": "fail",
+      "summary": "Evidence and metric scopes are partly disclosed, but the hazard-layer accessibility announcement selects the wrong service value and unsupported Ede evidence is not persistent beside exact outputs.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "Desktop Chromium at 1440×900 on the local app, with Ede / River flood / Hazard / T+72 selected, displays 39% scenario severity, 83% inundation stress, 'Scenario · evidence class derived-screening' and approximately 50% weighted essential-service availability. It correctly says zero local RWS points means no data, never zero or safe.",
+        "The aria-live region instead announces 'T+72:00. Hazard forcing. Ede: critical, 22% available.' The 22% is Mobility availability, not hazard severity or weighted availability; a screen-reader user therefore receives a materially different and unlabeled statistic. On the Water layer the announcement correctly reports 49% drinking-water availability.",
+        "Ede remains precisely coloured and unsupportedDimensions=[] although no Ede hydraulic event, water-system calibration or operator state is selected. A global unsupported-municipality count and generic derived-screening label do not make this local limitation persistent beside cards, announcements and exports.",
+        "Current RWS/NDW/provider/water/air observations, historical incidents/catalogues, official plans/scenarios and synthetic future checkpoints have different evidence and valid-time classes and must never be fused as one operational state."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "River, compound and all service recovery curves are deterministic but uncalibrated to local hydraulics, operators, facilities, visitors, supplies or interventions.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "River direct severity/legacy internal flood amplitude progresses T+0 0/0, T+6 0.137307/0.438323 and T+12 0.390077/1.245235, then remains identical through T+72. The latter index is not metres, probability or an observed water level.",
+        "River post-network pressure/affected people-equivalent/person-hours progresses T+0 0.051875/0/0, T+6 0.211949/12,592/15,582.56, T+12 0.433782/51,413/281,068.70, T+24 0.476484/58,886/906,706.16, T+48 0.496380/62,368/2,231,118.01 and T+72 0.496380/62,368/3,581,144.91. Nonzero no-event background pressure is excluded from event-attributable person-hours.",
+        "At river T+72 Mobility is 0.220851 and Facilities 0.416723, with Facilities declining from 0.558837 at T+24. No hydrograph, defence/control state, recession/dewatering, hospital action, traffic state, operator action or resource ledger supports the exact persistence/decline.",
+        "Compound T+72 severity/flood/cyber/pressure/affected/person-hours is 0.391319/0.437986/0.054705/0.561555/73,774/4,224,619.14. This is a synthetic joint exercise, not an official combined forecast or restoration commitment.",
+        "No time-stamped warning/evacuation, guest count, support-point opening, temporary water, hospital acceptance, utility switching, drainage telemetry, crew/fuel/spares, road/rail state, household supply or restoration action is ingested. Seventy-two hours is a preparedness and planning horizon, not a deadline by which services recover."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": ["power", "water", "drainage", "gas", "telecom", "mobility", "facilities", "supply"]
+  },
+  "findings": [
+    {
+      "id": "GM0228-RIVER-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The persistent precise Ede major-river impact is unsupported by a selected local hydraulic event.",
+      "evidence": "E03 distinguishes regional mechanisms but selects no GM0228 event, and the older location-bound profile does not mark Ede as a direct flood-source municipality. E06 offers LIWO event layers but none drives this run. Nevertheless the model holds severity 0.390077 and legacy flood amplitude 1.245235 from T+12 through T+72 and reports 62,368 affected people-equivalent at T+72 with unsupportedDimensions=[].",
+      "action": "Until an authority-selected event is bound, mark direct GM0228 major-river magnitude/impact Unknown and do not present the internal flood index as depth. For a supported run retain LIWO release/event, Rhine/IJssel source, boundary hydrograph/datum, defence/breach/overtopping state, connected footprint, depth/velocity/arrival/recession/dewatering, probability, resolution, licence, coverage and NoData. Keep regional/pluvial/groundwater and indirect supply mechanisms distinct."
+    },
+    {
+      "id": "GM0228-SPATIAL-001",
+      "severity": "high",
+      "category": "geography",
+      "status": "open",
+      "summary": "Eight unrelated hazards reuse the same complete 71-neighbourhood spatial order.",
+      "evidence": "At T+24 storm, pluvial, river, coastal, heat, winter, cyber and canonical wildfire all hash to 58a8c9312143 and are led by the same five neighbourhoods. E03–E06 require different wind, rain/drainage, river/defence, heat/vulnerability, digital-target and fuel/fire/smoke mechanisms.",
+      "action": "Replace the common local-risk seed with mechanism-specific, source-dated adapters and coverage/NoData masks. Add a regression that unrelated nonzero presets cannot share an entire municipal ordering unless an explicit common input justifies it."
+    },
+    {
+      "id": "GM0228-WILDFIRE-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "A controlled fire source inside Reemst heathland fails local source-containment plausibility.",
+      "evidence": "E01 places [5.798988319575035,52.07630619528323] inside BU02289051 Reemst and BRT heide. At T+24 the controlled run has direct fire 0.421451, smoke 0.410129 and severity 0.425697, but Reemst ranks 39/71 at 0.414083 while Beatrixpark leads at 0.498878. E03/E04 establish that Veluwe visitor, recreation, military, access and evacuation conditions matter.",
+      "action": "Enforce a defined near-source rank/distance band for direct flame at nonzero contained sources. Model flame, ember/spread, smoke, fuel/moisture, wind, barriers, roads/water, suppression and evacuation separately; retain BRT actuality and label controlled-source output synthetic."
+    },
+    {
+      "id": "GM0228-TRANSIENT-001",
+      "severity": "high",
+      "category": "demography",
+      "status": "open",
+      "summary": "Resident-only allocation omits material Veluwe visitor, recreation, event and military populations.",
+      "evidence": "The 124,214-person allocation reconciles CBS residents exactly, but E03 identifies millions of Veluwe visitors and Ede event/military context, while E04's evacuation model requires recreation-site guest counts and route choices. No checkpoint represents transient occupancy or uncertainty.",
+      "action": "Add time-stamped resident/transient/visitor/care/responder cohorts with source, uncertainty and evacuation/location state. Keep unknown visitor counts explicit and never inflate CBS residents silently."
+    },
+    {
+      "id": "GM0228-PLUVIAL-001",
+      "severity": "medium",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Available official pluvial and water-system context is not used, while the generic local seed produces precise neighbourhood results.",
+      "evidence": "E05 exposes a 70 mm/hour water-depth scenario, water-register layers and a current regional water picture, yet the pluvial run shares the same local rank as seven unrelated hazards. HWH and RWS return zero local records, which is contributor/source NoData rather than no water system. The raster's inspected item lacks explicit licenseInfo.",
+      "action": "Resolve the climate-raster licence, then integrate its native CRS, units, rainfall duration, model/version, resolution, coverage and NoData as a named scenario—not an observation. Keep catchment/register geometry non-causal until connectivity, live state and calibration are reviewed, and preserve Waterbeeld observation time separately."
+    },
+    {
+      "id": "GM0228-LIFELINE-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Exact eight-service availability, reserve and recovery values lack local operator topology or calibration.",
+      "evidence": "At river T+72 the model reports availability from 22.09% Mobility to 73.01% gas/heating and exact reserves from 3.96 to 17.04 hours. E05/E07 provide territories, planning, registers and point facilities, not feeder/pipe/backhaul/catchment topology, state, backup, dependencies, crews or restoration. Facilities decline between T+24 and T+72 without a local action/state source.",
+      "action": "Use operator-authorized aggregate zones, restoration bands and dependency matrices where available. Otherwise expose a clearly synthetic, versioned fallback with uncertainty; never infer security-sensitive physical topology from territories, roads, antennas or addresses. Separate potable water, wastewater, regional drainage and flood-control states."
+    },
+    {
+      "id": "GM0228-CARE-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "open",
+      "summary": "Static hospital, school and government registers cannot support facility continuity or emergency allocation.",
+      "evidence": "E07 identifies one real 24/7 acute hospital and 111 DUO records while the partial KVK feed returns zero government-service points. These records do not establish live occupancy, emergency role, opening, accessibility, acceptance, staffing, backup power/water/telecom, fuel, medicines or supply. E03 also identifies Deelen, radiation/industrial and event contexts outside a generic facility score.",
+      "action": "Add explicit facility role and time-stamped requested/confirmed/open/closed/degraded states from authorized authorities/operators, with capacity, dependencies and NoData. Do not turn schools into shelters or an empty KVK result into zero public response capacity."
+    },
+    {
+      "id": "GM0228-RESPONSE72-001",
+      "severity": "high",
+      "category": "explainability",
+      "status": "open",
+      "summary": "The first-72-hour trajectory has no auditable local intervention, responsibility or resource ledger.",
+      "evidence": "E03 assigns distinct municipal, GHOR, safety-region, operator and recreation-site responsibilities; E04 says Ede support-point locations are still being investigated; E08 is household guidance rather than measured readiness. Yet the model emits precise response/recovery, reserves and cumulative burden without warning, evacuation, reception, hospital, distribution, repair or support-point actions.",
+      "action": "Represent each action with authority, target, units, trigger, proposed/requested/confirmed/started/completed/failed/cancelled state, issue/valid/expiry time, resources, dependencies, confidence and source. Keep unconfirmed support points, routes, stocks and actions Unknown, and never imply T+72 is a recovery deadline."
+    },
+    {
+      "id": "GM0228-TEMPORAL-001",
+      "severity": "medium",
+      "category": "explainability",
+      "status": "open",
+      "summary": "Current observations, historical incidents/catalogues, static scenarios/plans and simulated future checkpoints need stronger temporal separation.",
+      "evidence": "E04's April 2026 fire, E05's 2 September 2026 Waterbeeld, E06's live APIs, E03's planning documents and the synthetic T+72 clock have different observation, issue, valid and edition times. Zero recent KNMI events and zero NDW/RWS matches are not forecasts or all-clears; the generic cyber preset has no named lifeline target or issue-valid incident.",
+      "action": "Carry evidence class plus issue/observation/valid/retrieval/expiry time and affectsSimulation through model, UI and export. Require issue-valid forcing/target definitions for weather, earthquake, cyber and compound exercises or label the dimension visibly synthetic/unsupported."
+    },
+    {
+      "id": "GM0228-NODATA-001",
+      "severity": "medium",
+      "category": "regional-data",
+      "status": "open",
+      "summary": "Multiple zero local public-source counts are incomplete coverage and must remain Unknown, never zero or safe.",
+      "evidence": "The deployed context has zero HWH assets, RWS points, NDW records, KNMI 365-day earthquake events and partial KVK points, no drainage provider at the reference point, and 0/71 usable district-heat/public-charging values. E05/E07 independently establish relevant local/regional water and service context. The UI explains the RWS case but presents a national HWH count without equally prominent local coverage.",
+      "action": "Store source/field-level coverage and NoData reason, and display local count, contributor/currency and Unknown state adjacent to every map/card/export. Never convert absent contributors, unmatched current events or suppressed CBS values to zero hazard, open roads, functioning service or no infrastructure."
+    },
+    {
+      "id": "GM0228-UX-EVIDENCE-001",
+      "severity": "high",
+      "category": "ui",
+      "status": "open",
+      "summary": "The hazard-layer screen-reader announcement mislabels Mobility availability as the municipality result and local unsupported evidence is not adjacent to precise values.",
+      "evidence": "At 1440×900, Ede / river / Hazard / T+72 visually shows 39% scenario severity, 83% inundation stress and about 50% weighted service availability. aria-live says 'critical, 22% available'; 22% is only Mobility. Ede is precisely coloured and has unsupportedDimensions=[] despite no selected local hydraulic event. On the Water layer, 49% correctly matches drinking-water availability.",
+      "action": "Make announcements layer-specific: hazard severity/evidence for Hazard, selected service availability for a service layer, and explicitly labelled weighted availability only in overview. Put municipality-specific unsupported/Unknown, source edition, valid time and metric scope beside map, cards, decision brief, live region and exports; never rely only on colour or a global count."
+    },
+    {
+      "id": "GM0228-NWB-SCOPE-001",
+      "severity": "informational",
+      "category": "network",
+      "status": "fixed",
+      "summary": "Unqualified public road geometry is correctly restricted to Mobility and Supply and shared corridors are non-additive.",
+      "evidence": "The current model allows source=NWB only for Mobility and Supply; A12 edges share physicalCorridorId NWB-road-12. Service-layer selection leaves local hazard unchanged and the focused gate passes logical-route ceilings. The UI describes NWB connectivity as a logical transfer proxy rather than physical utility topology.",
+      "action": "Preserve this guard and regression coverage. Do not allow roads to support power, water, drainage, gas, telecom or facilities without separately authorized, typed evidence, and do not sum consecutive A12 edges as parallel capacity."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Bind Ede major-river output to an explicit authority-selected hydraulic event and keep regional/pluvial water distinct.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/public/data/hazards/GM0228-water-context.json",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Before binding, exact local magnitude/impact is visibly unsupported/Unknown. A supported run retains LIWO/Waterschap/RWS release and selected Rhine/IJssel/local water body, boundary hydrograph/datum, defence/breach/overtopping/control state, connected footprint, depth/velocity/arrival/recession/dewatering, probability, resolution, licence, coverage and NoData; point observations never become the event."
+    },
+    {
+      "summary": "Replace the common GM0228 neighbourhood seed and enforce controlled fire source-containment plausibility.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/public/data/hazards/GM0228-spatial-context.json"
+      ],
+      "validation": "Eight unrelated nonzero T+24 presets no longer share the complete 71-row order unless explicitly justified. A source within BU02289051/BRT heath ranks its containing/near-source area inside a defined direct-flame band, while smoke, fuel/moisture, wind, barriers, access, water, suppression and data actuality remain separate."
+    },
+    {
+      "summary": "Integrate licensed Ede pluvial, terrain, heat/drought, weather and water context with native coverage and NoData.",
+      "files": [
+        "apps/web/public/data/hazards/GM0228-climate-context.json",
+        "apps/web/public/data/public-context/GM0228-water-context.json",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Authorized native rasters/layers retain CRS, units, rainfall duration, scenario/model/edition, issue/observation/valid time, licence, coverage and NoData. Observation, forecast, scenario and register geometry remain separate; geometry stays non-causal until connectivity/state/calibration are reviewed."
+    },
+    {
+      "summary": "Add transient populations, evacuation and an auditable first-72-hour local action/resource contract.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/public/data/public-context/GM0228-response-context.json",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/AnalyticsDrawer.tsx"
+      ],
+      "validation": "Residents remain reconciled separately from source-dated visitor/recreation/care/responder cohorts. Every intervention has authority, target/units, proposed/requested/confirmed/started/completed/failed/cancelled state, trigger, issue/valid/expiry time, resources, dependencies and confidence. Support points, guest counts, routes, acceptance, water, food, medicine, staff, fuel, crews and vehicles remain Unknown until confirmed."
+    },
+    {
+      "summary": "Use operator-authorized aggregate lifeline/facility calibration or a visibly synthetic fallback without reconstructing sensitive topology.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/public/data/public-context/GM0228-service-context.json"
+      ],
+      "validation": "Each availability, reserve, dependency and restoration band names its evidence/assumption, zone, edition, uncertainty and applicability. Provider polygons, NBNL plans, water registers, antennas, hospital/school/government points and NWB roads remain context unless reviewed mappings exist; no security-sensitive topology is inferred."
+    },
+    {
+      "summary": "Correct the hazard-layer live announcement and make unsupported evidence, time, metric scope and NoData persistent.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "apps/web/src/App.tsx",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/statistics/statisticsCatalog.ts"
+      ],
+      "validation": "Hazard-layer announcements name hazard severity/evidence rather than an unrelated service; service-layer announcements name the selected service; overview labels weighted availability. Maps, cards, decision brief, live region and exports preserve observed/context/scenario/derived class, source edition, issue/observation/valid/retrieval time, units, coverage, uncertainty, licence, affectsSimulation and NoData. Ede river/fire gaps and local pre-network versus post-network metric scopes are adjacent to exact values."
+    }
+  ],
+  "residualLimitations": [
+    "This is a deterministic first-72-hour planning-model audit, not a KNMI, Rijkswaterstaat, WMCN, Waterschap Vallei en Veluwe, VGGM, Ede municipality or operator forecast, warning, probability, evacuation order, casualty estimate or restoration commitment.",
+    "Generalized CBS neighbourhoods and BAG/BRT labels are suitable for overview aggregation, not parcels, catchments, flood compartments, defence connectivity, drainage networks, woodland fuel, incident perimeters, utility topology or emergency routes.",
+    "No selected Rhine/IJssel boundary condition, defence state, breach/overtopping case, connected inundation footprint, depth/velocity, arrival/recession, probability or NoData mask drives GM0228. The internal flood amplitude is not metres.",
+    "The WVV 70 mm/hour layer is a model scenario whose inspected metadata lacks explicit licence terms; the current Waterbeeld is source-dated regional context. Neither may silently become observed T+72 forcing.",
+    "HWH/Waterinfo/NDW/KVK/seismic zeros are coverage or filtered-result states. Missing records never mean no infrastructure, no hazard, open roads, functioning services or safety.",
+    "NWB, ProRail and GTFS are static geometry/schedule context. The Mobility/Supply-only restriction and physical-corridor non-additivity are correct, but there is no event-time road/rail, evacuation, freight or repair state.",
+    "No complete safe public source supplies Liander feeder/gas topology, Vitens pipe/pressure/quality topology, municipal sewer connectivity, water-board live controls, Ziggo/other telecom backhaul, facility dependencies, supplies, backups, crews or restoration. Sensitive detail was not inferred.",
+    "NBNL capacity is planning rather than live load/outage; provider polygons are territories rather than topology; RDI antennas are not coverage/backhaul/state; DUO/KVK/RIVM points are not shelters, distribution sites or live care capacity.",
+    "The controlled heath source is synthetic and tests source containment only. BRT actuality 2020 and the April 2026 incident do not describe future ignition, fuel/moisture, spread, smoke, access, suppression or recovery.",
+    "Cyber lacks a named target/architecture/attack path; earthquake needs a selected event and ground-motion field; heat/winter/storm need issue-valid KNMI forcing; the North-Sea coastal preset is not a substitute for river or regional water.",
+    "Registered residents omit tourists, recreation guests, event visitors, commuters, care occupants and responders. Household readiness, medically dependent people, support/reception/water points, stocks, staff, vehicles and repair priorities remain assumed or Unknown.",
+    "Affected people-equivalent and system pressure are current post-network proxies; deprived person-hours is cumulative event-attributable weighted local pre-network service shortfall against a matched no-event baseline. Neither is identified customers, casualties, displacement, welfare loss or economic damage, and six-hour checkpoints can miss fast fire, rain, wind, traffic and control changes."
+  ],
+  "provinceReviewFlags": [
+    "Municipality-specific release blocker: require an authority-selected Rhine/IJssel/local hydraulic event before presenting amplitude 1.245235, 62,368 affected people-equivalent or the T+72 service plateau as Ede flood evidence.",
+    "Municipality-specific release blocker: eight unrelated hazards share one complete neighbourhood order and a controlled source inside BU02289051/BRT heath ranks Reemst only 39/71; replace the common seed and enforce containment tests.",
+    "Municipality-specific release blocker: add transient Veluwe/recreation/event/military demand and site-specific evacuation semantics without silently changing CBS resident totals.",
+    "Municipality-specific release blocker: correct the Hazard live-region statement—22% is Mobility, not Ede hazard severity or weighted availability—and show the local unsupported event/calibration state beside exact outputs.",
+    "Municipality-specific release blocker: do not imply an active Ede emergency support point; the municipality says locations are still under investigation. Model only authority-confirmed actions/resources with valid times.",
+    "Municipality-specific: integrate the WVV pluvial scenario/register only after licence and causal semantics are resolved, preserving native units, CRS, duration, edition, coverage and NoData; current Waterbeeld remains observation/context.",
+    "Shared/national: preserve the corrected NWB Mobility/Supply-only guard and physical-corridor non-additivity; roads must never become electricity, gas, potable-water, drainage, telecom or facility topology.",
+    "Shared/national: preserve evidence class, issue/observation/valid/retrieval time, coverage, licence, affectsSimulation and NoData in every map/export; current observation, historical context, static plan/scenario and simulated T+72 state remain distinct."
+  ]
+}

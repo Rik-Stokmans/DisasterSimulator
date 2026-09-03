@@ -1,0 +1,475 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM1901",
+    "name": "Bodegraven-Reeuwijk",
+    "province": "Zuid-Holland",
+    "safetyRegion": "Hollands-Midden"
+  },
+  "agent": {
+    "taskName": "municipality_gm1901",
+    "agentId": "/root/nl_realism_audit",
+    "completedAt": "2026-09-02T17:25:52Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "GM1901 passes the complete deterministic contract over all ten canonical scenarios, T+0/6/12/24/48/72 and all eight essential services. Its 2025 CBS identity, generalized boundary, headline demography, 54 neighbourhoods, five BAG places, 22 BRT settlements, six NWB-derived logical links, Bodegraven station, null semantics, local reconciliation, causal ledgers and exact zero-intensity behavior are coherent. Release remains correction-required for three high-severity spatial defects. Bodegraven-Reeuwijk has genuine but defence- and pathway-specific flood risk: official sources identify Dijktraject 14/Lek and local or regional water-defence failure, whereas the model's separate river and coastal presets derive municipality-wide direct water from centre-to-diagonal-line distance without a failed defence, hydraulic footprint, level, arrival or recession. The river preset holds internal inundation stress 1.0807 through T+72, with 17,634 modeled people under pressure and 977,905 cumulative event-attributable essential-service person-hours; the coastal preset reaches 1.0751 and 6,032 people under pressure at T+24. These should remain transparent diagnostics, not local forecasts or a basis for deployment, until a named LVO/LIWO scenario is selected. Eight unrelated hazards also reuse the identical exact neighbourhood order, and a focused synthetic source in Reeuwijkse Hout leaves its containing neighbourhood 50th of 54 while neighbourhoods 3.3–5.2 km away rank above it. Public context exposes 156 water-control/wastewater assets spanning HDSR and Rijnland, annual Stedin electricity geometry, Oasen/Ziggo responsibility territories, 49 RDI antenna installations, external acute care, 23 education locations and current road context, but these do not yet establish operational topology or causally change the simulation. No sensitive or unavailable connectivity, backup, capacity, stock, staffing or restoration commitment was invented.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek / PDOK",
+      "title": "Kerncijfers wijken en buurten 2025 and Gemeente gegeneraliseerd 2025 — GM1901",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM1901%27%29&%24select=WijkenEnBuurten%2CGemeentenaam_1%2CAantalInwoners_5%2CBevolkingsdichtheid_34%2Ck_65JaarOfOuder_12%2CEenpersoonshuishoudens_30",
+      "accessedAt": "2026-09-02T17:25:52Z",
+      "edition": 2025,
+      "supports": [
+        "Machine-readable official-context identity and annual statistics: GM1901/Bodegraven-Reeuwijk, 37,209 residents, density 493 per square kilometre, 7,943 residents aged 65 or older and 4,742 one-person households.",
+        "The companion generalized municipality, district and neighbourhood polygons at https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1 are CC BY 4.0 and provide the 2025 administrative geometry consumed by the application.",
+        "CBS publishes rounded, suppressed and sometimes incomplete neighbourhood values; null is not zero, administrative boundaries are not hazard/catchment/provider footprints, and municipality totals need not equal sums of rounded neighbourhood rows."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Hollands Midden",
+      "title": "Regionaal Risicoprofiel 2023–2026 — Bodegraven-Reeuwijk municipality profile",
+      "url": "https://risicoprofiel.vrhm.nl/gemeenten/bodegraven-reeuwijk.html",
+      "accessedAt": "2026-09-02T17:25:52Z",
+      "edition": "2023–2026 profile, current municipality page",
+      "supports": [
+        "VRHM describes Bodegraven-Reeuwijk as a green, water-rich Groene Hart municipality, with A12 and rail improving accessibility while also carrying hazardous-material transport risk.",
+        "Its location in Dijktraject 14 makes flooding relevant: the stated probability is unlikely but potential effects catastrophic. Failure of a local water defence can cause local flooding and damage; the page cites the 2021 sliding Ringvaart dike in Reeuwijk.",
+        "The linked regional profile distinguishes primary-defence failure, requiring very severe north-westerly storm plus extreme sea levels, from more likely but smaller regional-defence failure caused by high boezem levels or instability; exact impact varies locally.",
+        "The profile covers severe weather, nature fire including reed and peat fire, earthquake, electricity, gas, drinking water, wastewater, telecom, food, mobility and health dependencies. It says natural earthquake effects in Hollands Midden are nearly nil or very light.",
+        "This is strategic risk context, not a live warning, selected breach, hydraulic result, probability feed, outage state or municipality restoration estimate; no dataset reuse licence or fixed machine-feed cadence is stated."
+      ]
+    },
+    {
+      "publisher": "Gemeente Bodegraven-Reeuwijk",
+      "title": "Klimaatadaptatie op de kaart and Klimaatadaptatiestrategie en scenario’s",
+      "url": "https://www.bodegraven-reeuwijk.nl/klimaatadaptatie-op-de-kaart",
+      "accessedAt": "2026-09-02T17:25:52Z",
+      "edition": "2025 stress tests and risk dialogues; six-year review cycle",
+      "supports": [
+        "The municipality publishes indicative neighbourhood dashboards for water nuisance, heat, drought, flooding, subsidence and biodiversity, and says it uses these in spatial projects. The second stress-test/risk-dialogue round was completed in 2025 and the review repeats every six years.",
+        "The linked 2020 strategy says Lek or regional-defence breach probability is small but social impact enormous, and prioritizes avoiding fatalities and coordinating preparedness with VRHM and the water boards.",
+        "It records repeated heavy-rain experience, sewer and watercourse overload, low-groundwater acceleration of subsidence in peat, urban heat and location-specific adaptation. The Bodegraven-centre planning record identifies high Oude Rijn banks/northern centre as comparatively safer ground and older wooden-pile buildings as drought-sensitive.",
+        "The dashboard and story map are authoritative planning context, not an incident footprint, live state or calibrated 72-hour scenario. No stable public bulk API, native-GIS download, explicit redistribution licence, cell resolution or no-data specification was found; those must be obtained before causal ingestion."
+      ]
+    },
+    {
+      "publisher": "Hoogheemraadschap De Stichtse Rijnlanden / Hoogheemraadschap van Rijnland",
+      "title": "Oude Rijn system, Bodegraven sluice, Put van Broekhoven and MT-Polder official water context",
+      "url": "https://www.hdsr.nl/buurt/bodegraven-reeuwijk/waterberging-put-broekhoven-nieuwerbrug/",
+      "accessedAt": "2026-09-02T17:25:52Z",
+      "edition": "HDSR update 13 May 2026; current project pages accessed 2026-09-02",
+      "supports": [
+        "HDSR says the potential Put van Broekhoven storage area is part of the Oude Rijn polder/boezem system and that harder rain and longer drought require system adaptation.",
+        "The Bodegraven sluice was renovated in 2025 with greater discharge capacity; automated pumps and weirs can be controlled better, changing how quickly excess polder water can be removed. The linked sluice page states it also regulates freshwater transfer toward western Netherlands.",
+        "HDSR has deferred a storage decision until new norms and a new system analysis due in 2027, explicitly showing that current storage need/effectiveness and local 72-hour drainage behavior are not yet established by the public evidence.",
+        "Rijnland's current MT-Polder Oost page at https://www.rijnland.net/over-rijnland/wat-doet-rijnland/in-uw-buurt/dijkverbetering-mt-polder/dijkverbetering-mt-polder-oost/ says parts of the regional dike in Reeuwijk require raising and stabilization, with final design in preparation in 2026.",
+        "These project pages contain planning and asset-role evidence, not a reusable live controls API, full hydraulic topology, emergency-power state or promised restoration time; no explicit data licence is stated."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat Landelijke Voorziening Overstromingsinformatie / Het Waterschapshuis via PDOK",
+      "title": "LVO/LIWO scenario information and machine-readable Dutch water-board assets",
+      "url": "https://lvo.overstromingsinformatie.nl/",
+      "accessedAt": "2026-09-02T17:25:52Z",
+      "edition": "current public services and application snapshot retrieved 2026-09-02",
+      "supports": [
+        "LVO is the national hub for flood and water-nuisance information and explicitly supports water management, spatial planning, safety-region risk profiles and crisis plans. Its disclaimer warns that LDO/LIWO scenarios may not reflect the latest local conditions and require expert interpretation.",
+        "A durable flood adapter can use the LVO/LIWO catalogue and OWS services at https://basisinformatie-overstromingen.nl/api/v2 and https://basisinformatie-overstromingen.nl/geoserver/ows, preserving release, scenario, failed defence/source, resolution, units, no-data, retrieval and approved reuse terms. No fixed update cadence or blanket redistribution licence was found.",
+        "The HWH Kunstwerken IMWA and Waterketen DAMO OGC APIs at https://api.pdok.nl/hwh/waterschappen-kunstwerken-imwa/ogc/v2 and https://api.pdok.nl/hwh/waterschappen-waterketen-damo/ogc/v1 are CC BY-SA 4.0 public context; Kunstwerken declares weekly updates while contributor completeness and object timestamps vary.",
+        "The application snapshot contains 156 points inside the generalized GM1901 boundary: 32 surface-water pumps, 109 weirs, five sluices, nine sewer pumps and AWZI Bodegraven. Of these, 118 name HDSR, 28 Rijnland and ten a generic water-board manager. Static points and published nameplate capacity do not establish connectivity, live controls, available throughput, emergency power or restoration."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Hollands Midden",
+      "title": "Regionaal Crisisplan Deel I 2024–2027",
+      "url": "https://www.vrhm.nl/sites/default/files/2025-06/VRHM%20Regionaal%20Crisisplan%20Deel%201%20%28dec%202024%29.pdf",
+      "accessedAt": "2026-09-02T17:25:52Z",
+      "edition": "December 2024, plan period 2024–2027",
+      "supports": [
+        "The plan defines multidisciplinary reporting/alarming, scaling, command, information management, resource management, crisis communication and aftercare; the Caco is present 24/7 and GRIP alarming is to be completed within five minutes after initiation.",
+        "CoPI handles multidisciplinary source control, ROT handles source and effect coordination, a local mayor has authority for a local crisis, and the chair of the safety region has authority for more-than-local incidents. A municipal policy team starts its tasks 60 minutes after convocation.",
+        "Water boards, Rijkswaterstaat, private vital-process providers and functional chains participate according to incident and authority; the integrated picture explicitly includes vulnerable people, objects and vital infrastructure.",
+        "The plan defines flexible roles and target organization, not a fixed 72-hour intervention sequence, asset inventory, staff/stock/crew state, utility switching instruction or restoration service-level agreement. No data reuse licence or machine update cadence is stated."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / ProRail via PDOK / OVapi / Nationaal Dataportaal Wegverkeer",
+      "title": "Official road, rail, station, transit and current road-situation context",
+      "url": "https://api.pdok.nl/rws/nationaal-wegenbestand-wegen/ogc/v1?f=html&lang=nl",
+      "accessedAt": "2026-09-02T17:25:52Z",
+      "edition": "NWB snapshot 2026-08-01; application context retrieved 2026-09-02",
+      "supports": [
+        "NWB is machine-readable national road-section geometry under CC0 1.0 with monthly updates; the generated graph resolves A12, N11, N458, N420 and N207 links from GM1901 to Waddinxveen, Alphen aan den Rijn and Woerden.",
+        "The ProRail OGC API at https://api.pdok.nl/prorail/spoorwegen/ogc/v1 is CC0 with manual updates and identifies Bodegraven station; OVapi contributes 58 static transit stop areas.",
+        "NDW DATEX II current situations at https://opendata.ndw.nu/actueel_beeld.xml.gz are continuously published under CC0 unless otherwise stated. The 2026-09-02 application snapshot had no qualifying situation geometry inside GM1901; this means no record in that snapshot, not proof every route was open.",
+        "Static geometry and nominal scenario units do not establish live closure, congestion, timetable operation, emergency access, evacuation throughput, patient transfer, repair access or utility capacity."
+      ]
+    },
+    {
+      "publisher": "Stedin / Stichting Mijn Aansluiting / RDI / RIVM / DUO / KNMI",
+      "title": "Official machine-readable utility, telecom, care, education and weather context",
+      "url": "https://www.stedin.net/zakelijk/open-data/liggingsdata-kabels-en-leidingen",
+      "accessedAt": "2026-09-02T17:25:52Z",
+      "edition": "current sources and application snapshots retrieved 2026-09-02",
+      "supports": [
+        "Stedin publishes free SHP geometry for low-, medium- and high-voltage cables and relevant stations, refreshed at least annually after calendar-year close with a metadata reference date; it excludes service drops, out-of-use/non-owned assets and does not replace KLIC. The page permits reuse but gives no standard open-licence identifier.",
+        "Live public-domain Mijn Aansluiting WMS/WFS documented at https://wiki.service.mijnaansluiting.nl/wiki/spaces/Wiki/pages/693731329 returns Stedin for electricity/gas, Oasen for drinking water and Ziggo for fixed media at the GM1901 reference point; drainage returns no polygon. Territory is responsibility context, not topology, coverage quality or state.",
+        "RDI's public Antenneregister WFS at https://antenneregister.nl/mapserver/wfs/ yields 49 registered installations inside the generalized boundary, including 24 mobile-communication sites, eight fixed-link sites, one broadcast and 16 amateur-radio sites. The service states no refresh cadence or reuse licence and does not expose coverage, operator, backhaul, traffic, power/backup, damage or restoration.",
+        "RIVM's version 1.1 acute-care questionnaire at https://datacatalogus.rivm.nl/dataset.xhtml?persistentId=doi%3A10.21945%2F8E767B2D-9CED-4A85-A95D-3AC1A608C663 is CC0 1.0 dated 2026-07-03. No acute hospital lies in GM1901; Groene Hart Ziekenhuis is nearest at 6.26 km straight-line reference-point distance and reports 24/7 emergency care.",
+        "DUO RIO at https://onderwijsdata.duo.nl/dataset/c416acd1-e083-4ec6-9203-3b20f98fe143 is daily machine-readable CC BY context and contributes 23 current registered education locations; registration does not designate a shelter or establish incident operation.",
+        "KNMI five-minute radar at https://dataplatform.knmi.nl/dataset/access/radar-reflectivity-composites-2-0 is CC BY 4.0 observed context. Its timestamp is not aligned with an arbitrary exercise clock and it is neither a 72-hour forecast nor causal in the current model."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM1901, Bodegraven-Reeuwijk, Zuid-Holland and safety region Hollands-Midden are internally and officially coherent.",
+      "evidenceRefs": ["E01", "E02"],
+      "notes": [
+        "Generated feature id, municipality bundle code and name equal GM1901/Bodegraven-Reeuwijk.",
+        "The centre resolves to exactly one safety region, Hollands-Midden; E02 is the official GM1901 municipality profile.",
+        "No identity, province, safety-region or edition mismatch was found."
+      ]
+    },
+    "geography": {
+      "status": "warn",
+      "summary": "The consumed 2025 generalized boundary and centre are coherent, but one BAG place label illustrates independent-edition/generalization limits.",
+      "evidenceRefs": ["E01", "E03", "E04"],
+      "notes": [
+        "Generated centre [4.766629082925361, 52.06279561191708] is inside the official generalized GM1901 polygon; boundaryEdition and statisticsEdition both equal 2025.",
+        "The active BAG label point for Waarder [4.836028332475259, 52.051151112019355] falls just outside the independently versioned generalized CBS polygon. This is disclosed as a geometry/label generalization caveat, not evidence that Waarder belongs elsewhere.",
+        "CBS administration, Dijktraject 14 compartments, Lek/Oude Rijn/boezem/polder systems, water-board territories, provider areas and incident footprints are not treated as interchangeable geometries."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Headline municipality statistics match CBS 2025 and rounded neighbourhood totals reconcile within publication precision.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "Generated population 37,209, density 493 and one-person-household count 4,742 exactly match the filtered municipality row.",
+        "Generated age65Pct 21.3 is the rounded share implied by the official count of 7,943 residents aged 65 or older.",
+        "The 54 neighbourhood rows sum to 37,205 residents, four below the municipality row (-0.011%); households sum to 15,620 and independently rounded age-65-plus rows to 7,950.",
+        "The simulator reconciles municipality allocation without silently rewriting the published source rows."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "All 54 neighbourhoods expose broad aggregate context, but suppressions remain null and current hazard rankings are not evidence-based.",
+      "evidenceRefs": ["E01", "E03"],
+      "notes": [
+        "Population, age bands, address density, households, businesses, cars, homes, land/water and urbanity are available for all 54 neighbourhoods; average household size is available for 53/54 and doctor/supermarket distance for 52/54.",
+        "Home value, housing form and tenure are available for 49/54; benefits for 50/54 and cars per household for 42/54. District-heating percentage and public charging points are unavailable for all 54 and correctly remain null.",
+        "Rijnhoek has published zero residential population and the simulator preserves zero rather than replacing it with a positive fallback.",
+        "Compound T+24 local population and all eight service demand/delivery totals reconcile to the municipality frame within 2.13e-14."
+      ]
+    },
+    "settlements": {
+      "status": "warn",
+      "summary": "Five BAG places and 22 BRT settlements remain distinct from CBS administration; Waarder's label-point mismatch is disclosed.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "Active BAG places are Bodegraven, Driebruggen, Nieuwerbrug aan den Rijn, Reeuwijk and Waarder.",
+        "BRT contributes 22 settlements: 11 buurtschappen, two gehuchten and nine woonkernen, including Meije, Tempel, Sluipwijk and Reeuwijk-Dorp.",
+        "Waarder's place-label centre is just outside the generalized municipal polygon; place and settlement labels are never substituted for official GM1901 population or 54 CBS neighbourhoods."
+      ]
+    },
+    "transport": {
+      "status": "warn",
+      "summary": "Six road links, Bodegraven station and 58 transit stops are structurally valid context, not operational or utility capacity.",
+      "evidenceRefs": ["E02", "E07"],
+      "notes": [
+        "The graph contains A12 links to Waddinxveen and Woerden, N11 to Alphen aan den Rijn, N458/N420 to Woerden and N207 to Waddinxveen, with nominal total 1,120 scenario units.",
+        "The exact same six links and total appear in all eight service views; transferSemantics is logical-proxy and the units are not measured roadway, rail, pipe, cable or telecom capacity.",
+        "Bodegraven ProRail station and 58 GTFS stop areas are shown, but no train/bus timetable, closure, crowding, access, evacuation, freight, ambulance or repair route state is causal.",
+        "The current NDW snapshot had no qualifying GM1901 geometry; absence of a record is not a guaranteed open route."
+      ]
+    },
+    "emergencyContext": {
+      "status": "warn",
+      "summary": "Authoritative context identifies water controls, providers, telecom installations, public sites, external acute care and crisis roles, while operational state remains unknown.",
+      "evidenceRefs": ["E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "The public water snapshot contributes 156 objects across HDSR/Rijnland systems, including Bodegraven sluice, named polder pumps, sewer pumps and AWZI Bodegraven; these are not a complete hydraulic graph or live state.",
+        "Provider point queries returned Stedin for electricity/gas, Oasen for water and Ziggo for fixed media; drainage returned no polygon. No polygon is Unknown coverage, not absence of municipal/water-board drainage responsibility.",
+        "RDI contributes 49 antenna installations, KVK/PDOK six public-administration/safety registry locations and DUO 23 education locations. These records do not establish command, shelter, opening, capacity, power, staff or continuity.",
+        "No RIVM acute hospital lies inside GM1901; Groene Hart Ziekenhuis is nearest by 6.26 km straight-line reference-point distance, not ambulance travel time or live acceptance.",
+        "No sensitive physical topology, live asset/facility state, backup endurance, priority-customer list, stock, crew, staff or restoration commitment was inferred."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten canonical presets completed at all six required checkpoints for all eight services.",
+      "evidenceRefs": ["E02", "E03", "E04", "E06"],
+      "notes": [
+        "Maximum current severity at required checkpoints was storm 0.4241, pluvial 0.3279, river 0.3388, coastal 0.3053, heat 0.4964, winter 0.5032, cyber 0.5800, earthquake 0.0072, wildfire 0.1291 and compound 0.9173.",
+        "At T+24 compound had rain 52.975 mm/h, internal inundation stress 0.4684, wind 28.91 m/s, cyber disruption 0.5088, system pressure 0.6152, 24,914 modeled people under pressure and 391,105 cumulative event-attributable essential-service person-hours.",
+        "At T+72 compound retained internal inundation stress 0.4684 and cyber disruption 0.0662, with severity 0.4751, pressure 0.6744, 28,017 people under pressure and 1,464,742 cumulative proxy person-hours.",
+        "All numerical values are deterministic scenario estimates, not observed local weather, measured flood depth, event probability, outage, casualty or restoration data."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Finite bounds, exact no-event semantics, determinism, monotonic cumulative burden, route bounds and local reconciliation pass.",
+      "evidenceRefs": [],
+      "notes": [
+        "MUNICIPALITY_AUDIT_CODE=GM1901 pnpm audit:model passed both tests across 10 presets × 6 checkpoints × 8 services on the focused pre-artifact run.",
+        "Every canonical preset at intensity zero produces exactly zero current severity, peak severity, affected population and event-attributable essential-service person-hours at every checkpoint.",
+        "Repeated frames are deterministic; state is finite and bounded; cumulative person-hours are monotonic; and route flow never exceeds effective logical capacity.",
+        "All local maps preserve 37,209 allocated residents including exact zero for Rijnhoek; maximum population/service reconciliation error was 2.13e-14.",
+        "Changing among all eleven map layers leaves hazard, system pressure and affected population exactly invariant."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "Real flood risk is represented by unselected proximity screens, while one shared seed ignores hazard mechanism and an explicit Reeuwijkse Hout fire source.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05"],
+      "notes": [
+        "River internal inundation stress rises from zero at T+0 to 0.3804 at T+6 and 1.0807 at T+12, remaining 1.0807 through T+72; 17,634 modeled people remain under pressure at T+72. Coastal stress is 1.0751 from T+6 through T+24 and clears by T+48.",
+        "packages/sim-core/src/model.ts:430-485 uses three diagonal river corridors and three diagonal coast segments; lines 713-728 turn centre distance into direct water. No Dijktraject 14/Lek/local-defence scenario, source, breach, level, connected footprint, arrival, duration or recession is selected.",
+        "packages/sim-core/src/model.ts:3447-3461 applies municipality severity through one scenario/neighbourhood hash. Severe storm, pluvial flood, river flood, coastal flood, heatwave, winter storm, cyberattack and wildfire therefore have the identical exact 54-neighbourhood order.",
+        "At T+24 those eight presets begin Nieuwerbrug aan den Rijn buitengebied, Vijverwijk, Molenzicht, Waarder Kern and Centrum-Noord. This is not sampled from official flood, rain, heat, terrain, land-cover, road, provider or network-target evidence.",
+        "In a focused synthetic T+24 wildfire with source [4.745394594547766, 52.0557267221745] at the official centre of Reeuwijkse Hout, direct-fire intensity is 0.6120, smoke 0.5073 and municipality severity 0.5873. Yet Reeuwijkse Hout ranks 50/54 at 0.4989; Nieuwerbrug buitengebied 4.680 km away ranks first at 0.6913. The test is not evidence of an observed fire.",
+        "The canonical remote wildfire has zero direct flame in GM1901 and smoke 0.2974 at T+24; earthquake remains very small and clears before T+24. These scoped outputs do not establish absence of a local fire or all indirect consequences."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "warn",
+      "summary": "All eight service balances and dependency ledgers are inspectable, but magnitudes are not calibrated to GM1901's providers, water controls, roads, telecom or external care.",
+      "evidenceRefs": ["E02", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "River T+24 availability is power 0.7295, water 0.4524, drainage 0.4784, gas 0.7290, telecom 0.4105, mobility 0.6462, facilities 0.7264 and supply 0.3526.",
+        "Compound T+24 availability is power 0.3626, water 0.2569, drainage 0.2866, gas 0.4477, telecom 0.3368, mobility 0.5524, facilities 0.6427 and supply 0.1756.",
+        "E02 supports dependency directions, E04/E05 identify real water roles/assets and E06 defines coordination; none calibrates those exact availabilities, demand, delivery, backup or repair values for GM1901.",
+        "The causal graph has no Bodegraven sluice/polder/AWZI hydraulic edge, Stedin feeder/station, Oasen pressure zone, mobile site/backhaul, station/train, hospital transfer, school/shelter, pharmacy, depot or supermarket stock node.",
+        "All eight service views reuse the same six road-derived links and nominal total 1,120; packages/sim-core/src/model.ts:2109 explicitly marks transferSemantics logical-proxy, never physical utility topology.",
+        "The web utility detail adapter is Liander-only while the verified GM1901 provider is Stedin, despite Stedin publishing annual cable/station context."
+      ]
+    },
+    "causalTrace": {
+      "status": "pass",
+      "summary": "Hazard, service and municipality explanation ledgers close and preserve scenario confidence, controls, dependency ordering and counterfactual scope.",
+      "evidenceRefs": [],
+      "notes": [
+        "Hazard contributions sum to headline severity; each service baseline plus exact-stage deltas sums to availability; all eight weighted service-pressure contributions sum to municipality system pressure.",
+        "Dependency chains, drivers, local vulnerability/demand factors, recovery progress and service-restoration counterfactual deltas are finite and arithmetically closed.",
+        "Household preparedness changes modeled people/supply consequences after physical pressure rather than changing physical hazard fragility.",
+        "Operational controls and time-gated interventions are labeled scenario assumptions; road-derived utility flows remain logical proxies.",
+        "Event-attributable essential-service person-hours integrate weighted unmet-service pressure against a matched no-event baseline and are not observed outage-hours, casualties, displacement or welfare loss."
+      ]
+    },
+    "recovery72h": {
+      "status": "warn",
+      "summary": "Sustained-water and response-delay safeguards behave consistently, but unselected flood mechanisms and absent operational resources prevent local recovery interpretation.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "Unselected river forcing remains active at T+72: pressure is 0.4764, 17,634 people remain under pressure and cumulative proxy burden reaches 977,905 person-hours.",
+        "River T+72 keeps power, water, drainage, gas, telecom, mobility and supply at their T+24 values while facilities falls from 0.7264 to 0.3675 through generic dependencies; this is not an operator, hospital or water-board forecast.",
+        "Coastal direct water clears by T+48, but pressure is 0.2697 with 6,801 people under pressure then; by T+72 affected population is zero while cumulative proxy burden reaches 948,368 person-hours. No selected coastal-breach recession or dewatering scenario supports that curve.",
+        "Pluvial water clears by T+48 and pressure falls from 0.2945 at T+24 to 0.0500 at T+72; HDSR says current Old Rijn system performance must be recalculated after the 2025 sluice/control changes, so this curve cannot be treated as calibrated drainage.",
+        "The two-week heatwave retains 22.98 degrees Celsius and drought severity 0.4537 at T+72 while affectedPopulation is zero; this threshold result must not be read as no residual health, care, subsidence or water-demand burden.",
+        "E06 defines rapid alarming and flexible crisis teams but no fixed first-72-hour actions. Actual water controls, A12/N11/rail access, provider switching, hospitals, crews, mutual aid, fuel, spares, staff, stocks and restoration estimates are unknown."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": ["power", "water", "drainage", "gas", "telecom", "mobility", "facilities", "supply"]
+  },
+  "findings": [
+    {
+      "id": "GM1901-FLOOD-SCENARIO-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Separate river and coastal centre-distance screens create direct local inundation without selecting GM1901's actual defence-dependent pathway.",
+      "evidence": "E02 and E03 confirm that flooding is relevant, but identify Dijktraject 14/Lek and local or regional-defence failure, with small probability and potentially catastrophic effects. E04 shows that Oude Rijn discharge/control and MT-Polder defences are specific, changing systems. packages/sim-core/src/model.ts:430-485 instead measures the municipal centre against diagonal river/coast lines and lines 713-728 emit water. River stress reaches 1.0807 at T+12 and persists through T+72, with 15,000 modeled people/240,778 event-attributable service person-hours at T+24 and 17,634/977,905 at T+72. Coastal stress reaches 1.0751, 6,032 people and 297,872 person-hours at T+24, then direct water clears by T+48 while cumulative burden reaches 948,368 at T+72. Neither preset selects a failed defence, source water, level, direction, connected footprint, arrival or recession.",
+      "action": "Add explicit unsupported spatial notes for river-flood:GM1901 and coastal-flood:GM1901 and prevent either diagnostic field being presented as local depth, prediction or deployment evidence. Do not apply a zero-risk/exposure exclusion: official evidence confirms real breach-dependent risk. Retain the current 1.0807/1.0751 amplitudes only as transparent deterministic diagnostics until an expert selects a named, versioned LVO/LIWO Dijktraject 14/Lek or regional-defence scenario and validates the intersected footprint, arrival and recession."
+    },
+    {
+      "id": "GM1901-SPATIAL-SEED-001",
+      "severity": "high",
+      "category": "geography",
+      "status": "open",
+      "summary": "Eight unrelated hazards reuse one exact neighbourhood order instead of GM1901's mapped water, heat, terrain, infrastructure and target mechanisms.",
+      "evidence": "E03 publishes separate indicative neighbourhood information for water nuisance, heat, drought, flooding and subsidence. At T+24 the simulator gives severe storm, pluvial flood, river flood, coastal flood, heatwave, winter storm, cyberattack and wildfire the identical exact order of all 54 neighbourhoods, beginning Nieuwerbrug aan den Rijn buitengebied, Vijverwijk, Molenzicht, Waarder Kern and Centrum-Noord. packages/sim-core/src/model.ts:3447-3461 samples only one scenario/neighbourhood hash; it samples no stress-test cell, elevation, sewer/polder catchment, paving/shade, defence, road exposure, fuel or cyber/network target.",
+      "action": "Mark all current local rankings as synthetic/unsupported and prohibit allocation/dispatch decisions from them. Request the native GIS behind the current 2025 municipal story map and preserve event definition, resolution, units, edition, no-data, validation and licence. Use separately versioned pluvial, flood, heat/drought, wind/winter, infrastructure-target and land-cover surfaces; tests must demonstrate that rankings can differ by hazard while exact service-layer invariance remains."
+    },
+    {
+      "id": "GM1901-FIRE-SPAT-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "An explicit source at Reeuwijkse Hout does not control the neighbourhood map of direct fire impact.",
+      "evidence": "E02 identifies reed and peat fires among Hollands-Midden nature-fire mechanisms, and municipal context identifies Reeuwijkse Hout as managed nature/recreation area. In a reproducible synthetic T+24 test, source [4.745394594547766, 52.0557267221745] produces direct-fire intensity 0.6120, smoke 0.5073 and municipality severity 0.5873. Yet containing Reeuwijkse Hout ranks 50/54 at hazard 0.4989; Nieuwerbrug buitengebied 4.680 km away, Vijverwijk 3.694 km away and Molenzicht 3.299 km away rank first through third near 0.69. This proves the local allocation ignores the selected source; it is not evidence of a real fire.",
+      "action": "Until source/perimeter-aware allocation exists, mark neighbourhood flame ranks unsupported and do not use them for dispatch. Prefer an authorized NIPV Risiko-index Natuurbranden export; otherwise combine BRT TOP10NL eligible vegetation/peat/reed context, an explicit ignition/perimeter and timestamped KNMI weather with inspectable fuel, wind, access, extinguishing-water and suppression assumptions. Tests must prioritize source-intersecting eligible cells and separate flame, smoke and drought."
+    },
+    {
+      "id": "GM1901-WATER-SYSTEM-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "open",
+      "summary": "A dense two-water-board drainage system is displayed as context but absent from causal flood, drainage and wastewater behavior.",
+      "evidence": "E04 identifies Bodegraven sluice, automated pumps/weirs, the Oude Rijn polder/boezem system, possible Put van Broekhoven storage and MT-Polder works; system analysis is pending for 2027 after capacity/control changes. E05 contributes 32 surface-water pumps, 109 weirs, five sluices, nine sewer pumps and AWZI Bodegraven inside the generalized boundary, spanning HDSR and Rijnland submissions. The model instead uses municipality scalars: compound T+24 drainage is 0.2866 and water 0.2569 without any asset, catchment, control, storage, overflow, water-quality, power/backup or cross-board state.",
+      "action": "Keep HWH points affectsSimulation=false with CC BY-SA 4.0, weekly/object timestamps and partial-contributor warnings visible. Add public HWH surface waters, zoneringen/keringen and GWSW/municipal sewer context only with verified coverage. Causal use requires a versioned HDSR/Rijnland hydraulic topology, controls, receiving levels, sluice/pump/AWZI power and backup, unit-correct throughput and validated failure/restoration behavior; the pending 2027 system analysis means no current 72-hour calibration should be invented."
+    },
+    {
+      "id": "GM1901-MOBILITY-001",
+      "severity": "medium",
+      "category": "network",
+      "status": "open",
+      "summary": "The six-link graph omits operational A12/N11/rail/transit accessibility and reuses roads as every service network.",
+      "evidence": "E02 recognizes A12 and rail as both access and hazardous-material risk. E07 supplies monthly CC0 NWB, ProRail station/track, GTFS and live NDW context. The graph resolves six links to only three neighbours and Bodegraven station, but all eight services reuse the exact same nominal 1,120 road units. There is no closure, congestion, timetable, bridge/underpass flooding, emergency route, evacuation, patient-transfer, freight or repair-access state; the empty current NDW intersection is not proof that routes are open.",
+      "action": "Keep road-derived flows logical-proxy. Use monthly NWB/ProRail geometry and current NDW/GTFS observations as separately timestamped context; make them causal only when spatially and temporally matched to the exercise and with explicit mode/capacity semantics. Model road, rail, transit, emergency access and utility connections as distinct typed graphs and preserve Unknown when no operational feed exists."
+    },
+    {
+      "id": "GM1901-UTILITY-DATA-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "open",
+      "summary": "Verified Stedin/Oasen/Ziggo/RDI context is non-causal and publicly available Stedin electricity geometry is not yet integrated.",
+      "evidence": "E08's live territory lookup returns Stedin electricity/gas, Oasen water and Ziggo fixed media; drainage returns no polygon. E08 also identifies annual Stedin SHP electricity cable/station geometry and 49 RDI installations, 24 of them mobile-communication sites. The current app's street detail is Liander-only, so it cannot show GM1901's public Stedin assets. Territory and antenna locations still cannot establish feeder/pressure connectivity, switching, demand, mobile coverage/backhaul, congestion, power backup, damage, priority customers, crews or restoration.",
+      "action": "Integrate Stedin's annual SHP cables/stations as clearly dated, non-causal physical context with its exclusions, reference date and reuse/disclaimer text; retain provider territories and RDI sites as affectsSimulation=false. Do not use public geometry as an outage or restoration graph. Obtain security-reviewed operator exercise topology/state for causal use; otherwise retain bounded synthetic priors, sensitivity controls and explicit Unknown state for Stedin, Oasen, gas, mobile/fixed telecom and drainage."
+    },
+    {
+      "id": "GM1901-FACILITY-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "accepted-limitation",
+      "summary": "GM1901 depends on external acute care, while local registered sites are not modeled as named emergency capacity or continuity nodes.",
+      "evidence": "E08 has no acute hospital in GM1901; Groene Hart Ziekenhuis is 6.26 km by straight-line reference-point distance and reports 24/7 emergency care. Twenty-three DUO education and six KVK government/public-safety points are dated registry context, not reception, command or shelter evidence. Facilities availability is 0.6427 at compound T+24 and 0.2198 at T+72 without hospital acceptance/diversion, ambulance route, staffing, beds, generator, pharmacy, care-home, school/shelter or home-care state.",
+      "action": "Use CC0 RIVM and daily CC BY DUO as dated non-causal context only. Add route-aware external-care destinations and reception sites only with explicit authorization and travel/role semantics. Seek security-reviewed GHOR/ROAZ and municipal continuity data; where unavailable, expose Unknown instead of inferring operation from a registry point or generic scalar."
+    },
+    {
+      "id": "GM1901-RESPONSE-001",
+      "severity": "medium",
+      "category": "explainability",
+      "status": "accepted-limitation",
+      "summary": "Generic intervention controls do not represent GM1901/VRHM authority, prerequisites or cross-board coordination during the first 72 hours.",
+      "evidence": "E06 provides a 24/7 Caco, five-minute GRIP alarming target, flexible CoPI/ROT/BT/RBT organization, a 60-minute policy-team start after convocation, local/regional authority and participation by water boards and vital-process providers. Current generator, pump, traffic and medical-priority controls are time-gated deterministic assumptions. They are not evidence that a GRIP team was activated, the mayor or regional chair decided, HDSR/Rijnland changed a control, an operator switched supply, or resources/crews arrived.",
+      "action": "Keep controls explicitly hypothetical. Add an operational timeline separating observation, confidence, signal, decision authority, action owner, prerequisite, requested/confirmed state, dispatch/travel delay, resource quantity and effect. Offer a GM1901/VRHM exercise template aligned with E06 without asserting any authority, water board, operator or hospital has acted."
+    },
+    {
+      "id": "GM1901-HAZARD-SCOPE-001",
+      "severity": "medium",
+      "category": "limitation",
+      "status": "accepted-limitation",
+      "summary": "Non-flood weather, cyber, earthquake, wildfire and compound outputs are exercises whose exact GM1901 magnitude is uncalibrated.",
+      "evidence": "E02 supports regional relevance of storm, extreme rain, heat/drought, winter weather, nature fire, vital-service failure and cyber risk, and says natural earthquake effects are nearly nil or very light. That is consistent with the canonical remote earthquake's maximum current severity 0.0072, but it does not validate the exact storm, pluvial, heat, winter, cyber, smoke or service magnitudes. Canonical wildfire is a remote smoke exercise with zero local flame; cyber has no declared affected organization/system boundary; observed KNMI context is not aligned to the scenario clock. Compound T+72 pressure 0.6744 and 28,017 affected remain synthetic assumptions.",
+      "action": "Label every preset deterministic scenario, never forecast or probability. For observed/context mode, require timestamp/location matching for KNMI weather and the KNMI earthquake catalogue; require an explicit target and system boundary for cyber and ignition/perimeter for fire. Show scoped-zero semantics and keep compound components/assumptions individually inspectable."
+    },
+    {
+      "id": "GM1901-DATA-001",
+      "severity": "informational",
+      "category": "regional-data",
+      "status": "fixed",
+      "summary": "Identity, demography, boundary, neighbourhood, place, settlement and public-context provenance are inspectable and null-safe.",
+      "evidence": "E01 matches GM1901/Bodegraven-Reeuwijk, 37,209 residents, density 493, 7,943 residents aged 65 or older and 4,742 one-person households. All 54 neighbourhoods, five BAG places and 22 BRT settlements resolve; the four-person rounded reconciliation and Waarder label mismatch are disclosed. Missing district heat/public charging, provider drainage and current NDW records remain Unknown rather than zero. E05/E07/E08 retain publisher, URL, licence/edition, time and coverage semantics and affect simulation only where explicitly declared.",
+      "action": "Retain edition, retrieval, licence, coverage and no-data semantics; refresh each source at publisher cadence and rerun focused plus national gates after every generated snapshot."
+    },
+    {
+      "id": "GM1901-CONTRACT-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The complete deterministic, causal and layer-invariance contract passes for Bodegraven-Reeuwijk.",
+      "evidence": "The mandatory harness passes 10 presets × 6 checkpoints × 8 services; zero-intensity output is exact zero; local compound T+24 population and service balances reconcile; ledgers close; person-hours are event-attributable against a matched no-event baseline; all eleven layer selections preserve state; zero population is retained; and every route says logical-proxy.",
+      "action": "Retain these assertions as regression gates while adding authoritative spatial adapters; do not weaken deterministic, layer-invariant or exact-zero behavior to conceal calibration gaps."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Classify GM1901's river and coastal screening values as unsupported until a selected Dijktraject 14/Lek or regional-defence hydraulic scenario exists.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "audits/correction-ledger.json"
+      ],
+      "validation": "Integration values: add river-flood:GM1901 and coastal-flood:GM1901 to auditedUnsupportedSpatialNotes. Do not add GM1901 to a zero-exposure exclusion because E02/E03 confirm real breach-dependent exposure. Retain current internal amplitudes 1.0807 and 1.0751 only as diagnostics with spatialEvidence=unsupported and unsupportedDimensions=[flood]; UI/exports must say local result unavailable/Unknown and downstream impacts incomplete. Durable replacement: expert-select a LVO/LIWO release/scenario from https://basisinformatie-overstromingen.nl/api/v2 and https://basisinformatie-overstromingen.nl/geoserver/ows, retaining defence/source, version, footprint, arrival, depth/stress units, recession, no-data and cleared reuse terms. Re-run pnpm test and focused/ALL municipality gates."
+    },
+    {
+      "summary": "Replace GM1901's shared neighbourhood seed with hazard-specific official spatial evidence.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/src/data.ts",
+        "apps/web/public/data/hazards/gm1901-spatial-context.geojson"
+      ],
+      "validation": "Request the native GIS behind E03's 2025 municipal story map; retain rain/flood event, heat metric/reference time, drought/subsidence definition, resolution, units, edition, validation, no-data, uncertainty and explicit licence. Until obtained, expose those official conclusions as non-causal context and mark every computed neighbourhood rank synthetic/unsupported. Public supplements: Klimaateffectatlas map-specific downloads/WMS are generally CC BY 4.0 with product-specific resolution/update, and AHN WCS at https://service.pdok.nl/rws/actueel-hoogtebestand-nederland/wcs/v1_0?SERVICE=WCS&REQUEST=GetCapabilities is 0.5 m CC0 elevation by cyclical edition. Tests must allow hazard rankings to differ while retaining exact layer invariance and Unknown no-data."
+    },
+    {
+      "summary": "Make explicit wildfire sources control eligible GM1901 neighbourhoods and separate flame from smoke and drought.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/src/data.ts",
+        "apps/web/public/data/hazards/gm1901-wildfire-context.geojson"
+      ],
+      "validation": "Add wildfire:GM1901 unsupported note reproducing the Reeuwijkse Hout source rank 50/54. Preferred source is an authorized NIPV Risiko-index Natuurbranden export; no public bulk API, redistribution licence or fixed cadence was found. Public fallback: Kadaster BRT TOP10NL OGC https://api.pdok.nl/kadaster/brt-top10nl/ogc/v1 under CC BY 4.0 with normally annual releases plus timestamped five-minute KNMI data under CC BY 4.0. Tests must make source-intersecting eligible cells outrank distant cells and expose fuel, peat/reed/vegetation, wind, access, extinguishing water and suppression assumptions."
+    },
+    {
+      "summary": "Add typed GM1901 water, Stedin, telecom, mobility and facility context without inventing operational topology or capacity.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/data.ts",
+        "apps/web/public/data/public-context/water-assets.geojson.gz",
+        "apps/web/public/data/public-context/stedin-electricity-assets.geojson.gz",
+        "apps/web/public/data/public-context/rdi-antenna-sites.geojson.gz",
+        "apps/web/public/data/public-context/rivm-acute-care-locations.geojson.gz",
+        "apps/web/public/data/public-context/duo-education-locations.geojson.gz",
+        "apps/web/public/data/transport-network.json"
+      ],
+      "validation": "HWH Kunstwerken/Waterketen are partial CC BY-SA 4.0 context with weekly/object timestamps; Stedin electricity SHP is free, at-least-annual geometry with exclusions and no standard licence identifier; provider WMS/WFS are live public-domain responsibility context; RDI WFS has no stated cadence/licence; RIVM is dated CC0 hospital context; DUO RIO is daily CC BY; NWB is monthly CC0; ProRail is manually updated CC0; NDW is live CC0-unless-stated. All must remain affectsSimulation=false until connectivity, state, backup, capacity, role and decision semantics are authorized and validated."
+    }
+  ],
+  "residualLimitations": [
+    "The simulator is a deterministic planning stress test, not a KNMI forecast, warning, probability estimate, live incident picture, casualty model or operator outage forecast.",
+    "No approved GM1901 LVO/LIWO connected depth, arrival, duration, defence, breach, level or recession grid is ingested; internal inundation stress is not measured local metres.",
+    "Marking river/coastal screens unsupported must not erase Dijktraject 14/Lek, local/regional-defence, Oude Rijn, boezem, polder, groundwater, sewer and extreme-rain mechanisms; they remain Unknown until selected.",
+    "The municipal 2025 neighbourhood dashboards/story map are authoritative planning context but expose no verified stable bulk API, native-machine download, explicit licence, resolution or no-data semantics for direct ingestion.",
+    "CBS neighbourhoods and deterministic seeds do not resolve buildings, terrain depressions, high Oude Rijn banks, pavement, shade, vegetation, water controls, households, visitors or individual vulnerability.",
+    "The public water layer is intentionally partial; 156 points cannot be interpreted as a complete connected drainage/wastewater system or operational state.",
+    "The 2025 Bodegraven sluice renovation and pending 2027 HDSR system analysis make historic throughput or dewatering observations unsafe as current calibration without water-board validation.",
+    "Provider polygons identify responsibility at one reference point, not full coverage, physical connectivity, switching or state; fixed-media territory is not mobile coverage and the drainage polygon is absent.",
+    "Stedin public electricity geometry omits service drops and operational state; no physical Oasen, complete gas, sewer or telecom dependency/restoration topology is public and authorized for causal use.",
+    "RDI antenna points do not establish operator, radio coverage, backhaul, traffic, power/backup, availability or restoration.",
+    "All eight intermunicipal service layers reuse six road-derived logical corridors and cannot be interpreted as cables, pipes, pressure zones, radio backhaul, patient transfers, wastewater paths or food routes.",
+    "Static NWB, ProRail and transit inputs do not establish live road/rail closure, traffic, timetable operation, evacuation throughput, ambulance travel or repair access; an empty NDW snapshot is not an all-clear.",
+    "No acute hospital lies inside GM1901 in E08; straight-line distance to Groene Hart Ziekenhuis is not ambulance travel time, acceptance, staffed capacity or diversion status.",
+    "KVK and DUO records do not establish command or shelter status; facilities and supply lack verified care-home/pharmacy roles, beds, staff, backups, supermarket/warehouse stock, depots, vehicles and continuity agreements.",
+    "Wildfire lacks a local perimeter, eligible fuel/moisture surface, wind-aware spread, suppression state and access; the Reeuwijkse Hout diagnostic is explicitly synthetic.",
+    "Earthquake lacks a selected local event, ground-motion surface, site response and asset fragility; the canonical remote event only demonstrates a near-zero synthetic pathway.",
+    "Generic preparedness, demand, backup, network, repair and intervention multipliers are scenario controls rather than observed GM1901 resources or commitments.",
+    "The crisis plan defines authority and flexible organization, not a guaranteed sequence, resource inventory or restoration service-level agreement for GM1901.",
+    "Six-hour checkpoints can miss cloudbursts, pumping/control changes, dike instability, dispatch, fire spread and road restrictions; 72 hours excludes prolonged contamination, displacement, public health, subsidence, ecological damage, economic loss and reconstruction.",
+    "The ten canonical presets omit hazardous-material transport, dike instability without overtopping, water recreation and other officially identified GM1901/Hollands-Midden crisis types."
+  ],
+  "provinceReviewFlags": [
+    "Review every remaining Zuid-Holland municipality receiving river/coastal centre-distance stress against a named LVO/LIWO defence/source scenario; real protected-area risk does not validate an unselected municipality-wide field and no-data must remain Unknown.",
+    "Replace shared neighbourhood hazard seeds across Zuid-Holland with licensed hazard-specific municipal/atlas surfaces, AHN terrain and water-board context while retaining event definition, resolution, no-data, edition and licence.",
+    "Audit municipalities spanning HDSR/Rijnland systems jointly for boezem/polder controls, cross-board freshwater and drainage dependencies; HWH point presence and historic discharge do not establish current hydraulic connectivity or capacity.",
+    "Add Stedin annual electricity geometry as non-causal context across its territory, while keeping provider areas, RDI antennas, Oasen, gas, telecom, facilities and restoration Unknown until authorized topology/state exists."
+  ]
+}

@@ -1,0 +1,521 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0394",
+    "name": "Haarlemmermeer",
+    "province": "Noord-Holland",
+    "safetyRegion": "Kennemerland"
+  },
+  "agent": {
+    "taskName": "municipality_gm0394",
+    "agentId": "/root/causal_engine_v3",
+    "completedAt": "2026-09-03T03:26:02Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "GM0394 passes the deterministic execution contract for all ten canonical presets, T+0/6/12/24/48/72 and all eight essential services. Its CBS/PDOK 2025 identity, 165,255 residents, 97 neighbourhoods, 25 BAG places, 33 BRT settlement labels, four in-boundary ProRail stations, 252 scheduled-transit stop areas and seventeen section-traceable NWB border links are coherent. Current NWB semantics correctly limit roads to Mobility and road-logistics Supply. Release is nevertheless correction-required. The coastal preset reports 1.791934 normalized inundation stress, 97,250 affected people-equivalent and 100 percent inundation stress in the browser at T+24 without selecting a LIWO event, source-water boundary, primary or regional defence state, breach/overtopping mode, connected footprint, depth, arrival or dewatering path. The exact-zero Rhine/Meuse/IJssel result should remain narrowly scoped, not become an all-flood all-clear. Seven unrelated nonzero hazards reuse the exact same 97-neighbourhood ranking, while a controlled source inside the official Noorderbos polygon still leaves Badhoevedorp Omgeving first. Schiphol has only 75 registered residents but handled 68.8 million passengers and 477,552 aircraft movements in 2025; business context increases service demand share, yet affected-person allocation remains resident-bound and no aviation or industrial-release scenario exists despite three current REV Seveso registrations. Precise water, drainage, power, gas, telecom, facilities, mobility, supply and T+72 recovery outputs omit the airport's separate utility estate, 94 public water-register objects, tunnel/rail/road dependencies, transient population and live resources. Public data can materially improve selection and context, but registers, plans, observations and official scenarios must remain distinct from simulated state; NoData and no selected event never mean zero or safe.",
+  "provinceReviewFlags": [
+    "Municipality-specific release blocker GM0394-FLOOD-001: retain the generic coastal amplitude only as an internal diagnostic and suppress precise local impact until an authority-selected, versioned LIWO/Rijnland case supplies source water, defence/breach state, connected footprint, depth, arrival, duration and NoData.",
+    "Municipality-specific release blocker GM0394-AVIATION-INDUSTRIAL-001: the ten-preset scope has no aviation or hazardous-material event despite Schiphol being the municipality's defining risk hotspot and three in-boundary Seveso registrations.",
+    "Municipality-specific release blocker GM0394-EXPOSURE-001: resident allocation cannot represent Schiphol passengers, workers, cargo handlers, hotel guests or people stranded through T+72; annual totals must not be divided into an invented live occupancy.",
+    "Municipality-specific release blocker GM0394-WATERCHAIN-001: 94 static HWH/DAMO objects and Schiphol's separate water/wastewater system are visible context but do not drive catchments, controls, backup or recovery.",
+    "Shared/national release blocker GM0394-SPATIAL-001: seven unrelated hazards reuse one exact neighbourhood order and GM0394 has no municipality-specific unsupported-spatial guard.",
+    "Noord-Holland/Rijnland review: separate North Sea, North Sea Canal/boezem, Ringvaart, primary-defence, regional-defence, polder, groundwater and pluvial/sewer pathways; a scoped Rhine/Meuse/IJssel zero cannot resolve them.",
+    "Shared/national correction retained: unqualified NWB roads support only Mobility and road-logistics Supply and remain logical transfer proxies, never physical power, water, drainage, gas, telecom or facility topology.",
+    "Shared/national evidence rule: every official context, scenario, observation and register layer must expose edition/valid time, retrieval time, coverage, licence, resolution, NoData and affectsSimulation; missing or transparent cells stay Unknown."
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM0394, Haarlemmermeer, Noord-Holland, safety region Kennemerland and the 2025 statistical/boundary editions are coherent.",
+      "evidenceRefs": ["E01", "E02"],
+      "notes": [
+        "The generated municipality id/name, province, safety region, 2025 boundary edition and 2025 statistics edition agree with the primary services.",
+        "The reference point [4.684071918606681, 52.307888684018025] lies inside the generalized municipality boundary.",
+        "The current full PDOK feature 4b11bb4b-41d8-58c0-a805-60bd4ee4511e is a MultiPolygon with 2,847 coordinate positions and bounding box [4.55045509282747, 52.21446840526393, 4.819158698344393, 52.43333616852786].",
+        "CBS reports 165,255 residents, density 838 residents/km², 18.1 percent age 65 or older and 23,034 one-person households."
+      ]
+    },
+    "geography": {
+      "status": "warn",
+      "summary": "Administrative geography is coherent but cannot substitute for polder hydraulics, airport operational zones, service catchments, tunnel access or plume geometry.",
+      "evidenceRefs": ["E01", "E02", "E03", "E04", "E05", "E06", "E07"],
+      "notes": [
+        "The generated national overview geometry has 167 coordinate positions versus 2,847 in the full current PDOK boundary; it is suitable for selection and aggregation, not hydraulic, route-passability, fire-spread or asset-containment decisions.",
+        "VRK and operator evidence distinguish Haarlemmermeerpolder, Ringvaart, Schiphol, Schiphol road/rail tunnels, A4/A5/A9/A44, fuel facilities, water controls and neighbouring systems. None can be derived from a centroid or shared neighbourhood hash.",
+        "Aalsmeerderbrug's BAG label point falls just outside the independently versioned generalized municipality polygon. This is a known edition/generalization caveat, not a basis for excluding the place or its population.",
+        "LIWO rasters, municipal climate layers, HWH points, REV activity geometries, roads, rail and provider estates each have distinct spatial semantics; one source cannot establish another source's connectivity or state."
+      ]
+    },
+    "demography": {
+      "status": "warn",
+      "summary": "Resident totals reconcile, but Schiphol's transient and workforce exposure is operationally material and absent from affected-person allocation.",
+      "evidenceRefs": ["E01", "E03"],
+      "notes": [
+        "Published neighbourhood rows sum to 165,270 residents, fifteen above the municipality total (+0.009 percent), consistent with independently rounded CBS values; they sum to 70,445 households and 29,850 residents aged 65 or older.",
+        "The ten largest neighbourhoods are led by Hoofddorp Floriande West (10,090), Nieuw-Vennep Getsewoud Zuid (8,775), Hoofddorp Floriande East (8,075) and Hoofddorp Toolenburg East (8,000).",
+        "Schiphol neighbourhood records only 75 residents, 750 businesses and 868 non-residential buildings. Operator traffic reports 68.8 million passengers, 477,552 aircraft movements and 1.43 million tonnes of cargo in 2025; annual throughput is context, not a concurrent headcount.",
+        "Age, household form, car access, density and proximity fields are aggregates, not individual medical dependence, daytime presence, stranded-passenger count, evacuation need, preparedness or priority."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "The 97 official neighbourhoods provide rich aggregate context, but partial attributes and hazard-independent ranks prevent operational local prioritization.",
+      "evidenceRefs": ["E01", "E03", "E04"],
+      "notes": [
+        "Core population, age, household, business, non-residential-building, land/water and address-density data cover all 97 neighbourhoods. Home/housing fields cover 89/97, cars per household 77/97, benefit fields 92/97, and GP/supermarket distance and density 96/97.",
+        "District-heating percentage and public-charging count cover 0/97 and correctly remain null. Missing, suppressed, unavailable and not-applicable are not calculated zeros.",
+        "The model's service-specific activity weights are directionally useful at Schiphol: in the T+24 compound frame its 0.0454 percent resident share becomes 2.022 percent of power demand, 1.037 water, 1.196 drainage, 1.503 gas, 1.719 telecom, 2.251 mobility, 0.731 facilities and 1.469 supply. These remain synthetic allocation weights, not measured loads.",
+        "Official 2025 climate testing and Schiphol's hydraulic model distinguish ground, sewer, surface-water, heat and drought mechanisms, but those surfaces do not drive the 97 local ranks."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "Twenty-five BAG places and 33 BRT settlement labels preserve the municipality's multi-centre context without inventing operational districts.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "BAG includes Hoofddorp, Nieuw-Vennep, Schiphol, Schiphol-Rijk, Badhoevedorp, Halfweg, Zwanenburg, Spaarndam, Lisserbroek, Rijsenhout, Buitenkaag and other official places; BRT adds small cores and hamlets.",
+        "The BRT set contains 24 woonkern, four deelkern, three buurtschap and two gehucht labels.",
+        "Place and settlement labels are not evacuation zones, airport sectors, shelter catchments, utility pressure zones, sewer catchments or resource bases."
+      ]
+    },
+    "transport": {
+      "status": "warn",
+      "summary": "Road-section identities, rail stations and transit stops are traceable, but tunnel, bridge, rail, waterway and incident-time continuity remain unresolved.",
+      "evidenceRefs": ["E01", "E02", "E03", "E06"],
+      "notes": [
+        "Seventeen generated NWB links connect GM0394 with Kaag en Braassem, Velsen, Lisse, Amstelveen, Haarlem, Amsterdam, Aalsmeer, Hillegom and Heemstede through A4, A5, A9, A44, A200, N196, N200, N201, N202, N205, N207, N231 and N232. All 64 source section ids are unique in this municipality link set.",
+        "All seventeen routes appear only for Mobility and Supply; power, water, drainage, gas, telecom and facilities have zero NWB routes. This is the correct road-only semantic safeguard.",
+        "Four ProRail stations lie inside the full boundary: Schiphol Airport, Hoofddorp, Nieuw Vennep and Halfweg-Zwanenburg. The transit bundle contains 252 stop areas, but scheduled geometry does not prove service, vehicle availability or emergency capacity.",
+        "Rijkswaterstaat describes the A4 Schipholtunnel as a 650 m, 103 m-wide, eight-tube/18-lane connection carrying more than 170,000 vehicles/day and monitored 24/7. ProRail calls the Schiphol corridor/tunnel one of its busiest and is renewing it through 2028. These are infrastructure/planning facts, not scenario-time availability.",
+        "The cached NDW T+72-valid snapshot assigns zero situations to GM0394. A filtered no-match never proves roads, bridges, tunnel tubes or approaches are open."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "Strong public airport, water, industrial, care and telecom context exists, but it is not a complete live dependency/resource model.",
+      "evidenceRefs": ["E02", "E03", "E05", "E07", "E08"],
+      "notes": [
+        "The deployed HWH/DAMO cache assigns 94 objects to GM0394: 66 surface-water pumps, 23 sewer pumps, three wastewater-treatment sites and two sluices. Capacity units are absent in the normalized records, and the source declares partial contributor coverage.",
+        "Schiphol Utilities separately operates airport electricity, gas, drinking/fire water and wastewater networks and a central firefighting facility. Its current transport limitation is planning/operating context, not outage telemetry, complete topology, emergency reserve or T+72 restoration.",
+        "A live exact-boundary REV WFS check returns 325 contained activity geometries representing 309 unique identifiers, including Aircraft Fuel Supply, KLM and Air Products as three Seveso activities. Register presence is not a current incident, inventory, release probability or plume.",
+        "RIVM's 2026 questionnaire places Spaarne Gasthuis Hoofddorp inside GM0394 with a reported 24/7 emergency department, 14 treatment rooms and 18,801 visits in 2025; this does not establish live acceptance, staffing, occupancy, backup, supplies or access.",
+        "The cache assigns 396 RDI antenna installations and 109 DUO education records. Those locations do not establish telecom coverage/backhaul/power or shelter designation/capacity.",
+        "No Waterinfo station is assigned within GM0394 and one NBNL postcode sample covers only OS Haarlemmermeer 10-1i. No-record is NoData, and one planning service area is not municipality-wide physical topology or current service state."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": ["power", "water", "drainage", "gas", "telecom", "mobility", "facilities", "supply"]
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "warn",
+      "summary": "All ten presets execute at all six checkpoints for all eight services, but bounded deterministic output is not local calibration.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "Peak municipal severities are storm 0.712367, pluvial 0.269071, river 0, coastal 0.549636, heat 0.670286, winter 0.755986, cyber 0.536144, earthquake 0.020991, wildfire 0.139213 and compound 0.920999.",
+        "At T+24 severity/pressure/affected people-equivalent are storm 0.207965/0.350917/49,107; pluvial 0.141604/0.233339/21,731; river 0/0.075330/0; coastal 0.549636/0.557691/97,250; heat 0.104766/0.215994/17,693; winter 0.755802/0.365287/52,453; cyber 0.456835/0.368856/53,283; earthquake 0/0.085018/0; wildfire 0.139213/0.178946/9,068; and compound 0.904221/0.588153/104,341.",
+        "Coastal T+24 carries 1.791934 normalized inundation stress and 22.088350 m/s wind. At T+72 direct flood stress and wind are zero, but pressure is 0.171635, 7,366 people-equivalent remain affected and cumulative event-attributable essential-service burden reaches 5,293,248.14 person-hours.",
+        "The named Rhine/Meuse/IJssel preset is exactly neutral for direct hazard and event-attributable burden while baseline/network pressure remains 0.075330. That narrow direct zero does not cover Ringvaart, boezem, regional defence, polder, groundwater, pluvial or indirect supply effects.",
+        "Canonical wildfire has zero direct flame at T+24 and only smoke 0.312982/drought 0.638471; canonical earthquake has zero current shaking at T+24 after a small 0.020991 peak. Neither exercises another local source, site response or unmodelled incident.",
+        "Compound T+24 carries 56.635237 mm/h rain, 0.418545 flood stress, 31.827765 m/s wind and 0.470358 cyber disruption. All outputs remain exercise assumptions, not observations, probabilities, warnings, outages or forecasts."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Determinism, exact no-event behavior, boundedness, cumulative burden, local reconciliation, layer invariance and road-service scope pass.",
+      "evidenceRefs": [],
+      "notes": [
+        "MUNICIPALITY_AUDIT_CODE=GM0394 pnpm audit:model passed both focused tests across 10 presets × 6 checkpoints × 8 services; the final run took 38.18 seconds with 37.88 seconds of test execution.",
+        "Every zero-intensity preset produces exact zero current severity, peak severity, affected population and event-attributable essential-service person-hours at every checkpoint.",
+        "Repeated frames are deterministic; values are finite and bounded; cumulative event-attributable person-hours are monotonic; logical route flow remains within effective scenario capacity.",
+        "At T+24 the local population, affected population and every service demand/delivery ledger reconcile. Maximum observed local, demand and delivery floating-point discrepancy is 2.2737367544323206e-13.",
+        "Changing among all eleven map layers leaves municipal/local hazard output unchanged; maximum local layer hazard delta is zero.",
+        "All eight pressure weights participate and operations/household inputs remain normalized scenario assumptions; apps/web/src/scenarios.ts factory parity is enforced by the gate."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "A shared neighbourhood hash, unselected coastal field and missing GM0394 support guard create false local precision.",
+      "evidenceRefs": ["E02", "E03", "E04", "E07"],
+      "notes": [
+        "packages/sim-core/src/model.ts derives local hazard from city/scenario/region hashes; source containment, LIWO cells, terrain, sewer/surface-water routing, imperviousness, shade, fuel, wind exposure and asset footprints do not govern the rank.",
+        "Severe storm, pluvial, coastal, heat, winter, cyber and wildfire have the exact same 97-neighbourhood ordering at T+24: Badhoevedorp Omgeving, Spaarndam Omgeving and Hoofddorp Beukenhorst Oost rank first through third. Compound mostly preserves that order but clips many values at one.",
+        "Schiphol ranks eighteenth in each of those seven families; Schiphol-Rijk ranks sixty-fourth. Those stable ranks do not reflect airport surface drainage, exposed operations, population, heat, fuel, cyber targets or event-valid weather.",
+        "A controlled source [4.72, 52.427] lies inside official Noorderbos and BU03942042 Spaarndam Omgeving. At T+24 it produces 0.178490 direct fire, 0.507771 smoke and municipality severity 0.299544; the source neighbourhood ranks second at 0.352574 while Badhoevedorp Omgeving remains first at 0.352976.",
+        "The controlled source is a falsification fixture, not an actual ignition. The official polygon is static combustible-area eligibility and supplies no fuel moisture, perimeter, spread, access or suppression state.",
+        "GM0394 has no auditedUnsupportedSpatialNotes entry; precise local polygons remain derived-screening instead of becoming municipality-specific Unknown until the missing mechanisms are selected."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "Service ledgers are inspectable and NWB scope is corrected, but exact values omit Schiphol and Rijnland physical systems, live state and cross-boundary resources.",
+      "evidenceRefs": ["E03", "E05", "E06", "E08"],
+      "notes": [
+        "Current source applicability yields seventeen NWB logical corridors for Mobility and Supply and zero for power, water, drainage, gas, telecom and facilities. This road-only safeguard is correct.",
+        "Compound T+24/T+72 availability is exactly power 0.353312, water 0.379768, drainage 0.351699, gas 0.570063, telecom 0.189161, mobility 0.578656, facilities 0.356507 and supply 0.581624.",
+        "The public water cache exposes 94 static objects and Schiphol describes its own water/wastewater/firewater system, but no catchment connectivity, flow direction, verified compatible capacity unit, control state, power dependence, backup or repair state reaches the simulation.",
+        "Schiphol Utilities' current transport limitation and one Liander/NBNL planning sample describe capacity planning, not current load, switching, feeder topology, outage or restoration. RDI antenna points do not establish telecom backhaul or power resilience.",
+        "The RIVM facility record, three airport fire posts/nine crash tenders described by Schiphol, DUO sites and CBP-S roles are dated capacity/context statements, never guarantees that beds, crews, vehicles, generators, supplies or routes are available in the selected event.",
+        "No public reviewed source supplies complete, non-sensitive physical electricity, gas, drinking-water, sewer, telecom, facility or airport-logistics topology. The smallest safe fallback is explicitly synthetic service nodes/branches with scenario-unit capacity ranges and no claim of observed state."
+      ]
+    },
+    "causalTrace": {
+      "status": "warn",
+      "summary": "The arithmetic explanation closes, but omitted airport/flood dependencies and uncalibrated local drivers limit causal validity.",
+      "evidenceRefs": ["E02", "E03", "E05", "E06", "E08"],
+      "notes": [
+        "Municipal pressure uses transparent weights power 0.18, water 0.15, drainage 0.08, gas 0.09, telecom 0.12, mobility 0.12, facilities 0.14 and supply 0.12; the focused test closes the ledger.",
+        "Removing route nwb-link-354-GM0363-GM0394, a source-resolved A4/RW4 logical proxy, in the T+24 compound frame raises pressure 0.003165 and reduces mobility availability 0.027533 while leaving six non-road services unchanged; supply changes +0.001157 through network rebalancing.",
+        "That sensitivity is model arithmetic, not a Schipholtunnel closure, passability forecast or measured capacity. Nominal/effective values are scenario units and the link represents only the municipal border section.",
+        "Activity context raises Schiphol's service-demand shares inspectably, but it does not supply passengers/workers by clock hour, flight cancellation/stranding, aviation fuel, baggage, airside access, hospital surge or utility topology.",
+        "Demand, network capacity, backup, repair, household preparedness, generator priority and mutual aid remain bounded/time-gated scenario assumptions and must never be described as actual crews, assets, operator commitments or household behavior."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "Exact T+0–72 persistence and recovery are unsupported by selected hydraulics, access, transient demand, resources or operator restoration commitments.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E06", "E08"],
+      "notes": [
+        "Compound T+24 to T+72 keeps flood stress 0.418545, pressure 0.588153, affected population 104,341 and all eight service availabilities exactly unchanged while rain and wind fall to zero, cyber disruption falls 0.470358 to 0.061175 and current severity falls 0.904221 to 0.383191.",
+        "Compound cumulative unmet essential-service burden rises from 1,602,914.97 at T+24 to 6,230,298.63 person-hours at T+72; the cumulative metric is internally coherent but the frozen local state is not event-specific evidence.",
+        "Coastal direct stress falls from 1.791934 at T+24 to zero at T+72, yet exact residual pressure/affected values lack a named flood arrival/recession/dewatering case and service repair schedule.",
+        "No selected defence/breach case, pump/control state, flight/passenger trajectory, road/rail/tunnel status, hospital acceptance, shelter/supply stock, backup endurance, crew/material inventory or operator restoration plan supports those exact paths.",
+        "CBP-S, airport fire material, climate measures, grid upgrades, waterboard plans and transport works establish roles or planned assets. They are not proof an action is dispatched, accessible, effective or complete at a scenario checkpoint.",
+        "Current KNMI, RIVM, NDW and Waterinfo records remain observation/context at their own valid time and must not be extrapolated into T+72 without an explicit forecast or replay transformation."
+      ]
+    }
+  },
+  "evidenceSources": [
+    {
+      "publisher": "Statistics Netherlands (CBS), Kadaster and PDOK",
+      "title": "Wijken en buurten 2025, bestuurlijke gebieden, BAG woonplaatsen and BRT settlement labels",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1",
+      "accessedAt": "2026-09-03T03:04:31Z",
+      "edition": "2025; generated sources retrieved 2026-08-31 to 2026-09-02; full boundary checked at 2025-07-01",
+      "supports": [
+        "Machine-readable CBS OData https://opendata.cbs.nl/ODataApi/OData/86165NED and PDOK OGC APIs; CBS/administrative data are CC BY 4.0 and BAG is Public Domain Mark 1.0.",
+        "GM0394 identity, 165,255 residents, density 838/km², 18.1 percent age 65+, 23,034 one-person households, 97 neighbourhoods, 18 districts, 25 BAG places and 33 BRT settlement labels.",
+        "The full annual boundary is a 2,847-position MultiPolygon; the 167-position generated overview is intentionally generalized and must not be used for hydraulic or exact asset operations.",
+        "Neighbourhood values are independently rounded and partial/suppressed attributes remain null/Unknown rather than zero; administrative polygons are aggregation context, not hazard or utility topology."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Kennemerland",
+      "title": "Regionaal Risicoprofiel Kennemerland 2023–2030 and Crisisbestrijdingsplan Schiphol 4.2",
+      "url": "https://www.vrk.nl/sites/vrk/files/2025-04/Regionaal%20Risicoprofiel%20Kennemerland%202023_2030_Hoofdrapport.pdf",
+      "accessedAt": "2026-09-03T03:10:00Z",
+      "edition": "Risk profile 2023–2030; CBP-S 4.2 adopted 2024-12-11 and operational from 2025-04-01",
+      "supports": [
+        "Primary planning documents/web pages with no machine event API or standard reuse licence stated. CBP-S public part I explicitly restricts editing or partially edited reuse without prior written permission.",
+        "The profile describes low Haarlemmermeerpolder/Ringvaart exposure, potentially large flood effects around Schiphol, hospital, vital sectors and tunnels; it also identifies A4/A5/A9/A44 and Amsterdam–Leiden rail/HSL context.",
+        "The region's priority risks include aviation incident, Schiphol rail-tunnel fire, drought/heat, disease and extreme violence; vital electricity, gas, drinking-water, sewer, ICT, transport and food dependencies can cascade.",
+        "The municipality page https://risicoprofiel.vrk.nl/gemeenten/haarlemmermeer.html says Schiphol strongly shapes local risk and lists dangerous substances, fuel pipelines, tunnels, hospital and utilities.",
+        "CBP-S at https://www.vrk.nl/sites/vrk/files/2025-06/OPENBAAR%20CBP-Schiphol%204.2%20deel%20I%20def%201.0_0.pdf is the general multidisciplinary Schiphol/AFS plan, not incident state, probability, live resource inventory or guaranteed response."
+      ]
+    },
+    {
+      "publisher": "Royal Schiphol Group / Schiphol Nederland B.V.",
+      "title": "Traffic Review 2025, climate adaptation, Schiphol Utilities and public airport fire context",
+      "url": "https://www.schiphol.nl/en/schiphol-group/traffic-review/",
+      "accessedAt": "2026-09-03T03:12:00Z",
+      "edition": "Calendar year 2025 traffic; utility/climate pages current at retrieval; Aerodrome Manual v10 August 2024",
+      "supports": [
+        "The official annual traffic review reports 68.8 million passengers and 477,552 air transport movements in 2025; the 2025 results also report 1.43 million tonnes of cargo. Annual reporting cadence, airport coverage and no standard machine API/reuse licence are stated here as limitations.",
+        "The climate page https://www.schiphol.nl/en/sustainability/at-the-airport/preparing-for-climate-change/ says the airport is in a ring-canal polder, uses a commissioned hydraulic model and drainage standards, and has water buffers, widened water systems and basement pumps. It publishes no reusable model grid, layer edition, cell size, NoData or calibration endpoint.",
+        "Schiphol Utilities https://www.schiphol.nl/en/schiphol-utilities operates airport electricity, gas, drinking/fire water and wastewater networks. Its change-driven web page reports a transport limitation since 2023 and planned high-voltage upgrades through 2027; it is planning/operating context, not complete topology, load, outage or reserve telemetry.",
+        "Schiphol's public staffing/context page describes three 24/7 fire posts and nine crash tenders; the public Aerodrome Manual is v10 August 2024. Dated published minima/assets are not a live guaranteed resource state.",
+        "Absence from an operator page must remain Unknown. No operator statement is automatically causal in the simulation."
+      ]
+    },
+    {
+      "publisher": "Gemeente Haarlemmermeer, WMCN/Rijkswaterstaat, Deltares and IPLO",
+      "title": "Second climate stress test / Haarlemmermeer Climate Atlas and LIWO flood-scenario catalogue",
+      "url": "https://haarlemmermeergemeente.nl/informeer-online/beter-zicht-op-risicos-extreem-weer-in-eigen-straat",
+      "accessedAt": "2026-09-03T03:13:00Z",
+      "edition": "Municipal stress-test publication 2025-12-18; LIWO application release 2025.1.6 and dataset projects/deltares-rws/liwo/2025_0_1",
+      "supports": [
+        "The municipality says its second stress test uses a refined combined ground, sewer and surface-water model for water nuisance plus newer apparent-temperature and drought inputs. This is the strongest local pluvial/heat context identified.",
+        "The atlas https://haarlemmermeer.klimaatmonitor.net/ displays rain, heat, drought and regional-defence breach classes, including Unknown, but states that its download catalogue is not enabled. Layer-specific edition, native resolution, licence and stable WMS/download access must be obtained from the owner before ingestion.",
+        "LIWO documentation https://iplo.nl/thema/water/applicaties-modellen/berichtgeving-crisismanagement/liwo/ says specialist water-manager interpretation is required and records release 2025.1.6 on 2025-10-30.",
+        "The public deployment exposes scenario metadata and water-depth tile generation through https://basisinformatie-overstromingen.nl/api/v2 and https://basisinformatie-overstromingen.nl/geoserver/ows for dataset projects/deltares-rws/liwo/2025_0_1. Catalogue release, scenario/model date, source-water family, defence/breach variant, bands, native resolution, licence and NoData must be pinned separately.",
+        "LIWO composite layers cannot be treated as a selected event; official scenarios are neither observations nor forecasts and affectSimulation must remain false until expert selection/transformation."
+      ]
+    },
+    {
+      "publisher": "Het Waterschapshuis / Dutch water boards and Hoogheemraadschap van Rijnland",
+      "title": "IMWA/DAMO managed-water registers and Haarlemmermeerpolder pumping context",
+      "url": "https://api.pdok.nl/hwh/waterschappen-kunstwerken-imwa/ogc/v2",
+      "accessedAt": "2026-09-03T03:08:00Z",
+      "edition": "Deployment snapshot retrieved 2026-09-03T01:38:15Z; contributor-driven current register",
+      "supports": [
+        "Public OGC APIs are CC BY-SA 4.0 and national/partial, with contributor completeness and update timing varying by water board. DAMO access is https://api.pdok.nl/hwh/waterschappen-waterketen-damo/ogc/v1.",
+        "The deployment's full-boundary assignment finds 66 surface-water pumps, 23 sewer pumps, three wastewater-treatment sites and two sluices. Named context includes De Leeghwater, De Lynden, Nieuw-Vennep, Hoofddorp, Schiphol and Schiphol-Rijk objects.",
+        "Normalized capacity numbers carry no unit and must not be used as throughput. Static realized/register status is not current operability, control position, flow, power/backup, reserve or restoration.",
+        "Rijnland's public Leeghwater page and 2026 budget describe strategic pumping and a proposed improved drymakerij system; historical/planning context is not a live control or completion state.",
+        "A missing object or attribute is a coverage/contributor NoData state, never proof of no water dependency."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat/PDOK, ProRail, OVapi/transport operators and NDW",
+      "title": "NWB roads, Schipholtunnel, rail/stations, scheduled transit and current road-situation context",
+      "url": "https://api.pdok.nl/rws/nationaal-wegenbestand-wegen/ogc/v1",
+      "accessedAt": "2026-09-03T03:11:00Z",
+      "edition": "NWB-light 2026-08-01, monthly; ProRail project 2022–2028; NDW publication 2026-09-02T15:25Z",
+      "supports": [
+        "NWB is national road-section vector data, monthly and CC0 1.0; ProRail public track/station OGC data are CC0. Static GTFS has feed-specific validity and remains scheduled context.",
+        "Seventeen section-traceable A/N municipal links and 64 unique wvk ids; four stations and 252 transit stop areas. Road sections only support Mobility and Supply logical proxies.",
+        "Rijkswaterstaat's current page https://www.rijkswaterstaat.nl/wegen/wegenoverzicht/a4/schipholtunnel-a4 documents the A4 Schipholtunnel dimensions, more than 170,000 vehicles/day and 24/7 monitoring. It directs users to current traffic information for closures.",
+        "ProRail https://www.prorail.nl/projecten/groot-onderhoud-schiphol describes renewal of the busy Schiphol tunnel/corridor in 2022–2028. RWS's A4/A9/A44 project pages are planning context; Vaarweginformatie is required for valid-time bridge/waterway state.",
+        "NDW DATEX II is CC0 unless a contributor says otherwise; the cached snapshot covers records valid through T+72 but finds no GM0394 record. No-match is Unknown, not open. Geometry and schedules never establish passability, throughput, vehicles, repair access or evacuation capacity."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat Register Externe Veiligheidsrisico's and IPO/Risicokaart",
+      "title": "REV regulated-activity WFS and public combustible-nature WFS",
+      "url": "https://rev-portaal.nl/geoserver/wfs?service=WFS&version=2.0.0&request=GetCapabilities",
+      "accessedAt": "2026-09-03T03:09:00Z",
+      "edition": "Live WFS retrieval 2026-09-03; activity records carry individual registration/valid-from times; nature metadata updated 2026-02-19",
+      "supports": [
+        "Exact full-boundary filtering returns 325 activity geometries / 309 unique identifiers, including three Seveso registrations: Aircraft Fuel Supply, KLM and Air Products. The public WFS does not state a fixed refresh cadence or a versioned reuse licence, so both must be resolved before redistribution.",
+        "REV is national register/context geometry, not live inventory, incident, probability, attention-area impact, damage or plume. Missing fields/records remain Unknown.",
+        "IPO WFS https://servicespub.risicokaart.nl/geoserver/ISOR_RK/wfs returns one Haarlemmermeer-source combustible-nature polygon in the query window: Noorderbos, mixed forest, valid from 2005-06-20. Catalogue terms are Public Domain and the metadata update is 2026-02-19, with no guaranteed operational feature cadence.",
+        "Noorderbos can seed ignition eligibility/source-containment tests only; it is not current fuel moisture, ignition, perimeter, spread, smoke, access or suppression state."
+      ]
+    },
+    {
+      "publisher": "KNMI, RIVM, RDI, DUO, Netbeheer Nederland/Partners in Energie and Rijkswaterstaat",
+      "title": "Timestamped weather/air/care, telecom, education, electricity-capacity and water-observation public context",
+      "url": "https://dataplatform.knmi.nl/dataset/10-minute-in-situ-meteorological-observations-1-0",
+      "accessedAt": "2026-09-03T03:07:00Z",
+      "edition": "Deployment observations/snapshots retrieved 2026-09-02 to 2026-09-03; RIVM acute-care v1.1 published 2026-07-03",
+      "supports": [
+        "KNMI 10-minute observations are CC BY 4.0. The 2026-09-02T23:30Z file assigns Schiphol and Nieuw-Vennep stations; Nieuw-Vennep lacks temperature/rain in that file. Points are observed intervals, not municipal interpolation or T+72 forcing, and missing variables remain NoData.",
+        "RIVM acute-care v1.1 is a national 2026 questionnaire under CC0, not live hospital state. RIVM hourly indicative PM2.5 observations at Badhoevedorp and Halfweg/Spaarnwoude have no standard reuse licence stated and are not a continuous plume/forecast.",
+        "RDI's national Antenneregister WFS assigns 396 installations; the service states no fixed cadence or reuse licence. Locations do not supply coverage, ownership, traffic, backhaul, power/backup, damage or restoration.",
+        "DUO's daily RIO snapshot (CC BY, version unspecified) assigns 109 education records; these are registered uses, not people present or shelters/resources.",
+        "The one public NBNL postcode sample, OS Haarlemmermeer 10-1i/Liander, is planning context updated at least quarterly with queues monthly; the design calls it open data but no exact licence identifier or stable API contract was found. It is not municipality coverage, live load or outage state.",
+        "Waterinfo generally produces 10-minute LMW observations under CC0 unless stated, but assigns no station to GM0394. No station is NoData, never a safe water-level conclusion. All these layers have affectsSimulation=false."
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "id": "GM0394-CONTRACT-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The complete deterministic municipality contract, reconciliation and road-only service-scope safeguards pass.",
+      "evidence": "The focused gate executes 10 presets × 6 checkpoints × 8 services, checks exact no-event behavior, determinism, bounds, monotonic event-attributable burden, local demand/delivery reconciliation, all eight pressure contributions and layer invariance. Seventeen NWB links appear only for Mobility and Supply; all six other route sets are empty and transfers are logical-proxy.",
+      "action": "Retain the focused gate, exact wvk/wegnummer/physical-corridor provenance, service-specific supportedServices rule, logical-proxy wording and distinct official-context/observed/scenario/synthetic evidence classes."
+    },
+    {
+      "id": "GM0394-FLOOD-001",
+      "severity": "critical",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The coastal preset presents decision-ready Haarlemmermeer inundation without selecting a hydraulic event or defence state.",
+      "evidence": "At T+24 coastal flood reports 1.791934 normalized inundation stress, severity 0.549636, 97,250 affected people-equivalent and pressure 0.557691. The running browser renders '100% inundation stress' with derived-screening evidence. E02–E05 confirm genuine low-polder, Ringvaart, primary/regional-defence and airport consequences, but no selected source-water boundary, dike/breach/overflow state, LIWO case, connected depth/arrival/duration/recession/dewatering surface or probability supports this exact footprint. The direct Rhine/Meuse/IJssel preset is exactly zero; that narrow zero does not resolve other water paths.",
+      "action": "Retain the nonzero coastal amplitude only as an internal non-operational diagnostic, mark local coastal impact/affected/services/recovery unsupported and numerically neutral for decisions, and keep river zero narrowly labelled. Replace it only with an authority-selected, versioned LIWO/Rijnland/WMCN case whose source, defence state, units, footprint, time semantics, uncertainty, licence and NoData are exposed."
+    },
+    {
+      "id": "GM0394-PLUVIAL-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The pluvial map ignores the municipality's newer combined ground/sewer/surface-water stress test and Schiphol hydraulic model.",
+      "evidence": "At T+24 the model assigns pluvial severity 0.141604 and 21,731 affected people-equivalent, with Badhoevedorp Omgeving first and Schiphol eighteenth. E03/E04 describe separately modelled airport drainage and a 2025 municipal combined ground, sewer and surface-water test. Neither is sampled, and the exact local order equals storm, coastal, heat, winter, cyber and wildfire. The public national 70 mm/2 h layer visible in the UI is explicitly context-only and not the local stress test.",
+      "action": "Suppress precise neighbourhood pluvial priority until an authorized municipal 2025 raster/API export is available. Preserve rain design, depth/duration, model/edition, cell size, CRS, sewer/surface assumptions, thresholds, NoData and licence; use the national CC0 70 mm/2 h raster only as an explicitly lower-fidelity scenario fallback."
+    },
+    {
+      "id": "GM0394-AVIATION-INDUSTRIAL-001",
+      "severity": "critical",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Aviation accident and hazardous-material release are material local hazards but absent from the ten-preset scope.",
+      "evidence": "VRK ranks aviation incident and Schiphol rail-tunnel fire among regional priorities and treats Schiphol as a risk hotspot. The current REV check finds three Seveso registrations, including Aircraft Fuel Supply and KLM, while Schiphol handled 68.8 million passengers, 477,552 aircraft movements and 1.43 million tonnes of cargo in 2025. None of the ten scenarios represents aircraft impact/fire, airport fuel fire, toxic cloud, explosion, contaminated firefighting water or airport closure; generic wildfire/cyber/compound forcing is not a substitute.",
+      "action": "Either add explicitly scoped aviation and industrial-release exercises with CBP-S/REV/meteorology provenance and operator-reviewed effects, or label them prominently out of scope on every municipality completeness surface. Do not infer live inventories, accident probabilities, plume or resources from REV/CBP-S/register data."
+    },
+    {
+      "id": "GM0394-EXPOSURE-001",
+      "severity": "high",
+      "category": "demography",
+      "status": "open",
+      "summary": "Resident-only affected-person allocation materially understates and mischaracterizes Schiphol exposure.",
+      "evidence": "BU03941663 Schiphol contains only 75 CBS residents (0.0454 percent of GM0394) but 750 businesses and 868 non-residential buildings. The compound allocator raises its service-demand share to 0.731–2.251 percent depending on service, which is inspectable and directionally better, yet affected population remains capped by 75 residents (48–53 allocated across layer views). Annual airport throughput is enormous but cannot be converted into concurrent presence without clock/day/flight/workforce evidence.",
+      "action": "Add a separately typed transient/workforce population model by clock hour/day type and scenario, with ranges and source vintage. Use annual/monthly operator traffic, scheduled transport and any authorized occupancy/workforce data only through an explicit temporal transformation; until then show resident affected people separately and passenger/workforce exposure Unknown."
+    },
+    {
+      "id": "GM0394-SPATIAL-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Seven unrelated hazards reuse one exact neighbourhood ranking and GM0394 lacks an unsupported-spatial guard.",
+      "evidence": "Storm, pluvial, coastal, heat, winter, cyber and canonical wildfire all order 97 neighbourhoods identically. Badhoevedorp Omgeving ranks first and Schiphol/Schiphol-Rijk eighteenth/sixty-fourth regardless of mechanism. A controlled point inside official Noorderbos/Spaarndam Omgeving produces direct flame, yet its source neighbourhood is only second because Badhoevedorp remains first. Current code contains no GM0394 auditedUnsupportedSpatialNotes entry.",
+      "action": "Mark all nine GM0394 spatial hazard families unsupported until mechanism-specific surfaces or source-aware footprints are ingested. Require source containment and physically appropriate decay/connectivity, allow remote smoke to differ from flame, and test that independent hazards can rank differently while municipality totals reconcile."
+    },
+    {
+      "id": "GM0394-WATERCHAIN-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Drainage and water recovery ignore a dense public managed-water register and the separate airport water system.",
+      "evidence": "The cache contains 66 surface-water pumps, 23 sewer pumps, three treatment sites and two sluices, including Schiphol/Schiphol-Rijk wastewater objects and Leeghwater/Lynden polder pumps. Schiphol also states that it operates airport drinking/fire water and wastewater networks. Yet drainage/water remain generic municipality scalars; HWH capacity values have no unit and no public source supplies safe full connectivity, controls, power dependence, backup or live operability.",
+      "action": "Ingest HWH objects as non-causal register context first. Build an authority-reviewed catchment/plant/control dependency graph only when units, direction, topology and completeness are resolved; use explicit synthetic links and bounded capacities where sensitive data are unavailable, never roads or static points as physical pipes."
+    },
+    {
+      "id": "GM0394-UTILITIES-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Airport and municipal electricity, gas and telecom dependencies are omitted despite available provider/planning context.",
+      "evidence": "Schiphol Utilities operates a separate campus network connected to Liander and reports a current transport limitation/planned upgrades. One NBNL sample describes OS Haarlemmermeer 10-1i and 396 RDI installations locate telecom equipment. These are not feeder/backhaul topology or outage state, yet the engine emits exact power 0.353312, gas 0.570063 and telecom 0.189161 in the T+24/T+72 compound frame without an airport utility node, switching state, backup endurance or repair resource.",
+      "action": "Expose provider/closed-distribution-system and planning context as non-causal public layers with edition/cadence/licence. Seek operator-authorized dependency zones and anonymized aggregates; otherwise use visibly synthetic airport gateway/branch nodes with scenario-unit ranges, sensitivity analysis and no claim of physical topology, live load or restoration commitment."
+    },
+    {
+      "id": "GM0394-ACCESS-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "Road/rail/tunnel access sensitivity is incomplete for an airport whose critical routes and tunnels can fail together.",
+      "evidence": "NWB correctly exposes A4/A5/A9/A44 and regional links only as Mobility/Supply proxies. Removing one A4 Amsterdam border link changes compound T+24 pressure +0.003165 and mobility -0.027533, but this is not the 650 m Schipholtunnel or its eight tubes. The model has no Schiphol rail-tunnel, A9 bridge/waterway, scheduled-service cancellation, tunnel closure/escape, passenger stranding or emergency-access state; zero cached NDW events is not open-road evidence.",
+      "action": "Keep NWB identities/proxies, but add typed tunnel/bridge/station/rail nodes and valid-time operational feeds where licensed. Require explicit incident matching to NDW/RWS/ProRail/GTFS; otherwise use a selectable synthetic closure with affected modes, direction, start/end and uncertainty. Never convert project pages, static geometry or feed absence into live availability."
+    },
+    {
+      "id": "GM0394-OTHER-HAZARDS-001",
+      "severity": "medium",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Storm, heat/drought, winter, fire/smoke, cyber and earthquake are numerically bounded but not locally calibrated to airport operations or source footprints.",
+      "evidence": "Winter peaks 0.755986, storm 0.712367, heat 0.670286, cyber 0.536144, wildfire 0.139213 and earthquake 0.020991. E02/E03 establish that drought/heat, tunnel/ICT/vital-sector failure and extreme weather matter, while Schiphol notes water, heat, thunderstorms and airport-operational sensitivities. Canonical wildfire has zero direct local flame but a controlled Noorderbos source exposes the shared-rank defect; the small Groningen-centred earthquake has no selected GM0394 event/site response/building fragility.",
+      "action": "Keep these as clearly synthetic scenario families, mark local maps unsupported, and integrate event-valid KNMI grids/observations only for named replay/forcing. Use official combustible land only for ignition eligibility, and require selected cyber target/domain and seismic event/ground motion before local claims; missing forcing is Unknown, not no risk."
+    },
+    {
+      "id": "GM0394-RECOVERY-001",
+      "severity": "high",
+      "category": "explainability",
+      "status": "open",
+      "summary": "The exact T+24–72 service paths are not supported by hydraulics, access, transient demand or response resources.",
+      "evidence": "Compound T+24 and T+72 keep pressure 0.588153, 104,341 affected and all eight availability values exactly fixed while rain/wind end and cyber falls sharply; burden reaches 6,230,298.63 person-hours. Coastal stress vanishes by T+72 but leaves exact residual pressure/affected values. CBP-S, three airport fire posts/nine tenders, water controls, utility projects and road/rail works are doctrine/planning/context, not evidence of dispatch, access, usable capacity or checkpoint completion.",
+      "action": "Make persistence/restoration depend on named event trajectory, damage state, access, backup endurance, crew/material/stock constraints and time-gated actions. Until operator/authority evidence exists, expose each resource as a bounded scenario assumption and provide counterfactual ranges rather than one exact recovery curve."
+    },
+    {
+      "id": "GM0394-UI-NODATA-001",
+      "severity": "high",
+      "category": "ui",
+      "status": "open",
+      "summary": "The UI's general evidence labels are strong, but selected GM0394 still shows false local precision instead of a municipality-specific Unknown state.",
+      "evidence": "At 1440×1000, coastal T+24 shows '100% inundation stress' and derived-screening rather than 'Local result unavailable'; the national unsupported count does not explain GM0394's missing event. T+72 coastal/pluvial/compound and all eleven layers render, 390×844 mobile and desktop have no horizontal overflow, and the smoke produced no page errors or failed local responses. Source cards correctly say Waterinfo zero stations and missing KNMI values are NoData/context, but no GM0394 local guard suppresses the exact polygon/percentage.",
+      "action": "Add a GM0394 municipality-specific support warning and grey/unknown local hazard polygons, headline percentages, downstream impacts, charts and exports until each family passes evidence gates. Keep the successful responsive layout and source-card provenance; show affected/transient populations separately and never let national warning counts substitute for the selected municipality's status."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Guard GM0394 and replace the shared neighbourhood hash with mechanism-specific, source-aware allocation.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/MapView.tsx",
+        "apps/web/src/components/Inspector.tsx",
+        "tests/e2e/app.spec.ts"
+      ],
+      "validation": "Add GM0394 unsupported notes for all nine spatial families and make compound inherit unresolved components. Tests require Unknown/grey local output, no precise affected/service downstream values while unsupported, independent ranks where evidence differs, and Noorderbos source containment. Preferred sources: municipality 2025 stress-test export if licence/API is authorized; LIWO release 2025.1.6 selected cases; IPO Noorderbos eligibility; KNMI valid-time forcing. Preserve exact zero intensity, reconciliation and layer invariance."
+    },
+    {
+      "summary": "Replace unselected flood precision with a governed LIWO/Rijnland event adapter and preserve the scoped major-river zero.",
+      "files": [
+        "scripts/fetch-realism-data.mjs (or dedicated LIWO adapter)",
+        "apps/web/src/data.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Pin LIWO config 2025.1.6 and dataset projects/deltares-rws/liwo/2025_0_1, then require explicit scenario id, catalogue release, scenario/model date, source-water family, defence/breach/overflow variant, probability, native CRS/cell size, depth bands/units, arrival/duration/recession, licence, retrieval and NoData before affectsSimulation=true. A composite layer never selects an event. Assert that no unselected case emits the current 1.791934/97,250 result and that Rhine/Meuse/IJssel zero remains narrowly labelled rather than all-flood safe."
+    },
+    {
+      "summary": "Make aviation/industrial scope explicit and add a safe operator-reviewed exercise path or a prominent out-of-scope state.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/scenarios.ts",
+        "apps/web/src/components/AdvancedScenarioPanel.tsx",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "At minimum the UI says aviation accident, airport fuel/Seveso release and toxic/explosion effects are unsupported, not zero. A future scenario uses REV WFS only for registered location/type context, CBP-S 4.2 only for doctrine and event-valid KNMI forcing for a named plume; operator-reviewed inventory/effect/resource assumptions remain versioned, bounded and non-sensitive. Generic wildfire, cyber or compound must not masquerade as an aviation/industrial case."
+    },
+    {
+      "summary": "Represent Schiphol transient/workforce exposure separately from residents and business-weighted service demand.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/data.ts",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/AnalyticsWorkspace.tsx"
+      ],
+      "validation": "Preserve CBS residents exactly and retain current business/non-residential weighting as an inspectable scenario proxy. Add a separate ranged people-present input by startClockHour/dayType with edition and transformation. Use Schiphol annual/monthly traffic or authorized workforce/occupancy data without inventing concurrent counts. Tests show affected residents never silently include passengers/workers, and Unknown transient exposure cannot be rendered as zero."
+    },
+    {
+      "summary": "Integrate public water/utility context without fabricating physical topology, capacity or live state.",
+      "files": [
+        "scripts/fetch-water-assets.mjs",
+        "scripts/fetch-nbnl-capacity-context.mjs",
+        "scripts/fetch-rdi-antenna-sites.mjs",
+        "apps/web/src/data.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts"
+      ],
+      "validation": "Keep 94 HWH/DAMO objects CC BY-SA register-only until unit, catchment, direction, controls and contributor completeness are resolved; capacityUnit=null blocks throughput. Keep Schiphol Utilities pages and NBNL sample as change-driven/quarterly-monthly planning context, RDI points as register context, and all affectsSimulation=false by default. If authorized topology is unavailable/security-sensitive, use minimal synthetic airport and municipal gateways with scenario-unit ranges and visibly synthetic provenance."
+    },
+    {
+      "summary": "Add typed Schiphol access assets and valid-time operational matching while retaining NWB logical proxies.",
+      "files": [
+        "scripts/fetch-transport.mjs",
+        "scripts/fetch-ndw-situations.mjs",
+        "apps/web/src/data.ts",
+        "packages/sim-core/src/network.ts",
+        "packages/sim-core/src/model.ts"
+      ],
+      "validation": "Retain monthly CC0 NWB wvk/wegnummer/physical corridor identity and Mobility/Supply-only scope. Add non-additive A4 Schipholtunnel, Schiphol rail tunnel/station and relevant bridge nodes with source/edition; match NDW/RWS/ProRail/GTFS records by geometry, direction and valid time. A no-match stays Unknown. Synthetic closures must declare mode, direction, start/end, capacity semantics and uncertainty and must not affect six non-road services."
+    },
+    {
+      "summary": "Replace exact generic recovery with resource- and event-gated trajectories and strengthen selected-municipality evidence UX.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/history.ts",
+        "apps/web/src/components/CausalExplanation.tsx",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/AnalyticsWorkspace.tsx"
+      ],
+      "validation": "T+0/6/12/24/48/72 outputs expose selected forcing, damage, access, backup, crew/material/stock assumptions, dispatch delay, ramp and uncertainty. CBP-S/fire pages/projects never activate resources automatically. Tests prevent unexplained exact T+24–72 freezes and ensure current observations are not projected. Browser checks require selected GM0394 Unknown state, separate resident/transient counts, source/version/valid-time/NoData/affectsSimulation on map, chart, inspector and export, and no desktop/mobile regression."
+    }
+  ],
+  "residualLimitations": [
+    "VRK and CBP-S establish risk mechanisms, roles and doctrine, not a current incident, probability, local calibration, live resource inventory or guaranteed action.",
+    "No reviewed source selects a North Sea/North Sea Canal/Ringvaart/regional-water boundary, defence or breach state, connected footprint, probability, depth, arrival, duration, recession or dewatering path for the audited scenario.",
+    "LIWO release and dataset access do not themselves select a hydraulic case; every scenario's model date, defence variant, bands, resolution, licence and NoData remain separate provenance fields.",
+    "The municipality's 2025 climate-atlas data-download catalogue is not publicly enabled, and layer-specific native resolution, edition and reuse permission were not resolved.",
+    "HWH/DAMO objects and REV activities are retrieval-time registers with variable contributor completeness; geometry and registration do not establish connectivity, inventory, condition, capacity or current operation.",
+    "Schiphol operator pages and annual reports are authoritative context but do not expose complete reusable transient occupancy, physical utility topology, live load, outage, backup or restoration APIs.",
+    "NWB, ProRail and GTFS establish road/rail/scheduled geometry, while NDW records can add valid-time situations; none alone supplies tunnel/bridge/rail passability, emergency throughput, vehicles or repair access through T+72.",
+    "RIVM acute-care and Schiphol fire disclosures are dated reported capacity/context, not live hospital acceptance, occupancy, staffing, fire crew/vehicle readiness, supplies, backup or access.",
+    "RDI antenna installations do not establish radio coverage, ownership, traffic, backhaul, power, backup or restoration; the one NBNL sample is not municipality-wide electricity topology or current state.",
+    "KNMI/RIVM/Waterinfo observations retain their own observation time and spatial support; missing station variables and zero municipal stations are NoData, and none is a T+72 scenario forecast.",
+    "The controlled Noorderbos source is a deterministic falsification test, not an actual ignition; the public polygon is old thresholded eligibility context, not fuel or incident state.",
+    "Desktop/mobile smoke tested the running local app and public-overlay responses, not full assistive-technology, offline, low-bandwidth, operational-security or field-device readiness."
+  ]
+}

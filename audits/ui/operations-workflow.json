@@ -1,0 +1,281 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "ui-optimization-audit",
+  "track": "operations-workflow",
+  "agent": {
+    "taskName": "ui_operations_workflow",
+    "agentId": "/root/municipality_gm0518",
+    "completedAt": "2026-09-02T10:39:35Z"
+  },
+  "executiveSummary": "The application is a credible, unusually transparent exploration lab, but it is not yet an efficient emergency-operations common picture for repeated T+0 through T+72 decisions. Scenario assumptions and all eleven map modes are immediately discoverable, municipality-to-buurt drilldown works, and the causal explanation is strong. The main operational risks are a materially wrong intervention-comparison badge, non-actionable checkpoint labels with a dropped coincident event, no persistent eight-service decision brief, and an information hierarchy that pushes local evidence below a 2.23-screen inspector. This independent track made no product changes; the recommendations remain for central cross-review.",
+  "methods": [
+    "Inspected the running Vite application at http://127.0.0.1:5173 with Playwright 1.62.1 and headless Chromium at 1440 x 1000 CSS pixels. After waiting for the exact text 'Scenario lab', counted visible button/select/input elements, the seven primary panels, layer buttons, municipality options, timeline tick behavior, event-marker names, and target/dot bounding boxes from the rendered DOM.",
+    "Reproduced the six operational checkpoints by filling the range input named 'Simulation time from zero to 72 hours' with steps 0, 24, 48, 96, 192, and 288. The rendered current-time labels were T+00:00, T+06:00, T+12:00, T+24:00, T+48:00, and T+72:00; phase labels changed from the initiating window through continuity, response/dependency, and restoration.",
+    "Ran a six-action incident workflow: choose GM0518 's-Gravenhage in 'Open municipality'; choose Compound incident; choose the People map mode; set step 96/T+24; choose Early municipal mutual aid; click the central rendered buurt polygon. The map opened municipal detail and the inspector identified Koningsplein e.o.; DOM positions and inspector client/scroll height were then measured.",
+    "Ran two comparison workflows from a clean page. Compare with Winter produced the badge 'autumn vs winter'. With Compare with off and Early municipal mutual aid active, opening Analytics produced the badge 'autumn vs autumn' while chart legends correctly said 'Active scenario' and 'Baseline response'. Timed the latter from Analytics activation to the result-count element on a warm local development server.",
+    "Tested preset replacement by setting Season=Spring, Climate=Hn, Horizon=2050, Intensity=0.31, Forcing duration=99, Infrastructure readiness=0.91, and Response delay=2, then selecting Cyber disruption once. Captured all resulting values, dialog events, and visible discard/replace/reset/unsaved text.",
+    "Read the current React workflow implementation for App, TopBar, ScenarioControls, Timeline, LayerRail, Inspector, CausalExplanation, AdvancedScenarioPanel, AnalyticsWorkspace, simulation-history generation, and statistics presentation, then cross-checked observed behavior with the existing Chromium end-to-end suites."
+  ],
+  "measurements": [
+    {
+      "metric": "Visible controls in the default operations frame",
+      "unit": "interactive elements",
+      "environment": "Chromium 1440 x 1000, Severe windstorm, T+00, national view; visible DOM only",
+      "before": 44,
+      "after": null,
+      "interpretation": "The first frame exposes 32 buttons, 7 selects, and 5 inputs across seven simultaneous primary panels. This makes the model highly inspectable but raises scan and mode-selection load during an incident. No product change was made, so there is no after measurement."
+    },
+    {
+      "metric": "Persistent map-mode choices",
+      "unit": "one-click layer buttons",
+      "environment": "Chromium 1440 x 1000, default national view",
+      "before": 11,
+      "after": null,
+      "interpretation": "All map modes are visible and named without opening a menu. This is strong layer discoverability and should be preserved while other controls are progressively disclosed."
+    },
+    {
+      "metric": "Direct controls for standard operational checkpoints",
+      "unit": "clickable checkpoint labels out of 6",
+      "environment": "Rendered timeline at T+00; inspected T+00, T+06, T+12, T+24, T+48, and T+72 tick labels",
+      "before": "0 of 6",
+      "after": null,
+      "interpretation": "The six labels are inside an aria-hidden, pointer-events:none tick strip. Exact values are supported by the range input, but none of the standard checkpoint labels is itself a direct action."
+    },
+    {
+      "metric": "Next-frame actions from T+00 to standard checkpoints",
+      "unit": "15-minute button activations for T+06/T+12/T+24/T+48/T+72",
+      "environment": "Timeline's 'Next 15-minute frame' control, starting at step 0",
+      "before": "24 / 48 / 96 / 192 / 288",
+      "after": null,
+      "interpretation": "Keyboard arrows and the slider reduce the practical effort, but neither presents the six required decision times as named jump targets."
+    },
+    {
+      "metric": "Timeline event-marker size",
+      "unit": "CSS pixels",
+      "environment": "Chromium 1440 x 1000, default Severe windstorm timeline",
+      "before": "13 x 16 target; 5 x 5 visible dot",
+      "after": null,
+      "interpretation": "Markers are operable buttons with useful accessible names, but their event names are otherwise available only through hover/focus and the visible dot is difficult to scan in an operations room."
+    },
+    {
+      "metric": "Coincident T+08 Severe windstorm events retained",
+      "unit": "rendered event labels out of 2 generated meanings",
+      "environment": "Default Severe windstorm has both Dependency checkpoint and Response assumption activates at step 32/T+08",
+      "before": "1 of 2",
+      "after": null,
+      "interpretation": "Only 'Dependency checkpoint' is rendered because same-step events are deduplicated by time. The response-activation decision is silently lost from the timeline."
+    },
+    {
+      "metric": "Standard checkpoint state coverage",
+      "unit": "successful exact checkpoint states",
+      "environment": "Playwright filled timeline steps 0/24/48/96/192/288 and read the current-time label after each input",
+      "before": "6 of 6",
+      "after": null,
+      "interpretation": "All required T+0/T+6/T+12/T+24/T+48/T+72 states exist and update correctly; the gap is workflow affordance and decision framing rather than simulation coverage."
+    },
+    {
+      "metric": "Municipality chooser scale",
+      "unit": "native select options",
+      "environment": "Chromium 1440 x 1000, Open municipality control",
+      "before": 342,
+      "after": null,
+      "interpretation": "A known municipality opens in one selection, but a 342-item native select provides no in-product search, incident watchlist, recent locations, or regional grouping."
+    },
+    {
+      "metric": "Known-target municipality-to-buurt drilldown",
+      "unit": "interactions",
+      "environment": "From national view with the scenario unchanged: select GM0518, then click a known buurt polygon",
+      "before": 2,
+      "after": null,
+      "interpretation": "The spatial drilldown is fast when the operator already knows that the canvas is the buurt selector. The instruction explaining that interaction is below the initial inspector viewport, and the main frame has no buurt search or list."
+    },
+    {
+      "metric": "Configured T+24 local incident workflow",
+      "unit": "interactions",
+      "environment": "GM0518 + Compound incident + People layer + T+24 + mutual aid + map click",
+      "before": 6,
+      "after": null,
+      "interpretation": "The core path is compact and completed without browser errors, ending at Koningsplein e.o. The count excludes discovery time, reading, and scrolling."
+    },
+    {
+      "metric": "Local inspector content depth",
+      "unit": "scroll-height to viewport-height ratio",
+      "environment": "GM0518 Koningsplein e.o., Compound incident, People layer, T+24, mutual aid; inspector 1653 px scroll height and 740 px client height",
+      "before": 2.23,
+      "after": null,
+      "interpretation": "Why this state starts near the first viewport, while Telecom network flow begins around page y=1144, Official buurt context around y=1286, and Current evidence around y=1541. Operational evidence requires substantial vertical scanning."
+    },
+    {
+      "metric": "Intervention comparison identity in Analytics",
+      "unit": "rendered badge text",
+      "environment": "Severe windstorm, autumn, Compare with off, Early municipal mutual aid; two-series Analytics history",
+      "before": "autumn vs autumn",
+      "after": null,
+      "interpretation": "The badge communicates a nonexistent seasonal comparison even though chart legends correctly identify Active scenario versus Baseline response. A separate Autumn-versus-Winter run rendered correctly, isolating the defect to comparator identity precedence."
+    },
+    {
+      "metric": "Analytics comparison ready time",
+      "unit": "milliseconds",
+      "environment": "Single Playwright run on a warm local Vite development server, Chromium 1440 x 1000, no throttling; mutual-aid versus baseline two-history calculation",
+      "before": 6462,
+      "after": null,
+      "interpretation": "Analytics supplies a useful deep comparison, but it is too delayed and too separate from the map to be the only checkpoint decision surface. This one-run development measurement is not a production performance benchmark."
+    },
+    {
+      "metric": "Default Analytics result set",
+      "unit": "visible graphs",
+      "environment": "72-hour simulation tab immediately after history is ready, default Municipal impact category",
+      "before": 5,
+      "after": null,
+      "interpretation": "The focused default is good progressive disclosure; operators are not confronted with the entire statistics catalogue at once."
+    },
+    {
+      "metric": "Visible tuned assumptions replaced by disaster preset selection",
+      "unit": "fields changed after one selection",
+      "environment": "Changed seven visible assumptions plus Disaster, then selected Cyber disruption; monitored dialogs and visible change-disclosure text",
+      "before": 7,
+      "after": null,
+      "interpretation": "Spring/Hn/2050/0.31/99h/0.91/2h became Winter/Reference/Current/0.75/48h/0.50/12h. No dialog and no visible discard, replace, reset, unsaved, or changed-assumptions message appeared."
+    },
+    {
+      "metric": "Browser errors during measured GM0518 workflow",
+      "unit": "console errors plus uncaught page errors",
+      "environment": "Six-action GM0518 Compound/T+24/mutual-aid workflow in headless Chromium",
+      "before": 0,
+      "after": null,
+      "interpretation": "The measured workflow completed cleanly; the findings concern operational comprehension and efficiency, not a crash or failed render."
+    }
+  ],
+  "findings": [
+    {
+      "id": "UI-OPS-001",
+      "priority": "high",
+      "status": "accepted-pending",
+      "summary": "Analytics misidentifies an intervention comparison as a same-season comparison.",
+      "evidence": "With Early municipal mutual aid and Compare with off, the two histories are active intervention versus baseline response. Chart legends say 'Active scenario' and 'Baseline response', but the prominent badge says 'autumn vs autumn'. The control run with Compare with Winter says 'autumn vs winter', showing that the season-first badge logic masks the intervention labels rather than a history-generation failure.",
+      "recommendation": "Make comparator identity explicit and dimension-aware everywhere: for example, 'Early municipal mutual aid vs Baseline response', followed by shared chips for Severe windstorm, Autumn, Reference climate, municipality, and horizon. Add regression checks for intervention-only, season-only, and any supported combined comparison."
+    },
+    {
+      "id": "UI-OPS-002",
+      "priority": "high",
+      "status": "accepted-pending",
+      "summary": "The T+0/T+6/T+12/T+24/T+48/T+72 decision cadence is represented but not directly operable or self-explanatory.",
+      "evidence": "All six exact states were verified through the slider, yet the six standard tick labels are aria-hidden and pointer-events:none. Reaching them only with the next-frame button takes 24/48/96/192/288 activations. Dynamic markers are 13 x 16 px targets with 5 x 5 px dots and names visible primarily on hover/focus. In the default Severe windstorm, T+08 contains both dependency and response-activation meanings, but same-step deduplication renders only the dependency label.",
+      "recommendation": "Add persistent named checkpoint buttons for T+0/6/12/24/48/72 with jump/snap behavior and a clear current checkpoint/phase. Render coincident events as a stacked or clustered event list rather than dropping meanings; expose the event text adjacent to the selected time and include response assumptions as decision events."
+    },
+    {
+      "id": "UI-OPS-003",
+      "priority": "high",
+      "status": "accepted-pending",
+      "summary": "The main frame lacks a checkpoint decision brief that compares the intervention across all eight essential services.",
+      "evidence": "The persistent national summary provides affected people, average essential-service availability, critical municipalities, and route bottlenecks, with only the affected-population KPI showing a baseline/season delta. The map and inspector prioritize one selected layer. To evaluate broader intervention effects, the operator must open Analytics, wait 6462 ms in the measured development run, and navigate its category/search model; its focused default shows five impact graphs rather than an eight-service decision table.",
+      "recommendation": "At each standard checkpoint, provide a compact operational brief showing active versus baseline change for affected population, all eight service availability/reserve states, threshold crossings, route bottlenecks, and the leading causal change. Support pinning the brief or capturing a named checkpoint snapshot; keep Analytics as the deeper evidence workspace."
+    },
+    {
+      "id": "UI-OPS-004",
+      "priority": "medium",
+      "status": "accepted-pending",
+      "summary": "Municipality-to-buurt drilldown works quickly for known targets but does not support incident-area discovery or monitoring at national scale.",
+      "evidence": "Selecting GM0518 and clicking a known polygon reaches buurt detail in two interactions, and the six-action configured workflow selected Koningsplein e.o. without errors. However, the municipality control is a native select with 342 options and no search, safety-region grouping, recent items, or watchlist. In city mode the buurt choice is map-only in the main workflow; the explanatory 'Select a buurt' text appears well below the initial inspector viewport.",
+      "recommendation": "Replace or augment the municipality select with a searchable, keyboard-friendly chooser grouped by safety region/province and support recent/pinned incident areas. In municipal mode, expose a visible municipality > wijk > buurt breadcrumb and searchable buurt picker, while retaining direct map selection."
+    },
+    {
+      "id": "UI-OPS-005",
+      "priority": "medium",
+      "status": "accepted-pending",
+      "summary": "The default hierarchy exposes model-building controls at the same prominence as operational status.",
+      "evidence": "The first desktop frame contains 44 visible controls across seven primary panels. Scenario Lab alone keeps five selects and four sliders visible, while the layer rail keeps eleven useful map modes visible. This is excellent for exploration but forces an emergency operator to scan assumptions, navigation, layer state, four KPIs, map legend, causal detail, and playback controls simultaneously.",
+      "recommendation": "Introduce an Operations view that leads with scope, hazard, current checkpoint, top threshold breaches, comparison state, and next decisions. Preserve the visible layer rail, but collapse low-frequency scenario tuning behind a concise active-scenario summary; retain the present Lab view for analysts and exercise design."
+    },
+    {
+      "id": "UI-OPS-006",
+      "priority": "medium",
+      "status": "accepted-pending",
+      "summary": "The causal explanation is strong but its long single-column hierarchy delays local context and evidence.",
+      "evidence": "For Koningsplein e.o. the inspector scroll height was 1653 px for a 740 px viewport (2.23 times). 'Why this state?' starts near y=446 and expands into contributions; the network-flow block begins around y=1144, official buurt context around y=1286, and Current evidence around y=1541. Thus the result and causes appear before the locally observed context and provenance needed to qualify them.",
+      "recommendation": "Add a compact top-of-inspector decision summary with severity, baseline delta, top three drivers, confidence/role labels, and one action to expand. Organize full causal flow, local CBS context, evidence, and what-if checks into anchored sections or tabs, and keep the selected buurt and active comparison persistent while scrolling."
+    },
+    {
+      "id": "UI-OPS-007",
+      "priority": "medium",
+      "status": "accepted-pending",
+      "summary": "Choosing a new disaster silently discards the operator's tuned scenario assumptions.",
+      "evidence": "One Cyber disruption selection changed seven tuned visible values: Spring to Winter, Hn to Reference, 2050 to Current, intensity 0.31 to 0.75, duration 99h to 48h, readiness 0.91 to 0.50, and response delay 2h to 12h. The run observed zero dialogs and no visible discard/replace/reset/unsaved/change summary. Advanced assumptions are also replaced by preset creation even when not visible.",
+      "recommendation": "Treat a disaster choice as an explicit preset operation. Before replacing edited assumptions, show the changed fields or provide immediate undo; add dirty-state indication and named scenario snapshots so an operational comparison cannot be lost accidentally."
+    },
+    {
+      "id": "UI-OPS-008",
+      "priority": "medium",
+      "status": "accepted-pending",
+      "summary": "Comparison setup is split across two controls with precedence that is not visible to the operator.",
+      "evidence": "Intervention is a TopBar selector, while Compare with only lists seasons in Scenario Lab. With an intervention active and Compare with off, the reference is baseline response; once a comparison season is selected, the reference becomes the same intervention under that season instead. The UI does not summarize this precedence before Analytics, and the badge defect further obscures it.",
+      "recommendation": "Use one explicit comparison builder that names primary and reference configurations, or visibly constrain comparison to one dimension at a time. Show intervention, season, climate, hazard, and horizon for both sides before execution and beside every delta."
+    },
+    {
+      "id": "UI-OPS-009",
+      "priority": "low",
+      "status": "observation",
+      "summary": "Layer discovery, scale navigation, causal traceability, and focused analytics are solid foundations for an operations view.",
+      "evidence": "All eleven map modes are persistent one-click buttons; the Netherlands/municipality breadcrumb keeps scale visible; GM0518 drilldown completed without browser errors; Why this state exposes structured contributions; modeled/official context is labeled; and Analytics defaults to a manageable five impact graphs. The full existing Chromium suite also passed 10 of 10 tests.",
+      "recommendation": "Preserve these affordances and provenance boundaries during workflow restructuring, and add regression coverage so an Operations view does not hide map modes, scale, causal role/confidence, or access to the full evidence workspace."
+    }
+  ],
+  "implementedChanges": [],
+  "rejectedRecommendations": [
+    {
+      "summary": "Start timeline playback automatically when the application opens.",
+      "reason": "An emergency common picture benefits from a stable, explicitly selected checkpoint. Automatic motion would increase change blindness and make it harder for multiple roles to discuss the same state."
+    },
+    {
+      "summary": "Replace the full causal explanation with one composite risk score.",
+      "reason": "The structured causes, modeled/official boundary, contribution roles, confidence, network flow, and what-if checks are a differentiating safety feature. They should be summarized progressively, not made opaque."
+    },
+    {
+      "summary": "Show the entire simulation-statistics catalogue on Analytics entry.",
+      "reason": "The measured five-graph Municipal impact default is an effective reduction in cognitive load. Operators need a checkpoint brief plus searchable depth, not every graph at once."
+    },
+    {
+      "summary": "Move all eleven map modes into a hidden overflow menu to reduce the initial control count.",
+      "reason": "The persistent one-click layer rail is a demonstrated discoverability strength. Scenario-editing controls and long-form evidence are better candidates for progressive disclosure."
+    }
+  ],
+  "validation": [
+    {
+      "command": "node --input-type=module (inline Playwright DOM inventory, six-checkpoint sweep, and GM0518 six-action operations workflow against http://127.0.0.1:5173)",
+      "status": "pass",
+      "result": "Verified 44 visible controls, 7 panels, 11 layer buttons, 342 municipality options, 0/6 direct standard checkpoint actions, exact T+00/06/12/24/48/72 slider states, six default event markers, a clean six-action workflow, Koningsplein e.o. detail, 1653/740 inspector depth, and zero console/page errors."
+    },
+    {
+      "command": "node --input-type=module (inline Playwright season-comparison and intervention-comparison workflows)",
+      "status": "pass",
+      "result": "Autumn-versus-Winter rendered 'autumn vs winter'; mutual-aid-versus-baseline rendered the incorrect 'autumn vs autumn' badge while chart legends retained Baseline response. The default result count was 5 graphs and no browser errors occurred."
+    },
+    {
+      "command": "node --input-type=module (inline Playwright tuned-assumption replacement workflow)",
+      "status": "pass",
+      "result": "Captured all seven visible assumption resets caused by selecting Cyber disruption, with zero dialogs and no visible discard/replace/reset/unsaved disclosure."
+    },
+    {
+      "command": "PLAYWRIGHT_BASE_URL=http://127.0.0.1:5173 pnpm exec playwright test tests/e2e/app.spec.ts tests/e2e/v3.spec.ts --project=chromium",
+      "status": "pass",
+      "result": "10 passed in 43.4 seconds, including production map/timeline, city drilldown, causal trace, advanced assumptions, 72-hour history, 36 official statistics, mobile navigation, and reduced-motion coverage."
+    },
+    {
+      "command": "node --input-type=module (inline recursive validator against audits/ui-audit.schema.json)",
+      "status": "pass",
+      "result": "operations-workflow.json conforms to audits/ui-audit.schema.json, including required and closed property sets, constants, enums, types, item minima, string constraints, the agent task-name pattern, and date-time parsing."
+    },
+    {
+      "command": "pnpm audit:status",
+      "status": "pass",
+      "result": "Audit manifest: 342 municipalities, 12 provinces, 3 municipality audits complete. Audit status valid: 3/342 municipalities, 0/12 provinces, 1/3 UI tracks; incompleteness of independent peer tracks was allowed by the command's validation mode."
+    }
+  ],
+  "residualLimitations": [
+    "This was a heuristic expert review and scripted task analysis, not an observed exercise with meldkamer, ROT, municipal crisis-team, or water-board users under time pressure.",
+    "The custom measurements used headless Chromium at one desktop viewport. Mobile and assistive-technology behavior were covered only by the shared passing end-to-end suite and belong primarily to the independent accessibility/mobile track.",
+    "The 6462 ms Analytics readiness value is one warm local Vite-development run with no throttling; it is evidence of workflow delay, not a production latency percentile or device benchmark.",
+    "Canvas drilldown was validated through a rendered GM0518 map click that reached Koningsplein e.o.; target-finding time for unfamiliar neighborhoods was not measured with human participants.",
+    "No product code was changed under the independent-audit contract, so after values are null and all proposed improvements require central cross-review and post-integration measurement."
+  ]
+}

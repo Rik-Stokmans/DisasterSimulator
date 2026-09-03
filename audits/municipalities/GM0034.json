@@ -1,0 +1,741 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0034",
+    "name": "Almere",
+    "province": "Flevoland",
+    "safetyRegion": "Flevoland"
+  },
+  "agent": {
+    "taskName": "municipality_gm0034",
+    "agentId": "/root/municipality_gm0518",
+    "completedAt": "2026-09-02T12:18:11Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "Almere's generated 2025 identity, generalized municipality boundary, official population, 238-neighbourhood bundle, five TOP10NL woonkernen, safety-region assignment, six ProRail stations and current GTFS stop inventory are internally coherent and trace to official CBS/PDOK products. The dedicated 10-preset × 6-checkpoint × 8-service gate passes, as do deterministic replay, bounds, causal ledgers, event-attributable person-hours, neutral local priority, exact municipal allocation and service-invariant neighbourhood hazard. The latest shared corrections also behave as intended: intensity zero is an exact no-event counterfactual; standing water blocks generic restoration in both river and compound runs; direct wildfire exposure has finite support; and zero-resident business areas can receive non-residential demand. Correction is nevertheless required before local operational use. Almere is a deeply managed Flevopolder city whose credible large-flood pathway is a lake/dike-breach and pumping-system problem, but the model supplies 0.465 m under a straight-line Rhine/Meuse/IJssel proximity field, zero direct depth under its open-coast field, and no named Markermeer/IJmeer/Gooimeer breach scenario. A demonstrable A6 boundary section remains labeled 006, regional and capacity 150 instead of A6, trunk and 260. More importantly for winter-service decisions, all 238 CBS district-heating fields are unavailable and the eight-service model has no heat service even though Vattenfall reports 70,580 dwelling-equivalents on Almere's integrated heat network in 2025. Neighbourhood pluvial ordering remains seeded rather than derived from Almere's published climate atlas, and road-derived links remain logical proxies rather than physical electricity, heat, gas, drinking-water, drainage or telecom topology. This is a deterministic stress-test prototype, not an operational forecast, hydraulic model or asset-level digital twin.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek (CBS)",
+      "title": "Gebieden in Nederland 2025 (86059NED)",
+      "url": "https://www.cbs.nl/nl-nl/cijfers/detail/86059NED",
+      "accessedAt": "2026-09-02T12:18:11Z",
+      "edition": 2025,
+      "supports": [
+        "Official municipality code GM0034, name Almere, province Flevoland and safety-region membership Flevoland.",
+        "Final 2025 area classification and population context."
+      ]
+    },
+    {
+      "publisher": "Centraal Bureau voor de Statistiek (CBS)",
+      "title": "Kerncijfers wijken en buurten 2025 (86165NED)",
+      "url": "https://www.cbs.nl/nl-nl/cijfers/detail/86165NED",
+      "accessedAt": "2026-09-02T12:18:11Z",
+      "edition": "2025; modified 2026-06-25",
+      "supports": [
+        "Official municipality, district and neighbourhood demographic and built-environment fields used by the generated bundle.",
+        "Almere municipality values including 229,574 residents, 32,510 residents aged 65+, 98,394 households, 33,218 one-person households, 94,045 homes, 7,345 non-residential buildings and 32,760 businesses.",
+        "Official zero-resident records, business and non-residential-building values, null fields, rounding and disclosure semantics."
+      ]
+    },
+    {
+      "publisher": "PDOK / Centraal Bureau voor de Statistiek",
+      "title": "CBS Gebiedsindelingen 2016 tot heden OGC API",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1?f=html&lang=nl",
+      "accessedAt": "2026-09-02T12:18:11Z",
+      "edition": 2025,
+      "supports": [
+        "Official generalized municipality, district, neighbourhood, province and safety-region geometry provenance.",
+        "Spatial membership checks for the generated 2025 Almere boundary and its 238 neighbourhood polygons."
+      ]
+    },
+    {
+      "publisher": "PDOK / Kadaster",
+      "title": "Basisregistratie Adressen en Gebouwen — woonplaats OGC collection",
+      "url": "https://api.pdok.nl/kadaster/bag/ogc/v2/collections/woonplaats",
+      "accessedAt": "2026-09-02T12:18:11Z",
+      "edition": "daily service; generated bundle retrieved 2026-08-31",
+      "supports": [
+        "Active BAG woonplaats Almere and its independently versioned geometry/label-point provenance.",
+        "Geometry-generalisation caveat where the BAG representative point falls outside the CBS generalized municipality polygon."
+      ]
+    },
+    {
+      "publisher": "PDOK / Kadaster",
+      "title": "BRT TOP10NL plaats_multivlak OGC collection",
+      "url": "https://api.pdok.nl/kadaster/brt-top10nl/ogc/v1/collections/plaats_multivlak",
+      "accessedAt": "2026-09-02T12:18:11Z",
+      "edition": "source date 2025-07-01",
+      "supports": [
+        "Generated Almere-Buiten, Almere-Haven, Almere-Hout, Almere-Poort and Almere-Stad woonkern geometries and descriptive population attributes.",
+        "Settlement ontology and reference-date caveat relative to CBS municipal totals."
+      ]
+    },
+    {
+      "publisher": "PDOK / Centraal Bureau voor de Statistiek",
+      "title": "Veiligheidsregio gegeneraliseerd 2025",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/veiligheidsregio_gegeneraliseerd",
+      "accessedAt": "2026-09-02T12:18:11Z",
+      "edition": 2025,
+      "supports": [
+        "GM0034 intersects safety region Flevoland used by the application.",
+        "Regional grouping with Dronten, Lelystad, Noordoostpolder, Urk and Zeewolde."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / PDOK",
+      "title": "Nationaal Wegenbestand wegvakken — focused Almere/Zeewolde A6 query",
+      "url": "https://service.pdok.nl/rws/nationaal-wegenbestand-wegen/wfs/v1_0?service=WFS&version=2.0.0&request=GetFeature&typeNames=nwbwegen%3Awegvakken&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=52.385%2C5.315%2C52.391%2C5.322%2CEPSG%3A4326&count=500",
+      "accessedAt": "2026-09-02T12:18:11Z",
+      "edition": "NWB 2026",
+      "supports": [
+        "Exact generated 006 boundary sections expose wegnummer 006 together with wegnrAw RW6 and wegnrHmp A6.",
+        "The road manager is Rijkswaterstaat and source sections cross municipality codes Almere GM34 and Zeewolde GM50."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat",
+      "title": "Snelweg A6 — informatie en werkzaamheden",
+      "url": "https://www.rijkswaterstaat.nl/wegen/wegenoverzicht/a6",
+      "accessedAt": "2026-09-02T12:18:11Z",
+      "edition": 2026,
+      "supports": [
+        "A6 is a Rijkswaterstaat motorway running via Almere and Lelystad, not an unsigned regional route 006.",
+        "Official corridor identity for the NWB alias review."
+      ]
+    },
+    {
+      "publisher": "ProRail / PDOK",
+      "title": "ProRail stations OGC API",
+      "url": "https://api.pdok.nl/prorail/spoorwegen/ogc/v1/collections/station",
+      "accessedAt": "2026-09-02T12:18:11Z",
+      "edition": 2026,
+      "supports": [
+        "Six generated station geometries within GM0034: Almere Centrum, Parkwijk, Buiten, Poort, Muziekwijk and Oostvaarders.",
+        "Station geometry provenance; it does not provide emergency capacity or disruption behavior."
+      ]
+    },
+    {
+      "publisher": "OVapi / NDOV-derived national GTFS",
+      "title": "National Netherlands GTFS archive used by the generated transit bundle",
+      "url": "https://gtfs.ovapi.nl/nl/gtfs-nl.zip",
+      "accessedAt": "2026-09-02T12:18:11Z",
+      "edition": "feed 9543, 2026-08-30 through 2026-12-12; retrieved 2026-08-31",
+      "supports": [
+        "Provenance for 146 generated scheduled-transit stop areas inside GM0034.",
+        "Best-effort no-SLA caveat: GTFS supplies schedule/map context, not ridership, emergency vehicle capacity, current disruption or disaster response."
+      ]
+    },
+    {
+      "publisher": "allGo",
+      "title": "Lijnennetkaarten Almere",
+      "url": "https://www.allgobus.nl/reisinformatie/lijnennetkaarten/",
+      "accessedAt": "2026-09-02T12:18:11Z",
+      "edition": 2026,
+      "supports": [
+        "Operator context for Almere's allGo, R-net and nightGo city and regional bus network.",
+        "Scheduled network relevance that is mapped but not dynamically modeled in service availability."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Flevoland",
+      "title": "Regionaal Risicoprofiel 2024 Veiligheidsregio Flevoland — definitief",
+      "url": "https://samen.vrfgv.nl/wp-content/uploads/2024/11/RRP-2024-Flevoland-Definitief.pdf",
+      "accessedAt": "2026-09-02T12:18:11Z",
+      "edition": "final 2024; basis for policy plan 2025–2028",
+      "supports": [
+        "Flevoland is, except Urk and Schokland, below NAP; IJsselmeer, Markermeer, randmeren and their water-management assets are regionally important.",
+        "Priority risks include storm/wind/rain, cold wave, heat wave, electricity outage, speech/data outage, cyberattack, passenger road accident, flood and nature fire.",
+        "A6, A27, rail, waterways, pipelines and high-voltage connections are regionally vital, while climate, energy transition and digital dependence intensify cascading risk.",
+        "Regional prioritisation does not validate municipality-specific hazard magnitudes, asset fragility or restoration curves."
+      ]
+    },
+    {
+      "publisher": "Gemeente Almere",
+      "title": "Water — climate change and Klimaatatlas Almere",
+      "url": "https://www.almere.nl/wonen/beheer-en-onderhoud/water",
+      "accessedAt": "2026-09-02T12:18:11Z",
+      "edition": 2026,
+      "supports": [
+        "Almere has a separated sewer system, five locks and a managed network of lakes, canals, ditches and swales.",
+        "The municipality identifies heavier rain, prolonged wet periods, drought, heat, sea-level rise and land subsidence and uses modeled Klimaatatlas results to locate hotspots.",
+        "Local climate-atlas and water-system evidence exists but is not ingested into the simulator's neighbourhood hazard field."
+      ]
+    },
+    {
+      "publisher": "Waterschap Zuiderzeeland",
+      "title": "Gemaal De Blocq van Kuffeler",
+      "url": "https://www.zuiderzeeland.nl/wat-doet-het-waterschap/gemalen-in-flevoland/gemaal-de-blocq-van-kuffeler/",
+      "accessedAt": "2026-09-02T12:18:11Z",
+      "edition": 2026,
+      "supports": [
+        "The Almere pumping station moves polder water into the Markermeer even in dry weather because of seepage.",
+        "Target levels are −6.20 m NAP for Lage Vaart and −5.20 m NAP for Hoge Vaart; annual discharge is stated as 361 million m³.",
+        "Local flood/drainage behavior depends on managed polders, pumps, return valves and lake levels, not merely straight-line river distance."
+      ]
+    },
+    {
+      "publisher": "Waterschap Zuiderzeeland",
+      "title": "Plan van Aanpak verkenningsfase versterking IJsselmeerdijk",
+      "url": "https://www.zuiderzeeland.nl/app/uploads/2025/06/pva-verkenningsfase-versterking-ijsselmeerdijk-definitieve-versie.pdf",
+      "accessedAt": "2026-09-02T12:18:11Z",
+      "edition": 2025,
+      "supports": [
+        "The IJsselmeerdijk protects the whole Flevopolder because the Knardijk is no longer an official compartment barrier.",
+        "The polder lies roughly five metres below the IJsselmeer level; a dike breach can cause near-complete polder inundation and pumping it dry can take many months.",
+        "Official evidence for lake/dike-breach semantics and recovery horizons distinct from canonical river/coastal proximity screens."
+      ]
+    },
+    {
+      "publisher": "Informatiepunt Leefomgeving / Rijkswaterstaat",
+      "title": "Gebruikershandleiding Landelijk Informatiesysteem Water en Overstromingen (LIWO)",
+      "url": "https://iplo.nl/publish/pages/195447/11203716-000-zws-0003_v2-3-gebruikershandleiding-liwo.pdf",
+      "accessedAt": "2026-09-02T12:18:11Z",
+      "edition": "version 2.3, 2021",
+      "supports": [
+        "Official workflow for named inundation scenarios and water-depth, arrival-time, duration, flow, damage and affected-person layers.",
+        "Evidence standard needed before a simulator presents municipality or neighbourhood flood values as metres."
+      ]
+    },
+    {
+      "publisher": "Koninklijk Nederlands Meteorologisch Instituut (KNMI)",
+      "title": "KNMI'23-klimaatscenario's voor Nederland",
+      "url": "https://www.knmi.nl/kennis-en-datacentrum/publicatie/knmi-23-klimaatscenario-s-voor-nederland",
+      "accessedAt": "2026-09-02T12:18:11Z",
+      "edition": "KNMI publication 23-03",
+      "supports": [
+        "National evidence for heavier precipitation extremes, hotter conditions, drier summers, wetter winters and sea-level rise.",
+        "Climate scenarios are planning envelopes, not validation of the simulator's precise first-72-hour Almere forcing."
+      ]
+    },
+    {
+      "publisher": "Koninklijk Nederlands Meteorologisch Instituut (KNMI)",
+      "title": "Natuurbranden",
+      "url": "https://www.knmi.nl/kennis-en-datacentrum/uitleg/natuurbranden",
+      "accessedAt": "2026-09-02T12:18:11Z",
+      "edition": 2026,
+      "supports": [
+        "Physical fire development requires weather, burnable material and an ignition source; wind materially controls drying and spread.",
+        "Basis for treating the simulator's isotropic flame radius and smoke field as screening proxies."
+      ]
+    },
+    {
+      "publisher": "Koninklijk Nederlands Meteorologisch Instituut (KNMI)",
+      "title": "ShakeMaps archive",
+      "url": "https://www.knmi.nl/nederland-nu/seismologie/shakemaps-archief",
+      "accessedAt": "2026-09-02T12:18:11Z",
+      "edition": 2026,
+      "supports": [
+        "Official event-specific PGA mapping combines measured accelerations and a Ground Motion Prediction Equation.",
+        "Evidence standard missing from the simulator's fixed-centre exponential earthquake field."
+      ]
+    },
+    {
+      "publisher": "Liander",
+      "title": "Energie verdient aandacht, ook in Almere",
+      "url": "https://www.liander.nl/regio/flevoland/almere",
+      "accessedAt": "2026-09-02T12:18:11Z",
+      "edition": 2026,
+      "supports": [
+        "Current public electricity/gas network-operator context and reinforcement work in Almere Buiten and Veluwsekant.",
+        "The page does not disclose feeder topology, fragility, switching, backup or disaster restoration times."
+      ]
+    },
+    {
+      "publisher": "Vitens",
+      "title": "Ziekenhuis Almere zonder water, Vitens verleent eerste hulp",
+      "url": "https://www.vitens.nl/Over-Vitens/Pers-en-Nieuws/Nieuws/Ziekenhuis-Almere-zonder-water-Vitens-verleent-eerste-hulp",
+      "accessedAt": "2026-09-02T12:18:11Z",
+      "edition": 2024,
+      "supports": [
+        "Vitens drinking-water and Flevoziekenhuis continuity context, including the hospital's special-attention customer status.",
+        "A real incident illustrates facility/water dependencies but does not supply general failure probability or pressure-zone topology."
+      ]
+    },
+    {
+      "publisher": "Waterschap Zuiderzeeland",
+      "title": "Rioolgemaal Poortmolenstraat Almere gerenoveerd",
+      "url": "https://www.zuiderzeeland.nl/rioolgemaal-poortmolenstraat-almere-gerenoveerd",
+      "accessedAt": "2026-09-02T12:18:11Z",
+      "edition": "2024-06-25",
+      "supports": [
+        "The named pump moves 3.6 million litres of wastewater per day from Molenbuurt and industrial area Poldervlak to the Almere treatment plant at Vlotbrugweg.",
+        "All Almere wastewater is stated to be treated at that plant, demonstrating a real drainage/wastewater catchment unlike the road-derived logical graph."
+      ]
+    },
+    {
+      "publisher": "Vattenfall",
+      "title": "Stadswarmte in Almere",
+      "url": "https://www.vattenfall.nl/stadsverwarming/warmtenetten-en-warmtebronnen/almere/",
+      "accessedAt": "2026-09-02T12:18:11Z",
+      "edition": "2025 operating figures, accessed 2026",
+      "supports": [
+        "Almere Stad, Poort and Noorderplassen West are served by one integrated heat network connected with Amsterdam South, East and Southeast.",
+        "Vattenfall reports 55,928 small-user and 441 large-user connections, equal to 70,580 dwelling-equivalents in 2025.",
+        "Current sources include gas/electricity generation, peak/back-up gas boilers, biomass and Zoneiland, creating dependencies not represented by a generic gas service."
+      ]
+    },
+    {
+      "publisher": "Brandweer Flevoland / Veiligheidsregio Flevoland",
+      "title": "Dekkingsplan Flevoland 2025–2028",
+      "url": "https://www.veiligheidsregioflevoland.nl/publish/pages/1521/dekkingsplan_flevoland_2025-2028_1.pdf",
+      "accessedAt": "2026-09-02T12:18:11Z",
+      "edition": "adopted 2024-12-11",
+      "supports": [
+        "Regional nature-fire risk index and explicit concern about water availability, accessibility and proximity of nature areas to settlements including Almere.",
+        "Operational fire-cover context that the simulator's isotropic direct-fire and smoke fields do not encode."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat",
+      "title": "Wat en waarom uitbreiding Hollandse Brug",
+      "url": "https://bezoekerscentrum.rijkswaterstaat.nl/SchipholAmsterdamAlmere/waarom-tweede-hollandse-brug/",
+      "accessedAt": "2026-09-02T12:18:11Z",
+      "edition": 2026,
+      "supports": [
+        "The Hollandse Brug is a critical A6 crossing: separate structures carry Lelystad-bound traffic and Amsterdam-bound traffic, a bus lane and an agricultural road.",
+        "Structure-level mobility and detour dependencies omitted by municipality-pair logical links."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM0034, Almere, Flevoland and safety region Flevoland agree across the manifest, generated data and official 2025 sources.",
+      "evidenceRefs": [
+        "E01",
+        "E03",
+        "E06"
+      ],
+      "notes": [
+        "Generated feature id, municipal code, regional-bundle code and name all match GM0034/Almere.",
+        "The generated center [5.250781573283506, 52.3795538128119] lies inside the 2025 generalized municipality polygon.",
+        "Boundary and municipality-statistics editions are both 2025; source retrieval was 2026-08-31."
+      ]
+    },
+    "geography": {
+      "status": "warn",
+      "summary": "The municipality and 238 neighbourhood polygons are coherent, but the single BAG woonplaats representative point crosses an independent generalized-boundary edge.",
+      "evidenceRefs": [
+        "E03",
+        "E04",
+        "E13",
+        "E14"
+      ],
+      "notes": [
+        "The BAG Almere center [5.2198195931377, 52.44303693510284] falls outside the independently versioned CBS generalized polygon. This is recorded as a geometry-edition/generalisation review flag, not silently treated as corrupt source data.",
+        "Administrative polygons and label points do not establish elevation, lake-facing dike compartments, inside/outside-dike parcels, drainage catchments or utility service geometry.",
+        "Almere's managed polder levels and pumping dependence make label-point proximity especially unsuitable for precise local flood inference."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "The generated municipal record reproduces the official 2025 values and neighbourhood populations reconcile within normal small-area publication rounding.",
+      "evidenceRefs": [
+        "E01",
+        "E02"
+      ],
+      "notes": [
+        "Official/generated values are population 229,574, density 1,777/km², age 65+ 32,510 (14.2%) and one-person households 33,218.",
+        "Published neighbourhood population sums to 229,540, 34 below the municipality total or −0.015%; neighbourhood households sum to 98,415 and age 65+ to 32,475.",
+        "The simulator scales local population allocation back to the official municipality total rather than claiming rounded neighbourhood counts are exact."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "All 238 neighbourhoods and 36 declared fields are retained with nulls, and non-residential demand now works, but coverage is field-specific and district-heating context is entirely absent.",
+      "evidenceRefs": [
+        "E02",
+        "E20",
+        "E22",
+        "E23"
+      ],
+      "notes": [
+        "Core population, age, household, business, vehicle, non-residential-building and land/water counts are present for 238/238 records. Address density/urbanity cover 224; average household size 196; home value 170; cars per household 169; benefits 174; and doctor/supermarket distance 183.",
+        "District-heating percentage and public charging points are unavailable for all 238 records and remain null rather than zero.",
+        "There are 43 official zero-resident neighbourhoods containing in total 1,510 businesses, 1,819 non-residential buildings, 1,385 cars, 3,061 ha land and 314 ha water. The latest allocation gives 29 activity-bearing records non-zero demand without inventing residents.",
+        "The absent district-heating data is operationally material: E23 reports 70,580 dwelling-equivalents on the Almere heat network."
+      ]
+    },
+    "settlements": {
+      "status": "warn",
+      "summary": "One BAG woonplaats and five BRT woonkernen are source-valid, non-equivalent geographies with a small descriptive-population difference.",
+      "evidenceRefs": [
+        "E04",
+        "E05"
+      ],
+      "notes": [
+        "BAG provides the single woonplaats Almere; BRT provides Almere-Buiten, Haven, Hout, Poort and Stad woonkernen.",
+        "BRT descriptive populations total 230,860, 1,286 above CBS municipality population or 0.56%. Different ontology and reference date explain why this is not a municipal reconciliation target.",
+        "Settlement populations are context, not the basis for local service allocation."
+      ]
+    },
+    "transport": {
+      "status": "fail",
+      "summary": "Most generated road, rail and stop identities are plausible, but one exact A6 boundary connection is emitted as unsigned 006 with the wrong logical class and capacity.",
+      "evidenceRefs": [
+        "E07",
+        "E08",
+        "E09",
+        "E10",
+        "E11",
+        "E25"
+      ],
+      "notes": [
+        "The logical graph has degree eight and four neighbours: Blaricum, Lelystad, Zeewolde and Gooise Meren. Correct signed routes include A27, A6, N701, N706 and N305.",
+        "GM0034–GM0050 also contains route 006 at regional capacity 150. E07 exposes wegnrAw=RW6 and wegnrHmp=A6 on the exact source geometry, while E08 confirms motorway A6 identity; it should be trunk capacity 260 under current simulator conventions.",
+        "Six ProRail stations and 146 scheduled stop areas are spatially retained. Scheduled transit is display context only and does not alter mobility availability, emergency throughput or evacuation capacity.",
+        "Hollandse Brug structure, separate carriageways and bus lane are collapsed into a municipality-pair logical edge with no closure, detour or bridge-systems state."
+      ]
+    },
+    "emergencyContext": {
+      "status": "warn",
+      "summary": "Current regional and local authorities confirm strong weather, flood, nature-fire, cyber, transport and vital-service relevance, but public sources do not provide an operational asset inventory or restoration doctrine.",
+      "evidenceRefs": [
+        "E12",
+        "E13",
+        "E14",
+        "E15",
+        "E20",
+        "E21",
+        "E22",
+        "E23",
+        "E24"
+      ],
+      "notes": [
+        "The 2024 regional risk profile prioritizes storm/wind/rain, cold, heat, electricity and speech/data outage, cyberattack, road passenger accident, flood and nature fire. Its assessment is regional and cannot validate model units or neighbourhood rankings.",
+        "The regional portfolio also includes dangerous-goods transport, vulnerable-building and health/crowd risks outside the ten canonical presets.",
+        "Public sources identify operators and selected pumps, a treatment plant, hospital dependency, heat network, bridges and fire-cover concerns, but not complete electricity/heat/gas/drinking-water/sewer/telecom topology, failure domains, backup autonomy, crew access or restoration schedules."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "The current build completed all 10 canonical presets at T+0/6/12/24/48/72 across power, water, drainage, gas, telecom, mobility, facilities and supply without missing or non-finite output.",
+      "evidenceRefs": [
+        "E12",
+        "E13",
+        "E17",
+        "E18",
+        "E19"
+      ],
+      "notes": [
+        "Reproduction: MUNICIPALITY_AUDIT_CODE=GM0034 pnpm audit:model; one file and two tests passed in 37.83 seconds on 2026-09-02. The current national harness is also recorded green for 342 municipalities × 10 scenarios × 6 checkpoints × 8 services.",
+        "Peak severities are severe-storm 0.774854, pluvial-flood 0.321967, river-flood 0.145466, coastal-flood 0, heatwave 0.557941, winter-storm 0.813963, cyberattack 0.542400, earthquake 0.038751, wildfire 0.128758 and compound 0.950758.",
+        "Representative T+24 forcing is: severe storm 0.460426 m residual water; pluvial 0.283561 m; river 0.464831 m; coastal direct depth/severity zero with 19.587528 m/s wind; heatwave 23.502758 °C with drought index 0.485149 after a 33.872011 °C T+12 peak; winter −9.534426 °C, 27.449094 m/s gust, 4.671455 cm/h snow and ice 0.779800; cyber disruption 0.462165; earthquake impulse already ended after T+6 PGA 0.007631 g; wildfire direct intensity zero with smoke 0.332492; and compound rain 62.218282 mm/h, water 0.511650 m, wind 34.496501 m/s and cyber 0.475846.",
+        "These values demonstrate deterministic scenario coverage, not physical calibration, forecast skill or probability."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Bounds, determinism, population closure, service allocation, transfer reconciliation and event-attributable cumulative ledgers pass across the full first-72-hour matrix.",
+      "evidenceRefs": [],
+      "notes": [
+        "Every service availability remains in [0,1]; all event dimensions, demands, deliveries, affected populations and person-hours are non-negative; current severity never exceeds remembered peak severity; and cumulative event-attributable person-hours are monotonic.",
+        "At compound T+24 all eight details contain 238 neighbourhood allocations summing to population 229,574 and affected population 159,423. Maximum absolute delivered-versus-inbound reconciliation error is 5.684×10⁻14.",
+        "Compound T+24 demand/delivery pairs are power 245.087987/87.177963, water 176.526548/62.455374, drainage 134.604325/35.975393, gas 217.568613/125.182611, telecom 108.771172/23.588929, mobility 169.954956/74.495943, facilities 103.208921/39.377943 and supply 134.270760/50.137550.",
+        "For every preset and checkpoint, intensity zero yields exactly zero event dimensions, current/peak event severity, affected population and event-attributable person-hours; ambient seasonal temperature context remains visible by design."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "Finite flood and direct-fire screens prevent national tails, but Almere's flood mechanism and neighbourhood pluvial ordering are not locally sourced spatial models.",
+      "evidenceRefs": [
+        "E13",
+        "E14",
+        "E15",
+        "E16",
+        "E18",
+        "E24"
+      ],
+      "notes": [
+        "The river screen retains Almere and holds 0.464831 m from T+12 through T+72; the open-coast screen returns zero direct depth at all six checkpoints. Both are finite and deterministic, but neither represents a named Markermeer/IJmeer/Gooimeer dike breach, polder compartment or pump state.",
+        "Official waterboard evidence shows a fundamentally different pathway: the Flevopolder lies roughly five metres below IJsselmeer level, a dike breach can inundate nearly the whole polder and dry-out can take months. Exact local depth still requires a named LIWO scenario and must not be inferred from that general statement.",
+        "At pluvial T+12 seeded local severity ranks Gooisekant Oost, Eilandenbuurt Oost, Keiwierde en Oldewierde, Overig Almere Pampus and Columbuskwartier Zuid highest. The deterministic ordering is service-invariant but no climate-atlas raster, elevation, surface, sewer catchment or street threshold drives it.",
+        "The canonical wildfire ignition is 40.57 km from the municipality center, outside the maximum 18 km direct radius, so direct intensity is zero while smoke remains non-zero. That satisfies the finite-footprint contract but is not a local nature-fire exposure map."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "The eight declared service cascades execute and non-residential allocation is repaired, but Almere's large district-heat dependency is absent and all intermunicipal transfers still reuse a road graph.",
+      "evidenceRefs": [
+        "E12",
+        "E20",
+        "E21",
+        "E22",
+        "E23"
+      ],
+      "notes": [
+        "System-pressure weights include all eight required services and sum to one: power 0.18, water 0.15, drainage 0.08, gas 0.09, telecom 0.12, mobility 0.12, facilities 0.14 and supply 0.12.",
+        "At compound T+24 minimum availability is telecom 0.216867; other availabilities are power 0.355701, water 0.353802, drainage 0.267268, gas 0.575371, mobility 0.438328, facilities 0.381536 and supply 0.373406. These are synthetic pressure outputs, not operator outage predictions.",
+        "The gas service cannot stand in for a connected district-heat system with power, generation, peak/back-up boiler and network dependencies. No heat availability, demand or causal ledger exists despite E23's 70,580 dwelling-equivalents.",
+        "CORR-015 is verified locally: 29 zero-resident neighbourhoods with business/non-residential activity receive positive demand under every service, while official population remains zero and municipal demand/delivery closure stays exact.",
+        "Power, water, drainage, gas, telecom, mobility, facilities and supply use distinct coefficients, but their cross-municipality flows all use NWB-derived logical corridors rather than operator networks."
+      ]
+    },
+    "causalTrace": {
+      "status": "warn",
+      "summary": "Hazard, direct-service, dependency, intervention, network and reconciliation ledgers are inspectable, but some headline semantics can conceal active forcing and all operational capacities remain assumptions.",
+      "evidenceRefs": [
+        "E07",
+        "E12",
+        "E20",
+        "E22",
+        "E23"
+      ],
+      "notes": [
+        "Deterministic replay and changed-driver checks pass; service selection does not alter physical neighbourhood hazards, and all official local regions use neutral priority 2 with isHub=false.",
+        "Every intermunicipal transfer exposes transferSemantics=logical-proxy. That wording must remain visible because an NWB route is not an electricity feeder, heat pipe, gas main, water pressure zone, sewer catchment or telecom backhaul.",
+        "The coastal preset reports current and peak severity zero at every checkpoint because direct inundation is screened out, yet 19.587528 m/s wind produces T+24 system pressure 0.121947 and 242,051 cumulative event-attributable person-hours, rising to 873,464 by T+72. The arithmetic is traceable, but a zero headline can be misread as no impact.",
+        "Preparedness, response delay, backup, repair capacity, generator support, mutual aid and route capacity are declared bounded controls, not verified Almere inventories, contracts, dispatch times or restoration promises."
+      ]
+    },
+    "recovery72h": {
+      "status": "pass",
+      "summary": "The current standing-water access guard prevents premature generic service and route restoration in both canonical river and compound Almere runs.",
+      "evidenceRefs": [
+        "E12",
+        "E14",
+        "E15",
+        "E16"
+      ],
+      "notes": [
+        "River floodDepthM remains 0.464831 at T+12/24/48/72 and recoveryProgress remains exactly zero for all eight services throughout those checkpoints.",
+        "Compound floodDepthM remains 0.511650 at T+24/48/72 and recoveryProgress remains exactly zero for all eight services through T+72. Affected population remains 162,448 at T+72, so the earlier zero-affected/substantial-repair contradiction is not present.",
+        "The explicit 0.05 m standing-water threshold is a conservative repair-access screen, not a claim that all assets below it are safe or accessible. Official Almere lake-breach dry-out may take months, beyond the first-72-hour horizon.",
+        "T+72 cumulative event-attributable person-hours are severe storm 3,504,674; pluvial 1,494,038; river 2,797,569; coastal 873,464; heatwave 1,399,304; winter storm 4,049,864; cyber 3,571,612; earthquake 209,041; wildfire 927,421; and compound 9,225,757. These are model pressure integrals, not observed deprivation."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [
+      0,
+      6,
+      12,
+      24,
+      48,
+      72
+    ],
+    "services": [
+      "power",
+      "water",
+      "drainage",
+      "gas",
+      "telecom",
+      "mobility",
+      "facilities",
+      "supply"
+    ]
+  },
+  "findings": [
+    {
+      "id": "GM0034-FLOOD-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Almere's material lake/dike-breach flood pathway is absent while unsupported river-proximity metres and zero open-coast depth imply the wrong physical taxonomy.",
+      "evidence": "The model's finite screens return canonical river floodDepthM=0.464831 from T+12 through T+72 and coastal floodDepthM=0 at every checkpoint. packages/sim-core/src/model.ts derives these from municipality-label-point distance to three hand-coded river and coast polylines, with no Markermeer/IJmeer/Gooimeer breach, dike compartment, terrain or pump state. E14 shows Almere's polder water must be raised to the Markermeer and maintained at −6.20/−5.20 m NAP. E15 states the Flevopolder lies about five metres below IJsselmeer level, a breach can nearly fully inundate it and pumping dry can take months. E16 shows that defensible metres require a named scenario layer. This proves a municipality-specific mechanism gap; it does not justify substituting an arbitrary depth.",
+      "action": "Add a distinct lake/polder-dike flood family based on current LIWO/waterboard scenario footprints for Markermeer, IJmeer, Gooimeer and IJsselmeer defenses, with named breach, probability context, arrival/duration, elevation, compartment and pumping assumptions. Keep river, open-coast, lake, regional-system and pluvial pathways separate. Until sourced, label proximity output as unitless screening stress and suppress exact metre claims."
+    },
+    {
+      "id": "GM0034-NWB-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "An exact Almere–Zeewolde A6 source section remains route 006, regional mode and logical capacity 150 instead of A6, trunk and 260.",
+      "evidence": "Generated route nwb-link-292-GM0034-GM0050 is named 006, mode regional and nominalCapacity=150. The focused E07 WFS query at its exact geometry exposes wegnummer=006 together with wegnrAw=RW6 and wegnrHmp=A6 on Rijkswaterstaat-managed sections in GM34/GM50; E08 confirms A6 motorway identity. Current ingestion retains a numeric alias when its national mapping is considered ambiguous, so this auditable A6 section remains misclassified. The capacity value feeds the logical transfer graph for all eight services.",
+      "action": "Canonicalize this NWB identity from authoritative signed/connected road fields before municipality-pair aggregation, without guessing unrelated ambiguous numbers. Add a GM0034–GM0050 fixture for the focused source records expecting A6, trunk and capacity 260; deduplicate only when geometry/connectivity proves the same crossing and retain logical-proxy semantics."
+    },
+    {
+      "id": "GM0034-HEAT-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "The eight-service model has no district-heat service or dependency ledger for a 70,580 dwelling-equivalent Almere network.",
+      "evidence": "All 238 generated districtHeatingPct values are null because the CBS neighbourhood field is unavailable; the model exposes gas but no heat service. E23 reports 55,928 small-user and 441 large-user connections, equivalent to 70,580 dwellings in 2025, across Almere Stad, Poort and Noorderplassen West on a network integrated with Amsterdam. It also identifies electricity, gas-fired generation, backup boilers, biomass and solar-thermal sources. Therefore winter-storm and power/cyber cascade results omit a dominant local thermal-energy dependency, while the gas output cannot safely be interpreted as heat availability.",
+      "action": "Represent heat explicitly, or as a clearly separate energy subtype, using public aggregate service zones and sourced dependency classes without inventing pipe topology. Add power/source/backup interactions, demand temperature and separate heat availability/reconciliation; preserve null CBS neighbourhood percentages and show uncertainty where only operator-wide counts exist."
+    },
+    {
+      "id": "GM0034-PLUVIAL-001",
+      "severity": "medium",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Neighbourhood pluvial rankings are deterministic seeded variation rather than Almere's published climate-atlas, terrain and drainage hotspots.",
+      "evidence": "At pluvial T+12 the simulator ranks Gooisekant Oost, Eilandenbuurt Oost, Keiwierde en Oldewierde, Overig Almere Pampus and Columbuskwartier Zuid highest. Code inspection shows local severity comes from a stable region seed and aggregate context, not a rain-stress raster, elevation, surface sealing, five-lock system, separated sewers or catchment. E13 states Almere uses modeled Klimaatatlas results to locate where water remains and to plan street-level adaptation. The model ordering is repeatable and service-invariant, but no evidence connects it to those official locations.",
+      "action": "Ingest a versioned municipal/Klimaateffectatlas pluvial layer or documented open equivalent, intersect it with neighbourhoods and road segments, and validate hotspot coverage plus drainage/road thresholds. Retain seeded variation only as explicitly labeled fallback uncertainty."
+    },
+    {
+      "id": "GM0034-COAST-SEM-001",
+      "severity": "medium",
+      "category": "explainability",
+      "status": "open",
+      "summary": "The coastal preset's zero headline severity hides material wind-driven service pressure and cumulative deprivation.",
+      "evidence": "Because direct open-coast depth is screened to zero, current and peak severity stay exactly zero at all six coastal checkpoints. Nevertheless, 19.587528 m/s wind produces T+24 system pressure 0.121947, minimum availability 0.770998 and 242,051 event-attributable person-hours; the cumulative ledger reaches 873,464 at T+72. The causal ledger contains the wind effects, but a user sorting or briefing on the zero headline can reasonably infer that no event impact exists.",
+      "action": "Separate inundation contribution from overall multi-hazard preset forcing in summaries, exports and alerts. A zero direct-depth field may coexist with non-zero wind/service impacts, but no overall event headline should collapse those impacts to zero. Add a GM0034 coastal T+24 regression for this distinction."
+    },
+    {
+      "id": "GM0034-MOB-001",
+      "severity": "medium",
+      "category": "network",
+      "status": "open",
+      "summary": "Critical bridge, rail and bus dependencies are displayed as geometry but absent from mobility disruption and detour logic.",
+      "evidence": "E25 describes separate Hollandse Brug structures carrying A6 directions, a bus lane and agricultural traffic; E09 and E11 confirm six rail stations and a dense city/regional bus network. The generated model reduces road crossings to municipality-pair edges, has no bridge system or closure state, and treats scheduled rail/bus only as map context. It therefore cannot answer whether Hollandse Brug, Stichtse Brug, a rail segment or bus lane remains usable, nor how closure changes access, evacuation or supply.",
+      "action": "Add public critical-structure and mode-specific closure/detour relationships, keeping capacity explicitly synthetic unless sourced. Distinguish road, busway and rail accessibility and test Hollandse Brug closure counterfactuals against published RWS/operator routes without inferring classified emergency throughput."
+    },
+    {
+      "id": "GM0034-ZERO-001",
+      "severity": "informational",
+      "category": "hazard",
+      "status": "fixed",
+      "summary": "Shared correction verified locally: intensity zero is an exact no-event counterfactual for all ten presets and six checkpoints.",
+      "evidence": "Focused createScenarioConfig(preset, { intensity: 0 }) replay at T+0/6/12/24/48/72 returns every event dimension, current/peak event severity, affected population and event-attributable deprived person-hours exactly zero for GM0034. Seasonal heatC context remains visible without being attributed as event impact. This verifies CORR-009 in the current build.",
+      "action": "Retain the all-preset zero-intensity invariant in municipality coverage tests; every new hazard component and compound composition must satisfy it before release."
+    },
+    {
+      "id": "GM0034-REC-001",
+      "severity": "informational",
+      "category": "service",
+      "status": "fixed",
+      "summary": "Shared correction verified locally: standing water blocks generic recovery in canonical river and compound scenarios through T+72.",
+      "evidence": "River holds 0.464831 m and all eight recoveryProgress values at zero from T+12 through T+72. Compound holds 0.511650 m at T+24/48/72, all eight recoveries at zero and affected population 162,448 at T+72. This verifies the generalized standing-water repair-access guard from CORR-016 as well as sustained-flood behavior; the depths themselves remain uncalibrated screening outputs.",
+      "action": "Keep cross-scenario standing-water recovery tests and the explicit threshold explanation. Future operator-calibrated repair requires asset state, accessibility, crews, spares and restoration envelopes not available in public evidence."
+    },
+    {
+      "id": "GM0034-DEMAND-001",
+      "severity": "informational",
+      "category": "service",
+      "status": "fixed",
+      "summary": "Shared correction verified locally: official zero residents are preserved while activity-bearing neighbourhoods receive non-residential demand.",
+      "evidence": "GM0034 contains 43 zero-resident neighbourhoods with 1,510 businesses and 1,819 non-residential buildings. At compound T+24, 29 activity-bearing zero-resident records receive positive demand for power, water, drainage, gas, telecom, mobility, facilities and supply, while their population remains zero. All 238 allocations still reconcile exactly to municipal demand and delivery. This verifies CORR-015 without fabricating occupants or criticality.",
+      "action": "Retain separate resident and non-residential allocation weights and their explanation. Future refinement may add privacy-safe employment/time-of-day or sourced critical-site classes, but must keep resident counts and economic/process demand in separate ledgers."
+    },
+    {
+      "id": "GM0034-FIRE-001",
+      "severity": "medium",
+      "category": "hazard",
+      "status": "accepted-limitation",
+      "summary": "Finite direct wildfire support works, but the fixed ignition and isotropic smoke field do not represent Almere's documented nature-fire interfaces.",
+      "evidence": "The canonical ignition [5.75, 52.18] is 40.57 km from GM0034, outside the radius min(18 km, 2+0.9×elapsed), so wildfireIntensity is exactly zero at all six checkpoints while smokeSeverity reaches 0.332492 at T+12/T+24. E18 requires weather, fuel and ignition for physical fire behavior; E24 identifies water availability, access and settlement proximity around Almere as operational factors. No wind, fuel, land-cover, barrier or suppression state shapes the current plume.",
+      "action": "Retain finite flame support and separate smoke labeling. Use configurable local ignition with burnable land cover and wind-aware fire/plume modeling before making physical local claims; label current smoke as a synthetic stress index without concentration units."
+    },
+    {
+      "id": "GM0034-SEISMIC-001",
+      "severity": "low",
+      "category": "hazard",
+      "status": "accepted-limitation",
+      "summary": "The earthquake output is bounded but not an event- or site-calibrated Almere ground-motion estimate.",
+      "evidence": "A fixed Groningen center 128.62 km from GM0034 produces 0.007631 g at T+6 and peak severity 0.038751 through a generic 42 km exponential decay. No magnitude, focal mechanism, event ShakeMap, local soil response or uncertainty accompanies the value. E19 shows that official PGA mapping uses measured accelerations and a Ground Motion Prediction Equation.",
+      "action": "Treat the result as sensitivity only. Require magnitude/scenario identity and KNMI-compatible ground-motion grids with site-response uncertainty before displaying an exact local PGA or deprivation consequence as physical evidence."
+    },
+    {
+      "id": "GM0034-NET-001",
+      "severity": "medium",
+      "category": "network",
+      "status": "accepted-limitation",
+      "summary": "All eight essential-service transfers use road-derived logical corridors rather than physical operator networks.",
+      "evidence": "The same eight NWB-derived links are reused for power, water, drainage, gas, telecom, mobility, facilities and supply. E20–E23 identify real operators and selected public dependencies, but do not disclose feeders, heat/gas pipes, valves, drinking-water pressure zones, switching, telecom backhaul, reserve power, full sewer/pump topology or restoration priority. Current explanations correctly mark transfers as logical-proxy.",
+      "action": "Preserve logical-transfer-proxy wording in every map, legend, tooltip, brief and export and never depict these edges as operator assets. Any future physical topology must be operator-authorized, security-reviewed and aggregated with explicit uncertainty."
+    },
+    {
+      "id": "GM0034-SET-001",
+      "severity": "informational",
+      "category": "regional-data",
+      "status": "accepted-limitation",
+      "summary": "BAG woonplaats and BRT woonkern records are valid but non-equivalent Almere spatial concepts.",
+      "evidence": "E04 yields one BAG woonplaats whose representative point falls just outside an independently generalized CBS boundary; E05 yields five BRT woonkernen totaling 230,860 people versus CBS 229,574. Different geometries, ontologies and reference dates explain both review conditions and do not establish source corruption.",
+      "action": "Keep source type, edition, geometry method and ontology visible; do not force BAG/BRT features or BRT descriptive population to reconcile exactly with CBS municipality totals."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Replace Almere's river/open-coast proximity metres and seeded pluvial field with sourced lake, dike, polder and rain-stress semantics.",
+      "files": [
+        "scripts/fetch-realism-data.mjs",
+        "apps/web/src/data.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "packages/sim-core/src/explainability.test.ts"
+      ],
+      "validation": "Add versioned LIWO/Waterschap Zuiderzeeland and municipal climate-atlas fixtures intersecting GM0034. Distinguish Markermeer/IJmeer/Gooimeer/IJsselmeer dike breach, open coast, river, regional water and pluvial pathways; expose scenario/breach/probability/resolution provenance before using metres. Validate a published pluvial hotspot set and road/catchment thresholds, then rerun MUNICIPALITY_AUDIT_CODE=GM0034 pnpm audit:model and the national ALL gate."
+    },
+    {
+      "summary": "Resolve the focused Almere–Zeewolde numeric NWB 006 section to A6 before logical route classification.",
+      "files": [
+        "scripts/fetch-realism-data.mjs",
+        "apps/web/public/data/transport-network.json",
+        "scripts/validate-generated-data.mjs"
+      ],
+      "validation": "Use the focused NWB records' wegnrHmp=A6/wegnrAw=RW6 plus connected geometry to add a GM0034–GM0050 fixture expecting A6, trunk and capacity 260. Verify no false A/N resolution for genuinely ambiguous numbers, no unproved edge deduplication and logical-proxy labeling for all services."
+    },
+    {
+      "summary": "Represent Almere district heat as a distinct, sourced service/dependency context rather than silently substituting gas.",
+      "files": [
+        "apps/web/src/data.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/explainability.test.ts",
+        "apps/web/src/components/OperationsBrief.tsx"
+      ],
+      "validation": "Add an aggregate public-service-zone fixture for Almere Stad, Poort and Noorderplassen West using Vattenfall's dated connection totals without fabricating pipe geometry. Assert heat has distinct demand, availability and causal/reconciliation ledgers; test power/source/backup interactions in winter and cyber cases; preserve null CBS district-heating percentages wherever neighbourhood evidence is unavailable."
+    },
+    {
+      "summary": "Expose non-inundation forcing and critical multimodal access when a flood subtype headline is zero.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/explainability.test.ts",
+        "apps/web/src/components/OperationsBrief.tsx",
+        "apps/web/src/components/StatsPanel.tsx"
+      ],
+      "validation": "For GM0034 coastal T+24, assert separate inundation severity=0, wind=19.587528 m/s, non-zero system pressure and cumulative person-hours, and ensure briefs/exports do not call the overall event impact-free. Add public Hollandse Brug road/busway and rail closure/detour fixtures while retaining synthetic-capacity labels."
+    }
+  ],
+  "residualLimitations": [
+    "The ten presets are deterministic synthetic stress tests, not KNMI forecasts, official probabilities, current incidents, Veiligheidsregio plans or operator outage predictions.",
+    "No confidential or security-sensitive Liander, Vattenfall, Vitens, Zuiderzeeland, gas, telecom, rail, bus or emergency-service topology was used; public service areas and selected assets cannot substitute for an operational network.",
+    "Neighbourhood outputs use aggregate CBS context and representative points and do not resolve buildings, households, persons, terrain cells, dike compartments, sewer catchments, heat zones or actual infrastructure assets.",
+    "LIWO and municipal climate-atlas scenario rasters are not ingested, so river, coastal, pluvial and compound metre values, footprints and arrival/recovery semantics are not locally validated hydraulics.",
+    "Finite flood screening is exposure triage only: a non-zero river proximity value does not establish inundation, and zero open-coast depth does not establish safety from lake/dike or regional-system flooding.",
+    "Wildfire direct support is finite, but fuels, burnable land cover, ignition likelihood, barriers, suppression, wind and atmospheric dispersion are not modeled; smoke has no concentration unit.",
+    "The earthquake field lacks magnitude, focal mechanism, event grid and site response; six-hour checkpoints can miss the short shaking impulse even when peak memory retains it.",
+    "Cyber disruption is a dimensionless scenario control without threat actor, affected system, defensive posture, incident evidence, recovery playbook or operator-specific service topology.",
+    "Generic preparedness, response delay, repair, backup, generator, mutual-aid and network-capacity assumptions are not verified municipal inventories, contracts, dispatch times or commitments.",
+    "Affected population is a thresholded people-equivalent indicator, not persons known to be harmed, evacuated or deprived; zero can coexist with non-zero hazard or service pressure.",
+    "Cumulative deprived person-hours are event-attributable model pressure integrals, not observed human deprivation, economic loss or welfare impact.",
+    "CBS neighbourhood counts and percentages are rounded and field availability varies; close aggregate differences must not be forced to exact equality where official semantics do not support it.",
+    "BAG, BRT, CBS and transport products have different ontologies, geometry generalisation, boundaries and reference dates.",
+    "The first-72-hour horizon excludes a potentially months-long Flevopolder dry-out, prolonged displacement, environmental/health effects, reconstruction, economic loss and adaptive behavior.",
+    "The regional risk profile includes health, dangerous-goods, vulnerable-building, crowd and intentional-event scenarios outside the ten canonical presets; scenario coverage is not a complete Almere risk assessment.",
+    "Public evidence does not supply household stocks, daytime visitor/commuter populations, facility backup autonomy, verified criticality, emergency throughput, bridge/rail failure probability or restoration access envelopes."
+  ],
+  "provinceReviewFlags": [
+    "Flevoland/IJsselmeergebied: replace straight-line river/coast screens with named lake, primary-dike, regional-system and polder scenario masks; do not infer exact depth from the province's below-NAP character.",
+    "Almere-specific: validate Markermeer, IJmeer and Gooimeer defenses, Lage/Hoge Vaart levels, De Blocq van Kuffeler pumping, compartment assumptions and months-long dry-out before any flood/recovery claim.",
+    "Almere-specific: add the municipality's large integrated district-heat dependency to winter, power and cyber service reviews; gas availability is not heat availability.",
+    "Almere-specific: use published climate-atlas rain/heat/drought layers for neighbourhood and road validation instead of seeded local ranking.",
+    "Shared/national: resolve the evidenced GM0034–GM0050 numeric 006 section from NWB signed/connected fields to A6, trunk and configured capacity 260 without guessing ambiguous aliases.",
+    "Shared/national: retain exact zero-intensity, non-residential-demand, service-invariant local hazard and standing-water repair-access tests in the all-municipality gate.",
+    "Shared/national: distinguish direct inundation severity from other active forcing; zero coastal depth/headline must not conceal wind-driven service impact.",
+    "Flevoland mobility: review Hollandse Brug, Stichtse Brug, A6/A27, rail and separated busway as public critical structures/modes with closure and detour semantics, not just municipality-pair edges.",
+    "Flevoland nature fire: retain finite direct exposure, then add burnable land, local ignition, wind, water availability, access and settlement-interface evidence before operational use.",
+    "Shared/national: all road-derived essential-service flows must remain labeled logical transfer proxies and must never be presented as physical power, heat, water, drainage, gas or telecom networks.",
+    "Province and safety-region reviewers must not interpret net-congestion work, operator connection counts, dike strengthening, pumping capacity or adaptation plans as outage likelihood, fragility, flood probability or restoration-time evidence.",
+    "Review BAG/CBS point-in-polygon exceptions as independently generalized geometry/version caveats, especially along water-rich municipal boundaries, rather than silently relocating official features."
+  ]
+}

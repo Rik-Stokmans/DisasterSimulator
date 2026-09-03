@@ -1,0 +1,476 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0252",
+    "name": "Heumen",
+    "province": "Gelderland",
+    "safetyRegion": "Gelderland-Zuid"
+  },
+  "agent": {
+    "taskName": "municipality_gm0252",
+    "agentId": "/root/municipality_gm0396",
+    "completedAt": "2026-09-03T04:51:31Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "GM0252 passes the complete deterministic contract for all ten canonical presets, T+0/6/12/24/48/72 and all eight essential services. Its 2025 CBS/PDOK identity, 16,861 residents, nineteen neighbourhoods, four BAG woonplaatsen, fourteen BRT settlements, fifty scheduled-transit stop areas, zero in-boundary ProRail stations and five A73/N324/N271 municipal-border links are coherent. Roads are correctly restricted to Mobility and assumed road-logistics Supply. Release is nevertheless correction-required. Heumen has a genuine, mechanism-specific Maas and Maas-Waalkanaal setting: four primary LIWO candidate breach points fall inside the full boundary, Rijkswaterstaat closes the Heumen keersluis during Maas high water, and the safety region plans for a two-to-three-day Maas warning horizon and potentially long evacuation. The model selects none of those events or control states while assigning 2.327544 normalized river inundation stress from T+12 through T+72, 8,917 affected people-equivalent at T+24 and 9,407 at T+72. Eight unrelated nonzero hazard families reuse the same nineteen-neighbourhood order. That order cannot simultaneously represent the low, wet Neder- and Overasseltse Broek, known Malden/Overasselt rain problems, higher Malden/Heumen terrain, or dry Heumensoord forest and heath. Public water, transport, capacity, care, school and telecom registers improve context but do not establish live operation, physical dependency, backup or restoration. NoData, nulls, unassigned records and no current match remain Unknown, never zero, open or safe.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek, PDOK/Kadaster, Rijkswaterstaat, ProRail and OVapi",
+      "title": "E01 — Coherent 2025 administrative, demographic, settlement and transport inputs",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_niet_gegeneraliseerd/items?f=json&limit=100&bbox=5.65%2C51.65%2C5.95%2C51.9&datetime=2025-07-01T00%3A00%3A00Z",
+      "accessedAt": "2026-09-03T04:46:32Z",
+      "edition": "CBS/PDOK 2025; BRT source date 2025-07-01; NWB Light 2026-08-01; ProRail snapshot 2026; OVapi snapshot retrieved 2026-08-31",
+      "supports": [
+        "The generated feature identifies GM0252 Heumen in Gelderland and safety region Gelderland-Zuid, with center [5.811441302264365, 51.773988286933], 16,861 residents, density 424/km², 26.5% age 65+ and 2,443 one-person households.",
+        "The official neighbourhood bundle contains nineteen GM0252 neighbourhoods in two districts; its rounded populations sum to 16,860, one below the municipality total (-0.006%). It contains 7,490 households and 4,460 rounded residents age 65+.",
+        "Four BAG woonplaatsen are Heumen, Malden, Nederasselt and Overasselt. Fourteen BRT settlement polygons comprise four woonkernen, one deelkern, one gehucht and eight buurtschappen. BAG/PDOK uses Public Domain Mark 1.0; CBS and BRT are CC BY 4.0.",
+        "The application overview MultiPolygon has 62 coordinate positions, equal to the official generalized feature, while the 2025 non-generalized feature has 844. The full boundary is required for hydraulic, defence, nature, road and asset intersection.",
+        "NWB/ProRail inputs are CC0 1.0. Five logical road links are A73 to Nijmegen and Land van Cuijk, N324 to Wijchen and Land van Cuijk, and N271 to Mook en Middelaar. They represent physical road corridors only, not utility links or guaranteed emergency throughput.",
+        "No ProRail station point lies inside GM0252. Fifty grouped OVapi scheduled stop areas do; OVapi is best-effort with no SLA and schedules do not prove vehicles, drivers, accessibility, capacity or operation during an incident."
+      ]
+    },
+    {
+      "publisher": "Gemeente Heumen",
+      "title": "E02 — Omgevingsvisie Heumen",
+      "url": "https://cuatro.sim-cdn.nl/heumen/uploads/omgevingsvisie-heumen-aug2023_lq.pdf?cb=aXN-pMqg",
+      "accessedAt": "2026-09-03T04:46:32Z",
+      "edition": "August 2023, adopted municipal spatial-policy document",
+      "supports": [
+        "The municipality identifies aardgas pipelines, roads and waterways carrying dangerous substances and LPG stations as external-safety sources; these are planning risks, not evidence of a current release.",
+        "It identifies heavy rain, nature-fire vulnerability after long dry periods and water-safety claims along the Maas as climate-safety concerns. The evidence class is adopted policy and area characterization, not a live incident or calibrated scenario.",
+        "The Neder- and Overasseltse Broek is described as originally low and wet, with relatively high groundwater. The Maas oeverwal is higher along the dike and slopes toward the lower broek; Heumen is about 10.2 m NAP on a terrace remnant and Malden rises roughly 9.5–17.5 m NAP toward the moraine.",
+        "Heumensoord is mainly conifer forest and dry heath on coarse sand, adjoining Malden, containing recreation and a water-production protection area. The terrain is dry-sensitive and ranges roughly 13.5–40.2 m NAP. This is material fire, evacuation, smoke and drinking-water-source context.",
+        "Heumen village is enclosed by the Maas-Waalkanaal, Maas, A73 and Jan J. Ludenlaan; the Teerse Sluispolder contains the A73, canal, a high-voltage alignment and drainage watercourse. These are structural dependencies, not current outages.",
+        "The PDF states restrictive municipal copyright; it can support audit findings by citation but must not be bulk-republished as open simulation data."
+      ]
+    },
+    {
+      "publisher": "Gemeente Heumen",
+      "title": "E03 — Local heavy-rain, groundwater and drainage interventions",
+      "url": "https://www.heumen.nl/tegen-wateroverlast-en-voor-meer-groen",
+      "accessedAt": "2026-09-03T04:46:32Z",
+      "edition": "Municipal project pages published 2023–2025 and inspected 2026-09-03",
+      "supports": [
+        "At De Schoof in southeast Malden, the municipality says water threatens to enter homes during heavy rain and documents wadi, infiltration-sewer and disconnection measures. This is named hotspot/intervention evidence, not a current flood extent or proof the risk is eliminated.",
+        "The Craeyenbergh project page at https://www.heumen.nl/rioolaanpassingen-vijver-craeyenbergh reports groundwater in wet periods rising with the Maas and models a 66 mm/hour design storm raising the pond about 29 cm; overflow timing is explicitly not predictable from the public page.",
+        "The 2022 budget also identified measures particularly for Malden and Overasselt. Source products are municipal project/design information with site-specific time and scope, not a municipality-wide operational sewer model.",
+        "No standard open-data licence, machine API, guaranteed update cadence, complete sewer topology, telemetry, asset condition or event-time operating state is stated. Missing areas remain Unknown rather than dry or safe."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Gelderland-Zuid",
+      "title": "E04 — Regional policy and public dike-breach/overflow response plan",
+      "url": "https://www.vrgz.nl/media/3534/5b-rbp-dijkdoorbraak-en-overstroming-v10.pdf",
+      "accessedAt": "2026-09-03T04:46:32Z",
+      "edition": "Public Dijkdoorbraak en Overstroming plan version 1.0; 2024–2027 policy adopted 2023-12-21",
+      "supports": [
+        "The public plan treats high-river flooding as a major regional risk, notes that flood consequences vary strongly within a dike area, and identifies simultaneous/cascading failures as plausible. Its published Maas warning horizon is two to three days and it distinguishes evacuation lasting more than two days.",
+        "The plan is operational preparedness, not an active warning, breach or evacuation order; the indexed copy does not state a standard redistribution licence and its own maintenance provisions require periodic review.",
+        "The adopted 2024–2027 policy at https://www.vrgz.nl/media/3718/03a-regionaal-beleidsplan-2024-2027-vrgz.pdf lists high-river flooding, heat, nature fire near vulnerable objects, electricity, telecom/ICT, gas, drinking-water contamination and transport incidents among regional concerns.",
+        "The policy states that dry/hot conditions raise large-nature-fire concern in forested areas with vulnerable objects, and that electricity and telecom disruption impacts are increasing. These are regional planning judgments, not local event probabilities or service-state measurements."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat",
+      "title": "E05 — Maas-Waalkanaal, Heumen keersluis and Waterinfo observation/forecast context",
+      "url": "https://www.rijkswaterstaat.nl/water/vaarwegenoverzicht/maas-waalkanaal",
+      "accessedAt": "2026-09-03T04:46:32Z",
+      "edition": "Current operator pages inspected 2026-09-03; Waterinfo snapshots retrieved 2026-09-02/03",
+      "supports": [
+        "Rijkswaterstaat states that the 13 km Maas-Waalkanaal normally has an open hydraulic connection to the Maas and that the Heumen keersluis closes during Maas high water. This is a specific control dependency, not evidence that the gate is currently closed or failed.",
+        "The current asset-renewal page says parts of Heumen and Weurt complexes have reached end of technical life, maintenance continues and large renewal is planned from 2029; it currently reports no user disruption. A plan or current no-disruption notice cannot be projected through an unrelated scenario.",
+        "The deployed Waterinfo snapshot contains fresh 2026-09-02T17:30Z point levels of 798 cm NAP at Malden Maas-Waalkanaal Inlaat Teerse Sluispolder with no class and 799 cm NAP at Mook with normal class. Point labels do not establish flood depth, defence state or municipality-wide safety.",
+        "Waterinfo forecast records for Mook cover requested leads T+1/T+6/T+12/T+24 with 792/795/814/796 cm NAP; no T+48 or T+72 record was returned. That gap is Unknown, not a flat or normal extrapolation.",
+        "Waterinfo data are generally CC0 unless an individual component states otherwise, normally update around ten minutes and are not mission-critical; the public operator pages have no stated machine-data licence or SLA."
+      ]
+    },
+    {
+      "publisher": "WMCN / Rijkswaterstaat, IPLO and Deltares",
+      "title": "E06 — LIWO 2025.1.6 primary breach catalogue and flood-scenario contract",
+      "url": "https://basisinformatie-overstromingen.nl/geoserver/ows?service=WFS&version=2.0.0&request=GetFeature&typeNames=LIWO_Basis%3Agebiedsindeling_doorbraaklocaties_primair&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=5.65%2C51.65%2C5.95%2C51.9%2CEPSG%3A4326",
+      "accessedAt": "2026-09-03T04:46:32Z",
+      "edition": "LIWO application 2025.1.6; public OGC service inspected 2026-09-03",
+      "supports": [
+        "Exact point-in-polygon containment against the 844-position 2025 non-generalized boundary places four primary candidates inside GM0252: HD015 [5.8531, 51.7685], Heumen [5.8290, 51.7620], Molenhoek [5.8602, 51.7628] and SluisHeumenMWK [5.8512, 51.7700]. Eleven other bbox candidates were rejected as outside.",
+        "The same bbox returns one regional candidate outside GM0252 and zero regional-water-system or outside-dike catalogue points. These are scoped no-matches, not proof that local, canal, groundwater, sewer, overland-flow or unregistered outside-dike mechanisms are absent.",
+        "A candidate point and frequency flags do not select a breach, high-water hydrograph, defence/overtopping/gate state, probability, connected footprint or consequence grid.",
+        "Causal use requires expert selection and pinned release, scenario/model dates, source water, breach or control variant, native CRS/resolution/units/NoData, depth/stress, velocity, arrival, duration, recession and scenario-clock mapping.",
+        "LIWO is a release-versioned professional scenario library rather than a live forecast; no blanket standard redistribution licence or guaranteed cadence was established, so terms must be cleared for every persisted layer."
+      ]
+    },
+    {
+      "publisher": "Het Waterschapshuis, Waterschap Rivierenland, Stichting Mijn Aansluiting and Netbeheer Nederland",
+      "title": "E07 — Public water-chain and utility responsibility/capacity context",
+      "url": "https://api.pdok.nl/hwh/waterschappen-kunstwerken-imwa/ogc/v2",
+      "accessedAt": "2026-09-03T04:46:32Z",
+      "edition": "HWH snapshot 2026-09-03; provider-territory queries 2026-09-03; NBNL sample 2026-09-02",
+      "supports": [
+        "Full-boundary containment assigns eighteen HWH objects to GM0252: four sewer pumps, RWZI Overasselt, two surface-water pumps, two sluices and nine weirs. The register includes Schutsluis and Keersluis Heumen and named sewer pumps at Malden, Heumen, Overasselt and Nederasselt.",
+        "HWH is official-context with partial, contributor-dependent national coverage under CC BY-SA 4.0. Register status/capacity fields are not current telemetry, working capacity, energy dependency, connection, reserve, damage or restoration.",
+        "Live public Mijn Aansluiting point queries at the municipality reference center identify Liander electricity and gas territory and Vitens drinking-water territory. The sewer and media layers return no record. Provider territory is Public Domain responsibility context; a no-match is incomplete/Unknown, not no sewer or telecom service.",
+        "One public NBNL sample at postcode 6611BR identifies Liander service area OS TEERSDIJK 10-2i: existing/required withdrawal 65/65 MW, withdrawal queue 22.9 MW across 49 requests; existing/required injection 65/72 MW, injection queue 49 MW across 25 requests; 28 projects, earliest 2030. It is large-user planning context, not complete municipal topology, live load, outage or restoration.",
+        "NBNL calls the product open data but no exact licence identifier was found; capacity/project information is at least quarterly and queues monthly. Mijn Aansluiting provider records carry provider-specific timestamps, not a guaranteed incident-state cadence."
+      ]
+    },
+    {
+      "publisher": "RIVM, DUO, RDI/Antennebureau, KNMI and NDW",
+      "title": "E08 — Public care, education, telecom and current observation context",
+      "url": "https://www.vzinfo.nl/bereikbaarheid/acute-zorg",
+      "accessedAt": "2026-09-03T04:46:32Z",
+      "edition": "Deployed public-context snapshots 2026-08-31 to 2026-09-02",
+      "supports": [
+        "No surveyed emergency department lies inside GM0252. The nearest surveyed 24/7 acute-care point is Canisius-Wilhelmina Ziekenhuis in Nijmegen, about 5.006 km straight-line from the municipal reference point; its 2025 annual rooms/visits are planning context, not current acceptance, staffing, route time or available capacity. RIVM source data are CC0.",
+        "DUO registers seven primary-education locations inside Heumen. DUO refreshes daily under CC BY with version unspecified; a school location is not evidence of shelter designation, opening, generator, accessibility, staffing or supplies.",
+        "RDI registers 36 antenna installations: fourteen mobile-communication, thirteen fixed-link, seven amateur and two broadcast sites. The public WFS states no fee/access constraint but no reuse licence or refresh cadence; points do not reveal coverage, operator, backhaul, power/backup, load, damage or restoration.",
+        "There is no in-boundary KNMI station; Volkel Airport is nearest at about 14.72 km. Gelderland had no issued warning in the official 48-hour window at the 2026-09-02T21:36Z fallback issue time. That finite warning window does not establish T+48–72 weather or scenario conditions.",
+        "No current NDW situation is assigned inside GM0252; the nearest cached record is about 7.27 km from the center. No-match does not prove the A73/N324/N271 or local roads are open. Nearest PM2.5 and seismic records are likewise off-site/time-bounded and remain observation context only."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM0252, Heumen, Gelderland and Gelderland-Zuid agree across generated and primary administrative inputs.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "Feature ID/code/name and regional bundle identity agree.",
+        "The generated center lies within both the generated and non-generalized 2025 boundary."
+      ]
+    },
+    "geography": {
+      "status": "warn",
+      "summary": "The annual boundary is coherent, but the overview geometry is too coarse for operational local intersection.",
+      "evidenceRefs": ["E01", "E02", "E06"],
+      "notes": [
+        "The overview contains 62 coordinate positions versus 844 in the non-generalized boundary.",
+        "Use full geometry for Maas/canal, dike, forest/heath, road, water-asset and raster work; preserve native raster NoData."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Municipality and neighbourhood population totals reconcile within one person of published rounded rows.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "16,861 official residents versus 16,860 summed neighbourhood residents is expected independent rounding, not a missing person to impute.",
+        "The 26.5% municipality age-65+ figure is demographic exposure context, not a care-needs or evacuation-capacity measurement."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "All nineteen neighbourhoods expose the 36-field contract, with explicit partial/null fields that must remain unknown.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "Core demography and business/building counts are present for 19/19; home value, tenure and selected benefits are present for 16/19; cars per household is present for 12/19.",
+        "District-heating percentage and public charging points are null for 19/19. Null is not zero, absence or an all-clear.",
+        "The low-resident west-canal forest area has 95 residents, 20 businesses and 209 non-residential buildings, so resident-only demand would omit material activity; the activity-demand fallback correctly retains it without inventing occupants."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "Four active BAG woonplaatsen and fourteen BRT settlement features retain their source-specific membership.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "The BRT inventory contains named small settlements as well as the four woonkernen; it must not be collapsed into four equal operational zones.",
+        "Molenhoek appears as local neighbourhood/settlement context while administrative place and station relationships cross the Limburg boundary; do not infer station presence from the name."
+      ]
+    },
+    "transport": {
+      "status": "warn",
+      "summary": "Five signed NWB road links and scheduled transit are valid context, but emergency accessibility and capacity remain unverified.",
+      "evidenceRefs": ["E01", "E02", "E05", "E08"],
+      "notes": [
+        "A73/N324/N271 route classes and neighbour identities are coherent; the same corridor is not additive utility capacity.",
+        "Road routes appear only under Mobility and Supply, which is the correct narrow service eligibility.",
+        "Zero in-boundary stations, fifty scheduled stop areas and zero matched NDW situations do not prove absence of rail access, available public transport or open roads."
+      ]
+    },
+    "emergencyContext": {
+      "status": "warn",
+      "summary": "Regional response plans and public facilities establish important context but not live resources or local capacity.",
+      "evidenceRefs": ["E04", "E05", "E07", "E08"],
+      "notes": [
+        "The Maas two-to-three-day warning horizon overlaps the simulator's 72-hour priority window and should drive readiness/evacuation phases when a selected forecast supports it.",
+        "No in-boundary surveyed ED exists; nearest-distance, seven schools, antenna points and water assets are not response-resource availability.",
+        "Sensitive/non-public facility, utility, backup, staffing, stock, fuel and restoration data remain explicit limitations."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten canonical presets execute at all six checkpoints for GM0252.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "The mandatory focused gate passes two tests in the municipality coverage harness.",
+        "The web scenario factory is covered by the shared canonical-preset equality contract."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Bounds, finiteness, determinism, exact-zero forcing, allocation reconciliation and cumulative burden invariants pass.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "Affected population remains integral and bounded; demand/delivery and local population allocations reconcile.",
+        "Deprived person-hours are event-attributable and non-decreasing; zero-intensity event semantics are retained.",
+        "A bounded or deterministic value is not evidence of local physical calibration."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "Generic municipality-center and seeded-neighbourhood fields do not represent Heumen's sharply different local hazard mechanisms.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E06"],
+      "notes": [
+        "River forcing selects no LIWO candidate, Maas hydrograph, dike/gate state or connected grid.",
+        "The exact same T+24 neighbourhood rank is reused by storm, pluvial, river, coastal-wind, heat, winter, cyber and wildfire-smoke families.",
+        "Local elevations, catchments, rain hotspots, low broek areas, dry forest/heath and source containment do not drive the order."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "warn",
+      "summary": "Service cascades are explicit logical scenarios, not calibrated Liander/Vitens/municipal/water-board/telecom networks.",
+      "evidenceRefs": ["E05", "E07", "E08"],
+      "notes": [
+        "At compound T+24 the modeled availabilities are power 0.424250, water 0.409077, drainage 0.312505, gas 0.522081, telecom 0.165680, mobility 0.689031, facilities 0.498177 and supply 0.364181.",
+        "Public registers identify responsibilities/assets, but not connections, live state, switching, backup, pump curves, generator endurance or restoration teams.",
+        "Road routes are correctly absent from power, water, drainage, gas, telecom and facilities service graphs."
+      ]
+    },
+    "causalTrace": {
+      "status": "pass",
+      "summary": "Hazard, service and system-pressure ledgers reconcile to model output and counterfactual deltas are exact.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "Every reported contribution sums to its modeled target in the focused harness.",
+        "Explanations must add evidence-class and missing-local-driver warnings before numerical traces are operationally interpretable."
+      ]
+    },
+    "recovery72h": {
+      "status": "warn",
+      "summary": "Cumulative burden behaves monotonically, but local recovery/dewatering and resource constraints are not calibrated.",
+      "evidenceRefs": ["E04", "E05", "E07", "E08"],
+      "notes": [
+        "River stress stays 2.327544 from T+12 through T+72; pressure rises from 0.515338 at T+24 to 0.535978 at T+72 and deprived person-hours reach 572,518.649.",
+        "Compound pressure remains 0.603350 at T+48/T+72 with 11,007 affected people-equivalent and 642,021.091 cumulative person-hours at T+72.",
+        "Those numbers are internally reproducible but unsupported as local staffing, pump, route, shelter, care or repair forecasts."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": ["power", "water", "drainage", "gas", "telecom", "mobility", "facilities", "supply"]
+  },
+  "findings": [
+    {
+      "id": "GM0252-DATA-001",
+      "severity": "informational",
+      "category": "identity",
+      "status": "fixed",
+      "summary": "The coherent 2025 identity, demography, neighbourhood, place, settlement and signed-road inputs pass.",
+      "evidence": "E01 and the mandatory context gate reproduce GM0252, Heumen, Gelderland, Gelderland-Zuid, 16,861 residents, nineteen neighbourhoods, four BAG places, fourteen settlements and five signed NWB links. The one-person neighbourhood population difference is rounding.",
+      "action": "Retain the coherent snapshot and exact source editions. Keep all null fields explicit and use the 844-position non-generalized boundary for local intersections."
+    },
+    {
+      "id": "GM0252-FLOOD-001",
+      "severity": "critical",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Real Maas/canal flood eligibility is converted into unsupported exact local magnitude and exposure.",
+      "evidence": "E04–E06 establish a two-to-three-day Maas warning horizon, a high-water keersluis dependency and four contained LIWO primary candidates. The model selects none, yet fixes normalized river stress at 2.327544 from T+12–72, reports 8,917 affected and 149,557.175 person-hours at T+24, and 9,407 affected and 572,518.649 person-hours at T+72.",
+      "action": "Retain real flood eligibility and generic proximity only as a non-operational diagnostic. Suppress decision-facing local percentage, ranks, affected counts, service and recovery precision until an expert-selected LIWO/RWS/WSRL event supplies hydrograph, defence/gate/breach state, connected footprint, units, arrival, duration, recession and NoData."
+    },
+    {
+      "id": "GM0252-PLUVIAL-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The pluvial field ignores documented Malden/Overasselt hotspots, groundwater and drainage controls.",
+      "evidence": "E02/E03 distinguish lower wet broek terrain, southeast Malden water-entry risk at De Schoof, Malden/Overasselt interventions and Maas-responsive groundwater at Craeyenbergh. The generic T+24 pluvial run instead assigns 0.476081 normalized stress, 2,329 affected and one seeded rank with no rain raster, terrain, sewer, groundwater, wadi, pond or control state.",
+      "action": "Integrate the authority-approved municipal climate-stress test or transparent AHN/catchment/rainfall alternative, retaining event, units, resolution, sewer/control assumptions, valid time, licence and NoData. Treat completed works as versioned mitigations, not proof of zero residual risk."
+    },
+    {
+      "id": "GM0252-SPATIAL-001",
+      "severity": "critical",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Eight unrelated hazard families reuse one neighbourhood ranking despite contradictory local geography.",
+      "evidence": "At T+24, severe storm, pluvial, river, coastal-wind, heat, winter, cyber and wildfire-smoke all rank Overasseltse Uiterwaarden first, followed by Overasselt and the east-canal forest area; Molenhoek is last. E02/E03 show mechanism-specific differences among low wet broek/uiterwaard, elevated villages, Malden slopes and dry forest/heath. The repeated order is deterministic allocation, not evidence.",
+      "action": "Replace the shared seed with hazard-specific intersections and make source/perimeter containment, terrain/catchments, fuel/land cover, weather and infrastructure footprints determine local allocation. Until then suppress comparative neighbourhood claims and expose spatial evidence as unsupported."
+    },
+    {
+      "id": "GM0252-FIRE-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The canonical remote-smoke preset does not exercise Heumen's officially recognized forest/heath fire pathway.",
+      "evidence": "E02 describes dry-sensitive Heumensoord conifer forest/heath adjoining Malden, recreation and water-production protection; E04 prioritizes nature fire near vulnerable objects. The canonical Heumen run has zero direct flame, generic smoke 0.297991 at T+24 and zero affected people, while using the same neighbourhood rank as unrelated hazards.",
+      "action": "Keep this canonical run labelled remote smoke only, not a local wildfire assessment. Add a separate named local ignition/perimeter scenario using authoritative combustible-nature geometry, land cover/fuel, drought/moisture, timestamped wind, access, extinguishing-water and suppression assumptions; missing coverage remains Unknown."
+    },
+    {
+      "id": "GM0252-WATERCHAIN-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "Canal, surface-water, sewer and wastewater assets are visible but absent from causal service state.",
+      "evidence": "E05/E07 identify the Heumen high-water gate, two surface-water pumps, four named sewer pumps, nine weirs, two sluices and RWZI Overasselt. Current simulation values do not select their connection, state, power dependency, pump curve, control sequence, overflow, redundancy or operator action.",
+      "action": "Retain HWH objects as official register context only. Obtain authority-reviewed drainage/sewer/RWZI and gate-control dependencies; if unavailable, use the smallest documented scenario graph with generalized capacities, explicit assumptions and sensitivity bands, never inferred live state."
+    },
+    {
+      "id": "GM0252-MOBILITY-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "Road-corridor topology is valid context but insufficient for first-72-hour access and evacuation claims.",
+      "evidence": "E01/E02 show five border links and that Heumen village is bounded by the Maas, canal, A73 and Jan J. Ludenlaan. No station lies inside; fifty scheduled stops do. NDW has no assigned current situation. The model has no bridge/gate passage state, local road elevation, closure, direction, vehicle/person capacity, vulnerable-person pickup, shelter destination or hospital route.",
+      "action": "Keep NWB links restricted to Mobility/Supply and label capacity scenario units. Add event-time NDW and RWS navigation notices, high-water/bridge/gate constraints, full-resolution routes, destination/care/shelter access and multimodal availability. No matched closure is not an open-road assertion."
+    },
+    {
+      "id": "GM0252-UTILITIES-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Provider and congestion context cannot support precise utility failure or restoration curves.",
+      "evidence": "E07 identifies Liander electricity/gas and Vitens water at one reference point and a constrained large-user planning sample, but no feeder, transformer, pressure zone, pipe, interconnection, switching, backup or crew data. Sewer/media provider queries return no match. The model nevertheless emits exact eight-service availabilities and reserves.",
+      "action": "Expose operator/area and NBNL values only as official planning context with dates and scope. Retain logical service scenarios as synthetic, add confidence/sensitivity bands, and require operator-approved aggregated dependencies before claiming local outage, reserve or restoration precision."
+    },
+    {
+      "id": "GM0252-CARE-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Age, school, stop and nearest-hospital context is not a first-72-hour care or shelter capacity model.",
+      "evidence": "E01/E08 show 26.5% age 65+, seven primary schools, fifty scheduled stop areas, no surveyed in-boundary ED and CWZ Nijmegen about 5.006 km straight-line away. None supplies current residents needing assistance, home-care rounds, ambulance travel/acceptance, hospital load, school shelter designation, accessible transport, staffing, fuel, beds or supplies.",
+      "action": "Build a privacy-preserving aggregate vulnerable-population and response-resource layer with authority-provided capacity/status feeds where releasable. Keep facilities Unknown until selected, and never convert proximity or building registration into operating capacity."
+    },
+    {
+      "id": "GM0252-OBSERVATION-001",
+      "severity": "medium",
+      "category": "limitation",
+      "status": "accepted-limitation",
+      "summary": "Useful current observations are time/point bounded and have material 72-hour gaps.",
+      "evidence": "E05/E08 provide two Waterinfo point levels, Mook forecasts only through T+24, a nearest KNMI station 14.72 km away, a 48-hour province warning, no assigned NDW situation, an off-site air station and no in-boundary 365-day seismic event. Every source is context-only and affectsSimulation=false.",
+      "action": "Show publisher, observation/valid/retrieval time, coverage, age, licence, quality flag and affectsSimulation beside each layer. Preserve missing T+48/T+72 and no-match states as Unknown; require explicit assimilation and scenario mapping before causal use."
+    },
+    {
+      "id": "GM0252-COAST-001",
+      "severity": "medium",
+      "category": "limitation",
+      "status": "accepted-limitation",
+      "summary": "Zero direct open-coast inundation is reasonable only for the narrowly named North Sea mechanism.",
+      "evidence": "The coastal preset has zero direct inundation at every checkpoint but 16.540736 m/s synthetic wind and small service burden. Heumen is inland; however, E02–E06 document distinct Maas, canal, groundwater, pluvial and control pathways.",
+      "action": "Retain the direct open-coast zero with explicit mechanism/scope. Do not render it as no flood risk, no wind impact or a municipality all-clear, and keep river/canal/pluvial/groundwater effects separate."
+    },
+    {
+      "id": "GM0252-RECOVERY-001",
+      "severity": "high",
+      "category": "explainability",
+      "status": "open",
+      "summary": "Reproducible 72-hour burdens lack local dewatering, access, staffing and resource evidence.",
+      "evidence": "River person-hours grow to 572,518.649 and compound person-hours to 642,021.091 by T+72. These values reconcile internally, but E04–E08 provide no selected flood duration/recession, pump/gate operation, electricity backup, road access, care acceptance, crew, fuel, stock or mutual-aid state to validate them.",
+      "action": "Keep cumulative burdens labelled scenario estimates. Gate recovery on selected event recession and explicit resource states; report ranges and unmet dependencies, and withhold local restoration timing where inputs are unavailable."
+    },
+    {
+      "id": "GM0252-CONTRACT-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "Determinism, zero-event, causal-ledger and exact reconciliation contracts pass.",
+      "evidence": "The focused matrix passed all ten presets, six checkpoints and eight services. Hazard and pressure ledgers reconcile, counterfactuals are exact, event-attributable burden is monotonic, local demand/delivery sums match, and physical hazard is invariant to the selected display service.",
+      "action": "Retain these regression contracts while adding evidence-state, mechanism-specific spatial and NoData tests for GM0252."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Gate Heumen river output on an expert-selected Maas/Maas-Waalkanaal/defence event instead of the generic center-distance scalar.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Smallest safe correction: mark GM0252 direct river magnitude, neighbourhood ranks, affected counts and downstream service/recovery precision unsupported/Unknown unless a selected event is present; retain generic proximity only as a diagnostic and do not suppress real Maas/canal eligibility. Durable integration uses LIWO 2025.1.6 OGC/API and RWS/WSRL inputs with source water, hydrograph, candidate/breach/defence/gate state, connected depth/stress/arrival/duration/recession, native CRS/resolution/units/NoData, probability, licence, retrieval and expert approval. Assert transparent cells remain Unknown and rerun focused/national/browser gates."
+    },
+    {
+      "summary": "Replace shared neighbourhood seeding with source-specific pluvial and hazard allocation.",
+      "files": [
+        "scripts/fetch-realism-data.mjs (or dedicated Heumen climate/hydraulic adapter)",
+        "apps/web/public/data/regions/GM0252.json.gz",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts"
+      ],
+      "validation": "Request the current municipal/WSRL stress-test raster and metadata. If no reusable raster exists, derive only a transparent screening layer from AHN, named rainfall, catchments and documented controls. Preserve event, design year, rainfall, sewer/groundwater assumptions, completed-intervention vintage, resolution, licence and NoData. Tests must make De Schoof/Craeyenbergh and low broek/uiterwaard behavior mechanism-dependent and prove unrelated hazard ranks are not identical by construction."
+    },
+    {
+      "summary": "Add a separately named Heumensoord/vennen nature-fire scenario rather than treating remote smoke as local fire coverage.",
+      "files": [
+        "scripts/fetch-realism-data.mjs (or dedicated nature-fire adapter)",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Intersect full GM0252/neighbourhood geometry with the official IPO combustible-nature and current TOP10NL/authority land-cover products, then require a named ignition/perimeter, fuel/moisture or explicit synthetic band, valid-time KNMI wind, access, extinguishing water and suppression assumptions. Store publisher, version, effective/retrieval time, coverage, resolution, licence and NoData. Verify source containment governs direct flame while smoke remains a separate wider field."
+    },
+    {
+      "summary": "Represent the Heumen water chain and access constraints without converting public registers into live topology.",
+      "files": [
+        "scripts/fetch-water-assets.mjs",
+        "apps/web/public/data/public-context/water-assets.geojson.gz",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts"
+      ],
+      "validation": "Retain the eighteen HWH points as affectsSimulation=false register context. With RWS/WSRL/municipal review, add only approved gate, surface-water, sewer-pump and RWZI dependencies and generalized scenario bands; otherwise expose an explicitly synthetic minimal graph. Tests must prove register presence/status/capacity never becomes current operation, missing capacity remains Unknown and loss of power/access can affect only documented dependencies."
+    },
+    {
+      "summary": "Build first-72-hour mobility, evacuation and care access from event-time constraints and declared resources.",
+      "files": [
+        "scripts/fetch-ndw-situations.mjs",
+        "apps/web/public/data/public-context/ndw-road-situations.geojson.gz",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/components/OperationsBrief.tsx"
+      ],
+      "validation": "Keep A73/N324/N271 Mobility/Supply-only and nominal capacities synthetic. Add scenario-time RWS navigation/keersluis notices, NDW matching, local road/bridge elevation, destinations, care acceptance, accessible transport and explicit resource timestamps. Exercise the two-to-three-day Maas readiness window at T+0/6/12/24/48/72, distinguish shelter-in-place from staged evacuation and assert no-match never renders open/available."
+    },
+    {
+      "summary": "Make every public layer and decision output preserve evidence class, time, coverage, licence and Unknown semantics.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/MapView.tsx",
+        "apps/web/src/components/OperationsBrief.tsx",
+        "docs/PUBLIC_DATA_INTEGRATION.md"
+      ],
+      "validation": "Expose publisher, source/layer/scenario ID, version, observation/valid/retrieval time, spatial/temporal coverage, cadence, licence, NoData and affectsSimulation. Browser tests must distinguish observed Waterinfo, forecast horizons, issued 48-hour warning, official plan/register, modeled scenario and synthetic proxy; unavailable T+48/T+72 forecasts, null district heat/charging, no provider record, no local ED/station/NDW match and unassigned points must display Unknown rather than 0/open/safe."
+    }
+  ],
+  "residualLimitations": [
+    "No authority-approved GM0252 LIWO consequence grid, event hydrograph, defence/breach/overtopping/gate state, arrival, duration or recession mapping is ingested; normalized inundation stress is not measured local depth.",
+    "The municipal project pages identify local water mechanisms but do not expose a complete reusable pluvial/sewer/groundwater raster, API, licence, telemetry or current operational state.",
+    "The generated overview boundary is suitable for selection/aggregation only; the 844-position annual non-generalized geometry is required for hydraulic, nature, road and asset intersection.",
+    "Public HWH, provider, NBNL, RDI, DUO and RIVM records are context registers or planning snapshots, not physical connectivity, live availability, capacity, backup, staffing, supplies or restoration.",
+    "Sensitive electricity, gas, drinking-water, telecom, sewer, care and emergency-logistics topology is unavailable or inappropriate to publish; any fallback must be minimal, aggregate and explicitly synthetic.",
+    "Waterinfo point observations/forecasts, KNMI warnings/stations, NDW situations, air quality and seismic events have bounded temporal/spatial coverage. NoData and no-match cannot be extrapolated through T+72.",
+    "Facility and population registers cannot identify incident-time occupancy, visitors/recreation, assistance needs, privacy-sensitive home-care clients or transient Four Days Marches exposure.",
+    "LIWO products require specialist scenario selection and layer-specific licence/NoData review; candidate markers are not current breaches or predictions."
+  ],
+  "provinceReviewFlags": [
+    "Gelderland/VRGZ/Rijkswaterstaat/Waterschap Rivierenland: review all Maas and Maas-Waalkanaal municipalities against connected, expert-selected LIWO cases and control structures; proximity scalars cannot publish exact local exposure.",
+    "Heumen/WSRL: provide or authorize the current pluvial, sewer and groundwater stress-test products with event, controls, intervention vintage, resolution, units, licence and NoData.",
+    "Gelderland nature-fire programme/VRGZ: prioritize Heumensoord and the Overasseltse/Hatertse Vennen interface for an approved ignition/perimeter, fuel, weather, access, water-supply and vulnerable-object scenario.",
+    "Regional mobility/GHOR review: assess A73/N324/N271, canal/gate/bridge constraints, no in-boundary station, village isolation, accessible evacuation and Nijmegen acute-care routes across the two-to-three-day Maas warning horizon.",
+    "Liander/Vitens/municipality/water board: only approve aggregated dependencies, backups and restoration bands suitable for publication; keep protected or unknown topology out of the public map.",
+    "Programme-wide release gate: identical cross-hazard neighbourhood ranks, unsupported local flood precision and Unknown-to-zero/open/safe coercion require suppression and regression tests."
+  ]
+}

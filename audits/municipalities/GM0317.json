@@ -1,0 +1,567 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0317",
+    "name": "Eemnes",
+    "province": "Utrecht",
+    "safetyRegion": "Utrecht"
+  },
+  "agent": {
+    "taskName": "municipality_gm0317",
+    "agentId": "/root/causal_engine_v3",
+    "completedAt": "2026-09-02T23:24:11Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "GM0317 passes the deterministic execution contract for all ten canonical scenarios, T+0/6/12/24/48/72 and all eight essential services. Its 2025 CBS identity, generalized boundary, 9,927 residents, ten neighbourhoods, one BAG place and first-72-hour arithmetic are coherent. The current engine also correctly restricts six raw NWB road links to Mobility and road logistics/Supply: all 42 live wvkId lookups resolve to the generated A1, A27 or N414 physical road, and the one repeated A1 section is used on consecutive series edges rather than as parallel capacity. Release is nevertheless correction-required. Nine nonzero hazard presets use one exact ten-neighbourhood ranking, and a controlled fire source physically inside Heidehoek ranks that source neighbourhood only sixth. The Rhine/Meuse/IJssel preset holds 0.541003 internal flood stress through T+72 and reports 1,883 residents under pressure without selecting Eem, Eemmeer/Randmeren, Eempolder, a defence condition, connected footprint, arrival, duration, recession or pump state. That is material because the current VRU profile explicitly names storm-driven Randmeren flooding, the water board names Tydeman, Eemnes and Maatpolder pumping stations, and the deployed public-register intersection contains 73 Eemnes water-control/wastewater objects. Province Utrecht's public climate service also supplies local 74 mm/hour rain, flood-probability, drought and urban-heat rasters; point samples differ sharply and include NoData, yet none governs the local allocation. At T+24 to T+72 the compound run freezes all eight service availabilities, pressure and 6,541 affected residents without event-specific resource or restoration evidence. Public official data can materially improve context and scenario selection, but observations, registers and planning layers must remain separate from simulated T+72 state; no feature or NoData never means zero or safe.",
+  "provinceReviewFlags": [
+    "Municipality-specific release blocker GM0317-SPATIAL-001: nine unrelated hazard families reuse one exact ten-neighbourhood order and Eemnes has no municipality-specific unsupported-result guard.",
+    "Municipality-specific release blocker GM0317-FLOOD-001: the generic Rhine/Meuse/IJssel screen sustains 0.541003 flood stress through T+72 without selecting Eem, Eemmeer/Randmeren, Eempolder or a defence/pump event.",
+    "Municipality-specific release blocker GM0317-PLUVIAL-001: public Province Utrecht/Vallei en Veluwe 74 mm/hour pixels range from NoData to 0.255502 m at tested neighbourhood interior points but are not consumed by the model.",
+    "Municipality-specific release blocker GM0317-FIRE-001: a controlled source inside Heidehoek ranks its containing neighbourhood sixth; the current IPO public polygon service returns no combustible-nature polygon intersecting GM0317, which remains incomplete eligibility context rather than proof of no fire.",
+    "Municipality-specific release blocker GM0317-WATERCHAIN-001: 73 registered water-control/wastewater points and named Eemland pumping assets are displayed only as context; exact connectivity, compatible capacities, power/backup and live control state remain unavailable.",
+    "Municipality-specific release blocker GM0317-RECOVERY-001: compound T+24 and T+72 retain identical pressure, affected count and all eight availability values without a selected event, access state or resource/action ledger.",
+    "Municipality-specific continuity gap: Eemnes has no in-boundary railway station or RIVM emergency department, making A1/A27/N414, scheduled bus and external Tergooi/Meander access material but unresolved at scenario time.",
+    "Shared/national correction confirmed: unqualified NWB geometry now affects only Mobility and road logistics/Supply and does not masquerade as power, water, drainage, gas, telecom or facility topology.",
+    "Shared/national: replace centre-distance water fields and common neighbourhood hashes with selected hazard-specific surfaces, typed coverage/NoData and visible unsupported states.",
+    "Shared/national: static registers, provider territories, plans and current observations do not prove topology, operation, capacity, damage, recovery or forecast state; unavailable secure utility detail must remain Unknown or explicitly synthetic."
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM0317, Eemnes, province Utrecht and safety region Utrecht are internally and officially coherent.",
+      "evidenceRefs": [
+        "E01",
+        "E02",
+        "E06"
+      ],
+      "notes": [
+        "Generated feature id, bundle code/name, province, boundary/statistics edition and safety-region assignment agree.",
+        "Reference point [5.277107145251777, 52.25214500783759] lies inside the generalized 2025 municipality geometry.",
+        "The official CBS row contains 9,927 residents, density 320 residents per square kilometre, 2,264 residents aged 65 or older and 1,348 one-person households; the generated 22.8 percent age-65 share is consistent after division/rounding.",
+        "No identity, province or response-region defect was found."
+      ]
+    },
+    "geography": {
+      "status": "warn",
+      "summary": "The generalized municipality and ten-neighbourhood geometry is coherent, but it cannot substitute for Eemmeer, Eempolder, drainage-catchment, defence, fire-eligibility or utility geometry.",
+      "evidenceRefs": [
+        "E02",
+        "E03",
+        "E04",
+        "E05",
+        "E06",
+        "E08"
+      ],
+      "notes": [
+        "BoundaryEdition and statisticsEdition both equal 2025; the reference point and one BAG woonplaats named Eemnes are coherent with GM0317.",
+        "Eemmeer-Eemnes, Eempolder, Polder te Veen, Goyergracht and the dense village neighbourhoods have materially different land/water, terrain and managed-water contexts that a municipality centroid and shared hash do not preserve.",
+        "Province Utrecht raster point tests show spatially variable pluvial depth, flood-probability, drought and urban-heat values, including NoData. Point samples are evidence of heterogeneity, not neighbourhood averages or a selected incident.",
+        "Administrative polygons, water-control points, road sections, provider territories, risk areas and incident footprints retain separate provenance and cannot be conflated."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Headline population and aggregate vulnerability inputs agree with CBS 2025 and neighbourhood totals reconcile within publication rounding.",
+      "evidenceRefs": [
+        "E01"
+      ],
+      "notes": [
+        "Ten independently rounded neighbourhood rows sum to 9,925 residents, two below the municipality total, a -0.02 percent difference; they sum to 4,315 households and 2,270 residents aged 65 or older.",
+        "Largest neighbourhoods are Noordbuurt 4,160, Zuidbuurt 4,130, Wakkerendijk-Meentweg 680 and Eemnes-Dorp 525. Eemmeer-Eemnes has an official zero resident count while retaining one home, two non-residential buildings and geographic relevance.",
+        "Local allocation reconciles the official municipality population to 9,927 by transparent rounding; for example Noordbuurt receives 4,161 modeled residents. The adjusted count is a model allocation, not a revised CBS observation.",
+        "Age, household form, car ownership, density and GP/supermarket distance can support aggregate service-demand context but are not individual medical dependence, present location, preparedness or emergency priority."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "Ten neighbourhoods provide useful demographic and activity context, but field gaps and a hazard-independent allocator prevent operational prioritization.",
+      "evidenceRefs": [
+        "E01",
+        "E02",
+        "E03",
+        "E04",
+        "E08"
+      ],
+      "notes": [
+        "Population, age, household, business, car, home, non-residential building, land/water and broad demographic fields cover all ten neighbourhoods. Density, GP and supermarket distance cover 8/10; household size 9/10; benefits, home value and housing-form/tenure shares 7/10; cars per household 5/10.",
+        "District-heating share and public-charging count cover 0/10 and correctly remain null. Missing, suppressed, NoData and not-applicable values are not converted to zero.",
+        "Eemnes-Dorp has 210 published residents aged 65 or older among 525 and supplies a material aggregate vulnerability signal; that does not validate its first-place exposure rank for every hazard.",
+        "Compound T+24 local population, affected population and all eight service demand/delivery totals reconcile, while all nine nonzero hazard maps retain one exact neighbourhood order."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "One official BAG place and one BRT woonkern label are proportionate to the compact single-town municipality.",
+      "evidenceRefs": [
+        "E02"
+      ],
+      "notes": [
+        "The BAG place and BRT settlement label are both Eemnes; no independently named second residential core is fabricated.",
+        "The ten CBS neighbourhoods preserve Eembrugge, Eemmeer-Eemnes, Eempolder and rural strips as statistical/geographic subdivisions without promoting them to separate BAG places.",
+        "Place and settlement labels are geographic context, not population totals, evacuation zones, shelters or service districts."
+      ]
+    },
+    "transport": {
+      "status": "warn",
+      "summary": "The current A1/A27/N414 physical-road identities and service scope are coherent, but static road geometry does not establish incident-time access or external-care continuity.",
+      "evidenceRefs": [
+        "E02",
+        "E05",
+        "E06",
+        "E08"
+      ],
+      "notes": [
+        "Six generated logical links connect Eemnes to Baarn, Blaricum and Laren via A1, A27 and N414. Each of the 42 unique/live section queries returned its expected primary wegnummer; none is assigned to a differently numbered physical corridor.",
+        "NWB-600128597 has primary wegnummer 001 and A/E route letters and occurs on the Baarn-Eemnes and Eemnes-Laren A1 edges. Those are consecutive series continuations around knooppunt Eemnes, not additive parallel A1 capacity.",
+        "The current engine includes all six road links for Mobility and Supply and zero for power, water, drainage, gas, telecom and facilities. This correctly treats NWB as road connectivity rather than utility topology.",
+        "No ProRail station lies inside GM0317; the deployment includes 24 scheduled transit stop-area records. Static NWB, ProRail and GTFS data do not establish a road open, bus operating, evacuation throughput, repair travel or ambulance route at T+0–72.",
+        "The deployed NDW snapshot contains no point assigned inside Eemnes. No current record means coverage-limited no-match, never that A1, A27, N414 or local approaches are open now or through T+72."
+      ]
+    },
+    "emergencyContext": {
+      "status": "warn",
+      "summary": "Strong public water, provider, telecom, school, government and external-care context exists, but complete topology, incident state and response resources do not.",
+      "evidenceRefs": [
+        "E04",
+        "E05",
+        "E06",
+        "E07",
+        "E08"
+      ],
+      "notes": [
+        "Exact point-in-polygon checks find 73 deployed HWH objects: one sewer pump, twelve surface-water pumps, 59 weirs and Eemnessersluis. Named records include Tydeman, Eemnes, Maatpolder, Zuidpolder and a pump at A27; these remain non-causal register context.",
+        "Mijn Aansluiting identifies Stedin for electricity/gas, Vitens for drinking water and Ziggo for media at the municipality reference point; drainage returns no provider feature. Territories identify responsibility, not complete coverage, physical connectivity, live state or restoration.",
+        "The deployment contains one NBNL Baarn-area planning sample, 27 RDI antenna-installation records of which twelve are marked mobile communication and eight fixed link, nine DUO education locations and four KVK governmental-service records. None establishes coverage, occupancy, criticality, backup or incident capacity.",
+        "RIVM contains no in-boundary emergency department. Nearest deployment records are Tergooi MC at 6.66 km, Meander at 11.03 km and Flevoziekenhuis at 13.52 km from the municipality reference point; straight-line distance does not prove route, acceptance or capacity.",
+        "No authorized complete feeder, pressure-zone, sewer-catchment/RWZI, telecom-backhaul, hospital-route, pharmacy/food/fuel stock, priority-customer, crew, vehicle, pump-control, backup or restoration dataset is loaded or inferred."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [
+      0,
+      6,
+      12,
+      24,
+      48,
+      72
+    ],
+    "services": [
+      "power",
+      "water",
+      "drainage",
+      "gas",
+      "telecom",
+      "mobility",
+      "facilities",
+      "supply"
+    ]
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "warn",
+      "summary": "All ten presets execute at six required checkpoints for all eight services, but deterministic completion is not Eemnes calibration.",
+      "evidenceRefs": [
+        "E03",
+        "E04",
+        "E05",
+        "E06",
+        "E07",
+        "E08"
+      ],
+      "notes": [
+        "Peak municipality severities are storm 0.535859, pluvial 0.466858, river 0.167434, coastal 0.065853, heat 0.576199, winter 0.439524, cyber 0.567004, earthquake 0.034329, wildfire 0.158516 and compound 0.901752.",
+        "At T+24, pressure/affected values are storm 0.314215/2,437, pluvial 0.309356/2,369, river 0.261515/1,699, coastal 0.120304/0, heat 0.195979/783, winter 0.322583/2,553, cyber 0.377092/3,316, earthquake 0.074109/0, wildfire 0.175131/491 and compound 0.607703/6,541.",
+        "Compound T+24 has 50.864659 mm/h rain, 0.426484 internal flood stress, 26.864765 m/s wind, cyber disruption 0.497431 and current severity 0.889980. At T+72 its current severity is 0.412598 while pressure and affected residents are unchanged; unsupportedDimensions is empty despite unvalidated local allocation.",
+        "River stress/severity remain 0.541003/0.167434 through T+24–72. Coastal direct flood stress is exactly zero while a generic wind component reaches 20.487751 m/s at T+24; this narrow result does not evaluate Randmeren wind set-up, defence, local water or indirect evacuation traffic.",
+        "Canonical wildfire produces zero local direct flame at T+24 and represents transported smoke/drought; the Groningen-centred earthquake produces no current shaking by T+24. Those scoped zeros are not all-clears for another local source or mechanism.",
+        "All weather, flood, fire, seismic and cyber values are deterministic exercise assumptions, not observations, probabilities, warnings, attack intelligence, outages or forecasts."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Finite bounds, determinism, exact no-event behavior, cumulative burden, route limits, local reconciliation and layer invariance pass on the current snapshot.",
+      "evidenceRefs": [],
+      "notes": [
+        "MUNICIPALITY_AUDIT_CODE=GM0317 pnpm audit:model passed two focused tests across 10 presets × 6 checkpoints × 8 services in 36.74 seconds, with 36.54 seconds test execution.",
+        "Every zero-intensity preset produced exactly zero current severity, peak severity, affected population and event-attributable essential-service person-hours at every checkpoint.",
+        "Repeated frames are deterministic; values are finite and bounded; cumulative person-hours are monotonic; route flow stays within effective logical capacity; all eight municipal service weights participate and sum to one.",
+        "T+24 local allocation reconciles population, affected population and all eight demand/delivery balances. Maximum observed floating-point discrepancy is 1.7763568394002505e-15.",
+        "Changing among all eleven map layers leaves hazard, municipal pressure and affected population invariant."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "One shared neighbourhood hash and unselected water screens conflict with Eemnes's published rain, flood, managed-water, heat/drought and source-containment geography.",
+      "evidenceRefs": [
+        "E02",
+        "E03",
+        "E04",
+        "E05",
+        "E06",
+        "E08"
+      ],
+      "notes": [
+        "packages/sim-core/src/model.ts:4169 derives hazardSeed only from city seed, scenario seed and region id. Hazard family, source containment, terrain, land cover and selected hazard surface are absent. Severe storm, pluvial, river, coastal, heat, winter, cyber, wildfire and compound consequently share one exact ten-neighbourhood order.",
+        "The shared order begins Eemnes-Dorp, Eemmeer-Eemnes, Noordbuurt and Eempolder. It ranks the zero-resident water-oriented Eemmeer-Eemnes second for every nonzero hazard, including cyber, winter and heat, showing the order is not a validated exposure surface.",
+        "E03 point samples instead show pluvial depth 0.255502 m in Eemnes-Dorp, 0.058906 m in Noordbuurt, 0.000904 m in Zuidbuurt and 0.000256 m in Wakkerendijk-Meentweg, with NoData/no returned pixel in five rural/water neighbourhoods. Drought and UHI samples have a different pattern again.",
+        "A controlled source [5.226038626212821, 52.225708480879725] lies inside BU03170216 Heidehoek. At T+24 the model produces fire 0.468506, smoke 0.529227 and severity 0.498779, yet Heidehoek ranks sixth at 0.459732 while Eemnes-Dorp ranks first at 0.583097.",
+        "The current IPO WFS returns no combustible-nature polygon intersecting GM0317. That is eligibility-layer coverage/no-match, not proof that no local vegetation or roadside fire can occur; it does mean a user-defined Heidehoek direct-fire source is not supported by that public layer.",
+        "GM0317 has no municipality-specific unsupported-spatial note, so the browser renders precise local ranks and water/service numbers without an Eemnes-specific audit warning."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "warn",
+      "summary": "All eight service balances and dependency ledgers are inspectable, but their exact Eemnes magnitudes lack reviewed local topology, live asset state and continuity evidence.",
+      "evidenceRefs": [
+        "E04",
+        "E05",
+        "E06",
+        "E07",
+        "E08"
+      ],
+      "notes": [
+        "Current source applicability yields six Eemnes NWB snapshots for Mobility and the same six for Supply, and zero for power, water, drainage, gas, telecom and facilities. This national semantic safeguard is correct.",
+        "River T+24 availability is power 0.776869, water 0.744723, drainage 0.656725, gas 0.838942, telecom 0.718609, mobility 0.843335, facilities 0.789576 and supply 0.507697. At T+72 facilities alone falls further to 0.695938 while the unselected flood field persists.",
+        "Compound T+24 availability is power 0.394344, water 0.339334, drainage 0.260209, gas 0.577041, telecom 0.272376, mobility 0.800890, facilities 0.350593 and supply 0.164911. These are generic scenario/dependency outputs, not operator estimates.",
+        "Official sources support plausible dependency directions among electricity, telecom, Vitens water, surface-water/sewer pumping, A1/A27 access, external acute care and emergency supply; none calibrates the exact demands, deliveries, reserves, backups, damage, queueing or restoration values.",
+        "The graph contains no named Stedin feeder/gas zone, Vitens pressure area, telecom backhaul, sewer-pump/catchment/receiving-RWZI chain, hospital acceptance route, shelter role, food/fuel depot or crew base. Unavailable authorized or security-sensitive topology remains Unknown.",
+        "NWB mobility/supply snapshots are explicit logical transfer proxies. Their nominal capacities are scenario ceilings, not measured road or logistics throughput."
+      ]
+    },
+    "causalTrace": {
+      "status": "pass",
+      "summary": "Hazard, service and municipal ledgers close arithmetically and expose evidence class, dependency order, operational assumptions and counterfactual scope.",
+      "evidenceRefs": [
+        "E03",
+        "E04",
+        "E05",
+        "E06",
+        "E07",
+        "E08"
+      ],
+      "notes": [
+        "Hazard contributions sum to headline severity; every service baseline plus exact-stage deltas sums to availability; weighted service shortfalls sum to municipal pressure.",
+        "System-pressure weights are power 0.18, water 0.15, drainage 0.08, gas 0.09, telecom 0.12, mobility 0.12, facilities 0.14 and supply 0.12, totaling one.",
+        "Dependency chains, local-context factors, drivers, recovery progress and restore-service counterfactual deltas are finite and arithmetically closed.",
+        "Household preparedness changes modeled people/supply consequences rather than physical fragility. Day type, start clock, demand, backup, network and repair multipliers are normalized and labeled scenario assumptions; interventions are response-delayed and do not masquerade as actual Eemnes crews or assets.",
+        "Event-attributable essential-service person-hours integrate weighted unmet-service pressure relative to a matched no-event baseline before intermunicipal transfers and apply a preparedness multiplier. They are a modeled pre-transfer burden proxy, not observed outage-hours, casualties, displacement or welfare loss.",
+        "Arithmetic explainability does not validate the spatial hash, water event, service topology or recovery calibration identified in the open findings."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "Recovery guards are numerically coherent, but Eemnes's precise sustained-water and compound trajectories have no selected event, asset state, access condition or response-resource evidence.",
+      "evidenceRefs": [
+        "E03",
+        "E04",
+        "E05",
+        "E06",
+        "E07",
+        "E08"
+      ],
+      "notes": [
+        "Canonical river flood stress/severity remain 0.541003/0.167434 from T+24 through T+72. Pressure rises 0.261515 to 0.274624, affected population rises 1,699 to 1,883 and cumulative proxy person-hours rise 34,774.27 to 141,988.45, without a selected Eem/Eemmeer level, defence state, arrival, recession or pump operation.",
+        "Compound severity falls from 0.889980 at T+24 to 0.412598 at T+72 while pressure stays exactly 0.607703, affected residents stay 6,541 and every service availability is identical. No event-specific dewatering, access, backup, crew, material, mutual-aid or restoration schedule supports that plateau.",
+        "The VRU profile treats flood, nature fire, energy disruption and extreme-weather access as potentially prolonged/capacity-intensive crises. It supplies mechanism and planning context, not Eemnes resource counts or permission to freeze an arbitrary deterministic trajectory.",
+        "Headless Chromium at 1440×1000 selected Eemnes and the river preset, moved to T+72, traversed all eleven map layers and reported no page, console or local HTTP errors. It displayed 36 percent inundation stress, about 1.9K residents under pressure and exact service states, while no Eemnes-specific unsupported warning appeared.",
+        "Rendering and generic evidence-class labels do not validate physical magnitude, timing or restoration. Until selected source/resource evidence exists, treat the trajectory as a sensitivity exercise only."
+      ]
+    }
+  },
+  "corrections": [
+    {
+      "summary": "Mark all nine GM0317 hazard families unsupported and require an Eemnes-specific selected flood mechanism before operational display.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/src/components/Inspector.tsx",
+        "tests/e2e/app.spec.ts",
+        "audits/correction-ledger.json"
+      ],
+      "validation": "Smallest safe correction: add audited GM0317 unsupported notes for all nine hazard families, retain the 0.541003 major-river amplitude only as a non-operational diagnostic, keep direct coastal water zero narrowly scoped, and grey local affected/service numbers. Durable integration must select a versioned Eem/Eemmeer/Randmeren/Eempolder/defence event with connected depth, probability or boundary condition, arrival, duration, recession, units, resolution, licence and NoData. Run unit, focused GM0317, national ALL and browser Unknown/evidence tests."
+    },
+    {
+      "summary": "Replace the common Eemnes neighbourhood hash with hazard-specific Province Utrecht, water-manager and source-aware geometry.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/data.ts",
+        "apps/web/src/components/MapView.tsx",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/public/data/hazards/eemnes-context.json"
+      ],
+      "validation": "Ingest the public Province Utrecht/Vallei en Veluwe 74 mm/hour rain raster and relevant flood/drought/UHI layers with layer edition, units, spatial reference, resolution, catalogue licence and typed NoData. Keep them official planning/context evidence until an expert binds a scenario. Require different hazards to produce evidence-based independent ranks, direct-fire allocation to respect selected source/perimeter and eligible fuel, and no pixel/NoData to remain Unknown rather than zero."
+    },
+    {
+      "summary": "Represent the Eemnes managed-water chain without converting the public asset register into operational topology or state.",
+      "files": [
+        "apps/web/src/data.ts",
+        "apps/web/src/components/MapView.tsx",
+        "apps/web/src/components/Inspector.tsx",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts"
+      ],
+      "validation": "Retain HWH IMWA/DAMO and named water-board assets as CC BY-SA display context with exact record timestamp, asset type, function, value/unit and coverage. Obtain owner-authorized GWSW/native connectivity and security-reviewed pump, gate, power/backup and control state before causal use. Test that null capacity, numeric zero, register status, no feature and current operation remain distinct and none automatically changes water/drainage availability."
+    },
+    {
+      "summary": "Add event-valid A1/A27/N414, scheduled transit and external-care continuity evidence while preserving the NWB semantic safeguard.",
+      "files": [
+        "apps/web/src/data.ts",
+        "apps/web/src/components/Inspector.tsx",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "tests/e2e/app.spec.ts"
+      ],
+      "validation": "Keep NWB limited to Mobility and road logistics/Supply and preserve exact wvkId/wegnummer provenance. Join explicitly time-aligned NDW/GTFS and reviewed emergency-access/acute-care assumptions without inferring open roads or hospital acceptance from absence of a record. Show external-care dependence and unknown route/acceptance state; never apply a current observation to arbitrary T+72."
+    },
+    {
+      "summary": "Make first-72-hour recovery contingent on selected event and auditable resource/action assumptions.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Expose pump/dewatering, access, backup endurance, dispatch, crew/material, shelter/supply and mutual-aid inputs as bounded scenario assumptions with start, ramp and capacity. If inputs are absent, label precise recovery as unsupported instead of implying an Eemnes plan. Assert no unqualified frozen T+24–72 plateau is presented as operational evidence and all actions remain time-gated."
+    }
+  ],
+  "residualLimitations": [
+    "This is a deterministic planning-model audit, not validation against an observed Eemnes disaster, outage, evacuation, casualty, health, welfare or restoration dataset.",
+    "The CBS 2025 generalized boundary supports municipal aggregation but not parcel hydraulics, Eempolder compartments, drainage catchments, defence zones, asset ownership, provider zones, road approaches or incident perimeters.",
+    "Province Utrecht raster identify values are point samples from planning/model layers, not neighbourhood statistics, observations, warnings or T+72 forecasts; each layer's edition, legend, units, NoData and licence must be retained before ingestion.",
+    "The VRU 2023 profile supplies regional mechanisms and capacity concerns, not current Eemnes forcing, local probabilities, resource inventories or restoration promises.",
+    "Rijkswaterstaat's 2014 VNK2 Eempolder report is historical risk-analysis context and cannot validate current defence condition or the model's 2026 deterministic depth.",
+    "HWH IMWA/DAMO is partial provider-supplied inventory; point count, function, capacity field and 'gerealiseerd' status do not establish compatible units, connectivity, direction, operation, power/backup or service delivery.",
+    "NWB/ProRail/GTFS and a no-match NDW snapshot do not provide complete internal-road, bus, evacuation, ambulance, repair-access or future passability state.",
+    "Provider/capacity/antenna/school/government/care records are partial dated context, not complete topology, current load, coverage, occupancy, criticality, backup, stock, access or restoration commitment.",
+    "No reviewed safe public source supplies complete Stedin, Vitens, municipal sewer/treatment, gas, telecom/backhaul, facility, food/fuel or emergency-resource topology/state; security-sensitive detail was not inferred.",
+    "First-72-hour household behavior, medically dependent residents, commuters/visitors, responders, mutual aid, shelters, buses, pharmacies, fuel/food stocks, pump controls, crew travel and repair priorities remain scenario assumptions or Unknown."
+  ],
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek",
+      "title": "Kerncijfers wijken en buurten 2025 — filtered rows for GM0317",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM0317%27%29&%24select=WijkenEnBuurten%2CGemeentenaam_1%2CAantalInwoners_5%2CBevolkingsdichtheid_34%2Ck_65JaarOfOuder_12%2CEenpersoonshuishoudens_30",
+      "accessedAt": "2026-09-02T23:24:11Z",
+      "edition": 2025,
+      "supports": [
+        "Official-context identity and totals: GM0317 Eemnes, 9,927 residents, density 320, 2,264 residents aged 65 or older and 1,348 one-person households.",
+        "The integration-ready national OData table is an annual statistical release under CC BY 4.0. Padded codes/names and independently rounded neighbourhood values require normalization/reconciliation; suppressed, unknown and not-applicable values remain null rather than zero.",
+        "CBS aggregates can support transparent vulnerability and service-demand context, but do not identify individual medical dependence, visitors, workers, current location, household preparedness or live emergency need."
+      ]
+    },
+    {
+      "publisher": "PDOK / CBS / Kadaster / Rijkswaterstaat / ProRail",
+      "title": "Gemeente and buurt gegeneraliseerd 2025 with BAG, BRT TOP10NL, NWB and railway context",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_gegeneraliseerd/items?f=json&limit=1000&datetime=2025-07-01T00%3A00%3A00Z",
+      "accessedAt": "2026-09-02T23:24:11Z",
+      "edition": "CBS/BAG 2025; NWB archive 1 August 2026 and live section queries 2 September 2026",
+      "supports": [
+        "Integration-ready annual CC BY 4.0 municipality/neighbourhood OGC collections establish the generalized administrative geometry. BAG place access is https://api.pdok.nl/kadaster/bag/ogc/v2/collections/woonplaats under Public Domain Mark 1.0; BRT OGC is annual CC BY 4.0 topographic context.",
+        "NWB WFS https://service.pdok.nl/rws/nationaal-wegenbestand-wegen/wfs/v1_0 and OGC API https://api.pdok.nl/rws/nationaal-wegenbestand-wegen/ogc/v1 provide national monthly CC0 road geometry. FES 2.0 wvkId queries returned a live record for all 42 distinct Eemnes source sections and confirmed A1, A27 and N414 primary identities.",
+        "NWB-600128597 is primary road 001 with A/E route letters and is reused only across consecutive Baarn-Eemnes and Eemnes-Laren series edges. It is not independent parallel capacity.",
+        "ProRail OGC returns no station inside GM0317 and scheduled GTFS contributes 24 stop-area records. Static geometry and scheduled stops do not establish incident-time operation, evacuation throughput or emergency access."
+      ]
+    },
+    {
+      "publisher": "Provincie Utrecht / Klimaateffectatlas / Waterschap Vallei en Veluwe",
+      "title": "Province Utrecht climate-adaptation raster service — rain, flood probability, drought and urban heat",
+      "url": "https://gis.provincie-utrecht.nl/server/rest/services/Water/w01_7_Klimaatadaptatie_raster/MapServer",
+      "accessedAt": "2026-09-02T23:24:11Z",
+      "edition": "Live ArcGIS service inspected 2 September 2026; related data.overheid catalogue records updated 23 April 2026",
+      "supports": [
+        "The integration-ready ArcGIS MapServer supports Map, Query and Data in EPSG:28992; WMS access is https://services.geodata-utrecht.nl/geoserver/w01_7_klimaatadaptatie_raster/wms. Related catalogue entries list Public Domain reuse, while the service itself leaves copyright blank and gives no fixed refresh cadence, so retain catalogue identity and retrieval time per layer.",
+        "Layer 8 is titled Vallei en Veluwe 74 mm in one hour while its description says modeled depth from 70 mm in one hour, an event said to occur once per 250 years in urban area. Preserve this publisher naming/description discrepancy rather than silently relabeling it.",
+        "Identify calls at verified interior points returned depth 0.255502 m in Eemnes-Dorp, 0.058906 in Noordbuurt, 0.000904 in Zuidbuurt and 0.000256 in Wakkerendijk-Meentweg. Eembrugge, Eemmeer-Eemnes, Eempolder, Polder te Veen and Goyergracht returned NoData and Heidehoek returned no layer-8 result. These are point samples, not area means; NoData never means zero or safe.",
+        "Layer 19 flood-probability classes differ across the water/polder/village points; layer 20 drought scores include 23 at Heidehoek, 21 at Goyergracht, 13 at Noordbuurt and 1 at Eemnes-Dorp; layer 22 UHI samples include 0.751 °C Noordbuurt, 0.725 Zuidbuurt, 0.693 Eemnes-Dorp and 0 in Eempolder/Eemmeer. Planning rasters can govern spatial context only after units, edition, resolution, legend and NoData are pinned.",
+        "These layers are official modeled/planning context, not current rain, water depth, drought condition, temperature, probability forecast or T+72 operational state."
+      ]
+    },
+    {
+      "publisher": "Gemeente Eemnes / Waterschap Vallei en Veluwe / Het Waterschapshuis",
+      "title": "Eemnes water-overlast policy and public managed-water/wastewater registers",
+      "url": "https://www.eemnes.nl/wateroverlast",
+      "accessedAt": "2026-09-02T23:24:11Z",
+      "edition": "Live municipal/water-board pages and HWH snapshot retrieved 2 September 2026",
+      "supports": [
+        "The municipality distinguishes prolonged high groundwater and intense rain, says its structural-overlast test includes at least 31 consecutive days within 70 cm below road crown over more than five parcels/0.5 hectare, and assigns different responsibilities to owner, municipality and water board. This is pathway/responsibility context, not a current observation or forecast.",
+        "Waterschap Vallei en Veluwe names Tydeman, Eemnes and Maatpolder as Eemnes pumping stations and says the Eemnesserpolder North/South contains 477 km of ditches subject to a five-year depth inspection. Its current pages do not expose live pump/gate state or a T+72 control forecast.",
+        "Integration-ready HWH OGC APIs are IMWA https://api.pdok.nl/hwh/waterschappen-kunstwerken-imwa/ogc/v2 and DAMO https://api.pdok.nl/hwh/waterschappen-waterketen-damo/ogc/v1 under CC BY-SA 4.0. The deployed aggregation is partial, provider completeness varies and no universal fixed cadence is stated; preserve record timestamps/retrieval.",
+        "Exact GM0317 intersection finds 73 records: one sewer pump, twelve surface-water pumps, 59 weirs and one sluice. Named functions/capacity fields include Gemaal Tydeman 174, Gemaal Eemnes 128.4, Maatpolder 42.66 and Eemnessersluis, but units/connectivity and live operation are not established by the display export.",
+        "Register status 'gerealiseerd', a capacity value or object presence is not connected topology, present operation, power/backup, damage, available flow or restoration."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat",
+      "title": "Eemmeer system context, Eempolder flood-risk study and public Waterinfo observations",
+      "url": "https://www.rijkswaterstaat.nl/water/vaarwegenoverzicht/eemmeer",
+      "accessedAt": "2026-09-02T23:24:11Z",
+      "edition": "Live Eemmeer page; VNK2 Eempolder report 1 October 2014; Waterinfo deployment snapshot 2 September 2026",
+      "supports": [
+        "Rijkswaterstaat identifies the Eemmeer as the Randmeer between the Stichtse Brug and Spakenburg and links current levels and navigation notices. This supports a local lake/Randmeren mechanism that is not equivalent to a Rhine/Meuse/IJssel proximity screen or direct North Sea inundation.",
+        "The official VNK2 report https://open.rijkswaterstaat.nl/@42703/veiligheid-nederland-kaart-2-5/ is a 2014 risk analysis for dike-ring area 46 Eempolder. It is historical pathway evidence, not current defence condition or validation of a 0.541003 scenario depth.",
+        "Waterinfo endpoints https://waterinfo.rws.nl/api/point/latestmeasurement?parameterId=waterhoogte and parameterId=waterafvoer are integration-ready, generally ten-minute LMW observations cached five minutes and CC0 unless individually stated. The service is public and explicitly non-mission-critical.",
+        "The deployed snapshot assigns zero Waterinfo level/discharge points inside GM0317. That is incomplete station coverage and never zero water level, zero discharge, no threat or safety. Values require source time, quality/possible-fault flag and a selected hydraulic scenario before causal use."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Utrecht",
+      "title": "Regionaal Risicoprofiel VRU 2023",
+      "url": "https://vru.nl/documents/676/AB20230206-05-2_Bijlage_A_-_Regionaal_risicoprofiel_VRU_2023.pdf",
+      "accessedAt": "2026-09-02T23:24:11Z",
+      "edition": 2023,
+      "supports": [
+        "The current published regional profile treats flooding and nature fire as major risks and separately covers extreme weather, digital disruption and energy-supply disruption. It is statutory planning evidence, not a forecast or local probability.",
+        "Its extreme-weather pathways explicitly include severe storm causing Randmeren flooding, electricity-pylon failure, wind/ice electricity failure and local heavy rain or downburst limiting emergency access. These mechanisms are materially different from a generic coast/major-river distance scalar.",
+        "The profile says river/coast flooding can require evacuation and identifies through-region coast evacuation traffic; it also notes prolonged crises can exhaust personnel/resources. Eemnes-specific route load, shelters, transport, crews and restoration times are not supplied.",
+        "The profile says drought can reduce open-water firefighting supply and can contribute to fire and local water-system risks. Its broad Utrechtse Heuvelrug case does not select an Eemnes ignition, fuel, perimeter, escape route or response resource.",
+        "The PDF has no machine hazard API or operational cadence and no standard reuse licence was stated on the publication page. Retain edition and planning status; use it to select/structure exercises, not to synthesize exact T+72 values."
+      ]
+    },
+    {
+      "publisher": "Stichting Mijn Aansluiting / Netbeheer Nederland / Stedin / Vitens / Ziggo",
+      "title": "Public provider territories, electricity planning sample and authenticated operational-feed gap",
+      "url": "https://public.geodata.mijnaansluiting.nl/geoserver/mijnaansluiting_open/ows",
+      "accessedAt": "2026-09-02T23:24:11Z",
+      "edition": "Live reference-point queries 2 September 2026; NBNL deployment sample retrieved 2 September 2026",
+      "supports": [
+        "Public Domain Mijn Aansluiting WMS/WFS identifies Stedin electricity/gas, Vitens water and Ziggo media at the Eemnes reference point, with provider timestamps retained; drainage returns no feature. The service is provider-supplied and live, but territory presence or absence is not complete topology, coverage quality, capacity, outage or restoration.",
+        "Integration-ready Netbeheer Nederland public frontend endpoints https://data.partnersinenergie.nl/api/servicearea/find and https://data.partnersinenergie.nl/api/servicearea/get return one sample at postcode 3755EZ in Stedin service area Baarn: 28 MW existing, 31.3 MW required and 1.8 MW queued withdrawal across fifteen requests, plus 1.6 MW queued injection across fourteen requests and thirty projects from 2027.",
+        "Capacity/project information updates at least quarterly and queue information monthly. The publisher calls the capacity-map product open data, but no exact standard licence identifier or contractual frontend API stability was found. A postcode sample is not complete municipal/feeder coverage.",
+        "Planning capacity is not present load, outage telemetry, emergency reserve, switching, damage, topology or a T+72 forecast. Current electricity/gas disruptions would require the authenticated joint Energieonderbrekingen.nl feed and explicit reference-time alignment; missing credentials remain Unknown, never 'no outage'.",
+        "Unavailable complete or security-sensitive network connectivity, pressure/flow, priority customers, switching, backup endurance, crews and restoration commitments remain Unknown or explicitly synthetic."
+      ]
+    },
+    {
+      "publisher": "RDI / DUO / KVK / RIVM / KNMI / NDW / IPO Risicokaart",
+      "title": "Telecom, education, government, acute-care, weather/seismic, road-event and combustible-nature public context",
+      "url": "https://antenneregister.nl/mapserver/wfs/",
+      "accessedAt": "2026-09-02T23:24:11Z",
+      "edition": "Deployment snapshots retrieved 2 September 2026; each source retains its own edition and valid time",
+      "supports": [
+        "RDI WFS ms:Antennes contributes 27 in-boundary installation records, including twelve mobile-communication and eight fixed-link sites. The WFS states no fees/access constraints but no fixed refresh cadence or standard licence. Locations/applications are not coverage, ownership, backhaul, capacity, traffic, power/backup, outage or restoration.",
+        "DUO RIO https://onderwijsdata.duo.nl/dataset/c416acd1-e083-4ec6-9203-3b20f98fe143 contributes nine active education locations, updates daily around 06:15 and uses a Creative Commons Attribution licence without a stated version. KVK/PDOK Public Domain OGC https://api.pdok.nl/kvk/overheidsdiensten-geharmoniseerd/ogc/v1 contributes four government-service points. Neither register proves shelter role, occupancy, staffing, accessibility or incident capacity.",
+        "RIVM acute-care 2026 v1.1 at https://datacatalogus.rivm.nl/dataset.xhtml?persistentId=doi:10.21945/8E767B2D-9CED-4A85-A95D-3AC1A608C663 is CC0 and has no emergency department inside GM0317; nearest straight-line record is Tergooi MC 6.66 km away. No in-boundary record means external dependence/coverage gap, not no healthcare need.",
+        "KNMI FDSN https://rdsa.knmi.nl/fdsnws/event/1 is automatically updated and defaults to CC BY 4.0; the deployed 365-day catalogue has no event assigned inside Eemnes. NDW DATEX II https://opendata.ndw.nu/actueel_beeld.xml.gz is CC0 current-picture data and has no event point assigned inside GM0317. Both no-match results are time/coverage-limited and never zero hazard or guaranteed open roads.",
+        "IPO/Risicokaart WFS/WMS https://servicespub.risicokaart.nl/geoserver/ISOR_RK/wfs exposes combustible forest/heath/dune polygons under Public Domain metadata updated 19 February 2026, with no guaranteed operational cadence/feature-scale accuracy. Exact polygon intersection finds no feature in GM0317; missing eligibility geometry is Unknown, not proof that no vegetation/roadside fire can occur.",
+        "Every observation/register requires publisher, retrieval and observation/valid time, edition, licence, coverage and quality. Current context may affect a run only through an explicit time-aligned adapter; otherwise affectsSimulation remains false."
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "id": "GM0317-SPATIAL-001",
+      "severity": "high",
+      "category": "geography",
+      "status": "open",
+      "summary": "Nine unrelated hazards reuse one exact neighbourhood order without a visible Eemnes unsupported-result guard.",
+      "evidence": "Current packages/sim-core/src/model.ts:4169 seeds local hazard only from municipality seed, scenario seed and region id. Severe storm, pluvial, river, coastal, heat, winter, cyber, wildfire and compound all rank BU03170212 Eemnes-Dorp first, BU03170211 Eemmeer-Eemnes second, BU03170217 Noordbuurt third and BU03170213 Eempolder fourth at T+24. Eemmeer-Eemnes has zero published residents yet ranks second even for cyber and heat. GM0317 has no entry in auditedUnsupportedSpatialNotes, and headless Chromium showed precise local/service output without an Eemnes-specific warning.",
+      "action": "Before operational release, mark all nine GM0317 hazard families spatialEvidence=unsupported and grey local ranks, affected counts and derivative service results. Replace the shared hash with hazard-specific selected surfaces and source containment. Assert different evidence-backed hazard ranks, typed NoData and a visible municipality caveat in unit, focused, national and browser tests."
+    },
+    {
+      "id": "GM0317-FLOOD-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "A generic Rhine/Meuse/IJssel field is presented as a persistent Eemnes flood trajectory without selecting the local water/defence mechanism.",
+      "evidence": "The canonical river preset labels Rhine, Meuse & IJssel high water and computes exposure from three coarse line segments. For Eemnes it reports floodDepthM 0.541003 and severity 0.167434 at both T+24 and T+72, with 1,699 then 1,883 residents under pressure. E05 identifies the Eemmeer/Randmeren system and historic Eempolder risk; E06 explicitly names severe-storm flooding of the Randmeren. No Eem/Eemmeer level, Eempolder compartment, defence state, connected depth mask, probability, arrival, duration, recession or pump state is selected. Coastal flood stress is zero but does not evaluate these pathways.",
+      "action": "Retain the current amplitude only as a non-operational diagnostic and make local exposure Unknown. Add a typed event selector for Eem/Eemmeer/Randmeren/Eempolder scenarios with defence assumption, water boundary/probability, connected depth/arrival/duration/recession, edition, units, resolution, licence and NoData. Preserve direct coast and named-major-river zeros as narrow scopes, never an all-flood all-clear."
+    },
+    {
+      "id": "GM0317-PLUVIAL-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "An integration-ready local cloudburst surface is available but the simulator uses a municipality scalar and shared neighbourhood hash.",
+      "evidence": "E03 ArcGIS identify calls at verified interior points return 74 mm/hour layer depths of 0.255502 m Eemnes-Dorp, 0.058906 Noordbuurt, 0.000904 Zuidbuurt and 0.000256 Wakkerendijk-Meentweg, while five rural/water neighbourhoods return NoData and Heidehoek returns no layer result. The model instead reports municipality flood stress 0.413260, 2,369 affected residents and supply 0.247406 at T+24 and applies the same rank order as every other nonzero hazard. The publisher layer title says 74 mm/hour while its description says 70 mm/hour, a provenance issue the adapter must preserve.",
+      "action": "Integrate the Province Utrecht/Vallei en Veluwe raster with exact layer id/title/description, edition, spatial reference, cell resolution, units, catalogue licence and NoData mask. Keep point/raster values as official model context until the exercise duration is explicitly matched; do not convert NoData to zero. Validate area aggregation, coverage fractions, independent spatial ordering and uncertainty display."
+    },
+    {
+      "id": "GM0317-FIRE-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "A user-selected direct-fire source does not control local allocation and is not constrained by public eligibility context.",
+      "evidence": "A controlled epicentre [5.226038626212821, 52.225708480879725] is inside BU03170216 Heidehoek. At T+24 the model generates fire 0.468506, smoke 0.529227 and severity 0.498779, yet Heidehoek ranks sixth at 0.459732 and Eemnes-Dorp ranks first at 0.583097. E08's current IPO WFS returns no combustible-nature polygon intersecting GM0317; that no-match is not an all-clear, but it means the test source is not validated by the available eligibility layer. Canonical wildfire itself has zero Eemnes direct flame at T+24 and only transported smoke/drought.",
+      "action": "Mark local direct-fire allocation unsupported. Require a named source/perimeter, eligible fuel/land cover, fuel moisture, event-valid wind, access, extinguishing-water and suppression state; a containing source neighbourhood must govern direct flame before generic susceptibility. Keep IPO no-feature as Unknown and expose roadside/agricultural/urban-interface fires as out of layer scope rather than inventing absence."
+    },
+    {
+      "id": "GM0317-WATERCHAIN-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Precise water/drainage impacts omit the dense managed-water chain and unknown live pump/control state.",
+      "evidence": "The deployed GM0317 intersection contains 73 HWH objects: one sewer pump, twelve surface-water pumps, 59 weirs and Eemnessersluis. Official pages name Tydeman, Eemnes and Maatpolder pumping stations and 477 km of Eemnesserpolder ditches. Register capacity fields include 174, 128.4 and 42.66 without a safely comparable unit in the normalized display. The model has no connectivity or state for these assets yet reports river T+24 water 0.744723 and drainage 0.656725, and compound water 0.339334/drainage 0.260209. Status 'gerealiseerd' does not prove operation, power, backup or available flow.",
+      "action": "Keep IMWA/DAMO objects as versioned CC BY-SA context and obtain owner-authorized GWSW/native catchment, pump/gate direction, receiving water/RWZI, compatible units, power/backup, live control and dewatering assumptions before causal use. Show unknown topology/state and assert that object count, null/value capacity or register status cannot automatically change service availability."
+    },
+    {
+      "id": "GM0317-CONTINUITY-001",
+      "severity": "medium",
+      "category": "network",
+      "status": "open",
+      "summary": "External acute-care and incident-time access dependencies are absent from the first-72-hour service path.",
+      "evidence": "GM0317 has no ProRail station and no RIVM emergency department. The nearest RIVM record is Tergooi MC at 6.66 km straight-line, followed by Meander at 11.03 km; 24 scheduled stop areas do not prove bus operation. Eemnes's graph is dominated by A1/A27/N414, while E06 states local extreme weather can restrict emergency access and coast scenarios can add evacuation traffic. The current NDW snapshot has no assigned Eemnes point, and the model contains no hospital acceptance, ambulance route, local-road/underpass state, bus capacity, fuel or repair-access evidence.",
+      "action": "Expose Eemnes external-care dependence and add explicitly aligned NDW/GTFS/authority inputs for access and acceptance. Keep no NDW point distinct from open road, and do not infer hospital capacity from straight-line distance. Scenario-specific access closures and evacuation traffic must carry valid time, source, direction, capacity and uncertainty."
+    },
+    {
+      "id": "GM0317-RECOVERY-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "The T+24–72 compound plateau implies a precise recovery outcome without event-specific actions or resources.",
+      "evidence": "Compound severity declines from 0.889980 at T+24 to 0.412598 at T+72, but pressure remains exactly 0.607703, affected residents remain 6,541 and all eight service values are identical: power 0.394344, water 0.339334, drainage 0.260209, gas 0.577041, telecom 0.272376, mobility 0.800890, facilities 0.350593 and supply 0.164911. No Eemnes pump/dewatering, A1/A27 access, backup endurance, crew, material, shelter/supply, mutual-aid or restoration schedule supports this plateau. VRU planning context says prolonged crises can exhaust capacity but supplies no local inventory.",
+      "action": "Treat the trajectory as sensitivity output, not operational prediction. Require typed resource/action assumptions with start, ramp, capacity, dependencies and provenance; display an unsupported-recovery state when absent. Add tests that scenario interventions are delayed/bounded and that exact T+72 states never imply actual crews, pumps, generator fuel or commitments."
+    },
+    {
+      "id": "GM0317-OTHER-HAZARDS-001",
+      "severity": "medium",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Storm, winter, heat/drought, cyber and seismic outputs remain broad synthetic exercises without local forcing or target evidence.",
+      "evidence": "At T+24 the model reports storm pressure 0.314215, winter mobility 0.287682, heat water 0.573279 and cyber telecom 0.440262, while all four share the same neighbourhood order. E03 supplies distinct UHI/drought planning patterns; E06 supplies regional storm, ice, energy and digital-disruption mechanisms but no Eemnes event/target. The Groningen-centred earthquake has peak sensitivity 0.034329 and no current shaking at T+24; E08 has no KNMI event inside GM0317 in a 365-day catalogue, which is not zero seismic hazard. None is an observation, warning, outage or probability.",
+      "action": "Keep all five families visibly synthetic/unsupported locally until event-valid KNMI gridded weather, selected heat/drought surface, named cyber exercise target/system boundary or selected earthquake ground-motion/site-response inputs exist. Preserve current observations and catalogue no-match outside the scenario clock, and require separate hazard-specific rankings."
+    },
+    {
+      "id": "GM0317-NODATA-001",
+      "severity": "medium",
+      "category": "ui",
+      "status": "open",
+      "summary": "The UI explains several no-data sources but still juxtaposes them with precise unguarded municipal scenario values.",
+      "evidence": "The deployed public context has zero Eemnes-assigned Waterinfo level/discharge observations, NDW road-situation points, RIVM PM2.5 stations, KNMI seismic origins and in-boundary emergency departments; the provider drainage query is empty and Province Utrecht rain pixels include NoData. The inspector correctly states that no Waterinfo station is no-data rather than zero/safe and labels observations/registers non-causal. Yet at river T+72 it simultaneously shows 36 percent inundation stress, about 1.9K residents under pressure and exact service statuses without an Eemnes unsupported warning, encouraging false synthesis of unrelated evidence classes.",
+      "action": "Preserve the existing source-specific no-data wording, add municipality/hazard support and coverage badges beside every local number, and suppress/grey derivative rankings and services when forcing is unsupported. Never backfill a missing station, provider, pixel or feature with zero; show context, observation, scenario and forecast clocks separately."
+    },
+    {
+      "id": "GM0317-NETWORK-001",
+      "severity": "informational",
+      "category": "network",
+      "status": "fixed",
+      "summary": "Current NWB provenance is road-only, section identities are consistent and a repeated A1 section is non-additive series provenance.",
+      "evidence": "All 42 live wvkId lookups underlying the six GM0317 routes match their generated A1, A27 or N414 physical corridor. NWB-600128597 is road 001/A1/E and appears on consecutive Baarn-Eemnes and Eemnes-Laren edges around the junction, not two parallel corridors. Runtime routesByService contains the six links only for Mobility and Supply and none for power, water, drainage, gas, telecom or facilities, confirming CORR-114/119 semantics on this municipality.",
+      "action": "Retain exact wvkId, primary wegnummer, physicalCorridorId, series/non-additive provenance and the Mobility/Supply-only invariant. Continue generator checks against cross-number parallel duplication, but do not reinterpret correct road geometry as incident passability or utility topology."
+    },
+    {
+      "id": "GM0317-CONTRACT-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The deterministic matrix, causal arithmetic, zero-intensity semantics and all-eleven-layer UI smoke pass.",
+      "evidence": "MUNICIPALITY_AUDIT_CODE=GM0317 pnpm audit:model passed 2/2 tests across all 10×6×8 combinations in 36.74 s. Local population/affected/demand/delivery reconciliation error is at most 1.7763568394002505e-15 and layer hazard delta is zero. Headless Chromium at 1440×1000 selected Eemnes, the river preset and T+72, traversed eleven layer buttons with the common fidelity badge and no page, console or local HTTP errors. Cause ledgers and municipal weights close.",
+      "action": "Keep these gates mandatory after correcting local evidence. Passing arithmetic and rendering must remain explicitly separate from physical calibration, spatial validation and operational authorization."
+    }
+  ]
+}

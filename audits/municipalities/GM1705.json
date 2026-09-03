@@ -1,0 +1,419 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM1705",
+    "name": "Lingewaard",
+    "province": "Gelderland",
+    "safetyRegion": "Gelderland-Midden"
+  },
+  "agent": {
+    "taskName": "municipality_gm1705",
+    "agentId": "/root/municipality_gm0397",
+    "completedAt": "2026-09-03T07:02:19Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "GM1705's 2025 identity, Gelderland province and Gelderland-Midden safety-region assignment are coherent. The fresh full boundary contains the generated centre and CBS reports 47,684 residents; 42 neighbourhood rows sum to 47,665 (-19, -0.040%), consistent with annual rounding/suppression. Eight districts, eight BAG places and 22 BRT settlement labels are present. Ressen's BAG label point falls outside the independently versioned generalized polygon, while the simulation centre and full-boundary checks pass; that is a geometry-edition/generalization caveat, not evidence that Ressen is outside Lingewaard. All ten presets execute deterministically at T+0/6/12/24/48/72 across all eight services and pass numerical contracts. Release is nevertheless correction-required. Lingewaard lies between the Waal, Pannerdensch Kanaal and Nederrijn and depends on distinct primary-defence, outer-dike, seepage, Linge-inlet and urban/rural drainage mechanisms. The generic river preset selects none of them but holds normalized inundation stress 2.808170 through T+72, reaches 24,036 affected resident-equivalents and accumulates 1,685,871 person-hours. Seven unrelated individual hazards and the compound preset reuse a common neighbourhood order. Public observations show reduced Pannerdensch discharge/Nederrijn level and forecasts only through T+24; a water-board lifecycle record shows temporary Pannerling pumps used during extreme low water and removed once the fixed pump resumed, while water shortage remained. The 3 September reference window also contains a published Rijndijk closure between Angeren and Doornenburg, absent from the graph. A15 and N325/A325 logical records do not prove independent redundancy, live passage or access to cross-boundary emergency departments. Exact utilities, care, mobility, supply and first-72-hour recovery remain unsupported by operator topology, state, resources and completed actions. Unknown/NoData never means zero, safe, open or available.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek (CBS)",
+      "title": "E01 — Kerncijfers wijken en buurten 2025, table 86165NED, OData API",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM1705%27%29",
+      "accessedAt": "2026-09-03T06:42:00Z",
+      "edition": 2025,
+      "supports": [
+        "The official municipality row identifies GM1705 Lingewaard and reports 47,684 residents, density 770/km², 24.2% age 65 or older and 5,949 one-person households.",
+        "Forty-two neighbourhood rows sum to 47,665 residents (-19, -0.040%), 20,390 households and 11,525 rounded residents age 65 or older; deterministic allocation reconciles to the municipality control without rewriting source values.",
+        "Most census fields cover 42/42 rows, but average home value covers 36, cars per household 35, benefits 39 and doctor/supermarket distance 40. District heating and charging cover 0/42 and remain Unknown/NoData.",
+        "CBS OData is annual machine-readable context under CC BY 4.0. It measures registered residents, not incident-time workers, pupils, patients, visitors, road/rail users, responders, individual vulnerability or preparedness."
+      ]
+    },
+    {
+      "publisher": "PDOK / CBS / Kadaster / Rijkswaterstaat / ProRail / OVapi",
+      "title": "E02 — Full municipality geometry, settlement, road, rail and scheduled-transit reference inputs",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_niet_gegeneraliseerd/items?f=json&filter=statcode%3D%27GM1705%27",
+      "accessedAt": "2026-09-03T06:43:00Z",
+      "edition": "2025 boundary/statistics and generated BAG, BRT, NWB, ProRail and GTFS snapshots retrieved through 3 September 2026",
+      "supports": [
+        "The generated centre [5.951571658981289, 51.905214160755676] is inside the fresh non-generalized 2025 municipality boundary.",
+        "The bundle contains eight districts, 42 neighbourhoods and the eight BAG places Angeren, Bemmel, Doornenburg, Gendt, Haalderen, Huissen, Loo Gld and Ressen. It also contains 22 BRT labels: seven woonkernen, four deelkernen, three gehuchten and eight buurtschappen.",
+        "Ressen's BAG label point falls outside the separately versioned generalized boundary. The full-boundary municipality and centre checks pass, so this is retained as a geometry-edition/generalization caveat rather than reassignment or exclusion.",
+        "Three logical road links expose A15 to Overbetuwe, N325 to Arnhem and A325 to Overbetuwe. N325/A325 are one numbered corridor family and are not additive independent resilience. No ProRail station is inside GM1705; GTFS supplies 80 scheduled stop areas.",
+        "CBS boundary OGC is CC BY 4.0; BAG is daily/Public Domain Mark 1.0; BRT is CC BY 4.0; NWB-Light is monthly/CC0; ProRail station geometry is CC0. GTFS is best-effort schedule context, not live service."
+      ]
+    },
+    {
+      "publisher": "Gemeente Lingewaard",
+      "title": "E03 — Lingewaard Adaptatiestrategie and current climate-adaptation programme",
+      "url": "https://klimaatbestendig.lingewaard.nl/_flysystem/media/las-eindconcept-18-juni-2021-web.pdf",
+      "accessedAt": "2026-09-03T06:44:00Z",
+      "edition": "Lingewaard Adaptatiestrategie 2021; implementation programme 2022–2026, current status page inspected 3 September 2026",
+      "supports": [
+        "The municipality's stress test distinguishes paved-core cloudburst exposure, high groundwater and seepage behind dikes when river levels are high, soil/watercourse storage differences, low-groundwater/subsidence and restricted river-water intake under drought/low flow, and stronger heat in built-up areas.",
+        "The municipality describes itself as sensitive to very sensitive across climate effects and reports measures such as larger sewers, infiltration, water storage, an Angeren weir and studies with the water board. These are planning/implementation records, not current capacity or completed incident action.",
+        "A useful local input needs the native stress-test surface and scenario definition, CRS, resolution, rainfall/hydrograph, uncertainty, licence and NoData. The public PDF/site did not expose a blanket machine-reuse licence or live sewer/groundwater/pump state.",
+        "Static vulnerability and policy horizon remain distinct from observation, forecast, official incident scenario and synthetic model output."
+      ]
+    },
+    {
+      "publisher": "Waterschap Rivierenland / Hoogwaterbeschermingsprogramma / IPLO-WMCN",
+      "title": "E04 — Primary defences along Waal, Pannerdensch Kanaal and Nederrijn and LIWO scenario requirements",
+      "url": "https://www.waterschaprivierenland.nl/deeltraject-sterreschans-huissen",
+      "accessedAt": "2026-09-03T06:45:00Z",
+      "edition": "Sterreschans–Huissen page published 15 April and updated 10 July 2026; LIWO release 2025.1.6",
+      "supports": [
+        "The 9.2 km Sterreschans–Huissen reach lies in Lingewaard along the Pannerdensch Kanaal/Nederrijn. The water board states the dike is currently safe but parts do not meet future statutory requirements and describes height, stability, piping and wall concerns. Future strengthening is not present failure, and current safety is not an all-clear for an arbitrary breach event.",
+        "Sprok–Sterreschans–Heteren spans the Waal, Pannerdensch Kanaal and Nederrijn sides. Huissen–Elden is separately described as meeting the standard, so defence reaches and mechanisms must not be collapsed into one municipality scalar.",
+        "LIWO 2025.1.6 is professional scenario-selection context requiring expert interpretation. A usable case must retain source river, hydrograph/discharge, defence or breach, outer-dike/connected footprint, depth/velocity datum and units, arrival/duration/recession, edition, CRS/resolution, uncertainty, licence and NoData.",
+        "Project pages are public authority context with no blanket standard machine licence identified; LIWO scenario/model artefacts require their own catalogue and reuse metadata."
+      ]
+    },
+    {
+      "publisher": "Waterschap Rivierenland / Het Waterschapshuis",
+      "title": "E05 — Linge water-supply lifecycle, current drought updates and public water assets",
+      "url": "https://www.waterschaprivierenland.nl/weblog-droogte-in-het-rivierengebied",
+      "accessedAt": "2026-09-03T06:47:00Z",
+      "edition": "Operational weblog through 3 September 2026; HWH snapshot retrieved 3 September 2026 01:38Z",
+      "supports": [
+        "The Linge begins at Doornenburg and receives Pannerdensch Kanaal water through Pannerling. On 19 August the water board reported that exceptional Rhine/Waal low water had stopped the fixed Pannerling intake to prevent damage and that temporary lower-capacity pumps supplied the Linge.",
+        "Later operational updates supersede that state: increased river level allowed Pannerling to resume, both temporary Pannerling pumps were removed by the late-August update, and on 3 September the board still reported a water shortage while removing other temporary measures. Every state needs issue, valid-from/to and supersession semantics.",
+        "The current public asset screen assigns 103 points: eleven sewer pumps, eight surface-water pumps, RWZI Gendt and 83 weirs. Pannerling is registered as an intake pump with capacity 360, but native unit, connected topology, command, power/backup, staffing and live operation are not established by the aggregate.",
+        "HWH is partial/contributor-dependent official context retrieved 2026-09-03T01:38:15.250Z under CC BY-SA 4.0 and affectsSimulation=false. Registered status is not live operation; unknown topology/settings/state remain Unknown."
+      ]
+    },
+    {
+      "publisher": "Gemeente Lingewaard / Provincie Gelderland / Rijkswaterstaat / ProRail / OVapi",
+      "title": "E06 — Reference-window Rijndijk closure and regional transport dependencies",
+      "url": "https://samen.lingewaard.nl/p/Dijkversterking/i/05tYK/afsluiting-rijndijk-vanwege-realisatie-bouwweg-via15",
+      "accessedAt": "2026-09-03T06:48:00Z",
+      "edition": "Municipal notice issued 11 August 2026, valid 24 August through 2 October 2026; NWB-Light 1 August 2026 and GTFS/ProRail snapshots through 3 September",
+      "supports": [
+        "The municipality says Rijndijk between Scherpekamp in Angeren and Krakkedel in Doornenburg is closed from 24 August through 2 October for the ViA15 construction road. Traffic is diverted over Lodderhoeksestraat/N838, with extra morning congestion and school-day traffic control anticipated.",
+        "That restriction overlaps the audit's 3 September reference and the entire first 72 hours, but the public-context screen contains zero GM1705 NDW situations and the logical graph does not encode this local edge or detour. Empty NDW matching is NoData, not proof of open roads.",
+        "A15 and N325/A325 connect across municipality borders toward Overbetuwe/Arnhem, but three logical endpoints are not three independent corridors and their 260/150 scenario ceilings are not observed vehicles per hour or emergency capacity.",
+        "No ProRail station lies inside GM1705 and 80 GTFS stops are schedule geometry only. The Arnhem–Nijmegen–Foodvalley concession includes Lingewaard from 28 June 2026, but schedules and concession scope do not prove live vehicle, driver, accessibility, evacuation or restoration capacity.",
+        "NWB and ProRail carry CC0 source terms; the municipal notice has no blanket machine licence identified and must retain authority, publication and validity rather than be scraped into an unbounded permanent closure."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / RIVM / Netbeheer Nederland / RDI / DUO",
+      "title": "E07 — Current Waterinfo, acute-care, grid-planning, antenna and education context",
+      "url": "https://waterinfo.rws.nl/",
+      "accessedAt": "2026-09-03T06:50:00Z",
+      "edition": "Public-context snapshots retrieved 2–3 September 2026; RIVM acute-care v1.1 published 3 July 2026",
+      "supports": [
+        "At 2 September 17:30Z Waterinfo records Pannerden/Pannerdensch Kanaal discharge 152.03 m³/s classed reduced, Huissen/Nederrijn 653 cm NAP classed reduced level and Millingen/Pannerdense Kop 663 cm NAP without a class. These are point observations, not an inundation, defence or pump-state surface.",
+        "The forecast screen assigns Huissen and Millingen levels at +1/+6/+12/+24 only: 647/647/646/644 and 663/663/662/660 cm NAP. No GM1705 +48/+72 forecast is present; the public rolling endpoint has no single published issue time and remains affectsSimulation=false. Waterinfo is public CC0 unless component exceptions apply.",
+        "RIVM assigns zero full acute-care facilities inside GM1705 and registers 24/7 emergency departments at Rijnstate Arnhem, Radboudumc and CWZ Nijmegen outside it. The v1.1 national questionnaire is CC0 dated context, not live ambulance, route, acceptance, staffing, bed, generator or diversion state.",
+        "One postcode sample 6687BA maps to Liander OS OOSTERHOUT 20-1i. Existing/required withdrawal and injection values are null; queues are 67.8 MW/40 requests and 40 MW/32 requests, with 31 projects and earliest year 2026. Null remains Unknown and planning is not feeder topology, live load/outage or completed reinforcement.",
+        "RDI assigns 66 antenna sites and DUO 24 education records. RDI's WFS does not state a reuse licence/cadence; DUO is daily CC Attribution with version unspecified. Neither proves radio coverage/backhaul/power, shelter role, occupancy, supplies or operation."
+      ]
+    },
+    {
+      "publisher": "Brandweer Nederland / Veiligheidsregio Gelderland-Midden / Staatsbosbeheer / Rijksoverheid",
+      "title": "E08 — Current nature-fire phase, Gelderse Poort exposure and first-72-hour preparedness",
+      "url": "https://www.brandweer.nl/natuurbrandrisico/",
+      "accessedAt": "2026-09-03T06:52:00Z",
+      "edition": "Current phase page inspected 3 September 2026; nature-season notice 16 April 2026",
+      "supports": [
+        "The current public phase page reports Gelderland-Midden at phase 1. Phase 1 means no extraordinary measures are active while normal caution still applies; it is not zero probability, a forecast, fuel-moisture observation or all-clear.",
+        "Staatsbosbeheer places Fort Pannerden at the Waal/Pannerdensch Kanaal split inside the rough-grazed Klompenwaard and describes Gendtsche and Bemmelse Waard within Gelderse Poort. This establishes local nature, recreation, access and smoke eligibility, not ignition, perimeter or occupants.",
+        "The canonical wildfire case has zero direct flame at T+24, synthetic smoke 0.406890 and 1,909 affected resident-equivalents without a selected source, weather/plume, fuel state, access, firewater, resources or containment action.",
+        "National 72-hour-kit guidance is a preparedness target, not observed household water, food, medicines, radio/power, mobility or support-network readiness. No blanket machine licence was identified for the dynamic phase or area pages."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM1705, Lingewaard, Gelderland and Veiligheidsregio Gelderland-Midden agree across official/generated records.",
+      "evidenceRefs": ["E01", "E02"],
+      "notes": [
+        "Feature id, bundle code/name, province, safety-region membership and 2025 boundary/statistics editions agree.",
+        "The generated centre is contained by the current full-resolution boundary.",
+        "Annual/static context, timestamped observations, official forecasts, operational notices/plans and synthetic exercise values remain separate evidence classes."
+      ]
+    },
+    "geography": {
+      "status": "fail",
+      "summary": "Administrative geography is coherent with one label caveat, but river, pluvial, heat, nature and infrastructure geography does not govern the impacts.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E08"],
+      "notes": [
+        "Ressen's BAG label outside the generalized polygon is an edition/generalization caveat; it is not reassigned because the fresh full municipality boundary and generated centre pass.",
+        "Neighbourhood centroids cannot replace Waal/Pannerdensch/Nederrijn reaches, primary defences, outer-dike areas, Linge intake/storage, seepage, drainage catchments, terrain, urban heat or nature fuel/plume cells.",
+        "Seven unrelated individual presets share an exact neighbourhood ordering and river nearly repeats it, contradicting mechanism-specific geography.",
+        "Coastal direct impact being zero is plausible only for narrow North Sea surge scope and says nothing about river, Linge, regional/polder, pluvial or indirect network flooding."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Official resident controls and neighbourhood aggregates reconcile within normal CBS rounding/suppression uncertainty.",
+      "evidenceRefs": ["E01", "E02", "E07", "E08"],
+      "notes": [
+        "CBS reports 47,684 residents; 42 neighbourhood rows total 47,665 (-19, -0.040%) and model allocation reconciles to the control.",
+        "Age 65 or older is 24.2% and one-person households 5,949, useful aggregate vulnerability context but never individual need or evacuation priority.",
+        "Residents remain separate from commuters, school populations, nature/fort visitors, road/rail/bus users, hospital patients, responders and event-time occupants."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "Most neighbourhood statistics are populated, but missing socioeconomic fields and incompatible operational registers prevent complete local inference.",
+      "evidenceRefs": ["E01", "E03", "E05", "E07"],
+      "notes": [
+        "District heating and charging are null in every neighbourhood; home-value, vehicle, benefit and distance fields have documented gaps. Absence remains Unknown/NoData.",
+        "Water assets, Waterinfo, the grid sample, antennas and schools preserve publisher, snapshot/valid time, coverage, licence or absent licence and non-causal evidence class.",
+        "Counts and registered status do not establish complete topology, comparable capacity, control settings, live operation, backup, occupants or recovery."
+      ]
+    },
+    "settlements": {
+      "status": "warn",
+      "summary": "Eight BAG places and 22 BRT settlement labels are coherent, subject to the Ressen label/generalized-boundary mismatch.",
+      "evidenceRefs": ["E02"],
+      "notes": [
+        "Angeren, Bemmel, Doornenburg, Gendt, Haalderen, Huissen, Loo Gld and Ressen match the municipality's polycentric structure.",
+        "BAG place labels and BRT woonkern/deelkern/gehucht/buurtschap features are distinct reference types rather than population measurements.",
+        "Settlement membership does not establish incident occupancy, evacuation need, flood protection, road access, shelter role or utility territory."
+      ]
+    },
+    "transport": {
+      "status": "fail",
+      "summary": "Three logical links omit local closure, shared-corridor, bridge/rail/bus and cross-boundary care/supply state needed in the first 72 hours.",
+      "evidenceRefs": ["E02", "E06", "E07"],
+      "notes": [
+        "N325/A325 records are a single corridor family and A15 is another regional axis; logical boundary links and scenario ceilings are not independent measured throughput.",
+        "The valid 24 August–2 October Rijndijk closure and N838 detour are absent despite covering the audit reference and T+72 window; zero local NDW situations proves nothing.",
+        "No internal station plus 80 stops does not mean no rail/bus dependency and does not prove timetable operation, rolling stock, driver, accessibility, evacuation or repair capacity.",
+        "External Arnhem/Nijmegen emergency departments and regional supply require route/destination state, alternatives and confirmed acceptance; static geometry cannot provide it."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "Rich water, transport, nature and care context is visible but no event-valid authority action/resource ledger governs consequences.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "Current Waterinfo points, reduced-water classes, the Pannerling operational transition, Rijndijk closure and nature-fire phase are context-only and do not drive the exercise.",
+        "Pannerling's August stop, temporary pumping, later restart/removal and continuing shortage demonstrate why publication, valid-from/to and supersession cannot be collapsed into one current flag.",
+        "No selected flood/fire/cyber/weather event, warning, dike/pump/route/care/utility state or confirmed intervention drives outputs.",
+        "No local KNMI weather station/warning, NDW situation, RIVM acute-care site, PM2.5 point, seismic origin or government-service record is NoData, not normal, open, safe or absent infrastructure."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten canonical presets execute at six checkpoints for every one of the eight services.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "The initial MUNICIPALITY_AUDIT_CODE=GM1705 pnpm audit:model gate passed one file/two tests in 29.40 seconds; complete execution does not establish local calibration.",
+        "Maximum severity / maximum affected / T+72 event-attributable person-hours are storm 0.429574 / 4,400 / 342,469.947; pluvial 0.363799 / 3,660 / 330,054.433; river 0.871457 / 24,036 / 1,685,870.900; coastal 0.032684 / 0 / 102,084.423; heat 0.681847 / 4,886 / 362,703.360.",
+        "Remaining values are winter 0.824532 / 13,042 / 780,426.561; cyber 0.531705 / 12,563 / 651,711.864; earthquake 0.016213 / 0 / 26,823.319; wildfire 0.153439 / 1,909 / 275,954.943; compound 0.841927 / 25,064 / 1,663,940.593.",
+        "Deterministic decimals are synthetic exercise outputs, not observations, forecasts, affected persons, casualties, customers interrupted or operator commitments."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Determinism, bounds, causal arithmetic, zero-intensity controls, layer invariance and local reconciliation pass.",
+      "evidenceRefs": ["E01", "E02"],
+      "notes": [
+        "All outputs are finite; service availability remains in [0,1], local population/demand/delivery sums reconcile and cumulative event-attributable person-hours are monotonic.",
+        "Repeat runs match, selected display service does not alter hazard/pressure/population, and zero-intensity controls return zero event hazard and event-attributable burden.",
+        "The legacy floodDepthM field is normalized inundation stress under CORR-017, never measured metres. River 2.808170 must not be rendered or exported as depth.",
+        "Arithmetic correctness explains only the deterministic synthetic exercise."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "Generic neighbourhood weighting replaces Waal/Pannerdensch/Nederrijn hydraulics, pluvial/groundwater pathways and hazard-specific exposure.",
+      "evidenceRefs": ["E01", "E02", "E03", "E04", "E05", "E08"],
+      "notes": [
+        "River T+24/T+72 holds normalized stress 2.808170 and severity 0.871457 while affected rises 22,377 to 24,036, without hydrograph, dike reach/failure, outer-dike footprint, arrival or recession.",
+        "Pluvial T+24 reports normalized stress 0.318764, 3,660 affected and drainage 0.596877 without event rain, terrain, groundwater/seepage, sewer/catchment, Linge receiving level or pump/weir state.",
+        "Storm, pluvial, coastal, heat, winter, cyber and wildfire share the exact complete T+24 neighbourhood order led by Essenpas, Buitengebied Huissen, Plakse Wei, Centrum Gendt and Buitengebied Bemmel Noord. River shares the same top/bottom structure with only a small swap, and compound repeats the common top/bottom pattern.",
+        "Canonical wildfire has no local ignition/perimeter and zero direct flame at T+24; current phase 1 is not a source or validation. Earthquake has no selected local KNMI event. All nine non-compound distributions remain unsupported."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "Exact eight-service percentages exceed verified water-control, road/transit, utility, telecom, care and supply evidence.",
+      "evidenceRefs": ["E02", "E05", "E06", "E07"],
+      "notes": [
+        "At compound T+24 availability is power 0.426267, water 0.370360, drainage 0.351966, gas 0.608009, telecom 0.295399, mobility 0.874895, facilities 0.371328 and supply 0.692799.",
+        "At river T+24 seven services already sit on exact plateaus through T+72; only Facilities changes from 0.520949 to 0.344570, without operator or action evidence.",
+        "NWB routes are generalized logical Mobility/Supply proxies and cannot become physical power, drinking-water, drainage, gas, telecom or care topology.",
+        "Pannerling/RWZI/weirs, a grid-planning sample, antennas, schools, stops and external emergency departments provide context but not connectivity, load/flow, outage, water quality, backup, staff, acceptance, inventory, crews or restoration."
+      ]
+    },
+    "causalTrace": {
+      "status": "warn",
+      "summary": "Synthetic ledgers close, but locally selected authority causes, operational transitions and actions remain absent.",
+      "evidenceRefs": ["E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "Hazard contributions sum to severity; service-stage deltas close to availability; weighted losses close to pressure; local and municipal balances reconcile.",
+        "All official observations, forecasts, dynamic pages, registers and schedules remain affectsSimulation=false, which correctly prevents accidental causal promotion.",
+        "The trace selects no flood boundary/defence case, pluvial field, weather forcing, fire source/plume, cyber target, current route restriction, operator topology or care acceptance.",
+        "A current class or project cannot silently calibrate a hypothetical event; an old Pannerling state cannot override its later official restart/removal update."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "T+72 plateaus, deterioration and recovery lack hydraulic, operator, access, resource and completion evidence.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "River holds severity 0.871457 and stress 2.808170 through T+72, rises to 24,036 affected and 1,685,870.900 person-hours, yet seven services are exactly unchanged after T+24 without flood/recession or action evidence.",
+        "Compound at T+24/T+72 moves affected 24,809 to 25,064, pressure 0.509283 to 0.513081 and burden to 1,663,940.593 while most services deteriorate slightly; no authority action/resource explains it.",
+        "Local Waterinfo forecast coverage ends at T+24. T+48/T+72 remain NoData and must not be extrapolated or treated as constant/zero.",
+        "No dike/pump inspection, closure/detour handling, evacuation/reception, patient diversion, temporary water/sanitation, welfare check, utility crew, fuel, food or medicine action with confirmation governs recovery."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": ["severe-storm", "pluvial-flood", "river-flood", "coastal-flood", "heatwave", "winter-storm", "cyberattack", "earthquake", "wildfire", "compound"],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": ["power", "water", "drainage", "gas", "telecom", "mobility", "facilities", "supply"]
+  },
+  "findings": [
+    {
+      "id": "GM1705-DATA-001",
+      "severity": "informational",
+      "category": "identity",
+      "status": "fixed",
+      "summary": "Identity, safety region and 2025 resident controls are coherent.",
+      "evidence": "GM1705, Lingewaard, Gelderland and Gelderland-Midden agree; the centre lies inside the full boundary. CBS reports 47,684 residents while 42 neighbourhoods total 47,665 (-0.040%) and reconcile without rewriting observations.",
+      "action": "Retain source edition/retrieval, geometry resolution, published-versus-allocated values, evidence class and null/suppression semantics on refresh."
+    },
+    {
+      "id": "GM1705-NODATA-001",
+      "severity": "informational",
+      "category": "regional-data",
+      "status": "fixed",
+      "summary": "Null fields, empty local screens and horizon-limited forecasts remain explicit Unknown/NoData.",
+      "evidence": "District heat/charging cover 0/42; grid existing/required values are null; no local NDW, KNMI weather/warning/seismic, RIVM acute/PM2.5 or government-service record exists; local Waterinfo forecasts end at T+24.",
+      "action": "Preserve publisher, version, retrieval/issue/valid time, coverage, licence, evidence class, reason and NoData mask. Never coerce missing to zero, normal, dry, safe, open, available or persistent."
+    },
+    {
+      "id": "GM1705-RIVER-001",
+      "severity": "critical",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The river preset does not instantiate a governed Waal, Pannerdensch Kanaal or Nederrijn event.",
+      "evidence": "It holds normalized inundation stress 2.808170 and severity 0.871457 through T+72, reaches 24,036 affected and 1,685,870.900 person-hours. Official evidence distinguishes river reaches, current/future defence assessment, failure modes and outer-dike pathways; none is selected.",
+      "action": "Suppress decision-facing depth, affected counts, hotspots and consequences until an expert-selected LIWO/WSRL/RWS case binds source hydrograph/discharge, datum, defence reach/state/failure, outside-dike footprint, arrival/duration/recession, uncertainty, edition/licence and valid time. Missing case data remains Unknown."
+    },
+    {
+      "id": "GM1705-SPATIAL-001",
+      "severity": "critical",
+      "category": "geography",
+      "status": "open",
+      "summary": "Unrelated hazards reuse a common neighbourhood seed instead of mechanism-specific exposure.",
+      "evidence": "Seven individual presets have the exact full order led by Essenpas, Buitengebied Huissen, Plakse Wei, Centrum Gendt and Buitengebied Bemmel Noord; river nearly repeats that structure and compound repeats its top/bottom. This cannot represent dikes, sewers, heat, wind/ice, nature fire, infrastructure targets and cyber geography simultaneously.",
+      "action": "Mark all nine non-compound local hazard distributions unsupported and remove hotspot/rank claims until source-specific surfaces, source/target, issue/valid time, uncertainty and NoData replace the shared seed; separately validate compound intersections."
+    },
+    {
+      "id": "GM1705-LOCAL-WATER-001",
+      "severity": "critical",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Pluvial and drought/water-supply forcing omit local seepage, groundwater, Linge intake and controlled drainage.",
+      "evidence": "Pluvial T+24 reports stress 0.318764, 3,660 affected and drainage 0.596877 without rain, terrain, groundwater, sewer/catchment or receiving-water/control state. Lingewaard's strategy explicitly distinguishes paved cores, dike seepage, storage and low-flow intake limits; Pannerling's August stop/restart proves operational state changes matter.",
+      "action": "Integrate governed municipality/WSRL stress-test fields with KNMI forcing, AHN/soil/groundwater, imperviousness, sewers/catchments, Linge/river boundary and typed weir/pump state. Preserve native units, CRS/resolution, lifecycle, uncertainty, licence and NoData; plans/register points never become current capacity."
+    },
+    {
+      "id": "GM1705-PANNERLING-TIME-001",
+      "severity": "high",
+      "category": "explainability",
+      "status": "open",
+      "summary": "The first-72-hour view cannot represent superseding official operational states for Pannerling and the Linge supply.",
+      "evidence": "On 19 August the fixed pump was stopped and lower-capacity temporary pumps supplied the Linge. Later water-board updates say the fixed Pannerling resumed and both temporary pumps were removed while a broader water shortage remained. Waterinfo still labels nearby point discharge/levels reduced and forecasts only through T+24.",
+      "action": "Ingest authority lifecycle records with asset/event identity, issuedAt, validFrom/validTo, supersedes, state, capacity unit/range and confidence. Display observations/forecasts separately; the latest valid record wins only for its scope, and T+48/T+72 remain Unknown."
+    },
+    {
+      "id": "GM1705-RIJNDIJK-001",
+      "severity": "critical",
+      "category": "network",
+      "status": "open",
+      "summary": "A published reference-window Rijndijk closure and N838 detour are missing from Mobility and Supply.",
+      "evidence": "The municipality closes Rijndijk from Scherpekamp, Angeren to Krakkedel, Doornenburg from 24 August through 2 October, with diversion over Lodderhoeksestraat/N838 and added morning congestion. This includes 3 September plus T+72, yet zero local NDW matches and the three-edge graph expose neither closure nor detour.",
+      "action": "Add a governed municipal/NDW restriction adapter with exact geometry/direction/mode, authority, issue and validity, class, cause and supersession. Bind it only when the scenario clock overlaps; calendar-unbound exercises stay Unknown. Test detour reachability and never treat zero NDW matches as open."
+    },
+    {
+      "id": "GM1705-CARE-ROUTES-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "Regional axes and cross-boundary emergency-care dependency lack operational state and alternate-route semantics.",
+      "evidence": "The graph has A15 and N325/A325 endpoints, no internal rail station and no local RIVM full emergency department. Rijnstate Arnhem, Radboudumc and CWZ Nijmegen are dated external facilities, so serious-care continuity depends on route, ambulance, destination acceptance and capacity that static roads/GTFS cannot establish.",
+      "action": "Retain current logical edges but group N325/A325 by physical corridor and add bridge/rail/bus/local-road plus hospital/ambulance dependencies as Unknown-first state. Require authority, validity, direction/mode/class, capacity semantics, acceptance/diversion and confirmed alternatives before consequence or recovery changes."
+    },
+    {
+      "id": "GM1705-SERVICE-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Exact utility, telecom, care and supply percentages have no compatible operator evidence.",
+      "evidence": "At compound T+24 eight exact availabilities are published. HWH's 103 points, Liander planning sample, 66 antenna sites, 24 education records, 80 stops and external hospitals do not provide physical connectivity, live load/flow/outage, water quality, backup, staffing, acceptance, stock, crews or restoration.",
+      "action": "Keep public layers affectsSimulation=false and label all operational values synthetic/Unknown. Use only authorized time-scoped operator/care aggregates with coverage and uncertainty; never derive utilities from roads or expose sensitive topology."
+    },
+    {
+      "id": "GM1705-WILDFIRE-001",
+      "severity": "medium",
+      "category": "hazard",
+      "status": "accepted-limitation",
+      "summary": "Nature and smoke are locally eligible, but the wildfire exercise has no incident source, plume or suppression state.",
+      "evidence": "Klompenwaard/Gelderse Poort and other river nature establish fuels, recreation and access relevance. The current regional phase is 1, not an all-clear. Canonical T+24 has zero flame, smoke 0.406890 and 1,909 affected without ignition/perimeter, fuel moisture, wind/plume, visitors, access, firewater, resources or containment.",
+      "action": "Require an authority incident/perimeter or clearly user-selected ignition, weather/plume and time validity before local fire/smoke claims. Keep phase, nature polygons and visitor context non-causal; missing source/state remains Unknown."
+    },
+    {
+      "id": "GM1705-ACTIONS-001",
+      "severity": "critical",
+      "category": "limitation",
+      "status": "open",
+      "summary": "No auditable first-72-hour action/resource/completion ledger drives consequence or recovery.",
+      "evidence": "River service plateaus, compound deterioration and recoveries in other presets have no warning, dike/pump inspection, evacuation/reception, closure/detour handling, patient diversion, temporary water/sanitation, welfare, utility repair, fuel, food or medicine action. Pannerling and Rijndijk show that real local states have owners and validity windows.",
+      "action": "Add Unknown-first records with authority, event, issue/valid time, target, owner, assigned resource, requested/accepted/in-progress/completed state, confidence and completion evidence. Only confirmed actions may change recovery; planned work and public advice do not."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Gate Lingewaard river consequences behind a selected defence-aware Waal/Pannerdensch/Nederrijn event and correct normalized-stress semantics.",
+      "files": ["packages/sim-core/src/types.ts", "packages/sim-core/src/model.ts", "packages/sim-core/src/model.test.ts", "apps/web/src/App.tsx"],
+      "validation": "Decision-facing depth, affected counts, hotspots and service consequences stay Unknown until source hydrograph/discharge, datum, defence reach/state/failure, outside-dike footprint, arrival/recession, edition/licence, valid time and uncertainty exist; normalized stress 2.808170 is never metres."
+    },
+    {
+      "summary": "Replace the shared spatial seed with mechanism-specific flood, pluvial, heat, weather, nature-fire and cyber evidence.",
+      "files": ["packages/sim-core/src/model.ts", "packages/sim-core/src/model.test.ts", "apps/web/src/components/MapView.tsx", "apps/web/src/App.tsx"],
+      "validation": "All nine non-compound GM1705 distributions are marked unsupported until distinct versioned sources/targets/surfaces exist; Waal/Pannerdensch/Nederrijn, Linge/pluvial/seepage, urban heat, wind/ice, nature fire/smoke and cyber no longer inherit one neighbourhood order, and compound tests intersections explicitly."
+    },
+    {
+      "summary": "Add time-valid lifecycle handling for Pannerling/current water context and strict forecast horizons.",
+      "files": ["packages/sim-core/src/types.ts", "apps/web/src/data.ts", "apps/web/src/App.tsx", "apps/web/src/components/MapView.tsx"],
+      "validation": "The 19 August stop/temporary-pump state is superseded by the later restart/removal record for its asset and validity; continuing regional shortage remains separate. Waterinfo observations and +1/+6/+12/+24 forecasts retain station, datum/unit, issue/response/valid time, class, affectsSimulation=false and missing +48/+72 as NoData."
+    },
+    {
+      "summary": "Apply event-clock-aware Rijndijk restriction and group physical transport/care dependencies.",
+      "files": ["packages/sim-core/src/types.ts", "packages/sim-core/src/model.ts", "packages/sim-core/src/model.test.ts", "apps/web/src/data.ts"],
+      "validation": "A 3 September 2026 scenario applies the Scherpekamp–Krakkedel closure through T+72 and exposes the N838 detour; a calendar-unbound case remains Unknown. N325/A325 is one corridor family, zero NDW matches never mean open, and external acute-care availability requires route plus destination acceptance."
+    },
+    {
+      "summary": "Keep public infrastructure registers non-causal and add an Unknown-first first-72-hour action/resource ledger.",
+      "files": ["packages/sim-core/src/types.ts", "packages/sim-core/src/model.ts", "apps/web/src/App.tsx"],
+      "validation": "HWH/grid/antenna/school/transit/care counts never become topology, operation or capacity. Flood, pump, route, evacuation, care, water/sanitation, utility, supply and welfare actions show authority, issue/valid time, resource and completion; only confirmed actions alter recovery and all absent states remain Unknown."
+    }
+  ],
+  "residualLimitations": [
+    "No reviewed public source supplies complete safe-to-publish Liander, Vitens, gas, telecom, wastewater or drainage topology, live state, water quality, backup endurance, priority users, crews, inventories or restoration estimates.",
+    "Flood outcomes require river hydrographs, reach/defence state, outer-dike and breach/overtopping footprints, arrival, duration, recession and uncertainty; point observations and short forecasts are not inundation surfaces.",
+    "Pluvial/drought outcomes require rainfall, terrain, soil/groundwater/seepage, imperviousness, sewers/catchments, Linge/river boundary and current weir/pump control; plans and 103 public asset points do not provide that model.",
+    "Static NWB, ProRail and GTFS omit local roads, event-time bridge/rail/bus operation, inspection, accessibility, ambulance/freight/evacuation throughput and restoration; the municipality notice demonstrates a missing active restriction.",
+    "CBS/BAG/BRT/DUO/RIVM omit event-time visitors, pupils, commuters, patients, responders, individual support needs, shelters, livestock and household stocks across eight places.",
+    "Affected population is a resident-equivalent scenario index and deprived person-hours is weighted event-attributable service deprivation, not casualties, evacuations, patients or customer interruption-hours.",
+    "Dynamic water, road, fire, care and utility state can change after completion; old, stale, empty, horizon-limited or superseded records must degrade to Unknown rather than persist."
+  ],
+  "provinceReviewFlags": [
+    "Reconcile Waal, Pannerdensch Kanaal and Nederrijn boundary cases, Sterreschans–Huissen/Sprok reaches, Huissen–Elden, outer-dike areas and cross-bank consequences with neighbouring Gelderland municipalities and Rijkswaterstaat/WSRL.",
+    "Integrate Linge/Pannerling intake, low-flow, groundwater/seepage, urban/rural pluvial and managed-control mechanisms without confusing historical operational states, current updates, plans, forecasts and synthetic exercises.",
+    "Audit A15 and N325/A325 physical-corridor grouping, Rijndijk/N838 local routing, rail/bus dependencies and Arnhem/Nijmegen acute-care destinations with event-valid authority state.",
+    "Test hazard-specific neighbourhood geography for water, paved-core heat, Gelderse Poort fire/smoke, wind/winter and named cyber targets; remove the common seed before hotspot claims.",
+    "Use the Pannerling stop–temporary pumping–restart/removal sequence as the province-level lifecycle/supersession test and preserve local T+48/T+72 Waterinfo absence as NoData.",
+    "Define first-72-hour ownership and evidence for defence/pump inspection, evacuation/reception, route control, care diversion, temporary water/sanitation, utility repair, supplies and welfare without exposing sensitive topology."
+  ]
+}

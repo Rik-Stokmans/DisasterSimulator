@@ -1,0 +1,450 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0014",
+    "name": "Groningen",
+    "province": "Groningen",
+    "safetyRegion": "Groningen"
+  },
+  "agent": {
+    "taskName": "municipality_gm0014",
+    "agentId": "/root/municipality_gm1942",
+    "completedAt": "2026-09-03T02:49:38Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "GM0014 is identity-correct, geographically coherent, deterministic and numerically complete across ten presets, six checkpoints and eight services, but is not ready to present as an operational Groningen first-72-hour forecast. The canonical earthquake generates 0.190 g and 131,162 affected people-equivalent at T+6 without a selected event magnitude, depth, KNMI ShakeMap, local site response or building fragility; its epicentral neighbourhood ranks only 84/160. Eight unrelated nonzero hazards reuse one complete neighbourhood order. The coastal preset produces 1.556 m of local flood depth despite no selected North-Sea/estuary hydraulic connection or defence state, while the river preset is exactly zero and does not represent the Reitdiep, Drentsche Aa, Eemskanaal or urban drainage. Strong public data can improve context and provenance, but missing, stale and partial records must remain NoData/Unknown and must never become safe, zero or operational. Desktop and mobile expose generic evidence labels and remain usable, but retain unsupported exact outputs without an adjacent Groningen-specific warning.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek / PDOK / Kadaster",
+      "title": "GM0014 official 2025 statistics, full and generalized administrative geography, BAG places and BRT settlements",
+      "url": "https://api.pdok.nl/cbs/wijken-en-buurten-2025/ogc/v1?f=html&lang=nl",
+      "accessedAt": "2026-09-03T01:10:00Z",
+      "edition": "CBS Wijken en buurten 2025; PDOK services inspected 3 September 2026",
+      "supports": [
+        "The annual CC BY 4.0 CBS/PDOK data identifies GM0014 as Groningen and reports 244,441 residents, density 1,318 per square kilometre, 15.6% aged 65 or older and 145,521 households. The full municipal geometry is one MultiPolygon component with one ring and 4,802 vertices; the generated generalized geometry retains the MultiPolygon type with 253 source vertices and 254 stored coordinate pairs.",
+        "All sixteen BAG woonplaats label points—Garmerwolde, Glimmen, Groningen, Haren Gn, Harkstede GN, Lageland GN, Lellens, Meerstad, Noordlaren, Onnen, Sint Annen, Ten Boer, Ten Post, Thesinge, Winneweer and Woltersum—fall inside the generalized boundary. BAG is updated daily and exposed under Public Domain Mark 1.0; BRT TOP10NL is CC BY 4.0 and provides 41 settlement labels at source-dependent scale and actuality.",
+        "The 160 neighbourhood rows sum to 244,420 residents, 21 below the municipality total (-0.009%); deterministic allocation reconciles to 244,441. Published small-area values can be rounded, suppressed, unavailable or not applicable. Null and missing values remain NoData and must never be interpreted as zero population, zero vulnerability or safety.",
+        "These sources are annual/static administrative and contextual coverage, not event-time occupancy. They omit visitors, students registered elsewhere, commuters, patients, responders, household stocks and live facility demand."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / ProRail / OVapi / NDW",
+      "title": "NWB roads, rail, public transport, nationally important waterways and current traffic context",
+      "url": "https://downloads.rijkswaterstaatdata.nl/nwb-wegen/geogegevens/shapefile/NWB-light/01-08-2026.zip",
+      "accessedAt": "2026-09-03T01:18:00Z",
+      "edition": "NWB-Light 1 August 2026; GTFS version 9543 valid 30 August–12 December 2026; ProRail and current nautical/NDW services inspected 2–3 September 2026",
+      "supports": [
+        "Monthly CC0 NWB geometry produces thirteen logical links on A7, A28, N46, N993, N361, N865, N860, N360, N372 and N355 toward Het Hogeland, Eemsdelta, Tynaarlo, Westerkwartier, Midden-Groningen and Noordenveld. Repeated N46/A7 edges can share a physical corridor and are not independent measured capacity. The engine correctly limits unqualified public-road edges to mobility and supply.",
+        "ProRail's manually updated CC0 OGC service identifies Groningen, Groningen Noord, Groningen Europapark and Haren stations. OVapi GTFS version 9543, free for reuse on a best-effort/no-SLA basis, provides 361 stop areas. Static geometry and schedules do not prove event-time operation, accessibility, passenger capacity, evacuation throughput or restoration.",
+        "Rijkswaterstaat identifies the Van Starkenborghkanaal and Eemskanaal as nationally important main waterways. Public route descriptions enumerate fourteen bridges and two locks on the Van Starkenborghkanaal and seven bridges and one lock on the Eemskanaal. Current nautical notices and NDW have record-specific issue/validity times; the inspected municipality snapshot contained zero intersecting NDW situations, which means no reported matching record—not that every road or crossing is open.",
+        "Coverage is national static transport geometry/schedule plus point/segment event reports. No single public feed supplies complete road, rail, bridge, lock and waterway passability, emergency priority, common-corridor capacity, repair or T+72 forecast; absent records remain Unknown."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Groningen",
+      "title": "Regionaal Beleidsplan Crisisbeheersing 2024–2028 and regional risk-profile context",
+      "url": "https://veiligheidsregiogroningen.nl/app/uploads/2024/07/05.2.-Geactualiseerd-Regionaal-Beleidsplan-Crisisbeheersing-2024-2028.pdf",
+      "accessedAt": "2026-09-03T01:25:00Z",
+      "edition": "Adopted policy plan 2024–2028 and Regionaal Risicoprofiel 2024 planning cycle",
+      "supports": [
+        "The regional documents cover flooding, extreme rain, drought/heat, nature fire, extreme weather, gas-extraction earthquake consequences, hazardous substances, energy, drinking-water and ICT/telecom disruption. The profile deliberately treats likelihood and effects as scenario-dependent rather than validating one precise municipal probability or consequence curve.",
+        "VRG's dated 24 June 2026 public nature-fire notice reported phase 2 after prolonged drought and warned that forest/heath fires can grow unpredictably. It is time-varying observed/operational communication for its stated period, not permanent climatology, a local ignition/perimeter, fuel/moisture raster or generic T+72 fire forcing; its page stated no machine cadence, spatial resolution or explicit reuse licence.",
+        "The crisis plan describes municipal bevolkingszorg, functional-chain operators, three-northern-region cooperation and German partners. These are authority and coordination context, not proof that warning, evacuation, reception, temporary water, medical continuity, traffic management, repair or mutual aid has occurred or has resources available.",
+        "The documents have regional qualitative coverage, multi-year editions and no explicit machine-reuse licence or fixed update cadence found in the documents. They are context-only, not observed or operational feeds; silence about a local asset, incident or action remains Unknown."
+      ]
+    },
+    {
+      "publisher": "Gemeente Groningen",
+      "title": "Water-nuisance stress tests, climate-adaptation programme and local heat plan",
+      "url": "https://gemeente.groningen.nl/wateroverlast",
+      "accessedAt": "2026-09-03T01:32:00Z",
+      "edition": "Municipal current page inspected 3 September 2026; climate implementation appendices 2020–2024; local heat plan 2021 with annual/dynamic review intent",
+      "supports": [
+        "The municipality's most recent published stress-test context uses 58 and 73 millimetres per hour and identifies urgent locations; it states that sewers cannot contain extreme rain and streets temporarily store water. The underlying Tygron work used AHN2 and explicitly warns that the conceptual map omits sewer/surface-water interaction and newer development.",
+        "The local heat plan focuses on older people living at home, lonely residents and people without housing, with periodic updates and KNMI heat-warning activation. It is preparedness context, not a neighbourhood temperature observation, current vulnerability census or guarantee that actions are staffed and completed.",
+        "The pages and reports provide municipality/city and mapped planning coverage, event-duration-specific scenario context and no stable machine endpoint, native raster resolution, fixed refresh, explicit blanket reuse licence or NoData definition found during review. They must remain source-dated context-only until an authorized export preserves units, CRS, edition, coverage and NoData."
+      ]
+    },
+    {
+      "publisher": "Waterschap Noorderzijlvest / Waterschap Hunze en Aa's / Het Waterschapshuis / Rijkswaterstaat",
+      "title": "Reitdiep and Drentsche Aa water-system context, harmonized water assets and Waterinfo observations",
+      "url": "https://www.hunzeenaas.nl/app/uploads/2021/12/Waterbeheerprogramma-2022-2027.pdf",
+      "accessedAt": "2026-09-03T01:38:00Z",
+      "edition": "Waterbeheerprogramma 2022–2027; KRW background document 2022–2027; HWH/RWS services retrieved 3 September 2026",
+      "supports": [
+        "Hunze en Aa's describes the Drentsche Aa–De Punt–Noord-Willemskanaal system, low-lying Haren/Groningen flood pathways, storage/defence measures and drought sensitivity in the sandy upper catchment. Noorderzijlvest describes the normally open Reitdiep connection toward Lauwersmeer. These multi-year catchment plans have no explicit blanket reuse licence found and are qualitative/system context, not a live boundary condition.",
+        "The CC BY-SA 4.0 HWH IMWA/DAMO OGC services expose 229 assigned GM0014 point assets: five sewer pumps, thirteen sluices, 26 surface-water pumps and 185 weirs, including Aanvoergemaal Dorkwerd and Dorkwerdersluis. Coverage and attribute completeness vary by contributor; registration timestamps and gerealiseerd labels are not telemetry, connectivity, capacity, condition, backup or current operation. No assigned RWZI record means Unknown under partial coverage, not no wastewater treatment dependency.",
+        "The CC0 RWS Waterinfo context contains three point records: Groningen fresh water at -90 cm NAP and stale/possibly faulty Dorkwerd Reitdiep (-77 cm NAP) and Slochtersluis (54 cm NAP) readings in the inspected snapshot. Waterinfo is generally near-ten-minute observed/forecast point data, cacheable for five minutes and explicitly not mission critical. Quality/staleness flags must be preserved; a point is not a municipal hydraulic surface, breach, defence state or T+72 inundation forecast.",
+        "These sources cover different authorities, systems, dates and spatial units. Missing gauges, assets or attributes remain NoData; wastewater drainage, regional surface-water control, groundwater, drinking-water quantity/pressure/quality and flood extent must remain distinct."
+      ]
+    },
+    {
+      "publisher": "KNMI / Nationaal Coördinator Groningen / TNO",
+      "title": "KNMI observed weather and warnings, induced-earthquake catalogue, Groningen ShakeMaps v2 and building-typology context",
+      "url": "https://dataplatform.knmi.nl/dataset/seismic-shakemaps-2-0",
+      "accessedAt": "2026-09-03T01:45:00Z",
+      "edition": "FDSN rolling 365-day query 2 September 2025–2 September 2026; ShakeMaps dataset version 2.0; NCG typology guidance updated 4 June 2026",
+      "supports": [
+        "KNMI FDSN is automatically updated and distributed under the KNMI default CC BY 4.0 licence, with event point/time, reviewed status, magnitude and depth. The rolling national query returned 63 events and three reviewed induced events inside GM0014: M0.319 Meerstad on 4 May 2026 at 3 km, M0.896 Ten Post on 31 January 2026 at 3 km and M0.915 Garmerwolde on 18 September 2025 at 3 km. They are observed catalogue context, not damage fields, probabilities or forecasts; no event is NoData, not zero seismic risk.",
+        "KNMI ShakeMaps v2 is an irregular event-driven CC BY 4.0 NetCDF/JPEG dataset with ground-motion fields derived from measurements, Groningen-specific GMPE and soil/deep/shallow propagation. KNMI states maps are made for Groningen earthquakes above magnitude 2 because lower-magnitude products are not sufficiently reliable. The three small catalogue events therefore do not justify an invented local ShakeMap.",
+        "KNMI weather observations and warnings retain their own evidence class and validity. No station lies inside GM0014; the nearest inspected ten-minute observation was Groningen Airport Eelde in Tynaarlo, 11.119 km from the municipal centre, valid 2 September 2026 23:30 UTC. PV20 reported warning level 0 within its issued 48-hour window. Under the KNMI default CC BY 4.0 terms these are observed/operational point-and-area context, not a 160-neighbourhood forcing or evidence beyond the validity window; missing variables/backfill remain NoData and warning zero never means hazard-free through T+72.",
+        "NCG/TNO typology and location maps combine subsurface/possible shaking with building structural characteristics for assessment. They are dated engineering/context inputs, not a public live event fragility, occupancy, damage or casualty layer. The simulator must preserve event ID, origin version, magnitude/depth, ShakeMap/GMPE/site edition, spatial resolution, coverage and NoData before expressing engineering units or exposure effects.",
+        "The canonical simulator epicentre [6.5665, 53.2194] falls in Binnenstad-Noord but is not one of the three observed events. Catalogue, ShakeMap, site/building exposure and synthetic scenario must remain separate evidence classes."
+      ]
+    },
+    {
+      "publisher": "Netbeheer Nederland / Mijn Aansluiting / Waterbedrijf Groningen / RDI / RIVM / DUO / Register Externe Veiligheidsrisico's",
+      "title": "Public utility territories, capacity planning, drinking-water, communications, care, facilities and industrial-risk context",
+      "url": "https://public.geodata.mijnaansluiting.nl/geoserver/mijnaansluiting_open/ows",
+      "accessedAt": "2026-09-03T01:55:00Z",
+      "edition": "Provider snapshot dated 7 September 2025; public registers retrieved 2–3 September 2026; RIVM acute-care v1.1 published 3 July 2026; Waterbedrijf Groningen annual report 2025",
+      "supports": [
+        "The Public Domain live WMS/WFS identifies Enexis electricity and gas, Waterbedrijf Groningen drinking water and Ziggo media at the municipal reference point, but returns no drainage provider. This is point-sampled provider-territory context, not full municipal coverage, asset topology, load, pressure/quality, outage or restoration. Empty drainage is NoData/Unknown, not absence of a sewer authority.",
+        "NBNL public capacity planning identifies a Groningen Bloemsingel Enexis area; national capacity/projects are generally quarterly and queues monthly, while the inspected product did not expose an exact licence identifier. Planning congestion is not live load, household availability, feeder topology or T+72 reserve. Waterbedrijf Groningen's 2025 report describes five sources, 5,700 km of mains, 43 million cubic metres, roughly 85% groundwater/15% Drentsche Aa water, cross-connections with WMD and the Onnen–Ruischerbrug main; annual system facts do not expose live local topology or pressure/quality/restoration.",
+        "RDI statutory WFS returns 326 assigned antenna installations; no explicit cadence or reuse licence was established. RIVM acute-care v1.1 is CC0 and returns UMCG (24 treatment rooms; 22,318 visits in 2025) and Martini Hospital (22 rooms; 30,659 visits), both with 24/7 emergency and acute obstetric care. DUO daily data, labelled CC BY without a version, returns 182 education-use locations. Installations and register points do not establish coverage/backhaul/power, shelter roles, live occupancy, hospital acceptance, staff, backup, fuel or supplies.",
+        "REV public WMS depicts regulated fire, explosion, toxic, pipeline and Basisnet risk areas with live/current-map intent, but no fixed snapshot cadence, record-valid time or explicit reuse licence was established. It is static/contextual risk-source coverage, not an industrial incident, release rate, plume or current control state. Missing map records never prove zero industrial risk.",
+        "All these heterogeneous layers are contextual and affectsSimulation=false unless a reviewed causal adapter exists. Complete sensitive physical power, gas, water, sewer and telecom topology was neither public nor inferred."
+      ]
+    },
+    {
+      "publisher": "Rijksoverheid / Denk Vooruit",
+      "title": "National first-72-hour household preparedness guidance",
+      "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/veiligheidsregios-en-crisisbeheersing/wat-zit-er-in-een-noodpakket",
+      "accessedAt": "2026-09-03T02:00:00Z",
+      "edition": "Current public guidance inspected 3 September 2026",
+      "supports": [
+        "National guidance recommends supplies for 72 hours, including three litres of water per person per day, food, radio, power bank and medicines. Rijksoverheid text is reusable under CC0 unless otherwise indicated, but the page is public information with national coverage and no operational refresh, municipal measurement or event-valid state.",
+        "Denk Vooruit explains that a crisis can last longer and emergency services cannot be everywhere immediately. This is planning context, not measured Groningen household readiness, a guarantee of aid arrival, a local resource inventory or a recovery deadline.",
+        "Household stocks, distribution capacity, reception, mutual aid, crews, vehicles, fuel, spares, medicines, opened facilities and completed actions remain Unknown until time-stamped authoritative status is supplied."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "Official code, name, province, safety region, centre and headline population agree.",
+      "evidenceRefs": ["E01", "E03"],
+      "notes": [
+        "Manifest, generated context and model uniquely identify GM0014 as Groningen in province Groningen and Veiligheidsregio Groningen.",
+        "BoundaryEdition and statisticsEdition are both 2025. Current 2026 observations, older catalogues, multi-year plans and the synthetic exercise clock retain separate time semantics.",
+        "No code, name, province, safety-region, centre-containment or headline-population mismatch was found."
+      ]
+    },
+    "geography": {
+      "status": "pass",
+      "summary": "The full 2025 municipality has one MultiPolygon component and the generated generalized geometry preserves its topology and all official place labels.",
+      "evidenceRefs": ["E01", "E05"],
+      "notes": [
+        "The non-generalized PDOK feature is a one-component, one-ring MultiPolygon with 4,802 vertices; the generalized source has 253 vertices and the stored closed ring has 254 coordinate pairs. There is no detached 2025 component to restore, but preserving MultiPolygon semantics avoids false assumptions.",
+        "The centre [6.565762848620057, 53.22295312371496] and all sixteen BAG woonplaats label points fall inside the generalized boundary. The 41 BRT labels comprise thirteen buurtschappen, seven deelkernen, three gehuchten and eighteen woonkernen.",
+        "Administrative containment does not encode Reitdiep/Drentsche Aa hydraulic connectivity, sewer catchments, defence zones, soil response, industrial plumes, woodland fuel or emergency access."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Official 2025 totals agree and neighbourhood rounding reconciles without converting missing values into zero.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "Official/generated population is 244,441, density is 1,318 per square kilometre, age65Pct is 15.6 and household count is 145,521.",
+        "Published neighbourhood populations sum to 244,420, 21 below the municipality total (-0.009%); the deterministic allocator reconciles exactly to 244,441.",
+        "Largest neighbourhoods include Indische buurt 8,525, Binnenstad-Zuid 7,085, Selwerd 6,585, Hortusbuurt-Ebbingekwartier 6,515 and Professorenbuurt 6,430. Resident aggregates do not measure transient populations, medical dependency or household preparedness."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "All 160 neighbourhoods load, but some official attributes and all operational hazard/service dimensions have incomplete coverage.",
+      "evidenceRefs": ["E01", "E04", "E05", "E07"],
+      "notes": [
+        "Core statistics cover 160/160 neighbourhoods; address density/urbanity cover 159, home value 115, household size 151, cars per household 105, benefit 125, doctor/supermarket distance and density 141, and housing percentages 117. District heating and public charging are usable in 0/160 and remain NoData rather than zero.",
+        "Municipal stress-test, HWH assets, provider territories, RDI antennas, acute care, DUO and REV add public context with distinct editions and spatial units, but do not provide a complete live operational surface.",
+        "NoData masks, denominators, uncertainty, source time and affectsSimulation must remain visible at neighbourhood level."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "BAG and BRT settlement identities are spatially coherent and retain their contextual scope.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "All sixteen BAG woonplaats labels and 41 BRT settlement labels are represented without a label point outside the generalized municipality.",
+        "BAG and BRT counts differ because of registration purpose and cartographic classification, not because residents or services are missing.",
+        "Labels do not establish event-time population, isolation, utility connection, care capacity, shelter role or evacuation throughput."
+      ]
+    },
+    "transport": {
+      "status": "warn",
+      "summary": "Road, rail and waterway context is broad and reproducible, but event-time access, bridge/lock state and cross-boundary care/supply capacity are not modeled.",
+      "evidenceRefs": ["E02", "E03", "E07"],
+      "notes": [
+        "Thirteen logical road links cover A7/A28 and regional routes toward six neighbouring municipalities. Repeated corridor links are non-additive and the generalized 150/260 scenario-unit capacities are not observed vehicles, freight or emergency throughput.",
+        "Four stations, 361 GTFS stop areas, Van Starkenborghkanaal/Eemskanaal crossings and current notice endpoints are context only. There is no unified event-valid road, rail, bridge, lock, waterway or priority-route state through T+72.",
+        "Two acute hospitals lie inside Groningen, but hospital acceptance, ambulance routes, diversion, neighbouring-region mutual aid and inbound food/water/fuel/medicine supply remain Unknown."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "Official roles, care points and 72-hour guidance exist, but response actions, resource state and recovery decisions are not auditable model inputs.",
+      "evidenceRefs": ["E03", "E07", "E08"],
+      "notes": [
+        "VRG distinguishes regional command, municipal bevolkingszorg and operator/functional-chain responsibilities, including northern and international cooperation. Plans do not prove an action has been triggered, resourced or completed.",
+        "UMCG, Martini, DUO and other register locations do not establish current occupants, opening, crisis role, hospital acceptance, staff, backup power, fuel, water, medicines or access.",
+        "The national 72-hour household recommendation is not measured local preparedness, a delivery promise or a recovery deadline."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten presets produce complete finite deterministic frames for six checkpoints and eight services; evidence failures are recorded separately.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07"],
+      "notes": [
+        "The focused gate executed severe storm, pluvial flood, river flood, coastal flood, heatwave, winter storm, cyberattack, earthquake, wildfire and compound at T+0/6/12/24/48/72 for power, water, drainage, gas, telecom, mobility, facilities and supply.",
+        "Representative T+24 severity / affected people-equivalent / cumulative local pre-network event-attributable person-hours are storm 0.158495 / 69,472 / 1,086,051.96; pluvial 0.221451 / 25,383 / 814,292.88; coastal 0.569555 / 143,900 / 2,733,443.44; heat 0.096412 / 12,253 / 613,505.16; winter 0.643047 / 74,053 / 1,487,308.48; cyber 0.432171 / 68,004 / 1,254,591.08; and compound 0.870534 / 145,095 / 2,313,477.39.",
+        "River direct hazard/affected/person-hours remain exactly 0/0/0 at every checkpoint. Earthquake at T+6 is 0.595007 current severity, 0.190402 g, 131,162 affected and 545,579.39 person-hours; wildfire at T+24 has 0 direct fire, 0.148003 smoke and 207,254.19 person-hours.",
+        "These values are deterministic exercise proxies, not observations, identified customers, casualties, damage estimates, forecasts or operator promises."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Focused deterministic, finite, allocation, baseline and cumulative-burden contracts pass.",
+      "evidenceRefs": [],
+      "notes": [
+        "MUNICIPALITY_AUDIT_CODE=GM0014 pnpm audit:model passes both current tests for ten presets, six checkpoints and eight services.",
+        "All local rows reconcile exactly to 244,441 residents, repeated output is deterministic, zero-intensity event attribution stays zero and cumulative deprived person-hours is monotonic.",
+        "Passing structural arithmetic does not validate local hazard forcing, topology, vulnerability, response or recovery."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "Unrelated hazards reuse one complete neighbourhood order and even the earthquake epicentre is not locally prioritized.",
+      "evidenceRefs": ["E01", "E04", "E05", "E06", "E07"],
+      "notes": [
+        "At relevant nonzero checkpoints storm, pluvial, coastal, heat, winter, cyber, earthquake and wildfire share the same complete 160-neighbourhood order, led by Bedrijventerrein Oosterhoogebrug, Zeeheldenbuurt, Glimmen Dorp, Tuindorp and De Wierden.",
+        "The canonical epicentre lies in Binnenstad-Noord, which ranks only 84/160. Observed catalogue-event containing neighbourhoods also rank independently of source: De Zeilen 112/160, Buitengebied Ten Post 16/160 and Garmerwolde 126/160.",
+        "The canonical wildfire is remote and produces no direct local flame, so it does not test an ignition in the Haren/Glimmen forest/heath landscape. Source-aware controlled tests are required for fire, earthquake, industrial release and water pathways."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "Eight service values are complete but are not calibrated to Groningen's physical power, gas, water, drainage, telecom, facility or logistics networks.",
+      "evidenceRefs": ["E02", "E05", "E07"],
+      "notes": [
+        "The source=NWB guard correctly restricts public roads to mobility and supply; it does not invent utility topology. However, capacities remain generalized scenario units and common corridors are not operational measurements.",
+        "Provider territories, one NBNL planning sample, 229 water assets, 326 antenna installations, two hospitals and 182 education locations remain context-only and cannot validate exact service availability, dependency coefficients, reserves or repair curves.",
+        "No safe complete public source supplies feeder, gas, drinking-water, sewer or backhaul connectivity, live state, backups, crews and restoration. Use operator-authorized aggregates where available and visibly synthetic/Unknown fallback elsewhere."
+      ]
+    },
+    "causalTrace": {
+      "status": "warn",
+      "summary": "Metric/evidence class is partly disclosed, but exact local outputs are not tied to named events, conditions, actions and resources.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "Desktop 1440×1000 and mobile 375×812 runs both showed Groningen earthquake T+6 as '0.190 g scenario proxy' with generic 'Scenario · evidence class synthetic' and separate observed KNMI FDSN context. Neither viewport overflowed horizontally; mobile selectors remained reachable through Tune and layer details.",
+        "The generic synthetic label does not state that magnitude, depth, event ID, ShakeMap/GMPE/site layer, building fragility and occupancy are absent beside 0.190 g and the affected count. Similar gaps apply to coastal depth, service percentages and reserves.",
+        "Observed, warning/operational, historical/context and simulated evidence retain separate issue/observation/valid/retrieval times. Missing or stale source values must never silently populate future frames."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "T+72 restoration is deterministic but not caused by time-stamped Groningen actions, resources, operator states or access decisions.",
+      "evidenceRefs": ["E02", "E03", "E05", "E07", "E08"],
+      "notes": [
+        "Storm and winter direct severity reach zero by T+72 while cumulative burdens reach 2,907,949.84 and 3,554,512.28 person-hours; earthquake shaking is zero and affected returns to zero while burden reaches 5,233,495.31. No repair, inspection, re-entry, crew or operator action supports these curves.",
+        "Compound T+72 remains severity 0.402754 with flood 0.320418, cyber 0.057872, 161,087 affected and 9,077,079.80 person-hours. Service availability is power 0.368708, water 0.421585, drainage 0.277531, gas 0.577600, telecom 0.233046, mobility 0.501161, facilities 0.345742 and supply 0.432952.",
+        "There is no ledger for warning, evacuation, shelter/reception, hospital diversion, temporary water, pumping, switching, traffic/bridge control, repair, food/fuel/medicine distribution or cross-boundary mutual aid with authority, status, time, capacity and dependency.",
+        "Seventy-two hours is a preparedness horizon, not a guarantee of response arrival or restoration."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": ["power", "water", "drainage", "gas", "telecom", "mobility", "facilities", "supply"]
+  },
+  "findings": [
+    {
+      "id": "GM0014-EARTHQUAKE-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The Groningen preset presents engineering-like ground motion and population impact without a selected seismic event or exposure chain.",
+      "evidence": "At T+6 the canonical point [6.5665, 53.2194] produces 0.190402 g, current severity 0.595007, stored peak severity 0.966887, 131,162 affected people-equivalent and 545,579.39 person-hours. The engine has no selected magnitude, depth, origin/event ID, ShakeMap version, GMPE, soil/site response, building typology/fragility, occupancy or damage-state calculation. E06 distinguishes the three sub-M2 reviewed observed events from event-driven ShakeMaps and NCG/TNO exposure context.",
+      "action": "Suppress g, affected and damage-like local precision until a versioned selected event and reviewed ShakeMap/site/exposure chain is bound. Otherwise show a dimensionless synthetic stress and Unknown exposure. Preserve origin revision, magnitude/depth, valid time, GMPE/site/typology edition, resolution, coverage, licence and NoData."
+    },
+    {
+      "id": "GM0014-SPATIAL-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Eight unrelated hazards reuse exactly one 160-neighbourhood order and ignore source containment.",
+      "evidence": "Storm, pluvial, coastal, heat, winter, cyber, earthquake and wildfire are led by the same neighbourhood sequence. The earthquake epicentre's Binnenstad-Noord ranks 84th; observed event containment neighbourhoods De Zeilen, Buitengebied Ten Post and Garmerwolde rank 112th, 16th and 126th. This contradicts mechanism-specific source, catchment, soil, surface, vulnerability, network and plume/fire pathways.",
+      "action": "Replace the shared municipality/region seed with coverage-aware hazard-family adapters. Add controlled source-containment tests for earthquake, fire and industrial release and pathway tests for pluvial/catchment flooding; unsupported cells remain Unknown instead of receiving pseudo-local rankings."
+    },
+    {
+      "id": "GM0014-FLOOD-SCOPE-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Coastal output is falsely precise while the exact-zero river screen omits locally relevant Groningen water pathways.",
+      "evidence": "The coastal preset reaches 1.555701 m and affects 143,900 at T+24 without a selected water body, boundary hydrograph/datum, defence/breach/overtopping/control state, connected footprint, arrival or recession. River hazard, depth, affected and person-hours are exactly zero at all checkpoints under a coarse major-river diagnostic. E04–E05 establish urban 58/73 mm/h runoff/sewer limits plus Reitdiep, Lauwersmeer, Drentsche Aa, Noord-Willemskanaal, Eemskanaal, storage and control pathways that the zero does not test.",
+      "action": "Suppress coastal metres and local affected impact until an authority-selected hydraulic event is bound. Retain the river zero only as a narrowly labelled Rhine/Meuse/IJssel direct-network diagnostic; explicitly mark Groningen boezem/canal, Drentsche Aa, defence/control and pluvial pathways Unknown rather than safe."
+    },
+    {
+      "id": "GM0014-WATER-DRAINAGE-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "open",
+      "summary": "Strong public water observations and assets do not drive a reviewed local causal water/drainage model.",
+      "evidence": "E05 exposes 229 assigned assets and three Waterinfo readings, including stale/possibly faulty records. E04 documents stress-test assumptions and limitations. Yet pluvial shares the generic local order and exact water/drainage availability is synthetic. The sources do not jointly provide sewer/catchment topology, storage, flow direction, setpoints, telemetry, power backup, failure, emergency pumping or emptying time.",
+      "action": "Integrate authorized stress-test/catchment/control-zone surfaces with rainfall duration, CRS, units, edition, licence, coverage and explicit NoData. Preserve quality/staleness and keep wastewater, regional water, groundwater and drinking-water quantity/pressure/quality separate."
+    },
+    {
+      "id": "GM0014-FIRE-INDUSTRIAL-CYBER-001",
+      "severity": "medium",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Local nature-fire, industrial-release and cyber source mechanisms are not exercised by the canonical presets.",
+      "evidence": "Canonical wildfire has zero local direct flame and only smoke/drought burden from a remote source, so it does not test Groningen's Haren/Glimmen forest/heath ignition, spread, access or extinguishing water. REV regulated-source context is not an incident or release plume, and there is no industrial-release preset. Cyber has no named target, architecture, attack path or operator incident yet creates precise cross-service impact.",
+      "action": "Keep remote-fire, regulated-risk and cyber labels explicit. Add controlled local ignition/perimeter tests and optional authority-selected industrial/cyber exercises with source, release/attack state, wind/network path, controls, validity and NoData; do not manufacture incidents from static registers."
+    },
+    {
+      "id": "GM0014-LIFELINE-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "accepted-limitation",
+      "summary": "Public service datasets support territories and planning context but not safe physical topology or live availability.",
+      "evidence": "E05/E07 provide provider territories, one grid-planning sample, water-system assets, 326 antennas, water-company system facts and facilities. Their coverage, cadence and semantics differ and none proves feeder/pipe/sewer/backhaul topology, live load/pressure/quality/coverage, backup, crews or restoration. Empty drainage-provider and RWZI assignment results are incomplete coverage, not absence.",
+      "action": "Retain affectsSimulation=false plus explicit edition, resolution, coverage, licence and NoData for public context. Use operator-authorized security-reviewed aggregates for causal zones; otherwise preserve visibly synthetic service values and never claim physical topology."
+    },
+    {
+      "id": "GM0014-ACCESS-CARE-001",
+      "severity": "medium",
+      "category": "network",
+      "status": "open",
+      "summary": "A7/A28, rail, waterway and hospital context does not establish first-72-hour access or cross-boundary capacity.",
+      "evidence": "The graph has thirteen road links, four stations and 361 stops; public descriptions cover Van Starkenborghkanaal/Eemskanaal bridges and locks; UMCG and Martini are local acute hospitals. There is no event-valid road/rail/bridge/lock state, priority or common-corridor throughput, hospital acceptance/diversion, ambulance route, mutual-aid confirmation or inbound essential-supply capacity.",
+      "action": "Represent route/mode/crossing identity, direction, issue/valid/expiry time, passability, emergency priority, capacity units, confidence and source. Keep hospital acceptance and mutual aid as time-stamped authority decisions, and keep absent traffic situations as Unknown rather than open."
+    },
+    {
+      "id": "GM0014-RESPONSE72-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Precise recovery and burden curves are not linked to accountable actions or resources.",
+      "evidence": "Compound T+72 still affects 161,087 with exact availability from 0.233046 telecom to 0.577600 gas and cumulative burden 9,077,079.80 person-hours. Storm, winter and earthquake direct forcing recovers by T+72 through generic curves. E03 defines authorities and E08 defines household guidance, but neither supplies executed warnings, evacuations, reception, hospital diversion, temporary water, pumping, switching, traffic control, repairs, distribution, mutual aid, crews, fuel or spares.",
+      "action": "Add an intervention/resource ledger with authority, trigger and units, proposed/requested/confirmed/started/completed/failed/cancelled state, issue/valid/expiry time, resources, dependencies, confidence and source. Do not turn plans or the 72-hour kit recommendation into completed action or recovery."
+    },
+    {
+      "id": "GM0014-UX-EVIDENCE-001",
+      "severity": "high",
+      "category": "ui",
+      "status": "open",
+      "summary": "Desktop and mobile are usable, but generic provenance does not adequately qualify exact unsupported Groningen outputs.",
+      "evidence": "At 1440×1000 and 375×812, earthquake T+6 displays '0.190 g scenario proxy' and 'Scenario · evidence class synthetic' while separate KNMI FDSN observed context is visible. No horizontal overflow occurred and mobile controls remained reachable through Tune/details. There is no adjacent GM0014 warning listing absent event, ShakeMap/site/exposure inputs beside the precise ground motion and affected count; similar local qualification is absent for coastal depth and service recovery.",
+      "action": "Add a persistent municipality-specific evidence-gap banner to map, inspector, decision brief, aria-live text and exports. Preserve evidence class, source edition, issue/observation/valid/retrieval time, units, coverage, uncertainty, licence, affectsSimulation and NoData adjacent to every exact local value."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Bind Groningen earthquake outputs to an explicit event, ShakeMap, site response and building-exposure contract.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/public/data/hazards/GM0014-earthquake-context.json",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Before binding, g/affected/damage-like outputs are suppressed or shown as dimensionless synthetic stress with exposure Unknown. Supported runs preserve event/origin version, magnitude/depth, ShakeMap v2/GMPE/site/typology edition, valid time, resolution, coverage, licence and NoData; sub-M2 catalogue points never auto-generate ShakeMaps."
+    },
+    {
+      "summary": "Replace the common neighbourhood seed with source-aware Groningen hazard-family allocation.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/public/data/hazards/GM0014-spatial-context.json"
+      ],
+      "validation": "Unrelated nonzero hazards no longer share one complete 160-row order unless identical input explicitly justifies it. Controlled earthquake/fire/industrial sources prioritize containing/near-source areas as the mechanism requires, and pluvial/water pathways follow reviewed source geometry. Unsupported cells remain Unknown."
+    },
+    {
+      "summary": "Correct coarse river/coastal scope and integrate reviewed Groningen pluvial and water-system evidence.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/public/data/hazards/GM0014-water-context.json",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Coastal metres/local affected output remains suppressed until a selected hydraulic event exists. River zero is labelled only as Rhine/Meuse/IJssel direct-network screening and never as local safety. Reitdiep/Lauwersmeer, Drentsche Aa/Noord-Willemskanaal, Eemskanaal/boezem, defence/control and pluvial/sewer impact remain Unknown until a source-dated event preserves hydrograph/datum, defence state, depth/velocity/arrival/recession, units, resolution, coverage, licence and NoData."
+    },
+    {
+      "summary": "Add event-valid multimodal access, hospital acceptance, supply and mutual-aid semantics.",
+      "files": [
+        "apps/web/public/data/transport-network.json",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/public/data/public-context/GM0014-response-context.json"
+      ],
+      "validation": "A7/A28 and regional routes preserve non-additive corridor identity and NWB mobility/supply-only scope. Road, rail, bridge, lock and waterway state includes source and valid time; hospital acceptance/diversion, ambulance access, mutual aid and supply throughput remain Unknown until confirmed."
+    },
+    {
+      "summary": "Add a causal first-72-hour intervention, resource and facility contract.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/AnalyticsDrawer.tsx",
+        "apps/web/public/data/public-context/GM0014-response-context.json"
+      ],
+      "validation": "Every action records authority, trigger/units, proposed/requested/confirmed/started/completed/failed/cancelled status, issue/valid/expiry time, resources, dependencies, confidence and source. Facility opening/acceptance, staff, backup, routes, temporary water, reception, food/medicine/fuel, crews and vehicles stay Unknown until time-stamped confirmation."
+    },
+    {
+      "summary": "Make Groningen-specific unsupported evidence and NoData persistent across desktop, mobile and exports.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "apps/web/src/components/statistics/statisticsCatalog.ts",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/App.tsx"
+      ],
+      "validation": "Map, cards, decision brief, aria-live text and exports retain observed/operational/context/scenario/derived class, publisher, endpoint, edition, cadence, spatial/temporal resolution, coverage, uncertainty, licence, affectsSimulation and NoData. The earthquake, coastal, water-pathway and recovery gaps are adjacent to exact values in both tested viewports."
+    }
+  ],
+  "residualLimitations": [
+    "This is a deterministic first-72-hour planning-model audit, not a KNMI, Rijkswaterstaat, water-board, safety-region, municipal, hospital or utility forecast, warning, probability, evacuation order, casualty/damage estimate or restoration commitment.",
+    "The 2025 municipal geometry is a one-component MultiPolygon. Generalized CBS neighbourhoods and BAG/BRT labels are appropriate for overview aggregation, not parcels, sewer catchments, defence compartments, hydraulic connectivity, soil/site response, industrial plumes, fire fuels or emergency routes.",
+    "The canonical earthquake is not one of the three observed FDSN events and has no selected magnitude/depth, origin revision, ShakeMap/GMPE/site layer or building fragility/occupancy. Its g, affected and recovery values are synthetic and should be suppressed as engineering claims.",
+    "The exact-zero river result covers only a coarse direct major-river network diagnostic. It does not establish safety from Reitdiep/Lauwersmeer, Drentsche Aa/Noord-Willemskanaal, Eemskanaal/boezem, defence/control, groundwater or pluvial/sewer pathways.",
+    "The coastal depth has no selected boundary hydrograph/datum, defence/breach/overtopping state, connected footprint, arrival/recession or NoData mask and is not a local prediction.",
+    "Municipal stress-test pages and multi-year water plans are planning/scenario context. HWH asset points and Waterinfo gauges do not prove network completeness, connectivity, current operation, capacity, telemetry, backup, breach or T+72 inundation.",
+    "NWB, ProRail and GTFS are static geometry/schedule context. Current NDW/nautical absence does not prove open routes, and no complete event-valid A7/A28, rail, bridge, lock, waterway, ambulance or supply state exists.",
+    "No complete safe public source supplies Enexis electricity/gas topology, Waterbedrijf pressure/quality topology, sewer connectivity, water-board controls, telecom backhaul, facility dependencies, live stocks, backups, crews or restoration; sensitive topology was not inferred.",
+    "Provider areas, NBNL planning, antenna registrations, hospitals, education locations and REV risk objects are contextual records with distinct coverage and time. They do not establish service availability, shelter role, care acceptance, industrial release or incident state.",
+    "The remote canonical fire does not test a Haren/Glimmen ignition; cyber lacks a named target/path; industrial release has no canonical preset; heat/storm/winter require issue-valid KNMI forcing. Static risk context must not be converted into an event.",
+    "Registered residents omit visitors, commuters, transient students, patients and responders. Household readiness, medical dependency, reception, mutual aid, water/food/medicine/fuel stocks, staff, vehicles and repair priorities remain assumed or Unknown.",
+    "Affected people-equivalent and system pressure are proxy snapshots; deprived person-hours is cumulative local pre-network matched-baseline weighted service shortfall. Neither equals identified customers, casualties, displacement, welfare loss or economic damage, and six-hour checkpoints can miss rapid rainfall, wind, traffic and control changes."
+  ],
+  "provinceReviewFlags": [
+    "Municipality-specific release blocker: suppress 0.190402 g, affected and damage-like Groningen earthquake precision until an explicit event, ShakeMap/GMPE/site and building-exposure chain is selected and versioned.",
+    "Municipality-specific release blocker: replace the common 160-neighbourhood order; the canonical epicentre's Binnenstad-Noord ranks 84/160 and observed event-containing areas are not source-prioritized.",
+    "Municipality-specific release blocker: suppress the 1.555701 m coastal result as a local prediction. Retain river zero only as a labelled Rhine/Meuse/IJssel diagnostic and explicitly leave Reitdiep, Drentsche Aa, Eemskanaal/boezem and pluvial pathways Unknown.",
+    "Municipality-specific: integrate authorized Groningen stress-test and water-system layers only with event duration, CRS, units, edition, cadence, coverage, licence and NoData; keep stale/faulty observations and partial assets non-causal.",
+    "Municipality-specific: add event-valid A7/A28, rail, waterway, bridge/lock, hospital acceptance, mutual-aid and essential-supply state without inventing capacity from static geometry.",
+    "Municipality-specific: test local Haren/Glimmen fire containment and keep REV industrial and cyber target context separate from selected incidents.",
+    "Shared/national: preserve the NWB mobility/supply-only guard and common-corridor non-additivity; roads must never become power, gas, potable-water, drainage, telecom or facility topology.",
+    "Shared/national: preserve publisher, endpoint, edition/date, cadence, spatial/temporal resolution, coverage, licence, evidence class, valid time, affectsSimulation and NoData in every map/export; missing never means safe or zero.",
+    "Shared/national: exact recovery needs a time-stamped authority/action/resource ledger, not generic curves or the 72-hour preparedness guideline."
+  ]
+}

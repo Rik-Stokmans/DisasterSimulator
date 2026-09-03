@@ -1,0 +1,467 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0388",
+    "name": "Enkhuizen",
+    "province": "Noord-Holland",
+    "safetyRegion": "Noord-Holland-Noord"
+  },
+  "agent": {
+    "taskName": "municipality_gm0388",
+    "agentId": "/root/nl_realism_audit",
+    "completedAt": "2026-09-03T00:43:22Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "GM0388 passes the complete deterministic execution contract across all ten canonical scenarios, T+0/6/12/24/48/72 and all eight essential services. Its CBS 2025 identity, 18,847 residents, 19 neighbourhoods and Noord-Holland-Noord safety-region assignment reconcile. Release remains correction-required. The major-river preset holds an unselected normalized flood stress of 0.7118 through T+72 and the coastal preset reaches 1.1463, but neither run identifies an IJsselmeer/Markermeer boundary condition, the Sassluis or another defence/control state, an overtopping or breach case, a connected inundation footprint, or recession/dewatering. Eight unrelated nonzero standalone hazards reuse exactly one complete neighbourhood ordering. A controlled source inside official Enkhuizerzand broadleaf woodland ranks that containing neighbourhood sixth behind Ketenwaal, 5.5 kilometres away. Most materially, the generated mobility/supply graph counts the one Houtribdijk/N307 crossing to Lelystad as three independent 150-scenario-unit edges: N307, Markermeerdijk and Markerwaarddijk. Current NWB records show the latter two are unnumbered parallel/roadside sections, while Rijkswaterstaat states that Markerwaarddijk is another name for the single Houtribdijk carrying N307. The three paths all carry simulated flow and therefore create false redundancy. Public municipal, water-board, road, provider, antenna, education and planning datasets add useful context, but they do not establish live physical utility topology, asset state, capacity, backup, stocks, crews or restoration. Exact outputs remain deterministic exercise values, not observations, forecasts, warnings or operator commitments.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek",
+      "title": "Kerncijfers wijken en buurten 2025 — GM0388 filtered municipality and neighbourhood rows",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM0388%27%29",
+      "accessedAt": "2026-09-03T00:37:39Z",
+      "edition": 2025,
+      "supports": [
+        "Official-context identity and aggregates: Enkhuizen has 18,847 residents, density 1,488 per square kilometre, 23.2% aged 65 or older and 3,520 one-person households in the deployed 2025 table.",
+        "The 19 published neighbourhood populations sum to 18,855, eight above the municipality total (+0.042%); this is compatible with CBS small-area rounding and the model reconciles allocation exactly to 18,847.",
+        "CBS OData is machine-readable annual statistical context under CC BY 4.0. Suppressed, unavailable, incomplete or not-applicable attributes remain null/Unknown and are never converted to zero. Aggregates do not establish event-time visitors, vulnerability, household stocks or service demand."
+      ]
+    },
+    {
+      "publisher": "CBS, Kadaster and PDOK",
+      "title": "CBS 2025 administrative areas, BAG woonplaats and BRT TOP10NL source-resolution context",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1",
+      "accessedAt": "2026-09-03T00:37:39Z",
+      "edition": "CBS/BAG 2025 deployment snapshot; BRT annual service inspected 2026-09-03",
+      "supports": [
+        "The official generalized GM0388 boundary contains the model centre [5.280959991651433, 52.717710918274776] and supports 19 neighbourhoods. BAG has one Enkhuizen woonplaats, while BRT provides Enkhuizen, Oosterdijk and Westeinde labels. The BAG label centre falls just outside the generalized CBS polygon, an edition/generalization caveat rather than proof that the place is outside Enkhuizen.",
+        "BRT TOP10NL OGC API https://api.pdok.nl/kadaster/brt-top10nl/ogc/v1 is annual and CC BY 4.0. Feature 0bbe1b07-830f-5fa2-8f56-0ad715c040c3 is broadleaf woodland with source actuality 2024-01-01 and registration 2025-04-01; audit point [5.286008587114658, 52.71757819175381] lies in it and in BU03880108 Enkhuizerzand.",
+        "Administrative, settlement and land-cover geometry is official context, not a hydraulic connection, ignition, fuel condition, occupancy, access state or incident footprint. Source edition and polygon semantics must persist in downstream joins."
+      ]
+    },
+    {
+      "publisher": "Municipalities of Stede Broec, Enkhuizen and Drechterland / Royal HaskoningDHV",
+      "title": "Definitive Environment Effects Report for the SED environmental vision",
+      "url": "https://www.omgevingsvisiesed.nl/images/bestanden/B2%20Omgevingseffect%20rapportage%20OER%20-%208%20oktober%202024.pdf",
+      "accessedAt": "2026-09-03T00:37:39Z",
+      "edition": "Definitief/02, 9 October 2024; underlying Westfriesland stress test 2020 and map context 2023",
+      "supports": [
+        "For a static 70 mm in one hour stress test, the report names Kastanjelaan and its pump, the stony centre with emergency-access concerns, Oude Gouw, Plan Noord, a southern Liander substation, western seed companies, Ketenwaal, the N307 tunnels/naviduct and access to hospitals in Lelystad and Hoorn. It reports water commonly up to 15 cm and locally higher.",
+        "Heat context is mechanism-specific: the historic centre, independently living older residents, centre schools/RSG with little shade, and southern industrial areas are named; heat can also affect rail and water systems.",
+        "This is official static planning/model context, not a current observation, selected incident or T+72 forecast. No stable native machine API, guaranteed refresh cadence or standalone open-data licence was identified for the embedded local maps; obtain owner-authorized native surfaces and preserve the event duration before causal use."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Noord-Holland Noord",
+      "title": "Regional risk profile 2022–2023, policy plan 2024–2027 and population-care principles",
+      "url": "https://www.vrnhn.nl/sites/vrnhn/files/2022-03/Regionaal%20risicoprofiel%202022%20-%202023%20VRNHN.pdf",
+      "accessedAt": "2026-09-03T00:37:39Z",
+      "edition": "Risk profile adopted 4 March 2022; policy plan 2024–2027",
+      "supports": [
+        "The published regional profile distinguishes flooding from the North Sea, Wadden Sea and IJsselmeer/Markermeer, a polder-dike failure and extreme precipitation; this supports separate mechanisms rather than one generic flood amplitude.",
+        "The current policy page https://www.vrnhn.nl/organisatie/beleidsplan-2024-2027 emphasizes long-duration crises, partner networks, information, resilience and future-proof population care. The 2024 population-care plan says municipalities remain responsible, capability is finite and attention first targets people with reduced self-reliance.",
+        "These public plans have no fixed operational refresh API or blanket machine-readable incident feed. They define roles and preparedness, never prove that a warning, dispatch, reception site, evacuation, distribution point or restoration action is active or complete."
+      ]
+    },
+    {
+      "publisher": "Hoogheemraadschap Hollands Noorderkwartier, Het Waterschapshuis/PDOK and WMCN",
+      "title": "Enkhuizen defences and Sassluis, harmonized water-control registers and LIWO scenarios",
+      "url": "https://www.hhnk.nl/legger-waterkeringen",
+      "accessedAt": "2026-09-03T00:37:39Z",
+      "edition": "Current web/register context inspected 2026-09-03; LIWO release notes through 2025.1.6",
+      "supports": [
+        "HHNK states that primary defences protect against IJsselmeer and Markermeer water and regional defences protect polders. Its Sassluis page https://www.hhnk.nl/sassluis-enkhuizen says the sluice protects the low Oude Haven and Enkhuizen surroundings from high IJsselmeer water.",
+        "The deployed HWH snapshot intersects GM0388 at 18 register objects: eight surface-water pumps, seven weirs, two sewer pumps and one Sassluis record. HWH Kunstwerken IMWA OGC https://api.pdok.nl/hwh/waterschappen-kunstwerken-imwa/ogc/v2 is weekly and CC BY-SA 4.0; Waterketen DAMO OGC https://api.pdok.nl/hwh/waterschappen-waterketen-damo/ogc/v1 is downloadable contributor data under CC BY-SA 4.0 with variable completeness/cadence.",
+        "LIWO https://basisinformatie-overstromingen.nl and its OWS service provide versioned professional flood scenarios and derived maps. IPLO states that specialist water-manager interpretation is required. Pin scenario/release, mechanism, probability, defence state, depth/velocity/arrival/duration/recession, raster resolution, coverage, licence and NoData; register objects and scenario geometry do not provide live operation."
+      ]
+    },
+    {
+      "publisher": "Municipality of Enkhuizen",
+      "title": "Enkhuizen 2026 budget and capital-assets / urban-water programme context",
+      "url": "https://www.enkhuizen.nl/wp-content/uploads/2025/11/Begroting-Enkhuizen-2026-inclusief-amendementen.pdf",
+      "accessedAt": "2026-09-03T00:37:39Z",
+      "edition": "Budget 2026; PSWR 2025–2027",
+      "supports": [
+        "The municipality reports 116 square kilometres total, of which 103.6 is water and 12.4 land. A generalized municipality polygon therefore must not be treated as one homogeneous land-exposure surface.",
+        "The municipal register describes 6,990 gullies; 66.5 km rainwater, 51.6 km foul-water, 42 km combined and 24 km drainage pipes; 13 main pumps, 94 pressure pumps and 20.5 km pressure mains. The current HWH deployment's two sewer-pump points are therefore visibly partial, not proof of only two pumps.",
+        "The budget says the inner-city sewer condition is less good and that pumps are inspected annually. It also says the climate stress test is being refreshed on a six-year cycle with 2026 results expected. PDF/planning inventory has no stable open API or live-state cadence; request a governed machine export and never infer connectivity, functioning, backup or restoration from inventory."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / PDOK / NDW",
+      "title": "Houtribdijk physical corridor, current NWB road records and event-valid road context",
+      "url": "https://www.rijkswaterstaat.nl/water/waterbeheer/bescherming-tegen-het-water/waterkeringen/dijken/houtribdijk",
+      "accessedAt": "2026-09-03T00:37:39Z",
+      "edition": "Current pages and September 2026 NWB/NDW services inspected 2026-09-03",
+      "supports": [
+        "Rijkswaterstaat identifies one 26 km Houtribdijk between Enkhuizen and Lelystad, also called Markerwaarddijk, separating IJsselmeer and Markermeer; N307 runs over it. The Krabbersgat naviduct/lock is a road-water control point at Enkhuizen.",
+        "Current NWB records 296445006, 600135510, 601298392 and 601298394 are numbered N307 main-road sections. Records 601645557, 601298396, 296445012 and 601645248 are unnumbered RB/PAR sections named Markermeer/Markerwaarddijk. NWB OGC https://api.pdok.nl/rws/nationaal-wegenbestand-wegen/ogc/v1 is monthly, CC0 1.0 and supplies geometry/identity, not three independent crossings or incident throughput.",
+        "Rijkswaterstaat announced on 27 August 2026 that an as-yet-undated autumn 2026 restriction will bar heavy trucks above stated limits while emergency services and vans remain allowed: https://www.rijkswaterstaat.nl/nieuws/archief/2026/08/gewichtsbeperking-houtribdijk-n307. This is planned future context, not active without a valid-from date. NDW DATEX is event-valid CC0 context; the deployment contains no intersecting GM0388 record, which never proves the road open."
+      ]
+    },
+    {
+      "publisher": "Stichting Mijn Aansluiting, Netbeheer Nederland, RDI, DUO, RIVM, KNMI and Rijkswaterstaat",
+      "title": "Deployed public provider, planning-capacity, telecom, facility and observation context",
+      "url": "https://public.geodata.mijnaansluiting.nl/geoserver/mijnaansluiting_open/ows",
+      "accessedAt": "2026-09-03T00:37:39Z",
+      "edition": "Provider records 2025-09-07 to 2026-03-24; deployed observations retrieved 2026-09-02/03",
+      "supports": [
+        "Public-domain provider lookup at the GM0388 reference point returns Liander electricity (record 2026-03-24) and gas (2025-12-17), PWN drinking water and Ziggo media (both 2025-09-07), with no drainage polygon. These are provider-supplied responsibility areas with variable update dates, not complete municipality coverage or physical topology/state; an empty discipline is Unknown.",
+        "The NBNL public capacity-map sample for postcode 1602RW identifies Liander service area OS ENKHUIZEN 10-2i and planning/queue values, retrieved 2026-09-02; the public frontend endpoints are not contractually stable, the exact open licence identifier was not found, capacity/projects refresh at least quarterly and queue values monthly. It is one large-user planning sample, not load, outage, switching or emergency reserve.",
+        "The deployment assigns 41 RDI antenna installations and ten DUO education locations to GM0388, seven KVK government/service points by polygon, and zero RIVM acute-care, RIVM PM2.5, RWS Waterinfo or current NDW points/records. RDI WFS is statutory location context with no stated reuse licence/cadence; DUO RIO is daily about 06:15 under CC BY; KVK/PDOK is partial Public Domain context; RIVM acute-care is 2026 questionnaire context under CC0; KNMI observations are ten-minute CC BY 4.0 and Waterinfo is generally ten-minute CC0. None proves coverage, occupancy, live capacity, backup, stock, access or restoration, and empty intersections remain NoData."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "Official code, name, province, safety region and 2025 source editions agree.",
+      "evidenceRefs": ["E01", "E02", "E04"],
+      "notes": [
+        "Manifest, generated municipality collection and regional bundle uniquely identify GM0388 as Enkhuizen in Noord-Holland and assign Veiligheidsregio Noord-Holland-Noord.",
+        "BoundaryEdition and statisticsEdition are 2025. Current 2026 observations, older regional/profile evidence, multi-year plans and the synthetic scenario clock retain separate temporal meaning.",
+        "No municipality code, name, province, safety-region, model-centre or headline-population contradiction was found."
+      ]
+    },
+    "geography": {
+      "status": "warn",
+      "summary": "The generalized administrative geometry is coherent but unusually water-dominated and cannot represent land exposure, lake hydraulics or defence compartments.",
+      "evidenceRefs": ["E02", "E05", "E06", "E07"],
+      "notes": [
+        "The model centre lies inside GM0388, but the municipality reports 103.6 km² water and only 12.4 km² land. Municipality containment cannot by itself establish people, assets or fire exposure across the water polygon.",
+        "The official neighbourhood IJsselmeer en Markermeer has zero published residents and correctly remains zero; that does not mean no lake hazard, shipping, dike, lock, tourism or infrastructure demand.",
+        "The IJsselmeer, Markermeer, Houtribdijk, primary/regional defences, Sassluis, Oude Haven, sewer/drainage catchments and outer-dike areas require source-resolution, mechanism-specific geometry and state."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Official 2025 headline values agree and rounded neighbourhood populations reconcile within CBS semantics.",
+      "evidenceRefs": ["E01", "E03", "E08"],
+      "notes": [
+        "Generated/official population is 18,847, density 1,488/km², age 65+ share 23.2% and one-person households 3,520.",
+        "The neighbourhood sum of 18,855 differs by eight (+0.042%); deterministic allocation reconciles exactly to 18,847 without turning official zeros into positive residents.",
+        "Resident aggregates do not identify independently living older people at heat risk, medically dependent residents, school occupancy, workers, tourists, harbour users, visitors, responders or household water/food/medicine stocks."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "All 19 neighbourhoods load, but local hazard, utility and response fields remain partial or synthetic despite strong public context.",
+      "evidenceRefs": ["E01", "E03", "E05", "E06", "E08"],
+      "notes": [
+        "Population covers 19/19 rows. District-heating share and public-charging count cover 0/19 and remain null; home value covers 12/19; household size 17/19; cars/housing shares 13/19; doctor/supermarket distance and density 15/19; address/urbanity 18/19.",
+        "Largest published neighbourhoods are Kadijken 2,905, Oude Gouw 2,715, Centrum Zuid-Oost 2,490, Centrum Noord-Oost 2,140 and Gommerwijk Oost 2,110 before municipality-total reconciliation.",
+        "E03 and E06 provide named rain, heat, road, electricity and sewer context. E05/E08 add 18 water-control objects, provider areas, 41 antennas, ten education locations and seven public-service registry points; all remain context rather than live operational state."
+      ]
+    },
+    "settlements": {
+      "status": "warn",
+      "summary": "The one BAG place and three BRT labels are usable identity context, with a documented generalized-boundary mismatch.",
+      "evidenceRefs": ["E02"],
+      "notes": [
+        "BAG identifies Enkhuizen; BRT identifies Enkhuizen, Oosterdijk and Westeinde. Their names are locally plausible.",
+        "The BAG representative point [5.29429864183012, 52.758178923290906] falls outside the generalized 2025 CBS boundary. Do not reject, move or nearest-snap the place without checking full-resolution source geometry and editions.",
+        "Place labels are not incident-time population, isolation, utility, shelter, distribution or evacuation evidence."
+      ]
+    },
+    "transport": {
+      "status": "fail",
+      "summary": "Road/rail context is reproducible, but the graph creates three independent paths from one Houtribdijk crossing and omits event-valid modal continuity.",
+      "evidenceRefs": ["E03", "E07", "E08"],
+      "notes": [
+        "The graph gives GM0388 five mobility/supply edges: N307, Markermeerdijk and Markerwaarddijk to Lelystad, plus N505 and N307 to Stede Broec. Enkhuizen station and 17 GTFS stop areas are static infrastructure/schedule context.",
+        "E07 proves the three Lelystad edge labels arise from one Houtribdijk/N307 physical crossing and parallel/roadside NWB records. All three are assigned separate nominal ceilings and all three carry nonzero compound T+24 flow, so false redundancy reaches the solver.",
+        "No current NDW record intersects GM0388. The announced future heavy-truck restriction has no precise active date yet. Both facts remain Unknown for an undated scenario; static NWB/GTFS geometry never proves road, rail, naviduct, lock, bridge or hospital access."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "Official crisis roles and a 72-hour preparedness horizon exist, but the run has no event-time action, resource or completion ledger.",
+      "evidenceRefs": ["E03", "E04", "E05", "E07", "E08"],
+      "notes": [
+        "VRNHN prepares for prolonged crises, coordinates partner response and assigns municipalities responsibility for population care, prioritizing people with reduced self-reliance. Plans and registry locations do not prove event-time capability or action.",
+        "The simulator does not record requested/confirmed/started/completed/failed interventions, responsible authority, trigger, issue/valid/expiry time, crews, vehicles, pumps, generators, fuel, emergency water, food/medicine, hospital acceptance, reception capacity or equitable access.",
+        "National 72-hour kit guidance is household advice, not measured Enkhuizen preparedness, guaranteed relief arrival or a recovery deadline."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten presets produce complete finite deterministic output at all six checkpoints and eight services; evidence and calibration failures are separate.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "The focused gate executed severe storm, pluvial flood, river flood, coastal flood, heatwave, winter storm, cyberattack, earthquake, wildfire and compound at T+0/6/12/24/48/72 for power, water, drainage, gas, telecom, mobility, facilities and supply.",
+        "At T+24, severity / post-network pressure / affected people-equivalent / cumulative local pre-network event-attributable person-hours are storm 0.1186 / 0.3253 / 4,919 / 86,735.47; pluvial 0.1626 / 0.1974 / 1,525 / 52,877.67; river 0.2220 / 0.3170 / 4,700 / 90,641.98; coastal 0.3910 / 0.4363 / 7,869 / 176,431.88; heat 0.0913 / 0.1703 / 804 / 44,423.64.",
+        "Remaining T+24 values are winter 0.4607 / 0.3305 / 5,058 / 82,523.91; cyber 0.5121 / 0.4004 / 6,915 / 118,893.18; earthquake 0 / 0.0760 / 0 / 20,352.58 after a small T+6 pulse; wildfire 0.1382 / 0.1336 / 0 / 28,851.96; compound 0.8744 / 0.6573 / 13,736 / 200,372.26.",
+        "These values are deterministic scenario indices and people-equivalent/proxy measures, not observed hazards, customers, casualties, displacement, forecasts or probabilities."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "The focused gate passes deterministic, finite, zero-intensity, causal, allocation and cumulative-burden contracts.",
+      "evidenceRefs": [],
+      "notes": [
+        "MUNICIPALITY_AUDIT_CODE=GM0388 pnpm audit:model passes both current tests over ten presets, six checkpoints and eight services.",
+        "Every intensity-zero run has exactly zero event severity, affected people-equivalent and event-attributable deprived person-hours; repeated output, core/web preset parity, finite bounds and causal ledgers pass.",
+        "All 19 local rows reconcile exactly to 18,847 residents and service demand/delivery totals. Changing the selected map layer gives maximum local-hazard delta zero; cumulative event-attributable person-hours remain monotonic.",
+        "The engine correctly restricts unqualified source=NWB links to mobility and supply. Public roads no longer create physical power, water, drainage, gas, telecom or facility topology."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "One shared neighbourhood ordering and failed woodland source containment cannot represent Enkhuizen's mechanism-specific geography.",
+      "evidenceRefs": ["E02", "E03", "E05", "E06"],
+      "notes": [
+        "At T+24 severe storm, pluvial flood, river flood, coastal flood, heatwave, winter storm, cyberattack and canonical wildfire have the exact same complete 19-neighbourhood ordering, hash e51edb33a6c1, led by Ketenwaal, Westeinde, Centrum Zuid-Oost, Krabbersplaat and Kadijken. Earthquake is an all-zero tie; compound differs through saturation.",
+        "That equality cannot represent distinct rainfall/sewer, IJsselmeer/Markermeer/defence, heat/vulnerability, storm, ice, cyber-target, woodland ignition and smoke mechanisms. E03 names different rain and heat locations.",
+        "A controlled wildfire source [5.286008587114658, 52.71757819175381] lies inside a current BRT broadleaf-woodland polygon and BU03880108 Enkhuizerzand. At T+24 direct fire is 0.7480, smoke 0.5472, drought 0.6194 and severity 0.6924, yet the containing neighbourhood ranks 6/19 at 0.7582 while Ketenwaal, approximately 5.5 km away, ranks first at 0.8101."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "All eight balances are inspectable, but exact service states are not calibrated to Enkhuizen's utilities, water controls, hospital access or logistics.",
+      "evidenceRefs": ["E03", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "At river T+24 availability is power 70.17%, water 67.91%, drainage 55.79%, gas/heating 82.67%, telecom 65.72%, mobility 44.74%, facilities 74.11% and supply 82.92%. No authority or operator evidence validates these exact values or dependency coefficients.",
+        "At compound T+24 availability is 29.28%, 40.42%, 27.06%, 52.40%, 16.10%, 22.04%, 30.36% and 60.23% in the same service order. They are synthetic balances, not Liander, PWN, HHNK, telecom, hospital or supplier measurements.",
+        "E06 reports 13 main and 94 pressure sewer pumps while the partial HWH snapshot contains two sewer-pump points; E03 identifies a rain-exposed Liander substation and cross-boundary hospital access. Register/provider geometry does not supply connectivity, current control, compatible capacity, pressure/quality, backup, load, occupancy, stock, crews or restoration.",
+        "NWB routes now affect only mobility and assumed road logistics/supply, which is the correct semantic boundary. They remain logical transfer proxies, and the false three-edge Houtribdijk redundancy still distorts those two services."
+      ]
+    },
+    "causalTrace": {
+      "status": "warn",
+      "summary": "Stage arithmetic and proxy scope are disclosed, but missing Enkhuizen evidence and corridor identity are not persistent in map, text or exports.",
+      "evidenceRefs": ["E03", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "Deprived person-hours quarter-hour-integrates event-attributable weighted local pre-network service shortfall against a matched no-event baseline. Current system pressure and affected people-equivalent are post-network snapshots. The differing scopes are documented but are not customer, welfare or casualty metrics.",
+        "Browser checks at 1440×900 and 390×844 with reduced motion show no horizontal overflow, console error, page error or failed same-origin response. The mobile details panel is 376×560 within the viewport. After calculation, the polite live region converged in 363 ms desktop and 311 ms mobile to 'T+24:00. Drinking water. Enkhuizen: degraded, 68% available.'",
+        "For river T+72 the inspector says 'derived-screening' and announces a precise local percentage; it does not mark the Enkhuizen result unsupported or say that no IJsselmeer/Markermeer/defence event is selected. The mobility inspector states logical-proxy semantics but exposes none of N307, Markermeerdijk or Markerwaarddijk in accessible text, so a nonvisual reviewer cannot audit the three-path identity defect.",
+        "The compound preset reports unsupportedDimensions=[] even though no official joint Enkhuizen event, target or mechanism-specific local field is bound. Arithmetic closure is not evidence coverage."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "Flood persistence, delayed impacts and recovery are deterministic but uncalibrated to lake hydraulics, drainage, corridor state, providers or completed actions.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "River normalized flood stress reaches 0.7118 at T+12 and remains exactly 0.7118 through T+72. Pressure/affected people-equivalent progresses T+0 0.0303/0, T+6 0.1247/0, T+12 0.2811/3,747, T+24 0.3170/4,700, T+48 0.3345/5,165 and T+72 0.3345/5,165. No selected water-body trajectory, defence state, arrival/recession or pumping plan supports this plateau.",
+        "Coastal normalized flood stress is 1.1463 from T+6 through T+24, clears to zero at T+48, while post-network pressure rises from 0.4363/7,869 people-equivalent at T+24 to 0.4555/8,377 at T+48 and then falls to 0.2327/2,461 at T+72. This can be a modeled lag, but it is not calibrated to Enkhuizen's lake/outer-dike pathways or service restoration.",
+        "Compound pressure/affected reaches 0.6573/13,736 at T+24 and 0.6578/13,748 at both T+48 and T+72; cumulative local pre-network burden reaches 763,212.70 person-hours at T+72. No authority action, asset telemetry, route validity, crew/fuel/spares, temporary water, care acceptance, reception, stock or completion state drives the curve.",
+        "The first 72 hours must remain an exercise horizon. It is not an assumption that households are stocked, aid arrives, a road/lock is open, a pump has backup or a provider restores service by a checkpoint."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": ["power", "water", "drainage", "gas", "telecom", "mobility", "facilities", "supply"]
+  },
+  "findings": [
+    {
+      "id": "GM0388-NETWORK-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "The single Houtribdijk/N307 crossing to Lelystad is counted as three independent mobility and supply paths.",
+      "evidence": "Generated edges nwb-link-417-GM0388-GM0995 N307, nwb-link-434-GM0388-GM0995 Markermeerdijk and nwb-link-435-GM0388-GM0995 Markerwaarddijk each receive 150 nominal scenario units. E07 establishes that the latter names/sections are part of or parallel to the one Houtribdijk/Markerwaarddijk N307 crossing, not two additional independent crossings. At compound T+24 all three are causally used: mobility effective-capacity/flow is 97.8813/1.2069, 86.9619/1.1522 and 107.1757/1.0999 scenario units respectively; supply flow is 0.7326, 0.6915 and 0.6528. Removing the full route graph changes GM0388 mobility availability from 22.04% to 49.59% and supply from 60.23% to 42.20% while the other six services are invariant, demonstrating material network-stage sensitivity without implying that removing all roads is the correct fix.",
+      "action": "Collapse these records under one physicalCorridorId with one direction-aware shared bottleneck and provenance to all source sections; do not sum PAR/RB/main-carriageway fragments. Add a regression that GM0388↔GM0995 has one non-additive Houtribdijk/N307 corridor, then attach date/mode/vehicle restrictions only through event-valid inputs."
+    },
+    {
+      "id": "GM0388-FLOOD-SCENARIO-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "River and coastal presets publish precise Enkhuizen flood impact without a selected lake, defence or polder event.",
+      "evidence": "River stress 0.7118 persists from T+12 through T+72 and coastal stress reaches 1.1463 through T+24, yet the hazard evidence is only derived-screening. E04/E05 distinguish IJsselmeer/Markermeer, polder, precipitation and coastal mechanisms and identify primary/regional defences plus Sassluis. The run has no named water body, boundary level/hydrograph/datum, wind setup, defence/overtopping/breach/control state, outer-dike mask, connected footprint, depth/velocity, arrival, duration/recession/dewatering, probability, release or NoData mask. The indices are not observed metres or probabilities.",
+      "action": "Mark GM0388 river/coastal local magnitude and allocation unsupported/Unknown until an authority-selected, versioned LIWO/HHNK/RWS exercise is bound. Prefer a typed lake/high-water mechanism rather than silently mapping IJsselmeer/Markermeer to river or North-Sea coastal distance; retain source/release, scenario ID, boundary and defence conditions, raster semantics, licence, uncertainty and NoData."
+    },
+    {
+      "id": "GM0388-PLUVIAL-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The pluvial field does not use Enkhuizen's official one-hour stress-test footprint or named access and infrastructure hotspots.",
+      "evidence": "Canonical pluvial rain is 42.9919 mm/h at T+6 and zero by T+12, while normalized flood stress rises to 0.2251 and persists through T+24. E03's separate static 70 mm in one hour study identifies Kastanjelaan/pump, centre streets and emergency access, Oude Gouw, Plan Noord, the southern Liander substation, western seed businesses, Ketenwaal and N307/naviduct/hospital access. The model reuses the same neighbourhood order as seven unrelated hazards and does not sample this source footprint, municipal sewer catchments, receiving-water state or emptying time. The UI's national 70 mm in two hours RWS layer is a different event and cannot validate the local one-hour scenario.",
+      "action": "Acquire an owner-authorized native Enkhuizen stress-test surface and metadata, or explicitly keep local pluvial output unsupported. Bind rain depth and duration, model/version, terrain/sewer/pump/receiving-water assumptions, depth/passability class, resolution, coverage, licence and NoData. Test the named locations and keep the national two-hour raster visibly separate."
+    },
+    {
+      "id": "GM0388-SPATIAL-001",
+      "severity": "high",
+      "category": "geography",
+      "status": "open",
+      "summary": "Eight unrelated hazards share one complete neighbourhood ranking instead of mechanism-specific spatial fields.",
+      "evidence": "Severe storm, pluvial, river, coastal, heat, winter, cyber and canonical wildfire all produce T+24 order hash e51edb33a6c1 across 19 neighbourhoods, led by Ketenwaal, Westeinde, Centrum Zuid-Oost, Krabbersplaat and Kadijken. E03 separately identifies rain hotspots and heat exposure around the historic centre, older residents, schools and southern industry; E05 distinguishes lake and polder geographies. A shared seed cannot establish any of these mechanisms or a cyber target.",
+      "action": "Replace the shared allocator with typed evidence surfaces and targets. Require per-hazard provenance, support state and source-containment/distance invariants; until then show local rank and local magnitude as unsupported even if the municipality aggregate remains a transparent exercise assumption."
+    },
+    {
+      "id": "GM0388-FIRE-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "A controlled woodland ignition fails local source containment and is outranked by a distant industrial neighbourhood.",
+      "evidence": "The controlled point [5.286008587114658, 52.71757819175381] is inside current official BRT broadleaf land cover and BU03880108 Enkhuizerzand. At T+24 the model produces direct fire 0.7480, smoke 0.5472, drought 0.6194 and municipality severity 0.6924, but Enkhuizerzand ranks 6/19 at local hazard 0.7582; Ketenwaal approximately 5.5 km away ranks first at 0.8101. The test only checks source containment; BRT land cover does not prove fuel condition, ignition or spread.",
+      "action": "Use burnable-land-cover intersection, source distance, wind/smoke direction, barriers and suppression/access assumptions in a separate fire adapter. Add tests that a positive direct-flame field peaks in or immediately adjacent to the source polygon unless an explicit physical rule explains otherwise; keep fuel/moisture and response Unknown without authorized inputs."
+    },
+    {
+      "id": "GM0388-WATERCHAIN-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Public and municipal drainage evidence is not connected to the service model, while the national register is visibly incomplete.",
+      "evidence": "E06 reports 6,990 gullies, 66.5 km HWA, 51.6 km DWA, 42 km combined sewer, 24 km drainage, 13 main pumps, 94 pressure pumps and 20.5 km pressure mains. The deployed HWH polygon intersection has only two sewer pumps alongside eight surface-water pumps, seven weirs and Sassluis. The simulator nevertheless publishes exact river T+24 water/drainage availability of 67.91%/55.79% without catchments, topology, receiving level, flow direction, compatible capacity, control, power/backup, condition or restoration. Inventory status such as gerealiseerd never proves operation.",
+      "action": "Integrate weekly HWH CC BY-SA register context and request a licensed municipal PSWR/asset export, then explicitly model potable water, foul sewer, storm sewer/drainage and surface-water control as different systems. Keep every unavailable connection/control/state/backup field Unknown; use only governed aggregate synthetic fallback and expose sensitivity."
+    },
+    {
+      "id": "GM0388-LIFELINES-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "open",
+      "summary": "Provider and facility context cannot validate exact power, water, gas, telecom, care or emergency-supply percentages.",
+      "evidence": "E08 identifies Liander, PWN and Ziggo responsibility at one point, one NBNL planning-capacity sample, 41 antennas, ten education locations and seven government/service records; there is no in-boundary acute-hospital point. E03 says residents depend on hospitals in Hoorn and, for one access route, Lelystad. None of these sources provides safe complete feeder/pipe/backhaul topology, live load/pressure/quality, coverage, priority customers, hospital acceptance/occupancy, backup duration, fuel/food/medicine stock, crews or restoration. Compound T+24 exact service availabilities are synthetic.",
+      "action": "Keep public areas/registers display-only with publisher, feature date, retrieval time, coverage, licence, point-versus-municipality scope and affectsSimulation=false. Add only security-reviewed provider/GHOR aggregate zones, backup bands and restoration scenarios; otherwise retain explicit Unknown and service-specific synthetic assumptions."
+    },
+    {
+      "id": "GM0388-RECOVERY-ACTIONS-001",
+      "severity": "high",
+      "category": "explainability",
+      "status": "open",
+      "summary": "T+48/T+72 persistence and recovery are not linked to hydraulic state, resources or completed emergency actions.",
+      "evidence": "River flood stress and pressure plateau through T+72; coastal direct forcing clears before pressure peaks at T+48; compound pressure/affected people-equivalent is unchanged at 0.6578/13,748 at T+48 and T+72 and cumulative local pre-network burden reaches 763,212.70 person-hours. E04 defines crisis and population-care responsibilities, while E03/E05/E06/E07 expose pump, defence, access and hospital dependencies. No run records authority/trigger/status/timestamps, crews, vehicles, pumps, generators, fuel, spares, water, shelter/reception, hospital acceptance, supply stock or failed actions.",
+      "action": "Add a first-72-hour action/resource ledger with proposed, requested, confirmed, started, completed and failed states; owner, trigger, issue/valid/expiry time, location, capacity, dependencies and confidence. Recovery may respond only to completed interventions or explicit calibrated autonomous curves, never to a plan or static asset alone."
+    },
+    {
+      "id": "GM0388-UI-EVIDENCE-001",
+      "severity": "high",
+      "category": "ui",
+      "status": "open",
+      "summary": "Accessible output presents unsupported local flood precision and hides the three Houtribdijk route identities from nonvisual review.",
+      "evidence": "Desktop/mobile Playwright checks show the river inspector labels Enkhuizen 'derived-screening', not unsupported, while showing/announcing a precise percentage and generic flood evidence. It contains no municipality-specific statement that no IJsselmeer/Markermeer/defence event is bound. On mobility, the inspector states logical-proxy semantics but its accessible text contains none of N307, Markermeerdijk or Markerwaarddijk, so route provenance and false redundancy are only visual/map or internal data. Layout and live-state synchronization themselves passed at 1440×900 and 390×844, with exact width containment and no browser errors.",
+      "action": "For GM0388 show a persistent high-visibility and screen-reader announcement that local river/coastal impact is Unknown pending a selected lake/defence event. Add an accessible route table exposing route label, endpoints, physicalCorridorId, source sections, supported services, effective ceiling/flow, valid-time restriction and non-additivity; carry the same evidence state into exports."
+    },
+    {
+      "id": "GM0388-TIME-NODATA-001",
+      "severity": "medium",
+      "category": "explainability",
+      "status": "accepted-limitation",
+      "summary": "Current time and NoData labels are mostly correct, but these contracts must survive future integration and scenario dating.",
+      "evidence": "The UI explicitly reports zero Enkhuizen Waterinfo stations as no data, never zero/safe; provider drainage returns no polygon; RIVM acute-care and air-quality, seismic-event and current NDW intersections are empty; multiple CBS attributes are null. These are coverage/registry/window results, not no hazard or functioning service. KNMI/Waterinfo observations expose observation and retrieval times and affectSimulation=false. The future autumn-2026 Houtribdijk weight limit cannot be applied until a valid-from time is published and a scenario reference date is selected. Browser live announcements converged to the same T+24 frame as the slider after computation.",
+      "action": "Preserve a three-state contract—measured/modeled zero, Unknown/not covered, and not applicable—across map, legend, cards, screen-reader text, APIs and exports. Require publisher, edition, issue/observation/valid/retrieval time, timezone, unit, coverage, licence and affectsSimulation for every input; never project a current observation or planned-but-undated restriction through T+72."
+    },
+    {
+      "id": "GM0388-OTHER-HAZARDS-001",
+      "severity": "medium",
+      "category": "limitation",
+      "status": "open",
+      "summary": "Storm, winter, heat, cyber and earthquake runs are numerically bounded but remain unselected synthetic exercises.",
+      "evidence": "The matrix is finite and deterministic, but no issue-valid KNMI storm/winter/heat field, named cyber target/system boundary/attack path, or selected KNMI event/ShakeMap/site-response input is bound. The heat allocator ignores E03's locally named centre, older resident, school and industrial mechanisms. Earthquake has a small T+6 ground-motion pulse and nonzero cumulative service burden by T+24 despite zero T+24 direct severity; that is coherent memory, not observed Enkhuizen damage. Compound unsupportedDimensions is empty despite combining uncalibrated components.",
+      "action": "Keep these presets clearly synthetic and require typed source/target support per hazard before local decision use. A compound result must inherit the union of every unsupported component, while current KNMI observations/warnings/catalogue points remain separate observed context and never automatic scenario forcing."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Collapse the three GM0388–Lelystad Houtribdijk labels into one non-additive physical corridor with event-valid restrictions.",
+      "files": [
+        "scripts/fetch-official-transport.mjs",
+        "apps/web/public/data/transport-network.json",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "A source-section regression proves that N307 main carriageways and unnumbered PAR/RB Markermeer/Markerwaarddijk records share one physicalCorridorId and one shared ceiling between GM0388 and GM0995. The accessible route table shows all source sections without summing them. An event-valid closure/weight restriction changes only the supported mode/vehicle classes and only when scenario reference time intersects its published validity."
+    },
+    {
+      "summary": "Bind Enkhuizen lake, defence and pluvial impact only to explicit authority-selected scenarios.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/public/data/hazards/GM0388-water-context.json",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Until evidence is selected, exact GM0388 river/coastal/pluvial local impact and rank render Unknown/unsupported. A supported run pins LIWO/HHNK/RWS/municipal source and release, water body/mechanism, boundary level/hydrograph/datum or rain depth/duration, defence/control state, connected footprint, depth/velocity/passability, arrival/duration/recession/dewatering, probability, resolution, licence, coverage and NoData. The one-hour local stress test never aliases the two-hour national raster."
+    },
+    {
+      "summary": "Replace the common local seed with hazard-specific surfaces and enforce fire source containment.",
+      "files": [
+        "packages/sim-core/src/local.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/public/data/hazards/GM0388-local-context.json"
+      ],
+      "validation": "Independent pluvial, lake, heat, wind, snow/ice, cyber, earthquake, fire and smoke tests no longer share a complete order by construction. The Enkhuizerzand controlled source peaks inside or immediately adjacent to the source polygon unless a documented barrier/wind/suppression rule explains otherwise. Provenance/support travels with every local cell and unsupported ranks remain Unknown."
+    },
+    {
+      "summary": "Separate drinking water, sewer, drainage and surface-water control and preserve utility/facility topology gaps.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/public/data/public-context/water-assets.geojson.gz",
+        "apps/web/public/data/regions/GM0388-water-services.json",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Weekly HWH and a governed municipal export remain context until connectivity, direction, compatible units, receiving levels, controls, state and backup are supplied. Tests distinguish PWN quantity/pressure/quality, wastewater, storm drainage and HHNK surface-water control; two public sewer-pump points never imply two total pumps or live operation. Provider/antenna/facility geometry remains affectsSimulation=false without authorized causal mapping."
+    },
+    {
+      "summary": "Make first-72-hour recovery conditional on timestamped resources and actions.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/components/AdvancedScenarioPanel.tsx",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/OperationsBrief.tsx"
+      ],
+      "validation": "Every intervention records owner, trigger, status, issue/valid/expiry time, location, capacity, dependencies, evidence class and confidence. Only completed actions affect recovery. Scenario tests separately vary defence/control, pumps, corridor availability, hospital acceptance, temporary water/reception, supplies, staff, crews, fuel and spares; 72 hours is always labelled a horizon, never a completion promise."
+    },
+    {
+      "summary": "Persist support, valid-time, NoData and metric-scope semantics in all visual and accessible output.",
+      "files": [
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/MapView.tsx",
+        "apps/web/src/components/AnalyticsWorkspace.tsx",
+        "apps/web/src/App.tsx",
+        "tests/e2e/app.spec.ts"
+      ],
+      "validation": "Desktop/mobile keyboard and screen-reader tests state Unknown for unsupported GM0388 lake/pluvial/local results, disclose local pre-network person-hours versus post-network snapshots, and expose physical-corridor/source-section details without requiring canvas vision. Zero, Unknown and not-applicable remain distinct. Observation/issue/valid/retrieval time and affectsSimulation survive maps, tooltips, legends, live regions, charts, tables and exports."
+    }
+  ],
+  "residualLimitations": [
+    "This is a deterministic first-72-hour planning-model audit, not a KNMI, Rijkswaterstaat/WMCN, HHNK, VRNHN, municipality, Liander, PWN, telecom, healthcare or transport forecast, warning, probability, evacuation order, casualty estimate or restoration commitment.",
+    "The 2025 generalized CBS municipality and neighbourhood polygons are suitable for overview aggregation, not land/water separation, lake hydraulics, defence compartments, sewer catchments, woodland fuels, asset ownership, incident perimeters or passable routes.",
+    "No selected IJsselmeer/Markermeer boundary condition, named defence/control state, breach/overtopping or outer-dike case, connected inundation footprint, arrival/recession/dewatering, probability or NoData mask drives GM0388.",
+    "The SED 70 mm in one hour stress test is static planning/model evidence with restrictive document reuse language, not a current observation or T+72 forecast; native surface rights, model edition and full metadata require owner confirmation.",
+    "HWH IMWA/DAMO coverage is contributor-dependent. Asset coordinates, names, capacity fields and status labels do not guarantee completeness, connectivity, compatible units, operation, current control, emergency power or restoration.",
+    "The municipal sewer inventory is a dated management total, not a public live topology or incident-state API. Public security-sensitive utility details were not inferred.",
+    "NWB and GTFS are static road/rail geometry or schedule context. The false Houtribdijk triple path requires correction; even a corrected corridor does not establish event-time bridge/naviduct/lock state, throughput, rail service or hospital access.",
+    "The announced autumn 2026 Houtribdijk weight limit is planned and lacks an exact effective date in the audited notice. It must not affect an undated or out-of-window scenario, and its absence must not imply unrestricted heavy logistics.",
+    "Provider territories, NBNL planning capacity, RDI antennas, DUO schools, KVK points and RIVM hospital roles do not establish physical networks, live coverage/load/occupancy, shelter/distribution roles, backup, stock, staff, crews or restoration.",
+    "No complete safe public source supplies Liander feeders/gas, PWN pipes/pressure/quality, municipal/HHNK connected controls, telecom backhaul, priority customers or care/supply dependencies. These remain Unknown or explicitly synthetic aggregates.",
+    "Current KNMI, Waterinfo, NDW, provider and other snapshots have different observation, issue, validity and retrieval times. Empty records mean Unknown, not zero hazard, open access, clean air, functioning service or future state.",
+    "The controlled Enkhuizerzand ignition tests source containment only. BRT land cover is not ignition, fuel/moisture, wind, spread, smoke exposure, access, suppression or recovery calibration.",
+    "Cyber lacks a named target, architecture and attack path; earthquake lacks a selected event and site response; heat/storm/winter lack selected issue-valid forcing; compound inherits these evidence gaps even when its arithmetic is complete.",
+    "Affected population is a current post-network people-equivalent threshold metric, while deprived person-hours is cumulative local pre-network event-attributable weighted pressure versus a matched baseline. Neither is identified customers, casualties, displacement, welfare loss or economic damage.",
+    "Six-hour audit checkpoints can miss fast rain, wind, road-control, pump and response transitions. Operational replay requires higher-resolution valid-time inputs and explicit state transitions."
+  ],
+  "provinceReviewFlags": [
+    "Municipality-specific release blocker: collapse N307, Markermeerdijk and Markerwaarddijk GM0388–GM0995 records into one non-additive Houtribdijk physical corridor; all three currently carry mobility/supply flow.",
+    "Municipality-specific release blocker: do not publish precise river/coastal Enkhuizen impact until a selected IJsselmeer/Markermeer/defence/polder or outer-dike event is bound; mark current local values Unknown/unsupported.",
+    "Municipality-specific release blocker: integrate or explicitly exclude the 70 mm in one hour Enkhuizen stress-test footprint with correct source rights and duration; never alias it to the national 70 mm in two hours layer.",
+    "Municipality-specific release blocker: replace the shared 19-neighbourhood seed and enforce Enkhuizerzand woodland source containment for direct flame.",
+    "Municipality-specific release blocker: make the municipal 13 main/94 pressure pump inventory and partial HWH two-pump intersection visibly non-equivalent; separate potable water, wastewater, drainage and surface-water control.",
+    "Municipality-specific: accessible inspector/live output must state the missing lake/defence evidence and expose Houtribdijk corridor/source identities; canvas-only provenance is insufficient.",
+    "Municipality-specific: model Hoorn/Lelystad hospital access, Enkhuizen station/N307/naviduct and future heavy-vehicle restrictions only with event-valid mode/state and acceptance evidence.",
+    "Noord-Holland-Noord: coordinate HHNK, VRNHN, municipalities, RWS/WMCN, Liander, PWN, telecom, transport and care partners for governed aggregate scenarios and actions without exposing security-sensitive topology.",
+    "Shared/national: preserve the corrected NWB mobility/supply-only rule and add shared physical-corridor ceilings so parallel carriageways, roadside and street-name fragments cannot fabricate redundancy.",
+    "Shared/national: keep observed context, official static plans/scenarios and synthetic T+72 output separate; preserve evidence class, issue/observation/valid/retrieval time, coverage, licence, affectsSimulation and explicit NoData in UI and exports."
+  ]
+}

@@ -1,0 +1,461 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0736",
+    "name": "De Ronde Venen",
+    "province": "Utrecht",
+    "safetyRegion": "Utrecht"
+  },
+  "agent": {
+    "taskName": "municipality_gm0736",
+    "agentId": "/root/municipality_gm0518",
+    "completedAt": "2026-09-02T20:26:49Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "GM0736's code, De Ronde Venen name, Utrecht province, Veiligheidsregio Utrecht membership, 2025 CBS control total, eight districts, 25 neighbourhoods, eight BAG places and twenty BRT settlement labels are coherent. The neighbourhood population sum is 45,935, only fourteen above the official 45,921 residents (+0.030%), and missing source values remain null. All ten canonical exercises run deterministically at T+0/6/12/24/48/72 across all eight services; exact-zero, finite-bound, reconciliation, cumulative-burden, recovery-guard and layer-invariance checks pass. Release nevertheless requires correction. River T+72 applies 0.570551 normalized inundation stress, affects 12,875 people-equivalent and accumulates 669,371.473 attributable person-hours without selecting a Lek/Rijn or regional-water level, defence segment/state, breach, connected footprint, arrival or recession. Coastal T+24 similarly applies 1.089260 stress and ultimately 1,244,146.704 person-hours from a coast-distance screen. Pluvial, river, coastal, heat and wildfire use exactly the same complete neighbourhood order: Mijdrecht Dorp is last even though the current municipal heat plan prioritizes Centrum Mijdrecht, and Vinkeveen Plassengebied is twentieth despite a June 2026 observed rain event being reported especially in Vinkeveen. All eight lifelines copy the same five A2/N201/N212 road IDs, while Abcoude station, 112 GTFS stops, local road passability, AGV water assets, provider territories, schools and antennas remain non-causal context. The national HWH intersection returns zero local water assets even though AGV identifies Gemaal De Ruiter, Demmerik, a sluice, RWZI Ronde Venen and active dike works; this is incomplete source coverage, not absence. No unavailable or security-sensitive physical utility topology, capacity, live state, backup or restoration promise is fabricated.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek (CBS)",
+      "title": "Kerncijfers wijken en buurten 2025, table 86165NED, OData API",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=WijkenEnBuurten%20eq%20%27GM0736%20%20%20%20%27&%24select=WijkenEnBuurten%2CGemeentenaam_1%2CAantalInwoners_5%2CBevolkingsdichtheid_34%2Ck_65JaarOfOuder_12%2CEenpersoonshuishoudens_30",
+      "accessedAt": "2026-09-02T19:58:00Z",
+      "edition": 2025,
+      "supports": [
+        "The fresh official GM0736 row gives De Ronde Venen, 45,921 residents, density 461 per square kilometre, 10,504 residents aged 65+ (22.9%) and 6,390 one-person households.",
+        "The 25 generated neighbourhood rows sum to 45,935 residents, fourteen above the municipality total (+0.030%), consistent with separately rounded small-area values rather than an exposure correction.",
+        "The OData service is machine-readable under CC BY 4.0. CBS labels this a 2025 table, updated in June 2026, with quarterly additions when source variables become available; neighbourhood counts are randomly rounded and suppressed/missing values are not zero.",
+        "Simulation role is official demographic/context and an allocation denominator only; registered residence is not timestamped presence at schools, stations, workplaces, care settings, recreation areas or an incident footprint."
+      ]
+    },
+    {
+      "publisher": "PDOK / CBS / Kadaster / Rijkswaterstaat / ProRail",
+      "title": "CBS Gebiedsindelingen 2025 non-generalized geometry and national settlement/transport reference APIs",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_niet_gegeneraliseerd/items/fbeb5dc8-684b-588b-9b20-5608fefc3cb5?f=json",
+      "accessedAt": "2026-09-02T20:00:00Z",
+      "edition": "2025 boundary; current generated BAG, BRT, NWB, ProRail and GTFS reference editions",
+      "supports": [
+        "Fresh full-resolution GM0736 feature fbeb5dc8-684b-588b-9b20-5608fefc3cb5 is one MultiPolygon component with one exterior ring and 6,013 positions. The generated overview keeps one component/ring with 127 positions and contains its generated centre; full-resolution geometry is required for dike, raster, water, road and asset intersection.",
+        "The bundle contains eight districts, 25 neighbourhoods and eight BAG places; BRT adds twelve descriptive settlement labels for twenty total. The Amstelhoek BAG label point [4.8399503, 52.2364201] falls just outside the independently versioned generalized CBS polygon and must remain a BAG/CBS edition/generalization caveat, not be deleted or reassigned by nearest municipality.",
+        "Abcoude station and 112 GTFS stop areas are represented. Five logical border links use A2, N201 and N212 toward Ouder-Amstel, Stichtse Vecht, Amstelveen and Woerden; nominal capacities 260/150 are scenario units, not observed vehicles, passengers or emergency throughput.",
+        "CBS boundary OGC is half-yearly/CC BY 4.0; BAG is daily/Public Domain Mark; BRT is CC BY 4.0; NWB OGC/download is monthly/CC0 1.0; ProRail reference geometry is manually refreshed/CC0 1.0; GTFS is valid only for its feed window. These are administrative/reference data, never current occupancy, passability or utility topology."
+      ]
+    },
+    {
+      "publisher": "Gemeente De Ronde Venen",
+      "title": "Klimaatadaptatieplan 2025 and Integraal Actieplan Hitte 2026–2027",
+      "url": "https://www.derondevenen.nl/Bestuur_en_organisatie/Gemeentelijk_beleid_en_regelgeving/Beleidsnota_s/Klimaatadaptatieplan_2050_De_Ronde_Venen_DT.org",
+      "accessedAt": "2026-09-02T20:02:00Z",
+      "edition": "Climate plan version 28 April 2026, plan period 2024–2027; heat action plan 2026–2027",
+      "supports": [
+        "The adopted plan says the municipality is flat and water-rich and that a 90-mm-in-one-hour stress test produces building damage, infrastructure failure and major traffic hindrance, especially in paved locations. It separately illustrates Mijdrecht/Wilnis, Abcoude and Vinkeveen/Baambrugge/Amstelhoek.",
+        "It identifies peat-subsidence and wooden-foundation consequences from low groundwater, harder soil and reduced infiltration after drought, and a displacement-priority context for freshwater. These are planning/stress-test statements, not current drought forcing or asset damage.",
+        "For flooding, the plan says water above 20 centimetres can disrupt electricity, gas, drinking water and car access; inundation can persist days to months. It distinguishes regional defences and Lek/Rijn scenarios and says a Lek/Rijn breach can inundate the area southwest of Mijdrecht and Wilnis.",
+        "The related official heat plan at https://www.derondevenen.nl/Bestuur_en_organisatie/Gemeentelijk_beleid_en_regelgeving/Beleidsnota_s/Integraal_Actieplan_Hitte_2026_2027_De_Ronde_Venen.org prioritizes Centrum Mijdrecht, Proostdijland and Bedrijventerrein Mijdrecht and explicitly renders neighbourhoods with no value as white. The plans are fixed policy PDFs with no documented raw API, standard reuse licence or contractual refresh cadence; they validate mechanisms and reject unsupported rankings but do not calibrate exact T+72 impacts."
+      ]
+    },
+    {
+      "publisher": "Gemeente De Ronde Venen",
+      "title": "Wateroverlast door hevige regenval",
+      "url": "https://www.derondevenen.nl/Bestuur_en_organisatie/Actueel/Nieuws/Wateroverlast_door_hevige_regenval",
+      "accessedAt": "2026-09-02T20:04:00Z",
+      "edition": "Observed past event report, last modified 30 June 2026",
+      "supports": [
+        "The municipality reported scattered waterlogging after overnight heavy rain, especially in Vinkeveen: sewers could not process or discharge the water and streets and roads flooded.",
+        "Flooded meter cupboards led Stedin to de-energize supply at some locations; power was reported restored Tuesday morning 30 June, while municipality and partners expected remaining remediation through Thursday. This is direct local evidence for rain–drainage–power–mobility coupling and multi-day work.",
+        "The page does not publish a rain gauge series, polygon, depth, asset topology, capacity, complete outage population or machine API, and states no standard reuse licence or scheduled cadence. It is a timestamped past observation, never the current state or forcing for a generic simulation.",
+        "Its phrase 'especially Vinkeveen' rejects use of the simulator's common ranking as a reconstruction of this event, but one event cannot establish a universal pluvial ranking without event-valid rainfall and hydraulic data."
+      ]
+    },
+    {
+      "publisher": "Provincie Utrecht / Watermanagementcentrum Nederland (Rijkswaterstaat)",
+      "title": "Utrecht climate-adaptation raster MapServer and LIWO flood-scenario system",
+      "url": "https://gis.provincie-utrecht.nl/server/rest/services/Water/w01_7_Klimaatadaptatie_raster/MapServer",
+      "accessedAt": "2026-09-02T20:06:00Z",
+      "edition": "Live ArcGIS REST service inspected 2 September 2026; LIWO release 2025.1.6",
+      "supports": [
+        "The EPSG:28992 ArcGIS REST MapServer exposes export/identify/query operations and separate AGV 75-mm-in-one-hour and 140-mm-in-48-hours water-depth layers, plus heat-island, warm-night, drought, subsidence and flood-probability layers across the Utrecht/AGV extent.",
+        "Layer 23 is the 2025 Amsterdam-Rijnkanaal-to-Noordzeekanaal supraregional stress test. Its metadata explicitly warns that broad events can produce cascade effects and longer recovery and recommends a more accurate 200-mm-in-48-hours model that represents sewer operation and restricted outward drainage before local inference.",
+        "The directory exposes rendered/queryable raster context but leaves copyright blank and does not document source-cell resolution, no-data encoding or a contractual refresh cadence. It is integration-ready for non-causal display and visual validation; numeric causal ingestion needs publisher-supplied source raster metadata, licence and no-data contract.",
+        "LIWO is a national professional WMCN/Rijkswaterstaat map/download system with versioned releases; https://iplo.nl/thema/water/applicaties-modellen/berichtgeving-crisismanagement/liwo/ lists 2025.1.6 and requires specialist water-manager interpretation. A WFS can be requested, but the public page establishes neither an unrestricted standard licence nor operational cadence. LIWO scenarios are modeled context, not observed current inundation."
+      ]
+    },
+    {
+      "publisher": "Waterschap Amstel, Gooi en Vecht (AGV) / Het Waterschapshuis / PDOK",
+      "title": "AGV legal water register, dike works and water-system assets",
+      "url": "https://www.agv.nl/onze-taken/legger/",
+      "accessedAt": "2026-09-02T20:08:00Z",
+      "edition": "Current official pages and public services inspected 2 September 2026",
+      "supports": [
+        "AGV's online ArcGIS legger is the legal map/table register for principal water, dikes, bridges, dimensions, required dike heights and maintenance responsibility; AGV explicitly says smaller ditches are omitted. The page does not document a raw service contract, standard reuse licence or refresh cadence.",
+        "AGV's current Geuzensloot page identifies a 3.456-kilometre dike in De Ronde Venen/Stichtse Vecht that was too low or insufficiently strong, with no immediate danger and execution expected from summer 2026. The Angstelkade page identifies a separate deficient defence protecting Polder Holland/Sticht West, Oukoop and Groot Wilnis-Vinkeveen. Project status is context, not a failure or warning.",
+        "The current Gemaal De Ruiter page states that De Ruiter, Gemaal Demmerik and the Demmerik sluice manage the Vinkeveense Plassen and Groot/Klein Oud-Aa and that the boezem exports water when wet and imports fresh water when dry. AGV separately identifies RWZI Ronde Venen and planned 2026–2028 works while treatment continues.",
+        "The generated HWH/PDOK intersection returns zero local water objects, but its own source metadata says water-board completeness varies. Integration-ready national services are Kunstwerken IMWA https://api.pdok.nl/hwh/waterschappen-kunstwerken-imwa/ogc/v2 (weekly, CC BY-SA 4.0) and Waterketen DAMO https://api.pdok.nl/hwh/waterschappen-waterketen-damo/ogc/v1 (CC BY-SA 4.0, contributor timestamps/variable completeness). Zero matches are no-data, not zero assets, and neither register establishes topology, capacity, state, backup or recovery."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Utrecht (VRU) / Koninklijk Nederlands Meteorologisch Instituut (KNMI)",
+      "title": "Regionaal Risicoprofiel 2023 and machine-readable weather/seismic services",
+      "url": "https://vru.nl/documents/676/AB20230206-05-2_Bijlage_A_-_Regionaal_risicoprofiel_VRU_2023.pdf",
+      "accessedAt": "2026-09-02T20:10:00Z",
+      "edition": "VRU planning profile 2023; live KNMI services inspected 2 September 2026",
+      "supports": [
+        "VRU treats flooding and nature fire as major regional risks and explicitly links heavy rain to waterlogging and utility failure, severe storm to electricity failure, wind plus icing to grid failure, drought to drinking-water/bluswater pressure and northwest peat-dike failure, and cyber disruption to water, energy and telecom processes.",
+        "VRU says earthquakes are omitted because they do not form a regional threat and concentrates nature-fire concern on wooded/recreational areas such as the Utrechtse Heuvelrug. That supports low local priority for the canonical remote GM0736 exercises, not zero probability or validation of their exact attenuation/smoke values.",
+        "The fixed profile has no operational API, standard reuse licence, live footprint or contractual event cadence. It is regional scenario-governance evidence rather than a municipality incident, forecast or service-restoration promise.",
+        "KNMI Data Platform can provide product-versioned 5-/10-minute radar, nowcast and weather observations and the RDSA FDSN event catalogue at https://rdsa.knmi.nl/fdsnws/event/1/ under CC BY 4.0 default terms. The generated 365-day catalogue query retrieved 2 September 2026 contains zero event origins inside GM0736; that means no matched catalogue event, never zero seismic hazard or safety."
+      ]
+    },
+    {
+      "publisher": "Stichting Mijn Aansluiting / DUO / RDI / RIVM / NDW / Rijkswaterstaat",
+      "title": "Public provider areas and timestamped facility, antenna, traffic and monitoring context",
+      "url": "https://wiki.service.mijnaansluiting.nl/wiki/spaces/Wiki/pages/693731329",
+      "accessedAt": "2026-09-02T20:12:00Z",
+      "edition": "Live services and generated snapshots inspected 2 September 2026",
+      "supports": [
+        "A public-domain WMS point query at the generated reference point identifies Stedin electricity (provider timestamp 24 March 2026), Stedin gas (17 December 2025), Vitens drinking water (7 September 2025) and Ziggo media (7 September 2025). No drainage polygon returned; that is incomplete/no-data, not absence of sewer service.",
+        "Provider polygons describe responsibility areas, not cables, pipes, substations, pressure zones, coverage, outage, remaining capacity, backup or restoration. Provider-specific timestamps replace a guaranteed common cadence and one point does not establish uniform municipal coverage.",
+        "Generated non-causal context contains 28 DUO education locations and 68 RDI antenna-installation sites, but zero RIVM acute-care locations, zero PM2.5 stations, zero RWS Waterinfo observations, zero current NDW situations and zero government-service points inside the polygon. These are register/snapshot intersections, not proof of no care dependency, clean air, zero water level, open roads or absent public functions.",
+        "DUO RIO is daily around 06:15 under attribution terms; RDI is a live WFS with no stated reuse licence or contractual cadence; NDW DATEX II is timestamped current/72-hour-valid context generally CC0 unless stated; Waterinfo is generally ten-minute/CC0 and not mission critical. Preserve each source's effective time, quality, coverage and no-data semantics and keep these overlays non-causal."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM0736, De Ronde Venen, Utrecht and safety region Utrecht are internally and officially coherent.",
+      "evidenceRefs": ["E01", "E02", "E07"],
+      "notes": [
+        "Generated feature id, municipality bundle code/name, province and exactly one safety-region membership agree.",
+        "Boundary/statistics editions are 2025; generated centre [4.908667092335907, 52.20707884834538] lies inside both the overview and fresh full-resolution municipality geometry.",
+        "VRU's 2023 regional profile is planning context and does not replace the CBS control total or supply a current incident state."
+      ]
+    },
+    "geography": {
+      "status": "warn",
+      "summary": "Administrative topology is coherent, but a 127-position overview and one centre cannot resolve polders, dikes, water connections, peat, roads or assets.",
+      "evidenceRefs": ["E02", "E03", "E05", "E06"],
+      "notes": [
+        "Fresh non-generalized and overview GM0736 each retain one component/one exterior ring; the full polygon has 6,013 positions versus 127 in the overview.",
+        "Use annual non-generalized PDOK geometry for climate-raster, dike, water-management, road and asset intersection; retain the generalized shape for overview selection only.",
+        "Amstelhoek's BAG point just outside the generalized CBS boundary is an independently versioned/generalization mismatch. It is not evidence that the official woonplaats is absent or belongs to the nearest polygon.",
+        "Groot Mijdrecht, Groot Wilnis-Vinkeveen, Vinkeveense Plassen, Angstel/Geuzensloot and Lek/Rijn breach pathways need separate hydraulic geometries rather than municipality-centre distance."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Generated controls reproduce official 2025 CBS values and neighbourhood population reconciles within publication precision.",
+      "evidenceRefs": ["E01", "E02"],
+      "notes": [
+        "Official/generated population is 45,921, density 461/km², age 65+ is 10,504 (22.9%) and one-person households total 6,390.",
+        "Published neighbourhood population sums to 45,935, fourteen above the municipality total (+0.030%); households sum to 20,020 and rounded age-65-plus rows to 10,515.",
+        "The allocator reconciles to 45,921 without rewriting published rows; census residence is not live presence at schools, stations, businesses, care locations or recreation areas."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "All 25 neighbourhoods and available statistics are retained, but source gaps and a common synthetic hazard seed prevent operational hotspot use.",
+      "evidenceRefs": ["E01", "E02", "E03", "E04", "E05"],
+      "notes": [
+        "All 25 neighbourhoods are present. District-heating percentage and public-charging count are unavailable for 25/25 rows and correctly remain null; cars per household is available for 23/25 and several household/housing fields for 24/25.",
+        "Compound T+24 produces 25 local rows that reconcile 45,921 residents, 29,801 affected people-equivalent and all eight service demand/delivery balances, but its priority values are modeled allocations rather than observed outcomes.",
+        "The same exact local rank order is reused for pluvial, river, coastal, heat and wildfire, despite official heat priorities and the observed Vinkeveen rain report. No public source supplies a complete exact substitute ranking; missing raster cells must remain unknown."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "Eight BAG places and twenty BRT settlement labels preserve De Ronde Venen's polycentric structure without replacing CBS controls.",
+      "evidenceRefs": ["E01", "E02"],
+      "notes": [
+        "BAG places are Abcoude, Amstelhoek, Baambrugge, de Hoef, Mijdrecht, Vinkeveen, Waverveen and Wilnis.",
+        "BRT assigns four buurtschappen, four deelkernen, four gehuchten and eight woonkernen, including Botshol, Demmerik, Donkereind, Kromme Mijdrecht and the official cores.",
+        "A place label, centroid or descriptive settlement population is not a hydraulic compartment, service territory, current occupancy or hazard footprint."
+      ]
+    },
+    "transport": {
+      "status": "fail",
+      "summary": "The main border-road graph is reproducible, but local passability and rail/transit continuity are absent and road edges are reused as every lifeline.",
+      "evidenceRefs": ["E02", "E03", "E04", "E08"],
+      "notes": [
+        "The graph contains five A2/N201/N212 border links toward four municipalities, with nominal 260/150-unit capacities and logical-proxy semantics; it has no local street, bridge/culvert, flood-passability, snow/ice or incident-valid state.",
+        "Abcoude station and 112 GTFS stop areas are reference/schedule context, not live operation, passenger load, accessibility, replacement transport or evacuation capacity.",
+        "The June 2026 incident confirms that local streets/roads can flood. Zero current NDW records in the generated snapshot is only absence of matched messages at publication time, never evidence that all roads are open through T+72."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "Useful public context is displayed non-causally, but water-asset incompleteness and missing regional facility/service catchments prevent validation of precise consequences.",
+      "evidenceRefs": ["E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "The generated HWH intersection has zero local water assets, while AGV names Gemaal De Ruiter, Demmerik, Demmerikse sluis, RWZI Ronde Venen and active dike systems. Source metadata correctly says coverage varies, so zero cannot be used as asset absence.",
+        "Twenty-eight education points and 68 antenna sites are represented, but no acute-care point lies inside GM0736. None establishes live occupancy, shelter/care role, staffing, coverage/backhaul, power/backup, supplies, status or restoration.",
+        "Provider territories identify Stedin, Vitens and Ziggo context at one point. No public complete physical service topology, safe live capacity or operator recovery interface was established; unavailable/security-sensitive details remain unknown."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten canonical presets execute at all six checkpoints across all eight services with complete finite output.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "MUNICIPALITY_AUDIT_CODE=GM0736 pnpm audit:model passed one file/two tests in the final current-code run (33.62 seconds total; 33.41 seconds in tests); a separate focused reproduction also passed.",
+        "At T+24/T+72: storm severity is 0.242704/0 with burden 276,279.053/665,917.316; pluvial is 0.134514/0 with 9,482/0 affected and burden 113,632.732/242,053.075.",
+        "River T+24/T+72 severity remains 0.178583 with stress 0.570551, affected 10,584/12,875 and burden 164,162.649/669,371.473. Coastal T+24 has severity 0.420877, stress 1.089260, gust 26.539674 m/s and 5,155 affected; at T+72 forcing and affected are zero but cumulative burden is 1,244,146.704.",
+        "Heat T+24 has 24.621305°C, drought 0.548327, 3,460 affected and T+72 burden 318,512.449. Winter T+24 is 0.773919 with -8.837955°C, 4.259210 cm/h snow and 13,575 affected; T+72 burden is 746,795.000.",
+        "Cyber T+24 disruption is 0.460198 with 15,899 affected and T+72 disruption 0.054009/burden 634,691.872. A quarter-hour scan finds the remote earthquake peak at T+2.25, severity 0.020157 and 0.006450 g; it has zero affected at audited checkpoints. Wildfire peaks at T+11 with zero direct flame and 0.376729 smoke.",
+        "Compound T+24 severity is 0.929188 with rain 60.161766 mm/h, stress 0.487319, gust 33.465080 m/s, cyber 0.473821, 29,801 affected and 449,949.723 person-hours. At T+72 stress remains 0.487319, cyber is 0.061625, 30,495 are affected and burden is 1,773,096.852."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Determinism, finite bounds, exact no-event semantics, local allocation, reconciliation, cumulative burden and layer invariance pass.",
+      "evidenceRefs": [],
+      "notes": [
+        "All service availability stays in [0,1]; hazard dimensions, demand, delivery, affected people-equivalent and event-attributable person-hours remain finite and non-negative.",
+        "For all ten presets and six checkpoints, intensity zero gives exactly zero current/peak event severity, affected population and event-attributable essential-service person-hours.",
+        "Compound T+24 local rows sum to 45,921 residents and 29,801 affected people-equivalent; all eight demand/delivery totals reconcile with maximum floating discrepancy 3.55×10^-15.",
+        "Repeated frames are deterministic, cumulative event-attributable burden never decreases, route flow respects effective capacity, and every selectable map layer leaves hazard, system pressure and affected population invariant."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "Flood scenarios lack a selected hydraulic footprint and one common seed gives unrelated hazards the same neighbourhood order.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E06", "E07"],
+      "notes": [
+        "At T+24 pluvial, river, coastal, heat and wildfire rank all 25 neighbourhoods in exactly the same order: Abcoude Buitengebied, Waverveen, Baambrugge Buitengebied, Abcoude-Noordoost, Proostdijland and Hofland lead; Vinkeveen Plassengebied is twentieth and Mijdrecht Dorp last.",
+        "The current heat plan prioritizes Centrum Mijdrecht, Proostdijland and Bedrijventerrein Mijdrecht, while the June 2026 observed rain report says effects were especially in Vinkeveen. Those distinct evidence patterns reject the common order as local truth without supplying a complete calibrated replacement.",
+        "A diagnostic synthetic wildfire source placed exactly at the model's Vinkeveen Plassengebied representative point produces direct municipal flame 0.520738 at T+11, yet the source-containing region still ranks twentieth and Abcoude Buitengebied remains first. This demonstrates source-insensitive local allocation; it is not asserted as a physically valid ignition.",
+        "River and coastal are generated from simplified distance screens, not a selected Lek/Rijn/regional-dike/sea event, defence state or connected flow surface. Their exact affected counts and service consequences therefore remain unsupported."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "All eight balances calculate coherently, but A2/N201/N212 road proxies replace sector topology and omit observed local water–power–mobility dependencies.",
+      "evidenceRefs": ["E02", "E03", "E04", "E06", "E08"],
+      "notes": [
+        "Compound T+24 availability is power 0.422311, water 0.416802, drainage 0.199169, gas 0.569960, telecom 0.290997, mobility 0.548236, facilities 0.384756 and supply 0.325387.",
+        "Every service exposes the same five A2/N201/N212 route IDs with transferSemantics logical-proxy. Flow differs, but no source establishes road segments as electricity, drinking-water, drainage, gas, telecom or facility transfer topology.",
+        "The observed June incident establishes a real causal chain from rain to sewer/road water and flooded meter cupboards to local de-energization, but it does not validate the model's municipality-wide fractions, route flows or exact restoration percentages.",
+        "AGV assets, provider areas, facilities and antenna points remain non-causal and disclose too little safe topology/state for a physical substitute. Use explicit service-specific aggregates where authorized and transparent synthetic indices otherwise."
+      ]
+    },
+    "causalTrace": {
+      "status": "warn",
+      "summary": "Numerical ledgers close and public overlays remain non-causal, but a derived flood screen still becomes precise direct exposure and service consequences.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E08"],
+      "notes": [
+        "Hazard contributions sum to headline severity; each service baseline plus ordered stage deltas sums to availability; eight weighted service-pressure contributions sum to municipality pressure.",
+        "Drivers, dependencies, local allocation and restoration counterfactuals are finite and arithmetically closed. Preparedness changes modeled consequences rather than physical forcing.",
+        "A headless Chromium workflow loaded De Ronde Venen, selected river flood and T+24 without page or console errors. The inspector labels the source 'Scenario · evidence class derived-screening', calls the value inundation stress, labels road service flows logical proxies, and says no municipal Waterinfo station means no data, never zero/safe.",
+        "The same 38% displayed inundation stress nevertheless drives exact affected and eight-service values. Arithmetic explainability and honest UI caveats do not supply the missing event, defence, footprint, topology or local calibration."
+      ]
+    },
+    "recovery72h": {
+      "status": "warn",
+      "summary": "Standing-water recovery guards behave correctly, but local drainage, operator and access restoration rates remain synthetic.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E08"],
+      "notes": [
+        "River forcing persists through T+72; all eight recoveryProgress values remain zero under 0.570551 standing-water stress. Compound retains 0.487319 stress and also blocks all eight repair tracks.",
+        "Coastal forcing has ended by T+72 and modeled recovery ranges 0.448379–0.960858, leaving service availability from 0.842543 to 0.945114, without a selected defence, drainage/dewatering, access or operator-repair schedule.",
+        "Storm, pluvial, winter, earthquake and wildfire direct forcing has ended by T+72; cumulative attributable burden correctly does not decrease. Heat and cyber follow their deterministic preset schedules.",
+        "Municipal evidence says inundation can persist days to months and the June rain response lasted multiple days. That supports duration sensitivity, not any exact GM0736 availability or restoration percentage."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": [
+      "power",
+      "water",
+      "drainage",
+      "gas",
+      "telecom",
+      "mobility",
+      "facilities",
+      "supply"
+    ]
+  },
+  "findings": [
+    {
+      "id": "GM0736-DATA-001",
+      "severity": "informational",
+      "category": "identity",
+      "status": "fixed",
+      "summary": "Generated identity, regional membership, demographic controls and official small-area structure are coherent.",
+      "evidence": "CBS gives 45,921 residents; 25 neighbourhood rows sum to 45,935 (+0.030%) and reconcile without rewriting observations. Code, name, province, safety region, eight BAG places and twenty BRT settlement labels agree.",
+      "action": "Retain source editions, non-generalized boundary access, rounding/suppression rules, published-versus-allocated totals and null semantics on each refresh."
+    },
+    {
+      "id": "GM0736-GEOMETRY-001",
+      "severity": "low",
+      "category": "geography",
+      "status": "accepted-limitation",
+      "summary": "Amstelhoek's BAG label point and the generalized CBS outline disagree at the boundary.",
+      "evidence": "The official Amstelhoek BAG point [4.8399503, 52.2364201] falls just outside the 127-position generated CBS overview while municipality identity, other places and the 6,013-position full-resolution feature are coherent. This is an independently versioned/generalized-boundary caveat.",
+      "action": "Keep Amstelhoek, expose the source/edition mismatch, use non-generalized annual geometry for intersections and never reassign a place by nearest municipality."
+    },
+    {
+      "id": "GM0736-NODATA-001",
+      "severity": "informational",
+      "category": "regional-data",
+      "status": "fixed",
+      "summary": "Unavailable statistics, provider layers and monitoring matches remain unknown rather than false zero or safe observations.",
+      "evidence": "District heating and public charging are null for all 25 neighbourhoods. Zero HWH water objects, acute-care points, PM2.5 stations, Waterinfo records, current NDW situations, government-service points and provider drainage polygons are explicitly partial/no-data; the UI says no local Waterinfo station never means zero/safe.",
+      "action": "Preserve query/effective time, source coverage, quality flags, suppression and no-data through ingestion, aggregation, simulation eligibility and UI rendering."
+    },
+    {
+      "id": "GM0736-FLOOD-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Generic river/coastal distance screens create precise local flood impacts without a selected hydraulic event or defence state.",
+      "evidence": "River T+72 holds 0.570551 stress, 12,875 affected and 669,371.473 person-hours; coastal T+24 reaches 1.089260 stress and cumulative T+72 burden 1,244,146.704. Official sources distinguish regional water defences, Lek/Rijn breach pathways, polders/boezem and supraregional rain, but the run selects no water level, dike segment/condition, breach/overflow, probability, connected footprint, arrival, duration, recession or dewatering path.",
+      "action": "Require a water-manager-approved, versioned LIWO/LDO/AGV scenario before direct local exposure is releasable. Keep distance fields as clearly labelled diagnostics and never translate missing event selection into measured depth or supported exposure precision."
+    },
+    {
+      "id": "GM0736-SPATIAL-SEED-001",
+      "severity": "high",
+      "category": "geography",
+      "status": "open",
+      "summary": "One source-insensitive neighbourhood order is reused across physically unrelated hazards.",
+      "evidence": "Pluvial, river, coastal, heat and wildfire share the exact 25-region T+24 order. Mijdrecht Dorp is last although Centrum Mijdrecht is a current official heat priority; Vinkeveen Plassengebied is twentieth although the observed June 2026 event was reported especially in Vinkeveen. A diagnostic wildfire source placed at that region's own representative point still ranks it twentieth.",
+      "action": "Replace the common seed with hazard-specific, versioned surfaces/targets and suppress hotspot precision until scenario, unit, spatial resolution, no-data, edition, effective time and licence are recorded."
+    },
+    {
+      "id": "GM0736-WATER-ASSETS-001",
+      "severity": "medium",
+      "category": "regional-data",
+      "status": "open",
+      "summary": "The national water-asset overlay has zero GM0736 objects despite current AGV evidence of material local assets and defences.",
+      "evidence": "AGV identifies Gemaal De Ruiter, Gemaal Demmerik, Demmerikse sluis, RWZI Ronde Venen, Geuzensloot and Angstelkade systems. HWH metadata warns of variable contributor completeness, so the zero polygon intersection is a coverage gap, not zero assets or drainage capacity.",
+      "action": "Integrate an AGV-authorized legal legger/asset export with object status and update metadata, or label the HWH gap prominently. Keep connectivity, pump state, capacity, backup and restoration unknown until safely supplied."
+    },
+    {
+      "id": "GM0736-NETWORK-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "The same five road links are copied into all eight services despite no physical utility or facility evidence.",
+      "evidence": "Power, water, drainage, gas, telecom, mobility, facilities and supply all expose identical A2/N201/N212 route IDs and nominal capacities 260/150. NWB supports road geometry only; provider territories, water/facility registers and the observed Stedin response do not establish cable, pipe, sewer, radio/backhaul, care or stock-transfer topology.",
+      "action": "Restrict NWB routes to mobility/supply unless a separately governed dependency is evidenced. Request safe service-specific aggregate interfaces; where unavailable or security-sensitive, use explicit non-spatial synthetic municipal indices without operator attribution."
+    },
+    {
+      "id": "GM0736-MOBILITY-001",
+      "severity": "medium",
+      "category": "network",
+      "status": "open",
+      "summary": "Mobility and supply omit event-valid local road, bridge/culvert, rail and transit continuity.",
+      "evidence": "The causal graph has only five A/N-road municipality-border links. Abcoude station and 112 GTFS stops cannot alter service, and no local 90-mm/supraregional-rain, snow/ice or current NDW passability state reaches routes. The June 2026 event directly confirms flooded local streets and roads.",
+      "action": "Add source-defined local-road/passability and feed-valid rail/transit state to mobility/supply under explicit scenario time. Preserve absent NDW/GTFS state as Unknown rather than open, closed or continuously operational."
+    },
+    {
+      "id": "GM0736-EXERCISE-HAZARDS-001",
+      "severity": "low",
+      "category": "hazard",
+      "status": "accepted-limitation",
+      "summary": "Storm, pluvial, heat, winter, cyber, earthquake and wildfire outputs are generic exercises rather than event-valid local observations or forecasts.",
+      "evidence": "No KNMI weather replay, cyber target, wildfire ignition/perimeter or named earthquake is selected. Canonical wildfire has zero local flame and indirect remote smoke; earthquake peaks at only 0.006450 g in a Groningen-centred exercise and VRU omits earthquakes as a regional threat. Heat/drought persists through T+72 even when affected-threshold output falls to zero.",
+      "action": "Retain explicit synthetic/indirect labels, source/effective time and uncertainty. Bind a named KNMI/incident/operator replay only when event-valid inputs exist; absent observations or targets remain unknown and never mean safe."
+    },
+    {
+      "id": "GM0736-CONTRACT-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The complete numerical, allocation, causal-ledger, checkpoint and sustained-flood contract passes for GM0736.",
+      "evidence": "The focused gate covers ten presets, six checkpoints and eight services. Values are finite/deterministic, zero intensity is exact, local totals reconcile, ledgers close arithmetically, burden is monotone, layer selection is invariant and standing water blocks repair. Browser inspection preserves official overlays as non-causal context and labels normalized inundation stress and derived-screening evidence.",
+      "action": "Keep GM0736 and national ALL coverage in regression and add event-selection, hazard-specific spatial, AGV no-data, road-route separation and event-valid passability assertions."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Replace generic GM0736 flood screening with explicit regional-water, Lek/Rijn, polder/boezem and supraregional-rain event selection and honest unsupported states.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/public/data/hazards/GM0736-flood-context.json",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/MapView.tsx"
+      ],
+      "validation": "Best machine sources are Province Utrecht's EPSG:28992 ArcGIS MapServer https://gis.provincie-utrecht.nl/server/rest/services/Water/w01_7_Klimaatadaptatie_raster/MapServer (Utrecht/AGV coverage; layers 11/12 are 140 mm/48 h and 75 mm/1 h depth, layer 23 is the 2025 supraregional event; export/identify/query; source cell size, no-data, standard licence and cadence not documented) and WMCN/Rijkswaterstaat LIWO/LDO (nationwide professional scenario rasters, release 2025.1.6, download/WFS available or on request, specialist interpretation required, public-page licence and operational cadence not established). Combine with AGV's legal online legger (principal dikes/water/assets, smaller ditches omitted; no documented raw API/licence/cadence) and annual non-generalized PDOK CBS geometry (CC BY 4.0). Require event/version, water boundary, defence/breach state, probability, unit, CRS, cell size, connected footprint, arrival, duration/recession/dewatering and no-data; until then direct local exposure is Unknown and distance screens remain non-operational diagnostics."
+    },
+    {
+      "summary": "Replace the shared neighbourhood seed with hazard-specific De Ronde Venen surfaces while separating planning, observed replay and simulated consequence.",
+      "files": [
+        "scripts/fetch-realism-data.mjs",
+        "apps/web/public/data/hazards/GM0736-climate-context.json",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Use the Province Utrecht MapServer for display/visual checks of AGV pluvial, heat-island/warm-night, drought/subsidence and flood-probability surfaces, but do not ingest numeric values until the publisher supplies source resolution, no-data, licence, edition and refresh contract. The municipality's version-28-April-2026 climate plan and 2026–2027 heat plan are fixed planning PDFs with no raw API/licence/cadence and should validate mechanisms/priorities only. KNMI 5-/10-minute KDP products (national/radar-domain, product timestamps, CC BY 4.0) can bind named observed replays; PDOK AHN/BGT (national, CC0/Public Domain Mark, acquisition/daily editions) and annual RVO crop-parcel WMS (national declared 15-May-2025 crop context; dataset PDM/WMS CC0) are covariates, not impacts. Tests must reject identical full rankings across unrelated hazards, require source proximity for direct footprints and preserve unknown versus zero."
+    },
+    {
+      "summary": "Represent AGV water systems and utility/facility dependencies as safe service-specific aggregates and remove road geometry from unevidenced lifelines.",
+      "files": [
+        "scripts/fetch-realism-data.mjs",
+        "scripts/apply-audited-lifelines.mjs",
+        "apps/web/public/data/water-system-context.json",
+        "apps/web/public/data/facilities/GM0736-context.json",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "First correct zero-asset semantics with an AGV-authorized export from its legal ArcGIS legger (principal dikes/water/assets; no public machine contract/licence/cadence established) or improve HWH Kunstwerken IMWA https://api.pdok.nl/hwh/waterschappen-kunstwerken-imwa/ogc/v2 (national, weekly, CC BY-SA 4.0) and Waterketen DAMO https://api.pdok.nl/hwh/waterschappen-waterketen-damo/ogc/v1 (national, CC BY-SA 4.0, contributor timestamps/variable completeness). Mijn Aansluiting OGC WFS https://public.geodata.mijnaansluiting.nl/geoserver/mijnaansluiting_open/ows is public-domain national responsibility-area data with provider-specific timestamps and identifies Stedin/Vitens/Ziggo context, not physical networks. Request authorized safe aggregate catchment, served-population, continuity, backup band and restoration interfaces from AGV/operators/facilities; if unavailable or security-sensitive, keep topology/state Unknown and expose transparent service-specific synthetic indices without road geometry or operator attribution."
+    },
+    {
+      "summary": "Model event-valid road, rail and transit access for mobility/supply and keep public facilities/monitoring overlays non-causal.",
+      "files": [
+        "scripts/fetch-realism-data.mjs",
+        "scripts/apply-audited-lifelines.mjs",
+        "apps/web/public/data/transport-network.json",
+        "apps/web/public/data/transit/GM0736-context.json",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/MapView.tsx"
+      ],
+      "validation": "Use RWS NWB OGC/download (national named-road geometry and topology, monthly, CC0 1.0), ProRail OGC https://api.pdok.nl/prorail/spoorwegen/ogc/v1 (national rail/station reference, manual refresh, CC0 1.0), feed-valid OVapi GTFS and NDW DATEX II current/72-hour-valid situation messages under dataset-specific open terms. Record scenario/effective time, validity window, transport mode, geometry, passability rule, direction, unit and no-data; GTFS schedule is not live continuity and absent NDW is Unknown. DUO (daily, attribution), RDI WFS, RIVM CC0 acute-care questionnaire and Waterinfo generally-ten-minute CC0 observations remain timestamped context unless a separately authorized operational interface supplies continuity. Assert A2/N201/N212 and local/rail/transit passability affect mobility/supply only and cannot appear in the other six services without separate evidence."
+    }
+  ],
+  "residualLimitations": [
+    "This audits a deterministic first-72-hour exercise model, not a warning, forecast, hydraulic assessment, evacuation plan, outage statement or operator commitment.",
+    "CBS 2025 neighbourhood values are rounded/suppressed and sums need not equal the municipality total; null heating, charging, provider, air-quality, traffic, water-asset or monitoring results are unknown, not zero.",
+    "Registered residents do not equal people present at schools, Abcoude station, businesses, care settings, Vinkeveense Plassen or events; no authoritative timestamped occupancy is consumed.",
+    "The 127-position overview is suitable for map selection, not dike, hydraulic, terrain, road, catchment or asset intersection; use the 6,013-position non-generalized PDOK geometry.",
+    "Amstelhoek's BAG point/generalized-CBS mismatch is a source edition/generalization caveat and does not justify deletion or nearest-boundary reassignment.",
+    "Municipal climate/heat plans, Province Utrecht stress-test rasters and VRU/LIWO scenarios are policy or modeled context, not current observations, adopted asset states or exact local consequences.",
+    "The Province Utrecht MapServer lacks an established source-cell, no-data, standard-licence and refresh contract for causal numeric calibration; rendered/queryable output remains context until these are supplied.",
+    "AGV pages and the legal legger identify systems and duties but not current water level, connected catchment, operating state, available capacity, backup, failure, dewatering or repair; smaller ditches are omitted.",
+    "The June 2026 municipality report is a past observed incident with incomplete forcing/footprint data and must not be silently reused as a generic or current scenario.",
+    "Provider territories, antenna/facility registers, GTFS stops, NWB roads and ProRail station/rail geometry do not establish connectivity, capacity, occupancy, coverage, live state, backup, priority or restoration.",
+    "No complete public physical electricity, drinking-water, wastewater, gas, telecom, facility, fuel, stock, staff, backup, repair or restoration topology is consumed; unavailable/security-sensitive gaps remain unknown or synthetic.",
+    "River/coastal, earthquake and remote-smoke effects are screens/exercises; cyber has no selected GM0736 target, and generic weather presets are synthetic unless bound to a named replay.",
+    "Recovery after T+72, cross-boundary water/service catchments, regional acute care, evacuation, mutual aid, emergency staffing and resource constraints remain outside locally validated scope."
+  ],
+  "provinceReviewFlags": [
+    "GM0736-FLOOD-001 — Province Utrecht, AGV, Rijkswaterstaat/WMCN and VRU should require a named, versioned regional-water or Lek/Rijn/sea/supraregional-rain event and connected defence-aware footprint before direct inundation/exposure is releasable.",
+    "GM0736-SPATIAL-SEED-001 — Province Utrecht, AGV and De Ronde Venen should supply governed hazard-specific surfaces with scenario, unit, cell size, no-data, edition, effective time and licence and reject the common 25-neighbourhood order.",
+    "GM0736-WATER-ASSETS-001 — AGV/HWH should reconcile the zero national intersection with the legal legger and published De Ruiter/Demmerik/sluis/RWZI/dike context without inferring topology or state.",
+    "GM0736-NETWORK-001 — RWS/NDW/ProRail/transit and sector partners must separate mobility/supply routes from utility/facility topology and provide safe aggregate service interfaces where releasable.",
+    "VRU, municipality and operators should use the June 2026 rain–sewer–road–meter-cupboard–power event as a timestamped validation case while preventing it, public registers or provider areas from being presented as current incidents or generic T+72 forecasts."
+  ]
+}

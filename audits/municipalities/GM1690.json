@@ -1,0 +1,439 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM1690",
+    "name": "De Wolden",
+    "province": "Drenthe",
+    "safetyRegion": "Drenthe"
+  },
+  "agent": {
+    "taskName": "municipality_gm1690",
+    "agentId": "/root/causal_engine_v3",
+    "completedAt": "2026-09-02T20:25:00Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "GM1690 passes the complete deterministic execution contract over all ten canonical scenarios, T+0/6/12/24/48/72 and all eight essential services. Its CBS 2025 identity, generalized boundary, 24,672 residents, 40 neighbourhoods, 13 BAG places, 67 BRT settlement labels, 85 transit stop areas and seven section-verified NWB logical links are coherent; no ProRail station lies inside the boundary. Exact zero-intensity behavior, finite bounds, cumulative event-attributable service-pressure person-hours, sustained-water recovery gating, local demand/delivery reconciliation, causal ledgers and map-layer invariance pass. Release remains correction-required for physical and spatial meaning. River, pluvial, coastal and heat use exactly the same 40-neighbourhood severity ordering, despite the municipality's adopted climate plan identifying distinct water and heat locations. The canonical major-river exercise applies a persistent 0.829099 m synthetic flood-depth value through T+72 without a selected IJssel/Overijsselse-Vecht/Meppelerdiep pathway, water level, defence state or connected footprint. The regional profile supports a limited high-water pathway around Meppel and indirect effects in surrounding areas, but not this precise municipality-wide amplitude. A separate diagnostic ignition inside official Boswachterij Ruinen and TOP10NL mixed forest places its containing neighbourhood third behind Oosteinde-Buiten, 6.553 km away. These are deterministic exercise outputs, not observations, forecasts or probabilities. Public water-control, provider, weather, road, facility and land-cover data can materially improve context, but none supplies complete live utility topology, stocks, backup, crews or restoration. Missing public records remain Unknown, and all road-derived non-mobility flows remain logical transfer proxies.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek",
+      "title": "Kerncijfers wijken en buurten 2025 — filtered rows for GM1690",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM1690%27%29&%24select=WijkenEnBuurten%2CGemeentenaam_1%2CAantalInwoners_5%2CBevolkingsdichtheid_34%2Ck_65JaarOfOuder_12%2CEenpersoonshuishoudens_30",
+      "accessedAt": "2026-09-02T20:12:00Z",
+      "edition": 2025,
+      "supports": [
+        "Official-context GM1690/De Wolden identity, population 24,672, density 110 residents per square kilometre, 6,555 residents aged 65 or older and 2,998 one-person households.",
+        "The machine-readable national OData table is an annual official statistical release under CC BY 4.0. Rounded neighbourhood counts require reconciliation; suppression, absence, Unknown and not-applicable values must remain null rather than zero.",
+        "CBS aggregates support transparent vulnerability and demand context, not individual vulnerability, medically dependent people, tourists, seasonal recreation, household preparedness or observed first-72-hour demand."
+      ]
+    },
+    {
+      "publisher": "PDOK / CBS / Kadaster / Rijkswaterstaat / ProRail",
+      "title": "Gemeente and buurt gegeneraliseerd 2025 with BAG, BRT TOP10NL, NWB and railway context",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_gegeneraliseerd/items?f=json&limit=1000&datetime=2025-07-01T00%3A00%3A00Z",
+      "accessedAt": "2026-09-02T20:23:48Z",
+      "edition": "CBS/BAG/BRT 2025 context; NWB 1 August 2026 edition and live OGC inspected 2 September 2026",
+      "supports": [
+        "The application consumes annual CC BY 4.0 GM1690 municipality and 40-neighbourhood generalized geometry; reference point [6.354954302748144, 52.69037425619834] and all 13 BAG place centres are inside the municipal polygon.",
+        "BAG place access is https://api.pdok.nl/kadaster/bag/ogc/v2/collections/woonplaats under the Public Domain Mark. BRT/TOP10NL access is https://api.pdok.nl/kadaster/brt-top10nl/ogc/v1 under CC BY 4.0 and contributes 67 settlement labels plus 1:10,000 topography. TOP10NL terrain object deb3807a-bb3d-5a50-81da-4f229d77b351, local id 106999968, is typed bos: gemengd bos and contains focused point [6.3885, 52.7291]; its source date is 1 January 2014 and registration date 1 September 2020, so it is static eligibility rather than current fuel or an incident perimeter.",
+        "NWB OGC https://api.pdok.nl/rws/nationaal-wegenbestand-wegen/ogc/v1 is national monthly CC0 road geometry. Live section queries checked all 18 generated wvk IDs by wvkId plus physical wegnummer and support N375, A28, N377 and N48 normalization. The seven logical links total 1,270 generalized capacity units and connect Meppel, Hoogeveen and Hardenberg. ProRail OGC https://api.pdok.nl/prorail/spoorwegen/ogc/v1 returns no station inside GM1690, while GTFS contributes 85 stop areas; neither source establishes live operations or capacity.",
+        "The NWB graph represents audited road boundary crossings, not every local route, bus operation, emergency access constraint or any electricity, drinking-water, drainage, gas or telecom topology."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Drenthe",
+      "title": "Regionaal Risicoprofiel Drenthe 2025",
+      "url": "https://www.vrd.nl/publish/pages/2221/04-3b_vrd_regionaal_risicoprofiel_2025_inclusief_aanpassingen_1_.pdf",
+      "accessedAt": "2026-09-02T20:19:00Z",
+      "edition": 2025,
+      "supports": [
+        "The adopted strategic profile covers prolonged and local extreme rain, regional-water flooding, storm, heat/drought, nature fire, winter weather, induced earthquakes, cyber and vital-service cascades relevant to De Wolden's first 72 hours.",
+        "Pages 24–25 state that Drenthe has no primary defences against sea or river water. It identifies a limited risk from higher IJssel and Overijsselse Vecht levels, possible flooding around among other places Meppel, and vital-service or road/rail disruption in surrounding areas. High water develops over days, permitting preparatory action. This supports a selected regional pathway and indirect effects, not the model's precise generic GM1690 depth.",
+        "The same section documents saturated systems, reduced discharge from high outside-water and groundwater levels, brooks/canals leaving their banks, road closures, and 70 mm in one hour overwhelming systems and flooding streets, cellars, homes and low roads. Storm can block roads and water can disrupt utilities away from visible flooding.",
+        "Nature-fire exposure includes forests/heath, recreation, less-self-reliant care occupants and vital infrastructure; heat raises drinking-water demand, and the profile identifies energy, water, telecom/cyber and transport dependencies. Five light Drenthe earthquakes of magnitude 1.3–2.2 were observed in 2023 without physical damage. The profile is planning context, not a live API, probability, local fragility curve or restoration commitment; no blanket machine-data licence was established."
+      ]
+    },
+    {
+      "publisher": "Gemeente De Wolden",
+      "title": "Klimaatadaptatieplan De Wolden 2023–2028",
+      "url": "https://www.dewolden.nl/fileadmin/de_wolden/PDF/Beleid/Klimaatadaptatieplan_gemeente_De_Wolden.pdf",
+      "accessedAt": "2026-09-02T20:20:00Z",
+      "edition": "Adopted 2023–2028 plan; PDF metadata modified 18 July 2024; inspected 2 September 2026",
+      "supports": [
+        "The municipality says existing infrastructure and buildings are not yet climate-ready and that 2019 stress-test locations were reviewed with professionals. It explicitly says water-overload locations are highly location-specific, while heat, drought and flooding from brooks/canals cover broader areas.",
+        "Named rain locations include Julianaweg in De Wijk, with observed traffic hindrance and water to front doors; west Zuidwolde, a naturally low bowl with high groundwater and little surface water; Koekange's Prinses Margrietlaan/Christinalaan, De Wilgen and Bernhardlaan/Sportlaan; Ruinen's Meppelerweg, Meester Harm Smeengestraat and Sporthal De Marse; and Zuidwolde's Groene Hart and Oosterweg. Winkelstraat Zuidwolde and the Ruinen business estate are identified for heat stress.",
+        "The Groene Hart is described as a serious problem area where water has entered a school, and Ruinen is described as almost fully culverted, giving water a relatively long drainage path. The municipal standard treats loss of a vital network/object, building entry or main-road blockage and more than four hours of traffic hindrance as serious consequences under a 70 mm/hour design test.",
+        "De Wolden lies above sea level, making water import during drought non-trivial; peat/clay drying and subsidence can affect buildings and roads. The PDF is fixed local planning and 2019 modeled/observed context, not a current event surface or T+72 prediction. No native public GIS endpoint, fixed refresh cadence or blanket data-reuse licence was established for its detailed hotspot maps."
+      ]
+    },
+    {
+      "publisher": "Gemeente De Wolden",
+      "title": "Riolering en Water Programma De Wolden 2023–2028",
+      "url": "https://www.dewolden.nl/fileadmin/de_wolden/PDF/Beleid/Riolering_en_Water_Programma_De_Wolden_2023-2028.pdf",
+      "accessedAt": "2026-09-02T20:21:00Z",
+      "edition": "2023–2028 plan, prepared in 2022",
+      "supports": [
+        "The official inventory records 57 km wastewater main, 28 km storm-water main, 113 km combined main, 49 sewer pumping stations, 10 km pressure mains, 4 km vacuum sewer, 1,042 rural pressure-sewer pump units, 253 km rural pressure sewer, 231 IBA systems, 53 km drainage, two wadis and six storage-settling basins. Detailed drawings, calculations and automated management systems are held by the responsible department and are not exposed as a public live topology.",
+        "The plan calls GWSW exchange a goal and documents H2GO monitoring acquired in 2017: faults go to service staff and runtime, capacity and levels are registered. This is strong evidence that operational state exists, but not authorization to infer it from a public plan; H2GO access, licence and fixed external cadence were not established.",
+        "A pumping-station defect or power failure can fill the sewer and after several hours discharge untreated wastewater into buildings, streets or surface water, creating public-health and environmental risk. The plan calls for workable calamity procedures for vital objects and rapid access to correct sewer information; exact backup and restoration times are not public commitments.",
+        "The most urgent main catchments are Zuidwolde and Ruinen. Municipal wastewater is passed to water-board end systems and treatment in Meppel and Echten, so absence of an RWZI point inside GM1690 is not zero wastewater treatment or zero dependency."
+      ]
+    },
+    {
+      "publisher": "Waterschap Drents Overijsselse Delta / Het Waterschapshuis",
+      "title": "Ruiner Aa project and public IMWA/DAMO water-control registers",
+      "url": "https://www.wdodelta.nl/ruiner-aa",
+      "accessedAt": "2026-09-02T20:18:00Z",
+      "edition": "Current project state and public-register snapshots inspected 2 September 2026",
+      "supports": [
+        "The upper Ruiner Aa project between the A28 and Hoogeveen–Assen railway is adding storage and weirs, automating four existing weirs and clearing waterways to retain water during drought and store or convey it during heavy rain. Work started in January 2026 and was expected to finish at the end of 2026; this current construction context must not be interpreted as completed or as live operational state.",
+        "The Wold Aa continues through De Wolden toward the Meppelerdiep and is connected with the Oude Vaart and Reest, so water levels can interact across municipal boundaries. This locally relevant system differs from an unqualified Rhine/Meuse/IJssel proximity screen.",
+        "Machine access is available through HWH Kunstwerken IMWA https://api.pdok.nl/hwh/waterschappen-kunstwerken-imwa/ogc/v2 and Waterketen DAMO https://api.pdok.nl/hwh/waterschappen-waterketen-damo/ogc/v1 under CC BY-SA 4.0. Kunstwerken is published weekly; DAMO contributor completeness and refresh cadence vary and must travel with each snapshot.",
+        "The deployed GM1690 polygon contains 265 display-only records: 17 sewer pumps, 16 surface-water pumps, one sluice and 231 weirs. Named records include RG Zuidwolde, Ruinen, De Wijk, Koekange and Ruinerwold plus Ossesluis, Hardenweg and Riete. No RWZI point is returned inside the boundary. Public register presence, a realised label or a capacity attribute does not establish complete topology, units, setpoint, control state, emergency power or restoration; absence remains Unknown."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / AHN / IPO-Risicokaart / Kadaster",
+      "title": "National extreme-rain, elevation, flood-screen, combustible-nature and topographic context services",
+      "url": "https://data.overheid.nl/dataset/3d9640b8-a6ae-449c-88dd-0ab186094fae",
+      "accessedAt": "2026-09-02T20:15:00Z",
+      "edition": "Catalogue and live services inspected 2 September 2026",
+      "supports": [
+        "Rijkswaterstaat's national 70 mm in two hours scenario is integration-ready through WMS https://geo.rijkswaterstaat.nl/services/ogc/gdr/klimaat_effect_atlas/ows layer bij_70mm_per_2uur and GeoTIFF under CC0; its catalogue record was updated 5 August 2026. It is a modeled depth-class scenario, not an observation, forecast or locally calibrated De Wolden event. Transparent and NoData cells remain Unknown.",
+        "AHN4 DTM is available through https://data.overheid.nl/dataset/47567-actueel-hoogtebestand-nederland--ahn--dtm by WMS/WCS at 0.5 m, acquired 2020–2022 under CC0. Terrain can constrain overland-flow plausibility, but does not independently supply rainfall, sewer controls, regional-water levels, arrival or recession.",
+        "Rijkswaterstaat flood-risk-area OGC https://api.pdok.nl/rws/overstromingen-risicogebied/ogc/v1 is CC0 context based on the second EU Floods Directive cycle and does not constitute a selected breach/depth event or current defence state. HWH defence WMS https://service.pdok.nl/hwh/waterschappen-keringen-imwa/wms/v3_0 is current provider geometry under CC BY-SA 4.0, not asset performance.",
+        "IPO/Risicokaart WFS https://servicespub.risicokaart.nl/geoserver/ISOR_RK/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ISOR_RK%3Aisor_brandbaar_natuurgebied&outputFormat=application%2Fjson&srsName=EPSG%3A4326&count=1000&bbox=6.216319806899404%2C52.61225014869452%2C6.530555815409529%2C52.79897782774496%2CEPSG%3A4326 returns Public Domain combustible-nature context, including Boswachterij Ruinen DRE200416472. Metadata was updated 19 February 2026 with no guaranteed operational refresh. Focused point [6.3885, 52.7291] is inside that polygon and TOP10NL mixed forest object 106999968; both are static eligibility, not current fuel, moisture, ignition, perimeter, spread or suppression."
+      ]
+    },
+    {
+      "publisher": "Stichting Mijn Aansluiting / KNMI / NDW / RDI / DUO / KVK / RIVM",
+      "title": "Public provider, weather, mobility, telecom, education, government-service and care context routes",
+      "url": "https://data.overheid.nl/en/dataset/81000-netbeheergebieden-elektriciteit--gas--media--riolering--warmte-en-water",
+      "accessedAt": "2026-09-02T20:16:00Z",
+      "edition": "Public services and deployed snapshots inspected 2 September 2026",
+      "supports": [
+        "Public Domain Mijn Aansluiting WMS/WFS https://public.geodata.mijnaansluiting.nl/geoserver/mijnaansluiting_open/ows identifies Enexis electricity, Rendo gas, WMD drinking water and Ziggo media at the retained GM1690 reference point, with feature updates dated 7 September 2025. Drainage returns no containing feature. Provider polygons are responsibility context, not physical feeder/pipe/backhaul topology, capacity, outage or restoration; a point result does not prove whole-municipality coverage and an empty discipline remains Unknown.",
+        "KNMI Data Platform/API https://developer.dataplatform.knmi.nl/ provides integration-ready valid-time weather data, commonly under CC BY 4.0; radar/gauge products can update at five-minute cadence and nowcasts cover roughly two hours. Dataset-specific licence, edition, run time and valid time must be pinned. Observations and forecasts remain separate from deterministic exercise weather.",
+        "NDW DATEX II https://opendata.ndw.nu/actueel_beeld.xml.gz supplies national event-valid road incidents, closures and traffic under CC0. It can augment monthly NWB geometry for observed mobility context, but does not provide rail/bus operation or utility topology.",
+        "The deployed boundary context contains 71 RDI antenna records, 18 DUO education records and seven KVK government/service records, while the RIVM acute-care polygon query returns zero. RDI WFS https://antenneregister.nl/mapserver/wfs/ is a public statutory register with licence/fixed cadence not established here; DUO RIO https://onderwijsdata.duo.nl/dataset/c416acd1-e083-4ec6-9203-3b20f98fe143 refreshes nationally daily around 06:15 under Creative Commons Attribution (version unspecified); KVK OGC https://api.pdok.nl/kvk/overheidsdiensten-geharmoniseerd/ogc/v1 is partial Public Domain context; RIVM acute-care data https://data.rivm.nl/meta/srv/dut/catalog.search#/metadata/5cfcf748-414a-4cd0-b6a2-3512cc3e1184 is versioned 2026 v1.1 under CC0. Counts and empty results describe registry coverage, never live capability or zero need."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM1690, De Wolden, province Drenthe and safety region Drenthe are internally and officially coherent.",
+      "evidenceRefs": ["E01", "E02", "E03"],
+      "notes": [
+        "Generated municipality code/name and feature identity equal GM1690/De Wolden.",
+        "The safety-region layer assigns GM1690 to exactly one region, Drenthe, and E03 is its adopted 2025 regional profile.",
+        "No identity, province, safety-region, boundary-edition or statistics-edition mismatch was found."
+      ]
+    },
+    "geography": {
+      "status": "warn",
+      "summary": "The 2025 generalized administrative geometry is coherent, but it cannot substitute for connected water systems, event footprints, forest polygons or utility service areas.",
+      "evidenceRefs": ["E02", "E03", "E04", "E06", "E07"],
+      "notes": [
+        "Reference point [6.354954302748144, 52.69037425619834] is inside the official generalized GM1690 polygon; boundaryEdition and statisticsEdition both equal 2025.",
+        "E03–E07 distinguish the administrative boundary from the Wold/Ruiner Aa, Reest and Meppelerdiep-connected system, named rain hotspots, combustible forest, national climate raster cells and provider areas.",
+        "A municipality centre, CBS neighbourhood, forest polygon, pump/weir point, road section, provider territory and selected exercise footprint are not interchangeable evidence."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Headline municipality statistics match CBS 2025 and rounded neighbourhood totals reconcile within publication tolerance.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "Generated population 24,672, density 110, age65Pct 26.6 and one-person-household count 2,998 agree with the official municipality record; the direct CBS count for age 65 or older is 6,555.",
+        "The 40 rounded neighbourhood rows sum to 24,680 residents, eight above the municipality total, a 0.032% publication-rounding difference; rounded age-65-plus rows sum to 6,570, fifteen above the municipality total.",
+        "Aggregate context is not an individual record, daytime/visitor population, medical dependency, evacuation need or observed emergency demand."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "Forty neighbourhoods provide useful aggregate context, but partial attributes and a shared hazard-independent allocator prevent operational prioritization.",
+      "evidenceRefs": ["E01", "E04", "E05", "E07"],
+      "notes": [
+        "All 40 neighbourhoods contain population, age, household, businesses, cars, density, GP/supermarket distance and land/water context. Housing/tenure fields cover 38/40, cars per household 31/40 and social-benefit context 39/40.",
+        "District-heating share and public-charging count are available in 0/40 and correctly remain null. Incomplete, suppressed, NoData and not-applicable values are never interpreted as zero.",
+        "Largest neighbourhoods are Zuidwolde kern 5,380, Ruinen 2,665, De Wijk 2,660, Ruinerwold 2,540 and Koekange 1,155.",
+        "Compound T+24 local population, affected population and every service demand/delivery total reconcile, but identical cross-hazard ranking and focused-fire evidence show that local hazard priority remains synthetic."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "Thirteen BAG places and 67 BRT labels are coherent and remain distinct from the 40 official CBS neighbourhoods.",
+      "evidenceRefs": ["E02"],
+      "notes": [
+        "All 13 BAG place centres are inside the generalized boundary: Alteveer, Ansen, de Wijk, Drogteropslagen, Echten, Eursinge, Kerkenveld, Koekange, Linde, Ruinen, Ruinerwold, Veeningen and Zuidwolde.",
+        "BRT contributes 38 buurtschap, five deelkern, eight gehucht and 16 woonkern labels. Labels support orientation only and do not create population, impact or service demand.",
+        "Capitalization differences such as de Wijk/De Wijk do not indicate a separate settlement."
+      ]
+    },
+    "transport": {
+      "status": "warn",
+      "summary": "Seven NWB boundary links pass section identity checks, but the model omits local and live operational detail and reuses roads as all-service logical proxies.",
+      "evidenceRefs": ["E02", "E03", "E05", "E08"],
+      "notes": [
+        "All 18 source sections were checked against live official NWB by wvkId plus physical wegnummer; no route-label blending or duplicated physical-corridor contradiction was found for N375/A28/N377/N48.",
+        "The graph connects Meppel, Hoogeveen and Hardenberg with 1,270 generalized capacity units. It has no station inside GM1690 and includes 85 GTFS stop areas, but no live bus, rail, bridge, culvert, local-road or emergency-access state.",
+        "All eight service layers clone the road-derived links with transferSemantics logical-proxy; capacity/flow is neither vehicles per hour nor physical utility throughput."
+      ]
+    },
+    "emergencyContext": {
+      "status": "warn",
+      "summary": "Strong public local context exists, but it is display-only and incomplete for first-72-hour operations.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "Public polygon containment yields 265 water-control/wastewater objects, 71 antenna records, 18 education locations and seven government/service records. Provider WMS identifies Enexis, Rendo, WMD and Ziggo at the retained reference point.",
+        "Zero RIVM acute-care points and no public drainage-provider polygon are Unknown, not proof of no healthcare demand or drainage responsibility. No RWZI point inside GM1690 is consistent with E05's external Meppel/Echten treatment dependency.",
+        "No reviewed public safe source supplies live capacity, backup, stock, occupancy, priority customers, crews, dispatch, mutual aid or restoration for all eight services. These facts were not invented."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten presets execute deterministically at all six checkpoints with all eight services present, but execution success is not physical validation.",
+      "evidenceRefs": ["E03", "E04", "E05"],
+      "notes": [
+        "Focused gate covered 10 presets × 6 checkpoints × 8 services. Canonical peak severities are storm 0.470481, pluvial 0.558448, river 0.256300, coastal 0.083208, heat 0.739183, winter 0.630773, cyber 0.426252, earthquake 0.197490, wildfire 0.152365 and compound 0.891834.",
+        "At T+24 the respective current severity/system-pressure/affected triples are storm 0.042012/0.339255/6,926; pluvial 0.376346/0.185095/1,567; river 0.256300/0.170995/1,077; coastal 0.083208/0.108982/0; heat 0.115664/0.131917/0; winter 0.630675/0.408337/9,327; cyber 0.363198/0.368349/7,938; earthquake 0/0.219696/2,770; wildfire 0.152365/0.106784/0; compound 0.862014/0.500214/12,521.",
+        "These values are reproducible deterministic planning outputs under seed 20260831, weekday start at 08:00 and default multipliers. They are not observed incidents, likelihoods, warnings, forecasts or operator commitments."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Finite bounds, determinism, zero-intensity semantics, reconciliation and layer invariance pass.",
+      "evidenceRefs": ["E01", "E02"],
+      "notes": [
+        "Every scenario with intensity zero returns exact zero current severity, peak severity, affected population and cumulative event-attributable person-hours at all required checkpoints.",
+        "Compound T+24 reconciles 24,672 people and 12,521 affected people; every service demand/delivered ledger reconciles with maximum floating-point error 3.553e-15.",
+        "Hazards, system pressure and affected population are identical across all eleven selected map layers. Service and route values remain finite and bounded; cumulative person-hours are monotonic."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "The shared local hash and generic municipality-point screens fail source/pathway-specific spatial validation for De Wolden.",
+      "evidenceRefs": ["E02", "E03", "E04", "E06", "E07"],
+      "notes": [
+        "River, pluvial, coastal and heat return exactly the same 40-neighbourhood severity order: Oosteinde-Buiten, Echten, Verspreide huizen Echten, Verspreide huizen Koekange and Verspreide huizen Ansen lead. In pluvial output De Wijk and Ruinen rank ninth and tenth; west-Zuidwolde rows rank fifteenth and sixteenth despite E04's named hotspots.",
+        "packages/sim-core/src/model.ts:3775-3777 computes every local hazard value from municipality severity multiplied by the same region-id seed. It samples no raster cell, catchment, terrain, sewer, heat, forest, source containment or valid-time weather.",
+        "Focused point [6.3885, 52.7291] lies in IPO Boswachterij Ruinen, TOP10NL mixed forest and BU16900709 Verspreide huizen Echten. At T+24 its neighbourhood ranks 3/40 at 0.623317, behind Oosteinde-Buiten at 0.632406 about 6.553 km from the source; the city fire state is direct fire 0.495463, smoke 0.586813, drought 0.688971 and severity 0.536954, explicitly spatialEvidence synthetic.",
+        "The river proximity field applies floodDepthM 0.829099 at T+24 and T+72 and no municipality-specific unsupported note. E03 supports possible high-water effects around Meppel/surrounding areas but not a selected connected event or this exact uniform persistence."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "warn",
+      "summary": "All eight service ledgers are present and directionally inspectable, but exact topology and dependency strengths are synthetic.",
+      "evidenceRefs": ["E03", "E05", "E06", "E08"],
+      "notes": [
+        "River T+24 availability is power 0.825261, water 0.833337, drainage 0.790309, gas 0.908267, telecom 0.824637, mobility 0.796379, facilities 0.844918 and supply 0.813987. At T+72 the same ongoing forcing retains those values except facilities 0.792934.",
+        "Compound T+24 availability is power 0.153114, water 0.719939, drainage 0.474796, gas 0.552467, telecom 0.489048, mobility 0.392698, facilities 0.747559 and supply 0.550511; at T+72 it is 0.147280/0.701565/0.451142/0.542470/0.446040/0.341316/0.627830/0.576037.",
+        "E05 directly supports a time-delayed power-to-sewer/wastewater cascade after several hours, but does not publish which assets lose supply, backup endurance or restoration. Public pumps/weirs and provider polygons are context only, and non-mobility network transfers remain road-derived logical proxies."
+      ]
+    },
+    "causalTrace": {
+      "status": "pass",
+      "summary": "The current engine exposes typed causes, dependency chains, counterfactuals, assumption multipliers and proxy semantics without claiming observations.",
+      "evidenceRefs": ["E01", "E03", "E05"],
+      "notes": [
+        "Every municipality/service frame has cause contributions, demand/delivered reconciliation, dependency steps, recovery progress, driver metadata and a matched no-event baseline for cumulative service-pressure person-hours.",
+        "Operational context fields dayType, startClockHour, demandMultiplier, backupMultiplier, networkCapacityMultiplier, repairCapacityMultiplier and householdPreparedness are normalized and exposed as assumptions; household preparedness affects people/supply rather than physical fragility.",
+        "Event-attributable person-hours are a quarter-hour integral of weighted service shortfall above the matched no-event baseline before intermunicipal transfers, adjusted for household preparedness. They are not observed deprivation or a complete network-attributable welfare metric."
+      ]
+    },
+    "recovery72h": {
+      "status": "warn",
+      "summary": "Recovery gating behaves consistently under ongoing water, but no public operator evidence validates De Wolden's exact restoration path.",
+      "evidenceRefs": ["E03", "E05", "E06", "E08"],
+      "notes": [
+        "Active river forcing holds all service recoveryProgress at zero through T+72; compound flood/cyber forcing likewise holds all recoveryProgress at zero. This avoids visually instantaneous restoration while the event remains active.",
+        "At T+72 river severity remains 0.256300, floodDepthM 0.829099, pressure 0.178273, affected 1,330 and cumulative person-hours 533,979; compound severity 0.445991, floodDepthM 0.537249, pressure 0.531838, affected 13,620 and person-hours 900,419.",
+        "E03 supports days of lead time for regional high water, E05 supports failures developing over several hours, and E06 documents current control works. None supplies event-specific arrival/recession, backup, crew dispatch, stocks or first-72-hour restoration, so the exact curves remain scenario assumptions."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": [
+      "power",
+      "water",
+      "drainage",
+      "gas",
+      "telecom",
+      "mobility",
+      "facilities",
+      "supply"
+    ]
+  },
+  "findings": [
+    {
+      "id": "GM1690-SPATIAL-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Four unrelated hazards use one neighbourhood severity order that conflicts with De Wolden's location-specific evidence.",
+      "evidence": "E04 explicitly distinguishes highly location-specific rain-water overload at Julianaweg De Wijk, west Zuidwolde, Koekange, Ruinen and Groene Hart/Oosterweg from broader heat/drought/brook/canal exposure and identifies separate heat locations. Yet T+24 river, pluvial, coastal and heat have exactly the same 40-neighbourhood order. Oosteinde-Buiten leads all four; De Wijk and Ruinen are ninth/tenth in pluvial and the west-Zuidwolde rows fifteenth/sixteenth. packages/sim-core/src/model.ts:3775-3777 derives local severity solely from municipality severity and one region-id seed, so no hazard-specific public surface can change the order. This is a shared allocator defect demonstrated with municipality-specific evidence.",
+      "action": "Before operational use, grey or label these rankings unsupported and prevent them from driving dispatch. Replace the common seed with hazard-specific polygon-aware zonal inputs: versioned RWS 70 mm/2 h WMS/GeoTIFF plus AHN and authorized municipality/WDODelta surfaces for pluvial/flow; separately sourced valid-time apparent-temperature/drought; and selected connected water/fire footprints. Preserve layer/event ID, run/valid time, units, resolution, licence, coverage and NoData, and assert independent hazards can produce independent ranks."
+    },
+    {
+      "id": "GM1690-RIVER-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "A precise persistent major-river depth is assigned without a selected connected De Wolden high-water event.",
+      "evidence": "packages/sim-core/src/model.ts:430-474 computes a centre-to-three-line proximity exposure, and lines 1019-1024 turn it into a municipality value. GM1690 receives floodDepthM 0.829099 at T+24 and T+72, current severity 0.256300 and 1,077/1,330 affected, with spatialEvidence derived-screening and no GM1690 evidence note. E03 states Drenthe has no primary sea/river defences, while limited higher IJssel/Overijsselse-Vecht risk can flood around among other places Meppel and affect surrounding lifelines/roads over a days-long lead period. E04/E06 separately establish location-specific local/regional water pathways. None selects a defence/breach/overtopping condition, water level, connected Meppelerdiep/Reest/Wold Aa path, depth footprint, arrival or recession supporting 0.829099 m municipality-wide.",
+      "action": "Treat the retained value as non-operational diagnostic only. Conservatively neutralize/mark direct major-river forcing Unknown for GM1690 unless an expert selects a versioned connected LIWO/WMCN/WDODelta event; keep possible Meppel-area indirect access/service effects and local brook/canal/pluvial/drainage mechanisms separately typed and Unknown rather than safe. Require event, pathway, water level, defence/control state, depth units, arrival, duration/recession, coverage, licence, retrieval and NoData metadata."
+    },
+    {
+      "id": "GM1690-FIRE-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "A focused ignition inside official Boswachterij Ruinen does not control the local direct-fire ordering.",
+      "evidence": "E02/E07 place synthetic source [6.3885, 52.7291] inside IPO feature DRE200416472 Boswachterij Ruinen, TOP10NL mixed-forest object 106999968 and BU16900709 Verspreide huizen Echten. At focused T+24 direct fire is 0.495463, smoke 0.586813, drought 0.688971, city severity 0.536954 and pressure 0.116731. The source neighbourhood ranks 3/40 at severity 0.623317, behind Oosteinde-Buiten at 0.632406 approximately 6.553 km away. The model correctly labels the surface synthetic, and the diagnostic is not a real incident or forecast, but it falsifies source-aware local allocation.",
+      "action": "Keep wildfire neighbourhood priority visibly synthetic/unsupported until corrected. Use IPO/Risicokaart Public Domain WFS/WMS as the preferred eligible combustible-area layer and TOP10NL CC BY 4.0 as editioned fallback, then combine a selected source/perimeter with valid-time wind, fuel/moisture, smoke, access, extinguishing water and suppression assumptions. Preserve old source/registration dates and every NoData cell."
+    },
+    {
+      "id": "GM1690-DRAINAGE-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "accepted-limitation",
+      "summary": "Public water objects and the official sewer plan establish mechanisms, not live topology or restoration.",
+      "evidence": "E05 inventories 49 municipal sewer pumping stations, 1,042 rural pump units, 253 km pressure sewer and external Meppel/Echten treatment dependencies, and states that defect/power failure can cause untreated discharge after several hours. E06 contributes 265 display-only public objects inside GM1690, including 17 sewer pumps, 16 surface-water pumps, one sluice and 231 weirs, while returning no RWZI point. Compound T+24/T+72 drainage availability 0.474796/0.451142 and water 0.719939/0.701565 come from generic equations, not inlet blockage, catchments, pipes, storage, receiving levels, controls, backup or telemetry. HWH completeness varies and empty records cannot mean no asset.",
+      "action": "Keep weekly IMWA and variable-cadence DAMO CC BY-SA 4.0 objects non-causal. Seek current municipality-authorized GWSW plus security-reviewed WDODelta topology/state with units, capacity, controls, backup, alarms, cadence and access terms. Treat H2GO as evidence that monitored state exists, not public authorization. Until then expose named subsystem assumptions and Unknown state rather than inferring behavior from points."
+    },
+    {
+      "id": "GM1690-NETWORK-001",
+      "severity": "medium",
+      "category": "network",
+      "status": "accepted-limitation",
+      "summary": "Seven verified road crossings do not represent De Wolden's complete mobility or any physical utility network.",
+      "evidence": "E02 live NWB checks verify all 18 source wvk records by wvkId plus physical wegnummer for N375, A28, N377 and N48; no corridor-identity contradiction was found. The graph has seven logical links and nominal capacity 1,270 to Meppel, Hoogeveen and Hardenberg. It includes no live local road, bridge/culvert, incident, bus or rail state and no station inside GM1690. Every service shares these road-derived links and emits transferSemantics logical-proxy; the values are neither vehicle throughput nor physical power, water, drainage, gas or telecom flow.",
+      "action": "Retain strict wvkId plus wegnummer provenance and monthly CC0 NWB geometry. Add event-valid CC0 NDW closures/incidents only to mobility, and separately authorized local-road, GTFS/vehicle, rail and emergency-access state with validity and units. Restrict physical road records to mobility/access and keep non-road transfers explicitly logical-proxy until authorized service topology exists."
+    },
+    {
+      "id": "GM1690-CONTINUITY-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "accepted-limitation",
+      "summary": "Provider, antenna, school and government registers do not resolve utility, care or supply continuity.",
+      "evidence": "E01 supplies aggregate older/one-person context; E08 identifies Enexis, Rendo, WMD and Ziggo at one reference point plus 71 antennas, 18 education and seven government/service records. Drainage-provider and RIVM acute-care containment return no feature. None establishes feeder/pipe/backhaul topology, radio coverage, load, priority customers, care occupancy, school shelter role, backup duration, household fuel/food/medicine, repair crews or restoration. Compound service values are deterministic balances, not provider or facility observations.",
+      "action": "Keep provider and public registries display-only with publisher, edition, retrieval/valid time, coverage, licence and explicit point-versus-municipality scope. Use capacity, state, backup, stock and restoration only from authorized operator/GHOR/municipal exercise inputs; otherwise retain the smallest service-specific prior and explicit Unknown."
+    },
+    {
+      "id": "GM1690-OTHER-HAZARDS-001",
+      "severity": "medium",
+      "category": "limitation",
+      "status": "accepted-limitation",
+      "summary": "Storm, heat/drought, winter, cyber, earthquake and remote coastal effects remain bounded exercises rather than calibrated De Wolden forecasts.",
+      "evidence": "E03/E04 establish relevance of extreme rain/storm, heat/drought, winter, cyber/vital-service disruption, nature fire and local induced-seismic context. Canonical peaks are storm 0.470481, heat 0.739183, winter 0.630773, cyber 0.426252, earthquake 0.197490 and coastal 0.083208. Coastal output is a remote wind/system tail with no selected direct North Sea pathway; earthquake selects no reproducible KNMI event or local site-response/building fragility; cyber declares no target/system boundary; weather has no KNMI run/valid time. These outputs are deterministic exercises, not warnings, observations, probabilities or losses.",
+      "action": "Keep scenario, observation, forecast and probability labels distinct. Integrate versioned KNMI data only with dataset, run/valid time, units, cadence, licence and coverage; require explicit source/target/system selection for earthquake, cyber and wildfire; and use authorized aggregate fragility/continuity envelopes when real topology is unavailable."
+    },
+    {
+      "id": "GM1690-RECOVERY-001",
+      "severity": "medium",
+      "category": "explainability",
+      "status": "accepted-limitation",
+      "summary": "Ongoing-water recovery gating is internally consistent but exact first-72-hour trajectories are unvalidated locally.",
+      "evidence": "River floodDepthM remains 0.829099 with every service recoveryProgress zero through T+72; compound water likewise holds every recoveryProgress zero. River T+72 pressure is 0.178273 with 1,330 affected and 533,979 cumulative event-attributable person-hours; compound is 0.531838/13,620/900,419. E03 supports a days-long high-water lead period and E05 a sewer consequence after several hours, but E03–E06 do not publish selected event arrival/recession, asset backup, incident priorities, crew dispatch, stocks or operator restoration schedules.",
+      "action": "Retain delayed/ramped intervention and no-recovery-during-active-water safeguards, but label their timing as exercise assumptions. Calibrate only against authorized exercise or incident data with event definition, asset class, censoring, resource availability and uncertainty; never infer a commitment from a project page or register status."
+    },
+    {
+      "id": "GM1690-NODATA-001",
+      "severity": "informational",
+      "category": "regional-data",
+      "status": "fixed",
+      "summary": "The current adapter and audit preserve null, empty-coverage, NoData and display-only semantics.",
+      "evidence": "District-heating share and public-charging count remain null in all 40 neighbourhoods; partial CBS fields remain null. Empty Mijn Aansluiting drainage, RIVM acute-care and local RWZI responses remain Unknown. HWH/RDI/DUO/KVK/provider records remain non-causal context, and RWS raster transparency/NoData is unresolved rather than zero hazard. No public-context absence creates zero service, zero need or safe.",
+      "action": "Retain typed Unknown/not-applicable/suppressed/NoData states, source coverage, edition and retrieval/valid time in every ingestion; regression-test that absence never becomes zero hazard, zero service, zero population need or causal truth."
+    },
+    {
+      "id": "GM1690-CONTRACT-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The complete deterministic contract, causal trace and sustained-water safeguards pass for GM1690.",
+      "evidence": "The focused gate passes 10 presets × 6 checkpoints × 8 services. Every zero-intensity run is exactly zero for current severity, peak, affected and cumulative event-attributable person-hours; determinism, finite bounds, monotonic accumulation and route bounds pass. Compound T+24 reconciles 24,672 residents, 12,521 affected and all service ledgers within 3.553e-15; all eleven map selections are invariant. Active river/compound water correctly prevents restoration through T+72, and explanations label operational multipliers, delayed interventions, matched baseline and road-derived transfers as scenario/proxy semantics.",
+      "action": "Preserve these regressions while correcting GM1690 river scope and shared spatial allocation. Arithmetic and explainability success must remain separate from physical validation."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Replace common De Wolden neighbourhood ranking and source-insensitive wildfire allocation with event-specific public context.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/src/data.ts",
+        "apps/web/public/data/hazards/de-wolden-context.json"
+      ],
+      "validation": "Preferred public inputs are RWS 70 mm/2 h WMS/GeoTIFF CC0, AHN4 WMS/WCS 0.5 m terrain CC0, and an authorized current municipal/WDODelta surface for named pluvial/regional-water pathways; E04 supplies validation locations but needs native GIS/licence before ingestion. For wildfire use IPO/Risicokaart WFS/WMS Public Domain combustible polygons first and TOP10NL OGC CC BY 4.0 as editioned fallback. Preserve event/layer, source and registration date, run/valid time, units, resolution, retrieval, coverage, NoData and licence. Assert hazards can rank differently, the named rain locations respond to their own surface, and a Boswachterij Ruinen source governs local direct flame under equal conditions."
+    },
+    {
+      "summary": "Replace GM1690's generic major-river value with a selected connected event or an explicit Unknown/neutral direct screen.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/src/components/MunicipalityInspector.tsx",
+        "audits/correction-ledger.json"
+      ],
+      "validation": "Add a GM1690 evidenceNote/unsupportedDimensions entry: the retained proximity amplitude is not a selected hydraulic event. Until expert review selects versioned LIWO/WMCN/WDODelta water levels, controls/defences and a connected IJssel/Overijsselse-Vecht/Meppelerdiep/Reest/Wold Aa footprint, direct major-river depth must be neutral/Unknown; possible Meppel-area indirect lifeline/access effects and local brook/canal/pluvial/drainage remain separately Unknown. Pin edition, pathway, depth/stress units, arrival, duration/recession, resolution, coverage, NoData, licence and retrieval. Run unit, focused GM1690 and national ALL gates."
+    },
+    {
+      "summary": "Integrate De Wolden water/drainage context through public standards and authorized operational topology without promoting register points into live state.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/data.ts",
+        "apps/web/public/data/public-context/water-assets.geojson.gz"
+      ],
+      "validation": "HWH Kunstwerken IMWA is weekly and Waterketen DAMO completeness/cadence varies, both CC BY-SA 4.0; retain 265 objects as non-causal context. Seek current municipality-authorized GWSW and security-reviewed WDODelta topology/state for named sewer pumps, surface pumps, weirs, Meppel/Echten treatment paths and Ruiner/Wold Aa controls, with units, catchment, capacity, setpoints, backup, alarms, cadence and terms. H2GO existence does not grant access. Never infer completeness, live state or recovery from point presence, absence, capacity without units, realised labels or project wording."
+    },
+    {
+      "summary": "Integrate authoritative De Wolden mobility, provider, weather and facility context by discipline and valid time while keeping utility flows logical proxies.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/data.ts",
+        "apps/web/public/data/transport-network.json",
+        "apps/web/public/data/public-context/rdi-antenna-sites.geojson.gz"
+      ],
+      "validation": "Mobility: monthly CC0 NWB supplies exact wvkId/wegnummer geometry and CC0 NDW supplies event-valid incidents/closures; GTFS/ProRail remain schedule/infrastructure context unless live operation is authorized. Providers: Mijn Aansluiting WMS/WFS is Public Domain and responsibility-only; point scope and drainage absence remain explicit. Weather: pin KNMI dataset-specific licence/run/valid time/cadence as observation or forecast. DUO is daily Creative Commons Attribution; KVK is partial Public Domain; RIVM acute care is versioned CC0; RDI licence/fixed cadence remains unresolved. None establishes live capacity, coverage, backup, stock or restoration, and all road-derived non-mobility transfers remain logical-proxy."
+    }
+  ],
+  "residualLimitations": [
+    "This is a deterministic planning-model audit, not validation against an observed De Wolden disaster, outage, casualty, evacuation, welfare or restoration dataset.",
+    "The CBS 2025 generalized boundary supports municipal aggregation, not parcel hydraulics, forest/fire spread, water-system connectivity, service ownership or exact incident geometry.",
+    "The 2019 municipal stress tests, 2023–2028 plans, 2025 regional profile and 2026 water projects are mechanism/planning context, not current observations, probability or first-72-hour forecasts.",
+    "RWS 70 mm/2 h, flood-risk areas and AHN are national scenario/terrain context; they do not independently supply a local incident, sewer controls, regional-water levels, arrival or recession, and NoData remains Unknown.",
+    "TOP10NL forest and IPO combustible-nature polygons are static eligibility context rather than current fuel, moisture, ignition, perimeter, spread, suppression or access state; the focused Ruinen ignition is synthetic.",
+    "HWH/provider/antenna/facility/GTFS records are partial dated context, not complete topology, capacity, operating state, backup, stock, occupancy or restoration commitments.",
+    "No reviewed public safe source supplies complete Enexis, Rendo, WMD, municipal/WDODelta drainage, telecom, care, food/fuel or emergency-resource topology/state; sensitive detail was not inferred.",
+    "First-72-hour visitors/recreation, medically dependent people, responders, mutual aid, shelters, pharmacies, fuel/food stocks, crew travel, road clearance, repair priorities and household behavior remain scenario assumptions or Unknown."
+  ],
+  "provinceReviewFlags": [
+    "Municipality-specific release blocker: replace or explicitly neutralize the GM1690 generic 0.829099 m major-river field until a selected connected IJssel/Overijsselse-Vecht/Meppelerdiep/Reest/Wold Aa hydraulic event supports it; preserve surrounding-Meppel indirect and local-water risks as Unknown, not safe.",
+    "Municipality-specific release blocker: validate named De Wijk, west-Zuidwolde, Koekange and Ruinen rain locations and the BU16900709 Boswachterij Ruinen focus without promoting planning maps or static forest into live events.",
+    "Municipality-specific: preserve the current Ruiner Aa works, external Meppel/Echten wastewater path, public pump/weir context, rural pressure-sewer scale and older/one-person resident context without inferring operational state.",
+    "Shared/national release blocker: replace common neighbourhood hazard hashes with event-specific public water/heat/fire surfaces, preserve NoData as Unknown and visibly grey unsupported ranks.",
+    "Shared/national: keep monthly NWB physical road identity and event-valid NDW mobility separate from utilities; all road-derived non-mobility flows remain logical transfer proxies.",
+    "Shared/national: provider, water-control, antenna, education, public-service, care, station and GTFS records remain non-causal context unless authorized capacity/state/topology is supplied."
+  ]
+}

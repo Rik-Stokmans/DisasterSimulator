@@ -1,0 +1,502 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0907",
+    "name": "Gennep",
+    "province": "Limburg",
+    "safetyRegion": "Limburg-Noord"
+  },
+  "agent": {
+    "taskName": "municipality_gm0907",
+    "agentId": "/root/causal_engine_v3",
+    "completedAt": "2026-09-03T01:48:00Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "GM0907 passes the deterministic execution contract for all ten canonical presets, T+0/6/12/24/48/72 and all eight essential services. Its 2025 identity, population, sixteen neighbourhoods, five BAG places, twelve settlement labels and five A77/N264/N271 border links are internally coherent; current NWB links correctly affect only Mobility and road-logistics Supply. Release is nevertheless correction-required. Gennep lies directly on the Maas and Niers, so its nonzero major-river amplitude must not be suppressed as though it were an off-river false positive. It remains only a diagnostic: the river screen reaches 1.572304 normalized inundation stress at T+24, 9,647 affected people-equivalent and exact service values without selecting a Maas/Niers hydrograph, datum, defence or breach/overtopping state, connected footprint, depth, arrival, duration, recession, pumping or access state. At T+72 the same stress and severity persist while affected population rises to 10,313. Eight unrelated hazard families reuse one exact neighbourhood ranking, and a controlled source inside the official Looier- en Gennepseheide polygon and Heijensebos neighbourhood ranks that source neighbourhood last. The graph also omits the upstream German Niers warning chain and N291/B504/A57 route, internal Maas crossings/waterways, external acute care, current water/drainage topology and the industrial/external-safety register context. Thirty-seven public managed-water objects are available as context, but their geometry does not establish live state or connectivity. Public observations, warnings, registers, plans and model scenarios must remain distinct; null, empty, absent and sentinel NoData are never zero, safe, open or operational.",
+  "provinceReviewFlags": [
+    "Municipality-specific release blocker GM0907-FLOOD-001: Gennep has genuine direct Maas and Niers pathways, so do not apply an off-river major-river zero suppression; retain the nonzero scalar only as a transparent non-operational diagnostic until an authority-selected event supplies boundary conditions, datum, defence state and connected impacts.",
+    "Municipality-specific release blocker GM0907-CROSSBORDER-001: the generated graph omits the German Niers warning chain and the N291-B504-A57 continuation despite official cross-border high-water notification and emergency-cooperation evidence.",
+    "Municipality-specific release blocker GM0907-FIRE-001: a source inside Looier- en Gennepseheide and Heijensebos ranks its containing neighbourhood sixteenth of sixteen because the common allocator ignores source containment and fuel geography.",
+    "Municipality-specific release blocker GM0907-WATERCHAIN-001: public HWH/DAMO context contains thirty-seven managed-water objects, while official municipal records describe 112 km of sewer, a pressure-sewer chain and RWZI Gennep; none establishes live topology, capacity, backup or restoration.",
+    "Shared/national release blocker GM0907-SPATIAL-001: eight unrelated nonzero hazard families reuse the exact same neighbourhood order and GM0907 has no municipality-specific unsupported-spatial guard.",
+    "Shared/national: the browser must suppress precise selected-municipality patches and percentages whenever the hazard evidence contract is unsupported, rather than relying on a national unsupported-count message.",
+    "Shared/national correction confirmed: unqualified NWB roads support only Mobility and road-logistics Supply and remain logical transfer proxies, not physical electricity, water, drainage, gas, telecom or facilities topology.",
+    "Limburg/Euroregional: Dutch and German gauge values use source-specific datum, units, thresholds and time semantics; never compare or transform them without documented conversion and valid-time alignment."
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM0907, Gennep, Limburg and safety region Limburg-Noord are internally and officially coherent.",
+      "evidenceRefs": ["E01", "E02"],
+      "notes": [
+        "The generated municipality id/name, province, safety region, 2025 boundary edition and 2025 statistical edition agree.",
+        "Reference point [5.981877627032544, 51.692583291444045] lies inside the generalized boundary; the current full PDOK boundary is a MultiPolygon with 935 coordinate positions and bounding box [5.919469547173512, 51.64378311161337, 6.0449391464119975, 51.74802415871547].",
+        "CBS reports 17,785 residents, density 374 residents/km², 26.7 percent age 65 or older and 2,752 one-person households.",
+        "No identity, province or safety-region contradiction was found."
+      ]
+    },
+    "geography": {
+      "status": "warn",
+      "summary": "Administrative geography is coherent, but the generalized display boundary is not hydraulic, wildfire, utility or cross-border operational geography.",
+      "evidenceRefs": ["E01", "E02", "E03", "E05", "E06", "E07"],
+      "notes": [
+        "Sixteen CBS neighbourhoods and five districts support aggregation; five BAG places and twelve BRT settlement labels preserve Gennep, Heijen, Milsbeek, Ottersum and Ven-Zelderheide plus smaller-place context.",
+        "The overview boundary has 80 coordinate positions versus 935 in the current full boundary. It is suitable for selection and national aggregation, not exact asset containment, flood connectivity, wildfire spread, plume modelling or road passability.",
+        "Official sources distinguish the Maas, Niers, Aaldonksebeek, dikes and Lob van Gennep storage area, Looier- en Gennepseheide, Rijksvluchthaven Heijen and the German border. None is represented by a municipality centroid or neighbourhood hash.",
+        "Point assets, rasters, register polygons, roads, waterways, provider territories and administrative polygons each have different scale, valid time, completeness and semantics; membership in one never proves topology or live state in another."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Headline population and aggregate vulnerability inputs agree with CBS 2025 and neighbourhood totals reconcile within publication rounding.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "Sixteen independently rounded neighbourhood rows sum to 17,795 residents, ten above the municipality total (+0.056 percent); they sum to 7,910 households and 4,745 residents aged 65 or older.",
+        "Largest neighbourhoods are Midden 4,010, Zuid 4,000, Milsbeek 2,190, Heijen 1,630 and Ottersum 1,525.",
+        "Age, household form, car access, density and GP/supermarket distance are aggregate context, not individual medical dependence, daytime presence, evacuation need, preparedness or priority.",
+        "Cross-border workers, visitors, care recipients, responders and displaced people are not represented by resident allocation."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "Sixteen neighbourhoods provide useful vulnerability context, but partial fields and hazard-independent allocation prevent operational prioritization.",
+      "evidenceRefs": ["E01", "E03", "E04", "E05"],
+      "notes": [
+        "Core population, household, density, land/water and proximity fields cover all sixteen rows; cars per household and related household fields cover fourteen of sixteen.",
+        "District-heating share and public-charging count cover zero of sixteen and correctly remain null/Unknown. Missing, suppressed, unavailable and not-applicable values are not calculated zeros.",
+        "Official sources distinguish river-edge villages, the Lob storage area, forest/heath, sewer catchments and the German-fed Niers, but none drives current local allocation.",
+        "Population, affected population and every service demand/delivery total reconcile, yet eight unrelated nonzero hazards retain the same exact sixteen-neighbourhood order."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "Five BAG woonplaatsen and twelve BRT settlement labels preserve municipal place context without fabricating operational zones.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "BAG places are Gennep, Heijen, Milsbeek, Ottersum and Ven-Zelderheide; BRT labels additionally preserve Aaldonk, Dam, De Looi, Diekendaal, Hekkens, Smele and Zelder.",
+        "The named centres and rural/cross-border context remain distinguishable at reference level.",
+        "Settlement labels are not evacuation zones, shelters, pressure zones, sewer catchments, emergency bases or resource inventories."
+      ]
+    },
+    "transport": {
+      "status": "fail",
+      "summary": "The five Dutch A77/N264/N271 links have sound section-level provenance and road-only service scope, but the N291-German continuation, waterways, internal crossings and incident-time operation are absent.",
+      "evidenceRefs": ["E01", "E06"],
+      "notes": [
+        "Five generated links connect GM0907 to Bergen, Land van Cuijk and Mook en Middelaar: two A77, two N271 and one N264 link. Their twelve NWB source wvk ids are unique and their physical corridor ids resolve by source wegnummer 077, 271 and 264.",
+        "The engine exposes these links only to Mobility and Supply, and zero to power, water, drainage, gas, telecom and facilities. This is the correct logical-road safeguard.",
+        "Current NWB gme_id=907 also identifies N291. Official municipal and German evidence establishes its continuation via B504/A57 and a pre-agreed emergency route, but the generated graph contains no German node or cross-border N291/B504/A57 edge.",
+        "No ProRail station is assigned within the municipality and 44 transit stop areas are. Static road, rail, transit and waterway geometry does not establish service, vehicle/vessel availability, evacuation throughput, bridge passability or repair access.",
+        "The deployed NDW snapshot has no assigned GM0907 record. That is a filtered no-match, never proof that A77, N264, N271, N291, local roads or approaches are open now or through T+72."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "Strong official water, provider, industrial, warning and cross-border context exists, but no reviewed public source supplies complete live service topology, resources or first-72-hour state.",
+      "evidenceRefs": ["E02", "E03", "E04", "E06", "E07", "E08"],
+      "notes": [
+        "Current HWH/DAMO context assigns thirty-seven managed-water objects: five sewer pumps, twelve surface-water pumps, one RWZI and nineteen weirs. Capacities are null and contributor completeness varies.",
+        "The municipal GRP describes about 112 km sewer, 68 km pressure sewer, 12 main pumps/243 pump units, roughly 25 km pressure-main conveyance to RWZI Gennep and incomplete telemetry at publication. This is inventory/design context, not live operation.",
+        "A full-boundary REV screen returns twenty activity records after deduplicating twenty-three contained rows, including Gasunie GOS Z169, LPG/fuel-bunker and propane activities. Register presence is not an incident, inventory, plume or probability, and German hazards lie outside REV jurisdiction.",
+        "Mijn Aansluiting identifies Enexis electricity/gas, WML drinking water and Ziggo telecom at the reference point; drainage has no feature. Provider polygons are responsibility context, not complete coverage, topology, outage or restoration.",
+        "RIVM lists no acute-care location inside GM0907; the nearest screened location is Maasziekenhuis Pantein across the Maas in Land van Cuijk. Straight-line proximity does not prove route, acceptance, capacity, staffing or availability.",
+        "Live water and outage pages can carry timestamped observations, but no-match, normal-status or no-known-outage wording is not guaranteed safety or continuity and must expire at its own valid time."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": ["power", "water", "drainage", "gas", "telecom", "mobility", "facilities", "supply"]
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "warn",
+      "summary": "All ten presets execute at all six checkpoints for all eight services, but numerical completion is not Gennep calibration.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "Peak municipal severities include storm 0.783091, pluvial 0.430374, river 0.487821, coastal 0.034988, heat 0.753603, cyber 0.482845, earthquake 0.013591, wildfire 0.150649 and compound 0.955533; every value is a deterministic exercise output rather than observation, probability or forecast.",
+        "At T+24 storm severity/pressure/affected are 0.261050/0.405627/6,655; pluvial 0.267810/0.246851/2,677; river 0.487821/0.525011/9,647; heat 0.117417/0.214402/1,864; cyber 0.411420/0.329652/4,752; wildfire 0.150649/0.148267/207; and compound 0.946996/0.630678/12,295.",
+        "River T+24 flood stress is 1.572304 and remains exactly 1.572304 at T+72; severity also remains 0.487821 while pressure rises to 0.551577 and affected population to 10,313.",
+        "Compound T+24 carries 60.432605 mm/h rain, 0.523602 flood stress, 33.454925 m/s wind and 0.423599 cyber disruption. At T+72 severity remains 0.514630 and flood stress 0.523602 while pressure rises to 0.637336 and affected population to 12,462.",
+        "Coastal T+24 has only 0.034988 severity, zero direct flood stress and 17.915635 m/s wind. That narrow zero is not an all-clear for inland Maas/Niers, regional water, defence or drainage pathways.",
+        "Canonical wildfire T+24 has zero direct flame with 0.364878 smoke and 0.647277 drought; canonical earthquake is zero current shaking at T+24. Those zeros do not test another source or an unmodelled hazard.",
+        "KNMI warnings cover up to 48 hours and observations have their own timestamps. Neither can silently fill T+48–72 or validate the model's deterministic recovery."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Finite bounds, determinism, exact no-event behavior, cumulative burden, road-service scope, local reconciliation and layer invariance pass.",
+      "evidenceRefs": [],
+      "notes": [
+        "MUNICIPALITY_AUDIT_CODE=GM0907 pnpm audit:model passed both focused tests across 10 presets × 6 checkpoints × 8 services; the audited run completed in 36.21 seconds with 35.98 seconds of test execution.",
+        "Every zero-intensity preset produces exact zero current severity, peak severity, affected population and event-attributable essential-service person-hours at every checkpoint.",
+        "Repeated frames are deterministic; values are finite and bounded; cumulative event-attributable essential-service person-hours are monotonic; logical route flow stays within effective capacity.",
+        "T+24 local population, affected population and every service demand/delivery ledger reconcile. Maximum observed local, demand and delivery floating-point discrepancy is 7.105427357601002e-15.",
+        "Changing among all eleven map layers leaves hazard/pressure/affected output unchanged; maximum local layer hazard delta is zero.",
+        "All eight pressure weights participate and sum to one; operations multipliers and household preparedness remain bounded scenario assumptions rather than inferred public facts."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "A shared neighbourhood hash, unselected hydraulic field and ignored wildfire source create false local precision.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05"],
+      "notes": [
+        "At audit time packages/sim-core/src/model.ts:4361 derives hazardSeed from city seed, scenario seed and region id; packages/sim-core/src/model.ts:4373 applies it locally. Hazard family, source containment, water path, terrain, land cover and displayed public surfaces are absent.",
+        "Severe storm, pluvial, river, coastal, heat, winter, cyber and wildfire share the exact T+24 rank order: Noord, Looierheide, Heijen, Sprokkelveld, Zuid, Milsbeek, Aaldonk and Langehorst lead, while Heijensebos ranks last and Midden fifteenth. Compound preserves the same order with clipping.",
+        "A controlled wildfire source [5.988025, 51.671568] lies inside the official Looier- en Gennepseheide polygon and CBS Heijensebos. It produces 0.619341 municipal direct-fire intensity at T+24, but Heijensebos ranks sixteenth at 0.503055 while Noord ranks first at 0.711287.",
+        "The BIJ12/IPO WFS identifies Looier- en Gennepseheide as a contained combustible-nature polygon, but its at-least-100-hectare registration threshold establishes only eligibility context, not ignition, current fuel moisture, spread, smoke, suppression or response.",
+        "GM0907 has no entry in auditedUnsupportedSpatialNotes, so the browser presents exact neighbourhood patches under evidence class derived-screening rather than a selected-municipality unsupported warning.",
+        "Official flood, pluvial, heat, drought, wildfire and elevation layers are rendered as context and are not sampled by local allocation."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "Service ledgers are inspectable and road scope is corrected, but exact values omit Gennep's water chain, cross-border Niers, external care and physical lifelines.",
+      "evidenceRefs": ["E02", "E03", "E04", "E06", "E08"],
+      "notes": [
+        "Current source applicability yields five NWB logical corridors for Mobility and Supply and zero for power, water, drainage, gas, telecom and facilities. This road-only safeguard is correct.",
+        "River T+24 availability is power 0.406936, water 0.453595, drainage 0.253038, gas 0.671293, telecom 0.407553, mobility 0.714520, facilities 0.517766 and supply 0.382550. At T+72 seven remain exact while facilities falls to 0.328011, without a selected local mechanism or resource state.",
+        "Compound T+24 availability is 0.294264/0.400955/0.268164/0.571273/0.238471/0.720444/0.311838/0.205135 across the eight services. At T+72 all eight are slightly worse despite no local action/resource ledger.",
+        "HWH/DAMO and the GRP expose managed-water mechanisms, RWZI Gennep and pressure-sewer context, but not causal catchment connectivity, compatible capacity units, current controls, power/backup or restoration.",
+        "No German Niers node, N291/B504/A57 connection, internal Maas/waterway/harbour node, acute-care destination or telecom cross-border continuity appears in the graph.",
+        "Provider territories, planning constraints, antennas, education/care points, REV activities and current status pages remain context only and correctly do not become physical topology or live capacity."
+      ]
+    },
+    "causalTrace": {
+      "status": "warn",
+      "summary": "Cause contributions, dependencies, counterfactuals and logical-proxy metadata reconcile, but omitted local mechanisms make the exact driver magnitudes operationally unsupported.",
+      "evidenceRefs": ["E02", "E03", "E04", "E06", "E08"],
+      "notes": [
+        "Municipal pressure uses transparent weights power 0.18, water 0.15, drainage 0.08, gas 0.09, telecom 0.12, mobility 0.12, facilities 0.14 and supply 0.12; focused tests close the ledger.",
+        "The UI labels scenario evidence and calls road-based transfers logical proxies rather than physical utility topology.",
+        "An internally exact causal trace cannot validate an omitted Maas/Niers boundary condition, defence state, sewer/surface-water catchment, German warning/access path, wildfire source/spread, industrial release, external care or restoration resource.",
+        "VRLN and waterboard plans establish roles and conditional procedures, not a current incident, crew/vehicle/material inventory, pump availability, road access, hospital acceptance or operator commitment.",
+        "Demand, capacity, backup, repair, preparedness, generator priority and mutual-aid effects remain bounded/time-gated scenario assumptions and must never be described as actual assets, household behavior or dispatched assistance."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "Exact T+0–72 persistence and recovery are not tied to local hydraulics, actions, access, resources or operator commitments.",
+      "evidenceRefs": ["E02", "E03", "E04", "E06", "E08"],
+      "notes": [
+        "River T+24 to T+72 keeps severity 0.487821 and flood stress 1.572304; seven service availabilities stay exact, facilities falls, pressure rises 0.525011 to 0.551577, affected population rises 9,647 to 10,313 and cumulative unmet essential-service burden rises 164,561.51 to 652,201.87 person-hours.",
+        "Compound T+24 to T+72 retains flood stress 0.523602 while pressure increases 0.630678 to 0.637336, affected population 12,295 to 12,462 and every service worsens slightly; cumulative burden reaches 704,502.88 person-hours.",
+        "No selected hydrograph/datum, defence or breach state, pump/control state, Niers upstream lag, cross-border notification/aid arrival, road/waterway access, care destination, shelter/supply stock, crew/material, backup endurance or restoration schedule supports those exact paths.",
+        "Lob van Gennep construction and financing, dike designs, GRP works, network projects and road closures are dated planning context, not completed protection, dispatched action or guaranteed availability.",
+        "Water-level, weather, road and outage observations must expire at their source valid time; none may be extrapolated through T+72 without an explicit forecast or scenario transformation."
+      ]
+    }
+  },
+  "evidenceSources": [
+    {
+      "publisher": "Statistics Netherlands (CBS), Kadaster and PDOK",
+      "title": "Wijken en buurten 2025, bestuurlijke gebieden, BAG woonplaatsen and official boundaries",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_niet_gegeneraliseerd/items",
+      "accessedAt": "2026-09-03T01:32:00Z",
+      "edition": "2025; current non-generalized CBS municipality collection queried 2026-09-03",
+      "supports": [
+        "Machine-readable CBS OData https://opendata.cbs.nl/ODataApi/OData/86165NED and PDOK OGC services; CBS data are CC BY 4.0 and BAG is Public Domain Mark 1.0.",
+        "GM0907 identity, 17,785 residents, density 374/km², 26.7 percent age 65+, 2,752 one-person households, sixteen neighbourhoods, five BAG places and twelve BRT settlement labels.",
+        "Neighbourhood rows sum to 17,795, ten above the municipality total because published values are independently rounded.",
+        "Current full boundary feature 77ff67ac-e4ec-5c1d-8b33-79c36a0cfef4 contains 935 coordinate positions; the generated overview has 80 and is explicitly generalized.",
+        "Administrative geometry and aggregate attributes support aggregation only; null/suppressed values remain Unknown and do not establish exposure, service state or individual vulnerability."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Limburg-Noord and Veiligheidsregio Zuid-Limburg",
+      "title": "Provinciaal Risicoprofiel 2023–2027, Regionaal Crisisplan 2024–2027 and RBP Hoogwater Limburg 2023–2026",
+      "url": "https://www.vrln.nl/sites/vrln/files/2024-04/Veiligheidsregio_LN-ZL_Provinciaal_risicoprofiel.pdf",
+      "accessedAt": "2026-09-03T01:36:00Z",
+      "edition": "Risk profile 2023–2027; crisis plan 2024–2027; high-water plan v7.0 dated 2024-02-24 and valid 2023–2026",
+      "supports": [
+        "Primary planning PDFs; no standard reuse licence is stated. The risk/crisis plans are normally reviewed four-yearly; the high-water plan has an annual actuality check and at least three-year revision.",
+        "The profile covers river flooding/dike breach, wildfire, heat/cold, storm, drought, extreme rain, earthquake, utility failures, dangerous substances, cyber and transport incidents, but explicitly does not resolve risk per municipality.",
+        "RBP https://www.vrln.nl/sites/vrln/files/2024-04/RBP%20Hoogwater%20Limburg%202023-2026_DEF.pdf includes Gennep and distinguishes brook/tributary high water, Maas high water and primary-defence/polder effects.",
+        "The crisis plan https://www.vrln.nl/sites/vrln/files/2024-01/Regionaal%20Crisisplan%20VRLN%202024-2027.pdf describes roles and German alignment, not a live resource inventory or guaranteed mutual-aid arrival.",
+        "Cross-border effects include upstream water, energy/communications interruption, road/rail/water closures and dangerous substances. Plans are doctrine/scenario context, not an incident, forecast, probability, resource status or T+72 commitment."
+      ]
+    },
+    {
+      "publisher": "Waterschap Limburg, Rijkswaterstaat and Het Waterschapshuis via PDOK",
+      "title": "Maas/Niers observations, Lob van Gennep, water defences/watercourses/structures and HWH/DAMO managed-water APIs",
+      "url": "https://open.waterschaplimburg.nl/waterstanden-in-limburg",
+      "accessedAt": "2026-09-03T01:41:00Z",
+      "edition": "Timestamped observations captured 2026-09-03; Lob project/design pages current 2026-09-03; HWH/DAMO retrieved 2026-09-03",
+      "supports": [
+        "Waterstand Limburg OData https://www.waterstandlimburg.nl/api/Location exposes timestamped point observations and phase thresholds. Captured records include Maas Gennep, Niers Ottersum, Niers Zelderheide and Aaldonksebeek/Gemaal Aaldonk; point values and source-specific thresholds are observations, not continuous depth or T+72 forecasts.",
+        "Waterschap ArcGIS services expose Kern_Waterkering, Watergangen and Kern_Kunstwerken machine layers: https://maps.waterschaplimburg.nl/arcgis/rest/services/Kernregistratie/Kern_Waterkering/MapServer. No explicit reuse licence or contractual cadence was found; clip to the exact boundary and retain retrieval time.",
+        "Lob van Gennep https://lobvangennep.nl/project/ottersum/ documents existing/new dike design and storage-area work. Current financing/timing uncertainty means plans are not completed protection or guaranteed recovery.",
+        "HWH IMWA https://api.pdok.nl/hwh/waterschappen-kunstwerken-imwa/ogc/v2 and DAMO https://api.pdok.nl/hwh/waterschappen-waterketen-damo/ogc/v1 are CC BY-SA 4.0, machine-readable and contributor-updated. The current deployment assigns 37 GM0907 points, but completeness/cadence varies and capacities are unavailable.",
+        "Legacy Hydronet sentinel -9999, null, absent features and no current sample are NoData, never zero or Normal. Datum, unit, source time and ingest time must be preserved before Dutch/German values are compared."
+      ]
+    },
+    {
+      "publisher": "Gemeente Gennep and Waterschapsbedrijf Limburg",
+      "title": "Gemeentelijk Rioleringsplan 2025–2026 and public wastewater-transport context",
+      "url": "https://www.gennep.nl/sites/default/files/2025-04/bijlage-1-gemeentelijke-rioleringsplan-2025-2026.pdf",
+      "accessedAt": "2026-09-03T01:38:00Z",
+      "edition": "GRP 2025–2026, document dated 2024-10-31",
+      "supports": [
+        "Official static PDF; no standard reuse licence or fixed refresh cadence is stated. WBL publishes an ArcGIS context service at https://maps.waterschaplimburg.nl/arcgis/rest/services/Thema/Rioolwatertransport_WBL/MapServer.",
+        "The GRP describes about 112 km sewer, 68 km pressure sewer, 12 main pumping stations, 243 pump units and conveyance through about 25 km of pressure mains to RWZI Gennep; related figures elsewhere in the narrative use 14 pumping stations, so versioned definitions must be retained.",
+        "It distinguishes 70.0 km combined, 16.6 km foul and 25.3 km storm sewer and says 85 pumps had telemetry at publication, with remaining connection planned.",
+        "Preferred new-development storage is T100/100 mm per 24h where feasible; minimum T10/50 mm per 24h requires explicit T100 consequence review and emergency overflow. These are design/model assumptions, not current rainfall, damage or live pump state.",
+        "Calculated street water does not automatically imply building damage because flow can reach verges/green. Inventory, model and plan data do not establish topology, capacity, power/backup, condition or restoration."
+      ]
+    },
+    {
+      "publisher": "Waterpanel Noord, Rijkswaterstaat/PDOK, BIJ12/IPO and Klimaateffectatlas",
+      "title": "Public pluvial/fluvial, heat, drought, terrain and combustible-nature scenario/context layers",
+      "url": "https://waterinlimburg.nl/Klimaatatlas/default.aspx",
+      "accessedAt": "2026-09-03T01:40:00Z",
+      "edition": "Waterpanel experience modified 2026-06-03; underlying services mainly edited October–November 2025; national layers carry their own editions",
+      "supports": [
+        "Waterpanel Noord provides machine FeatureServer/ImageServer layers for T100 building/road risk and pluvial/fluvial depth, including https://services2.arcgis.com/Ax2LfO1ZpiFhQodM/arcgis/rest/services/klimaatatlas_wpn_wateroverlast_panden_wegen_pluviaal_fluviaal_T100/FeatureServer and https://tiledimageservices.arcgis.com/pCDwdQn0AhSP66VA/arcgis/rest/services/WATERDIEPTEKAARTPLUVIAALWATERDIEPTEKAARTFLUVIAALV/ImageServer. Public access is available but item licence fields are blank; obtain reuse permission before caching.",
+        "Heat/drought/wildfire-susceptibility services are published through the same official atlas. They are model scenarios/context, not observations, ignition, forecast, fuel state or T+72 evolution; feature services require pagination and exact-boundary extraction.",
+        "RWS 70 mm/two-hour WMS https://geo.rijkswaterstaat.nl/services/ogc/gdr/klimaat_effect_atlas/ows?service=WMS&version=1.3.0&request=GetMap&layers=bij_70mm_per_2uur and AHN4 DTM https://service.pdok.nl/rws/ahn/wms/v1_0?request=GetCapabilities&service=WMS are CC0 national screening/terrain inputs, not local observations or forecasts.",
+        "BIJ12/IPO WFS https://servicespub.risicokaart.nl/geoserver/ISOR_RK/wfs identifies contained feature isor_brandbaar_natuurgebied.LIM200563694, Looier- en Gennepseheide. Metadata https://data.overheid.nl/dataset/42108-natuurramp is CC BY 4.0 and was updated 2024-10-16.",
+        "The combustible-nature register covers qualifying contiguous areas of at least 100 hectares; presence establishes eligibility context only and absence is Unknown. Every raster/feature must retain unit, model/edition, coverage, transparency/NoData and affectsSimulation."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat/PDOK, Gemeente Gennep, Bezirksregierung Düsseldorf, Niersverband and VRLN",
+      "title": "NWB/NDW/waterway transport, N291-German continuation, Niers warning chain and cross-border response",
+      "url": "https://data.overheid.nl/dataset/14767-nwb---wegen",
+      "accessedAt": "2026-09-03T01:42:00Z",
+      "edition": "NWB monthly edition updated 2026-08-05; NDW event-driven files observed 2026-09-03; German order dated 2023-07-27",
+      "supports": [
+        "NWB roads are CC0 with OGC API https://api.pdok.nl/rws/nationaal-wegenbestand-wegen/ogc/v1/, WFS/WMS and a daily Public Domain GeoPackage. Section-level gme_id=907 queries identify A77, N264, N271 and N291; geometry is not live operability or evacuation capacity.",
+        "NDW DATEX https://opendata.ndw.nu/ publishes event-driven current/planned traffic files and is CC0 unless a contributing record states otherwise. Records must be filtered by validity; absent assignment is not an open road and planned does not mean active.",
+        "The municipality records N291's German continuation and diversion via B504/A57/A77/N271 at https://www.gennep.nl/n291-bij-ven-zelderheide-tijdelijk-afgesloten. It is dated closure evidence, not present disruption, but proves a missing cross-border corridor and emergency-access mechanism.",
+        "The binding Niers notification order https://www.brd.nrw.de/document/20231010_5_54_umwelt_wasserwirtschaft_hochwasserschutz_HWMO_Niers.pdf includes Waterschap Limburg and supplementary Ottersum/Gennep gauges. Niersverband publishes timestamped Kessel/Goch levels at https://www.niersverband.de/gewaesser/pegelwesen/daten; German datum/MEZ semantics require conversion.",
+        "VRLN cross-border cooperation https://www.vrln.nl/over-ons/internationale-samenwerking establishes ERMWIC channels with Düsseldorf/Kleve/Viersen, not guaranteed crews or arrival. RWS waterways/FIS, ProRail and transit data are static/scheduled context and never prove incident-time operation."
+      ]
+    },
+    {
+      "publisher": "Register Externe Veiligheidsrisico's (REV) / Ministry of Infrastructure and Water Management",
+      "title": "REV public hazardous-activity, transport/pipeline and attention-area WFS/WMS",
+      "url": "https://rev-portaal.nl/geoserver/wfs?service=WFS&version=2.0.0&request=GetCapabilities",
+      "accessedAt": "2026-09-03T01:39:00Z",
+      "edition": "Live WFS queried 2026-09-03; API information says schema v5 valid since May 2025",
+      "supports": [
+        "Official context is described at https://iplo.nl/thema/externe-veiligheid/register-externe-veiligheidsrisico/ and machine layers include ev_locatie_activiteiten, qs_ev_activiteiten, qs_vervoer_en_buisleidingen, qs_aandachtsgebieden and qs_prcontouren_en_veiligheidsafstanden.",
+        "Exact full-boundary representative/centroid screening returns twenty unique activity ids from twenty-three contained rows, including fifteen gas-tank activities, LPG/fuel-bunker context and Gasunie GOS Z169. Activity rows are not unique establishments and the transport/pipeline layers require separate analysis.",
+        "REV is a register and contour-model context, not a current incident, material inventory, source term, damage state, plume or probability. German sources are outside jurisdiction.",
+        "No explicit reuse licence or freshness SLA was found; records carry individual registration/validity timestamps. Preserve record/source/retrieval time and confirm terms before redistribution.",
+        "Null end-validity, absent activity, empty contour or postcode/bbox miss never proves safety; final integration requires exact official-polygon intersection and pagination."
+      ]
+    },
+    {
+      "publisher": "KNMI, Enexis, WML, Netbeheer Nederland, Stichting Mijn Aansluiting, RDI, RIVM and DUO",
+      "title": "Weather/warning and essential-service public context used for Gennep continuity screening",
+      "url": "https://dataplatform.knmi.nl/dataset/waarschuwingen-nederland-48h-1-0",
+      "accessedAt": "2026-09-03T01:43:00Z",
+      "edition": "KNMI warning dataset v1.0 ongoing and modified 2026-09-02; provider/registry records carry source-specific dates",
+      "supports": [
+        "KNMI warning files/API are CC BY 4.0 with continual cadence and cover up to 48 hours; ten-minute observations are available through https://api.dataplatform.knmi.nl/edr/v1/collections/10-minute-in-situ-meteorological-observations. There is no in-boundary station, warnings are broader than GM0907, and neither source fills T+48–72 without an explicit forecast/scenario.",
+        "Mijn Aansluiting OGC https://public.geodata.mijnaansluiting.nl/geoserver/mijnaansluiting_open/ows is Public Domain provider-supplied responsibility context with provider-dependent cadence. It identifies Enexis electricity/gas, WML and Ziggo at one reference point; no-match drainage is Unknown.",
+        "Netbeheer Nederland frontend APIs https://data.partnersinenergie.nl/api/servicearea/find and /get expose a single Gennep planning-area sample; capacity is generally quarterly and queues monthly, but no precise reuse licence or stable API contract was found. Planning constraints/queues are not live load, outage, switching or topology.",
+        "Enexis https://www.enexis.nl/storingen-en-onderhoud/gennep and WML https://www.waterstoring.nl/wml provide event-driven public status channels but no reviewed stable reusable incident API for this exercise. No-known-outage wording is not guaranteed continuity.",
+        "RDI antenna, RIVM acute-care and DUO education records are registry context. Counts do not establish coverage, emergency role, staff, stock, backup, access or restoration; RDI also states mobile masts depend on power and 112 roaming may use another Dutch or foreign network without guaranteeing service."
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "id": "GM0907-CONTRACT-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The full deterministic municipality contract, reconciliation and road-only service-scope safeguards pass.",
+      "evidence": "The focused gate executes 10 presets × 6 checkpoints × 8 services and checks exact zero-intensity behavior, determinism, bounds, monotonic event-attributable burden, local demand/delivery reconciliation, all eight pressure contributions and layer invariance. Five A77/N264/N271 NWB links appear only for Mobility and Supply; all six other route sets are empty and transfers are logical proxies.",
+      "action": "Retain the focused gate, exact section-level wvk/wegnummer provenance, service-specific supportedServices rule, logical-proxy wording and distinct observed/warning/scenario/register/plan evidence classes in all future corrections."
+    },
+    {
+      "id": "GM0907-GEOGRAPHY-001",
+      "severity": "medium",
+      "category": "geography",
+      "status": "accepted-limitation",
+      "summary": "The generalized overview boundary and neighbourhoods are valid aggregation geography but unsuitable for hydraulic, fire or asset containment.",
+      "evidence": "E01's current full boundary has 935 coordinate positions versus 80 in the overview. Exact containment is material along Maas/Niers, Lob, Looier- en Gennepseheide, Rijksvluchthaven and German-border edges. Administrative polygons carry no water connectivity, defence, fuel, utility or passability semantics.",
+      "action": "Keep the overview for selection and aggregation. Use versioned full official geometry for audit/asset containment and authority-supplied hydraulic/effect/service geometries for scenario computation. Show boundary edition/generalization and never infer state from membership alone."
+    },
+    {
+      "id": "GM0907-FLOOD-001",
+      "severity": "critical",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Gennep's real Maas/Niers exposure must not be suppressed, but the current nonzero river result has no selected hydraulic event and is presented with unsupported exactness.",
+      "evidence": "River T+24 shows 1.572304 stress, 0.487821 severity and 9,647 affected; stress/severity remain exact at T+72 while affected increases to 10,313. E02 and E03 explicitly place Gennep in Maas, Niers, brook and defence/polder high-water scope and expose timestamped Maas/Niers gauges. The scenario selects no hydrograph/datum, upstream lag, defence or breach/overtopping state, Lob storage/control mode, connected footprint, depth, arrival, duration, recession, pump/dewatering or access state.",
+      "action": "Release gate: retain the nonzero major-river amplitude only as a visible diagnostic—do not apply the off-river zero suppression used where official evidence contradicts direct Rhine/Meuse/IJssel exposure. Mark local result Unknown until a versioned authority-reviewed Maas/Niers/Lob event records boundary conditions, datum/units, valid time, defence/failure/control state, connected depth footprint, arrival/duration/recession and NoData."
+    },
+    {
+      "id": "GM0907-SPATIAL-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Eight unrelated hazard families reuse one exact neighbourhood order rather than family-specific local evidence.",
+      "evidence": "Storm, pluvial, river, coastal, heat, winter, cyber and wildfire all rank Noord, Looierheide and Heijen first through third and Heijensebos last. model.ts:4361/4373 uses a shared seeded regional factor rather than a hydraulic surface, wind field, heat/land-cover exposure, cyber service domain, fire source/fuel or ground-motion field. GM0907 has no unsupported-spatial guard.",
+      "action": "Release gate: mark all nine local hazard families unsupported until family-specific inputs pass source/coverage contracts. Replace the common rank with selected hydraulic/pluvial rasters, event-valid wind, heat/land-cover/building evidence, cyber service domains, source-aware fire/smoke and event-specific ground motion; validate rank divergence, conservation, deterministic fallback and explicit Unknown."
+    },
+    {
+      "id": "GM0907-FIRE-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "A controlled fire source inside official combustible nature and Heijensebos ranks its containing neighbourhood last.",
+      "evidence": "E05 identifies Looier- en Gennepseheide feature LIM200563694. A source [5.988025, 51.671568] inside it and BU09070408 produces 0.619341 direct fire at T+24, yet Heijensebos ranks 16/16 at 0.503055 while Noord ranks first at 0.711287. Canonical fire instead has zero direct flame and should be described as indirect synthetic smoke, not local ignition.",
+      "action": "Release gate: require a named source/perimeter in eligible vegetation, fuel/moisture, event-valid wind, spread/smoke, barriers, access, extinguishing water and suppression state before local flame is ranked. Enforce source containment/propagation tests. Keep the public polygon as eligibility context only and treat missing coverage as Unknown."
+    },
+    {
+      "id": "GM0907-PLUVIAL-HEAT-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Pluvial, heat and drought maps do not sample the official local scenario/terrain evidence they display or could integrate.",
+      "evidence": "E04/E05 provide sewer design/context and machine Waterpanel pluvial/fluvial depth, heat, drought, AHN and national cloudburst layers. At T+24 pluvial and heat nonetheless reuse exactly the storm/river/cyber neighbourhood order. Displayed rasters are context-only, local licence fields may be blank, and NoData/transparency is not sampled.",
+      "action": "Integrate a licensed, versioned local stress-test surface when permission permits; otherwise use the CC0 national 70 mm/two-hour/AHN baseline only as explicitly coarse screening. Preserve event, unit, model edition, coverage, NoData and affectsSimulation. Add heat/drought exposure from authoritative land-cover/building/shade evidence and vulnerability aggregates, with uncertainty rather than exact unsupported ranks."
+    },
+    {
+      "id": "GM0907-CROSSBORDER-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "The graph omits the German-fed Niers warning chain, N291-B504-A57 road continuation and cross-border response dependencies.",
+      "evidence": "E06's binding Düsseldorf order includes Waterschap Limburg plus Ottersum and Gennep supplementary gauges, while Niersverband supplies upstream timestamped observations with German datum/MEZ semantics. Official Gennep closure evidence routes N291 traffic/emergency access through B504, A57, A77 and N271. The model contains only five Dutch A77/N264/N271 municipal links and no German node, warning lag, border edge or aid-arrival path.",
+      "action": "Add typed cross-border observation/warning and mobility/aid edges with source, datum/unit/time zone, valid/ingest time, conversion, coverage and latency. Represent N291-B504-A57 and emergency aid as scenario states/ranges, not guaranteed availability. Keep NWB/foreign road geometry limited to Mobility and eligible road logistics."
+    },
+    {
+      "id": "GM0907-WATERCHAIN-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Exact drinking-water and drainage values omit the documented surface-water, sewer, pressure-main and RWZI mechanisms.",
+      "evidence": "E03's current public cache contains five sewer pumps, twelve surface-water pumps, one RWZI and nineteen weirs, and E04 describes 112 km sewer, 68 km pressure sewer, 12 main pumps/243 units and roughly 25 km conveyance to RWZI Gennep. These records do not establish compatible capacity, catchment/direction, current controls, telemetry completeness, power/backup or restoration. River T+24 nevertheless reports exact water/drainage availability 0.453595/0.253038.",
+      "action": "Separate potable water, wastewater and surface-water control. Integrate HWH/DAMO/WBL objects as versioned affectsSimulation=false context first, with ids, contributor, retrieval time, licence and completeness. Add causal catchments, flow/control, compatible units, power/backup and restoration only from authorized authority data; otherwise use transparent synthetic zones/ranges and Unknown state."
+    },
+    {
+      "id": "GM0907-CONTINUITY-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "The municipal-node graph cannot represent internal Maas crossings/waterways, external acute care, telecom roaming or multimodal recovery access.",
+      "evidence": "Five correct Dutch road links lead to three municipalities but there is no bridge/internal subnode, Rijksvluchthaven/Paesplas/Maas waterway state, bus operation, ambulance destination or response route. No RIVM acute-care record lies inside; Pantein is screened across the Maas. RDI states mobile masts depend on power and 112 may roam across Dutch/foreign networks. Zero NDW or facility records do not mean open roads or no dependency.",
+      "action": "Build typed internal crossing, waterway/harbour, external-care, telecom and response-access nodes from NWB/BGT/FIS/GTFS and authorized operational context. Apply observations only in time-aligned replay; no record remains Unknown. Scenario passability, vehicle/vessel availability, care acceptance, roaming, backup and repair priority stay explicit assumptions unless confirmed."
+    },
+    {
+      "id": "GM0907-INDUSTRIAL-001",
+      "severity": "medium",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Local hazardous-activity, fuel-bunker and gas-regulation context has no industrial/technology scenario or coupled response pathway.",
+      "evidence": "E07's exact-boundary screen finds twenty unique activity ids including Gasunie GOS Z169, LPG/fuel-bunker and propane context; separate REV pipeline/transport/attention-area layers remain to be intersected, and German sources are outside coverage. The ten presets contain no industrial release, facility damage/material source term, plume, contaminated fire-water or conditional-response path.",
+      "action": "Add an explicitly selected industrial/technology family or declare it out of scope above relevant views. Use REV WFS location/category/attention geometry only as versioned official context, then require authority/operator-reviewed generic source term, weather/effect model and action assumptions without exposing sensitive inventory. Never infer a current release or probability from a register record."
+    },
+    {
+      "id": "GM0907-RECOVERY-001",
+      "severity": "high",
+      "category": "explainability",
+      "status": "open",
+      "summary": "Exact first-72-hour persistence and recovery are not tied to local actions, access, resources, controls or operator commitments.",
+      "evidence": "River stress/severity are frozen T+24–72, seven service values remain exact, facilities worsens and affected population rises. Compound flood stress persists while all services slightly worsen. E02's doctrine, E03's Lob/dike works, E04's sewer plans, E06's cooperation/road evidence and E08's status/planning sources are not dispatched actions, usable resources or promises.",
+      "action": "Add a checkpointed action/resource ledger with proposed/requested/confirmed/dispatched/active/completed/cancelled state, owner, source, geography, valid/expiry time, delay/ramp, capacity, dependencies, access and uncertainty. Show no-action counterfactual and sensitivity. Mutual aid, generators, backup and repair multipliers remain scenario assumptions."
+    },
+    {
+      "id": "GM0907-NODATA-UX-001",
+      "severity": "high",
+      "category": "ui",
+      "status": "open",
+      "summary": "Evidence-class and NoData wording is strong, but selected Gennep still appears locally supported and precise where its evidence contract fails.",
+      "evidence": "Chromium at 1440×1000 and 390×844 selected Gennep, checked all eleven layer controls and river T+72. There was no horizontal overflow, the inspector persisted and mobile Details worked; Waterinfo correctly said no data is never zero/safe and context layers were non-causal. Yet the screen displayed '100% inundation stress' and exact neighbourhood patches as derived-screening while only a national unsupported-count message appeared; no selected GM0907 evidence-gap warning exists.",
+      "action": "Add a selected-municipality support banner and suppress exact local patches/comparisons whenever the selected hazard/service lacks its required source contract. For each metric/layer/export distinguish modeled zero, no record, Unknown, not applicable and stale/error; show publisher, source/valid/ingest time, coverage/completeness, licence, unit/datum, confidence and affectsSimulation. Preserve mobile focus/announcement behavior."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Guard GM0907 local output and replace the shared neighbourhood hash with hazard-specific, source-aware allocation.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "GM0907 receives an explicit unsupported state until the selected family has a versioned evidence contract. Tests require rank divergence across unrelated families, source containment/decay where applicable, conservation, deterministic fallback and exact zero behavior; unsupported views render Unknown rather than precise patches."
+    },
+    {
+      "summary": "Retain Gennep's major-river amplitude only as a diagnostic and bind supported flood exercises to a selected Maas/Niers/Lob event.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/public/data/regions/GM0907.json",
+        "apps/web/src/components/MapView.tsx",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Unlike off-river suppressions, GM0907 retains nonzero diagnostic major-river forcing because primary evidence confirms direct Maas/Niers scope. A supported run records publisher/dataset/version, issue/valid time, hydrograph and datum, defence/failure/control/Lob state, connected footprint, depth units, arrival/duration/recession, coverage, licence and uncertainty; absent/transparent cells remain Unknown."
+    },
+    {
+      "summary": "Add typed German Niers warning and N291-B504-A57 mobility/aid dependencies with explicit time and datum semantics.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/public/data/transport-network.json",
+        "apps/web/src/components/MapView.tsx"
+      ],
+      "validation": "Exact Dutch and German source ids, road identities, datum/unit/time zone, observation/ingest time, conversion and latency remain attached. Tests vary upstream warnings, border/route state and aid delay without claiming deterministic Gennep depth or guaranteed crews. Road edges affect only Mobility/eligible road logistics."
+    },
+    {
+      "summary": "Integrate official local pluvial/heat/fire context under explicit licence and NoData contracts.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/MapView.tsx",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Local Waterpanel layers are used only after reuse terms, edition, event/unit and coverage are pinned; CC0 national fallbacks stay screening. Looier- en Gennepseheide is eligibility context rather than ignition. Source-aware fire tests place a named eligible source first locally and preserve fuel/moisture/wind/access/suppression assumptions and Unknown gaps."
+    },
+    {
+      "summary": "Separate potable water, wastewater and surface-water mechanisms and add safe aggregate cross-boundary continuity nodes.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/MapView.tsx"
+      ],
+      "validation": "HWH/DAMO/WBL object ids, contributor, retrieval time and CC BY-SA 4.0 metadata remain context until authority-reviewed catchment, direction, compatible units, state, reserve and backup exist. Tests cover RWZI/pressure-main, internal crossing/waterway, external care and telecom dependencies without inventing secure topology, capacity or live status."
+    },
+    {
+      "summary": "Make first-72-hour actions, resource state, evidence class and NoData semantics explicit across model, UI and exports.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/App.tsx",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Every action has state, owner, source, geography, issue/valid/expiry time, delay/ramp, capacity, dependencies, access and confidence; counterfactuals reconcile at all six checkpoints. Every metric distinguishes modeled zero, no record, Unknown, not applicable and stale/error and exposes completeness/affectsSimulation. Desktop/mobile checks announce selected municipality, scenario, time, layer and support state without overflow."
+    }
+  ],
+  "residualLimitations": [
+    "VRLN plans establish regional mechanisms, roles and doctrine, not a current incident, forecast, probability, municipal loss calibration, resource inventory or guaranteed cross-border response.",
+    "No reviewed source selects a Maas/Niers hydrograph, common datum, defence/breach/overtopping/Lob state, connected inundation footprint, depth, arrival, duration, recession or dewatering path for this exercise.",
+    "The current nonzero major-river scalar should remain diagnostic because Gennep has direct Maas/Niers exposure, but it must not be interpreted as calibrated or be subjected to off-river suppression logic.",
+    "Dutch and German gauge values have source-specific datum, unit, threshold and time-zone semantics. Point observations and warning thresholds do not establish continuous depth or deterministic downstream impact.",
+    "Lob van Gennep and sewer/dike works are planning context with timing/financing uncertainty; none is completed protection, a present defect, an active intervention or a restoration promise.",
+    "HWH/DAMO/WBL/municipal inventories can change and may differ by definition or contributor. Geometry and counts do not establish catchment, direction, capacity, current controls, reserve, backup or recovery.",
+    "Waterpanel and national climate layers are modeled scenario/context products. Public access does not always state a reuse licence, and NoData/transparency/boundary effects are never no exposure.",
+    "The combustible-nature polygon establishes only threshold-based eligibility context; it does not establish an ignition, current fuel/moisture, perimeter, spread, smoke or suppression state.",
+    "REV records are register/contour context and can be incomplete across borders; they do not establish a current incident, inventory, source term, probability, plume or facility availability.",
+    "Provider polygons and planning samples do not supply safe, complete or current feeder, pipe, sewer, telecom-backhaul, backup, load, outage, crew or restoration topology.",
+    "NWB, waterways, ProRail and GTFS are physical/scheduled context. NDW and outage pages are time-bounded observations; absent records are not proof of open or operational infrastructure.",
+    "RDI antenna, DUO education and RIVM care records do not establish service coverage, emergency role, occupancy, staffing, stock, backup, access or restoration; the nearest-care screen uses straight-line distance only."
+  ]
+}

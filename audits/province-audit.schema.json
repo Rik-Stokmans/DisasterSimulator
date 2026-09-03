@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rikstokmans.com/schemas/disaster-simulator/province-audit-1.0.0.json",
+  "title": "Disaster Simulator province reconciliation audit",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "kind",
+    "province",
+    "agent",
+    "verdict",
+    "municipalitiesExpected",
+    "municipalitiesReviewed",
+    "missingMunicipalities",
+    "crossBoundaryChecks",
+    "aggregateFindings",
+    "residualLimitations"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" },
+    "kind": { "const": "province-audit" },
+    "province": { "type": "string", "minLength": 1 },
+    "agent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["taskName", "agentId", "completedAt"],
+      "properties": {
+        "taskName": { "type": "string", "pattern": "^province_[a-z0-9_]+$" },
+        "agentId": { "type": "string", "minLength": 1 },
+        "completedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "verdict": { "enum": ["verified", "verified-with-caveats", "correction-required", "blocked"] },
+    "municipalitiesExpected": { "type": "array", "uniqueItems": true, "items": { "type": "string", "pattern": "^GM[0-9]{4}$" } },
+    "municipalitiesReviewed": { "type": "array", "uniqueItems": true, "items": { "type": "string", "pattern": "^GM[0-9]{4}$" } },
+    "missingMunicipalities": { "type": "array", "uniqueItems": true, "items": { "type": "string", "pattern": "^GM[0-9]{4}$" } },
+    "crossBoundaryChecks": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["topic", "status", "summary", "evidenceUrls"],
+        "properties": {
+          "topic": { "enum": ["water-systems", "transport", "safety-regions", "energy", "telecom", "healthcare", "evacuation", "hazard-continuity"] },
+          "status": { "enum": ["pass", "warn", "fail", "unverified"] },
+          "summary": { "type": "string", "minLength": 1 },
+          "evidenceUrls": { "type": "array", "items": { "type": "string", "format": "uri" } }
+        }
+      }
+    },
+    "aggregateFindings": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "residualLimitations": { "type": "array", "items": { "type": "string", "minLength": 1 } }
+  }
+}
+

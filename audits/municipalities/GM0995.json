@@ -1,0 +1,420 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0995",
+    "name": "Lelystad",
+    "province": "Flevoland",
+    "safetyRegion": "Flevoland"
+  },
+  "agent": {
+    "taskName": "municipality_gm0995",
+    "agentId": "/root/municipality_gm0397",
+    "completedAt": "2026-09-03T06:56:00Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "GM0995's identity, Flevoland province and Flevoland safety-region assignment are coherent. The fresh 2025 full boundary contains the generated centre and CBS reports 84,713 residents; 136 neighbourhood rows sum to 84,710 (-3, -0.004%), a negligible annual rounding/suppression difference. The bundle contains eleven districts, 136 neighbourhoods, one BAG place and two BRT settlement records. The BAG place label falls outside the independently versioned generalized boundary but the simulation centre remains inside the full boundary; this is a geometry-edition/generalization caveat, not exclusion of Lelystad. Eight logical road records represent six physical corridors because A6 and N307 each appear at two municipal sides; those sections are not additive redundancy. Lelystad Centrum station and 114 scheduled-transit stop areas are present. All ten presets execute deterministically at T+0/6/12/24/48/72 across eight services and pass structural/numerical contracts. Release is nevertheless correction-required. Official evidence distinguishes IJsselmeer/Markermeer primary-defence breach, prolonged polder drainage through Lage Vaart and gemaal Wortman, local cloudburst flow/storage, and buitendijkse exposure. The generic river preset selects none of those cases but holds 0.994441 normalized inundation stress through T+72 and accumulates 2,146,148 person-hours. Eight unrelated single-hazard presets reuse exactly the same full neighbourhood rank. Moving the wildfire source into Hollandse Hout leaves the containing neighbourhood 134th of 136, while source-remote canonical fire produces only smoke and the same generic ordering. Current Houtribsluis water and KNMI observations are context, not evidence for the synthetic scenarios. Future Houtribdijk heavy-vehicle restrictions and planned commercial/military airport use must not be promoted to current state. Lelystad has no full emergency department or ICU; serious cases depend on cross-boundary Harderwijk/Almere routes. Exact utilities, care, mobility, supply and first-72-hour recovery remain unsupported by live topology, state, resources and actions. Unknown/NoData never means zero, safe, open or available.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek (CBS)",
+      "title": "E01 — Kerncijfers wijken en buurten 2025, table 86165NED, OData API",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM0995%27%29",
+      "accessedAt": "2026-09-03T06:48:00Z",
+      "edition": 2025,
+      "supports": [
+        "The official municipality row identifies GM0995 Lelystad and reports 84,713 residents, density 370 per square kilometre, 18.3% age 65 or older and 13,184 one-person households.",
+        "The 136 published neighbourhood rows sum to 84,710 residents (-3, -0.004%), 37,170 households and 15,530 residents aged 65 or older; the negligible difference retains annual rounding and suppression semantics.",
+        "Population and core age/household fields cover all 136 neighbourhoods. Home-value/tenure and benefit fields cover only 84–87; doctor/supermarket distance and density cover 98; district heating and public charging cover zero and must remain Unknown/NoData.",
+        "CBS OData is machine-readable under CC BY 4.0, with quarterly additions described for this annual table. It controls residents, not incident-time visitors, pupils, patients, workers, airport users, responders, individual vulnerability or preparedness."
+      ]
+    },
+    {
+      "publisher": "PDOK / CBS / Kadaster / Rijkswaterstaat / ProRail / OVapi",
+      "title": "E02 — Full municipal geometry, settlement and road, rail and scheduled-transit reference inputs",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_niet_gegeneraliseerd/items?f=json&filter=statcode%3D%27GM0995%27",
+      "accessedAt": "2026-09-03T06:49:00Z",
+      "edition": "2025 boundary/statistics and current generated BAG, BRT, NWB, ProRail and GTFS snapshots",
+      "supports": [
+        "The generated centre [5.432065007512449, 52.474315569247295] lies inside the fresh full-resolution 2025 municipal boundary.",
+        "The bundle retains eleven districts, 136 neighbourhoods, one BAG place and two BRT records: Lelystad and Lelystad-Haven. The BAG label point lies outside the independently versioned generalized boundary, requiring a water-rich/coastal generalization caveat rather than reassignment.",
+        "Eight logical boundary records collapse to six physical corridors: A6, N302, N307, N701, N706 and N309. The two A6 and two N307 sides serve different directions along the same corridors and are not additive independent capacity.",
+        "Lelystad Centrum is the sole ProRail station inside GM0995 and 114 GTFS stop areas are assigned. Static geometry and timetables do not prove incident-time road, bridge, rail or bus operation, access, destination or throughput.",
+        "CBS boundary OGC is half-yearly/CC BY 4.0; BAG is daily/Public Domain Mark 1.0; BRT is CC BY 4.0; NWB is monthly/CC0 1.0; ProRail is manually refreshed/CC0 1.0. OVapi GTFS is free-use best-effort context without an operational SLA."
+      ]
+    },
+    {
+      "publisher": "Gemeente Lelystad",
+      "title": "E03 — Lelystadse Adaptatiestrategie 2023 and Gemeentelijk Rioleringsprogramma 2022–2031",
+      "url": "https://www.lelystad.nl/Documenten/Vrije%20tijd%20en%20toerisme/Natuur/Lelystadse%20Adapatie%20Strategie%202023%20klein.pdf",
+      "accessedAt": "2026-09-03T06:50:00Z",
+      "edition": "Adaptation strategy 2023; sewer programme 2022–2031",
+      "supports": [
+        "The strategy says 70 mm in one hour or 100 mm in two hours leaves more than 30 cm in places and can make Stationsdreef and Lindelaan inaccessible to emergency services; its southwest example identifies bedrijventerrein Noordersluis.",
+        "It states that local differences require place-specific treatment across water nuisance, heat and drought and identifies businesses/vital functions as exposed to water and heat disruption. These are stress-test/planning statements, not incident observations.",
+        "The sewer programme describes a historically spacious stormwater/surface-water system, but requires current stress-test checks, surface routing to safe low storage and delayed drainage/infiltration. Its service goals include keeping main roads, emergency traffic and vital functions available.",
+        "Programmes and design goals do not prove incident-time rain, sewer/inlet/storage capacity, blocked drains, street flow, road passability, pump state or completed action. Native model edition, hyetograph, CRS, resolution, uncertainty, licence and NoData remain required for analytical use."
+      ]
+    },
+    {
+      "publisher": "Waterschap Zuiderzeeland / Het Waterschapshuis",
+      "title": "E04 — Gemaal Wortman, IJsselmeer/Oostvaardersdijk work and public GM0995 water assets",
+      "url": "https://www.zuiderzeeland.nl/wat-doet-het-waterschap/gemalen-in-flevoland/gemaal-wortman/",
+      "accessedAt": "2026-09-03T06:51:00Z",
+      "edition": "Current water-board pages; HWH snapshot retrieved 3 September 2026",
+      "supports": [
+        "Gemaal Wortman pumps Lage Vaart polder water about four metres upward into Markermeer, including continual seepage. Zuiderzeeland publishes target levels -6.20 m NAP for Lage Vaart and -5.20 m NAP for Hoge Vaart and four pumps of 500 m³/min each; the diesel installation requires operational interpretation.",
+        "The HWH snapshot assigns 89 objects to GM0995: eight sewer pumps, six surface-water pumps, 71 weirs, three sluices and AWZI Lelystad. It includes Wortman at 33.333 capacity, consistent with 2,000 m³/min only if the native unit is retained, not inferred from a normalized field.",
+        "The IJsselmeerdijk between Lelystad and Ketelbrug is in a 17 km strengthening project; Zuiderzeeland says it is currently safe while future standards require strengthening. Oostvaardersdijk is under separate investigation. Planned work is not a failure, completed protection or live defence state.",
+        "No public registry establishes full catchment/defence connectivity, IJsselmeer/Markermeer boundary, Lage/Hoge Vaart levels, asset command, blockage, power/fuel/manual staffing, maintenance, backup, current state or T+72 restoration. HWH aggregation is partial/contributor-dependent under CC BY-SA 4.0."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Flevoland / Rijksoverheid / IPLO",
+      "title": "E05 — Regionaal Risicoprofiel 2024, published flood plans, LIWO and first-72-hour preparedness",
+      "url": "https://samen.vrfgv.nl/wp-content/uploads/2024/11/RRP-2024-Flevoland-Definitief.pdf",
+      "accessedAt": "2026-09-03T06:52:00Z",
+      "edition": "Definitive RRP 2024; published 2009 flood coordination/evacuation plans retained as dated doctrine; LIWO 2025.1.6",
+      "supports": [
+        "The 2024 profile ranks flooding as a high-impact Flevoland risk because warning and early-evacuation opportunity are shorter and water remains longer due to the volume requiring pumping. It makes nature fire a priority while stating the detailed Flevoland inventory was incomplete.",
+        "The still-published 2009 coordination plan separates primary-defence breach, extreme/long rain and buitendijkse flooding, places Lelystad/Dronten in zone Midden and models approximately two days of filling after a selected extreme case. Its old population, infrastructure and probability assumptions are dated doctrine, not current scenario truth.",
+        "LIWO is a professional scenario system requiring specialist interpretation. A usable flood case must retain source, defence/breach, footprint, depth/velocity units/datum, arrival/duration/recession, probability, CRS/resolution, edition, licence and NoData; it is not a live observation by default.",
+        "National guidance advises a 72-hour kit including three litres of water per person per day, food, medicine, radio/power and a personal plan. Guidance does not prove household readiness, municipal stock or distribution capacity."
+      ]
+    },
+    {
+      "publisher": "Staatsbosbeheer",
+      "title": "E06 — Oostvaardersplassen, Hollandse Hout and Lelystad stadsbossen",
+      "url": "https://www.staatsbosbeheer.nl/uit-in-de-natuur/locaties/oostvaardersplassen/toegankelijkheid",
+      "accessedAt": "2026-09-03T06:53:00Z",
+      "edition": "Current area/access pages and 2025 annual report accessed 3 September 2026",
+      "supports": [
+        "Oostvaardersplassen is a 7,500-hectare wetland/nature complex between Almere and Lelystad; Hollandse Hout, Kotterbos, Oostvaardersbos and Oostvaardersveld are component areas with public access and recreation.",
+        "Staatsbosbeheer identifies four Lelystad city forests, including Zuigerplasbos, Gelderse Hout and Visvijverbos around/through urban and A6 edges. These establish fuel, smoke, access and visitor eligibility, not an ignition or exact occupancy.",
+        "The 2025 report records at least 588,613 visits at Poort Oostvaardersplassen Lelystad before December completion, showing material non-resident demand; an annual counter is not event-time presence.",
+        "The public pages do not establish current official fire phase, fuel moisture, ignition/perimeter, wind/plume, access closure, firewater, suppression resources or T+72 containment."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / Rijksoverheid / Lelystad Airport / Veiligheidsregio Flevoland",
+      "title": "E07 — Houtribdijk lifecycle, Lelystad Airport current/future state and airport planning",
+      "url": "https://www.rijkswaterstaat.nl/nieuws/archief/2026/08/gewichtsbeperking-houtribdijk-n307",
+      "accessedAt": "2026-09-03T06:54:00Z",
+      "edition": "RWS notice issued 27 August 2026; national airport decision 17 April 2026; RBP v2.07 provisionally adopted 3 July 2024",
+      "supports": [
+        "Rijkswaterstaat announced that an axle/total-weight restriction of 7.3/15 tonnes will begin on Houtribdijk in autumn 2026 because Houtrib bridge structures are vulnerable; heavy vehicles will detour while emergency services and vans can continue. No exact start date is published, so it is future/planned on 3 September, not active.",
+        "The N307 Houtribdijk is a long cross-water road/bridge/sluice lifeline to Enkhuizen. A 150-unit scenario ceiling and empty NDW screen do not encode vehicle weight, bridge state, detour length or live passage.",
+        "The national government says the current airport decision permits civil but not commercial flights and targets conditional commercial opening in October 2027. Lelystad Airport reports current General Aviation operation around 80,000 annual movements and regular 07:00–22:00 hours; future passenger/F-35 plans are not current operations.",
+        "VRF's public RBP v2.07 was provisionally adopted in July 2024 and protected operational detail remains non-public. A plan validates airport incident relevance, not an incident, current occupants, aircraft/fuel state, responders or resource availability."
+      ]
+    },
+    {
+      "publisher": "Ziekenhuis St Jansdal / RIVM",
+      "title": "E08 — Lelystad limited urgent care and cross-boundary emergency-department dependency",
+      "url": "https://www.stjansdal.nl/onze-zorg/specialismen-en-afdelingen/spoedpoli-lelystad",
+      "accessedAt": "2026-09-03T06:55:00Z",
+      "edition": "Current hospital pages; RIVM acute-care questionnaire 2026 v1.1",
+      "supports": [
+        "St Jansdal states that Lelystad's Spoedpoli is for referred, non-life-threatening/light urgent care, open Monday–Friday 08:00–16:00, and that Lelystad has no intensive care or full emergency department.",
+        "For serious care ambulances go directly to another hospital, for example Harderwijk or Almere. This creates a cross-boundary route, ambulance, destination/acceptance and capacity dependency absent from a municipal Facilities scalar.",
+        "The RIVM screen correctly assigns zero full acute-care locations inside GM0995. That is not zero healthcare, zero demand or proof that external emergency care is available.",
+        "Public facility/opening facts do not establish incident-time staffing, appointments, occupancy, HAP operation, acceptance/diversion, ambulance availability, generator/fuel, medicines, supplies or restoration. RIVM v1.1 is CC0 1.0."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / KNMI / Netbeheer Nederland / RDI / DUO",
+      "title": "E09 — Timestamped water/weather observations and public grid, antenna and education screens",
+      "url": "https://waterinfo.rws.nl/",
+      "accessedAt": "2026-09-03T06:56:00Z",
+      "edition": "Deployment snapshots retrieved 31 August–3 September 2026",
+      "supports": [
+        "Waterinfo observed -25 cm NAP at Houtribsluis south at 17:30Z on 2 September and forecast -23, -21, -23 and -19 cm NAP through T+24. No assigned T+48/T+72 point remains; this is point boundary context, not defence state or inundation, and absent horizons remain NoData.",
+        "KNMI has two 23:30Z observations inside GM0995: Houtribdijk has 11.13 m/s gust with temperature/rain unavailable; Lelystad Airport reports 17.4 °C, 5.81 m/s gust and zero last-hour rain. Ten-minute observations are not scenario forcing or a 72-hour forecast.",
+        "One postcode sample, 8245AA, maps to Liander OS ZUIDERVELD 10-1i: withdrawal existing/required/queue 69/80/22.5 MW with 83 requests, injection 69/55/83 MW with 40 requests, 28 projects and earliest year 2029. Planning is not municipal coverage, live load, feeder topology or outage.",
+        "The screens contain 178 RDI sites—82 mobile, 48 fixed-link, 41 amateur, five other-mobile and two broadcast—and 68 DUO records—39 primary, five secondary, eight special and sixteen other. Registers do not establish coverage/backhaul/power, occupants, shelter role, supplies or operation.",
+        "Waterinfo is CC0/public point context; KNMI is CC BY 4.0 at ten-minute cadence; DUO's 31 August snapshot is daily under CC Attribution version unspecified; RDI cadence/licence is unstated. All remain affectsSimulation=false."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM0995, Lelystad, Flevoland and Veiligheidsregio Flevoland are internally and officially coherent.",
+      "evidenceRefs": ["E01", "E02", "E05"],
+      "notes": [
+        "Generated municipality, province and exactly one safety-region assignment agree.",
+        "The representative centre lies inside the fresh full-resolution 2025 boundary.",
+        "Annual registers, static plans/assets, timestamped observations, forecasts, official scenarios and synthetic outputs remain distinct evidence classes."
+      ]
+    },
+    "geography": {
+      "status": "fail",
+      "summary": "Administrative geography is usable with a generalization caveat, but flood, pluvial, heat, fire/smoke, cyber and infrastructure geography does not govern impacts.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E06"],
+      "notes": [
+        "The BAG place label lies outside the generalized polygon in this water-rich municipality; full boundary and centre checks pass, so analytical containment must pin geometry edition/resolution.",
+        "Storm, pluvial, river, coastal, heat, winter, cyber and wildfire share exactly the same full 136-neighbourhood T+24 severity order.",
+        "River selects no IJsselmeer/Markermeer defence breach, Lage/Hoge Vaart boundary, terrain-connected footprint, arrival or recession; pluvial lacks the official street-flow/storage mechanisms.",
+        "A controlled ignition inside Hollandse Hout leaves the containing neighbourhood rank 134/136, disproving source-containment plausibility."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Official resident controls and neighbourhood aggregates reconcile within negligible CBS rounding/suppression difference.",
+      "evidenceRefs": ["E01", "E06", "E07", "E08"],
+      "notes": [
+        "CBS reports 84,713 residents; 136 rows sum to 84,710 (-3, -0.004%), while model allocations reconcile to the municipality control.",
+        "The 18.3% age-65-plus share and 13,184 one-person households inform aggregate heat/outage/welfare pressure but never identify individual need or preparedness.",
+        "Residents remain separate from nature visitors, airport users/staff, pupils, St Jansdal patients/staff, commuters, workers and responders under CORR-015."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "The unusually detailed 136-neighbourhood census layer is useful, but suppression and live water, route, care and lifeline gaps are extensive.",
+      "evidenceRefs": ["E01", "E03", "E04", "E06", "E09"],
+      "notes": [
+        "Many sparse industrial, agricultural, water and nature neighbourhoods cause CBS suppression; missing values remain Unknown/NoData rather than zero.",
+        "Stress maps, 89 water assets, observations, a grid sample, 178 antennas, 68 schools and visitor/facility pages have incompatible coverage, cadence, licence and operational meaning.",
+        "Registered assets and planned/completed projects do not establish connectivity, capacity, occupancy, settings, backup, current state or recovery."
+      ]
+    },
+    "settlements": {
+      "status": "warn",
+      "summary": "Lelystad and Lelystad-Haven membership is coherent, with a BAG/generalized-boundary label-point caveat.",
+      "evidenceRefs": ["E02", "E03"],
+      "notes": [
+        "One BAG place and BRT woonkern/deelkern records preserve the municipality's main settlement structure.",
+        "The BAG label outside the generalized boundary must not be interpreted as an external settlement; use the full polygon for containment and record edition mismatch.",
+        "Place labels and neighbourhood resident rows are not incident-time presence, route access, drainage connectivity or defence protection."
+      ]
+    },
+    "transport": {
+      "status": "fail",
+      "summary": "Six corridor proxies omit complete internal, bridge, rail/bus, airport, nature and cross-boundary care logistics and valid-time restrictions.",
+      "evidenceRefs": ["E02", "E07", "E08", "E09"],
+      "notes": [
+        "Two A6 and two N307 links are opposite/series portions of physical corridors, not additive redundancy; scenario ceilings 260/150 are not measured vehicles per hour.",
+        "The announced Houtribdijk 7.3/15-tonne restriction has no exact activation date and must remain future on 3 September; when active it must affect heavy supply, not emergency vans identically.",
+        "One station and 114 static stops do not prove rail/bus operation, available capacity or useful destinations; zero NDW matches does not prove roads open.",
+        "Serious acute care depends on Harderwijk/Almere routes, while airport, Hollandse Hout, AWZI/gemalen, Flevokust and Maxima-centre supply/response routes lack incident-valid state."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "Official flood, rain, nature, airport, mobility, care and preparedness evidence is not selected into incident, action or resource state.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08", "E09"],
+      "notes": [
+        "No selected breach/rain/fire/cyber/airport event, defence/polder/pump state, route restriction, external hospital acceptance or utility condition drives outputs.",
+        "Current observations are context-only; future dike/bridge/airport plans and old flood doctrine retain edition/lifecycle and cannot become current state.",
+        "Empty screens or absent forecast horizons cannot validate an arbitrary exercise or become zero/open/available.",
+        "Seventy-two-hour household guidance supplies a planning target, not measured preparedness, stock, shelter or distribution capacity."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten canonical presets execute at all six mandatory checkpoints for all eight services.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08", "E09"],
+      "notes": [
+        "The initial MUNICIPALITY_AUDIT_CODE=GM0995 pnpm audit:model gate passed one file/two tests in 30.59 seconds; structural execution does not establish local calibration.",
+        "Maximum severity / maximum affected / T+72 attributable person-hours are storm 0.662983 / 28,475 / 1,335,262.264; pluvial 0.391431 / 14,193 / 923,099.282; river 0.306826 / 24,753 / 2,146,148.373; coastal 0.060713 / 0 / 357,330.754; heat 0.629147 / 7,786 / 616,620.303.",
+        "Remaining values are winter 0.462277 / 6,128 / 808,129.407; cyber 0.516732 / 20,656 / 1,198,599.614; earthquake 0.033925 / 0 / 111,127.576; wildfire 0.165320 / 2,222 / 578,429.396; compound 0.973634 / 49,747 / 3,466,502.604.",
+        "Deterministic decimals are synthetic exercise outputs, not observations, forecasts, casualties, evacuated people, customer outage-hours or operator commitments."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Outputs are finite, deterministic, exact at zero intensity, selected-layer invariant and locally reconciled.",
+      "evidenceRefs": ["E01", "E02"],
+      "notes": [
+        "All required structural, range, local-sum, causal-ledger and repeatability checks pass under the current contract.",
+        "Every preset's zero-intensity run returns exact-zero event hazard, affected resident-equivalents and event-attributable deprivation.",
+        "Changing the display service does not mutate hazard, pressure or affected population.",
+        "The legacy floodDepthM field is normalized inundation stress under CORR-017, not measured metres; river 0.994441, pluvial 0.520144 and compound 0.536278 must never be labelled depth."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "A shared seed overrides defence, terrain/drainage, heat, weather, fire/smoke, cyber and infrastructure geography.",
+      "evidenceRefs": ["E01", "E02", "E03", "E04", "E05", "E06"],
+      "notes": [
+        "Eight single non-earthquake presets share the exact order led by Schouw, Jagersveld, Karveel West, Flevobos and Visvijverbos; zero-resident Flevobos/Visvijverbos rank fourth/fifth even for river, heat and cyber.",
+        "The common bottom includes Hollandse Hout (Villapark), Flora West and Stadhuisstraat, contradicting distinct forest/fire, dense heat/care, water and network mechanisms.",
+        "Moving wildfire epicentre to [5.426501279210905, 52.49168052115396] inside Hollandse Hout produces municipality fire 0.661233/smoke 0.577822 but ranks that containing neighbourhood 134th of 136.",
+        "Compound saturation changes visible ranks but does not validate its inputs; earthquake is a separate remote-source case and supplies no validation for other hazards."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "Exact eight-service availability exceeds verified road, water/drainage, utility, telecom, care and supply topology/state evidence.",
+      "evidenceRefs": ["E02", "E04", "E07", "E08", "E09"],
+      "notes": [
+        "At compound T+24 availability is Power 0.331411, Water 0.321853, Drainage 0.274955, Gas 0.562596, Telecom 0.203438, Mobility 0.785223, Facilities 0.322491 and Supply 0.823658.",
+        "Six physical road corridors support neither physical power/water/gas/telecom paths nor complete Mobility/Supply; bridge weight, rail/bus operation and external care acceptance are absent.",
+        "One grid-planning sample, 89 incomplete water objects, 178 antennas, 68 schools, 114 stops and limited-care pages are not compatible live topology/capacity/backup/restoration evidence.",
+        "Wortman/AWZI, external EDs, airport and energy facilities establish real dependencies but cannot justify exact loss without connectivity, incident state, access and resources."
+      ]
+    },
+    "causalTrace": {
+      "status": "warn",
+      "summary": "The numerical causal ledger closes, but authority-selected causes, owners, interventions and resources remain absent.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08", "E09"],
+      "notes": [
+        "Outputs expose hazard, direct-service, interdependency, network, recovery and local-allocation components with matched totals.",
+        "Cumulative person-hours are synthetic no-event counterfactual accounting, not observed outage duration, casualties, displaced people or unmet care.",
+        "No selected breach/rain/fire/cyber/airport event, pump/dike/road action, operator network or external hospital acceptance explains exact trajectories.",
+        "Each state change requires authority/owner, target, prerequisite, route, crew/material/fuel/water, start/end, state, evidence class/time and uncertainty."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "Persistent flood/compound disruption and exact recovery lack incident, action, constraint and resource evidence through T+72.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08", "E09"],
+      "notes": [
+        "River severity/stress and seven services remain fixed T+24–72, affected grows 22,285 to 24,753 and Facilities falls 0.667794 to 0.520120, accumulating 2,146,148.373 person-hours without selected breach, recession/pumping or action.",
+        "Compound severity/cyber decline while pressure, stress, approximately 49,747 affected and seven services remain exactly fixed; Supply changes only 0.823658 to 0.823696, accumulating 3,466,502.604 person-hours without resources.",
+        "Storm/pluvial/winter/wildfire direct effects return to zero with exact residual services; heat severity persists but affected becomes zero, and coastal has no direct water yet accumulates 357,330.754 person-hours. Earthquake accumulates 111,127.576 despite no T+24/72 ground motion or affected people.",
+        "Sustained disruption can be plausible, but exact first-72-hour deterioration, plateau and recovery require selected events, measured/modelled state, constraints, resources and actions."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": ["severe-storm", "pluvial-flood", "river-flood", "coastal-flood", "heatwave", "winter-storm", "cyberattack", "earthquake", "wildfire", "compound"],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": ["power", "water", "drainage", "gas", "telecom", "mobility", "facilities", "supply"]
+  },
+  "findings": [
+    {
+      "id": "GM0995-FLOOD-CASE-001",
+      "severity": "critical",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Persistent generic river flooding lacks a selected IJsselmeer/Markermeer defence breach or Flevoland water case.",
+      "evidence": "River T+24/T+72 both report severity 0.306826 and normalized inundation stress 0.994441, with affected growing 22,285 to 24,753. Official sources distinguish IJsselmeer/Markermeer primary-defence breach, extreme/long rain, buitendijkse areas and Lage/Hoge Vaart drainage, and say breach water can remain because very large volumes require pumping. The run selects no water boundary, dike section/failure, Knardijk/sluice state, footprint, depth/velocity, arrival or recession. Coastal direct water zero is only a scoped North Sea result, not flood safety.",
+      "action": "Suppress unsupported local river precision. Enable direct inundation only for an expert-selected, versioned Zuiderzeeland/WMCN/LIWO case retaining source, defence/breach, compartment/control state, terrain-connected footprint, units/datum, arrival/duration/recession, probability, CRS/resolution, licence and NoData. Keep pluvial, buitendijkse and indirect network pathways separately typed."
+    },
+    {
+      "id": "GM0995-SHARED-SPATIAL-001",
+      "severity": "critical",
+      "category": "geography",
+      "status": "open",
+      "summary": "Eight unrelated presets reuse one complete 136-neighbourhood order.",
+      "evidence": "Storm, pluvial, river, coastal, heat, winter, cyber and wildfire all rank Schouw, Jagersveld, Karveel West, Flevobos and Visvijverbos first. Flevobos and Visvijverbos have zero official residents yet rank fourth/fifth for flood, heat and cyber, while Hollandse Hout is near the bottom. The same order cannot represent dike breach, street flow, heat, wind, fire/smoke, cyber targets and infrastructure.",
+      "action": "Replace the common municipality seed with hazard-specific source, eligible-domain, forcing, exposed-object and support adapters over full polygons. Add cross-preset tests that unrelated hazards cannot silently share all 136 ranks; preserve official zero residents while separating activity demand, and make absent spatial evidence Unknown rather than precise ordering."
+    },
+    {
+      "id": "GM0995-PLUVIAL-DRAINAGE-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Pluvial and Drainage precision ignores official street-flow, storage, polder and gemaal mechanisms.",
+      "evidence": "Pluvial T+24 reports severity 0.375659, stress 0.520144, 14,193 affected and Drainage 0.474637 when instantaneous rain is zero. Lelystad's strategy identifies more-than-30-cm stress-test water, Stationsdreef/Lindelaan emergency-access failure and Noordersluis exposure. Zuiderzeeland identifies continuous seepage, Lage/Hoge Vaart targets and Wortman pumping. No hyetograph, AHN/street flow, sewer-included flag, storage, antecedent groundwater, receiving level, asset topology, power/fuel or command drives the result.",
+      "action": "Integrate versioned municipal/Zuiderzeeland stress cases with hyetograph, AHN/BGT, street/low-storage routing, sewer-included flag, seepage/groundwater, polder receiving levels, resolution, units, licence and NoData. Join pumps/weirs/AWZI only after authority review of connectivity, native capacity, condition, settings, power/fuel/manual staffing and valid time."
+    },
+    {
+      "id": "GM0995-WILDFIRE-CONTAINMENT-001",
+      "severity": "critical",
+      "category": "hazard",
+      "status": "open",
+      "summary": "A controlled Hollandse Hout ignition leaves the containing neighbourhood 134th, while canonical fire fabricates remote smoke.",
+      "evidence": "Canonical wildfire at T+24 has zero direct fire, smoke 0.428926, 2,222 affected and 182,212.490 person-hours with the common ranking. Moving the source into Hollandse Hout yields municipality fire 0.661233 and smoke 0.577822, yet Hollandse Hout (Villapark) ranks 134/136 and generic Schouw/Jagersveld remain first. Official sources establish forests, wetland/reed, recreation and at least 588,613 annual Poort visits, but no ignition, fuels, moisture, plume, occupancy, access, firewater or suppression state.",
+      "action": "Make full-polygon containment, versioned fuel/reed/land-cover, event-valid wind/moisture/spread/smoke and exposed-presence ranges govern local allocation. Require an explicit ignition/perimeter or labelled external plume, access/firewater and suppression state; absent source is Unknown/no selected event, not zero local risk or observed smoke."
+    },
+    {
+      "id": "GM0995-ROUTE-LIFECYCLE-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "Road proxies omit bridge/rail/mode constraints and cannot represent planned versus active Houtribdijk restrictions.",
+      "evidence": "Eight links collapse to six corridors; A6 and N307 sides are not additive. RWS announced a 7.3-ton axle/15-ton total restriction for Houtribdijk starting only at an unspecified point in autumn 2026, with heavy-vehicle detours but emergency/vans retained. It must not affect 3 September solely because published. The graph has no bridge/sluice state, weight/mode restriction, detour, one-station rail continuity, valid bus trips or external-care/airport/nature/water-asset destinations; zero NDW matches is not open.",
+      "action": "Build an authority-reviewed multimodal graph with physical-corridor identity, bridges/sluices, local approaches, mode/direction/weight, restrictions, passability, emergency priority and unit-bearing capacity. Ingest issue/start/end/lifecycle; planned-without-start remains inactive, then activates only for compatible clocks and vehicle classes. Bind valid rail/bus and care/supply/repair destinations."
+    },
+    {
+      "id": "GM0995-CARE-AIRPORT-DEMAND-001",
+      "severity": "high",
+      "category": "demography",
+      "status": "open",
+      "summary": "External acute care, current General Aviation and nature/education activity are not resident exposure or verified continuity.",
+      "evidence": "Lelystad has weekday light urgent care but no full ED/IC; ambulances take serious cases to Harderwijk or Almere. The airport currently supports General Aviation around 80,000 annual movements, while commercial and F-35 operations are future/conditional. Staatsbosbeheer reports large annual visitor volumes and DUO has 68 sites. None supplies event-time occupants or live capacity. CBS residents and RIVM's zero local ED match cannot absorb these distinct demands.",
+      "action": "Keep residents authoritative and separate timestamped non-resident activity/demand under CORR-015. Bind privacy-safe external hospital acceptance/ambulance route, local urgent-care state, airport phase/NOTAM/occupancy and official visitor/pupil ranges only through authorized sources; future airport operations stay inactive and missing state remains Unknown."
+    },
+    {
+      "id": "GM0995-LIFELINE-PROVENANCE-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Exact eight-service availability lacks verified utility, water/drainage, telecom, facility and supply topology/state.",
+      "evidence": "Compound T+24 emits eight exact values from Telecom 0.203438 to Supply 0.823658. One Liander planning sample, 89 water objects, 178 antennas, 68 schools, 114 stops, six road corridors and facility pages do not provide feeder/customer or pipe topology, comparable capacity, live load/pressure/backhaul, damage, priority users, backup, switching, repair crews or restoration commitments. All public-context records are affectsSimulation=false.",
+      "action": "Integrate authorized operator topology, outage, priority-user, backup and restoration feeds where lawful and safe. Otherwise expose minimal versioned synthetic zones/graphs with ranges and uncertainty. Keep planning/register/observation layers non-causal absent reviewed bindings and suppress operator-looking decimals."
+    },
+    {
+      "id": "GM0995-TEMPORAL-RECOVERY-001",
+      "severity": "critical",
+      "category": "service",
+      "status": "open",
+      "summary": "Flood/compound plateaus and exact recovery across other presets lack first-72-hour actions and resources.",
+      "evidence": "River stress/severity and seven services freeze T+24–72 while affected rises and Facilities worsens. Compound hazard/cyber decline while pressure, stress, about 49,747 affected and seven service values freeze. Storm/pluvial/winter/wildfire direct effects clear with exact residuals; heat persists but affected becomes zero. Coastal has no local water but accumulates 357,330.754 person-hours; earthquake has no T+24/72 ground motion/affected yet accumulates 111,127.576. No dike/pump operation, evacuation/shelter, road clearance, external hospital acceptance, welfare check, utility crew, fuel, material or supply action explains the curves.",
+      "action": "Require a typed incident/action/resource ledger at T+0/6/12/24/48/72 with authority/owner, target, prerequisite, route, crew/material/fuel/water, start/end, state, observation/valid time and uncertainty. Each deterioration, plateau, residual and recovery must cite a driver; suppress unsupported decision-grade trajectories."
+    },
+    {
+      "id": "GM0995-EVIDENCE-UI-001",
+      "severity": "high",
+      "category": "ui",
+      "status": "open",
+      "summary": "Current observations, official scenarios, old plans, future restrictions/airport phases, missing horizons and synthetic outputs need adjacent provenance and NoData gates.",
+      "evidence": "The UI can juxtapose current Houtribsluis/KNMI points, 2023/2022–31 plans, 2009 flood doctrine, current/future dike work, an undated-autumn bridge restriction, future airport operations, registries and exact simulations. Houtribsluis forecast exists only through T+24 locally; T+48/T+72 are NoData. River 0.994441 is especially liable to be mistaken for measured metre depth despite CORR-017, while zero/missing matches can be mistaken for safety or availability.",
+      "action": "Attach publisher, dataset/version, issue/valid/retrieval time, coverage, licence, evidence class, lifecycle, affectsSimulation, uncertainty and NoData to every layer/value/export. Use an explicit reference clock; stale/future state deactivates, missing horizons render Unknown, point data are not surfaces, and normalized inundation stress is never labelled depth/metres."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Suppress unsupported generic river precision and implement expert-selected IJsselmeer/Markermeer, polder and buitendijkse cases.",
+      "files": ["packages/sim-core/src/model.ts", "packages/sim-core/src/types.ts", "apps/web/src/components/Inspector.tsx", "apps/web/src/components/CausalExplanation.tsx"],
+      "validation": "Without a selected compatible event, GM0995 direct flooding is Unknown/unsupported rather than 0.994441. A versioned Zuiderzeeland/WMCN/LIWO case retains water boundary, defence/breach, compartment/control state, terrain-connected footprint, units/datum, arrival/recession, probability, CRS/resolution, licence and NoData; stress is never metres."
+    },
+    {
+      "summary": "Replace the common GM0995 rank with source-aware hazard allocation and fix wildfire containment.",
+      "files": ["packages/sim-core/src/model.ts", "packages/sim-core/src/geometry.ts", "packages/sim-core/src/municipality-coverage.test.ts", "packages/sim-core/src/explainability.test.ts"],
+      "validation": "Eight unrelated hazards cannot silently share all 136 ranks. A controlled source inside Hollandse Hout ranks the containing polygon through source/fuel/spread geometry rather than 134th; official zero residents remain zero while transparent activity demand is separate under CORR-015."
+    },
+    {
+      "summary": "Integrate Lelystad street/storage/sewer and Zuiderzeeland polder/gemaal dependencies without promoting plans, assets or observations to operation.",
+      "files": ["scripts/fetch-water-assets.mjs", "scripts/fetch-realism-data.mjs", "packages/sim-core/src/model.ts", "apps/web/src/data.ts"],
+      "validation": "Version stress surfaces and catchment/receiving/control exports with event, antecedent state, CRS, units, licence and NoData. Wortman/89 assets and Waterinfo points remain context until connectivity, native capacity, condition, settings, power/fuel/manual operation and valid state are verified."
+    },
+    {
+      "summary": "Add valid-time, mode/weight-aware A6/N307/Houtribdijk, rail/bus, airport, care and supply route state.",
+      "files": ["scripts/fetch-transport-network.mjs", "apps/web/public/data/transport-network.json", "apps/web/public/data/public-context/transport-restrictions.json", "packages/sim-core/src/network.ts", "packages/sim-core/src/network.test.ts", "apps/web/src/data.ts"],
+      "validation": "A6/N307 sections remain non-additive; bridges/routes retain direction, vehicle weight/mode, restriction, passability, priority and unit-bearing throughput. The announced autumn restriction stays inactive until a sourced start time, then affects heavy logistics while preserving documented exemptions. Rail/bus and Harderwijk/Almere care destinations require live operation/acceptance."
+    },
+    {
+      "summary": "Evidence-gate utilities, care/airport/nature demand, first-72-hour actions, recovery and UI claims.",
+      "files": ["packages/sim-core/src/network.ts", "packages/sim-core/src/types.ts", "packages/sim-core/src/model.ts", "apps/web/src/components/OperationsBrief.tsx", "apps/web/src/components/Inspector.tsx"],
+      "validation": "Each service/fire/care/airport state has compatible topology/source/state/backup evidence or a labelled synthetic range, and each temporal change cites owner/action/resource/constraint. Plans, observations, forecasts, registers, future states, nulls/missing horizons and model outputs display evidence class, validity, licence, affectsSimulation, uncertainty and Unknown/NoData."
+    }
+  ],
+  "residualLimitations": [
+    "Complete electricity, gas, drinking-water, sewer/drainage, telecom, care and supply topology, control logic, live load/outage, backup, crews, spares, fuel and restoration state are unavailable or security-sensitive; public geometry, plans and territories cannot replace them.",
+    "No selected Zuiderzeeland/WMCN/LIWO case establishes a GM0995 IJsselmeer/Markermeer defence breach, compartment/control state, terrain-connected footprint, depth/velocity, arrival or recession. A generic value is not evidence and no selected case is not safe.",
+    "Lelystad climate stress-test products and GRP are valuable official scenario/programme evidence but require native machine files, edition, event/antecedent state, CRS, units, licence, lifecycle and explicit NoData before analytical use.",
+    "The HWH screen contains 89 heterogeneous objects with incomplete/null capacities and no complete catchment/sewer/defence topology, settings, maintenance, power/fuel/backup, live level/state or event capacity.",
+    "Houtribsluis point observations/forecasts do not establish a spatial water boundary, dike loading, overtopping/breach or local inundation. No GM0995 T+48/T+72 point survives the forecast coverage decline; missing horizons cannot be held constant or treated as zero.",
+    "Eight NWB logical links, bridge/approach omissions, one station, 114 GTFS stops and zero NDW situations do not establish scenario-time operation, vehicle eligibility, passability, emergency priority, detours, destination or throughput.",
+    "The Houtribdijk restriction is published but starts only at an unspecified future time in autumn 2026. Applying it on 3 September would be false; ignoring it after activation would also be false.",
+    "St Jansdal/RIVM records do not expose incident-time ambulance availability, staffing, dispatch, external ED acceptance/diversion, occupancy, backup or restoration; protected operational information must not be inferred.",
+    "Current General Aviation does not validate conditional commercial or future F-35 operations. The provisional 2024 public airport plan and protected operational annexes are not live incident/resource state.",
+    "CBS residents omit pupils, patients, commuters, workers, airport users, nature visitors, volunteers and responders. Rounded/suppressed aggregates cannot identify individuals, preparedness or event presence.",
+    "One Liander planning sample is neither municipal coverage nor outage evidence, and sensitive topology must not be reconstructed publicly.",
+    "Antenna and education registers have different spatial support, cadence and licences and remain affectsSimulation=false without verified causal bindings.",
+    "Current KNMI station values and Waterinfo points are timestamped observations/forecasts, not evidence for a synthetic event. No or missing values are coverage facts rather than zero hazard or service continuity.",
+    "Exact hazard, affected-population, service, recovery and person-hour outputs remain synthetic exercises, not observations, forecasts, operator commitments or decision-grade advice until critical/high findings are corrected and authorities review the case.",
+    "This audit covers only the first 72 hours. Polder drainage, subsidence/groundwater, nature recovery, care displacement and infrastructure restoration can persist much longer."
+  ],
+  "provinceReviewFlags": [
+    "Flevoland, VRF, Zuiderzeeland, Rijkswaterstaat and GM0995 should define expert selection/versioning for IJsselmeer/Markermeer defence breach, compartment/Knardijk, buitendijkse and pluvial cases, including source/control state, footprint, units, arrival/recession, uncertainty and NoData.",
+    "Zuiderzeeland and municipal sewer teams should review privacy-safe Lage/Hoge Vaart, Wortman, AWZI, sewer/street/storage and local control dependencies, including seepage, power/fuel/manual fallback and first-72-hour actions without exposing sensitive topology.",
+    "Province, Rijkswaterstaat, ProRail, municipality and transit/emergency partners should review A6/N307/Houtribdijk/bridge, rail and local corridors as direction-, weight- and mode-specific, non-additive, valid-time care/supply/evacuation/fire/repair routes.",
+    "Municipality, VRF, Staatsbosbeheer, GHOR, ambulance provider, St Jansdal and receiving hospitals should review source-aware nature fire/smoke, visitor/airport demand and privacy-safe acute-care continuity through protected interfaces.",
+    "Flevoland partners should turn 72-hour preparedness into typed but activation-gated warning, evacuation/shelter, household/welfare, medical, airport, utility, drainage, supply, fire and recovery actions, separating plan, observation, forecast, official scenario, live state, synthetic assumption and Unknown."
+  ]
+}

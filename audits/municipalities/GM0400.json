@@ -1,0 +1,454 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0400",
+    "name": "Den Helder",
+    "province": "Noord-Holland",
+    "safetyRegion": "Noord-Holland-Noord"
+  },
+  "agent": {
+    "taskName": "municipality_gm0400",
+    "agentId": "/root/municipality_gm0518",
+    "completedAt": "2026-09-02T20:43:48Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "GM0400's code, Den Helder name, Noord-Holland province, Veiligheidsregio Noord-Holland-Noord membership, 2025 CBS control total, eight districts, 65 neighbourhoods and three BAG places are coherent. The neighbourhood population sum is 56,660, only two below the official 56,662 residents (-0.004%), and missing source values remain null. All ten canonical exercises run deterministically at T+0/6/12/24/48/72 across all eight services; exact-zero, finite-bound, reconciliation, cumulative-burden, recovery-guard and layer-invariance checks pass. Release nevertheless requires correction. Coastal T+24 creates 1.978074 model flood-depth/stress, 36,895 affected people-equivalent and ultimately 2,141,495.865 attributable person-hours without selecting a North Sea/Wadden Sea water level, one of the six locally named primary-defence segments, defence state, breach/overflow, connected footprint, arrival or recession/dewatering path. Pluvial, coastal, heat and wildfire use exactly the same complete neighbourhood order, and a diagnostic wildfire source placed in Donkere Duinen still ranks that neighbourhood 33rd of 65. The causal graph omits the existing TESO Den Helder-Texel GTFS ferry and gives Texel no route, while all eight lifelines copy the same three N99/N9/N502 road IDs. The national water overlay reports zero assets although HHNK publishes local primary defences and water-system assets, and polygon assignment hides two fresh RWS coastal stations named Den Helder. Those are coverage/association gaps, not absence or safety. No unavailable or security-sensitive physical utility topology, capacity, live state, backup or restoration promise is fabricated.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek (CBS)",
+      "title": "Kerncijfers wijken en buurten 2025, table 86165NED, OData API",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=WijkenEnBuurten%20eq%20%27GM0400%20%20%20%20%27&%24select=WijkenEnBuurten%2CGemeentenaam_1%2CAantalInwoners_5%2CBevolkingsdichtheid_34%2Ck_65JaarOfOuder_12%2CEenpersoonshuishoudens_30",
+      "accessedAt": "2026-09-02T19:35:00Z",
+      "edition": 2025,
+      "supports": [
+        "The fresh official GM0400 row gives Den Helder, 56,662 residents, density 1,256 per square kilometre, 14,196 residents aged 65+ (25.1%) and 11,658 one-person households.",
+        "The 65 generated neighbourhood rows sum to 56,660 residents, two below the municipality total (-0.004%); their age-65+ rows sum to 14,195, one below the municipality row. These are separately rounded small-area values, not exposure corrections.",
+        "The OData service is machine-readable under CC BY 4.0. CBS labels this a 2025 table with quarterly additions as source variables become available; neighbourhood counts are randomly rounded and suppressed/missing values are not zero.",
+        "Simulation role is official demographic/context and an allocation denominator only; registered residence is not timestamped presence at schools, stations, the naval base, airport, port, beach, ferry, care settings or an incident footprint."
+      ]
+    },
+    {
+      "publisher": "PDOK / CBS / Kadaster / Rijkswaterstaat / ProRail",
+      "title": "CBS Gebiedsindelingen 2025 non-generalized geometry and national settlement/transport reference APIs",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_niet_gegeneraliseerd/items/c9dc6c5f-cb88-5143-9ee3-4ea92f5416b8?f=json",
+      "accessedAt": "2026-09-02T19:38:00Z",
+      "edition": "2025 boundary; current generated BAG, BRT, NWB, ProRail and GTFS reference editions",
+      "supports": [
+        "Fresh full-resolution GM0400 feature c9dc6c5f-cb88-5143-9ee3-4ea92f5416b8 has three MultiPolygon components, four rings and 3,287 positions. The generated overview has one component/ring and 95 positions, contains its generated centre, but omits two small eastern harbour components; full-resolution geometry is required for defence, water, port, road and asset intersection.",
+        "The bundle contains eight districts, 65 neighbourhoods and the BAG places Den Helder, Huisduinen and Julianadorp. BRT adds De Kooy and Friese Buurt; Den Helder Zuid and Den Helder stations and the generated GTFS stops are represented.",
+        "Three logical border links use N99 toward Hollands Kroon and N9/N502 toward Schagen. Their nominal capacity 150 is a scenario unit, not observed vehicle, passenger, emergency or goods throughput.",
+        "CBS boundary OGC is half-yearly/CC BY 4.0; BAG is daily/Public Domain Mark; BRT is CC BY 4.0; NWB OGC/download is monthly/CC0 1.0; ProRail reference geometry is manually refreshed/CC0 1.0. These are administrative/reference data, never current occupancy, passability or utility topology."
+      ]
+    },
+    {
+      "publisher": "Gemeente Den Helder / Regionale Samenwerking Klimaatadaptatie Noordkop",
+      "title": "Programma Duurzaamheid 2024-2027 and Strategie Klimaatadaptatie Noordkop",
+      "url": "https://denhelder.nl/dsresource?objectid=e554e3a6-bf68-4ef1-936b-379da6255b42&type=pdf",
+      "accessedAt": "2026-09-02T19:42:00Z",
+      "edition": "Municipal programme 2024-2027; regional strategy 23 March 2021",
+      "supports": [
+        "The municipal programme identifies waterlogging, water safety, heat, drought and salinisation, including salinisation in Koegraspolder, but says further research is needed to identify local priority areas. It therefore supports mechanisms, not an exact neighbourhood rank or scenario consequence.",
+        "The official regional strategy at https://gemeenteraad.denhelder.nl/Vergaderingen/Regionale-raadscommissie-Noordkop/2021/26-mei/19%3A30/Strategie-Klimaatadaptatie-Noordkop-Versie-23-maart-2021-1.pdf says all cores can be vulnerable to intense rain, urban/duin areas to heat, agriculture/nature to drought and salinity, and flood damage can reach roads, vital objects and homes in a region largely below sea level and dependent on imported freshwater.",
+        "These are fixed policy documents, not observed forcing, a warning, current asset state or future T+72 forecast. The programme is evaluated through the municipal agenda, but neither page supplies a raw spatial API, standard reuse licence or contractual update cadence.",
+        "Simulation role is contextual validation and requirements discovery only; the documents cannot turn no local raster/event data into zero, safe, or precise affected population."
+      ]
+    },
+    {
+      "publisher": "Hoogheemraadschap Hollands Noorderkwartier (HHNK)",
+      "title": "Legal primary-defence and water-system ArcGIS services, Helderse Zeewering and Den Helder works context",
+      "url": "https://kaarten.hhnk.nl/arcgis/rest/services/od_legger/od_legger_wv_zoneringen/MapServer/1",
+      "accessedAt": "2026-09-02T19:46:00Z",
+      "edition": "Live legal service and water register 2025; project pages inspected 2 September 2026",
+      "supports": [
+        "The EPSG:28992 ArcGIS layer supports query and JSON/GeoJSON/PBF. A Den Helder bounding-box query returned named primary-defence lines Havendijk, Strand/Duin km 6-11, Balgzanddijk, Strand/Duin km 1.2-6, Koegraszeedijk (1e WK) and Helderse Zeewering; exact non-generalized polygon intersection is still required at borders.",
+        "The 2025 surface-water and structures services at https://kaarten.hhnk.nl/arcgis/rest/services/od_legger/od_legger_wateren_2025_oppervlaktewateren_vg/MapServer and https://kaarten.hhnk.nl/arcgis/rest/services/od_legger/od_legger_wateren_2025_kunstwerken_vg/MapServer are machine-queryable legal editions. HHNK retains copyright and the service pages state no standard reuse licence or contractual refresh cadence, so permission/provenance must precede causal ingestion.",
+        "HHNK's current Helderse Zeewering page at https://www.hhnk.nl/helderse-zeewering describes about five kilometres of primary defence whose outer asphalt does not meet the standard, with strengthening expected in 2027/2028. The Den Helder page names Havendijk, the Den Oever-Den Helder dike, De Helsdeur and Oostoever. A standards shortfall or planned work is not a current breach, failure or warning.",
+        "HHNK describes pumps and freshwater import as regional controls. Published historical De Helsdeur material identifies four pumps and aggregate discharge context, but neither the legal map nor project pages establish current state, connected inundation footprint, residual capacity, backup, dewatering or repair time."
+      ]
+    },
+    {
+      "publisher": "HHNK / Klimaatmonitor (Nelen & Schuurmans)",
+      "title": "HHNK Climate Atlas REST catalogue and WMS stress-test layers",
+      "url": "https://hhnk.klimaatmonitor.net/api/atlases/b9108430-6228-4c21-85b7-97294262c930/",
+      "accessedAt": "2026-09-02T19:49:00Z",
+      "edition": "Public catalogue inspected 2 September 2026; layer attributions Lizard 2016-2025",
+      "supports": [
+        "The public REST catalogue covers 4.5627-5.3078 E and 52.3726-53.1863 N, including Den Helder, and exposes waterlogging, heat, drought, flood and nature-fire themes. Map metadata gives WMS service, layer name, legend and GetFeatureInfo capability.",
+        "The 70-mm-in-two-hours water-depth layer metadata at https://hhnk.klimaatmonitor.net/api/maplayers/b69015c6-7784-497d-84da-72bbe56a799d/ points to https://nens.lizard.net/wms/ and a 3Di BWN2 stress test built in 2018-2023 with local updates. It includes surface/water-system response but simplifies sewers as interception and no sewer flow; it is modeled context, not current observation.",
+        "Primary-defence T1000 maximum-depth metadata at https://hhnk.klimaatmonitor.net/api/maplayers/ee9f7c41-c900-47e9-a6c9-3e1dbfb6cf51/ combines maxima from multiple breach locations at one return time and is not one incident. Heat metadata is based on older AHN2/2016 land cover; the berm/duin nature-fire layer is planning context, not an ignition or perimeter.",
+        "The public API/WMS is integration-ready for non-causal display and visual validation, but the catalogue states raster download may require owner permission/login and supplies no standard open licence or contractual refresh cadence. Numeric causal use requires publisher permission plus source cell size, units, NoData, edition, scenario/effective time and uncertainty."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Noord-Holland-Noord (VRNHN) / Rijkswaterstaat",
+      "title": "Regional risk objects and observed storm/Kooybrug continuity measures",
+      "url": "https://www.vrnhn.nl/ons-werk/risicobeheersing/risico-objecten",
+      "accessedAt": "2026-09-02T19:52:00Z",
+      "edition": "Current official risk pages and timestamped 2025 operational reports",
+      "supports": [
+        "VRNHN explicitly identifies the TESO ferry, Marinehaven, De Kooy/Den Helder Airport, Waddenzee/North Sea and coastal nature-fire context as regional risk objects. Its planning documents emphasize extreme weather, flooding and electricity failure; these are fixed preparedness context, not live incidents or exact model parameters.",
+        "VRNHN's 24 October 2025 Storm Benjamin report at https://www.vrnhn.nl/actueel/2025-10-24-brandweer-druk-met-afhandelen-stormmeldingen-tijdens-storm-benjamin records roads closed near the TESO terminal, partner monitoring of water levels and a reserve fire engine sent to Texel while the ferry still operated. It is a past observed event, not current road/ferry state or a generic T+72 forecast.",
+        "Rijkswaterstaat's Kooybrug safety page at https://www.rijkswaterstaat.nl/nieuws/archief/2024/12/de-kooybrug-in-de-steigers-hoe-houden-we-de-omgeving-veilig describes the bridge as Den Helder's most important connection to the rest of the Netherlands. VRNHN reported a temporary ambulance post east of the bridge and emergency priority on the pont during the May 2025 closure.",
+        "These official web pages have no machine incident API, standard reuse licence or contractual refresh cadence. They validate local dependencies and contingency mechanisms only; historic closures cannot be silently replayed as current or future conditions."
+      ]
+    },
+    {
+      "publisher": "TESO / OVapi",
+      "title": "Official ferry timetable/current status and machine-readable GTFS Den Helder-Texel route",
+      "url": "https://www.teso.nl/afvaarttijden/",
+      "accessedAt": "2026-09-02T19:55:00Z",
+      "edition": "TESO status/timetable viewed 2 September 2026; OVapi feed version 9543 valid 30 August-12 December 2026",
+      "supports": [
+        "TESO's official page showed hourly crossings on 2 September 2026 with additional half-hour departures from 09:30 to 16:00 and no wait at access time. That is timestamped current status/timetable information, never a contractual future T+72 availability or capacity promise.",
+        "The generated OVapi GTFS ferry file already contains route 134174, agency TESO, a Den Helder-Texel line with two shapes, 56 scheduled trip records and Den Helder stop Steiger TESO [4.777788, 52.962293]. The causal municipality graph nevertheless has no GM0400-GM0448 link and Texel has degree zero.",
+        "The source download https://gtfs.ovapi.nl/nl/gtfs-nl.zip was retrieved 31 August 2026, last modified 30 August, valid 30 August-12 December 2026, and is free to use under OVapi terms on a best-effort/no-SLA basis. Feed-valid schedule/reference data is not live sailing, passenger/vehicle capacity, emergency priority or disruption state.",
+        "TESO describes the year-round connection as essential for island care, education, work and supply. For simulation, the existing geometry and feed-valid schedule can support a mobility/supply-only logical proxy; live state needs an operator-authorized timestamped interface, and undocumented or unavailable capacity must remain unknown or explicitly synthetic."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / KNMI / Stichting Mijn Aansluiting / DUO / RDI / RIVM / NDW",
+      "title": "Timestamped water, weather, provider, facility, antenna, health and traffic public context",
+      "url": "https://waterinfo.rws.nl/api/point/latestmeasurement?parameterId=waterhoogte",
+      "accessedAt": "2026-09-02T20:03:00Z",
+      "edition": "Live/public snapshots inspected 2 September 2026",
+      "supports": [
+        "The nationwide Waterinfo response contained Den Helder, Marsdiep [4.744990, 52.964359] at 13 cm NAP and Den Helder, veersteiger [4.778047, 52.963274] at 5 cm NAP, both observed 2 September 2026 17:30Z and fresh at retrieval. Both fall outside the generalized land polygon, so the UI reports zero assigned municipal stations. Waterinfo is generally ten-minute, cached about five minutes, CC0 and not mission critical; these current points are not an inundation map or future T+72 values.",
+        "KNMI radar metadata at https://dataplatform.knmi.nl/dataset/access/radar-reflectivity-composites-2-0 exposes a national WMS every five minutes under CC BY 4.0. The generated 365-day RDSA catalogue query found zero earthquake origins inside GM0400; no match means no catalogue event, not zero seismic hazard. Radar current/default time is not aligned to a synthetic scenario clock or a 72-hour forecast.",
+        "Public-domain Mijn Aansluiting WMS/WFS documentation at https://wiki.service.mijnaansluiting.nl/wiki/spaces/Wiki/pages/693731329 identifies Liander electricity/gas, PWN drinking water and Ziggo media provider-area context at one point with provider-specific 2025/2026 timestamps, but no drainage polygon. Territory polygons are not cables, pipes, substations, pressure zones, coverage, outage, capacity, backup or restoration.",
+        "Generated non-causal context contains 45 DUO education locations (daily around 06:15 under attribution terms), 112 RDI antenna-installation records (live WFS; licence/contractual cadence unstated) and one RIVM CC0 acute-care questionnaire location, Noordwest Ziekenhuisgroep Den Helder, reporting 12 treatment rooms and 11,233 visits in 2025. Zero current NDW situations, zero PM2.5 stations and zero government-service points are snapshot/query outcomes, never proof of open roads, clean air, absent services or safety."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM0400, Den Helder, Noord-Holland and safety region Noord-Holland-Noord are internally and officially coherent.",
+      "evidenceRefs": ["E01", "E02", "E06"],
+      "notes": [
+        "Generated feature id, municipality bundle code/name, province and exactly one safety-region assignment agree.",
+        "The context command verifies the generated centre [4.760348080135028, 52.922068993773074] lies inside the overview boundary.",
+        "No merge, rename or cross-municipality reassignment is indicated."
+      ]
+    },
+    "geography": {
+      "status": "warn",
+      "summary": "The generalized display outline is suitable for selection but drops two small eastern harbour components from the official geometry.",
+      "evidenceRefs": ["E02", "E04", "E05", "E08"],
+      "notes": [
+        "The fresh non-generalized feature has three components/four rings/3,287 positions; the generated overview has one component/one ring/95 positions.",
+        "The omitted components are small, but harbour, coast, ferry, monitoring and water-defence associations are operationally material in Den Helder.",
+        "Use the annual non-generalized CBS feature for all point, line, raster, waterbody and asset intersections; preserve water/harbour proximity separately instead of treating sea points as outside and absent."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Official municipality controls and neighbourhood allocation reconcile within published CBS rounding semantics.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "CBS reports 56,662 residents; 65 neighbourhood rows sum to 56,660 (-2, -0.004%).",
+        "Official age-65+ count is 14,196 (25.1%); neighbourhood rows sum to 14,195. One-person households are 11,658.",
+        "The largest generated neighbourhoods include Kruiszwin 2,555, Visbuurt 2,370 and Oud Den Helder 2,330; population totals reconcile without rewriting source observations.",
+        "Registered residence is not incident-time occupancy or vulnerability at naval, port, ferry, airport, beach, care, education or employment sites."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "The 65-neighbourhood detail is strong, but sparse indicators and public infrastructure matches retain source-specific no-data semantics.",
+      "evidenceRefs": ["E01", "E04", "E08"],
+      "notes": [
+        "Population, age and household controls are complete. District-heating share and public-charging count are missing for all 65 neighbourhoods; car ownership covers 49, housing/value 54, doctor/supermarket distance 59 and household size 62.",
+        "Null and suppressed values remain unknown; they are not imputed to zero for the audit.",
+        "The national HWH intersection's zero water objects conflicts with locally published HHNK defences/assets and is a coverage gap, not zero infrastructure.",
+        "Provider polygons and public registers remain descriptive overlays and do not establish connectivity, capacity, live state or restoration."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "BAG and BRT settlement evidence covers the municipality's main cores and descriptive smaller localities without changing municipal identity.",
+      "evidenceRefs": ["E02"],
+      "notes": [
+        "BAG places are Den Helder, Huisduinen and Julianadorp.",
+        "BRT adds De Kooy and Friese Buurt, yielding five settlement labels: two woonkernen, two deelkernen and one gehucht.",
+        "Settlement labels are reference geography, not population, evacuation, occupancy, service continuity or hazard footprint."
+      ]
+    },
+    "transport": {
+      "status": "fail",
+      "summary": "Road reference geometry is present, but the essential Den Helder-Texel ferry is absent from the causal graph and road links are overextended across every service.",
+      "evidenceRefs": ["E02", "E06", "E07", "E08"],
+      "notes": [
+        "The causal graph has N99 to Hollands Kroon and N9/N502 to Schagen, plus Den Helder and Den Helder Zuid rail stations and generated transit context.",
+        "The displayed GTFS data already includes the TESO Den Helder-Texel route, but the causal graph has no GM0400-GM0448 crossing and Texel has degree zero.",
+        "All eight services expose the same three N-road IDs with logical-proxy semantics and nominal capacity 150, although NWB supports mobility geometry only.",
+        "Zero current NDW situations does not prove open routes through T+72; timetable data does not prove ferry/rail/bus continuity, capacity or current passability."
+      ]
+    },
+    "emergencyContext": {
+      "status": "warn",
+      "summary": "Locally relevant risk, defence, care, weather, water-level and provider context exists, but it is timestamped or planning data and remains non-causal.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "VRNHN identifies TESO, Marinehaven, De Kooy/airport, Waddenzee/North Sea and nature-fire context; HHNK identifies named primary defences and water assets.",
+        "The one RIVM acute-care point is dated questionnaire context, not current capacity, access, staffing, backup or continuity.",
+        "The two fresh Waterinfo observations are current coastal point levels outside the land polygon; they must not be extrapolated to the model clock or T+72.",
+        "Past Storm Benjamin and Kooybrug measures are useful validation cases but not current incidents. No-data in NDW, air, government or drainage-provider queries remains unknown, not zero/safe."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten canonical scenarios execute at all six mandatory checkpoints for all eight services.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E08"],
+      "notes": [
+        "MUNICIPALITY_AUDIT_CODE=GM0400 pnpm audit:model passed two focused coverage tests for ten presets, T+0/6/12/24/48/72 and power/water/drainage/gas/telecom/mobility/facilities/supply.",
+        "A separate focused reproduction passed and captured municipality, local-allocation, service, route and recovery values. River-flood remains exact zero at all six checkpoints because the canonical preset is explicitly scoped to its Rhine/Meuse/IJssel corridor; this does not mean zero local/coastal/regional-water hazard.",
+        "A zero-intensity run produces exact zero maximum severity, affected population-equivalent and attributable person-hours for every preset.",
+        "Headless Chromium inspection of the running local app selected Den Helder, coastal flood, hazard and six service layers at T+24 with no page or console errors."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Outputs are finite, bounded, deterministic, exact at zero input and arithmetically reconciled.",
+      "evidenceRefs": ["E01", "E02"],
+      "notes": [
+        "Compound T+24 produces 65 local rows summing to population 56,662 and affected 36,853; all eight service demand/delivery totals reconcile to the municipal values with maximum floating error 1.42e-14.",
+        "Availability, hazard, service-pressure and recovery fields remain in contract bounds and repeated runs are deterministic.",
+        "Cumulative attributable burden is monotone for every scenario and remains exact zero under zero intensity.",
+        "Changing the selected map layer does not mutate hazard, pressure or affected outputs."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "Coastal physics and neighbourhood allocation are not locally validated and use source-insensitive screens/seeds.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05"],
+      "notes": [
+        "Coastal T+24 reaches severity 0.672808, internal floodDepthM 1.978074 and 36,895 affected without a selected water level, defence/breach, connected footprint, terrain/hydraulics, arrival or recession path.",
+        "Pluvial, coastal, heat and wildfire share the exact 65-neighbourhood order because all presets use the same seed; Sluisdijk, Grachtengordel and Malzwin lead regardless of physical source.",
+        "A diagnostic wildfire source placed at Donkere Duinen [4.7234334577, 52.9358842964] peaks municipality flame at 0.609576 near T+11, yet Donkere Duinen ranks 33rd and Sluisdijk remains first. This is a controlled diagnostic, not an actual ignition.",
+        "The 95-position display outline is too coarse for harbour/defence/raster intersections, while the authoritative full-resolution geometry has three components and 3,287 positions."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "All eight services inherit identical road routes while locally material ferry, bridge, water and facility dependencies remain non-causal.",
+      "evidenceRefs": ["E02", "E04", "E06", "E07", "E08"],
+      "notes": [
+        "Power, water, drainage, gas, telecom, mobility, facilities and supply all list nwb-link-424-GM0400-GM1911, nwb-link-841-GM0400-GM0441 and nwb-link-875-GM0400-GM0441 with logical-proxy semantics.",
+        "NWB does not evidence power lines, water/sewer pipes, gas, telecom backhaul, care referral or inventory movement; provider territories do not repair that semantic gap.",
+        "The existing TESO GTFS line, Kooybrug/N250 access, stations, local roads, HHNK assets and the hospital cannot alter availability or deliveries.",
+        "Compound T+24 availability is power 0.363316, water 0.358629, drainage 0.315102, gas 0.593372, telecom 0.197725, mobility 0.544357, facilities 0.517400 and supply 0.325537; these exact local values lack service-specific observed topology/state."
+      ]
+    },
+    "causalTrace": {
+      "status": "warn",
+      "summary": "The causal ledger closes arithmetically, but route provenance and exact local consequences exceed the supporting evidence.",
+      "evidenceRefs": ["E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "Hazard-to-pressure, dependency, recovery, demand, delivery and attributable-burden terms reconcile numerically at every checkpoint.",
+        "The UI labels coastal evidence as derived-screening and renders the internal depth field as normalized inundation stress, but still presents exact affected/service/person-hour values without a selected defence-aware event.",
+        "Public layers are correctly described as non-causal context; the model consumes none of the HHNK WMS/ArcGIS rasters, Waterinfo observations, TESO status, provider areas, care/facility or antenna records.",
+        "Logical road proxies need per-service support evidence. Current observations and past reports must retain effective time and must not be projected across the T+72 scenario clock."
+      ]
+    },
+    "recovery72h": {
+      "status": "warn",
+      "summary": "Recovery guards and cumulative accounting work, but local T+72 restoration lacks defence, drainage, access and operator evidence.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07"],
+      "notes": [
+        "Coastal physical forcing has ended by T+72, yet 7,279 people-equivalent remain affected and cumulative attributable burden reaches 2,141,495.865 person-hours; modeled service availability ranges from drainage 0.679488 to gas 0.838126, with recoveryProgress 0.439530-0.959619.",
+        "Compound retains 0.355821 standing-water stress and 0.069113 cyber intensity at T+72, keeps 39,166 affected and 2,239,914.242 person-hours, and correctly blocks all eight recovery tracks under the model's sustained-flood guard.",
+        "Storm, pluvial, winter, earthquake and wildfire direct forcing ends by T+72; cumulative burden does not decrease. Heat/drought and cyber follow their deterministic preset schedules.",
+        "HHNK and local operational evidence support the importance of pumping, freshwater, access and contingency, but publish no event-valid dewatering, utility repair, ferry continuity, staff/resource or restoration commitment for these runs."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": ["power", "water", "drainage", "gas", "telecom", "mobility", "facilities", "supply"]
+  },
+  "findings": [
+    {
+      "id": "GM0400-DATA-001",
+      "severity": "informational",
+      "category": "identity",
+      "status": "fixed",
+      "summary": "Generated identity, safety-region membership, demographic controls and settlement structure are coherent.",
+      "evidence": "CBS gives 56,662 residents; 65 neighbourhood rows sum to 56,660 (-0.004%) and reconcile without rewriting observations. Code, name, province, safety region, three BAG places and five BRT settlement labels agree.",
+      "action": "Retain source editions, random-rounding/suppression rules, published-versus-allocated totals and null semantics on each refresh."
+    },
+    {
+      "id": "GM0400-GEOMETRY-001",
+      "severity": "medium",
+      "category": "geography",
+      "status": "open",
+      "summary": "The generated overview drops two official eastern harbour components relevant to coastal and infrastructure association.",
+      "evidence": "Fresh PDOK non-generalized geometry has three components, four rings and 3,287 positions; the generated one-component, 95-position overview retains only the main land polygon. Two locally named Waterinfo stations and ferry/harbour features illustrate why a land-only generalized containment test is insufficient.",
+      "action": "Use the full-resolution annual geometry for analytical intersections and governed coast/waterbody proximity for harbour and near-shore features; keep the small overview only for display/selection."
+    },
+    {
+      "id": "GM0400-NODATA-001",
+      "severity": "informational",
+      "category": "regional-data",
+      "status": "fixed",
+      "summary": "Unavailable statistics and public context queries are preserved as unknown rather than false zero or safe state.",
+      "evidence": "Neighbourhood heating/charging and several sparse CBS fields remain null. The UI explicitly says zero assigned Waterinfo stations means no data, never zero/safe; the same rule applies to zero current NDW situations, PM2.5 stations, government-service points and missing provider drainage coverage.",
+      "action": "Keep source coverage, query/effective time, quality, suppression and NoData semantics through ingestion, aggregation, simulation eligibility and UI rendering."
+    },
+    {
+      "id": "GM0400-FLOOD-001",
+      "severity": "critical",
+      "category": "hazard",
+      "status": "open",
+      "summary": "A generic coast-distance screen produces precise Den Helder flooding and first-72-hour impacts without a selected hydraulic event or defence state.",
+      "evidence": "Coastal T+24 produces severity 0.672808, internal floodDepthM/stress 1.978074, 36,895 affected and cumulative burden 677,698.801; T+72 still has 7,279 affected and 2,141,495.865 person-hours. The model selects no North Sea/Wadden Sea level, tide/surge, named HHNK defence segment/state, breach/overflow, terrain-connected footprint, arrival, recession or dewatering path. HHNK's standards/project statements are not current breach evidence.",
+      "action": "Require an HHNK/Rijkswaterstaat-approved named event with versioned water boundary, defence/breach state and connected raster before releasing direct local impacts. Keep the current screen diagnostic and mark local impact Unknown until that contract is satisfied."
+    },
+    {
+      "id": "GM0400-SPATIAL-SEED-001",
+      "severity": "high",
+      "category": "geography",
+      "status": "open",
+      "summary": "One source-insensitive neighbourhood order is reused across physically unrelated hazards.",
+      "evidence": "Pluvial, coastal, heat and wildfire share the exact complete 65-neighbourhood T+24 order. A controlled wildfire source at Donkere Duinen's representative point still leaves Donkere Duinen 33rd while Sluisdijk stays first. Municipal/HHNK evidence identifies hazard-specific rain, heat, drought/salinity, defence and dune/berm mechanisms but the model consumes no matching surface or target.",
+      "action": "Replace the common seed with hazard-specific, versioned footprints/covariates and suppress neighbourhood hotspot precision until scenario, source, unit, cell size, NoData, edition/effective time, licence and uncertainty are recorded."
+    },
+    {
+      "id": "GM0400-WATER-CONTEXT-001",
+      "severity": "high",
+      "category": "regional-data",
+      "status": "open",
+      "summary": "National polygon intersections hide locally published water defences/assets and two fresh Den Helder coastal stations.",
+      "evidence": "The generated HWH overlay returns zero local assets although HHNK's legal service names six primary-defence lines and local water-system assets. Waterinfo contains fresh Den Helder, Marsdiep and Den Helder, veersteiger observations just outside the generalized land polygon, while the UI reports zero assigned municipal stations. Neither gap means no assets, zero level or safety.",
+      "action": "Integrate HHNK's authorized legal ArcGIS exports with edition/licence and reconcile HWH completeness; associate near-shore Waterinfo stations by governed station/waterbody/proximity logic while retaining their timestamped, non-causal observed role."
+    },
+    {
+      "id": "GM0400-FERRY-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "The existing TESO Den Helder-Texel GTFS route is visible but absent from causal mobility and supply.",
+      "evidence": "Generated GTFS already includes TESO route 134174, Den Helder Steiger TESO, two shapes and 56 scheduled trip records valid through 12 December 2026. The causal graph has no GM0400-GM0448 link and Texel has degree zero, despite operator and VRNHN evidence that the crossing is locally material for people, care, education, work, supply and contingency.",
+      "action": "Add the audited ferry geometry as a mobility/supply-only logical proxy with feed validity and Unknown live state. Do not infer utility topology, capacity, priority or guaranteed T+72 operation; obtain operator-authorized status/capacity data where available."
+    },
+    {
+      "id": "GM0400-NETWORK-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "The same three road links are copied into all eight lifelines despite no physical utility or facility evidence.",
+      "evidence": "Every service lists identical N99/N9/N502 route IDs and nominal capacity 150. NWB supports named road geometry only; provider territories, HHNK layers, facilities and operational reports do not establish electricity, water, sewer, gas, telecom, care or stock-transfer connectivity. The locally material Kooybrug/N250 and event-valid passability are absent.",
+      "action": "Restrict NWB/NDW/bridge/ferry/rail/transit routes to mobility and evidenced supply dependencies. Request safe sector-specific aggregate interfaces; when physical topology is unavailable or security-sensitive, retain Unknown or transparent non-spatial synthetic indices without operator attribution."
+    },
+    {
+      "id": "GM0400-EXERCISE-HAZARDS-001",
+      "severity": "low",
+      "category": "hazard",
+      "status": "accepted-limitation",
+      "summary": "Storm, pluvial, heat, winter, cyber, earthquake, wildfire and compound outputs are generic exercises rather than event-valid observations or forecasts.",
+      "evidence": "No named KNMI replay, cyber target, wildfire ignition/perimeter or earthquake is selected. Canonical river forcing is correctly zero only for its stated Rhine/Meuse/IJssel corridor; wildfire has zero local flame and indirect smoke, and earthquake peaks near T+2.25 at 0.015301 g. Current radar, water level, TESO and NDW snapshots are not aligned to the synthetic T+0 or future T+72.",
+      "action": "Retain explicit synthetic/indirect/scoped labels, source/effective time and uncertainty. Bind observed replays only to event-valid inputs, and never convert absent observations or targets into zero/safe state."
+    },
+    {
+      "id": "GM0400-CONTRACT-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The full numerical, checkpoint, allocation, causal-ledger and sustained-flood contract passes for GM0400.",
+      "evidence": "The focused gates cover ten presets, six checkpoints and eight services. Values are finite/deterministic, zero intensity is exact, local/service totals reconcile, ledgers close, burden is monotone, layer selection is invariant and standing water blocks repair. Browser inspection correctly labels official overlays non-causal and the coastal field as normalized inundation stress/derived-screening.",
+      "action": "Keep GM0400 and national ALL coverage in regression and add event-selection, hazard-specific spatial, ferry, harbour-geometry, water NoData and service-route separation assertions."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Replace generic GM0400 coastal screening with an explicit defence-aware North Sea/Wadden Sea event contract and honest unsupported states.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/public/data/hazards/GM0400-flood-context.json",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/MapView.tsx"
+      ],
+      "validation": "Best public inputs are HHNK's EPSG:28992 legal defence query https://kaarten.hhnk.nl/arcgis/rest/services/od_legger/od_legger_wv_zoneringen/MapServer/1 and 2025 water/structure MapServers (regional legal coverage; GeoJSON/JSON/PBF; HHNK copyright; standard reuse licence and contractual cadence not stated), HHNK Climate Atlas API/WMS https://hhnk.klimaatmonitor.net/api/atlases/b9108430-6228-4c21-85b7-97294262c930/ (regional modeled rain/flood/heat/drought/fire context; layer-specific editions/attribution; raster permission, cell/NoData and refresh contract required), and Rijkswaterstaat/LIWO professional scenarios or Waterinfo observations (nationwide; Waterinfo generally 10-minute/CC0 but point observations are not inundation). Intersect the 3,287-position annual PDOK CBS boundary (CC BY 4.0), not the overview. Require named event/version, sea boundary/tide/surge, defence segment/state, breach/overflow, probability, unit, CRS/cell size, connected footprint, arrival, recession/dewatering, effective time, NoData and licence. Until then local direct exposure is Unknown and the distance field is diagnostic only."
+    },
+    {
+      "summary": "Replace the common neighbourhood seed with hazard-specific Den Helder surfaces while separating planning, observed replay and simulated consequence.",
+      "files": [
+        "scripts/fetch-realism-data.mjs",
+        "apps/web/public/data/hazards/GM0400-climate-context.json",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Use the HHNK Climate Atlas public REST/WMS for non-causal waterlogging, heat, drought, defence-flood and dune/berm-fire visual checks, but require owner permission/standard licence, layer edition, source cell size, units, NoData and cadence before numeric causal ingestion. KNMI Data Platform radar/nowcast/observations are national/radar-domain, product-versioned, 5-/10-minute and CC BY 4.0 for named weather replays; PDOK AHN/BGT provide national elevation/topography context under CC0/Public Domain Mark with dataset-specific acquisition/daily editions, not impacts. Municipal 2024-2027 and regional 2021 policy PDFs have no raw API/standard licence/contract cadence and validate mechanisms only. Tests must reject identical full rankings across unrelated hazards, require source proximity for direct footprints and preserve Unknown versus zero."
+    },
+    {
+      "summary": "Add the TESO crossing and event-valid Den Helder access to mobility/supply while removing roads from unevidenced services.",
+      "files": [
+        "scripts/fetch-realism-data.mjs",
+        "scripts/apply-audited-lifelines.mjs",
+        "apps/web/public/data/transport-network.json",
+        "apps/web/public/data/transit/transit-routes-ferry.geojson",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/MapView.tsx"
+      ],
+      "validation": "Reuse the existing OVapi GTFS TESO route (national feed download https://gtfs.ovapi.nl/nl/gtfs-nl.zip; version 9543 valid 2026-08-30/2026-12-12; free-use terms, best effort/no SLA) as schedule/reference geometry, and TESO's official timestamped page for human-readable current status only. Add GM0400-GM0448 as mobility/supply-only logical proxy; keep capacity, priority and live/future continuity Unknown unless an operator-authorized machine interface supplies them. Use RWS NWB OGC/download for national road topology (monthly, CC0 1.0), NDW DATEX II for timestamped current/72-hour-valid situations (generally CC0 unless dataset states otherwise), and ProRail/GTFS for rail/transit reference. Record mode, direction, event/effective time, validity, passability, unit, licence and NoData; absent NDW/GTFS state is Unknown. Assert N99/N9/N502/Kooybrug/ferry/rail/transit cannot appear in power, water, drainage, gas, telecom or facilities without separate evidence."
+    },
+    {
+      "summary": "Reconcile public Den Helder water assets and near-shore stations while keeping provider/facility topology safely unknown.",
+      "files": [
+        "scripts/fetch-realism-data.mjs",
+        "apps/web/public/data/water-system-context.json",
+        "apps/web/public/data/public-context/rws-water-levels.json",
+        "apps/web/public/data/facilities/GM0400-context.json",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/MapView.tsx"
+      ],
+      "validation": "Ingest an HHNK-authorized export from the 2025 legal water/structure MapServers or reconcile national HWH Kunstwerken IMWA https://api.pdok.nl/hwh/waterschappen-kunstwerken-imwa/ogc/v2 (national, weekly, CC BY-SA 4.0) and Waterketen DAMO https://api.pdok.nl/hwh/waterschappen-waterketen-damo/ogc/v1 (national, CC BY-SA 4.0, contributor timestamps/variable completeness); zero matches remain no-data. Associate Waterinfo's Den Helder, Marsdiep and veersteiger point series using governed station/waterbody/proximity rules, retaining observation time, quality and CC0/non-mission-critical terms and never projecting them to T+72. Mijn Aansluiting WFS https://public.geodata.mijnaansluiting.nl/geoserver/mijnaansluiting_open/ows is public-domain national provider-area context with provider-specific timestamps, not physical networks. DUO daily attribution data, RDI WFS and RIVM CC0 questionnaire remain non-causal. Request only safe aggregate service areas, population served, continuity/backup bands and restoration interfaces; unavailable/security-sensitive topology remains Unknown or explicitly synthetic."
+    }
+  ],
+  "residualLimitations": [
+    "This audits a deterministic first-72-hour exercise model, not a warning, forecast, hydraulic assessment, evacuation plan, outage statement, sailing guarantee or operator commitment.",
+    "CBS 2025 neighbourhood values are rounded/suppressed and sums need not equal the municipality total; null statistical, provider, water-asset, air, traffic, station or government-service results are unknown, not zero.",
+    "Registered residents do not equal people present at Marinehaven, De Kooy/airport, the port/ferry, schools, stations, hospital, beaches, dunes, businesses or events; no authoritative timestamped occupancy is consumed.",
+    "The 95-position overview is suitable for map selection, not harbour, coast, defence, hydraulic, terrain, road, catchment or asset intersection; use the official 3,287-position three-component geometry.",
+    "Municipal climate policy, VRNHN risk objects, HHNK project/legal context and climate-atlas stress tests are planning/modelled context, not current observations, adopted failures or exact consequences.",
+    "HHNK's public ArcGIS and climate-atlas services do not provide a complete standard-licence, raster-download, NoData, source-resolution and contractual refresh package for causal calibration; obtain permission/metadata first.",
+    "HHNK pages/layers identify defences and water systems but not current connected catchment, operating state, available capacity, backup, failure, inundation/dewatering path or restoration.",
+    "Waterinfo values are current point observations outside the generalized land polygon; they are not municipal inundation, future values or evidence that a defence is safe or failed.",
+    "TESO and GTFS timetables, NWB roads, NDW situations, ProRail stations, provider territories, antennas, schools and hospital registers do not establish live continuity, occupancy, capacity, connectivity, backup or repair.",
+    "Past Storm Benjamin and Kooybrug operational reports are timestamped validation cases and must not be silently reused as current incidents or generic scenario forcing.",
+    "No complete public physical electricity, drinking-water, wastewater, gas, telecom, facility, fuel, stock, staffing, backup, repair or restoration topology is consumed; unavailable/security-sensitive gaps remain unknown or synthetic.",
+    "The Rhine/Meuse/IJssel river preset's exact local zero is scoped to that exercise and does not mean no North Sea, Wadden Sea, canal, polder, rainfall, groundwater or regional-water pathway.",
+    "Earthquake, remote smoke and cyber remain exercises without a selected local event/target; current KNMI, RWS, TESO or NDW observations are not aligned to the scenario clock.",
+    "Recovery after T+72, cross-boundary water/service catchments, Texel mutual aid/supply, naval/port dependencies, evacuation, acute-care referral, staffing and resource constraints remain outside locally validated scope."
+  ],
+  "provinceReviewFlags": [
+    "GM0400-FLOOD-001 — HHNK, Rijkswaterstaat/WMCN, Province Noord-Holland, VRNHN and Den Helder should require a named, versioned, defence-aware North Sea/Wadden Sea event and connected footprint before direct inundation/exposure is releasable.",
+    "GM0400-SPATIAL-SEED-001 — HHNK, Province Noord-Holland and municipality should supply governed hazard-specific surfaces/targets with scenario, unit, resolution, NoData, edition/effective time and licence and reject the shared 65-neighbourhood order.",
+    "GM0400-WATER-CONTEXT-001 — HHNK/HWH/Rijkswaterstaat should reconcile the zero national asset intersection and land-polygon exclusion of two named coastal stations without inferring topology, safety or future values.",
+    "GM0400-FERRY-001 — TESO/OVapi, RWS/NDW, Province Noord-Holland, Texel and VRNHN should represent the Den Helder-Texel crossing as a feed-valid mobility/supply dependency while preserving Unknown live capacity/continuity.",
+    "GM0400-NETWORK-001 — RWS/NDW/ProRail/transit and sector partners must separate mobility/supply routes from utility/facility topology and provide only safe aggregate service interfaces where releasable."
+  ]
+}

@@ -1,0 +1,476 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0744",
+    "name": "Baarle-Nassau",
+    "province": "Noord-Brabant",
+    "safetyRegion": "Midden- en West-Brabant"
+  },
+  "agent": {
+    "taskName": "municipality_gm0744",
+    "agentId": "/root/municipality_gm0518",
+    "completedAt": "2026-09-02T14:48:40Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "Baarle-Nassau's generated identity, safety-region membership and 2025 CBS totals are coherent: the bundle contains 7,205 residents, ten neighbourhoods, three BAG woonplaatsen and 30 BRT settlements, with only a five-person (-0.069%) published neighbourhood rounding difference. The complete deterministic contract also executes for ten hazards, six checkpoints and eight services. The audit is nevertheless correction-required for five high-impact local blockers. First, generalized CBS geometry is not adequate as the operational containment geometry for this enclave municipality: the generated municipality has eight components and 12 interior holes, while the official non-generalized 2025 feature has nine components and 22 holes; official municipal sources independently describe 22 Belgian enclaves and eight Dutch enclaves. Second, the generated graph has only two Dutch links, both to Alphen-Chaam, while official sources document shared Belgian-Dutch roads, cycle paths, sewerage, fire response and jurisdiction. Third, a generic proximity screen presents 100% direct major-river inundation stress through T+72 without a selected local hydraulic footprint. Fourth, six unrelated active hazards reuse the same neighbourhood ordering, conflicting with the municipality's named pluvial locations. Fifth, the joint international fire corps and Baarle Basic Life Support arrangement are absent from facilities and response state. Public water and government-service points remain appropriately display-only; physical power, drinking-water, wastewater, gas, telecom, staffing and restoration topology is unavailable or security-sensitive and is not fabricated.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek (CBS)",
+      "title": "Kerncijfers wijken en buurten 2025, table 86165NED, OData API",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM0744%27%29",
+      "accessedAt": "2026-09-02T14:25:40Z",
+      "edition": 2025,
+      "supports": [
+        "Official GM0744 population 7,205, density 95 per square kilometre, 2,004 residents aged 65+ and 1,111 one-person households.",
+        "Municipality, district and neighbourhood attributes and the rounding, null and disclosure semantics used in reconciliation.",
+        "Machine-readable OData; CBS open data are reusable under CC BY 4.0 and this table is an annual edition."
+      ]
+    },
+    {
+      "publisher": "PDOK / Centraal Bureau voor de Statistiek",
+      "title": "CBS Gebiedsindelingen 2025, non-generalized municipality and neighbourhood OGC API Features",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_niet_gegeneraliseerd/items?f=json&limit=100&datetime=2025-07-01T00%3A00%3A00Z&bbox=4.7,51.3,5.1,51.6",
+      "accessedAt": "2026-09-02T14:26:50Z",
+      "edition": 2025,
+      "supports": [
+        "The official non-generalized GM0744 MultiPolygon has nine polygon components and 31 rings: nine exterior rings and 22 interior holes.",
+        "The corresponding ten non-generalized neighbourhoods are present; Buitengebied Baarle-Nassau has eight polygon components and 20 rings, compared with seven components and 11 rings in the generated generalized bundle.",
+        "The generated national layer uses the separate generalized collection and retains only eight municipality components and 20 rings, so one component and ten enclave holes are lost.",
+        "Vector OGC API, annual 2025 administrative edition, CC BY 4.0; it is authoritative administrative geography rather than cadastral or incident-time jurisdiction confirmation."
+      ]
+    },
+    {
+      "publisher": "Gemeente Baarle-Nassau",
+      "title": "Verbreed Gemeentelijk Rioleringsplan 2021–2025",
+      "url": "https://web.archive.org/web/20240118173536id_/https://www.baarle-nassau.nl/fileadmin/Bestanden_BaarleNassau/Projecten/Verbreed_Gemeentelijk_Rioleringsplan_2021-2025_gemeente_Baarle_Nassau_de....pdf",
+      "accessedAt": "2026-09-02T14:30:44Z",
+      "edition": "Final 1 September 2020; plan period 2021–2025",
+      "supports": [
+        "The municipality and Baarle-Hertog share a sewer system.",
+        "The Baronie stress test identified twelve potential pluvial bottlenecks, including blocked intersections on Alphenseweg, Oordeelstraat, Bospad, Reuth, Uitbreidingsstraat, Molenstraat-Zuid and around Loswal, plus vulnerable buildings near Nonnenkuil–Loveren–Pastoor de Katerstraat, Smederijstraat–Geerstraat–Weverstraat and the centre.",
+        "Heat and drought were less precisely delimited; de-paving applies across the municipality and drought action prioritizes high sandy soils and retaining water.",
+        "This is an archived official policy PDF, not a machine-readable hydraulic grid; the plan period ended in 2025, no reuse licence or fixed data cadence is stated, and the underlying stress-test layer must be obtained and refreshed before numerical use."
+      ]
+    },
+    {
+      "publisher": "Gemeente Baarle-Hertog",
+      "title": "Samenwerking met Baarle-Nassau and official enclave description",
+      "url": "https://www.baarle-hertog.be/samenwerking-met-baarle-nassau",
+      "accessedAt": "2026-09-02T14:27:40Z",
+      "edition": "Live municipal pages, 2026",
+      "supports": [
+        "The two municipalities form a 30-enclave international puzzle and cooperate on roads, cycle paths, sewer construction or renewal, culture and a joint fire service.",
+        "The BGTS Baarle has legal personality and can take binding decisions for both municipalities.",
+        "The linked official page https://www.baarle-hertog.be/30-enclaves specifies 22 Belgian enclaves, seven Dutch counter-enclaves within the two largest Belgian enclaves, and one Dutch enclave in Belgian mainland.",
+        "These are current authoritative descriptions but expose no machine API, standard reuse licence or fixed update cadence."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Midden- en West-Brabant (VRMWB)",
+      "title": "Regionaal Risicoprofiel 2023–2027",
+      "url": "https://www.vrmwb.nl/media/qnmkutwa/regionaal-risicoprofiel-2023_2027.pdf",
+      "accessedAt": "2026-09-02T14:29:10Z",
+      "edition": "2023–2027",
+      "supports": [
+        "The official profile integrates cross-border and fire-risk profiles and explicitly treats Baarle-Nassau and Baarle-Hertog in the Dutch-Belgian 15-kilometre risk area.",
+        "Regional nature-fire mechanisms include forest and heath, adjoining Flemish nature, heat and drought, more hazardous conifer fuel, unpredictable spread, constrained suppression water, mobility impacts and vulnerable sites.",
+        "Extreme weather, flooding, digital disruption, earthquake, road transport and vital-infrastructure cascades are all reviewed qualitatively; the profile warns that quantitative evidence is insufficient for many risks.",
+        "Statutory profile updated at least once every four years; documentary rather than a machine event feed, with no general data-reuse licence stated."
+      ]
+    },
+    {
+      "publisher": "Brandweer Midden- en West-Brabant / VRMWB",
+      "title": "Dekkings- en spreidingsplan 2023–2027",
+      "url": "https://www.vrmwb.nl/media/knkaiojx/dekkings-en-spreidingsplan-2023_2027.pdf",
+      "accessedAt": "2026-09-02T14:29:10Z",
+      "edition": "July 2023, plan period 2023–2027",
+      "supports": [
+        "Baarle-Nassau is operationally intertwined with Baarle-Hertog and the same base-fire and escalation risk profile applies to both.",
+        "The plan describes international Dutch-Belgian volunteer response, an additional flexibly deployable fire engine, a planned formation of 22 Dutch plus eight Belgian volunteers, and a Baarle Basic Life Support team providing emergency medical help until the ambulance arrives.",
+        "VRMWB's current agreement page https://www.vrmwb.nl/actueel/vernieuwde-overeenkomst-brandweerzorg-baarle confirms the renewed joint international corps arrangement with Hulpverleningszone Taxandria; its 21 August 2025 incident page shows Belgian command at a shared waste facility because the reacting container stood on Belgian land.",
+        "The plan and incident pages support aggregate exercise fixtures and jurisdiction rules, not live appliance, crew, ambulance or station availability; no machine API or reusable operational-data licence is stated."
+      ]
+    },
+    {
+      "publisher": "Waterschap Brabantse Delta",
+      "title": "Open Data portaal and Beheerregister Waterlopen en Kunstwerken FeatureServer",
+      "url": "https://www.brabantsedelta.nl/actueel/kaarten-en-data/open-data-portaal/",
+      "accessedAt": "2026-09-02T14:28:05Z",
+      "edition": "Live service inspected 2 September 2026",
+      "supports": [
+        "The official portal permits viewing, filtering and downloading the latest geographic data as CSV, KML, Shapefile or GeoJSON and permits derived products under its open-unless-restricted terms.",
+        "The machine endpoint https://geoservices.brabantsedelta.nl/arcgis/rest/services/EXTERN/WEB_Beheerregister_Waterlopen_en_Kunstwerken/FeatureServer exposes RD New vector watercourses, structures, catchments and practical level areas with a stated daily revision frequency.",
+        "The current generated HWH/PDOK display snapshot contains 112 register points inside the generalized GM0744 geometry: 109 weirs, sewer pumps rg. Baarle-Nassau and rg. Ulicoten, and RWZI Baarle-Nassau.",
+        "The portal does not name a standard licence identifier; its explicit reuse permission must be retained and reviewed. Register geometry does not establish live status, capacity, flow, control, backup, topology or flood depth."
+      ]
+    },
+    {
+      "publisher": "Agentschap Digitaal Vlaanderen",
+      "title": "Voorlopig referentiebestand gemeentegrenzen 2025 and Wegenregister services",
+      "url": "https://www.vlaanderen.be/datavindplaats/catalogus/voorlopig-referentiebestand-gemeentegrenzen-toestand-01-01-2025-correctie-11-02-2025",
+      "accessedAt": "2026-09-02T14:31:35Z",
+      "edition": "Boundary state 1 January 2025, correction 11 February 2025; live service metadata updated August 2026",
+      "supports": [
+        "The complete 1:5,000 vector boundary dataset and WFS https://geo.api.vlaanderen.be/VRBG2025/wfs provide Belgian municipal geometry under public web-service usage rights and no public-access restriction; downloadable data are governed by the applicable free-reuse/GDI terms.",
+        "A focused official WFS query resolves NIS 13002 Baarle-Hertog as a MultiPolygon; Dutch and Belgian polygons must remain independent rather than being unioned or inferred from generalized holes.",
+        "The Wegenregister WFS https://geo.api.vlaanderen.be/Wegenregister/wfs is a continuously updated medium-scale vector network; the inspected state was 28 August 2026 and a focused feature identified road manager 13002, Gemeente Baarle-Hertog.",
+        "Wegenregister use requires the stated geographic-web-service terms and source attribution; its public road geometry does not supply incident closure, capacity, utility or response state."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM0744, Baarle-Nassau, Noord-Brabant and safety region Midden- en West-Brabant agree across the manifest, generated bundles and official 2025 records.",
+      "evidenceRefs": ["E01", "E02"],
+      "notes": [
+        "Generated feature id, bundle code, bundle name, province and exactly one safety-region membership agree.",
+        "The generated centre [4.889396303322323, 51.446916161170826] lies inside the generalized boundary.",
+        "Passing identity and label-point containment does not validate the lost enclave topology reviewed separately."
+      ]
+    },
+    "geography": {
+      "status": "fail",
+      "summary": "Generalization removes jurisdictionally material components and holes and is unsuitable for Baarle's operational containment and drilldown.",
+      "evidenceRefs": ["E02", "E04", "E08"],
+      "notes": [
+        "Generated GM0744 has eight polygon components and 20 rings, hence 12 holes; official non-generalized 2025 GM0744 has nine components and 31 rings, hence 22 holes.",
+        "Buitengebied Baarle-Nassau falls from eight components/20 rings to seven components/11 rings, and Buitengebied Ulicoten falls from three rings to two.",
+        "The missing topology agrees with the official 22-Belgian/8-Dutch enclave description and can change point containment, counts, hazard allocation, jurisdiction labels and click selection.",
+        "All ten records remain valid MultiPolygons and the centre passes, so this is a scale/fitness-for-purpose failure rather than corrupt JSON."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "The generated municipal record reproduces official 2025 totals and small-area population reconciles within normal CBS rounding.",
+      "evidenceRefs": ["E01", "E02"],
+      "notes": [
+        "Official/generated population is 7,205, density 95/km², age 65+ is 2,004 or 27.8%, and one-person households are 1,111.",
+        "Published neighbourhood population sums to 7,200, five below the municipality total or -0.069%; neighbourhood households sum to 3,245 and age 65+ to 2,010.",
+        "The allocator scales published weights to exactly 7,205 without rewriting official observations."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "Ten neighbourhoods and all 36 declared statistic fields are retained, with legitimate gaps preserved as null.",
+      "evidenceRefs": ["E01", "E02", "E03"],
+      "notes": [
+        "Core demographics, addresses, businesses, cars, homes, non-residential buildings, household size, density, doctor distance and supermarket distance cover 10/10 neighbourhoods.",
+        "Housing/value/social fields cover 9/10 and cars per household 8/10; district heating and public charging cover 0/10 and correctly remain unavailable rather than zero.",
+        "Largest published neighbourhoods are Buitengebied Baarle-Nassau 1,915, Hoogbraak 1,340, Dorp Noord 1,300, Centrumgebied 1,090 and Kern Ulicoten 600.",
+        "CBS social context cannot identify street-level pluvial hotspots, Belgian jurisdiction, transient visitors, live vulnerability or service priority."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "Three active BAG woonplaatsen and 30 BRT settlements are structurally coherent but are not population or jurisdiction substitutes.",
+      "evidenceRefs": ["E02", "E04"],
+      "notes": [
+        "BAG woonplaatsen are Baarle-Nassau, Castelre and Ulicoten; no generated place centre lies outside the generalized boundary.",
+        "BRT types comprise 21 buurtschappen, one deelkern, six gehuchten and two woonkernen.",
+        "Settlement labels, including border names, do not resolve the enclave land parcel, current occupancy, tourist population or emergency command authority."
+      ]
+    },
+    "transport": {
+      "status": "fail",
+      "summary": "The Dutch logical graph omits the Belgian side of the physically intertwined road and transit system.",
+      "evidenceRefs": ["E04", "E05", "E08"],
+      "notes": [
+        "The graph has degree two but only one unique neighbour: both N639 and N260 connect GM0744 to GM1723 Alphen-Chaam with synthetic nominal capacity 150.",
+        "There is no Belgian external node or Belgian road edge despite official joint infrastructure and a live Flemish Wegenregister; the existing 33-stop context even includes a Baarle-Hertog-labelled stop.",
+        "There is no ProRail station. GTFS stop areas remain display context and do not become passenger, evacuation or supply capacity.",
+        "Road adjacency is a logical mobility/supply proxy and must not be copied into physical power, water, drainage, gas or telecom topology."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "Official cross-border jurisdiction, joint fire response, rural first-response and shared sewer context are absent from operational model state.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07"],
+      "notes": [
+        "The current model gives every official neighbourhood neutral priority 2 and isHub=false and contains no response asset, Belgian authority or incident command variable.",
+        "VRMWB documents a joint international corps, an extra flexible engine and a BLS first-response team; those are plan-level aggregates, not live availability and must not be converted to guaranteed capacity.",
+        "The current public-context files expose 112 water-register points and three government-service registry points inside the generalized footprint, all with affectsSimulation=false or equivalent display-only semantics.",
+        "No complete public source supplies current crews, appliances, ambulances, feeder switching, water pressure zones, sewer controls, gas districts, telecom backhaul, facility beds/staff, stocks, backup autonomy or restoration priority."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten canonical presets execute at T+0/6/12/24/48/72 across all eight services with complete finite output.",
+      "evidenceRefs": ["E03", "E05", "E06"],
+      "notes": [
+        "Reproduction: MUNICIPALITY_AUDIT_CODE=GM0744 pnpm audit:model; one file and two tests passed in 28.19 seconds on 2 September 2026, with test execution 28.01 seconds. The national harness is recorded green for 342 municipalities × 10 scenarios × 6 checkpoints × 8 services.",
+        "Peak severity / maximum affected / T+72 attributable deprived person-hours are: severe storm 0.609294 / 1,140 / 98,540.736; pluvial 0.365114 / 1,955 / 49,050.243; river 1 / 3,045 / 248,656.992; coastal 0 / 0 / 5,366.371; heat 0.486608 / 513 / 39,242.582.",
+        "The remaining values are winter 0.704171 / 3,184 / 97,180.281; cyber 0.493400 / 2,031 / 87,071.830; earthquake 0.002570 / 0 / 660.751; wildfire 0.134445 / 0 / 43,093.673; compound 0.948659 / 4,823 / 267,603.213.",
+        "Coastal direct hazard is exactly zero; the coastal preset can still create attributable wind/dependency burden. Wildfire at T+24 has zero direct flame but smoke 0.267120. Earthquake remains a tiny remote synthetic screen.",
+        "At river T+72 the frame holds internal inundation stress 3.284626, severity 1, 3,045 affected people-equivalent and degraded status. These are deterministic pressure outputs, not measured depth, probability or forecast."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Determinism, finite bounds, exact no-event behavior, local allocation, reconciliation, ledger monotonicity and selected-layer invariance pass.",
+      "evidenceRefs": [],
+      "notes": [
+        "Every service availability remains in [0,1]; event dimensions, demand, delivery, affected people and attributable deprived person-hours are non-negative and cumulative ledgers never decrease.",
+        "At compound T+24 each of power, water, drainage, gas, telecom, mobility, facilities and supply has ten local rows summing to 7,205 residents and 4,789 affected people-equivalent; maximum observed absolute demand/delivery error is 8.9×10^-16.",
+        "For every preset/checkpoint, zero intensity produces exactly zero event dimensions, event severity, affected people and event-attributable deprived person-hours; seasonal ambient temperature remains separate context.",
+        "Repeated frames are identical and switching the displayed layer cannot alter simulation state."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "Operational containment loses enclave topology, direct river pressure lacks a local footprint and unrelated hazards reuse one seeded neighbourhood pattern.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E08"],
+      "notes": [
+        "Severe storm, pluvial flood, heatwave, winter storm, cyberattack and wildfire all rank Kern Ulicoten first, Centrumgebied second, Bedrijventerrein De Geer third, Dorp Noord fourth and Buitengebied Ulicoten fifth at representative T+24 frames; river saturation only swaps the first two after clipping.",
+        "Code inspection traces the order to the shared canonical seed and a region-id multiplier 0.82 + seededUnit(region id) × 0.36; no hazard-type or source footprint changes the rank.",
+        "The official pluvial review names intersections and building clusters in and around Baarle-Nassau centre, while nature-fire mechanisms depend on cross-border forest/heath, fuel, wind, access and suppression water.",
+        "Lost holes/components can also assign Belgian points to Dutch neighbourhood exposure and make visual hotspot precision jurisdictionally false."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "All eight aggregate cascades calculate coherently, but the only transfer graph omits official cross-border dependencies and joint response.",
+      "evidenceRefs": ["E03", "E04", "E06", "E07", "E08"],
+      "notes": [
+        "River T+72 availability is power 0.676112, water 0.573334, drainage 0.453951, gas 0.800472, telecom 0.494012, mobility 0.504986, facilities 0.470121 and supply 0.485119.",
+        "Compound T+24 availability is power 0.367995, water 0.374096, drainage 0.302655, gas 0.606110, telecom 0.286611, mobility 0.461780, facilities 0.407212 and supply 0.335961.",
+        "All services reuse the same two Dutch logical road links, while the officially shared sewer and Dutch-Belgian fire/facility arrangements are absent. Public water points and transit stops remain non-causal.",
+        "The current aggregate coefficients and logical-proxy disclosure avoid inventing physical utility topology, but exact availability must not be attributed to Enexis, Brabant Water, Brabantse Delta, telecom providers, facilities or Belgian operators."
+      ]
+    },
+    "causalTrace": {
+      "status": "warn",
+      "summary": "Causal ledgers close and a complete UI path is stable, but the interface exposes unsupported river precision and masks the operational geometry limitation.",
+      "evidenceRefs": ["E02", "E04", "E06"],
+      "notes": [
+        "The model harness verifies hazard, direct-service, dependency, intervention, network, allocation and reconciliation closure, changed-driver explanations and matched zero-intensity accounting.",
+        "A reproducible headless Chromium path selected Baarle-Nassau, river flood, T+72 and each of eleven map layers with no console, page or same-origin response errors; the municipality/scenario/layer/checkpoint path required four operator activations.",
+        "At T+72 the hazard view says '100% inundation stress' and 'evidence class scenario'; it does not surface that the local direct value is a generic derived proximity screen with no selected hydraulic layer.",
+        "The interface calls CBS generalized polygons official geography, but does not warn that ten of 22 enclave holes and one Dutch component have been removed for this operational drilldown."
+      ]
+    },
+    "recovery72h": {
+      "status": "pass",
+      "summary": "The current recovery guards respect continuing forcing and standing water through T+72, although local restoration parameters remain uncalibrated.",
+      "evidenceRefs": ["E03", "E05", "E06"],
+      "notes": [
+        "River inundation stress remains 3.284626 from T+24 through T+72 and the frame remains degraded rather than beginning generic repair while water persists.",
+        "Compound retains internal flood stress 0.533834 at T+72, remains critical and reaches 4,823 affected people-equivalent and 267,603.213 attributable deprived person-hours.",
+        "Storm, pluvial, winter and wildfire are operational by T+72 without reducing cumulative harm; heat retains weak forcing under its 336-hour duration.",
+        "These are conservative deterministic mechanics, not local recession, international response, crew mobilization, shared-sewer recovery or operator restoration forecasts."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": ["power", "water", "drainage", "gas", "telecom", "mobility", "facilities", "supply"]
+  },
+  "findings": [
+    {
+      "id": "GM0744-DATA-001",
+      "severity": "informational",
+      "category": "identity",
+      "status": "fixed",
+      "summary": "Generated identity, safety-region membership and official totals are coherent.",
+      "evidence": "Code, name, province, safety region, 2025 editions and centre containment agree. CBS gives 7,205 residents and neighbourhood rows sum to 7,200, a normal -0.069% small-area rounding difference reconciled without altering source values.",
+      "action": "Retain source editions, retrieval time, null semantics and published-versus-allocated reconciliation on every refresh."
+    },
+    {
+      "id": "GM0744-ENCLAVE-001",
+      "severity": "high",
+      "category": "geography",
+      "status": "open",
+      "summary": "Generalized operational geometry loses one Dutch component and ten Belgian enclave holes.",
+      "evidence": "Generated GM0744 has eight polygon components and 12 holes; fresh E02 non-generalized 2025 geometry has nine components and 22 holes. Official E04 describes the same 22 Belgian enclaves and eight Dutch enclaves. The loss also reduces Buitengebied Baarle-Nassau from eight to seven components and from 12 to four holes, so containment, point counts, jurisdiction, local allocation and click drilldown can be wrong rather than merely cartographically simplified.",
+      "action": "Use full-resolution, versioned Dutch and Belgian boundary layers for all operational containment, allocation and interaction; reserve generalized geometry for national overview only and display jurisdiction explicitly."
+    },
+    {
+      "id": "GM0744-BORDER-NET-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "The graph omits the Belgian side of Baarle's road, transit and shared-infrastructure reality.",
+      "evidence": "The graph contains only N639 and N260 to GM1723 and no Belgian node, while E04 documents joint roads, cycle paths and sewer work and E08 exposes current Baarle-Hertog road segments. Thirty-three contained GTFS stop areas include a Baarle-Hertog-labelled stop, but transit remains display-only. The gap breaks mobility/supply reachability and makes the same Dutch-only links especially inappropriate as proxies for all utilities.",
+      "action": "Join NWB and the Flemish Wegenregister at versioned border nodes and introduce a non-population Belgian context node for evidenced mobility/supply relations. Model shared sewer and response as separate sourced relations, never as inferred road edges."
+    },
+    {
+      "id": "GM0744-RIVER-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "A generic major-river proximity screen is presented as sustained, municipality-wide direct inundation evidence.",
+      "evidence": "River T+24 and T+72 both carry internal inundation stress 3.284626 and severity 1; T+72 reports 3,045 affected people-equivalent, degraded status and 248,656.992 attributable deprived person-hours. The browser calls this '100% inundation stress'. No named LIWO/Brabantse Delta hydraulic scenario, connected flow path, depth unit or Belgian-Dutch boundary layer is selected; E03 instead supplies specific pluvial/high-sandy-soil evidence and E07 only water-system registers.",
+      "action": "Mark direct major-river output unsupported or conservatively zero until an expert-approved hydraulic footprint intersects full-resolution GM0744. Preserve separately evidenced indirect effects and state that missing direct evidence is unknown, not an all-clear."
+    },
+    {
+      "id": "GM0744-SPATIAL-001",
+      "severity": "high",
+      "category": "geography",
+      "status": "open",
+      "summary": "Six unrelated hazards reuse one exact synthetic neighbourhood ordering.",
+      "evidence": "Severe storm, pluvial, heat, winter, cyber and wildfire all rank Kern Ulicoten, Centrumgebied, De Geer, Dorp Noord and Buitengebied Ulicoten first through fifth at T+24. Code applies a shared seed and region-id multiplier, not hazard-specific exposure. E03's named pluvial intersections and vulnerable building clusters are mostly in/around central Baarle, while E05's fire mechanism depends on forest/heath, wind, access and suppression water.",
+      "action": "Replace the common rank with source-specific exposure adapters and full-resolution polygon overlays. Until then, label local patterns synthetic and prohibit hotspot or street-level precision language."
+    },
+    {
+      "id": "GM0744-PLUVIAL-001",
+      "severity": "medium",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The pluvial scenario cannot reproduce the municipality's twelve named access and building bottlenecks.",
+      "evidence": "At T+24 the model produces flood stress 0.300679, 1,955 affected people-equivalent and drainage availability 0.460099, led by Kern Ulicoten through the common seed. E03 names Alphenseweg, Oordeelstraat, Bospad, Reuth, Uitbreidingsstraat, Molenstraat-Zuid, Loswal and several central building clusters, but no stress-test grid, elevation, surface-flow, sewer catchment or pump relation enters the allocation.",
+      "action": "Obtain the municipality/Water- en Klimaatkring Baronie stress-test data with design event, units, vintage and licence, and combine it with licensed elevation and water-system context. Do not digitize the expired PDF into false depths."
+    },
+    {
+      "id": "GM0744-FIRE-001",
+      "severity": "medium",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The canonical wildfire is a remote smoke exercise and cannot represent Baarle's cross-border nature-fire mechanism.",
+      "evidence": "At T+24 the canonical frame has direct flame 0, smoke 0.267120, severity 0.134445 and zero affected residents, while E05 describes forest/heath, adjacent Flemish nature, drought, conifer fuel, suppression-water and mobility mechanisms. E06 establishes an international response arrangement. Zero direct flame is valid for the chosen remote ignition, but it is not evidence that local direct fire exposure is zero.",
+      "action": "Add a selectable full-polygon cross-border fire exercise using licensed Dutch and Flemish land-use/fuel eligibility and event-valid weather; keep ignition, fuel moisture, spread, occupancy and suppression explicit assumptions."
+    },
+    {
+      "id": "GM0744-RESPONSE-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Facilities and response omit the joint international fire corps, BLS first response and jurisdiction handoff.",
+      "evidence": "E06 documents one international corps, an extra flexible engine, a plan formation of 22 Dutch plus eight Belgian volunteers and a BLS team until ambulance arrival. A 2025 shared-waste-site incident placed Belgian command on the Belgian parcel. The model has no response assets, station/BLS role, border authority or command variable; all ten neighbourhoods are neutral non-hubs and generic facilities depend mainly on hazard and power.",
+      "action": "Add a versioned aggregate response/jurisdiction fixture from the public plans and agreements, with parcel-level authority from full geometry. Never interpret planned staff/appliances as live availability or expose sensitive dispatch details."
+    },
+    {
+      "id": "GM0744-WATERCTX-001",
+      "severity": "informational",
+      "category": "service",
+      "status": "fixed",
+      "summary": "Public water and government-service registers are visible without being misrepresented as live capacity.",
+      "evidence": "Within the current generalized footprint the HWH/PDOK snapshot has 109 weirs, two named sewer pumps and RWZI Baarle-Nassau; the KVK/PDOK context has one public-administration and two public-order/safety registry points. Provenance and partial-coverage caveats are retained and these features do not affect simulation.",
+      "action": "Keep the layers display-only, recompute containment after full-resolution geometry, prefer the waterboard's daily register where its terms permit, and never infer status, catchment, control, backup, staffing or emergency role from a point."
+    },
+    {
+      "id": "GM0744-MET-001",
+      "severity": "medium",
+      "category": "hazard",
+      "status": "accepted-limitation",
+      "summary": "Weather, earthquake and cyber values are deterministic exercise forcing rather than local observations, forecasts or threat intelligence.",
+      "evidence": "Storm, rain, heat, winter, fire smoke and compound outputs are bounded and repeatable, but no event-valid KNMI field is selected. Coastal direct hazard is zero, earthquake is a tiny remote screen and cyber is a hypothetical disruption. E05 is qualitative risk context rather than numerical event forcing.",
+      "action": "Offer pinned KNMI observation/forecast fixtures with issue time, valid time, units, uncertainty and missing-data behavior. Retain transparent deterministic exercises for cyber/earthquake when authorized local data are unavailable and never label them forecasts."
+    },
+    {
+      "id": "GM0744-TOPOLOGY-001",
+      "severity": "medium",
+      "category": "limitation",
+      "status": "accepted-limitation",
+      "summary": "Physical service topology and live restoration resources remain unavailable or security-sensitive.",
+      "evidence": "No consumed public source provides feeder/switch state, drinking-water pressure zones, shared sewer controls, gas districts, telecom backhaul, facility beds/staff, fuel/stocks, crews, backups or restoration priority across both countries. E07 supplies public water register geometry, not live causal state. Aggregate coefficients and logical transfer avoid fabricating operator networks but cannot validate exact availability.",
+      "action": "Integrate public aggregate zones and authorized operator data where available; otherwise preserve unknown fields, uncertainty and synthetic fallback with no operator attribution. Do not reverse-engineer sensitive topology from public points."
+    },
+    {
+      "id": "GM0744-CONTRACT-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The complete numerical, causal, allocation, recovery and browser interaction contract passes.",
+      "evidence": "The focused gate passed one file/two tests in 28.19 seconds across all ten presets, six checkpoints and eight services. Values are finite and deterministic, zero intensity is exact, allocations reconcile, causal ledgers close, cumulative harm is monotone and selected layers do not alter state. A headless path exercised all eleven map layers without browser errors.",
+      "action": "Keep GM0744 and national ALL coverage in regression, add enclave topology/cross-border/unsupported-river assertions, and visibly distinguish official context, derived screening, synthetic assumptions and unknown local evidence."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Use full-resolution Dutch and Belgian enclave geometry for every operational containment, allocation and drilldown path.",
+      "files": [
+        "scripts/fetch-municipalities.mjs",
+        "scripts/fetch-realism-data.mjs",
+        "scripts/validate-generated-data.mjs",
+        "apps/web/public/data/netherlands-municipalities.geojson",
+        "apps/web/public/data/regions/GM0744.json",
+        "apps/web/src/components/MapView.tsx",
+        "packages/sim-core/src/municipality-coverage.test.ts"
+      ],
+      "validation": "Preferred Dutch source: PDOK/CBS gemeente_niet_gegeneraliseerd and buurt_niet_gegeneraliseerd OGC API Features, annual 2025 vector edition, CC BY 4.0. Preferred Belgian source: Digitaal Vlaanderen VRBG2025 WFS https://geo.api.vlaanderen.be/VRBG2025/wfs, complete 1:5,000 vector state 2025-01-01 corrected 2025-02-11; public access under geographic-web-service/free-reuse GDI terms, with service metadata maintained in 2026. Persist collection, edition, CRS, retrieval, licence and independent jurisdiction ids; never union the two countries. Assert exactly nine Dutch components/22 holes and the official Belgian overlay, validate representative points in every enclave/counter-enclave, recompute all public-context containment, and keep generalized geometry only at overview zoom."
+    },
+    {
+      "summary": "Build an explicit cross-border mobility graph and separately sourced shared-service relations without importing Belgian population into CBS reconciliation.",
+      "files": [
+        "scripts/fetch-realism-data.mjs",
+        "apps/web/public/data/transport-network.json",
+        "packages/sim-core/src/network.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/src/components/MapView.tsx",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Use RWS NWB monthly CC0 Dutch geometry and Digitaal Vlaanderen Wegenregister WFS https://geo.api.vlaanderen.be/Wegenregister/wfs, a continuously updated medium-scale vector service (inspected dataset state 2026-08-28) under geographic-web-service terms, no public-access restriction and required source attribution. Create stable cross-border road nodes and an external BE-13002 context node with zero Dutch population; keep direction, mode, source version and unknown capacity. Municipal E03/E04 documents shared sewerage but exposes no API, standard licence or cadence, so represent only a manually reviewed, versioned shared-relation flag until operator-authorized aggregates exist. Tests must show Belgian reachability, preserve 7,205-person reconciliation and prevent road edges from automatically severing power, water, drainage, gas or telecom."
+    },
+    {
+      "summary": "Suppress unsupported major-river precision and replace generic pluvial ranking with approved hydraulic/stress-test data.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/public/data/hazards/GM0744-water-context.geojson",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "For river flooding, use Rijkswaterstaat/WMCN LIWO catalogue/API https://basisinformatie-overstromingen.nl/api/v2 and GeoServer OWS https://basisinformatie-overstromingen.nl/geoserver/ows only for an expert-selected named scenario; LIWO is release-versioned rather than fixed cadence, resolution/units differ by layer, and no general redistribution licence is stated, so retain scenario/layer id, version, resolution, units, retrieval and terms review. Until a connected footprint is approved, direct GM0744 river output at all six checkpoints must be unsupported/unknown or conservative zero, never 100% stress. For pluvial/drainage, request the current Baronie municipal stress-test raster because E03's PDF layer has no public API, licence or cadence. Supporting public WBD FeatureServer data are RD New vector, revised daily, downloadable to GeoJSON under explicit open/derived-use portal terms but no named standard licence; they provide watercourses/structures/catchments, not flood depth. Assert named hotspot intersections, full-boundary clipping, null semantics and exact reconciliation."
+    },
+    {
+      "summary": "Replace the common seeded neighbourhood rank with hazard-specific Dutch-Belgian exposure adapters, starting with wildfire and weather.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/public/data/hazards/GM0744-nature-fire-context.geojson",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Preferred Dutch eligibility source: PDOK BRT TOP10NL terrain_vlak OGC API https://api.pdok.nl/brt/top10nl/ogc/v1, 1:10,000 vector, annual, CC BY 4.0. Preferred Flemish source: Departement Omgeving/MercatorNet Landgebruik Vlaanderen 2025 WCS/WMS documented at https://www.vlaanderen.be/datavindplaats/catalogus/landgebruik-vlaanderen-toestand-2025, complete 10 m raster, state-year 2025 published 2026-06-01, public/cost-free GDI use with redistribution terms review and periodic rather than guaranteed cadence. Event-valid weather can use KNMI Data Platform/EDR https://api.dataplatform.knmi.nl/edr/v1/docs, ten-minute observations, continual cadence, CC BY 4.0, with delays/missingness and no forecast equivalence. Keep ignition, fuel moisture, tourist/facility occupancy and suppression as explicit assumptions unless sourced. Assert different source footprints produce different ranks and zero intensity stays exact."
+    },
+    {
+      "summary": "Represent public aggregate international response, BLS and jurisdiction rules while keeping live/sensitive capacity unknown.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/public/data/scenarios/GM0744-cross-border-response.json",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "No machine API, standard reuse licence or fixed update cadence was found for the VRMWB/Taxandria agreement, BLS role or BGTS rules. Create a manually reviewed, versioned aggregate fixture from E04/E06, recording plan period 2023–2027, agreement date 2023-12-15, review date and documentary reuse caveat. Full-resolution Dutch/Belgian polygons determine jurisdiction; plan formation and appliances are capabilities, never live staffed resources. KVK/PDOK government-service OGC API https://api.pdok.nl/kvk/overheidsdiensten-geharmoniseerd/ogc/v1 may remain Public Domain Mark 1.0 registry context with provider cadence/coverage unknown, not emergency capacity. Require operator/authority feeds for live status; otherwise use explicitly synthetic/unknown response timing without publishing dispatch, crew or security-sensitive topology."
+    }
+  ],
+  "residualLimitations": [
+    "This is an exercise-model audit of the first 72 hours, not a forecast, emergency instruction, legal jurisdiction determination, flood assessment or operator commitment.",
+    "CBS 2025 counts are rounded/suppressed and neighbourhood totals need not exactly equal the municipality total; null district-heating and charging fields are unknown, not zero.",
+    "The generated label point is valid, but generalized CBS geometry is not fit for operational enclave containment until the full-resolution correction is applied.",
+    "Dutch and Belgian boundary sources have different legal, scale, CRS, edition and reuse regimes; neither may be silently substituted for cadastral or incident command confirmation.",
+    "BAG woonplaatsen, BRT settlements and GTFS stop names do not provide present occupancy, tourists, passenger loads, jurisdiction or evacuation demand.",
+    "The archived municipal vGRP ended in 2025 and its stress-test evidence needs a current source-owner refresh; it is not a machine-readable depth raster.",
+    "LIWO scenario selection and hydraulic interpretation require domain-owner review; no generic distance value may be represented as metres, probability or municipality-wide inundation.",
+    "WBD/HWH water assets are partial registers and do not establish live operation, direction, catchment, capacity, control, backup or restoration.",
+    "The international fire/BLS plan describes planned capability, not current staffing, appliance availability, response time or guaranteed medical outcome.",
+    "Weather observations can be delayed or missing and are not forecasts; qualitative regional risk evidence does not calibrate event intensity.",
+    "No complete public physical electricity, drinking-water, shared-wastewater, gas, telecom, facility, stock, fuel, staff, inventory or repair topology is consumed; sensitive gaps remain explicitly unknown or synthetic.",
+    "NWB/Flemish road geometry is static/current reference context rather than closure or capacity state, and road adjacency cannot stand in for utility topology.",
+    "Transient populations, cross-border alerting and language, household stocks, care demand, evacuation compliance, cascading misinformation, public health and recovery beyond T+72 remain outside validated scope."
+  ],
+  "provinceReviewFlags": [
+    "Noord-Brabant/PDOK/CBS: use non-generalized operational geometry for Baarle-Nassau and jointly validate all 30 enclave/counter-enclave polygons with Digitaal Vlaanderen and both municipalities.",
+    "Noord-Brabant/VRMWB/Taxandria/BGTS Baarle: review explicit international jurisdiction, joint fire/BLS and shared-infrastructure aggregates without turning plans into live capacity.",
+    "Waterschap Brabantse Delta/municipality: publish or authorize the current Baronie stress-test raster with event, units, resolution, vintage, cadence and licence before local pluvial calibration; screen major-river output against a named LIWO pathway.",
+    "Rijkswaterstaat/Digitaal Vlaanderen/operators: join public road networks at stable border nodes while keeping event closures, service-specific zones and security-sensitive utility topology separate."
+  ]
+}

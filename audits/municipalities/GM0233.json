@@ -1,0 +1,474 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0233",
+    "name": "Ermelo",
+    "province": "Gelderland",
+    "safetyRegion": "Noord- en Oost-Gelderland"
+  },
+  "agent": {
+    "taskName": "municipality_gm0233",
+    "agentId": "/root/nl_realism_audit",
+    "completedAt": "2026-09-03T01:00:33Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "GM0233 is identity-correct, deterministic and numerically complete across all ten presets, six required checkpoints and eight services, but it is not locally calibrated enough for release as an operational Ermelo first-72-hour forecast. A generic Rhine/Meuse/IJssel preset produces a persistent precise local flood/service trajectory without a selected hydraulically connected event; eight unrelated hazards reuse one complete neighbourhood order; and a controlled fire source inside official BRT heath and the 3,959-hectare bosgebied neighbourhood ranks that source neighbourhood only eleventh of twenty. Those defects are material in a Veluwe municipality with extensive forest/heath, recreation, a care campus, Veldwijk, the Randmeren edge and A28/rail dependencies. Public provider, antenna, school, hospital, road and water-register data are useful context, but do not supply safe physical topology, live state, capacity or restoration. The responsive UI clearly labels scenario/context in several places and correctly explains Waterinfo NoData, yet it still puts exact local service percentages beside a named river event without an adjacent municipality-specific unsupported-event warning.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek / PDOK / Kadaster",
+      "title": "E01 — GM0233 official 2025 statistics, generalized geography, BAG place and BRT terrain",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM0233%27%29&%24select=WijkenEnBuurten%2CGemeentenaam_1%2CAantalInwoners_5%2CBevolkingsdichtheid_34%2Ck_65JaarOfOuder_12%2CEenpersoonshuishoudens_30",
+      "accessedAt": "2026-09-03T00:15:00Z",
+      "edition": "CBS 2025; BAG/BRT/PDOK services inspected 3 September 2026",
+      "supports": [
+        "The annual CC BY 4.0 CBS table identifies GM0233 as Ermelo and reports 28,131 residents, density 328 per square kilometre, 24.9% aged 65 or older and 4,119 one-person households. Published small-area values may be rounded, suppressed, unavailable or not applicable; null and Unknown must not become zero.",
+        "The CC BY 4.0 generalized CBS centre [5.6549003146949,52.28799642816905] lies inside GM0233. The BAG Ermelo label point lies inside; BAG is exposed through https://api.pdok.nl/kadaster/bag/ogc/v2/collections/woonplaats under Public Domain Mark 1.0 and is normally refreshed daily.",
+        "BRT TOP10NL at https://api.pdok.nl/kadaster/brt-top10nl/ogc/v1 is an annual CC BY 4.0 source. Feature cec3ae1c-df53-544f-b588-fa877e7afe21 is typed heide; its source actuality is 2014-01-01 and registration date 2015-11-01. Audit point [5.677948676551851,52.28615769153864] lies in it and in BU02330401 Verspreide huizen bosgebied. This proves static geometry containment only, not current fuel, ignition, spread, access or suppression.",
+        "The twenty published neighbourhood populations sum to 28,135, four above the municipality total (+0.014%); deterministic allocation reconciles exactly to 28,131. Registered residents do not establish event-time care-campus occupancy, staff, visitors, recreation guests, commuters or responders."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Noord- en Oost-Gelderland",
+      "title": "E02 — Regionaal Risicoprofiel 2025–2028 and partner responsibilities",
+      "url": "https://www.vnog.nl/sites/default/files/2024-11/VNOG%20Risicoprofiel%202025-2028_def.pdf",
+      "accessedAt": "2026-09-03T00:20:00Z",
+      "edition": "Final profile adopted 12 December 2024 for 2025–2028; annex inspected 3 September 2026",
+      "supports": [
+        "The adopted profile covers 22 municipalities and names GHOR, police, municipalities, water boards, Rijkswaterstaat, ProRail, Liander, Vitens, Gasunie and KPN as partners. It establishes governance and regional risk context, not event-time staffing, completion, service levels or restoration.",
+        "Regional characteristics include extensive forest/heath, care institutions and recreation. The profile treats flooding, extreme weather, prolonged heat/drought, nature fire, electricity, drinking water, telecom and cyber disruption as distinct risks and functional chains.",
+        "Neither the profile nor its public annex selects a GM0233 Rhine/Meuse/IJssel boundary hydrograph, defence failure, Randmeren overtopping case, connected inundation footprint, arrival/recession curve or impact calibration. The public documents have no fixed operational API cadence or blanket machine-data reuse licence."
+      ]
+    },
+    {
+      "publisher": "Gemeente Ermelo",
+      "title": "E03 — Local nature-fire, evacuation, emergency-support and care-continuity context",
+      "url": "https://www.ermelo.nl/veiligheid/natuurbrand",
+      "accessedAt": "2026-09-03T00:25:00Z",
+      "edition": "Current municipal pages and municipal-hosted evacuation model inspected 3 September 2026",
+      "supports": [
+        "The municipality warns that fire can spread rapidly in dry nature and that access for emergency services must remain clear. Its hosted recreation-terrain evacuation model at https://www.ermelo.nl/fileadmin/Site_Ermelo/projecten/vitale_vakantieparken/Ontruimingsplan_recreatieterreinen.pdf requires wind, temperature and drought information, a second vehicle exit, clear gates/routes, guest counts, staff and communications. Planning requirements are not incident state or guaranteed evacuation capacity.",
+        "The official page https://www.ermelo.nl/veiligheid/pilot-noodsteunpunt-speuld describes Speuld as a pilot used to investigate how an emergency support point could work with VNOG. It does not establish a permanently active, stocked, staffed or reachable site.",
+        "The municipal page https://www.ermelo.nl/ondernemen-in-ermelo/bedrijfsbezoeken/s-heeren-loo reports roughly 550–600 clients with complex support needs and 1,500 employees in Ermelo and explicitly discusses continuity of vital processes during prolonged power loss or food-chain stagnation. The current Veldwijk page also describes continuing specialist care. These web pages have no stable operational API, fixed refresh cadence or general machine reuse licence."
+      ]
+    },
+    {
+      "publisher": "Gemeente Ermelo / Waterschap Vallei en Veluwe",
+      "title": "E04 — Ermelo pluvial surfaces, sewer planning and regional climate/water data routes",
+      "url": "https://geo.ermelo.nl/rest/erm_128_RUI_klimaatatlas_wateroverlast_ap/MapServer/26?f=pjson",
+      "accessedAt": "2026-09-03T00:30:00Z",
+      "edition": "Municipal climate-atlas service published in the 2021/2022 StoryMap; PWR 2025–2029; services inspected 3 September 2026",
+      "supports": [
+        "The official ArcGIS MapServer exposes queryable Ermelo layers in RD New for Bui 08/09/10, 70, 90 and 160 mm cases, including water against facades, road passability and water on the surface. Layer 26 is the 70 mm water-on-ground Feature Layer with DEPTH2D classes and JSON/GeoJSON/PBF query capability. The related public Web Map b2d41d67075948cc8fd0580b4adfbb7 names the Ermelo Bui 09 and 70 mm layers.",
+        "The municipal StoryMap describes the 29 mm in one hour and 70 mm in one hour models as including paved runoff and sewer response, excluding unpaved runoff, being more reliable in built-up areas than rural areas, and not describing how long water remains. Its Randmeren high-water map is a separate mechanism and describes risk as negligible under that map's assumptions; neither statement is a current forecast or all-clear.",
+        "Municipal documents identify Veldzicht and Kerkdennen as known nuisance locations and explain that the sewer model required updating after storage/disconnection changes. The 2025–2029 Programma Water en Riolering uses risk-driven management. PDF/legal planning evidence is not a live hydraulic state.",
+        "The service has no copyright text, licenseInfo, termsOfUse, fixed refresh cadence or explicit model version in the inspected metadata. It is integration-ready for visual/query testing but causal reuse requires owner-confirmed licence, version, CRS, rainfall duration, depth units, coverage and NoData. Waterschap Vallei en Veluwe publishes downloads/WFS and a time-stamped Waterbeeld at https://www.vallei-veluwe.nl/actueel/cijfers-en-meetgegevens/; current regional conditions must remain observation/context, never an arbitrary T+72 forecast."
+      ]
+    },
+    {
+      "publisher": "WMCN / Rijkswaterstaat / KNMI / Het Waterschapshuis / IPO",
+      "title": "E05 — Flood, water, weather, earthquake, water-register and combustible-nature integration routes",
+      "url": "https://iplo.nl/thema/water/applicaties-modellen/berichtgeving-crisismanagement/liwo/",
+      "accessedAt": "2026-09-03T00:35:00Z",
+      "edition": "LIWO 2025.1.6; live/public services inspected 3 September 2026",
+      "supports": [
+        "LIWO and OWS https://basisinformatie-overstromingen.nl/geoserver/ows provide versioned professional flood scenarios requiring specialist interpretation. Any causal use must preserve release/event, source water body, boundary hydrograph and datum, defence/breach/overtopping state, connected footprint, depth/velocity/arrival/recession/dewatering, probability, native resolution, layer licence, coverage and NoData. LIWO is not a live forecast and does not select an Ermelo event.",
+        "RWS Waterinfo latest observations are generally produced every ten minutes and are CC0 unless a component states otherwise. The deployed point-in-polygon result has zero water-level and zero discharge stations in GM0233. A station is not a continuous hydraulic surface or defence state; no municipal match is NoData, never zero level or safe. KNMI EDR exposes issue/observation/valid-time weather collections, commonly under CC BY 4.0, while KNMI FDSN exposes an automatically updated CC BY 4.0 event catalogue; neither point/current feed may be extrapolated silently through T+72.",
+        "HWH Kunstwerken IMWA OGC https://api.pdok.nl/hwh/waterschappen-kunstwerken-imwa/ogc/v2 is weekly and HWH Waterketen DAMO OGC https://api.pdok.nl/hwh/waterschappen-waterketen-damo/ogc/v1 has contributor-dependent completeness/cadence; both are CC BY-SA 4.0. Their deployed GM0233 count is zero, which is incomplete contribution/coverage rather than proof of no drains, sewers, pumps, weirs, treatment assets or water pathways.",
+        "IPO's Public Domain combustible-nature dataset is discoverable at https://data.overheid.nl/dataset/13235-natuurbranden and queryable as layer ISOR_RK:isor_brandbaar_natuurgebied through https://servicespub.risicokaart.nl/geoserver/ISOR_RK/wfs?service=WFS&request=GetCapabilities. Metadata was updated 19 February 2026. It can establish static eligible nature areas of at least 100 hectares, not current fuel/moisture, ignition, plume, incident perimeter or safety."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / ProRail / OVapi / NDW",
+      "title": "E06 — Authoritative road, rail, timetable and event-valid road context",
+      "url": "https://downloads.rijkswaterstaatdata.nl/nwb-wegen/geogegevens/shapefile/NWB-light/01-08-2026.zip",
+      "accessedAt": "2026-09-03T00:40:00Z",
+      "edition": "NWB 1 August 2026; ProRail, GTFS and NDW services inspected August–September 2026",
+      "supports": [
+        "Monthly CC0 NWB geometry is downloadable and exposed through OGC at https://api.pdok.nl/rws/nationaal-wegenbestand-wegen/ogc/v1. The generated graph has seven logical GM0233 edges to Harderwijk, Putten and Apeldoorn on A28, N302, N303, N310 and N796; the two A28 edges share physical corridor NWB-road-28 and are consecutive directions, not independent parallel capacity.",
+        "Three logical boundary connections are represented with a minimum 0.100 km length, while all regional links receive the same nominal 150 scenario-unit ceiling and A28 links 260. Those are graph/generalized scenario semantics, not measured link length, vehicles, emergency access, freight, repair or evacuation throughput.",
+        "ProRail's CC0 service identifies Ermelo station and the retrieved OVapi feed supplies 41 stop areas. Static geometry and timetable context do not prove event-time operation, accessibility, train/bus capacity or restoration. NDW current DATEX at https://opendata.ndw.nu/actueel_beeld.xml.gz is CC0 event-valid context; zero intersecting deployed records means Unknown, not every road open through T+72."
+      ]
+    },
+    {
+      "publisher": "Stichting Mijn Aansluiting / Liander / Vitens / Netbeheer Nederland / RDI / DUO / RIVM",
+      "title": "E07 — Public provider, grid-planning, telecom, education and acute-care context",
+      "url": "https://public.geodata.mijnaansluiting.nl/geoserver/mijnaansluiting_open/ows",
+      "accessedAt": "2026-09-03T00:45:00Z",
+      "edition": "Provider records 2025-09-07 to 2026-03-24; deployed planning/register snapshots retrieved 2026; RIVM acute-care v1.1",
+      "supports": [
+        "The Public Domain provider WMS/WFS returns Liander electricity (record 2026-03-24) and gas (2025-12-17), Vitens drinking water and Ziggo media (both 2025-09-07) at the municipal reference point, and no drainage provider. A single point identifies responsibility context only, not complete coverage, physical topology, live state, capacity, quality or restoration; an empty discipline is Unknown.",
+        "The Netbeheer Nederland public sample for postcode 3852ZX identifies OS HARDERWIJK 10-2i and large-user planning/queue data: withdrawal 73 MW existing versus 77 MW required, injection 97/47 MW, TenneT class 3/3 and 27 projects with earliest year 2030. Capacity/projects are generally quarterly and queues monthly; no precise open-licence identifier or contractually stable API was established. One planning sample is not current household load, outage, feeder topology, switching or T+72 reserve.",
+        "The deployment assigns 57 RDI antenna-installation records and 24 DUO education records to GM0233. RDI WFS is statutory installation-location context with no stated reuse licence/fixed cadence; DUO's machine dataset https://onderwijsdata.duo.nl/dataset/c416acd1-e083-4ec6-9203-3b20f98fe143 is refreshed daily around 06:15 under CC Attribution. Antennas and schools do not prove coverage/backhaul/power, shelter role, opening, occupancy, backup or stock.",
+        "RIVM acute-care v1.1 at https://datacatalogus.rivm.nl/dataset.xhtml?persistentId=doi:10.21945/8E767B2D-9CED-4A85-A95D-3AC1A608C663 is CC0 and identifies St Jansdal Harderwijk about 6.56 km straight-line from the GM0233 reference point as a 24/7 SEH/acute-obstetrics site with 18 treatment rooms and 24,660 reported 2025 visits. Questionnaire/register context is not travel time, acceptance, live beds, staffing, backup, supply or incident capacity."
+      ]
+    },
+    {
+      "publisher": "Rijksoverheid / Gemeente Ermelo",
+      "title": "E08 — Official first-72-hour household preparedness guidance",
+      "url": "https://www.ermelo.nl/veiligheid/denk-vooruit",
+      "accessedAt": "2026-09-03T00:50:00Z",
+      "edition": "Current guidance inspected 3 September 2026",
+      "supports": [
+        "Official guidance says help can take time and residents should be prepared to manage the first 72 hours. National guidance at https://www.rijksoverheid.nl/vraag-en-antwoord/veiligheidsregios-en-crisisbeheersing/wat-zit-er-in-een-noodpakket includes three litres of water per person per day, food, radio, power bank and medicines.",
+        "This is preparedness advice, not an observation of Ermelo household stocks, a guarantee that help arrives after 72 hours, a municipal distribution plan, or a power/water/telecom/service recovery target.",
+        "The public pages provide no event-time municipal dataset, observation time, fixed operational cadence or blanket machine-data licence. Preparedness, reception, distribution and recovery must remain measured/confirmed, assumed or Unknown as separate states."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "Official code, name, province, safety region, centre and headline demography agree.",
+      "evidenceRefs": ["E01", "E02"],
+      "notes": [
+        "Manifest, generated municipality collection and regional bundle uniquely identify GM0233 as Ermelo in Gelderland and assign Veiligheidsregio Noord- en Oost-Gelderland.",
+        "BoundaryEdition and statisticsEdition are both 2025. Current 2026 observations, older terrain/model sources, multi-year plans and the synthetic scenario clock retain separate temporal semantics.",
+        "No code, name, province, safety-region, centre-containment or headline-population mismatch was found."
+      ]
+    },
+    "geography": {
+      "status": "warn",
+      "summary": "Generalized administrative geography is coherent, but Veluwe terrain, Randmeren water, drainage and care/recreation mechanisms require source-resolution geometry.",
+      "evidenceRefs": ["E01", "E02", "E03", "E04", "E05"],
+      "notes": [
+        "The model centre and BAG Ermelo representative point lie inside GM0233; BRT supplies thirteen settlement labels and source-scaled terrain.",
+        "Administrative neighbourhoods cannot substitute for groundwater/catchments, sewer paths, Randmeren/defence compartments, forest/heath fuel, smoke transport, recreation sites, care-campus dependencies or emergency access.",
+        "The controlled heath containment point is reproducible, but BRT source actuality 2014 is old and proves neither current vegetation/fuel nor an incident. Official municipal pluvial and IPO nature-area services require their native geometry, edition, licence, scenario meaning and NoData."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Official 2025 totals agree and rounded neighbourhood values reconcile within CBS publication semantics.",
+      "evidenceRefs": ["E01", "E03", "E08"],
+      "notes": [
+        "Generated/official population is 28,131, density 328 per square kilometre, age65Pct 24.9 and one-person-household count 4,119.",
+        "The twenty published neighbourhood rows sum to 28,135, four above the municipality total (+0.014%); deterministic allocation reconciles exactly to 28,131.",
+        "Largest published neighbourhoods are Ermelo-Zuid 6,520, Ermelo-West 6,080, Ermelo-Noord 3,105, Centrum 3,010 and Ermelo-Oost 2,955. Resident aggregates do not establish care clients/staff, recreation guests, visitors, commuters, responders, medical dependence or household preparedness."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "All twenty neighbourhoods load, but key local hazard, utility, occupancy and response fields remain partial or synthetic.",
+      "evidenceRefs": ["E01", "E03", "E04", "E05", "E07"],
+      "notes": [
+        "Population, age groups, households, density, businesses, land/water area, doctor/supermarket distance and urbanity cover 20/20 rows. Average home value covers 16/20, cars per household 14/20, benefit fields 18/20 and housing shares 17/20.",
+        "District-heating share and public-charging count cover 0/20 and remain null. NoData is preserved rather than converted to zero.",
+        "Public context provides 57 antenna installations, 24 education registrations, one grid-planning sample and external acute-care context, but zero local HWH/Waterinfo/NDW/KNMI station matches. These counts/registers remain context and never prove live availability or absence."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "The BAG place and thirteen BRT settlement labels are spatially coherent identity context.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "BAG identifies Ermelo; BRT names De Beek, De Ruige Hoek, Drie, Ermelo, Horst, Houtdorp, Leuvenum, Nieuw-Groevenbeek, Oud-Groevenbeek, Siberië, Speuld, Staverden and Telgt.",
+        "No BAG representative-point/generalized-boundary mismatch is flagged.",
+        "Settlement labels are not event-time population, isolation, utility, shelter, distribution or evacuation evidence."
+      ]
+    },
+    "transport": {
+      "status": "warn",
+      "summary": "Road/rail identity is reproducible and correctly scoped to Mobility/Supply, but graph ceilings and static geometry are not emergency capacity or passability.",
+      "evidenceRefs": ["E03", "E06", "E07"],
+      "notes": [
+        "Seven logical edges connect Harderwijk, Putten and Apeldoorn over A28, N302, N303, N310 and N796. Three are minimum 0.100 km boundary connectors and all regional edges receive the same nominal 150 scenario-unit ceiling; two A28 series edges share NWB-road-28.",
+        "The current engine correctly permits unqualified source=NWB edges to affect only Mobility and Supply. It does not use roads as physical power, water, drainage, gas, telecom or facility networks.",
+        "Ermelo station and 41 GTFS stop areas are static infrastructure/schedule context. No deployed NDW event intersects GM0233; absence is Unknown, never proof that A28, local roads, rail or care/hospital access remains open through T+72."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "Official first-72-hour guidance and role context exist, but the run has no local action, resource, occupancy or completion ledger.",
+      "evidenceRefs": ["E02", "E03", "E07", "E08"],
+      "notes": [
+        "Municipality, safety region, GHOR and functional-chain partners have distinct responsibilities; public plans and registry points do not prove event-time execution or capacity.",
+        "Speuld is an emergency-support-point pilot, not proof of an active staffed/stocked site. The model records no requested/confirmed/started/completed/failed action for warning, nature-fire evacuation, care continuity, reception, emergency water, food/medicine, hospital acceptance, traffic control or lifeline repair.",
+        "Seventy-two-hour household guidance is advice rather than observed inventory, guaranteed self-reliance, relief arrival or a service-restoration deadline."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten presets produce complete finite deterministic output at all six checkpoints and eight services; evidence and calibration failures are separate.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "The focused gate executed severe storm, pluvial flood, river flood, coastal flood, heatwave, winter storm, cyberattack, earthquake, wildfire and compound at T+0/6/12/24/48/72 for power, water, drainage, gas, telecom, mobility, facilities and supply.",
+        "At T+24, severity / post-network pressure / affected people-equivalent / cumulative local pre-network event-attributable person-hours are storm 0.088208 / 0.299695 / 6,329 / 94,174.924912; pluvial 0.333770 / 0.282469 / 5,646 / 118,072.172624; river 0.362270 / 0.456861 / 12,558 / 196,822.476905; coastal 0.020229 / 0.082256 / 0 / 10,109.007234; heat 0.091009 / 0.176295 / 1,438 / 66,809.007261.",
+        "Remaining T+24 values are winter 0.519249 / 0.341937 / 8,004 / 129,109.538802; cyber 0.497747 / 0.376576 / 9,376 / 157,085.021501; earthquake 0 / 0.069391 / 0 / 20,816.805633 after a small T+6 pulse; wildfire 0.278771 / 0.233965 / 3,724 / 65,022.925245; compound 0.905054 / 0.613175 / 18,753 / 289,827.959503.",
+        "These are deterministic scenario indices and people-equivalent/proxy measures, not observations, customers, casualties, displacement, forecasts or probabilities."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "The focused gate passes deterministic, finite, zero-intensity, causal, allocation and cumulative-burden contracts.",
+      "evidenceRefs": [],
+      "notes": [
+        "MUNICIPALITY_AUDIT_CODE=GM0233 pnpm audit:model passes both current tests over ten presets, six checkpoints and eight services.",
+        "Every intensity-zero run has exactly zero event severity, affected people-equivalent and event-attributable deprived person-hours; repeated output, core/web preset parity, finite bounds and causal ledgers pass.",
+        "All twenty local rows reconcile exactly to 28,131 residents and service demand/delivery totals. Changing the selected map layer gives maximum local-hazard delta zero; cumulative event-attributable person-hours remain monotonic.",
+        "The engine correctly restricts unqualified source=NWB links to Mobility and Supply. Public roads no longer create physical power, water, drainage, gas, telecom or facility topology."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "One common neighbourhood ordering and failed heath source containment cannot represent Ermelo's mechanism-specific geography.",
+      "evidenceRefs": ["E01", "E02", "E03", "E04", "E05"],
+      "notes": [
+        "At T+24 severe storm, pluvial flood, river flood, coastal flood, heatwave, winter storm, cyberattack and canonical wildfire have the exact same complete twenty-neighbourhood order, hash 8a1bd3d04602, led by Ermelo-West, Verspreide huizen heidegebied and Horst. Earthquake is an all-zero tie; compound differs through saturation.",
+        "That equality cannot represent distinct wind, rain/sewer, major-river/Randmeren/defence, heat/vulnerability, ice, digital-target, fuel/fire and smoke mechanisms. E02–E05 identify different local/regional mechanisms and data surfaces.",
+        "A controlled source [5.677948676551851,52.28615769153864] lies inside BRT heath and BU02330401 Verspreide huizen bosgebied. At T+24 fire is 0.631433, smoke 0.521935, drought 0.596589 and severity 0.605352, yet the containing neighbourhood ranks 11/20 at 0.620331 while Ermelo-West, whose centre is about 5.229 km away, ranks first at 0.707911."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "Dependency directions are explainable, but exact eight-service states lack local physical topology, capacity, backup and restoration calibration.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07"],
+      "notes": [
+        "The trace exposes direct hazard, baseline resilience, upstream dependency, backup and network-transfer stages; for river T+72 the post-network service values are power 0.591716, water 0.534091, drainage 0.394103, gas/heating 0.744423, telecom 0.531535, mobility 0.163677, facilities 0.454792 and supply 0.754106.",
+        "Provider territories, the one NBNL planning sample, RDI antennas, schools, external acute care, HWH register coverage and roads do not provide physical feeder/pipe/backhaul/catchment topology, event state, pressure/quality, backup endurance, crews, spare capacity or restoration.",
+        "The UI correctly states that NWB connectivity is a logical transfer proxy rather than physical utility topology. The remaining exact availability, demand/delivery and reserve values are still synthetic scenario results and require uncertainty/calibration labels."
+      ]
+    },
+    "causalTrace": {
+      "status": "fail",
+      "summary": "Arithmetic contributions reconcile, but local hazard, utility and response causes are not linked to authority-selected spatial events or confirmed actions.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E07", "E08"],
+      "notes": [
+        "The trace distinguishes scenario input, municipality input, regional input and derived model state, and proportional/exact-stage contribution totals reconcile numerically.",
+        "For GM0233, river/coastal evidence is only derived screening and the other local hazards are synthetic; unsupportedDimensions is empty. No selected hydraulic surface, pluvial raster, ignition/spread/plume, issue-valid weather field, named cyber target or event ground-motion surface drives local allocation.",
+        "Affected people-equivalent and system pressure are post-network current-frame proxies, while deprived person-hours is cumulative event-attributable weighted local pre-network service shortfall against a matched no-event baseline. All are valid internal scopes but must not be compared as if they share topology or represent observed customers/welfare.",
+        "Response delay/readiness and intervention effects have no authority, request/confirmation/completion state, resource unit, valid time or local capacity ledger."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "Persistent and recovered trajectories are deterministic but not local restoration forecasts or commitments.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E07", "E08"],
+      "notes": [
+        "River forcing correctly persists beyond the audit horizon: severity remains 0.362270 and the internal flood-stress amplitude 1.147223 through T+72; post-network pressure is 0.477262, affected people-equivalent 13,367 and cumulative local pre-network burden 783,210.397744 at T+72. No selected local hydraulic or dewatering event validates this plateau.",
+        "Compound T+72 retains severity 0.449128, pressure 0.639934, affected people-equivalent 19,814 and burden 1,082,383.611109, with eight service values frozen from T+48. Heat retains heat index 23.641515 and drought 0.505607 at T+72; wildfire direct hazard is zero but pressure remains 0.069772. These may be exercise dynamics, not observed recovery.",
+        "No operator, water-board, municipality, care provider or safety-region source supplies GM0233 repair curves, crew/pump/generator/fuel availability, support-point status, emergency water/food/medicine delivery, hospital acceptance or completion evidence.",
+        "The UI labels T+72 as a dependency checkpoint and says river forcing continues, which is useful; it must also label local calibration and action/resource status adjacent to precise recovery values."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": [
+      "power",
+      "water",
+      "drainage",
+      "gas",
+      "telecom",
+      "mobility",
+      "facilities",
+      "supply"
+    ]
+  },
+  "findings": [
+    {
+      "id": "GM0233-RIVER-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The persistent precise Ermelo major-river impact is unsupported by a selected hydraulically connected local event.",
+      "evidence": "E02 selects no GM0233 Rhine/Meuse/IJssel event; E04 treats Randmeren high water as a separate mechanism and describes low risk only under its own map assumptions; E05 offers LIWO event layers but none drives the run. Nevertheless severity 0.362270 and internal flood-stress amplitude 1.147223 persist through T+72, producing 13,367 affected people-equivalent and 0.477262 post-network pressure with unsupportedDimensions=[].",
+      "action": "Until an authority-selected event is bound, mark direct GM0233 major-river magnitude/impact Unknown and do not present the internal flood index as metres. For a supported run retain LIWO/water-board/RWS release and event, source water body, boundary hydrograph/datum, defence/breach/overtopping/control state, connected footprint, depth/velocity/arrival/recession/dewatering, probability, resolution, licence, coverage and NoData. Keep Randmeren, regional/pluvial/groundwater and indirect supply mechanisms distinct."
+    },
+    {
+      "id": "GM0233-SPATIAL-001",
+      "severity": "high",
+      "category": "geography",
+      "status": "open",
+      "summary": "Eight unrelated hazards reuse the same complete twenty-neighbourhood spatial order.",
+      "evidence": "At T+24 storm, pluvial, river, coastal, heat, winter, cyber and canonical wildfire all hash to 8a1bd3d04602 and are led by Ermelo-West, Verspreide huizen heidegebied and Horst. E02–E05 require different wind, rain/sewer, hydraulic, heat/vulnerability, digital-target, fuel/fire/smoke and access mechanisms.",
+      "action": "Replace the common local-risk seed with mechanism-specific, source-dated adapters and explicit coverage/NoData masks. Add a regression that unrelated nonzero presets cannot share an entire municipal ordering unless an explicit common input justifies it."
+    },
+    {
+      "id": "GM0233-WILDFIRE-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "A controlled fire source inside official heath and the bosgebied neighbourhood fails source-containment plausibility.",
+      "evidence": "E01 places [5.677948676551851,52.28615769153864] inside BRT heide and BU02330401; E03/E05 establish local nature-fire, evacuation and combustible-nature context. At T+24 the controlled run has direct fire 0.631433, smoke 0.521935 and severity 0.605352, but BU02330401 ranks 11/20 at 0.620331 while Ermelo-West, about 5.229 km away by neighbourhood centres, leads at 0.707911.",
+      "action": "Enforce a defined near-source rank/distance band for direct flame at nonzero contained sources. Model flame, ember/spread, smoke, fuel/moisture, wind, barriers, roads/water, suppression, recreation occupancy and evacuation separately; retain BRT actuality and label controlled-source output synthetic."
+    },
+    {
+      "id": "GM0233-PLUVIAL-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Official Ermelo rain-depth and road-passability layers are not used while the generic model emits precise local effects.",
+      "evidence": "E04 provides queryable Bui 09 and 70 mm/hour depth, facade and road-passability layers and names model limitations; municipal evidence identifies Veldzicht and Kerkdennen and a revised sewer model. The generic T+24 run instead reports rain 58.138 mm/h, severity 0.333770, 5,646 affected people-equivalent and the same neighbourhood order as seven unrelated hazards. The official service lacks explicit licence/version/cadence metadata.",
+      "action": "Obtain owner-confirmed licence/version and integrate the native RD New layers as named model scenarios with rainfall duration, depth units, sewer/unpaved assumptions, coverage and NoData. Do not call them observations or forecasts, and do not use register geometry causally until connectivity/state/calibration are reviewed."
+    },
+    {
+      "id": "GM0233-WATERCHAIN-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Exact potable-water, drainage and flood-control states lack a connected local water-chain model.",
+      "evidence": "E04 documents a real sewer/pluvial programme; E05's deployed HWH and Waterinfo intersections are both zero; E07 identifies Vitens only as provider territory. Those sources do not provide catchment/sewer/pump/RWZI/drinking-water topology, live control, pressure/quality, electricity backup or repair. Yet river T+72 reports water 0.534091 and drainage 0.394103 exactly.",
+      "action": "Represent HWH/Waterinfo/provider zeros as Unknown/coverage states. Integrate owner-authorized aggregate potable-water, wastewater, regional drainage and flood-control zones separately, with topology class, state/valid time, backup, capacity bands and uncertainty; retain a visibly synthetic fallback where operational data is unavailable or sensitive."
+    },
+    {
+      "id": "GM0233-CARE-CONTINUITY-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Care-campus occupancy and medically dependent continuity are absent from facility, supply and response allocation.",
+      "evidence": "E03 reports roughly 550–600 complex-care clients and 1,500 employees at 's Heeren Loo and explicitly raises prolonged power and food-chain continuity; Veldwijk retains specialist care. CBS gives BU02330303 845 registered residents, but residence is not event-time clients, staff, backup or dependency. E07's external St Jansdal record supplies no live acceptance/access state.",
+      "action": "Add operator-authorized aggregate care cohorts and facility zones with event-time occupancy bands, medical dependence, power/water/telecom/heat backup, fuel, food/medicine, staffing, transport, evacuation/shelter-in-place and receiving-facility acceptance. Keep security-sensitive details aggregated and Unknown where not confirmed."
+    },
+    {
+      "id": "GM0233-RESPONSE72-001",
+      "severity": "high",
+      "category": "explainability",
+      "status": "open",
+      "summary": "The first-72-hour trajectory has no auditable local intervention, responsibility or resource ledger.",
+      "evidence": "E02 assigns distinct partner responsibilities; E03 says Speuld is a pilot and identifies recreation/care continuity requirements; E08 is household guidance rather than measured readiness. The model still emits exact response/recovery, reserve and cumulative burden without warning, evacuation, reception, traffic, emergency-water, supply, hospital or repair actions and resources.",
+      "action": "Represent every intervention with authority, target/units, trigger, proposed/requested/confirmed/started/completed/failed/cancelled state, issue/valid/expiry time, crews, vehicles, pumps, generators, fuel, stocks, dependencies, confidence and source. Keep unconfirmed support points, routes, guest counts, care capacity and deliveries Unknown, and never imply T+72 is a recovery deadline."
+    },
+    {
+      "id": "GM0233-LIFELINE-PROVENANCE-001",
+      "severity": "medium",
+      "category": "network",
+      "status": "open",
+      "summary": "Static public registries and planning samples cannot calibrate exact lifeline topology, capacity or restoration.",
+      "evidence": "E06's seven road edges include three 0.100 km boundary connectors with generic scenario-unit ceilings; E07 provides point/provider territory, one NBNL sample, 57 antennas, 24 school registrations and an external hospital. None provides safe physical utility topology, live road/rail state, communications coverage/backhaul, facility operation, supply routing or repair capacity.",
+      "action": "Keep every source role explicit: NWB/ProRail/GTFS for geometry/schedule, NDW for issue-valid partial events, provider polygons for responsibility, NBNL for planning, and RDI/DUO/RIVM for registrations. Use operator/authority-approved aggregate zones and restoration bands where available; otherwise publish versioned synthetic assumptions with uncertainty and never reconstruct sensitive networks."
+    },
+    {
+      "id": "GM0233-TEMPORAL-NODATA-001",
+      "severity": "medium",
+      "category": "regional-data",
+      "status": "open",
+      "summary": "Current observations, static scenarios/registers and multiple zero local matches require persistent time and NoData semantics.",
+      "evidence": "E04's older static climate model, E05's current Waterinfo/KNMI feeds and versioned LIWO/register layers, E06's current partial NDW and E07's multi-edition registries all have different edition/issue/observation/valid/retrieval times. Zero local HWH, Waterinfo, NDW, KNMI station and drainage-provider matches are not zero infrastructure, zero hazard, open roads or safety.",
+      "action": "Carry evidence class, source edition/version, issue/observation/valid/retrieval/expiry time, units, coverage, licence, affectsSimulation and NoData reason through data, cards, map, decision brief and exports. Never extend a current observation to T+72 or translate absence into zero/safe/functioning."
+    },
+    {
+      "id": "GM0233-UX-EVIDENCE-001",
+      "severity": "high",
+      "category": "ui",
+      "status": "open",
+      "summary": "The responsive UI labels generic scenario/context well but does not put Ermelo's unsupported river event beside its precise local service result.",
+      "evidence": "At 1440×900 and 390×844, Ermelo / river / Water / T+24 and T+72 renders without horizontal overflow, console errors or page errors. It says 'scenario estimate', 'Official context + scenario · evidence class scenario', explains that zero Waterinfo stations are NoData rather than safe, and states NWB is not utility topology. It simultaneously shows exactly 53% drinking-water availability and a -32.5 percentage-point 'Inundation stress exposure' for Rhine, Meuse & IJssel high water, while unsupportedDimensions=[] and no adjacent GM0233 hydraulic-event warning appears. On mobile, the details drawer intentionally covers the map/timeline and announces opening, but the evidence gap remains.",
+      "action": "Keep the existing provenance/NoData disclosures, and add an adjacent municipality-specific support badge: selected official event / derived screening / synthetic / unsupported, source edition and valid time, with Unknown for unsupported local magnitude. Repeat it in live announcements, map legend, inspector, decision brief and exports; identify local pre-network versus post-network metric scope and never rely on colour alone."
+    },
+    {
+      "id": "GM0233-NWB-SCOPE-001",
+      "severity": "informational",
+      "category": "network",
+      "status": "fixed",
+      "summary": "Unqualified public road geometry is correctly restricted to Mobility and Supply and described as a logical transfer proxy.",
+      "evidence": "The current engine allows source=NWB only for Mobility and Supply, carries sourceFeatureIds/physicalCorridorId/capacitySemantics, and leaves local hazard invariant across selected service layers. The focused gate passes route ceilings; the UI explicitly says an NWB road graph is not evidence of physical utility topology.",
+      "action": "Preserve this guard and regression coverage. Do not allow roads to support power, water, drainage, gas, telecom or facilities without separately authorized typed evidence, and never treat consecutive/shared sections as additive independent capacity."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Bind Ermelo river/Randmeren output to an explicit authority-selected hydraulic event and preserve mechanism boundaries.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/public/data/hazards/GM0233-water-context.json",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Before binding, exact local magnitude/impact is visibly unsupported/Unknown. A supported run retains LIWO/water-board/RWS release/event, source water body, boundary hydrograph/datum, defence/breach/overtopping/control state, connected footprint, depth/velocity/arrival/recession/dewatering, probability, resolution, licence, coverage and NoData; Rhine/IJssel, Randmeren, pluvial, groundwater and indirect supply pathways remain distinct."
+    },
+    {
+      "summary": "Replace the common GM0233 neighbourhood seed and enforce controlled nature-fire source-containment plausibility.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/public/data/hazards/GM0233-spatial-context.json"
+      ],
+      "validation": "Eight unrelated nonzero T+24 presets no longer share the complete twenty-row order unless explicitly justified. A source within BU02330401/BRT heath ranks its containing/near-source area inside a defined direct-flame band, while smoke, fuel/moisture, wind, barriers, access, water, suppression, recreation occupancy and data actuality remain separate."
+    },
+    {
+      "summary": "Integrate licensed Ermelo pluvial, road-passability, terrain, weather and water context with native coverage and NoData.",
+      "files": [
+        "apps/web/public/data/hazards/GM0233-climate-context.json",
+        "apps/web/public/data/public-context/GM0233-water-context.json",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Owner-authorized native ArcGIS/Waterboard layers retain CRS, depth units, rainfall duration, scenario/model/version, issue/observation/valid time, licence, coverage and NoData. Observation, forecast, model scenario and register geometry remain separate; geometry stays non-causal until connectivity/state/calibration are reviewed."
+    },
+    {
+      "summary": "Add care/recreation cohorts and an auditable first-72-hour local action/resource contract.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/public/data/public-context/GM0233-response-context.json",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/AnalyticsDrawer.tsx"
+      ],
+      "validation": "CBS residents remain reconciled separately from source-dated care clients/staff, recreation guests, visitors and responders. Every intervention has authority, target/units, proposed/requested/confirmed/started/completed/failed/cancelled state, trigger, issue/valid/expiry time, resources, dependencies and confidence. Support points, routes, care/hospital acceptance, emergency water, food, medicine, staff, fuel, crews and vehicles remain Unknown until confirmed."
+    },
+    {
+      "summary": "Use operator-authorized aggregate lifeline/facility calibration or a visibly synthetic fallback without reconstructing sensitive topology.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/public/data/public-context/GM0233-service-context.json"
+      ],
+      "validation": "Each availability, reserve, dependency and restoration band names its evidence/assumption, zone, edition, uncertainty and applicability. Provider polygons, NBNL plans, water registers, antennas, school/hospital points and NWB roads remain context unless reviewed mappings exist; no security-sensitive topology is inferred."
+    },
+    {
+      "summary": "Make local event support, time, metric scope and NoData persistent beside precise UI values.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "apps/web/src/App.tsx",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/statistics/statisticsCatalog.ts"
+      ],
+      "validation": "Maps, cards, decision brief, live region and exports preserve official observed/context/scenario/derived/synthetic/unsupported class, source edition, issue/observation/valid/retrieval time, units, coverage, uncertainty, licence, affectsSimulation and NoData. GM0233 river/fire/pluvial gaps and local pre-network versus post-network metric scopes are adjacent to exact values at desktop and mobile widths."
+    }
+  ],
+  "residualLimitations": [
+    "This is a deterministic first-72-hour planning-model audit, not a KNMI, Rijkswaterstaat, WMCN, Waterschap Vallei en Veluwe, VNOG, Ermelo municipality or operator forecast, warning, probability, evacuation order, casualty estimate or restoration commitment.",
+    "Generalized CBS neighbourhoods and BAG/BRT labels are suitable for overview aggregation, not parcels, catchments, flood compartments, defences, drainage networks, woodland/heath fuel, incident perimeters, utility topology, care occupancy or emergency routes.",
+    "No selected Rhine/IJssel/Randmeren boundary condition, defence state, breach/overtopping case, connected inundation footprint, depth/velocity, arrival/recession, probability or NoData mask drives GM0233. The internal flood amplitude is not metres.",
+    "The Ermelo ArcGIS rain-depth/road-passability layers are model scenarios whose inspected metadata lacks an explicit licence, version and cadence. They are not observations or forecasts and cannot silently drive causal output until terms and semantics are resolved.",
+    "HWH, Waterinfo, NDW, KNMI-station and drainage-provider zero matches are coverage or filtered-result states. Missing records never mean no infrastructure, zero hazard, open roads, functioning services or safety.",
+    "NWB, ProRail and GTFS are static geometry/schedule context. The Mobility/Supply-only restriction is correct, but there is no event-time road/rail, evacuation, freight, care-access or repair state; generic scenario-unit ceilings are not throughput.",
+    "No complete safe public source supplies Liander feeder/gas topology, Vitens pipe/pressure/quality topology, municipal sewer connectivity, water-board live controls, Ziggo/other telecom backhaul, facility dependencies, supplies, backups, crews or restoration. Sensitive detail was not inferred.",
+    "NBNL capacity is planning rather than live load/outage; provider polygons are responsibility areas rather than topology; RDI antennas are not coverage/backhaul/state; DUO/RIVM points are not shelters, distribution sites or live care capacity.",
+    "The controlled heath source is synthetic and tests source containment only. BRT actuality 2014 and IPO eligibility do not describe future ignition, fuel/moisture, spread, smoke, access, suppression or recovery.",
+    "Cyber lacks a named target/architecture/attack path; earthquake needs a selected event and ground-motion field; heat/winter/storm need issue-valid KNMI forcing; North-Sea coastal surge is not a substitute for Randmeren, river or regional water.",
+    "Registered residents omit recreation guests, care-campus staff/visitors, commuters and responders. Household readiness, medically dependent people, support/reception/water points, stocks, staff, vehicles and repair priorities remain assumed or Unknown.",
+    "Affected people-equivalent and system pressure are current post-network proxies; deprived person-hours is cumulative event-attributable weighted local pre-network service shortfall against a matched no-event baseline. Neither is identified customers, casualties, displacement, welfare loss or economic damage, and six-hour checkpoints can miss fast fire, rain, wind, traffic and control changes."
+  ],
+  "provinceReviewFlags": [
+    "Municipality-specific release blocker: require an authority-selected Rhine/IJssel/Randmeren/local hydraulic event before presenting amplitude 1.147223, 13,367 affected people-equivalent or the T+72 service plateau as Ermelo flood evidence.",
+    "Municipality-specific release blocker: eight unrelated hazards share one complete neighbourhood order and a controlled source inside BU02330401/BRT heath ranks its containing neighbourhood only 11/20; replace the common seed and enforce containment tests.",
+    "Municipality-specific release blocker: integrate the official Ermelo pluvial/road-passability layers only after licence/version and causal semantics are resolved, preserving native CRS, depth units, duration, coverage, limitations and NoData.",
+    "Municipality-specific release blocker: model 's Heeren Loo/Veldwijk care continuity and recreation occupancy/action needs with operator-authorized aggregates; registered residents and static facility points do not supply occupancy, dependency, backup or evacuation capacity.",
+    "Municipality-specific release blocker: do not imply Speuld is an operational support point; it is a pilot. Model only authority-confirmed actions/resources with valid times and completion states.",
+    "Municipality-specific release blocker: preserve the useful UI source/NoData disclaimers but put unsupported local event/calibration and local pre-network versus post-network metric scope immediately beside exact Ermelo outputs.",
+    "Shared/national: preserve the corrected NWB Mobility/Supply-only guard, source feature/corridor provenance and non-additive series semantics; roads must never become electricity, gas, potable-water, drainage, telecom or facility topology.",
+    "Shared/national: preserve evidence class, issue/observation/valid/retrieval time, coverage, licence, affectsSimulation and NoData in every map/export; current observation, historical context, static plan/model scenario and simulated T+72 state remain distinct."
+  ]
+}

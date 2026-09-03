@@ -1,0 +1,538 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0893",
+    "name": "Bergen (L.)",
+    "province": "Limburg",
+    "safetyRegion": "Limburg-Noord"
+  },
+  "agent": {
+    "taskName": "municipality_gm0893",
+    "agentId": "/root/nl_realism_audit",
+    "completedAt": "2026-09-02T16:02:12Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "Bergen (L.) has coherent generated 2025 administrative inputs: 13,062 residents, sixteen neighbourhoods in seven districts, five BAG woonplaatsen, 27 BRT settlements, no ProRail station, 46 grouped scheduled-transit stop records and four NWB-derived logical links. The complete ten-preset, six-checkpoint and eight-service deterministic contract passes, including exact no-event semantics, event-attributable deprived person-hours, service-layer-invariant local hazard and exact population/demand/delivery reconciliation. Release is nevertheless correction-required. At T+24 and T+72 the Maas preset reports exact persistent normalized stress and service/population consequences without a selected LIWO hydraulic scenario or current defence state, while seven physically different hazards reuse exactly the same neighbourhood order. This conflicts with the municipality's operational high-water geography: outside-dike land, Aijen, Bergen and old Well are risk areas; Geysselberg floods first around 13.00 m+NAP at Well; specific approaches and the Bergen-Vierlingsbeek ferry can fail; and two shuttle links, a local fire appliance and possible Defence vehicles form distinct interventions. None is represented, and the cross-Maas ferry to GM1982 is absent. A fixed wildfire 71.235 km away also cannot exercise the locally demonstrated Maasduinen fire mechanism. Public CBS/PDOK, NWB/NDW, HWH, ROR, LIWO, RWS, KNMI and provider-area products are integration-ready at bounded evidence classes, but utility topology, live asset state, facility continuity, crews, stocks, backup and restoration remain unavailable or security-sensitive and must stay unknown or transparently synthetic.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek / PDOK / Kadaster",
+      "title": "E01 — Kerncijfers wijken en buurten 2025 and administrative geometries for GM0893",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM0893%27%29",
+      "accessedAt": "2026-09-02T15:54:34Z",
+      "edition": 2025,
+      "supports": [
+        "The official municipality row identifies GM0893 Bergen (L.) with 13,062 registered residents, density 127 residents per square kilometre, 27.0% aged 65 or older and 1,680 one-person households.",
+        "The app consumes annual CBS OData and 2025 PDOK municipality, district, neighbourhood and safety-region polygons under CC BY 4.0, plus BAG woonplaatsen under Public Domain Mark 1.0. BAG is maintained continuously/daily; these are official-context inputs, not live presence, hazard or infrastructure observations.",
+        "Sixteen published neighbourhood populations sum to 13,050, twelve below the municipality row (-0.092%); rounded official components require explicit reconciliation rather than silent replacement."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / PDOK / ProRail / OVapi / NDW",
+      "title": "E02 — Machine-readable road, rail, scheduled-transit and current road-status context",
+      "url": "https://service.pdok.nl/rws/nationaal-wegenbestand-wegen/wfs/v1_0?service=WFS&version=2.0.0&request=GetCapabilities",
+      "accessedAt": "2026-09-02T15:54:34Z",
+      "edition": "NWB-Light 2026-08-01; OVapi GTFS feed 9543; NDW snapshot 2026-09-02T15:25Z",
+      "supports": [
+        "NWB provides national segment/junction road geometry refreshed monthly under CC0. The generated Bergen graph contains N271 to Venlo, A77 and N271 to Gennep, and N270 to Venray with nominal scenario capacities 150/260; these are logical transfer proxies, not measured throughput or guaranteed emergency access.",
+        "ProRail CC0 geometry identifies no station inside GM0893. OVapi scheduled feed 9543, retrieved 2026-08-31 and valid through 2026-12-12 under free-use/no-SLA terms, yields 46 grouped stop-area records. Duplicate 'Afferden, Veer naar Sambeek' stop labels are not ferry geometry or operating state, and the generated 27-route ferry file contains no Bergen, Vierlingsbeek, Afferden or Sambeek crossing.",
+        "NDW's CC0-unless-stated DATEX II current-picture product publishes event geometry and validity/source times, often within minutes. The deployment snapshot has zero retained records inside GM0893 and affectsSimulation=false; absence is not proof that a road or ferry is open, and a snapshot cannot be replayed at an unrelated scenario clock."
+      ]
+    },
+    {
+      "publisher": "Gemeente Bergen (L.)",
+      "title": "E03 — Current municipal high-water risk areas, thresholds, access routes and response actions",
+      "url": "https://www.bergen.nl/vragen-en-antwoorden",
+      "accessedAt": "2026-09-02T15:54:34Z",
+      "edition": "municipal operational guidance accessed 2026-09-02",
+      "supports": [
+        "The municipal high-water team convenes at 12.00 m+NAP at the Well gauge; around 13.00 m+NAP the Geysselberg in Wellerlooi is the first municipal road reported to flood. These are decision/context thresholds, not a complete depth-damage model.",
+        "The municipality identifies outside-dike areas, Aijen and Bergen, and part of old Well as risk areas. It says Aijen and Bergen can become isolated and timely emergency help cannot then be guaranteed.",
+        "Named approaches are Kampweg via Well, N271/Aijerdijk, N271/Kerkstraat and the Bergen-Vierlingsbeek ferry. At very high Maas levels roads flood and the ferry stops; the municipality deploys Nieuw Bergen-Bergen and Bergen-Aijen shuttles, with Defence taking over the first link when road water reaches 40 centimetres.",
+        "A municipal crisis centre activates with the shuttles; a staffed Bergen fire appliance provides limited first response when the villages are cut off. These are explicit role/intervention states missing from the simulation."
+      ]
+    },
+    {
+      "publisher": "Waterschap Limburg / Het Waterschapshuis / PDOK",
+      "title": "E04 — Bergen Maas2050 defence programme and public water-system registers",
+      "url": "https://www.waterschaplimburg.nl/publish/pages/8474/2022-09-20_wl_maas2050_factsheets_bergen.pdf",
+      "accessedAt": "2026-09-02T15:54:34Z",
+      "edition": "Maas2050 factsheet; HWH snapshot retrieved 2026-09-02T13:45:55Z",
+      "supports": [
+        "The water board identifies distinct defence trajectories: Nieuw Bergen 1.8 km and Well 5.7 km as current projects, while Bergen-Aijen 6.2 km and Afferden 3.0 km are scheduled for future investigation in 2035–2050. A present scenario therefore needs an explicit defence edition and mechanism.",
+        "HWH/PDOK Kunstwerken IMWA supplies point/feature-register data nationally through OGC API, WMS and downloads, typically weekly under CC BY-SA 4.0; Keringen and Waterbeheergebieden provide complementary defence and management-area geometry. Completeness is contributor-dependent.",
+        "The deployment snapshot contains 89 display-only points in GM0893: six sewer pumps, fourteen surface-water pumps and 69 weirs. Named context includes sewer pumps in Well, Bergen, Wellerlooi, Afferden, Siebengewald and Nieuw Bergen and surface pumps at local beeks/lossingen; almost all displayed capacity fields are absent.",
+        "The snapshot is official-context and affectsSimulation=false. A registered feature does not establish catchment, connectivity, live operation, capacity, power/backup dependency, failure probability or restoration."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Limburg-Noord",
+      "title": "E05 — Regional Crisis Plan 2024–2027, high-water/utility roles and Maasduinen nature-fire evidence",
+      "url": "https://www.vrln.nl/sites/vrln/files/2025-01/VRLN%20Regionaal%20Crisisplan_dec2024-2027.pdf",
+      "accessedAt": "2026-09-02T15:54:34Z",
+      "edition": "updated crisis plan adopted 2025; high-water RBP 2023–2026; current public guidance/events",
+      "supports": [
+        "The current plan assigns population care to municipalities, distinguishes general and functional chains, and organizes crisis communication, shelter/care, primary needs, information and resources. It names Waterschap Limburg, Rijkswaterstaat, WML, Enexis, Gasunie and telecom partners; the safety region coordinates but does not become the utility operator.",
+        "The plan requires cross-border cooperation with Germany and Belgium. The high-water response plan at https://www.vrln.nl/over-ons/beleid-en-publicaties/rampenbestrijdingsplannen-rbp coordinates actions with Rijkswaterstaat, Waterschap Limburg, municipalities, emergency services and possible military assistance; operational maps and resource state are not public simulator inputs.",
+        "The utility guidance at https://www.vrln.nl/wat-te-doen-bij/uitval-gas-water-en-stroom identifies Enexis for gas/electricity and WML for drinking water, describes jointly prioritized emergency power and municipal emergency-water distribution, and warns that safe gas repressurization may take many hours. It supplies roles, not Bergen restoration coefficients.",
+        "VRLN documented heavy smoke and a large deployment in Nationaal Park De Maasduinen, Bergen on 12 July 2026 at https://www.vrln.nl/nieuwsbericht/zware-rookontwikkeling-nationaal-park-de-maasduinen. The event was controlled the same day; it proves local ignition/smoke relevance but is not a reusable spread calibration.",
+        "VRLN's 72-hour kit page advises three litres of water per person per day plus food, medicine, radio, power and cash. Guidance is not a measured Bergen preparedness rate, stock inventory or service-restoration promise."
+      ]
+    },
+    {
+      "publisher": "Koninklijk Nederlands Meteorologisch Instituut / Rijkswaterstaat",
+      "title": "E06 — Integration-ready weather observations and Maas measurement/forecast products",
+      "url": "https://dataplatform.knmi.nl/en/dataset/10-minute-in-situ-meteorological-observations-1-0",
+      "accessedAt": "2026-09-02T15:54:34Z",
+      "edition": "KNMI dataset 1.0; current Rijkswaterstaat Waterinfo catalogue",
+      "supports": [
+        "KNMI's national station observations contain temperature, humidity, wind, pressure and precipitation every ten minutes, normally within minutes, under CC BY 4.0; late missing records may be filled for seven days. They are point observations and do not by themselves resolve a Bergen neighbourhood field.",
+        "Rijkswaterstaat states at https://www.rijkswaterstaat.nl/water/waterdata/waterstanden-en-afvoeren-rivieren that fixed stations continuously measure water level/discharge. Its four-day river forecast is expert-validated, its 15-day ensemble is not, and Maas forecasts are particularly uncertain because of basin response and weir management.",
+        "These products can initialize or replay a first-72-hour event when station/grid, issue/valid time, validation state, units, transformation, licence and uncertainty are retained. They do not supply a local breach footprint, service failure, smoke plume or repair time."
+      ]
+    },
+    {
+      "publisher": "Stichting Mijn Aansluiting / Enexis / WML",
+      "title": "E07 — Public provider territories and bounded operator context for Bergen",
+      "url": "https://wiki.service.mijnaansluiting.nl/wiki/spaces/Wiki/pages/693731329",
+      "accessedAt": "2026-09-02T15:54:34Z",
+      "edition": "live WMS/WFS point query; provider records lastUpdated 2025-09-07",
+      "supports": [
+        "A reproducible provider lookup at the municipal reference point [6.0951642385, 51.5758442868] returns Enexis for electricity and gas, WML for drinking water and Ziggo for fixed media. No sewer polygon is returned. The Public Domain, provider-supplied WMS/WFS polygons identify responsibility at a point, not complete coverage, physical topology, redundancy or live state; an empty sewer result is unknown.",
+        "The app's public utility geometry is Liander-only and therefore does not expose comparable Enexis cable, station or gas-pipe context here. Enexis public postcode consumption/generation aggregates are useful baseline context but not topology, outage telemetry, available capacity or restoration order.",
+        "No reviewed public source supplies safe complete Enexis/WML/Ziggo topology, switching, pressures, backup, crew, fuel or repair sequence for GM0893. A synthetic fallback must therefore be minimal, editable, ranged and visibly non-observed."
+      ]
+    },
+    {
+      "publisher": "Watermanagementcentrum Nederland / IPLO / Rijkswaterstaat / Het Waterschapshuis",
+      "title": "E08 — LIWO hydraulic scenarios, flood-risk screening and water-defence geometry",
+      "url": "https://iplo.nl/thema/water/applicaties-modellen/berichtgeving-crisismanagement/liwo/",
+      "accessedAt": "2026-09-02T15:54:34Z",
+      "edition": "LIWO 2025.1.6; ROR cycle 2022–2027",
+      "supports": [
+        "LIWO exposes versioned map/download layers for flood and waterlogging preparation; release 2025.1.6 was current on the page. The publisher explicitly recommends specialist water-manager interpretation. Native grid/resolution, mechanism, defence/breach state, probability, depth, arrival and no-data vary by layer; cadence is versioned/irregular and reuse terms must be pinned per downloaded product.",
+        "Rijkswaterstaat/PDOK ROR significant-flood-risk areas are national vector WMS/WFS/OGC/ATOM context for cycle 2022–2027 under CC0. They are a screen, not selected local depth, arrival or duration.",
+        "HWH/PDOK Keringen IMWA supplies national provider-contributed defence geometry through OGC API/WMS/download, normally weekly under CC BY-SA 4.0. Register status is not guaranteed defence performance.",
+        "A simulation-driving adapter must retain official-scenario versus official-context provenance, product/version, mechanism, defence assumption, native spatial/temporal resolution, units, probability, valid time, no-data, licence, transform hash and reviewer."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM0893 identity, province and safety-region membership are coherent.",
+      "evidenceRefs": [
+        "E01",
+        "E05"
+      ],
+      "notes": [
+        "Feature id, generated regional bundle and manifest agree on Bergen (L.), Limburg and Veiligheidsregio Limburg-Noord.",
+        "The focused context resolved the expected municipality and no contradictory official identity."
+      ]
+    },
+    "geography": {
+      "status": "pass",
+      "summary": "The 2025 generalized boundary and label point pass administrative checks but are not hazard or response compartments.",
+      "evidenceRefs": [
+        "E01",
+        "E03",
+        "E08"
+      ],
+      "notes": [
+        "The generated centre [6.0951642385, 51.5758442868] lies inside the generalized municipality polygon.",
+        "The municipality spans Maas-side settlements, the Maasduinen and the German border. An administrative polygon/centroid cannot substitute for floodplain, defence, sewer catchment, fuel zone, utility service zone or access-isolation geometry."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Municipality totals and neighbourhood allocation reconcile within official publication rounding.",
+      "evidenceRefs": [
+        "E01"
+      ],
+      "notes": [
+        "Official 2025 population is 13,062, density 127, age 65+ share 27.0% and one-person households 1,680.",
+        "Published neighbourhood population sums to 13,050, twelve below the municipality row (-0.092%); the model allocation reconciles exactly to 13,062.",
+        "Affected population is a resident-equivalent pressure count, not a headcount of named people and not people present. Visitors, commuters, pupils, patients, workers and evacuees are outside the denominator."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "All sixteen neighbourhoods have core demographics, but several dwelling/welfare fields and transient or facility dimensions remain incomplete.",
+      "evidenceRefs": [
+        "E01",
+        "E03"
+      ],
+      "notes": [
+        "The bundle contains sixteen neighbourhoods in seven districts with 36 statistic fields. Population, age, households, businesses, land/water area and most basic accessibility fields are present.",
+        "Average home value, cars per household and multiple housing percentages are absent in three neighbourhoods; disability/old-age/social-assistance counts are absent in two; doctor, supermarket and density are each absent in one. District-heating share and public charging are null in all sixteen and correctly remain unknown rather than zero.",
+        "No official neighbourhood has zero residents. Aggregate ages and distances do not identify individual vulnerability, household preparedness, occupancy, medical dependence, facility continuity or response priority."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "BAG woonplaatsen and BRT settlement concepts are retained distinctly and spatially coherent.",
+      "evidenceRefs": [
+        "E01",
+        "E03"
+      ],
+      "notes": [
+        "BAG woonplaatsen Afferden L, Bergen L, Siebengewald, Well L and Wellerlooi have no generated centre outside the generalized boundary.",
+        "BRT contains 27 settlements: seventeen buurtschappen, two deelkernen, one gehucht and seven woonkernen. They are descriptive context, not resident totals, hazard zones, provider areas or response boundaries."
+      ]
+    },
+    "transport": {
+      "status": "fail",
+      "summary": "The national road/scheduled-transit context is present, but locally decisive flood closures, the Bergen-Vierlingsbeek ferry and emergency shuttles are absent.",
+      "evidenceRefs": [
+        "E02",
+        "E03",
+        "E05"
+      ],
+      "notes": [
+        "The logical graph has four Dutch road records: N271 to Venlo, A77 and N271 to Gennep, and N270 to Venray. Nominal capacities are scenario units, not observed throughput or passability.",
+        "There is no ProRail station and 46 scheduled stop-area records. Duplicate Afferden ferry-stop labels do not represent a crossing, service or live state.",
+        "The municipality explicitly relies on the Bergen-Vierlingsbeek ferry and named road approaches, and states that high water can stop all of them and isolate Aijen/Bergen. The graph has no GM0893-GM1982 ferry, road-specific water state, two shuttle links or Defence takeover.",
+        "The graph also has no cross-border German link. International cooperation is a real VRLN function, but operational routing/capacity must come from a reviewed public road source or approved operational network rather than invented edges."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "Authoritative regional and municipal roles are explicit, but local triggers, teams, resources, facilities and stocks are not model states.",
+      "evidenceRefs": [
+        "E03",
+        "E04",
+        "E05",
+        "E07"
+      ],
+      "notes": [
+        "Municipal guidance defines a Well-gauge trigger, crisis-centre/shuttle activation, evacuation advice, a staged fire appliance and possible Defence vehicles. The regional plan separately assigns population care, emergency services, water management and functional utility chains.",
+        "The generated government-service overlay has only two partial KVK/PDOK points inside GM0893—one public-administration and one public-order/safety address. It is official-context, Public Domain Mark 1.0, affectsSimulation=false and does not establish role, staffing, capacity, backup or incident availability.",
+        "No incident feed, warning/decision timeline, evacuation/isolation zone, shelter capacity, care continuity, emergency drinking-water point, crew, fuel, medicine, stock, welfare-check or mutual-aid state is present.",
+        "The fixed household-preparedness coefficient is synthetic. A public 72-hour checklist is advice, not a measured Bergen readiness value or restoration guarantee."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "The complete deterministic 10 × 6 × 8 numerical contract passes for GM0893.",
+      "evidenceRefs": [
+        "E03",
+        "E05",
+        "E06"
+      ],
+      "notes": [
+        "MUNICIPALITY_AUDIT_CODE=GM0893 pnpm audit:model passed all canonical presets at T+0, +6, +12, +24, +48 and +72 for power, water, drainage, gas, telecom, mobility, facilities and supply; the web scenario factory remains equal to sim-core presets.",
+        "At T+24 the synthetic/derived screen reports: storm severity 0.1692 and 2,037 affected; pluvial 0.2652 and 1,522; river 0.2680 and 2,058; coastal direct severity zero and zero affected despite wind/service deprivation; heat 0.1136 and 577; winter 0.8057 and 2,151; cyber 0.4390 and 3,893; earthquake current motion zero and zero affected; wildfire 0.1223 and 1,136; compound 0.9038 and 7,395.",
+        "At T+72 river remains strained with normalized inundation stress 0.8595, 1,923 affected and 261,012.98 cumulative event-attributable deprived person-hours. Compound remains degraded with pressure 0.5136, 6,876 affected and 455,122.83 person-hours. These are deterministic model results, not observations, forecasts, official decisions or operator promises."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Determinism, bounds, exact no-event behavior, causal ledgers and local reconciliation pass.",
+      "evidenceRefs": [
+        "E01"
+      ],
+      "notes": [
+        "All tested values are finite and bounded, delivery does not exceed demand, repeated frames are deterministic, and hazard/service/system causal and counterfactual ledgers reconcile.",
+        "Intensity zero yields exact zero event hazard, zero affected population and zero event-attributable deprived person-hours for every preset and checkpoint.",
+        "Every local view contains sixteen neighbourhoods and reconciles exactly to 13,062 residents. Across scenarios/services maximum demand, delivery or local reconciliation error is 7.105427357601002e-15.",
+        "Local hazard is identical across the eight selected service maps, official null/zero semantics are preserved, and deprived person-hours are quarter-hour event-attributable shortfall versus a matched no-event baseline."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "Neighbourhood fields do not follow Bergen's distinct Maas, sewer/catchment, heat, forest/smoke, winter or cyber mechanisms.",
+      "evidenceRefs": [
+        "E03",
+        "E04",
+        "E05",
+        "E06",
+        "E08"
+      ],
+      "notes": [
+        "At T+24 storm, pluvial, river, heat, winter, cyber and wildfire have exactly the same sixteen-neighbourhood order, led by Siebengewald Buitengebied, Aijen Buitengebied and Oud-Bergen Kern. Compound differs only through clipping.",
+        "The municipality instead distinguishes Maas-side outside-dike land, Aijen/Bergen/old Well and named flooded approaches, while Maasduinen fire and physical weather/urban-water mechanisms require different footprints. Cyber has no physical reason to copy any of them.",
+        "River stress comes from municipality-centroid proximity to hard-coded straight corridors, not the local Maas/floodplain, defence, breach, elevation, depth, arrival or recession. Current/future defence projects are absent.",
+        "The wildfire source [5.75, 52.18] lies 71.235 km from the municipal centre, gives zero direct flame and smoke 0.2782 at T+24 without a wind-resolved plume. It cannot test a local Maasduinen ignition such as VRLN's 2026 incident. Coastal and earthquake direct local fields are zero at T+24."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "Eight-service cascades are inspectable but not calibrated to the local operators, Maas access, water systems, facilities or operating topology.",
+      "evidenceRefs": [
+        "E02",
+        "E03",
+        "E04",
+        "E05",
+        "E07"
+      ],
+      "notes": [
+        "All eight service views receive the same four NWB-derived municipal routes. Supplied/NWB connectivity is correctly disclosed as a logical transfer proxy, never physical electricity, drinking-water, drainage, gas/heating, telecom, facility or supply topology.",
+        "Provider areas identify Enexis, WML and Ziggo at the reference point and the display contains 89 local HWH water/wastewater points, but all are context-only and affectsSimulation=false. They reveal neither live connectivity, switching, flow, pressure, capacity, power dependency, backup nor restoration.",
+        "Liander-only public geometry does not cover the responsible local DSO. The graph has no typed ferry/passability state, Maas/sewer catchments, Enexis/WML/telecom zones, verified critical-facility dependencies or emergency-logistics stocks.",
+        "The municipal staged fire response, two shuttles and Defence threshold do not alter facilities, mobility or supply. No safe complete public source exists for all operating relationships."
+      ]
+    },
+    "causalTrace": {
+      "status": "warn",
+      "summary": "Causal arithmetic and proxy wording are auditable, but local forcing and service coefficients remain largely synthetic.",
+      "evidenceRefs": [
+        "E03",
+        "E04",
+        "E05",
+        "E06",
+        "E07",
+        "E08"
+      ],
+      "notes": [
+        "Hazard, availability, system-pressure and intervention ledgers reconcile, and explanations disclose logical connectivity rather than utility topology.",
+        "Coastal T+24 has zero direct inundation severity/stress while 16.52 m/s wind yields indirect service deprivation and 4,038.63 cumulative person-hours. Direct, indirect and cumulative effects must remain distinct.",
+        "The public river value 0.8595 is normalized inundation stress, not metres and not a selected authority scenario. A high-water threshold, historical event or registered pump likewise does not prove local depth, failure or service loss.",
+        "Cyber disruption, household readiness, backup, network capacity, repair rates and service recovery have no Bergen operator calibration; role documents are governance evidence rather than numeric coefficients."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "The first-72-hour window is complete, but transitions and restoration are not calibrated to continuing hazards, local lifelines or responsible organizations.",
+      "evidenceRefs": [
+        "E03",
+        "E04",
+        "E05",
+        "E06",
+        "E07"
+      ],
+      "notes": [
+        "River forcing correctly persists through T+72 under the 168-hour preset and no recovery occurs under standing water, but unsupported amplitude yields 1,923 affected and 261,012.98 person-hours without a defence/breach/depth/arrival scenario or ferry/road state.",
+        "Heat/drought remains active through T+72 under the 336-hour preset while status is operational and affected residents are zero. Storm, pluvial, winter, cyber and wildfire also reach operational/zero affected by T+72. Those threshold states are not local health or operator evidence.",
+        "Other T+72 cumulative person-hours are storm 135,053.59; pluvial 96,662.04; coastal 13,371.60; heat 85,494.69; winter 195,746.50; cyber 159,578.00; earthquake 2,694.76; wildfire 46,206.39. Exact trajectories are assumptions, not promises.",
+        "Municipal high-water operations use distinct clocks for monitoring, road/ferry closure, shuttles, evacuation advice, local first response and Defence takeover. Regional 72-hour guidance concerns household preparedness, not universal service restoration."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [
+      0,
+      6,
+      12,
+      24,
+      48,
+      72
+    ],
+    "services": [
+      "power",
+      "water",
+      "drainage",
+      "gas",
+      "telecom",
+      "mobility",
+      "facilities",
+      "supply"
+    ]
+  },
+  "findings": [
+    {
+      "id": "GM0893-RIVER-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The locally dominant Maas preset reports exact persistent impact without a selected hydraulic mechanism or current defence state.",
+      "evidence": "At T+24/T+72 the derived screen reports normalized inundation stress 0.8595, with 2,058 then 1,923 affected residents and 261,012.98 cumulative person-hours at T+72. E03 identifies locally specific risk/access areas and thresholds, while E04 records distinct current and future defence projects. The model uses centroid distance to hard-coded river corridors and has no selected local Maas breach/defence scenario, floodplain, elevation, depth, arrival or recession input.",
+      "action": "Mark the current local river result unsupported/Unknown—not safe—and do not present exact affected/service totals as calibrated. Integrate an expert-selected LIWO/Waterschap Limburg scenario plus HWH/RWS defence geometry and RWS boundary conditions. Store mechanism, scenario/breach ID, defence edition, probability, depth/stress unit, arrival, duration/recession, native resolution, no-data, licence, transform hash and reviewer; preserve indirect regional effects separately."
+    },
+    {
+      "id": "GM0893-SPAT-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Seven physically different nonzero hazards reuse one Bergen neighbourhood ranking.",
+      "evidence": "The T+24 probe gives exactly the same order for storm, pluvial, river, heat, winter, cyber and wildfire, headed by Siebengewald Buitengebied, Aijen Buitengebied and Oud-Bergen Kern. E03-E05 instead distinguish the Maas risk/access zone, named local drainage assets and the Maasduinen fire mechanism; cyber has no physical reason to share any of those footprints.",
+      "action": "Replace shared seeded modulation with hazard-specific spatial adapters and regression tests. Sample versioned hydraulic/pluvial rasters, AHN/BGT surfaces, heat/land cover and fuel/weather/plume inputs; explicitly select cyber/service zones. Retain evidence class, time, native resolution, no-data, licence, transformation hash and uncertainty, and prove different mechanisms do not rank every neighbourhood identically solely because they share a seed."
+    },
+    {
+      "id": "GM0893-MOB-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "The graph omits the Bergen-Vierlingsbeek ferry and the municipality's flood-contingent isolation and shuttle states.",
+      "evidence": "E03 lists the GM0893-GM1982 ferry with Kampweg, Aijerdijk and Kerkstraat as access to Bergen/Aijen, states that high water can flood the approaches and stop the ferry, and defines two shuttles plus Defence takeover at 40 cm road water. The generated graph has only four generic road records, no ferry, no named local closure state and no shuttle/intervention; its ferry GeoJSON has no Bergen/Vierlingsbeek route.",
+      "action": "Add a source-backed GM0893-GM1982 Bergen-Vierlingsbeek ferry lifeline for mobility and supply only, using BGT/NWB/authority-confirmed landings and transparent scenario-unit capacity. Add open/closed/unknown with valid time from a licensed operator/authority feed; if no feed exists, use a clearly source-dated manual incident state. Model Geysselberg/Kerkstraat/Kampweg/Aijerdijk approach passability and the two municipal shuttles/Defence threshold as typed interventions, never as utility routes."
+    },
+    {
+      "id": "GM0893-WILDFIRE-001",
+      "severity": "medium",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The fixed wildfire preset does not exercise a locally material Maasduinen ignition or wind-resolved smoke pathway.",
+      "evidence": "The canonical source is 71.235 km away and yields zero direct flame but smoke 0.2782, water availability 0.4780 and 1,136 affected at T+24 through a synthetic field. E05 documents a 12 July 2026 Maasduinen fire in Bergen with heavy smoke and a large deployment. That event proves local relevance but not the model's exact plume/service coefficients.",
+      "action": "Keep the current preset explicitly source-specific and add a municipality-selectable ignition/perimeter. Use daily CC0 BGT terrain/vegetation geometry as context, KNMI ten-minute wind/humidity and an authority-confirmed incident perimeter when available; retain event/valid times, plume assumptions and uncertainty. If no public live perimeter/fuel product exists, use a small editable synthetic perimeter/fuel class labelled synthetic and never infer water loss or affected residents from distance alone."
+    },
+    {
+      "id": "GM0893-PLUVIAL-DRAIN-001",
+      "severity": "medium",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Public local water-control context does not influence pluvial, drainage or access exposure.",
+      "evidence": "Pluvial T+24 reports stress 0.3672, drainage availability 0.6556 and 1,522 affected, allocated by the common seed. The public snapshot contains 89 local water points, including six named sewer pumps and fourteen surface-water pumps along beeks/lossingen, yet affectsSimulation=false and most capacities/states are absent. No catchment, AHN/BGT surface, sewer capacity or road/facility intersection drives the result.",
+      "action": "Ingest a versioned municipal/Waterschap Limburg pluvial stress raster plus HWH Waterbeheergebieden/hydroobject, AHN elevation and BGT surface geometry. Record publisher, grid/feature resolution, scenario/date, cadence, licence, no-data and transform. Keep registered pumps/weirs as context until catchment, capacity, power/backup and state are sourced; never cause failure merely because an asset exists."
+    },
+    {
+      "id": "GM0893-NET-001",
+      "severity": "medium",
+      "category": "network",
+      "status": "accepted-limitation",
+      "summary": "Four road links are reused as logical transfer proxies for all eight services, not Bergen utility topology.",
+      "evidence": "Every service receives the same four NWB records. E05/E07 identify Enexis, WML and telecom functional responsibility, while the provider lookup gives Enexis/WML/Ziggo at one point and no sewer polygon. Liander-only geometry does not cover the local DSO; provider areas, Enexis aggregates and HWH points reveal neither connectivity nor live switching, flow, pressure, backup or restoration.",
+      "action": "Separate mobility/supply routing from non-mobility service graphs. Keep Mijn Aansluiting live WMS/WFS polygons (Public Domain, record-dated), HWH features (weekly, CC BY-SA 4.0) and operator aggregates as official context only. Where no safe topology exists, use the smallest editable synthetic zonal graph with ranges/sensitivity and a visible synthetic label; never infer feeders, pipes, telecom links or restoration from road proximity."
+    },
+    {
+      "id": "GM0893-FAC-TRANSIENT-001",
+      "severity": "medium",
+      "category": "regional-data",
+      "status": "open",
+      "summary": "Resident-only pressure and two coarse registry points omit first-72-hour facility, visitor and dispersed-village needs.",
+      "evidence": "E01 describes 13,062 registered residents with 27.0% aged 65+. Local CBS data shows longer doctor/supermarket distances in some outlying areas, but the model has no separately sourced transient/patient/worker occupancy or typed care, shelter, school, fire, distribution and supply nodes. The two KVK/PDOK points are partial addresses and cannot establish emergency role, capacity, backup, staffing or open state.",
+      "action": "Create a typed, dated facility and transient-exposure registry from RIVM acute-care fixtures, CIBG/LRZa after access review, DUO, BAG/KVK and authority-confirmed local sites. Preserve source/function/valid time/confidence and separate registered residents, visitors, workers, patients and evacuees. Keep occupancy, backup, staffing, medicine, shelter and operational state unknown unless explicitly sourced."
+    },
+    {
+      "id": "GM0893-72H-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "open",
+      "summary": "The first-72-hour response is a generic coefficient rather than a time-stamped role, decision and resource model.",
+      "evidence": "E03 defines municipality-specific monitoring, crisis-centre activation, road/ferry closure, evacuation advice, shuttles, a local fire appliance and Defence escalation. E05 assigns broader population-care, emergency-service, water-manager and utility roles and gives public 72-hour guidance. None is a model action/resource state, and there is no Bergen evidence for householdPreparedness=0.44.",
+      "action": "Add a provenance-bearing incident timeline for gauge/forecast issue, warning, role/team activation, incident/isolation/evacuation area, closures, ferry state, shuttles, staged response, verified crews, emergency water, shelter, medicines, fuel, stocks, welfare checks, mutual aid and cross-border liaison. Classify each observed, official-scenario, synthetic or unknown with source/valid time; retain 0.44 only as an editable synthetic assumption."
+    },
+    {
+      "id": "GM0893-FLOOD-SEM-001",
+      "severity": "medium",
+      "category": "explainability",
+      "status": "open",
+      "summary": "Direct, indirect, threshold, register and defence-conditioned flood evidence need explicit separation.",
+      "evidence": "Coastal T+24 has zero direct local inundation but 16.52 m/s wind and cumulative service deprivation. River stress 0.8595 is normalized/non-hydraulic. E03's Well gauge values are operational triggers; E04 assets/defences are registers/plans; E08 layers are screening or official scenarios. Without evidence class and mechanism in every view these can be mistaken for live depth, current expected damage or guaranteed defence performance.",
+      "action": "Show direct inundation, wind, seepage/backwater, road/ferry, response and downstream-network contributions separately in legend, inspector, brief and export. Always show event/scenario, evidence class, source/issue/valid time, defence assumption, units and confidence. Never label normalized stress as metres, a trigger as a flood footprint, register status as performance, or zero direct coast impact as proof of no indirect disruption."
+    },
+    {
+      "id": "GM0893-RECOVERY-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "open",
+      "summary": "First-72-hour status and restoration trajectories are not calibrated to Bergen hazards, operators or lifelines.",
+      "evidence": "River stays strained through T+72 and compound degraded, while heat/drought remains active but becomes operational/zero affected; storm, pluvial, winter, cyber and wildfire also become operational/zero affected. Exact service person-hours accumulate without ferry/road state, operator switching/restoration, emergency-water distribution, facility continuity or resource timelines. E03/E05 assign those decisions to different actors and thresholds.",
+      "action": "Calibrate hazard/status thresholds, backup endurance and recovery separately by service/incident with responsible authorities/operators. Consume observed outage/closure/resource feeds only inside valid time. Report ranges/uncertainty, keep service restoration separate from household preparedness and hazard duration, and expose unresolved/unknown states rather than an exact unqualified trajectory."
+    },
+    {
+      "id": "GM0893-INV-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The current deterministic accounting and proxy semantics pass the Bergen harness.",
+      "evidence": "The focused matrix passes finite bounds, determinism, exact zero-event behavior, causal/counterfactual reconciliation, event-attributable person-hours, official null/zero preservation, service-invariant local hazard and exact municipality/local population-demand-delivery totals. River forcing persists 168 hours with no recovery under standing water, heat lasts 336 hours, and public water/provider/road-situation assets remain context-only unless explicitly stated.",
+      "action": "Retain these national invariants and add GM0893 regressions for selected hydraulic evidence, hazard-specific neighbourhood fields, the Bergen-Vierlingsbeek ferry/access/shuttle states, context/topology boundaries and direct-versus-indirect semantics before accepting the open corrections."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Replace Bergen's exact Maas proximity output with an evidence-bearing, defence-conditioned hydraulic scenario.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "scripts/fetch-realism-data.mjs (or dedicated LIWO/Waterschap Limburg adapter)",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "GM0893 local river output is visibly unsupported/Unknown until a versioned selected scenario is loaded. A loaded scenario records local Maas mechanism, current defence/breach state, probability, depth/stress unit, arrival, persistence/recession, native resolution, no-data, licence, hash and reviewer, and samples neighbourhood/road/facility footprints deterministically."
+    },
+    {
+      "summary": "Replace the shared Bergen neighbourhood seed with hazard-specific spatial adapters.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "scripts/fetch-realism-data.mjs",
+        "apps/web/src/data.ts"
+      ],
+      "validation": "Storm, pluvial, river, heat/drought, winter, cyber, wildfire/smoke and compound no longer reproduce one identical neighbourhood order solely from a shared seed. Tests retain service-layer invariance for one hazard while validating source-specific geometry, time, no-data, provenance and uncertainty."
+    },
+    {
+      "summary": "Add the Bergen-Vierlingsbeek ferry, named high-water access states and municipal/Defence shuttle interventions.",
+      "files": [
+        "scripts/apply-audited-lifelines.mjs",
+        "scripts/validate-generated-data.mjs",
+        "apps/web/public/data/transport-network.json",
+        "apps/web/public/data/transit/transit-routes-ferry.geojson",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "A source-backed GM0893-GM1982 ferry appears on the map and mobility/supply graph only, with authoritative landing geometry, scenario-unit capacity, open/closed/unknown and valid time. Geysselberg/Kerkstraat/Kampweg/Aijerdijk passability and the two shuttles/Defence threshold are typed, source-dated states; closing them can isolate Bergen/Aijen without mutating utility topology."
+    },
+    {
+      "summary": "Integrate Bergen pluvial/water and selectable Maasduinen fire inputs without promoting register assets to live causal nodes.",
+      "files": [
+        "scripts/fetch-water-assets.mjs",
+        "scripts/fetch-realism-data.mjs (or dedicated Limburg hydraulic/fire adapters)",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/data.ts"
+      ],
+      "validation": "Version-pinned pluvial/catchment/terrain and local ignition/perimeter/plume inputs drive neighbourhood/road/facility exposure with explicit no-data and provenance. All 89 HWH points retain publisher, source time, licence, coverage and context/causal status; missing capacity, power, backup and live state remain unknown and no feature causes failure merely by existing."
+    },
+    {
+      "summary": "Separate mobility/supply from utility graphs and add typed facilities, transients and first-72-hour response state.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/ScenarioControls.tsx",
+        "apps/web/src/components/OperationsBrief.tsx"
+      ],
+      "validation": "Provider areas/HWH/operator aggregates remain official context and roads/ferries never silently become utility topology. Registered residents, visitors/workers/patients and facility occupancy are separate. Warnings, roles, incident/isolation/evacuation areas, closures, crews, emergency water, shelter, medicines, fuel, stocks, welfare checks and mutual aid show observed/official-scenario/synthetic/unknown provenance and as-of time."
+    },
+    {
+      "summary": "Connect event forcing and recovery to versioned authoritative inputs while preserving direct/indirect semantics.",
+      "files": [
+        "scripts/fetch-realism-data.mjs (or dedicated KNMI/RWS/NDW adapters)",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/components/MapLegend.tsx",
+        "apps/web/src/components/OperationsBrief.tsx"
+      ],
+      "validation": "Weather, water and road values declare observation, forecast, warning, official scenario or synthetic mode with product/version, source/issue/valid time, resolution, validation and licence. Direct inundation, indirect wind/seepage/network, interventions and cumulative deprivation stay separate; service recovery uses calibrated ranges independent of household readiness and forcing duration."
+    }
+  ],
+  "residualLimitations": [
+    "No reviewed public source provides safe complete and current Enexis electricity/gas feeder and switching topology, WML pressure/supply topology, sewer control, Ziggo/other telecom control, critical-facility backup, crews, fuel, stock or restoration order for Bergen. These must not be inferred from roads, provider areas or public points.",
+    "Mijn Aansluiting records at one reference point identify Enexis, WML and Ziggo but not full-boundary coverage, connectivity, redundancy, quality or live state; the empty sewer response is unknown.",
+    "HWH water/wastewater/defence registers have contributor-dependent completeness. Feature existence/status and timestamps do not prove live operation, condition, available capacity, power, backup, flood performance or failure.",
+    "LIWO requires layer-specific mechanism, defence/breach state, resolution, licence and expert interpretation; ROR areas and defence registers are not selected depth/arrival scenarios.",
+    "The municipal high-water thresholds/actions are authoritative operational context but the page exposes no licensed machine-readable status feed or complete hydraulic response curve. Manual incident input must remain source-dated and typed.",
+    "The Bergen-Vierlingsbeek ferry is authority-confirmed, but no licensed machine-readable live state/capacity feed was found. A manual open/closed/unknown input is safer than implied real-time operation.",
+    "OVapi GTFS is planned service without an SLA; NDW current situations have finite validity and zero local records does not prove access. Neither a stop label nor data absence proves operation/passability.",
+    "CBS describes registered residents and rounded annual aggregates, not people present, individual vulnerability, visitors, commuters, patients, facility occupancy or evacuation priority.",
+    "KNMI station and RWS Waterinfo products are observed/forecast environmental inputs, not neighbourhood flood, smoke, service-failure or restoration products; spatial transformation and uncertainty need validation.",
+    "Exact hazard intensities, service availabilities, affected totals, backup hours, flows, interventions and deprived person-hours remain synthetic or derived-screening outputs, not operator commitments, observations, forecasts or official emergency decisions.",
+    "The audit covers display hours 0–72. High water, heat/drought, displacement, infrastructure repair, ecological/agricultural effects and recovery can continue beyond that horizon."
+  ],
+  "provinceReviewFlags": [
+    "Audit every Limburg Maas municipality against the current defence edition and an expert-selected LIWO/Waterschap Limburg mechanism; do not substitute straight river corridors or Well gauge triggers for hydraulic connectivity.",
+    "Require distinct pluvial, river, heat/drought, winter/storm, nature-fire/smoke and cyber neighbourhood fields across Limburg. The shared canonical rank is a national model defect, not Bergen-specific noise.",
+    "Create an audited Limburg/Brabant Maas ferry and flood-access catalogue including Bergen-Vierlingsbeek and Afferden-Sambeek, with authoritative landings, supported services, scenario-unit capacity, operator/state source and high-water/ice/wind closure semantics.",
+    "Model local isolation and emergency substitutions explicitly: named approach roads, municipal shuttles, staged appliances, Defence thresholds and cross-border coordination should be typed incident actions, never generic utility edges.",
+    "Use Waterschap Limburg/HWH water-system and defence layers, RWS/PDOK ROR, LIWO, Waterinfo, NDW and KNMI with explicit official-context, official-scenario, observed or forecast provenance; preserve resolution, time, no-data and licence per layer.",
+    "Separate NWB/NDW mobility from electricity, drinking water, drainage, gas/heating, telecom, facilities and emergency-supply topology across Limburg. Provider polygons and aggregates are context; missing/security-sensitive topology remains unknown or transparently synthetic.",
+    "Add municipality-selectable Maasduinen nature-fire/smoke events, cross-border German context where approved, transient recreation demand, typed critical facilities and a source-dated first-72-hour role/resource contract."
+  ]
+}

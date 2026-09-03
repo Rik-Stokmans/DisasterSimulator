@@ -1,0 +1,494 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0213",
+    "name": "Brummen",
+    "province": "Gelderland",
+    "safetyRegion": "Noord- en Oost-Gelderland"
+  },
+  "agent": {
+    "taskName": "municipality_gm0213",
+    "agentId": "/root/nl_realism_audit",
+    "completedAt": "2026-09-02T18:26:40Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "Brummen's generated 2025 identity, population, neighbourhood, place, settlement and safety-region inputs reconcile, and the focused deterministic gate passes all ten presets, six checkpoints and eight services. Release remains correction-required because the locally decisive first-72-hour behavior is not spatially or causally defensible. The major-river preset turns a municipality-centre distance to schematic river lines into normalized inundation stress 2.744967 from T+12 through T+72, 10,770 affected people-equivalent at T+24 and 778,783.61 event-attributable service person-hours by T+72. Official Brummen evidence instead describes a defence- and water-level-dependent IJssel sequence focused on the partly unprotected Cortenoever winter bed, with warning/preparation/evacuation phases at 72/48/24 hours before a forecast +8.0 m NAP threshold at Zutphen-Noord. The same evidence identifies RWZI Brummen as road-inaccessible during high water while it is intended to keep operating. Separately, the January 2026 Loenen-Eerbeek study documents slow antecedent groundwater saturation, 0.5 to more than 2 m local rise after industrial extraction stopped, and building/surface-water nuisance that a short municipality-wide cloudburst curve cannot represent. Eight unrelated hazards reuse the exact same 39-neighbourhood order, and a synthetic fire source placed in Coldenhove ranks only 28th. Public hydraulic, groundwater, water-asset, road, rail, provider, antenna and acute-care sources can improve context, but full operational utility topology, live state, backup and restoration remain unavailable or security-sensitive and must stay Unknown or transparently synthetic. Every exact impact is a deterministic exercise output, not an observation, forecast, official warning or operator commitment.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek / PDOK",
+      "title": "E01 — Official 2025 municipality, neighbourhood, safety-region and settlement inputs",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_gegeneraliseerd/items?f=json&limit=1000&datetime=2025-07-01T00%3A00%3A00Z",
+      "accessedAt": "2026-09-02T18:25:00Z",
+      "edition": 2025,
+      "supports": [
+        "GM0213 identity, generalized boundary, centre containment, province and safety-region assignment",
+        "Companion CBS OData 86165NED query returns Brummen population 21,394, density 256/km², 5,865 residents aged 65+ and 2,932 one-person households",
+        "Thirty-nine neighbourhoods, six districts and explicit rounding/suppression/null semantics; published neighbourhood population sums to 21,410, sixteen above the municipality total",
+        "CBS municipality/neighbourhood and BRT inputs are annual CC BY 4.0; BAG woonplaats data is Public Domain Mark 1.0; generated BRT source date is 2025-07-01"
+      ]
+    },
+    {
+      "publisher": "Provincie Gelderland / Gemeente Brummen / Waterschap Vallei en Veluwe",
+      "title": "E02 — Gebiedsverkenning toekomstbestendig watersysteem Loenen-Eerbeek",
+      "url": "https://www.brummen.nl/fileadmin/brummen_website/Nieuwsberichten/Gebiedsverkenning_Eerbeek.pdf",
+      "accessedAt": "2026-09-02T18:18:00Z",
+      "edition": "27 January 2026, Public report",
+      "supports": [
+        "The Veluwe flank, groundwater-fluctuation zone and IJssel valley have different delayed/seasonal behavior; sprengen, ditches, controls, withdrawals and missing drainage paths matter",
+        "Around Eerbeek, 2023–2024 precipitation of about 1,200 mm added 0.5–1 m groundwater rise, while stopping De Hoop extraction added about 0.5 to locally more than 2 m; the effects reinforced each other",
+        "The study analysed 397 monitoring-point series and records long-lived saturation, filled infiltration tubes, surface accumulation and backflow into buildings/crawlspaces; this is retrospective measured/modelled context, not a current incident or T+72 forecast",
+        "BRO groundwater-monitoring OGC https://api.pdok.nl/bzk/bro-gminsamenhang-karakteristieken/ogc/v1 supplies point/tube/network/GLD metadata and links to series CSV/XML, nationally, daily, under CC0 1.0; each record's quality regime and observation status must be retained",
+        "The fixed report states no standard redistribution licence or update cadence and recommends further decisions/research, so its maps must not silently become live causal state"
+      ]
+    },
+    {
+      "publisher": "Gemeente Brummen / Rijkswaterstaat / Het Waterschapshuis",
+      "title": "E03 — Cortenoever high-water phases, RWZI access, Waterinfo/LIWO and public water registers",
+      "url": "https://www.brummen.nl/fileadmin/brummen/Documenten/Inwoners/folder_hoogwater_Brummen_def_aug18.pdf",
+      "accessedAt": "2026-09-02T18:20:00Z",
+      "edition": "municipal folder August 2018 based on 2017 playbook; public registers queried 2026-09-02",
+      "supports": [
+        "The relocated winter dike leaves part of Cortenoever outside primary protection; a lowered former dike becomes part of the IJssel winter bed and overtopping is described as roughly once per 25–40 years",
+        "The municipal playbook uses a forecast +8.0 m NAP level at Zutphen-Noord: warning three days before, preparation two days before and evacuation advice one day before, including kade monitoring, priority for people needing help, utility shutoff and route closure",
+        "Companion municipal planning document https://www.brummen.nl/fileadmin/user_upload/Plannen_en_Projecten/Ontwerpbesluit_voorsterklei/ontwerp-besluit_2015-234-ro.pdf says RWZI Brummen in Cortenoever becomes road-inaccessible at high water, is intended to remain operating, and needs temporary sludge storage because removal is impossible",
+        "Rijkswaterstaat Waterinfo https://www.rijkswaterstaat.nl/water/waterdata supplies current, expected and historical station observations; LIWO OGC https://basisinformatie-overstromingen.nl/geoserver/ows supplies professional scenario layers, but observations are not footprints and scenario layers require explicit event/version/unit/no-data/licence selection",
+        "HWH Kunstwerken IMWA OGC https://api.pdok.nl/hwh/waterschappen-kunstwerken-imwa/ogc/v2 is provider-supplied, generally weekly and CC BY-SA 4.0; companion Waterketen DAMO is also CC BY-SA 4.0 with no clear fixed cadence. Current point-in-polygon context contains 66 weirs, five surface-water pumps, six sewer pumps and RWZI Brummen; points do not establish connectivity, state or unit-correct capacity",
+        "The 2017/2018 local playbook and planning decision are authoritative historical preparedness evidence, not proof that the same threshold, owner action or facility configuration remains operational in 2026; current authority confirmation is required"
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Noord- en Oost-Gelderland",
+      "title": "E04 — Regionaal Risicoprofiel 2025–2028, bijlagenboek and 2026 langdurige-stroomuitval special",
+      "url": "https://www.vnog.nl/sites/default/files/2024-11/VNOG%20Risicoprofiel%202025-2028_def.pdf",
+      "accessedAt": "2026-09-02T18:21:00Z",
+      "edition": "adopted 12 December 2024; power-outage special published 2026",
+      "supports": [
+        "The profile covers IJssel flooding, extreme rain/wind, long heat/drought, forest/heath fire, electricity, drinking-water contamination, telecom/ICT and municipal cyberattack, with consequences varying by incident and locality",
+        "It says VNOG is not in an area where earthquake intensity is expected to cause personal/building damage and therefore does not develop an earthquake crisis scenario",
+        "The appendix at https://www.vnog.nl/sites/default/files/2025-03/Regionaal-risicoprofiel_2025-2028_bijlagenboek.pdf reports 1,509 hectares of nature area for Brummen and describes forest/heath fire mechanisms plus vulnerable infrastructure, care, recreation and residents",
+        "The 2026 companion at https://www.vnog.nl/sites/default/files/2026-07/VNOG_Special_Langdurig%20stroomuitval_2026.pdf explicitly treats electricity loss as cascading into telecom, drinking water, care and mobility",
+        "These fixed planning documents have multi-year/release cadence and state no machine incident API or standard reuse licence; they validate scope and dependency questions, not exact Brummen availability or probability"
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Noord- en Oost-Gelderland",
+      "title": "E05 — Regionaal Crisisplan 2025–2028",
+      "url": "https://www.vnog.nl/sites/default/files/2024-11/VNOG%20Regionaal%20crisisplan%202025-2028_def.pdf",
+      "accessedAt": "2026-09-02T18:21:00Z",
+      "edition": "adopted 12 December 2024",
+      "supports": [
+        "The plan separates CoPI, ROT, GBT/RBT, information management, population care and partner/operator responsibilities and supports flexible scaling through acute response and recovery transition",
+        "It sets rapid alerting/image-building ambitions and recognises that public/private crisis partners retain responsibility for control and recovery in their functional chains",
+        "Roles and target timings are preparedness doctrine, not evidence that a Brummen team activated, a resource was dispatched, a utility switched, a route opened or a service recovered",
+        "The fixed four-year plan has no public action-state API, live resource feed or explicit standard reuse licence"
+      ]
+    },
+    {
+      "publisher": "Nederlands Instituut Publieke Veiligheid / KNMI / IenW",
+      "title": "E06 — Nature-fire index, weather/earthquake observations and public fire context",
+      "url": "https://nipv.nl/informatievoorziening/voorzieningen/risico-index-natuurbranden/",
+      "accessedAt": "2026-09-02T18:22:00Z",
+      "edition": "RIN page modified 2026-01-20; KNMI services current 2026",
+      "supports": [
+        "RIN combines seventeen parameters into one-kilometre nature-fire risk cells for preparedness/mitigation; no public bulk API, redistribution licence or fixed update cadence was found, so absence of an authorized export remains Unknown",
+        "The public Risicokaart/ISOR WFS https://servicespub.risicokaart.nl/geoserver/ISOR_RK/wfs exposes burnable-nature geometry under CC BY 4.0 with contributor-dependent, record-based updates; BRT TOP10NL annual CC BY 4.0 land cover is a transparent fallback, neither is an ignition/perimeter/spread model",
+        "KNMI Data Platform/EDR https://api.dataplatform.knmi.nl/edr/v1 supplies machine-readable time-stamped meteorology under CC BY 4.0, including high-frequency observations/radar, but it does not create local flood depth or fire spread",
+        "KNMI's automatically updated earthquake catalogue https://www.knmi.nl/kennis-en-datacentrum/dataset/aardbevingscatalogus exposes JSON/CSV/KML events; a selected record is observed event context, not probability, site response, damage or service fragility"
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / ProRail / Nationaal Dataportaal Wegverkeer / Gemeente Brummen",
+      "title": "E07 — Machine-readable road/rail/traffic context and water-level-dependent Brummen ferry",
+      "url": "https://api.pdok.nl/rws/nationaal-wegenbestand-wegen/ogc/v1?f=html&lang=nl",
+      "accessedAt": "2026-09-02T18:23:00Z",
+      "edition": "NWB snapshot 2026-08-01; public services/pages queried 2026-09-02",
+      "supports": [
+        "NWB OGC/download supplies road sections nationally, monthly under CC0 1.0; ProRail OGC https://api.pdok.nl/prorail/spoorwegen/ogc/v1 supplies manually updated CC0 station/track context; neither supplies live operational capacity",
+        "NDW DATEX current situations https://opendata.ndw.nu/actueel_beeld.xml.gz are live observed records, CC0 unless stated; a record may affect a matching scenario only after geometry, direction, validity-time and quality checks",
+        "Generated context contains five logical N345/N786/N348 links to Zutphen, Apeldoorn, Voorst and Rheden, Brummen and Voorst-Empe stations, and 58 GTFS stop areas; every nominal road capacity is synthetic",
+        "The municipal ferry page https://www.brummen.nl/sport-cultuur-en-recreatie/recreatie/vaartijden-veerpont says the Brummen/Cortenoever–Bronkhorst vehicle/passenger ferry does not sail during ice, Beaufort greater than 7 or high water and was currently suspended for low IJssel water; the graph has no Bronckhorst/ferry link",
+        "The current cached NDW intersection contains no qualifying GM0213 point, which means operational state is Unknown rather than every route open"
+      ]
+    },
+    {
+      "publisher": "Stichting Mijn Aansluiting / Liander / RDI / RIVM / Rijksoverheid",
+      "title": "E08 — Public provider, network-asset, antenna, acute-care and 72-hour preparedness context",
+      "url": "https://wiki.service.mijnaansluiting.nl/wiki/spaces/Wiki/pages/693731329",
+      "accessedAt": "2026-09-02T18:28:00Z",
+      "edition": "live territory query 2026-09-02; RIVM v1.1 published 2026-07-03",
+      "supports": [
+        "The Public Domain live WMS/WFS query at Brummen's reference point returns Liander electricity (record 2026-03-24), Liander gas (2025-12-17), Vitens water and Ziggo media (both 2025-09-07); no sewer polygon is returned. Provider-supplied areas can be incomplete/overlapping and identify responsibility only",
+        "Liander's official ArcGIS/WFS electricity and gas geometry at https://www.liander.nl/over-ons/open-data is CC BY 4.0 with no fixed geometry refresh stated; its public geometry is context, not validated connectivity, switching, loading, outage or restoration state",
+        "RDI WFS https://antenneregister.nl/mapserver/wfs/ contributes 49 registered sites and 97 antennas inside the generalized boundary, including 22 mobile sites/66 antennas; the statutory deployment register states no fixed cadence/licence version and does not establish coverage, backhaul, power, congestion or live state",
+        "RIVM v1.1 acute-care data https://datacatalogus.rivm.nl/dataset.xhtml?persistentId=doi%3A10.21945%2F8E767B2D-9CED-4A85-A95D-3AC1A608C663 is downloadable CC0, published 2026-07-03 on an annual questionnaire cycle. No acute hospital is inside GM0213; nearest is Gelre Zutphen at 7.24 km but not 24/7, while Gelre Apeldoorn at 13.55 km reports 24/7 emergency and acute-obstetric services",
+        "Rijksoverheid's current first-72-hour kit guidance at https://www.rijksoverheid.nl/vraag-en-antwoord/veiligheidsregios-en-crisisbeheersing/wat-zit-er-in-een-noodpakket advises three litres water per person per day plus durable food, radio, power bank and medicines; guidance and national survey proxies are not observed Brummen stock"
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "The generated municipality code, name, province and safety-region assignment agree with the official 2025 inputs.",
+      "evidenceRefs": ["E01", "E04"],
+      "notes": [
+        "Feature id, municipality bundle code and bundle name all equal GM0213 / Brummen.",
+        "The official safety-region layer assigns GM0213 uniquely to Noord- en Oost-Gelderland."
+      ]
+    },
+    "geography": {
+      "status": "pass",
+      "summary": "The 2025 generalized boundary is coherent for overview selection and contains the generated reference centre.",
+      "evidenceRefs": ["E01", "E02", "E03"],
+      "notes": [
+        "Generated centre is [6.112461352058423, 52.113680868637466].",
+        "An overview/generalized polygon and municipality centre are not precise enough to intersect the Cortenoever winter bed, dikes/kades, RWZI access, Eerbeek groundwater zones, local roads or utility assets; use full-resolution geometry for those tasks."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Generated municipal totals match CBS 2025 and neighbourhood population reconciles within CBS small-area publication rounding.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "Official/generated population is 21,394, density 256/km², age 65+ is 5,865 or 27.4%, and one-person households number 2,932.",
+        "Published neighbourhood population sums to 21,410, sixteen above the municipality total (+0.075%); neighbourhood households sum to 9,540 and rounded age-65-plus counts to 5,860.",
+        "Aggregates are planning context only and do not identify present occupancy, individual vulnerability, evacuation need or household preparedness."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "All 39 neighbourhood rows and declared statistics load, but incomplete values remain null and no statistic is a hazard footprint.",
+      "evidenceRefs": ["E01", "E02"],
+      "notes": [
+        "Core population, household, age, density and access fields have 39/39 coverage; housing percentages/home value have 37/39, cars per household 30/39 and benefit counts 36/39.",
+        "District-heating percentage and public-charging fields have 0/39 usable values and correctly remain missing rather than zero.",
+        "Largest neighbourhoods are Eerbeekse Enk (3,105), Lombok (1,880), Noorderenk (1,715), Brummense Enk Oost (1,635) and Brummen Centrum (1,495)."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "Six BAG woonplaatsen and twelve BRT settlements resolve without label-centre leakage from the generalized boundary.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "BAG woonplaatsen are Brummen, Eerbeek, Empe, Hall, Leuvenheim and Tonden.",
+        "BRT adds Broek, Coldenhove, Cortenoever, Oeken, Rhienderen and Voorstonden; classes are five buurtschappen, one deelkern and six woonkernen.",
+        "Settlement labels and source population metadata are descriptive, not causal exposure or a population control total."
+      ]
+    },
+    "transport": {
+      "status": "warn",
+      "summary": "Road, rail, transit and ferry context is identifiable, but the five-link graph omits internal/conditional access and live operation.",
+      "evidenceRefs": ["E03", "E07"],
+      "notes": [
+        "Five NWB-derived links connect four neighbours through N345, N786 and N348, each assigned the same synthetic nominal capacity 150; total logical capacity is 750.",
+        "Brummen and Voorst-Empe stations plus 58 GTFS stop areas are static context, not trains, buses, passenger capacity, accessibility or live service.",
+        "The graph omits the conditional Brummen–Bronkhorst ferry, Cortenoever evacuation/access routes and the high-water isolation of RWZI Brummen; empty cached NDW context is Unknown, not an all-clear."
+      ]
+    },
+    "emergencyContext": {
+      "status": "warn",
+      "summary": "Official local high-water and VNOG roles exist, but current decisions, resources, facility continuity and operator actions are not modeled.",
+      "evidenceRefs": ["E03", "E04", "E05", "E08"],
+      "notes": [
+        "The historic Cortenoever plan supplies a concrete forecast-relative 72/48/24-hour sequence; current validity, contacts, routes and threshold must be re-confirmed before operational display.",
+        "No acute hospital lies inside GM0213; straight-line proximity to Zutphen/Apeldoorn is not ambulance travel, acceptance, staffing, occupancy, diversion or generator state.",
+        "Six government-registry and sixteen DUO education points are public context only, not verified command posts, shelters, distribution hubs or live capacity."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten canonical presets produce complete finite output at every required checkpoint and service, while their evidential limits remain explicit audit findings.",
+      "evidenceRefs": ["E02", "E03", "E04", "E06"],
+      "notes": [
+        "The focused matrix executed severe storm, pluvial flood, river flood, coastal flood, heatwave, winter storm, cyberattack, earthquake, wildfire and compound at T+0/6/12/24/48/72 across power, water, drainage, gas, telecom, mobility, facilities and supply.",
+        "At T+24 severity / pressure / affected / cumulative event-attributable person-hours are storm 0.046672 / 0.271489 / 3,963 / 52,185.34; pluvial 0.176584 / 0.301597 / 4,871 / 62,268.33; river 0.861213 / 0.497300 / 10,770 / 203,623.46; coastal 0.053320 / 0.069527 / 0 / 22,005.14; heat 0.104097 / 0.166276 / 792 / 54,473.91.",
+        "Remaining T+24 values are winter 0.823243 / 0.307164 / 5,039 / 160,699.15; cyber 0.421961 / 0.327280 / 5,645 / 103,316.29; earthquake 0 / 0.080865 / 0 / 11,398.34; wildfire 0.152938 / 0.196670 / 1,708 / 35,423.72; compound 0.794297 / 0.639179 / 15,047 / 185,430.73.",
+        "At T+72 river remains 0.861213 with inundation stress 2.744967, pressure 0.492707, 10,631 affected and 778,783.61 person-hours; compound remains critical at severity 0.270327, flood stress 0.253051, pressure 0.595203, 13,721 affected and 707,587.66 person-hours. These are exercise estimates, never measurements or forecasts.",
+        "The coastal preset coherently reports zero direct inundation but a named inland wind component: 19.4433 m/s at T+24 creates low headline severity, then forcing clears by T+48 while previously incurred damage recovers. Zero direct coastal water is scoped, not a general no-impact claim."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "The focused gate passes deterministic, finite, exact-zero, causal, allocation, reconciliation and monotonic-burden contracts.",
+      "evidenceRefs": [],
+      "notes": [
+        "MUNICIPALITY_AUDIT_CODE=GM0213 pnpm audit:model passed both tests on current code before artifact creation across 10 presets × 6 checkpoints × 8 services.",
+        "All intensity-zero runs have exactly zero current/peak severity, affected people-equivalent and event-attributable person-hours at every checkpoint.",
+        "Every local map allocates exactly 21,394 people; maximum service demand/delivery/reconciliation error is 2.132e-14.",
+        "Service/map selection leaves local hazard values exactly invariant, cumulative person-hours are monotonic and all route flows stay within declared logical capacity."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "The river screen, shared neighbourhood seed and fire allocation contradict Brummen's distinct physical hazard mechanisms.",
+      "evidenceRefs": ["E02", "E03", "E04", "E06"],
+      "notes": [
+        "At T+24 storm, pluvial, coastal, heat, winter, cyber, wildfire and compound share the exact full 39-neighbourhood order, beginning Eerbeek Zuid, Eerbeekse Enk, Eerbeek Buitengebied, Cortenoever and Elzenbos.",
+        "The river order differs only through saturation and begins Eerbeekse Enk, Eerbeek Zuid, Eerbeek Buitengebied, Cortenoever, despite E03's highly specific Cortenoever winter-bed mechanism.",
+        "The allocator samples no full-resolution dike/winter-bed footprint, AHN/catchment/groundwater zone, paving/shade, vegetation/fuel, wind direction, road/rail asset or cyber target.",
+        "In a reproducible synthetic T+24 fire placed at Coldenhove centre [6.035090808911589, 52.08463108552673], municipality direct flame is 0.3688 and source-neighbourhood Coldenhove ranks 28/39 at 0.3754; Eerbeek Zuid 2.169 km away ranks first at 0.4892 and Cortenoever 10.458 km away ranks fourth at 0.4828.",
+        "Canonical wildfire is 25.808 km from the municipality centre, has zero direct flame but smoke 0.417317 at T+24; it is a remote-smoke/drought exercise, not absence of Brummen nature-fire risk."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "All eight balances are inspectable, but road-cloned flows omit the documented RWZI/access pathway and have no operator-calibrated topology or restoration state.",
+      "evidenceRefs": ["E03", "E04", "E07", "E08"],
+      "notes": [
+        "All power, water, drainage, gas, telecom, mobility, facilities and supply layers reuse the same five NWB-derived links and total 750 synthetic logical units; these are not cables, pipes, sewers, pressure zones, radio links, patient transfers or stocked supply routes.",
+        "Public context exposes 78 HWH water objects, Liander electricity/gas geometry, a Vitens responsibility area and 49 RDI antenna sites/97 antennas, but not complete connectivity, unit-correct capacity, state, backup, priority users or restoration.",
+        "The model does not represent RWZI Brummen's ring-dike/island state, access loss, sludge-storage constraint, six named sewer-pump catchments or the historical local plan's conditional utility shutdown.",
+        "At river T+24 modeled availability is power 0.3581, water 0.5940, drainage 0.3643, gas 0.8048, telecom 0.7035, mobility 0.4859, facilities 0.5820 and supply 0.1947; no cited operator source validates these exact values."
+      ]
+    },
+    "causalTrace": {
+      "status": "fail",
+      "summary": "Arithmetic closes, but the derived-screening river label overstates a centre-distance heuristic as local spatial evidence and omits the controlling threshold/defence/access chain.",
+      "evidenceRefs": ["E02", "E03"],
+      "notes": [
+        "Service-stage deltas, weighted pressure and matched-no-event person-hour arithmetic reconcile for the full matrix.",
+        "The Rhine, Meuse & IJssel preset labels GM0213 spatial evidence derived-screening, but riverExposure uses municipal-centre distance to three schematic line segments. It contains no +8.0 m NAP boundary condition, Zutphen-Noord observation/forecast, old/new dike, lowered kade/openings, protected/unprotected footprint, terrain, RWZI ring dike, arrival or recession.",
+        "Internal field floodDepthM is displayed as normalized inundation stress; its exact 2.744967 value must never be interpreted as observed metres or locally validated depth.",
+        "The coastal trace now correctly names inland wind and prior-damage recovery despite zero local sea inundation; that previously shared defect is not repeated as a Brummen blocker."
+      ]
+    },
+    "recovery72h": {
+      "status": "warn",
+      "summary": "Deterministic recovery and cumulative harm are coherent, but local high-water, groundwater and operator evidence does not calibrate any restoration curve.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E08"],
+      "notes": [
+        "At T+72 storm, pluvial, coastal, winter, earthquake and wildfire initiating forcing has cleared; cumulative burdens are 132,726.86, 133,215.91, 77,601.46, 387,497.36, 19,325.42 and 104,228.76 event-attributable service person-hours respectively.",
+        "River forcing persists unchanged through T+72. E03 supports potentially extended high water and delayed return, but not the exact uniform 168-hour forcing, affected count or service curve.",
+        "Heat retains drought 0.578318 and severity 0.104097 at T+72 while affected people-equivalent is zero; this threshold result cannot be read as no residual health, water, vegetation or care burden.",
+        "No current dike/control state, groundwater initial condition, provider switching, crews/fuel/spares, route clearance, sludge capacity, hospital acceptance or recovery commitment is ingested. E03/E05 define plans and responsibilities, not guaranteed action."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": ["power", "water", "drainage", "gas", "telecom", "mobility", "facilities", "supply"]
+  },
+  "findings": [
+    {
+      "id": "GM0213-RIVER-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "A real IJssel/Cortenoever pathway is represented by an unsupported municipality-centre distance score and false municipality-wide precision.",
+      "evidence": "E03 documents the relocated winter dike, lowered former kade, protected and unprotected Cortenoever areas and a +8.0 m NAP forecast threshold. Canonical output instead reaches normalized inundation stress 2.744967 and severity 0.861213 at T+12 and holds both through T+72 using only centre distance to schematic river corridors. It reports 10,770 affected and 203,623.46 event-attributable person-hours at T+24, rising to 10,631 and 778,783.61 by T+72. Local ranking puts Eerbeekse Enk, Eerbeek Zuid and Eerbeek Buitengebied above Cortenoever; no cited source supports that footprint or exact amplitude.",
+      "action": "Mark current GM0213 river amplitude/distribution unsupported for operational use. Replace the centre-distance scalar with an explicitly selected, versioned LIWO/water-board/Rijkswaterstaat hydraulic event clipped to full-resolution CBS geometry, including Zutphen-Noord boundary level/forecast, defence and breach/overtopping state, kade/openings, connected footprint, AHN terrain, arrival, duration/recession, units, uncertainty, no-data mask, edition and terms. If no approved layer exists, use one smallest named synthetic footprint and label every dependent result hypothetical."
+    },
+    {
+      "id": "GM0213-HIGHWATER-RESPONSE-001",
+      "severity": "high",
+      "category": "explainability",
+      "status": "open",
+      "summary": "The first-72-hour clock omits Brummen's forecast-relative Cortenoever warning, preparation and evacuation phases.",
+      "evidence": "E03's historic municipal playbook starts three days before forecast +8.0 m NAP at Zutphen-Noord, moves to preparation at two days and evacuation advice at one day, with kade monitoring, prioritization of people needing assistance, regular-road evacuation, utility shutoff and access closure. The simulator starts T+0 at scenario onset and exposes generic delay-gated interventions without forecast threshold, authority confirmation, owner, population scope, route, requested/confirmed action or validity. The plan is from 2017/2018, so it is evidence of a required workflow shape—not proof that its exact threshold/contact/action remains current.",
+      "action": "Add a forecast/replay pre-onset window and a versioned Brummen high-water exercise template with observed/forecast level and issue time, threshold, confidence, current-plan validation date, protected/unprotected population, decision authority, action owner, prerequisite, request/confirmation, route state and handover. Keep all actions hypothetical until confirmed by current municipality, water-board, VNOG and operator data."
+    },
+    {
+      "id": "GM0213-RWZI-FLOOD-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "RWZI Brummen's documented high-water island/access/sludge dependency is absent from drainage, mobility and supply behavior.",
+      "evidence": "E03 places RWZI Brummen inside Cortenoever's flowing floodplain, protected by a ring dike and intended to keep operating while road access and sludge removal become impossible; temporary sludge storage exists for that condition. Current public context finds RWZI Brummen, six sewer pumps and five surface-water pumps, but the model applies generic drainage availability 0.3643 and mobility 0.4859 at river T+24 without facility state, inflow network, ring-dike state, access route, sludge capacity, power/control dependency or recovery trigger. This older planning evidence requires current facility/operator confirmation before use as live configuration.",
+      "action": "Create a typed, security-reviewed RWZI aggregate node linked to wastewater catchments and mobility/supply access. Represent protected plant inundation, road access, sludge buffer, inflow, power/control/telecom backup, contamination, staffing and restoration as separate known/unknown fields. Use HWH DAMO/IMWA as CC BY-SA 4.0 context only until current Vallei en Veluwe/GWSW topology, units and operational thresholds are authorized."
+    },
+    {
+      "id": "GM0213-PLUVIAL-GROUNDWATER-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "A short cloudburst/recovery curve cannot represent Eerbeek's slow antecedent groundwater and extraction-driven waterlogging mechanism.",
+      "evidence": "Canonical pluvial forcing peaks at T+6, leaves municipality stress 0.244502 at T+12/T+24, and clears by T+48. E02 instead documents a mixed fast/slow system: exceptional 2023–2024 rain saturated the Veluwe flank and stayed high through summer, about 1,200 mm added 0.5–1 m rise, stopping De Hoop extraction added 0.5 to locally more than 2 m, and filled infiltration tubes caused surface/building backflow. The 397-point analysis also identifies materially different zones around Eerbeek/Loenen and toward the IJssel valley. The study is retrospective, not a current initial condition.",
+      "action": "Separate cloudburst surface flooding, antecedent groundwater, sewer surcharge and long-term withdrawal regime. Ingest daily CC0 BRO GMW/GMN/GLD metadata/series with quality status, event-valid KNMI rain, full-resolution AHN/catchment/imperviousness and an authorized municipal/water-board stress or groundwater model. Preserve missing series as Unknown and require scenario start-state/date; never project 2024 conditions onto a 2026 exercise without explicit replay selection."
+    },
+    {
+      "id": "GM0213-SPATIAL-001",
+      "severity": "high",
+      "category": "geography",
+      "status": "open",
+      "summary": "Eight unrelated hazards reuse one exact neighbourhood order instead of Brummen's river, groundwater, heat, fire, infrastructure and cyber mechanisms.",
+      "evidence": "Storm, pluvial, coastal, heat, winter, cyber, wildfire and compound share the complete T+24 order of all 39 neighbourhoods, led by Eerbeek Zuid, Eerbeekse Enk and Eerbeek Buitengebied; river differs only where values saturate. E02/E03 document mechanisms that should produce distinct locations, while cyber requires named assets/targets rather than a demographic seed. No AHN, winter-bed/dike, groundwater, paving/shade, fuel, wind, asset or target surface controls the ranking.",
+      "action": "Label all neighbourhood hazard values synthetic/unsupported and suppress hotspot/dispatch inference until replaced. Build hazard-specific, versioned adapters: selected hydraulic/stress grids and AHN for water, KNMI forcing, BRT/authorized RIN for fire, heat/land-cover evidence, and explicitly scoped safe asset zones for cyber/services. Preserve source, valid time, resolution, units, licence, uncertainty and no-data masks, while retaining exact service-layer invariance."
+    },
+    {
+      "id": "GM0213-FIRE-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "An explicit source inside Coldenhove does not control the neighbourhood fire ranking, while the canonical preset tests only remote smoke/drought.",
+      "evidence": "E04 reports 1,509 hectares of nature in Brummen and describes forest/heath fire risk; E06 offers a 1-km multi-parameter RIN concept but no open export. In a reproducible synthetic T+24 test with source at Coldenhove centre, municipal direct flame is 0.3688, smoke 0.4882 and severity 0.4179, yet Coldenhove ranks 28/39 at 0.3754. Eerbeek Zuid at 2.169 km ranks first at 0.4892 and Cortenoever at 10.458 km ranks fourth at 0.4828. Canonical wildfire source is 25.808 km away and produces zero local flame, so it cannot validate a local incident.",
+      "action": "Make source/perimeter intersection and eligible fuel control flame ranking; separate flame, smoke and drought. Prefer an authorized NIPV RIN export with licence/cadence confirmed. The public fallback is ISOR burnable-nature/BRT land cover plus event-aligned KNMI wind/rain/humidity and explicit fuel, moisture, visitors, access, extinguishing-water and suppression assumptions. Use one minimal versioned synthetic ignition/perimeter if no operational perimeter is public."
+    },
+    {
+      "id": "GM0213-EARTHQUAKE-001",
+      "severity": "medium",
+      "category": "hazard",
+      "status": "open",
+      "summary": "A remote Groningen exercise creates local service burden without the event, site-response and fragility evidence required for Brummen.",
+      "evidence": "E04 states VNOG is not in an area where expected earthquake intensity causes personal/building damage and therefore does not develop that crisis type. The simulator nevertheless applies 0.007892 g/current severity 0.024662 at T+6 and accumulates 11,398.34 event-attributable person-hours by T+24 and 19,325.42 by T+72, while affected people-equivalent remains zero. A low-amplitude sensitivity exercise is permissible, but no selected KNMI event, ground-motion field, local soil/site response or service-asset fragility validates the loss.",
+      "action": "Label the preset remote earthquake sensitivity. Require a selected KNMI catalogue event and versioned ground-motion/site-response/fragility method before direct local service damage; otherwise suppress the direct damage path and retain only explicitly modelled remote supply effects. Add a gate that sub-damage shaking cannot silently create asset failure without a cited fragility assumption."
+    },
+    {
+      "id": "GM0213-NETWORK-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "Five road-border links are cloned into all eight lifelines despite available context and unavailable physical topology.",
+      "evidence": "Every service reuses N345/N786/N348 links and total synthetic capacity 750. E08 identifies Liander, Vitens and Ziggo responsibility at one point and exposes Liander geometry plus 49 RDI sites; E03 exposes 78 water objects. None establishes feeder/pipe/sewer/backhaul connectivity, pressure/flow, loading, switching, priority customers, backup, crew or restoration. Exact compound T+24 availability—power 0.1662, water 0.5131, drainage 0.3612, gas 0.7016, telecom 0.3531, mobility 0.3216, facilities 0.1839 and supply 0.4598—is therefore a synthetic index, not an operator forecast.",
+      "action": "Keep NWB-derived links only for mobility/supply. Use Mijn Aansluiting polygons, Liander geometry, HWH objects and RDI sites as non-causal official context with publisher/time/licence. Request safe aggregate service zones, dependency rules and restoration ranges from operators; when unavailable/security-sensitive, use separate minimal editable synthetic graphs per service with sensitivity bands and prominent synthetic labels, never road IDs disguised as utility topology."
+    },
+    {
+      "id": "GM0213-MOBILITY-001",
+      "severity": "medium",
+      "category": "network",
+      "status": "open",
+      "summary": "Water-level-dependent ferry, Cortenoever access, two stations and transit cannot be represented by five municipality-border road proxies.",
+      "evidence": "E07 documents the Brummen/Cortenoever–Bronkhorst ferry for people, cars and light vans, with no service during high water, ice or wind above Beaufort 7 and a current low-water suspension. The graph has no Bronckhorst/ferry edge. E03 documents Cortenoever evacuation-road closure and RWZI road isolation. Static context has two stations and 58 GTFS stop areas but no segment/passability, ferry, train/bus operation, ambulance, evacuation, repair-access or alternate-route state. An empty local NDW intersection remains Unknown.",
+      "action": "Separate road, rail, public transport, ferry, ambulance/evacuation and utility-access graphs. Use monthly CC0 NWB, manually updated CC0 ProRail and GTFS as reference geometry/schedule; use NDW only as timestamped matched observation. Add the ferry as a conditional mobility/supply edge driven by named water/wind/ice constraints, and intersect selected flood footprints with Cortenoever/RWZI segments. No observation must remain Unknown rather than open."
+    },
+    {
+      "id": "GM0213-FACILITY-SUPPLY-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "accepted-limitation",
+      "summary": "External acute-care access, priority populations, shelters and 72-hour supplies lack verified role, route, stock and continuity state.",
+      "evidence": "Brummen has 27.4% residents aged 65+ and 2,932 one-person households. E08 finds no acute hospital inside GM0213; Gelre Zutphen is 7.24 km straight-line but has limited day/evening emergency opening and no acute obstetrics, while Gelre Apeldoorn at 13.55 km reports 24/7 emergency/obstetric service. Six government and sixteen education points are not verified shelters or hubs. The model has no ambulance routing, acceptance/diversion, care homes/home care, pharmacies, staffing, generators/fuel, depot stocks or vehicles. Three litres of water/person/day is guidance, and the model's preparedness default is not observed Brummen stock.",
+      "action": "Retain RIVM v1.1 CC0 and daily DUO register data as dated non-causal context. Add route-aware external-care destinations and named local reception/distribution nodes only with authorized role, accessibility, capacity and state. Seek GHOR/ROAZ, municipal continuity and care/supply exercise data; otherwise display estimated need, confirmed resources and Unknown stock/continuity separately."
+    },
+    {
+      "id": "GM0213-HAZARD-SCOPE-001",
+      "severity": "medium",
+      "category": "limitation",
+      "status": "accepted-limitation",
+      "summary": "Coastal, weather, cyber and compound magnitudes remain bounded exercises rather than local observations, forecasts or a complete risk register.",
+      "evidence": "E04 supports regional relevance of storm, extreme rain, IJssel high water, heat/drought, winter, nature fire, electricity/drinking-water/telecom disruption and municipal cyberattack, but not the simulator's exact GM0213 values. Coastal direct inundation is correctly zero while an explicit 19.4433 m/s inland wind component remains; heat T+12 is 35.14 °C with drought 0.5783; winter T+24 is -9.82 °C with 27.63 m/s wind, 4.713 cm/h snow and ice 0.7864; cyber has no named target; compound dependence is synthetic. None is time-matched to KNMI observations or current intelligence.",
+      "action": "Label all presets deterministic scenarios and publish included/excluded pathways. Observed/replay mode must require named event, source, issue/valid time and quality. Cyber must identify an authorized target/system boundary and attack path; compound must expose dependence assumptions. Scoped zero must never become an all-clear, and unmodelled industrial, rail/hazardous-goods, epidemic or animal-disease risks should be declared rather than inferred absent."
+    },
+    {
+      "id": "GM0213-DATA-CONTRACT-001",
+      "severity": "informational",
+      "category": "regional-data",
+      "status": "fixed",
+      "summary": "Official administrative inputs, null semantics and the complete deterministic model contract are inspectable and pass for Brummen.",
+      "evidence": "E01 matches GM0213/Brummen and 2025 totals. All 39 neighbourhoods, six BAG places and twelve BRT settlements load; the sixteen-person publication difference is disclosed. Missing district heat/public charging, absent sewer provider polygon and empty NDW context remain null/Unknown. The focused harness passes 10 presets × 6 checkpoints × 8 services, exact zero, deterministic bounds, event-attributable matched-baseline person-hours, population/demand/delivery reconciliation, route capacity and service-layer-invariant local hazard. The national ALL harness is recorded green for all 342 municipalities under the same contract.",
+      "action": "Retain publisher, edition/retrieval/valid time, licence, spatial/temporal coverage, quality status, no-data and affectsSimulation semantics. Refresh adapters at publisher cadence and rerun generated-data, focused and national gates after every snapshot; do not weaken the numerical contract to conceal local calibration gaps."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Replace GM0213's schematic river scalar with a selected Cortenoever/IJssel hydraulic scenario and forecast-relative first-72-hour workflow.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/public/data/hazards/GM0213-river-context.json",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/AnalyticsDrawer.tsx"
+      ],
+      "validation": "Before correction, river inundation stress/severity are 2.744967/0.861213 at T+12/T+24/T+48/T+72; T+24 has 10,770 affected and 203,623.46 person-hours, T+72 has 10,631 and 778,783.61. Require one expert-selected LIWO/water-board event, full-resolution footprint, Zutphen-Noord level/forecast, old/new dike and kade state, protected/unprotected areas, arrival/recession, units, no-data, edition/licence and a current validated local plan. Assert Cortenoever exposure is footprint-driven and expose 72/48/24-hour warning/preparation/evacuation as requested/confirmed actions, never automatic facts."
+    },
+    {
+      "summary": "Represent Eerbeek antecedent groundwater and Brummen's surface-water/wastewater system without turning public points into live capacity.",
+      "files": [
+        "scripts/fetch-realism-data.mjs",
+        "apps/web/public/data/hazards/GM0213-groundwater-context.json",
+        "apps/web/public/data/public-context/water-assets.geojson.gz",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts"
+      ],
+      "validation": "BRO GM OGC is national point/tube/network/GLD metadata updated daily under CC0, with per-series CSV/XML and quality regime. HWH Kunstwerken is weekly CC BY-SA 4.0; Waterketen DAMO is CC BY-SA 4.0 with unclear fixed cadence. Keep all 78 current points context-only until connectivity, direction, unit-correct capacity and live state are authorized. Add separate antecedent groundwater, cloudburst, sewer surcharge, extraction regime and recovery state; reproduce selected 2023/24 Eerbeek evidence only in an explicitly dated replay and preserve missing observations as Unknown."
+    },
+    {
+      "summary": "Add RWZI Brummen as a typed flood-protected but access/sludge-constrained facility dependency.",
+      "files": [
+        "apps/web/public/data/public-context/water-assets.geojson.gz",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Obtain current Vallei en Veluwe confirmation of RWZI location, ring-dike protection, inflow catchment, high-water operating policy, access route and sludge buffer because E03 planning evidence is older. Test protected-plant versus access-loss/sludge-full/power-loss states separately; route closure must affect staff/sludge/supply access without automatically flooding the plant. Unknown capacity, backup and restoration must remain explicit."
+    },
+    {
+      "summary": "Retire the shared neighbourhood seed and make local wildfire source/fuel/perimeter spatially controlling.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/public/data/hazards/GM0213-spatial-context.json"
+      ],
+      "validation": "Before correction eight T+24 hazards share the complete 39-neighbourhood order; a Coldenhove-centre fire ranks Coldenhove 28/39 behind locations up to 10.458 km away. Prefer authorized 1-km RIN; otherwise use ISOR/BRT fuel eligibility and event-valid KNMI weather with a minimal versioned synthetic perimeter. Test that source-intersecting eligible cells control flame, non-fuel cells have zero direct flame, rankings can differ by hazard and all eight layer selections preserve the same hazard state."
+    },
+    {
+      "summary": "Separate Brummen mobility/supply from safe aggregate power, water, drainage, gas, telecom and facility networks.",
+      "files": [
+        "scripts/apply-audited-lifelines.mjs",
+        "apps/web/public/data/transport-network.json",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/data.ts"
+      ],
+      "validation": "Use monthly CC0 NWB, manually updated CC0 ProRail, GTFS and time-matched NDW only for typed mobility/supply paths; add the Brummen–Bronkhorst ferry with water/wind/ice constraints and explicit no-data state. Mijn Aansluiting is live Public Domain responsibility context; Liander geometry is CC BY 4.0 with no fixed refresh; HWH and RDI are partial context. None may become physical utility topology. Where safe operator topology/state is unavailable, use distinct synthetic service zones with ranges, sensitivity and affectsSimulation disclosure."
+    },
+    {
+      "summary": "Clarify Brummen hazard scope, evidence state, facility/supply uncertainty and remote-earthquake semantics at the decision point.",
+      "files": [
+        "packages/sim-core/src/scenarios.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/AnalyticsDrawer.tsx"
+      ],
+      "validation": "Every exact metric must show scenario versus observed/replay, direct versus indirect/inherited pathway, evidence class, source/version/valid time and uncertainty. Keep coastal direct zero distinct from inland wind. For earthquake require a named KNMI event and ground-motion/site/fragility method or suppress direct damage. RIVM/DUO/provider/register points remain context; hospital live capacity, local shelters, household stock, operator state and actions remain Unknown until authorized. At T+72 display residual hazard, all service availability, affected people-equivalent and cumulative event-attributable proxy together."
+    }
+  ],
+  "residualLimitations": [
+    "This is a deterministic first-72-hour planning stress test, not a KNMI/Rijkswaterstaat forecast, official warning, probability estimate, evacuation order, casualty model or operator outage/restoration forecast.",
+    "No expert-selected hydraulic event, boundary condition, current defence/kade state, connected footprint, arrival/recession, depth unit or no-data mask is ingested for GM0213; internal inundation stress is not observed metres.",
+    "The 2017/2018 Cortenoever playbook and RWZI planning documents require current municipality/water-board/operator confirmation before their threshold, contacts, routes, facility configuration or actions are treated as current.",
+    "The 2026 Loenen-Eerbeek report describes retrospective 2023–2024 measurements/models and alternatives, not present groundwater state or a scenario-clock forecast.",
+    "Generalized CBS boundaries and deterministic neighbourhood seeds do not resolve dikes, winter bed, groundwater zones, buildings, terrain, paving, fuels, households, visitors or individual vulnerability.",
+    "CBS neighbourhood values are rounded/suppressed; the +16 population difference is publication semantics, and null district-heat/charging values are unknown rather than zero.",
+    "HWH's national aggregation is contributor-dependent and partial; 78 points do not define a connected surface-water/sewer/wastewater system, and displayed capacity values lack usable units.",
+    "No complete public causal Liander feeder/switching, Vitens pipe/pressure/reserve, gas pressure-district, sewer, Ziggo/mobile backhaul or operator restoration topology is authorized in the model.",
+    "Provider territories identify potential responsibility at one reference point, not full-boundary coverage, connectivity, capacity or state; absence of a sewer polygon means Unknown.",
+    "RDI antenna records do not establish operator, coverage, backhaul, traffic, power/backup, damage, congestion, availability or restoration.",
+    "All eight services currently reuse five road-derived logical corridors and cannot be interpreted as physical utility, wastewater, telecom, patient-transfer or stocked logistics networks.",
+    "Static NWB, ProRail and GTFS inputs do not establish closure, traffic, train/bus/ferry operation, evacuation throughput, ambulance travel or repair access; an empty NDW intersection is not an all-clear.",
+    "No acute hospital is inside GM0213 in the dated RIVM layer; straight-line distance to Zutphen/Apeldoorn does not establish travel time, acceptance, staffing, occupancy, diversion or backup endurance.",
+    "DUO/government points do not establish command, care, shelter or distribution roles; facilities/supply lack verified care-home, pharmacy, support-point, stock, depot, vehicle and staff state.",
+    "Wildfire lacks a local canonical ignition/perimeter, authorized RIN surface, fuel/moisture, wind-aware spread, suppression, extinguishing water and access; the Coldenhove run is explicitly synthetic.",
+    "Cyber lacks a named target, attack path, detection/containment evidence and operator architecture; earthquake lacks a selected event, local site response and asset fragility.",
+    "Generic preparedness, backup, demand, repair and intervention multipliers are exercise controls rather than observed GM0213 resources or commitments.",
+    "Event-attributable essential-service person-hours is a matched-no-event weighted availability proxy, not customer outage-hours, casualties, displacement or welfare loss; six-hour checkpoints may miss rapid changes and 72 hours excludes prolonged groundwater/high water, contamination and reconstruction."
+  ],
+  "provinceReviewFlags": [
+    "Gelderland/Rijkswaterstaat/Vallei en Veluwe: replace schematic river-distance scores along the IJssel with selected defence-aware hydraulic events, explicit Waterinfo boundary levels and connected protected/unprotected footprints.",
+    "Gelderland/Brummen/VNOG: revalidate the Cortenoever 72/48/24-hour forecast-relative playbook, +8.0 m NAP threshold, routes, priority-population support, utility actions and public contact/communication workflow before operational use.",
+    "Gelderland/Vallei en Veluwe: treat RWZI Brummen's ring dike, access isolation, sludge buffer, power/control dependencies and catchment as a typed continuity scenario without exposing sensitive topology.",
+    "Gelderland/Brummen/Apeldoorn/Vallei en Veluwe: integrate BRO quality-qualified groundwater series and an authorized Loenen-Eerbeek model/stress export with explicit antecedent and extraction-regime state; never turn the 2024 event into a timeless baseline.",
+    "Gelderland/VNOG/NIPV/operators: replace shared neighbourhood seeds and road-cloned services with hazard-specific public evidence and safe aggregate utility/telecom/facility zones, retaining unavailable topology and live state as Unknown."
+  ]
+}

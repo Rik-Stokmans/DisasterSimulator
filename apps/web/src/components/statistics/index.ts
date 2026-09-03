@@ -1,0 +1,30 @@
+export {
+  AccessibleLineChart,
+  RegionalStatisticsDashboard,
+  SimulationTimelineDashboard,
+  type AccessibleLineChartProps,
+  type ChartSeries,
+  type RegionalStatisticsDashboardProps,
+  type SimulationTimelineComparison,
+  type SimulationTimelineDashboardProps,
+} from './StatisticsDashboard'
+
+export {
+  REGIONAL_STATISTIC_GROUPS,
+  REGIONAL_STATISTICS,
+  SIMULATION_METRIC_GROUPS,
+  SIMULATION_METRICS,
+  buildSimulationTimeline,
+  compileSimulationHistory,
+  compileSimulationTimeline,
+  formatStatisticValue,
+  splitFiniteRuns,
+  summarizeRegionalDistribution,
+  timelineExtent,
+  timelineSummary,
+  type DistributionSummary,
+  type CompiledSimulationTimeline,
+  type RegionalMetricDescriptor,
+  type SimulationMetricDescriptor,
+  type TimelinePoint,
+} from './statisticsCatalog'

@@ -1,0 +1,497 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0503",
+    "name": "Delft",
+    "province": "Zuid-Holland",
+    "safetyRegion": "Haaglanden"
+  },
+  "agent": {
+    "taskName": "municipality_gm0503",
+    "agentId": "/root/nl_realism_audit",
+    "completedAt": "2026-09-02T20:42:25Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "Delft's generated 2025 identity, population, neighbourhood, settlement and safety-region inputs reconcile, and the focused deterministic gate passes all ten presets, six checkpoints and eight services. Release remains correction-required. Eight unrelated nonzero presets reuse exactly the same complete 91-neighbourhood ordering, and a controlled wildfire source in Abtswoude ranks its containing neighbourhood only 23rd despite official evidence that the more-than-100-hectare Abtswoudse Bos borders buildings and is crossed by the Rotterdam–The Hague railway. The pluvial preset reports 33,455 affected people-equivalent at T+24 without sampling the province's public 100 mm/2 h urban-rain surface, building vulnerability, sewer-model coverage or Delfland catchments. Generic centre-distance river and coast screens respectively report normalized inundation stress 1.2656/1.7888 and 60,636/65,247 affected people-equivalent at T+24 without selecting a source water body, defence failure, connected LIWO footprint or hydraulic timing. All eight services reuse five A13/N470 border links, omitting Delft's dense managed-water system, rail tunnel, internal bridges, physical Stedin/Evides/telecom systems, Reinier de Graaf acute care, stocks and live restoration. Public provincial, LIWO, Delfland, HWH, KNMI, NWB, BGT, ProRail, NDW, RDI, RIVM and DUO sources can materially improve typed context and explicitly selected scenarios. Unavailable or security-sensitive utility topology, current operating state, backups, crews and restoration must remain Unknown or transparently synthetic.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek / PDOK / Kadaster",
+      "title": "E01 — Official 2025 municipality, neighbourhood, safety-region and settlement inputs",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM0503%27%29",
+      "accessedAt": "2026-09-02T20:31:05Z",
+      "edition": 2025,
+      "supports": [
+        "GM0503 identity, province Zuid-Holland, generalized boundary, 110,173 residents, density 4,861/km², 16.5% aged 65+ and 37,324 one-person households",
+        "Ninety-one neighbourhoods, thirteen districts, one BAG woonplaats named Delft and BRT labels Delft and Abtswoude; no BAG centre is outside the independently generalized municipality boundary",
+        "Published neighbourhood population sums to 110,160, thirteen below the municipality total (-0.012%) because CBS small-area counts can be rounded or suppressed; four published zero-population neighbourhoods must remain exact zeros",
+        "CBS municipality/neighbourhood and safety-region OGC/OData are annual CC BY 4.0; BAG woonplaatsen use Public Domain Mark 1.0; BRT TOP10NL is CC BY 4.0 and delivered in rotating update areas: https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1 and https://api.pdok.nl/brt/top10nl/ogc/v1",
+        "Generalized administrative geometry supports overview aggregation, not canal-, polder-, dyke-, sewer-, building-, forest-, road- or asset-precision intersections"
+      ]
+    },
+    {
+      "publisher": "Gemeente Delft",
+      "title": "E02 — Delft 2040 climate-adaptation, urban-form and vulnerability context",
+      "url": "https://media.delft.nl/pdf/Omgevingsvisie/Omgevingsvisie-Delft-2040.pdf",
+      "accessedAt": "2026-09-02T20:31:05Z",
+      "edition": "Omgevingsvisie adopted 2021-07-15; references Klimaatadaptatiestrategie 2019",
+      "supports": [
+        "Delft states that extensive hard surface limits water storage during extreme or prolonged rain and increases damage and nuisance; stony urban fabric retains heat and reduces night cooling, especially affecting risk groups",
+        "The vision calls for green/blue roofs, permeable surfaces, drainage, wadis, strategically placed shade and cool places; this is strategic context, not an observed event, probability, hydraulic depth or 72-hour recovery calibration",
+        "A municipality-published 2015 Delft Smart City report names differentiated historic baseline hotspots for heat around Binnenstad/Westerkwartier and DSM/Schieoevers and faster subsidence in southern Tanthof/Buitenhof/Voorhof: https://media.delft.nl/pdf/DSC%20eindrapport%20WEB%2020150412.pdf",
+        "The 2015 named locations are useful audit diagnostics but are too old to be treated as current condition; the municipality PDF sources expose no stable machine API, fixed refresh cadence or explicit open-data licence"
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Haaglanden",
+      "title": "E03 — Haaglanden risk profile, Delft mobility and technical hazards, crisis roles and 72-hour support-point pilot",
+      "url": "https://www.vrh.nl/sites/default/files/2023-03/Risicoprofiel%20Veiligheidsregio%20Haaglanden.pdf",
+      "accessedAt": "2026-09-02T20:31:05Z",
+      "edition": "Risk Profile and Crisis Plan adopted 2023-01-27; RID plan 2024-09; emergency-support-point advice 2026 pilot",
+      "supports": [
+        "Delft is a dense 100,000+ municipality with a compact historic centre, underground and multifunctional space, station Delft, road and rail tunnels, A13 access and a TU technology cluster involving nuclear, nano, biological and defence technology",
+        "The regional appendix says coastal flooding is the most relevant regional flood class, while also distinguishing regional-boezem-dyke failure after drought/heavy rain and source-specific maximum-depth patterns. It does not validate either generic Rhine/Meuse/IJssel proximity or generic coast-distance impact: https://www.vrh.nl/sites/default/files/2023-01/6-B%20II%20Bijlagen%20Regionaal%20Risicoprofiel%202023.pdf",
+        "The appendix identifies Abtswoudse Bos in Delft as more than 100 hectares, adjacent to built-up areas and crossed by the Rotterdam–The Hague railway; it reports no Haaglanden areas with Mercalli VI or higher but notes induced-seismic monitoring around extraction/geothermal activity",
+        "The same appendix distinguishes potable-water winning, treatment, storage, transport, distribution, pressure and quality pathways; it says quality supply outages longer than 24 hours trigger emergency-water duties and identifies electricity/telecom and partner dependencies. These are general regulatory/planning statements, not proof of Delft incident-time state",
+        "The current RID plan defines reactor and building scenarios for the TU Delft Reactor Institute, an A-object, with operational measures: https://www.vrh.nl/sites/default/files/2024-09/Rampbestrijdingsplan%20Reactor%20Instituut%20Delft.pdf",
+        "The 2023 Crisis Plan defines multidisciplinary roles and says detailed organizations remain in their own plans: https://www.vrh.nl/sites/default/files/2023-08/Crisisplan%20Veiligheidsregio%20Haaglanden.pdf",
+        "The 2026 emergency-support-point advice uses a blackout up to about 72 hours as a pilot scenario and design horizon, not a promise that operators restore within 72 hours: https://www.vrh.nl/sites/default/files/2026-04/11.%20II%20Advies%20houtskoolschets%20NSP%20Haaglanden%202%20%28pilotfase%29%20AB%20VRH.pdf",
+        "These planning PDFs have no machine event API or explicit open reuse licence and cannot be blended with live observations or synthetic model output"
+      ]
+    },
+    {
+      "publisher": "Hoogheemraadschap van Delfland / Het Waterschapshuis",
+      "title": "E04 — Delfland legal water-system data, national water-asset APIs and an observed Delft high-water response",
+      "url": "https://www.hhdelfland.nl/over-ons/regelgeving/legger/",
+      "accessedAt": "2026-09-02T20:31:05Z",
+      "edition": "Current legal-map page accessed 2026-09-02; HWH deployment snapshot retrieved 2026-09-02; observed response 2023-11-03/04",
+      "supports": [
+        "The Delft boundary intersects 168 public HWH points: one sewer pump, five sluices, 51 surface-water pumps and 111 weirs; 167 are attributed to Delfland and one to a third party. Points do not prove complete inventory, connectivity, capacity units, current operation, backup or restoration",
+        "HWH IMWA is an integration-ready weekly OGC API and HWH DAMO a contributor-dependent OGC API, both CC BY-SA 4.0: https://api.pdok.nl/hwh/waterschappen-kunstwerken-imwa/ogc/v2 and https://api.pdok.nl/hwh/waterschappen-waterketen-damo/ogc/v1",
+        "Delfland's regularly updated legal map/database provides WFS, FeatureServer and file-geodatabase/shapefile/DXF/DWG downloads for dikes, waters, storage, pumps, weirs and separate wastewater lines/pumps/treatment works: https://dservices.arcgis.com/f6rHQPZpXXOzhDXU/arcgis/services/LeggerDelfland/WFSServer?service=wfs&request=getcapabilities",
+        "The Legger page states that some information can still be absent from the map and must be read with the text; no explicit reuse licence was found, so reuse permission must be confirmed before bundling",
+        "During 50 mm rain on 2023-11-03, Delfland deployed emergency pumps including in Delft, ran all pumps, used regional storage and later reopened flap weirs that protected Delft's eastern inner city from high Schie water: https://www.hhdelfland.nl/actueel/nieuwsoverzicht/2023/november/inzet-waterbergingen-extra-pompen/",
+        "That dated response establishes real polder–boezem–Schie–pump–storage dependencies, not a reusable forecast, fragility curve or guarantee for another event"
+      ]
+    },
+    {
+      "publisher": "Provincie Zuid-Holland / Watermanagementcentrum Nederland via IPLO",
+      "title": "E05 — Public rain, heat, road-passability and authoritative flood-scenario surfaces",
+      "url": "https://data.overheid.nl/en/dataset/84352-wateroverlast---waterdiepte-bij-extreme-neerslag-stedelijk--2018-",
+      "accessedAt": "2026-09-02T20:31:05Z",
+      "edition": "Physical stress-test edition 2018; building layer 2022; catalogue metadata refreshed in 2026; LIWO 2025.1.6",
+      "supports": [
+        "The provincial urban-rain raster models maximum water depth after 100 mm in two hours with 2D 3Di terrain models and reports 0.25 m² result resolution; for some municipalities integral models include sewers, so the separate model-information layer and explicit NoData mask are mandatory",
+        "The raster is Public Domain Mark 1.0 and available by WMS plus ATOM GeoTIFF; it is a static official stress-test scenario, not current rain, observation, probability or incident forecast: https://geo.zuid-holland.nl/Data/atom/waterdiepte_bij_extreme_neerslag_stedelijk.xml",
+        "The 2022 per-building water/heat/biodiversity layer is Public Domain Mark 1.0 and available through WMS/WFS: https://data.overheid.nl/dataset/c52111ba-0f30-4eab-8e35-e9922913ab90 and https://geodata.zuid-holland.nl/geoserver/klimaat/wfs?service=WFS&version=2.0.0&request=GetCapabilities",
+        "The province's 2018 road-passability layer classifies accessibility after the same 100 mm/2 h exercise and is Public Domain Mark 1.0 via WMS/WFS; it is scenario and road-coverage dependent, not a live closure: https://data.overheid.nl/dataset/81415-wateroverlast---begaanbaarheid-hoosbui-provinciale-wegen--2018-",
+        "LIWO is a WMCN product for professionals preparing for water nuisance and floods. Release 2025.1.6 is current on the IPLO page, and IPLO explicitly says correct interpretation requires water-manager expertise: https://iplo.nl/thema/water/applicaties-modellen/berichtgeving-crisismanagement/liwo/",
+        "LIWO's public OGC endpoint is https://basisinformatie-overstromingen.nl/geoserver/ows; reuse licence and layer-specific source editions must be confirmed, and an expert must select a source scenario before any layer affects simulation"
+      ]
+    },
+    {
+      "publisher": "Koninklijk Nederlands Meteorologisch Instituut",
+      "title": "E06 — Valid-time weather radar, forecast collections and earthquake-event services",
+      "url": "https://dataplatform.knmi.nl/dataset/access/radar-reflectivity-composites-2-0",
+      "accessedAt": "2026-09-02T20:31:05Z",
+      "edition": "Deployment radar window 2026-08-26/2026-09-02; earthquake catalogue query retrieved 2026-09-02",
+      "supports": [
+        "KNMI radar composites are integration-ready WMS observations on a five-minute cadence under CC BY 4.0; the deployed latest image is context only and is not aligned to the synthetic scenario clock or a 72-hour forecast",
+        "KNMI's EDR API exposes versioned observed and forecast collections; ingestion must retain collection/version, issue time, valid time, lead, processing status, spatial interpolation and units: https://developer.dataplatform.knmi.nl/edr-api",
+        "The KNMI FDSN service is an automatically updated event-origin catalogue under the default RDSA CC BY 4.0 licence where dataset-specific terms do not override it: https://rdsa.knmi.nl/fdsnws/event/1/",
+        "Event points can be revised and are not local ground-motion grids, felt intensity, fragility, damage, probability or forecasts; ShakeMap or another event-specific field is required before an earthquake affects assets"
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / ProRail / Nationaal Dataportaal Wegverkeer / PDOK",
+      "title": "E07 — Public static transport geometry and valid-time road/bridge situations",
+      "url": "https://downloads.rijkswaterstaatdata.nl/nwb-wegen/geogegevens/shapefile/NWB-light/01-08-2026.zip",
+      "accessedAt": "2026-09-02T20:31:05Z",
+      "edition": "NWB 2026-08-01; ProRail dataset retrieved 2026-09-02; NDW publication 2026-09-02T15:25:00.002Z",
+      "supports": [
+        "The generated Delft graph contains five NWB municipal-border links: three A13 and two N470 physical crossings to four neighbours, totaling 1,080 synthetic capacity units; this is logical road connectivity rather than measured throughput",
+        "ProRail's CC0 OGC API, manually updated, locates Delft and Delft Campus stations and rail infrastructure: https://api.pdok.nl/prorail/spoorwegen/ogc/v1",
+        "The BGT Download API can supply current large-scale bridge, tunnel and related topographic objects as area extracts; feature semantics and licence metadata must be pinned: https://api.pdok.nl/lv/bgt/download/v1_0/ui/",
+        "The deployed NDW DATEX II snapshot is CC0 unless stated otherwise and valid-time observed/replay context. One point inside GM0503 reported certain, real bridgeSwingInOperation from 2026-09-02T15:21:47.432Z with no end time: https://opendata.ndw.nu/actueel_beeld.xml.gz",
+        "An observed bridge message does not establish every bridge state, future scenario accessibility or route capacity; static NWB, BGT, ProRail and GTFS geometry does not establish operations"
+      ]
+    },
+    {
+      "publisher": "RIVM / RDI / DUO / Mijn Aansluiting / Haaglanden Veilig",
+      "title": "E08 — Public acute-care, telecom, education, provider-area and household-preparedness context",
+      "url": "https://datacatalogus.rivm.nl/dataset.xhtml?persistentId=doi%3A10.21945%2F8E767B2D-9CED-4A85-A95D-3AC1A608C663",
+      "accessedAt": "2026-09-02T20:31:05Z",
+      "edition": "RIVM 2026 v1.1; RDI/DUO/provider snapshots retrieved 2026-09-02; preparedness page current at access",
+      "supports": [
+        "The CC0 RIVM 2026 v1.1 national questionnaire locates Reinier de Graaf Gasthuis inside GM0503, 1.77 km straight-line from the municipal centre, reporting 24/7 emergency and acute obstetric care, 20 treatment rooms and 31,070 visits in 2025. It is not live occupancy, staff, diversion, generator endurance, incident capacity or route reachability",
+        "The RDI public WFS snapshot intersects 129 sites and 279 antenna registrations, including 70 mobile sites and 208 mobile antennas; cadence and reuse licence are unstated, and points do not establish operator, coverage, backhaul, load, power/backup, availability or restoration: https://antenneregister.nl/mapserver/wfs/",
+        "DUO's daily approximately-06:15 RIO snapshot contains 85 education records and uses Creative Commons Attribution with version unspecified. Eleven KVK points are partial Public Domain Mark context. Neither dataset proves shelter, reception, command, staffing, accessibility, stocks or capacity: https://onderwijsdata.duo.nl/dataset/c416acd1-e083-4ec6-9203-3b20f98fe143 and https://api.pdok.nl/kvk/overheidsdiensten-geharmoniseerd/ogc/v1",
+        "Mijn Aansluiting provider polygons at the municipal reference point identify Stedin for electricity/gas, Evides for drinking water and Ziggo for media, while drainage is empty/incomplete. Provider polygons are Public Domain Mark context with provider-specific update dates, not full-boundary topology, service, outage or restoration state",
+        "Haaglanden Veilig advises household preparation for 72 hours, including water, food, light, power, first aid and warmth: https://haaglandenveilig.nl/goed-voorbereid/denk-vooruit",
+        "Preparedness guidance is not measured household stock, equity of access, a confirmed emergency support point or an operator restoration commitment"
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "The generated code, name, province and safety-region assignment agree with official 2025 inputs.",
+      "evidenceRefs": ["E01", "E03"],
+      "notes": [
+        "Feature id, municipality bundle code and bundle name all equal GM0503 / Delft.",
+        "The official 2025 safety-region layer assigns GM0503 uniquely to Veiligheidsregio Haaglanden.",
+        "Boundary/statistics editions, strategic plans, static stress-test editions and current observation retrieval times are kept distinct."
+      ]
+    },
+    "geography": {
+      "status": "warn",
+      "summary": "The centre lies inside the generalized boundary, but the overview geometry cannot resolve Delft's canal, polder, defence, dense-building, forest and infrastructure mechanisms.",
+      "evidenceRefs": ["E01", "E02", "E03", "E04", "E05"],
+      "notes": [
+        "Generated centre [4.363966778283641, 51.99876403519966] lies inside the 2025 generalized municipality polygon.",
+        "Official evidence distinguishes the historic centre and Schie, polders/boezem assets, dense hard-surfaced areas, Abtswoudse Bos, Delft station/tunnel, A13/N470 and TU/RID context.",
+        "Use full-resolution source geometry plus explicit land/water, coverage and NoData masks before intersecting hydraulic, rain, heat, drought, fire, transport or facility exposure."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Municipal totals match CBS 2025 and neighbourhood population reconciles within documented publication rounding.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "Official/generated population is 110,173, density 4,861/km², age 65+ is 16.5% and one-person households number 37,324.",
+        "Published neighbourhood population sums to 110,160, thirteen below the municipality total (-0.012%); deterministic allocation reconciles exactly to 110,173.",
+        "Bedrijventerrein Wateringseweg, Bedrijventerrein Altena, Tanthofkadebuurt and Bedrijventerrein Delftech have published zero population and remain exact zero after allocation.",
+        "Resident counts do not identify students, commuters, visitors, hospital patients, care residents, people present at incident time, individual vulnerability or household emergency stocks."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "All 91 neighbourhood rows load, but several CBS fields are incomplete and no statistic is a hazard footprint or live service state.",
+      "evidenceRefs": ["E01", "E02", "E05"],
+      "notes": [
+        "Largest published neighbourhoods are Buitenhof-Noord 4,115, Roland Holstbuurt 3,815, Olofsbuurt 3,565, Westerkwartier 2,985 and TU-Campus 2,910.",
+        "Home value is available for 74/91 neighbourhoods, household size for 87/91, cars per household for 70/91, benefit fields for 76/91, doctor/supermarket distance for 82/91 and housing-form/tenure for 75/91; district heating and public charging have 0/91 usable values.",
+        "Null remains Unknown, never zero. Provincial building/rain surfaces and local plans can add mechanism-specific detail only with source class, units, edition, licence, coverage, NoData and declared affectsSimulation semantics."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "The one official BAG woonplaats and two BRT settlement labels are retained without a reference-point boundary mismatch.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "The BAG woonplaats list contains Delft; BRT labels contain Delft and Abtswoude.",
+        "BRT settlement classification is cartographic context and does not change municipal identity or population allocation.",
+        "Settlement labels do not establish incident-time occupancy, commuter/student/visitor load, isolation or service availability."
+      ]
+    },
+    "transport": {
+      "status": "warn",
+      "summary": "Road aliases, static transit and rail context load, but the five-link graph omits Delft's internal bridges, rail tunnel, waterways and time-dependent access.",
+      "evidenceRefs": ["E03", "E07", "E08"],
+      "notes": [
+        "Five NWB links expose A13 and N470 identities to 's-Gravenhage, Rotterdam, Pijnacker-Nootdorp and Midden-Delfland with 1,080 total synthetic units; physical corridor aliases resolve.",
+        "Two ProRail stations and 89 GTFS stop areas intersect the generalized boundary; VRH separately identifies the Delft rail tunnel, A13/N470 and Schie/Rijn-Schiekanaal bridges and sluices.",
+        "One current NDW bridge-operation message proves valid-time internal crossing state can matter, but neither it nor an empty future intersection establishes all crossings open or closed.",
+        "Static routes, stops and hospital straight-line distance do not establish evacuation, ambulance, repair, supply or rail/bus/waterway reachability."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "Official crisis, RID and 72-hour planning context exists, but event-time warnings, decisions, support points, occupants, stocks, crews and continuity states are absent.",
+      "evidenceRefs": ["E03", "E08"],
+      "notes": [
+        "VRH's Crisis Plan defines roles; the RID plan defines a specific A-object response; the 2026 support-point document is explicitly a blackout pilot. None validates automatic simulator actions for an arbitrary disaster.",
+        "Reinier de Graaf's questionnaire role, 85 DUO, 11 KVK and 129 RDI sites are public context, not confirmed emergency function, opening, staffing, accessibility, stock, backup or capacity.",
+        "Household guidance and a 72-hour design horizon are not measured self-reliance, confirmed aid arrival or a restoration promise."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten canonical presets produce complete finite output at every required checkpoint and service; evidential contradictions are recorded separately.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E06"],
+      "notes": [
+        "The focused matrix executed severe storm, pluvial flood, river flood, coastal flood, heatwave, winter storm, cyberattack, earthquake, wildfire and compound at T+0/6/12/24/48/72 across power, water, drainage, gas, telecom, mobility, facilities and supply.",
+        "At T+24 severity / system pressure / affected people-equivalent / cumulative event-attributable service person-hours are storm 0.0691 / 0.3621 / 34,474 / 367,991; pluvial 0.5821 / 0.3555 / 33,455 / 693,061; river 0.4009 / 0.5306 / 60,636 / 866,504; coastal 0.5464 / 0.5603 / 65,247 / 1,209,991; heat 0.0944 / 0.1986 / 9,098 / 296,263.",
+        "Remaining T+24 values are winter 0.7420 / 0.4086 / 41,696 / 745,896; cyber 0.4731 / 0.3353 / 30,310 / 607,689; earthquake 0 / 0.0712 / 0 / 10,396; wildfire 0.1315 / 0.1025 / 0 / 204,364; compound 0.9436 / 0.6194 / 74,418 / 1,295,356.",
+        "At T+72 river remains severity 0.4009, normalized inundation stress 1.2656, pressure 0.5238 and 59,572 affected; coastal current severity is zero but pressure 0.1988 and 9,128 affected remain; compound remains severity 0.6556, pressure 0.6043 and 72,075 affected. These are deterministic exercise estimates, never observations, probabilities, warnings or operator forecasts.",
+        "Cumulative event-attributable service person-hours are integrated against a matched no-event baseline; they are not customer outage-hours, people simultaneously without every service, casualties or economic loss."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "The focused gate passes deterministic, finite, exact-zero, causal, allocation, reconciliation and monotonic-burden contracts.",
+      "evidenceRefs": [],
+      "notes": [
+        "MUNICIPALITY_AUDIT_CODE=GM0503 pnpm audit:model passed both tests on current code across 10 presets × 6 checkpoints × 8 services.",
+        "All intensity-zero runs have exactly zero current/peak severity, affected people-equivalent and event-attributable person-hours at every checkpoint.",
+        "Every local map allocates exactly 110,173 residents and all 91 neighbourhoods; maximum reconciliation and delivery error is 8.526512829121202e-14 and maximum demand error is 9.947598300641403e-14.",
+        "Changing selected service leaves every local hazard value exactly invariant, cumulative event-attributable person-hours are monotonic against the matched no-event baseline, and route flows remain within declared logical capacity."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "The common neighbourhood seed conflicts with Delft's distinct pluvial, hydraulic, heat, forest, infrastructure and target-specific geographies.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E06"],
+      "notes": [
+        "At T+24 storm, pluvial, river, coastal, heat, winter, cyber and wildfire have the exact same complete 91-neighbourhood order, beginning Bedrijventerrein Schieweg-Noord, Kerkpolder, Westeindebuurt, Vogelbuurt-Oost, Bedrijventerrein Haagweg, Afrikabuurt-Oost, Stationsbuurt and Hoornse Hof. Compound differs mainly through saturation ties.",
+        "E02–E06 instead distinguish hard surface and heat vulnerability, source-native rain, polder/boezem/Schie control, defences and connected flood scenarios, Abtswoudse Bos, rail/roads and event-valid weather.",
+        "A controlled T+24 wildfire source at [4.363223588972437, 51.975604296103505] lies in BU05032600 Abtswoude. The run has municipality direct fire 0.6097, smoke 0.5660 and drought 0.6524, but Abtswoude receives local hazard 0.6459 and ranks 23/91 while Bedrijventerrein Schieweg-Noord ranks first at 0.7103.",
+        "The test coordinate is a neighbourhood reference point, not proof of ignition inside the official forest polygon; the reproducible contradiction is that a direct source does not control the local map. No selected hydraulic footprint, source-native rain/heat/drought surface, named cyber target or event-specific ground-motion grid controls local ordering."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "All eight balances are inspectable, but one five-road graph cannot represent physical utilities, managed water, telecom, care or stocked logistics.",
+      "evidenceRefs": ["E03", "E04", "E07", "E08"],
+      "notes": [
+        "Power, water, drainage, gas, telecom, mobility, facilities and supply all reuse five NWB links and 1,080 abstract capacity units because the routes declare no supportedServices. The UI calls connectivity logical, but exact values can still imply physical precision.",
+        "At compound T+24 modeled availability is power 0.4094, water 0.4326, drainage 0.2721, gas 0.6212, telecom 0.2440, mobility 0.6876, facilities 0.2431 and supply 0.1540; no cited authority or operator validates those exact values.",
+        "Public context identifies likely Stedin/Evides/Ziggo responsibility at one point, 168 managed-water assets, 129 RDI sites, Reinier de Graaf acute care and education/government locations, but not complete connectivity, switching, pressure/quality, backhaul, priority users, stock, backup or live state.",
+        "Surface-water control, wastewater conveyance/treatment and potable quantity/pressure/quality are distinct causal systems. The generic water/drainage scores and road graph cannot represent them safely.",
+        "The empty drainage-provider polygon is incomplete/Unknown provider-area coverage, never evidence that no drainage responsibility or service exists."
+      ]
+    },
+    "causalTrace": {
+      "status": "fail",
+      "summary": "Arithmetic closes, but hydraulic and source-allocation evidence and physical-network meaning do not; derived screens and road proxies overstate causal support.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E07", "E08"],
+      "notes": [
+        "Service-stage deltas, weighted pressure, local demand/delivery and matched-no-event person-hour arithmetic reconcile for the full matrix.",
+        "The major-river preset uses municipality-centre distance to schematic national Rhine/Meuse/IJssel lines. It selects no locally connected source, boundary condition, defence state, breach/overtopping, footprint, terrain, arrival or recession yet reports derived-screening local impact.",
+        "The coastal preset similarly uses coast distance while official evidence makes impact conditional on coastal/regional defence and source pathway. Its normalized inundation stress is not observed metres and no selected LIWO scenario validates the exact exposed population.",
+        "NWB geometry supports road mobility and potentially logistics/repair access. It cannot establish electricity, drinking-water, sewer, surface-water, gas, radio-backhaul, patient-transfer or inventory connectivity.",
+        "Current radar, NDW and other observations; dated planning context; official stress-test/scenario layers; and synthetic model output remain distinct evidence classes and must not blend into one operational-looking state."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "The 72-hour curves are numerically coherent but not calibrated to Delft's water control, operators, access, care, support points, stocks or public-action timelines.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E08"],
+      "notes": [
+        "River severity and normalized inundation stress remain exactly 0.4009/1.2656 at T+24 and T+72, with 59,572 affected at T+72; no selected source event validates the plateau or service trajectory.",
+        "Coastal current severity falls to zero by T+72 while pressure remains 0.1988, 9,128 remain affected and cumulative person-hours reach 3,772,502. Compound remains critical at T+72 with 72,075 affected and 4,702,406 cumulative person-hours. No confirmed weather/hydraulic/cyber event or operator restoration plan supports the exact values.",
+        "Heat retains severity 0.0944 and drought 0.5243 at T+72 while affected people-equivalent is zero; that threshold result cannot be read as absence of residual health, drinking-water, vegetation, care or supply burden.",
+        "No warning, pump/weir/sluice/sewer/road/bridge/rail state, utility switching, crew/fuel/spares, hospital acceptance, support-point opening, household stock or action completion is ingested. A 72-hour preparedness or pilot horizon is not a restoration deadline."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": ["power", "water", "drainage", "gas", "telecom", "mobility", "facilities", "supply"]
+  },
+  "findings": [
+    {
+      "id": "GM0503-SPATIAL-001",
+      "severity": "high",
+      "category": "geography",
+      "status": "open",
+      "summary": "Eight unrelated nonzero hazards reuse one complete neighbourhood ranking despite mechanism-specific official Delft evidence.",
+      "evidence": "At T+24 storm, pluvial, river, coastal, heat, winter, cyber and wildfire order all 91 neighbourhoods identically, starting Bedrijventerrein Schieweg-Noord, Kerkpolder, Westeindebuurt, Vogelbuurt-Oost and Bedrijventerrein Haagweg. E02–E06 distinguish dense hard-surface heat and rain, provincial rain/building grids, polder/boezem/Schie systems, conditional defence scenarios, Abtswoudse Bos, transport assets and event-valid weather. The shared order is therefore not calibrated exposure.",
+      "action": "V3 release gate: mark every unsupported local ranking as synthetic/unvalidated and prevent its use for operational prioritization. Replace the common seed with hazard-specific eligibility/susceptibility surfaces and explicit Unknown masks. Integrate full-resolution provincial rain/building, LIWO/Delfland, KNMI, BGT and forest evidence only with source class, unit, edition/valid time, licence, completeness and affectsSimulation. Add regressions requiring materially different ranks for different mechanisms while preserving exact hazard invariance across selected service layers."
+    },
+    {
+      "id": "GM0503-PLUVIAL-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The pluvial preset produces precise Delft impact without using the available official urban-rain, sewer-coverage and vulnerable-object evidence.",
+      "evidence": "At T+24 the model reports severity 0.5821, normalized inundation stress 0.8060, 33,455 affected people-equivalent and 693,061 cumulative service person-hours, distributed by the common neighbourhood seed. E02 documents hard-surface storage and heat/rain vulnerability; E04 shows 168 managed-water points and a real Schie/polder/boezem response; E05 publishes a Public Domain 100 mm/2 h urban-rain raster, model-coverage layer, per-building vulnerability and road passability. None drives the result, and not every provincial model includes sewers.",
+      "action": "V3 release gate: label the current values as a parameterized exercise with normalized stress, not depth, and expose model coverage/NoData. Future calibration: sample the versioned provincial GeoTIFF plus its sewer-model-information layer and Delfland catchments/assets on full-resolution geometry; retain input hyetograph, true depth unit, model epoch, sewer/open-water inclusion, uncertainty, connected footprint, arrival/recession and licence. Validate hotspots and affected-population sensitivity; uncovered cells stay Unknown, never zero."
+    },
+    {
+      "id": "GM0503-FLOOD-SOURCE-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Major-river and coastal presets report large precise Delft inundation without a selected source, defence state or connected hydraulic scenario.",
+      "evidence": "At T+24 river reports severity 0.4009, normalized inundation stress 1.2656, 60,636 affected and 866,504 cumulative service person-hours; coastal reports 0.5464, 1.7888, 65,247 and 1,209,991. E03 says coastal flooding is the region's most relevant class but distinguishes coastal failure, regional-boezem-dyke failure and strongly varying depth zones. E05 says LIWO layers require specialist interpretation. The river screen is only centre distance to schematic Rhine/Meuse/IJssel lines and the coast screen selects no boundary level, defence/breach/overtopping, connected footprint, probability class, arrival or recession.",
+      "action": "V3 release gate: suppress GM0503 direct major-river local impact to numerically neutral/Unknown with an explicit unsupported-dimension explanation; retain indirect regional disruption only under named assumptions. Keep coastal amplitude diagnostic-only and local impact Unknown until Delfland/VRH/WMCN select a versioned LIWO event. Future adapter must retain source water body, boundary condition, defence segment/state, breach/overtopping path, connected footprint, true units, arrival/duration/recession, probability/scenario class, uncertainty, NoData, licence and expert approval. One source's zero must not imply safety from other pathways."
+    },
+    {
+      "id": "GM0503-FIRE-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "A controlled Abtswoude source ranks its containing neighbourhood 23rd despite direct fire and official Abtswoudse Bos interface evidence.",
+      "evidence": "E03 identifies the more-than-100-hectare Abtswoudse Bos in Delft, adjacent to built-up areas and crossed by the Rotterdam–The Hague railway. A controlled T+24 source at [4.363223588972437, 51.975604296103505] lies in BU05032600 Abtswoude and yields direct fire 0.6097, smoke 0.5660 and drought 0.6524, but Abtswoude local hazard is 0.6459 and ranks 23/91 while Bedrijventerrein Schieweg-Noord ranks first at 0.7103. The point is a test coordinate, not proof of ignition in forest; the contradiction is that a direct source does not control local allocation.",
+      "action": "V3 release gate: mark direct local wildfire distribution unsupported. For a local exercise require a named synthetic/official source or perimeter, public forest/fuel eligibility, valid-time wind/humidity/moisture, rail/road access and suppression-water assumptions; assert source/perimeter overlap controls eligible neighbourhoods. Static forest context is not ignition probability and current risk phase is not a future spread forecast."
+    },
+    {
+      "id": "GM0503-WATERCHAIN-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "The simulator collapses Delft's polder, boezem, Schie, pump, wastewater and potable-water pathways into generic water/drainage scores.",
+      "evidence": "E04 intersects 168 HWH asset points and provides a richer regularly updated Delfland WFS/database. The 2023 observed response used emergency pumps in Delft, all regional pumps, storage and flap weirs protecting the eastern inner city from high Schie water. E03 separately describes potable-water source, treatment, storage, transport, distribution, pressure and quality dependencies. The model instead exposes one water and one drainage score over the same five roads, without catchments, flow direction, compatible capacity units, operating state, wastewater treatment, potable advisory or backup.",
+      "action": "V3 release gate: present HWH/Delfland objects as typed context only and split potable quantity/pressure, potable quality/advisory, wastewater conveyance/treatment and surface-water level/drainage semantics. Future calibration should use the Delfland Legger and authorized aggregate catchment/topology/state with direction, unit, valid time and backup; confirm its unstated reuse licence before redistribution. Missing state/topology remains Unknown and point inventory must never imply operation."
+    },
+    {
+      "id": "GM0503-LIFELINE-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "One road-derived logical graph is cloned into all eight lifelines and lacks operator-calibrated topology, state, backup and restoration.",
+      "evidence": "Every service reuses five A13/N470 links and 1,080 abstract capacity units because no route declares supportedServices. E04/E08 identify managed water, likely Stedin/Evides/Ziggo responsibility at one point, 129 RDI sites, acute care and facility context, but not complete physical connectivity, switching, water pressure/quality, gas districts, backhaul, priority customers, stock, backup or live state. At compound T+24 exact modeled availability ranges from supply 0.1540 to mobility 0.6876 without operator validation.",
+      "action": "V3 release gate: restrict NWB links to mobility and explicitly assumed logistics/repair access; label every other network as an aggregate synthetic dependency proxy with uncertainty. Future work may ingest operator-authorized, privacy/security-safe service zones and aggregate dependency/restoration ranges with topology semantics and units. Unavailable or sensitive topology/state remains Unknown; do not infer utility flow from roads or provider territories."
+    },
+    {
+      "id": "GM0503-MOBILITY-CARE-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "Five municipal-border roads cannot represent Delft's first-72-hour tunnel, bridge, rail, transit and acute-care reachability.",
+      "evidence": "E03 identifies Delft station, a rail tunnel, A13/N470, the Delftse Schie/Rijn-Schiekanaal and many bridges/sluices; E07 supplies two stations, 89 GTFS stop areas and one valid-time bridgeSwingInOperation message. E08 places Reinier de Graaf acute care inside GM0503 by questionnaire and geocoder. The current graph contains only five border links and no internal bridge, tunnel, street, rail, bus, waterway, hospital or ambulance node/state. A static facility role and 1.77 km straight-line distance do not prove access or acceptance.",
+      "action": "V3 release gate: label connectivity as logical and stop deriving care/access certainty from the border graph. Build a multimodal internal graph from NWB, BGT, ProRail, GTFS and authoritative waterway/bridge geometry, preserving ownership and static versus observed state; use NDW only in valid-time observed/replay mode. Compute time-dependent reachability for residents, ambulance, evacuation, supply and repair, leaving hospital acceptance, vehicle availability and crossing operation Unknown unless confirmed."
+    },
+    {
+      "id": "GM0503-FACILITY-RISK-001",
+      "severity": "medium",
+      "category": "limitation",
+      "status": "open",
+      "summary": "The canonical ten-preset suite does not represent Delft's officially planned RID radiological or local industrial/technology incidents.",
+      "evidence": "E03's current RID plan treats the TU Delft Reactor Institute as an A-object and defines reactor/building scenarios and response measures; the regional profile also identifies nuclear, nano, biological and defence technology and dated DSM-related hazardous-material transport. The canonical suite contains no radiological or industrial-release preset and the generic facility layer does not identify RID response semantics. Therefore 'all hazards' wording would be false even though the requested ten-preset contract passes.",
+      "action": "V3 release gate: explicitly disclose the canonical scope and show RID/industrial records only as official planning context, not simulated status. If these hazards are later added, use the current VRH/ANVS plans and authorized footprints, source terms, protective actions and roles; do not derive effects from a generic facility point or expose sensitive operational detail. Add an uncovered-hazard panel rather than silently mapping the risk to wildfire, cyber or earthquake."
+    },
+    {
+      "id": "GM0503-72H-001",
+      "severity": "medium",
+      "category": "explainability",
+      "status": "open",
+      "summary": "The first-72-hour dashboard lacks a validated action, support-point and resource ledger and can turn preparedness guidance into operational certainty.",
+      "evidence": "E03 defines incident-dependent multidisciplinary roles and a 2026 blackout support-point pilot with a 72-hour design horizon; E08 gives household 72-hour guidance. Neither validates automatic interventions, evacuation, support-point opening, aid arrival, hospital acceptance or restoration. KVK/DUO/RIVM/RDI/provider context carries no confirmed incident-time role, accessibility, staff, stock, crew or backup state.",
+      "action": "Add an action ledger with proposed/requested/confirmed/completed/cancelled state, responsible authority/operator, source, issue/valid time, expiry, geography and confidence. At T+0/6/12/24/48/72 show current hazard, all eight service availabilities, affected people-equivalent, cumulative event-attributable person-hours and unresolved inputs. Publish support/reception/distribution roles only after authority confirmation and label 72 hours as preparedness/exercise horizon, never a recovery guarantee."
+    },
+    {
+      "id": "GM0503-HAZARDS-001",
+      "severity": "medium",
+      "category": "hazard",
+      "status": "accepted-limitation",
+      "summary": "Storm, heat, winter, cyber, earthquake and compound outputs are coherent stress tests but lack Delft event and asset calibration.",
+      "evidence": "E02/E03/E06 support exposure to hard-surface heat, extreme weather, increasing digital dependence and low regional damaging-earthquake expectation, but no exact preset curves. At T+24 synthetic severity is storm 0.0691, heat 0.0944, winter 0.7420 and cyber 0.4731; cyber has no named target, architecture or attack path. Earthquake has current severity 0, peak 0.0068 and 10,396 event-attributable service person-hours without a selected KNMI event, ground-motion field or fragility. Heat remains severity 0.0944/drought 0.5243 at T+72 while affected rounds to zero. Compound T+72 remains critical without a confirmed rain/wind/cyber event.",
+      "action": "Retain these only as visibly synthetic, parameterized stress tests with sensitivity and uncertainty. Use official valid-time weather and earthquake products only in explicit observed/replay or forecast modes; require a named cyber target and attack/containment path and asset-specific exposure/fragility before claiming direct consequences. Preserve current zero, residual consequence, Unknown and not-applicable as distinct states."
+    },
+    {
+      "id": "GM0503-NODATA-001",
+      "severity": "medium",
+      "category": "ui",
+      "status": "open",
+      "summary": "Empty, null, masked and true-zero inputs require explicit multi-state semantics to prevent false safety and false absence.",
+      "evidence": "GM0503 has no drainage-provider polygon, no intersecting Waterinfo level/discharge point, no RIVM PM2.5 station and no usable district-heating/public-charging neighbourhood statistics; other CBS fields have partial coverage. These mean missing/incomplete mapping, no listed point/station or suppressed/unavailable data, not no service, pollution, hazard or outage. In contrast, four neighbourhoods have official zero residents, earthquake current severity at T+24 is a scoped model zero and the model preserves those zeros. The provincial raster's uncovered/model-exclusion cells also must not become zero depth.",
+      "action": "Use a shared state contract across maps, legends, tables, tooltips, APIs and exports: measured/modeled value including zero, Unknown/not covered, and not applicable. Show publisher, edition, issue/valid/retrieval time, unit, completeness, licence, confidence and affectsSimulation for every layer. Add regressions that empty provider/facility/incident/station intersections, null CBS fields and hydraulic masks cannot render as safe, normal, no infrastructure or zero service."
+    },
+    {
+      "id": "GM0503-INVARIANTS-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The focused numerical and semantic invariants pass for GM0503 on the audited build.",
+      "evidence": "The focused harness passes two tests covering all ten presets, six checkpoints and eight services. Outputs are finite and bounded, intensity-zero semantics are exact, 110,173 residents and all 91 neighbourhoods reconcile in every local map, maximum reconciliation/delivery error is 8.526512829121202e-14 and demand error 9.947598300641403e-14, selected service cannot change local hazard, route flow stays within declared logical capacity, and cumulative event-attributable person-hours are monotonic against the matched no-event baseline.",
+      "action": "Retain the focused gate in CI and add regressions for distinct hazard rankings, Abtswoude source containment, pluvial model-coverage/NoData, explicit flood-source contracts, service-specific topology, internal reachability, hazard-scope disclosure and multi-state rendering."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Retire the shared GM0503 neighbourhood seed and make pluvial, heat and wildfire allocation source- and coverage-aware.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/public/data/hazards/GM0503-spatial-context.json"
+      ],
+      "validation": "Before correction, eight nonzero T+24 presets share the exact full 91-neighbourhood order. A controlled Abtswoude source with direct fire 0.6097 ranks containing BU05032600 23/91. Require mechanism-specific surfaces and Unknown masks, materially different ranks for different hazards, source/perimeter containment for direct fire, explicit provincial pluvial model-coverage semantics, deterministic regeneration and exact service-layer-invariant local hazard."
+    },
+    {
+      "summary": "Replace generic river/coastal screens with explicit defence-, source- and scenario-bound Delft hydraulic contracts.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/public/data/hazards/GM0503-water-context.json",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Before correction, river T+24/T+72 severity/stress stays 0.4009/1.2656 and coastal T+24 reports stress 1.7888 and 65,247 affected without a selected event. Suppress direct GM0503 major-river impact to neutral/Unknown; coastal/local water remains Unknown until an expert-selected LIWO/Delfland/VRH event supplies source, boundary condition, defence state, connected footprint, units, arrival/recession, scenario class, uncertainty, NoData, licence and approval. Test separate coast, regional-boezem/dyke, major-river and pluvial labels."
+    },
+    {
+      "summary": "Separate managed-water and physical lifelines from the five-link NWB logical transfer graph.",
+      "files": [
+        "scripts/fetch-water-assets.mjs",
+        "apps/web/public/data/public-context/water-assets.geojson.gz",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Retain 168 HWH objects and Delfland Legger features as context until catchment, direction, compatible units, state, licence and backup are validated. Split potable pressure/quantity, quality/advisory, wastewater and surface-water control. Enforce service-specific topologySemantics, evidence class, publisher/version/valid time/completeness and affectsSimulation. NWB applies only to mobility and assumed logistics/repair access; sensitive or unavailable utility topology remains Unknown or clearly aggregate synthetic."
+    },
+    {
+      "summary": "Add internal multimodal reachability, acute-care dependencies, uncovered-risk disclosure and an auditable first-72-hour action ledger.",
+      "files": [
+        "apps/web/public/data/transport-network.json",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/AnalyticsDrawer.tsx",
+        "apps/web/public/data/public-context/GM0503-response-context.json"
+      ],
+      "validation": "Use NWB/BGT/ProRail/GTFS/waterway geometry for internal bridges, tunnels, rail, bus and water access; use NDW only when valid-time aligned. Validate time-dependent reachability to Reinier de Graaf without treating straight-line distance or questionnaire role as availability. Display RID/industrial risks as not modeled unless a separately authorized scenario exists. Add proposed/requested/confirmed/completed/cancelled actions with owner, source, valid time, expiry, geography and confidence; unconfirmed support points, stock, crew and hospital acceptance remain Unknown."
+    },
+    {
+      "summary": "Add valid-time KNMI modes and make evidence class, data absence and uncertainty explicit for every map and export.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "apps/web/src/data.ts",
+        "apps/web/src/components/MapView.tsx",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/AnalyticsDrawer.tsx"
+      ],
+      "validation": "Canonical exercises remain synthetic. Optional observed/replay/forecast modes retain dataset/version, issue and valid time, lead, grid/station method, unit, processing status, retrieval and uncertainty for KNMI, NDW and other feeds. Every metric/layer/export distinguishes observed, official context, official scenario and synthetic; exposes licence, completeness and affectsSimulation; and renders measured/modeled zero, Unknown and not-applicable distinctly."
+    }
+  ],
+  "residualLimitations": [
+    "This is a deterministic first-72-hour planning stress test, not a KNMI, Rijkswaterstaat, WMCN, Delfland, VRH or operator forecast, official warning, probability estimate, evacuation order, casualty model or restoration promise.",
+    "No expert-selected coast, major-river, regional-boezem/dyke or polder/LIWO event, boundary water level, defence state, connected footprint, arrival/recession, verified depth unit or NoData mask is ingested for GM0503; normalized inundation stress is not observed metres.",
+    "The generalized CBS boundary and common neighbourhood seed do not resolve canals, land/water, polder/peil or sewer catchments, defences, terrain, buildings, paving, shade, forest fuel, facilities, roads, households, visitors or individual vulnerability.",
+    "CBS neighbourhood values are rounded or suppressed; the -13 population difference is publication semantics, four exact zero-population neighbourhoods are preserved, and null district-heat, charging, car, housing, distance or benefit fields are Unknown rather than zero.",
+    "The provincial 2018 rain and road layers and 2022 building layer are official static stress/context products; their catalogue metadata update in 2026 does not make the physical model current or observed. Sewer inclusion varies and requires the model-information layer.",
+    "LIWO 2025.1.6 requires water-manager interpretation and selected source scenarios; its public endpoint's reuse licence and all layer-specific editions/conditions must be verified before redistribution or causal use.",
+    "Delfland's Legger is regularly updated and legally meaningful but its page states map information can be incomplete and publishes no explicit reuse licence; 168 HWH points do not define connected catchments, compatible capacities, current operation, backup or restoration.",
+    "No Waterinfo level/discharge point intersects the generalized boundary in the deployed snapshot; that is absence of a listed local observation, not zero water level, flow, hazard or monitoring.",
+    "Provider territories identify likely responsibility at one municipal reference point, not full-boundary coverage, connectivity, capacity or state; missing drainage mapping remains Unknown.",
+    "No complete public causal Stedin feeder/switching, Evides pipe/pressure/quality, gas pressure-district, municipal sewer, telecom backhaul or operator restoration topology is authorized in the model.",
+    "RDI antenna records do not establish operator, radio coverage, backhaul, traffic, power/backup, damage, congestion, availability or restoration; the WFS states no fixed cadence or reuse licence.",
+    "All eight services currently reuse five road-derived logical corridors and cannot be interpreted as physical utility, water-control, wastewater, telecom, patient-transfer or stocked-logistics networks.",
+    "NWB, BGT, ProRail and GTFS are static context and do not establish incident-time road, bridge, tunnel, rail, tram/bus or navigation operation, throughput, evacuation, clearance or repair access.",
+    "The single current NDW bridge-operation point is one valid-time observed/replay message, not a future scenario input or complete crossing-state inventory.",
+    "RIVM hospital role and straight-line distance do not establish ambulance travel time, reachability, acceptance, staffing, occupancy, diversion, generator/fuel or backup endurance.",
+    "DUO and KVK points do not establish command, reception, shelter, care or distribution roles; facilities and supply lack verified care-home, pharmacy, stock, depot, vehicle and staff state.",
+    "The current RID plan is official planning evidence, not an incident observation; the ten canonical presets do not simulate radiological or industrial-release hazards and must not be described as exhaustive.",
+    "Wildfire lacks a canonical local ignition/perimeter, forest/fuel and moisture surface, valid-time wind, access and suppression-water model; a neighbourhood reference point is only a reproducible test input.",
+    "Cyber lacks a named target, architecture, attack path and detection/containment state; earthquake lacks a selected event, local ground-motion/site-response surface and asset fragility.",
+    "KNMI radar and seismic snapshots are current observations relative to their valid times, not aligned future inputs; no forecast collection/version, issue time or lead is selected for the canonical exercises.",
+    "Household and support-point 72-hour guidance is a preparedness/pilot horizon, not measured Delft stock, guaranteed aid arrival, equality of access or a recovery deadline.",
+    "Event-attributable essential-service person-hours is a matched-no-event weighted availability proxy, not customer outage-hours, casualties, displacement or welfare loss; six-hour checkpoints can miss rapid changes and 72 hours excludes prolonged inundation, contamination, fire and reconstruction."
+  ],
+  "provinceReviewFlags": [
+    "Zuid-Holland/WMCN/Delfland/VRH: select and version coast, major-river, regional-boezem/dyke and pluvial event evidence, source/defence states and NoData masks; suppress precise local output until a defensible connected hydraulic pathway exists.",
+    "Zuid-Holland/Gemeente/Delfland: replace the common neighbourhood order using full-resolution provincial 100 mm/2 h rain/model-coverage, building heat/water, Delfland catchment and current municipal evidence; keep planning, stress-test, observed and simulated classes separate.",
+    "Zuid-Holland/VRH/Brandweer/terrain managers/ProRail: validate Abtswoudse Bos eligibility, source/perimeter, fuel/moisture, wind, rail/road access, suppression water and adjacent-population workflows without exposing sensitive detail.",
+    "Zuid-Holland/RWS/Province/municipality/ProRail/OV/care partners: validate internal bridges, tunnel, rail/bus/waterway state and time-dependent access to Reinier de Graaf; static points and straight-line distance do not establish emergency reachability.",
+    "Zuid-Holland/operators/KNMI/RDI/RIVM: use licensed provincial, LIWO, Delfland/HWH, KNMI, Mijn Aansluiting, RDI, RIVM, DUO, KVK, NWB, BGT, ProRail and NDW data as typed context or explicitly selected valid-time input; unavailable/security-sensitive topology, state, capacity, backup and restoration remain Unknown or transparently synthetic."
+  ]
+}

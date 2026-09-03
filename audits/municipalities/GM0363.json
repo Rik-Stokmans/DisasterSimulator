@@ -1,0 +1,492 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0363",
+    "name": "Amsterdam",
+    "province": "Noord-Holland",
+    "safetyRegion": "Amsterdam-Amstelland"
+  },
+  "agent": {
+    "taskName": "municipality_gm0363",
+    "agentId": "/root/nl_realism_audit",
+    "completedAt": "2026-09-02T13:40:52Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "Amsterdam's generated identity and 2025 administrative data are coherent: 934,526 residents, 517 neighbourhoods in 110 districts, two BAG woonplaatsen, fifteen BRT settlements, twelve ProRail station points, 700 grouped transit stop areas and sixteen NWB-derived municipal links. The dedicated ten-preset, six-checkpoint and eight-service contract passes, including determinism, exact zero-intensity behavior, event-attributable deprived person-hours, service-layer-invariant local hazard and population/demand/delivery reconciliation. Release is nevertheless correction-required. The canonical major-river scenario produces exactly zero direct hazard and zero affected population at every checkpoint, contradicting the current VrAA scenario in which Rhine high water reaches Amsterdam through the Lek and Amsterdam-Rijnkanaal and can inundate Watergraafsmeer and Business & Science Park deeply. The old transport graph also represented E35 as an independent Ouder-Amstel edge: section-level NWB evidence shows those boundary records carry physical wegnummer 010, so E35 is an A10 co-designation there, while A2/wegnummer 002 is a separate physical crossing. Route-label grouping therefore duplicated/misclassified one corridor, and the earlier A2/E35-only interpretation was too coarse. In addition, the 72-hour preset labelled Heatwave & drought ends exactly when it first becomes possible to satisfy neither the official five-day heatwave definition nor VrAA's multi-week scenario. Pluvial, coastal and river neighbourhood fields are not hydraulic footprints: all nonzero presets reuse the same seeded rank order, while VrAA identifies materially different local impact areas. Public CBS/PDOK, NWB/ProRail, LIWO and Amsterdam climate layers should drive what they can, with pinned versions and explicit reuse terms; sensitive utility control topology, crew availability, restoration commitments and unpublished emergency assets must remain clearly labelled synthetic inputs rather than inferred from roads.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek",
+      "title": "E01 — Kerncijfers wijken en buurten 2025, municipality row GM0363",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM0363%27%29&%24select=WijkenEnBuurten%2CGemeentenaam_1%2CAantalInwoners_5%2CBevolkingsdichtheid_34%2Ck_65JaarOfOuder_12%2CEenpersoonshuishoudens_30",
+      "accessedAt": "2026-09-02T13:34:32Z",
+      "edition": 2025,
+      "supports": [
+        "The padded municipality code resolves to GM0363 Amsterdam with 934,526 residents and density 4,968 residents per square kilometre.",
+        "The official age-65-plus count is 129,924 and one-person-household count is 283,658.",
+        "CBS OData is machine-readable and the generated metadata records CC BY 4.0; this annual 2025 edition must be retained as a versioned snapshot rather than silently mixed with another boundary year."
+      ]
+    },
+    {
+      "publisher": "PDOK / Centraal Bureau voor de Statistiek / Kadaster",
+      "title": "E02 — CBS Gebiedsindelingen 2025 and linked administrative collections",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_gegeneraliseerd/items?f=json&limit=1000&datetime=2025-07-01T00%3A00%3A00Z",
+      "accessedAt": "2026-09-02T13:34:32Z",
+      "edition": 2025,
+      "supports": [
+        "The OGC API provides the authoritative generalized municipal geometry used for GM0363 and the generated label point lies inside it.",
+        "The app also consumes the machine-readable CBS neighbourhood and safety-region collections at https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/buurt_gegeneraliseerd and https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/veiligheidsregio_gegeneraliseerd, plus BAG woonplaatsen at https://api.pdok.nl/kadaster/bag/ogc/v2/collections/woonplaats.",
+        "The generated source metadata records annual 2025 CBS editions under CC BY 4.0 and BAG/PDOK under Public Domain Mark 1.0; administrative polygons are not flood compartments, sewer catchments or utility zones."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / PDOK / ProRail / OVapi",
+      "title": "E03 — NWB physical road identity and machine-readable transport sources",
+      "url": "https://www.rijkswaterstaat.nl/wegen/wegenoverzicht/a2",
+      "accessedAt": "2026-09-02T13:34:32Z",
+      "edition": "NWB-Light 2026-08-01; transit feed version 9543",
+      "supports": [
+        "Rijkswaterstaat describes E35 as following A2 on the Amsterdam–Utrecht journey, but section-level live NWB evidence is decisive at the Amsterdam–Ouder-Amstel boundary: E35 records wvk 245363016 and 245364028 carry wegnummer 010, while A2 records carry 002. E35 must therefore be reconciled to physical A10 at this crossing rather than becoming independent capacity or being merged into the separate A2 crossing.",
+        "The current app uses the NWB WFS at https://service.pdok.nl/rws/nationaal-wegenbestand-wegen/wfs/v1_0?service=WFS&version=2.0.0&request=GetCapabilities and the dated NWB-Light 2026-08-01 download; generated metadata records CC0 1.0 and retrieval on 2026-09-02, but disaster passability and capacity are absent.",
+        "ProRail OGC station/trace layers are public machine-readable CC0 inputs retrieved 2026-09-02. The app's OVapi national GTFS snapshot was fetched 2026-08-31, is valid 2026-08-30 through 2026-12-12, and is free-use under OVapi terms but best-effort without an SLA; it contains schedules/geometry, not actual service, ridership, vehicle capacity or disaster restoration."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Amsterdam-Amstelland",
+      "title": "E04 — Regionaal Risicoprofiel Amsterdam-Amstelland 2025–2028, verdieping",
+      "url": "https://stukken.veiligheidsregioaa.nl/wp-content/uploads/2025/06/VRAA_REGRISICOPROFIEL_VERDIEPING_25-28_DEF.pdf",
+      "accessedAt": "2026-09-02T13:34:32Z",
+      "edition": "2025–2028",
+      "supports": [
+        "Rhine catchment rainfall can threaten the Randstad through the Lek; a high-water wave can reach the region via the Amsterdam-Rijnkanaal and heavily affect Watergraafsmeer and Business & Science Park, with lesser effects in Zuidoost, Westelijk Havengebied and the canal belt.",
+        "An IJmuiden breach is a relevant coastal case and precise warning may only be available 12–24 hours beforehand, too short for complete mass evacuation.",
+        "The extreme-rain scenario is strongest in Amsterdam Oost, Zuidoost and Diemen, can affect tunnels, basements, pumps and medium-voltage stations, and can leave water in places after two days with repairs lasting longer.",
+        "The heat scenario lasts multiple weeks; the cited KNMI definition requires at least five consecutive warm days including at least three tropical days. Storm, winter, drought, cyber, power, drinking-water and gas cases all have distinct local dependencies and time courses.",
+        "Public named resilience context includes Weesperkarspel drinking-water production, Diemen-origin electricity dependencies, BovenIJ emergency-power failure, K-buurt gas/water disruption, rail/tram/metro interruption and large transient visitor/event loads; the document does not publish operational control topology or guaranteed restoration."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Amsterdam-Amstelland",
+      "title": "E05 — Regionaal Crisisplan 2025–2028",
+      "url": "https://veiligheidsregioaa.nl/publish/pages/636/vraa_crisisplan_25-28_def.pdf",
+      "accessedAt": "2026-09-02T13:34:32Z",
+      "edition": "2025–2028",
+      "supports": [
+        "VrAA uses an adaptive, information-led crisis organization rather than a deterministic model status: acute crises can scale through GRIP, while slow crises may activate selected capabilities and network partners.",
+        "The GMK emphasizes the first hour; CoPI, ROT, GBT and RBT/IRBT have distinct operational, tactical and strategic responsibilities.",
+        "The plan prioritizes protection of people, especially those with reduced self-reliance, and describes coordination, information management and crisis communication; it does not supply municipality-specific staff, stock, fuel or restoration capacity."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Amsterdam-Amstelland",
+      "title": "E06 — Denk vooruit: first 72 hours",
+      "url": "https://veiligheidsregioaa.nl/denk-vooruit/",
+      "accessedAt": "2026-09-02T13:34:32Z",
+      "edition": 2026,
+      "supports": [
+        "Emergency services focus first on acute need, while residents are asked to be able to help themselves especially during the first three days or 72 hours.",
+        "The 72-hour horizon is preparedness guidance, not an operational promise that services, inundation or recovery are complete at T+72.",
+        "Household self-reliance guidance does not establish a measured Amsterdam neighbourhood-level preparedness percentage."
+      ]
+    },
+    {
+      "publisher": "Watermanagementcentrum Nederland / Informatiepunt Leefomgeving",
+      "title": "E07 — Landelijk Informatiesysteem Water en Overstromingen",
+      "url": "https://iplo.nl/thema/water/applicaties-modellen/berichtgeving-crisismanagement/liwo/",
+      "accessedAt": "2026-09-02T13:34:32Z",
+      "edition": "latest public release listed: LIWO 2025.1.6",
+      "supports": [
+        "LIWO provides nationwide professional map layers for flood preparation and crisis management and requires interpretation by water-management specialists.",
+        "The public page lists release 2025.1.2 on 2025-05-07 and 2025.1.6 on 2025-10-30, showing release-based rather than guaranteed fixed cadence; ingestion should pin the exact layer/scenario/release.",
+        "Downloads and documented GIS access are the strongest public machine-readable starting point for inundation extent, depth and arrival-time masks, but reuse licence and automated WMS/WFS access terms are not stated on the public page and must be confirmed before redistribution."
+      ]
+    },
+    {
+      "publisher": "Gemeente Amsterdam",
+      "title": "E08 — Climate-adaptation dashboard and emergency-preparedness portals",
+      "url": "https://www.amsterdam.nl/bestuur-organisatie/beleid/voorbereiden-klimaatverandering/",
+      "accessedAt": "2026-09-02T13:34:32Z",
+      "edition": "dashboard item modified 2026-08-25",
+      "supports": [
+        "The city identifies heat, drought, extreme-rain water nuisance and flood probability as local adaptation themes and links its public ArcGIS climate dashboard at https://experience.arcgis.com/experience/aec3fc23a4134a3da32c7cb2cf3b66da.",
+        "Machine-readable public candidate layers include the heat-risk FeatureServer at https://services.arcgis.com/ZFXfOvgBZpGWrLdH/arcgis/rest/services/Hitterisico_gemeente_Amsterdam_view/FeatureServer/6 and the 60 mm/hour pluvial FeatureServer at https://services.arcgis.com/ZFXfOvgBZpGWrLdH/arcgis/rest/services/wateroverlastBuurt_60mm/FeatureServer. The dashboard item is public and was modified 2026-08-25, but publishes no reuse licence or guaranteed update cadence; the pluvial service itself says it is a demo without official status, so it requires publisher validation before model use.",
+        "The separate official page https://www.amsterdam.nl/leefomgeving/voorbereiden-noodsituatie/ identifies gas, water, electricity, cyber and extreme-weather disruption, cooperation with VrAA and sector partners, FM 88.9 crisis radio, and says emergency support-point locations are still being developed rather than currently published."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM0363 identity, name, province and safety-region membership are coherent.",
+      "evidenceRefs": [
+        "E01",
+        "E02"
+      ],
+      "notes": [
+        "Feature id, municipal code and regional bundle code/name all identify Amsterdam.",
+        "The generated province is Noord-Holland and the municipality belongs uniquely to Veiligheidsregio Amsterdam-Amstelland."
+      ]
+    },
+    "geography": {
+      "status": "pass",
+      "summary": "The 2025 generalized municipal boundary and generated center pass the audit geometry checks.",
+      "evidenceRefs": [
+        "E02"
+      ],
+      "notes": [
+        "The generated center [5.0256412234, 52.3119918077] lies inside the multipolygon.",
+        "The generalized administrative boundary is appropriate for selection and choropleths, not for hydraulic connectivity, dike compartments, pump catchments or utility service areas."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Official 2025 municipal totals and generated neighbourhood allocations reconcile within CBS publication rounding.",
+      "evidenceRefs": [
+        "E01",
+        "E02"
+      ],
+      "notes": [
+        "Official population is 934,526, density 4,968, age 65-plus count 129,924 and one-person-household count 283,658.",
+        "Published neighbourhood population sums to 934,505, a difference of -21 (-0.002%); the allocator reconciles the modeled local population exactly back to 934,526 without changing official zero-resident semantics.",
+        "Affected population is resident-equivalent only and excludes commuters, tourists, event visitors, hospital patients and other time-varying occupants."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "Neighbourhood coverage is rich, but two requested statistics are wholly unavailable and activity is still an aggregate proxy.",
+      "evidenceRefs": [
+        "E01",
+        "E02",
+        "E04"
+      ],
+      "notes": [
+        "The bundle contains 517 neighbourhoods in 110 districts and 36 statistic fields; population, age, households and businesses are complete.",
+        "District-heating percentage and public-charging points are unavailable for all 517 neighbourhoods and remain null, correctly not zero.",
+        "Twenty-eight official zero-resident neighbourhoods remain at zero population. Some receive positive service demand from business/non-residential activity, which is directionally useful but is not workers, visitors, asset capacity or a critical-facility census.",
+        "Publicly named facilities and catchments in E04 are not typed or located in the current local region contract."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "BAG woonplaatsen and BRT settlement geography are retained as distinct official concepts.",
+      "evidenceRefs": [
+        "E02"
+      ],
+      "notes": [
+        "The generated bundle has two BAG woonplaatsen, Amsterdam and Weesp, with no assigned center outside the generalized boundary.",
+        "Fifteen BRT settlement polygons comprise one buurtschap, five deelkernen and nine woonkernen; these descriptive geometries are not population totals or service zones."
+      ]
+    },
+    "transport": {
+      "status": "fail",
+      "summary": "Authoritative route and transit geometry are present, but one crossing is duplicated and the causal network remains road-only.",
+      "evidenceRefs": [
+        "E03",
+        "E04"
+      ],
+      "notes": [
+        "The graph exposes sixteen logical boundary links to seven neighbours, twelve ProRail station points and 700 grouped transit stop areas.",
+        "The old generator emitted A2 and E35 as label-keyed GM0363–GM0437 edges while failing to retain the section-level wegnummer needed to see that E35 belongs to physical road 10 at this boundary. Because A10 also crosses this pair, the E35 label became a duplicate/misclassified logical edge for every service rather than an alias on A10.",
+        "Scheduled rail, metro, tram, bus and ferry geometry is visualization context only; no timetable, actual-trip, ridership, vehicle, closure, tunnel, bridge or restoration state enters the causal graph."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "Official responsibilities and local lifeline cases are documented but are not represented as resources, facilities or incident decisions.",
+      "evidenceRefs": [
+        "E04",
+        "E05",
+        "E06",
+        "E08"
+      ],
+      "notes": [
+        "VrAA's GMK, CoPI, ROT, GBT and RBT/IRBT roles and adaptive information-led scaling cannot be inferred from the municipality status label.",
+        "The model has no observable staff, crews, fuel, emergency-water distribution, evacuation/shelter capacity, public warning reach or support-point readiness.",
+        "Amsterdam says support-point locations are still being developed, so the simulator must not invent or present fixed official sites.",
+        "A fixed 0.44 household-preparedness parameter is explicitly a national editable scenario proxy, not an Amsterdam observation."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "The complete deterministic 10 × 6 × 8 numerical contract passes for GM0363.",
+      "evidenceRefs": [
+        "E04"
+      ],
+      "notes": [
+        "MUNICIPALITY_AUDIT_CODE=GM0363 pnpm audit:model passed all ten canonical presets at T+0, +6, +12, +24, +48 and +72 for power, water, drainage, gas, telecom, mobility, facilities and supply.",
+        "Selected T+24 outputs are: severe storm severity 0.0263 and 145,852 affected; pluvial severity 0.4176 and 212,703 affected; river hazard and affected both zero; coastal severity 0.2853 and 405,464 affected; heat severity 0.7383 at T+12 and 93,340 affected at T+24; winter severity 0.6576 and 289,109 affected; cyber severity 0.4389 and 258,183 affected; earthquake peak severity 0.0292 and zero affected; wildfire severity 0.1439 and 36,516 affected; compound severity 0.8685 and 608,175 affected.",
+        "At T+72 compound remains critical with 613,151 modeled people under pressure and availability power 0.3964, water 0.3840, drainage 0.3381, gas 0.6053, telecom 0.2489, mobility 0.4854, facilities 0.3578 and supply 0.3802. These are internally generated scenario outputs, not measurements or forecasts."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Determinism, bounds, ledgers, zero-event semantics and local reconciliation pass.",
+      "evidenceRefs": [
+        "E01",
+        "E02"
+      ],
+      "notes": [
+        "Every tested value is finite and bounded, service delivery never exceeds demand, causal contributions and counterfactual deltas reconcile, and T+24 repeat frames are byte-for-byte deterministic.",
+        "Intensity zero yields exact zero event hazard, zero affected population and zero event-attributable deprived person-hours for every preset and checkpoint.",
+        "Focused T+24 local pluvial, coastal and river checks each contained 517 neighbourhoods; population reconciled exactly to 934,526, affected totals matched the municipality for every service, and all demand/delivery reconciliation errors were at or below 1.5e-12.",
+        "Local hazard values are exactly invariant across the eight service views, official zero populations remain zero, and event-attributable deprivation is monotone over the six checkpoints."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "Municipal river exposure and neighbourhood hazard patterns contradict source-specific Amsterdam flood pathways.",
+      "evidenceRefs": [
+        "E04",
+        "E07",
+        "E08"
+      ],
+      "notes": [
+        "The river preset is exactly zero at all six checkpoints because the model uses distance to three simplified Rhine/Meuse/IJssel line segments with finite 50 km support; it omits the Lek to Amsterdam-Rijnkanaal hydraulic pathway documented by VrAA.",
+        "At T+24 pluvial and coastal local hazard ranges are respectively 0.3427–0.4927 and 0.2341–0.3366, yet both rank all 517 neighbourhoods identically because every canonical preset shares seed 20260831 and local hazard does not include disaster type or a physical raster.",
+        "The highest seeded pluvial values include WG-terrein, Confuciusbuurt, Overamstel and Nintemanterrein rather than a source-derived Oost/Zuidoost catchment; the same ordering is reused for coastal flooding despite a distinct IJmuiden breach pathway.",
+        "LIWO or validated city/water-manager layers must supply scenario-specific extent, depth/stress, arrival and persistence; generalized neighbourhood polygons alone cannot."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "Eight-service cascades are inspectable but are not calibrated to Amsterdam assets, operators or topology.",
+      "evidenceRefs": [
+        "E03",
+        "E04",
+        "E05"
+      ],
+      "notes": [
+        "The model generates dependencies, backup depletion, intervention effects and sixteen service route records at every compound checkpoint, but every utility service is transferred over the same municipal road-edge abstraction.",
+        "Weesperkarspel's drinking-water catchment, Diemen/Hemweg-area power dependencies, pumps and wastewater assets, BovenIJ and other health/critical facilities, K-buurt gas/water context and emergency communications are not typed nodes or catchments.",
+        "NWB cannot establish electricity, drinking-water, drainage, gas, telecom, healthcare or emergency-supply topology. Public facility and service-area data should be ingested where authoritative; feeder, pipe, valve, control, backup and restoration details that are unavailable or security-sensitive must remain minimal synthetic scenarios with explicit uncertainty."
+      ]
+    },
+    "causalTrace": {
+      "status": "warn",
+      "summary": "Causal ledgers reconcile mathematically but several causal inputs retain scenario-only confidence.",
+      "evidenceRefs": [
+        "E03",
+        "E04",
+        "E05"
+      ],
+      "notes": [
+        "Hazard, service-availability and system-pressure ledgers reconcile exactly and intervention counterfactuals have correct signed deltas.",
+        "The explanation contract correctly calls route transfer a logical proxy rather than physical utility topology.",
+        "Generic vulnerability multipliers, capacities, reserve hours, response delays, repair capacity and local activity weights lack Amsterdam operator calibration, so exact values must remain visibly scenario assumptions.",
+        "Official crisis-team roles describe governance and decision horizons, not a deterministic municipality operational/degraded/recovering state."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "The first-72-hour window is implemented, but heat semantics and restoration calibration are not valid local claims.",
+      "evidenceRefs": [
+        "E04",
+        "E05",
+        "E06",
+        "E08"
+      ],
+      "notes": [
+        "The heat preset is named Heatwave & drought, lasts 72 hours and has zero forcing at T+72; this cannot itself satisfy the minimum five-day definition cited in the current VrAA profile and is far shorter than its multi-week severe scenario.",
+        "River forcing correctly supports 168-hour events in general, but Amsterdam receives zero because its documented catchment is absent. Compound forcing remains active and recovery is appropriately blocked inside the 72-hour display.",
+        "VrAA and Amsterdam preparedness guidance does not promise recovery by T+72. Emergency-water, shelter, support points, repair crews, backup fuel, logistics stocks and responder capacity need editable, provenance-bearing incident inputs before recovery outputs can support decisions."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [
+      0,
+      6,
+      12,
+      24,
+      48,
+      72
+    ],
+    "services": [
+      "power",
+      "water",
+      "drainage",
+      "gas",
+      "telecom",
+      "mobility",
+      "facilities",
+      "supply"
+    ]
+  },
+  "findings": [
+    {
+      "id": "GM0363-RIVER-001",
+      "severity": "critical",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The canonical major-river event has zero direct Amsterdam impact despite an explicit official Lek-to-Amsterdam-Rijnkanaal flood pathway.",
+      "evidence": "E04 identifies a Rhine high-water wave entering through the Lek and Amsterdam-Rijnkanaal, with Watergraafsmeer and Business & Science Park potentially heavily inundated and additional Amsterdam areas affected. The current distance-to-three-line-segments function returns zero exposure for GM0363, producing severity 0, affected 0 and event-attributable person-hours 0 at T+0/6/12/24/48/72.",
+      "action": "Replace centroid-to-river distance with a versioned breach/catchment adapter driven by expert-reviewed LIWO layers (E07), explicitly selecting the Lek/Amsterdam-Rijnkanaal scenario, arrival and persistence. Until then, block or label the Amsterdam direct river result unsupported rather than displaying an all-clear."
+    },
+    {
+      "id": "GM0363-NWB-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "Route-label grouping makes E35 an independent Amsterdam–Ouder-Amstel edge even though its local NWB sections belong to physical A10, not the separate A2 crossing.",
+      "evidence": "Live NWB records wvk 245363016 and 245364028 carry E35 but wegnummer 010 at the municipal boundary; A2 records wvk 245363013 and 245364027 carry wegnummer 002. The old graph retained neither physical identity nor contributing section IDs and emitted E35 as an extra regional edge alongside the actual A10 and A2 corridors. Each record was then cloned into all eight service graphs, creating unsupported independent capacity and failure paths. A route-level statement that E35 follows A2 farther along the Amsterdam–Utrecht journey is insufficient to override these local section fields.",
+      "action": "Canonicalize European-route aliases and paired carriageways into one physical crossing identity before municipal aggregation, retain aliases as metadata, and regression-test coordinates plus municipality pair so refreshes cannot recreate duplicate capacity."
+    },
+    {
+      "id": "GM0363-HEAT-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "A 72-hour forcing window is labelled heatwave even though the cited definition requires at least five days.",
+      "evidence": "The canonical preset is named Heatwave & drought, has durationHours 72 and reaches zero event forcing at T+72. E04 cites a minimum five consecutive warm days, at least three tropical, and uses a multi-week regional scenario. Thus duration and display label contradict the official hazard concept even though the numerical contract is bounded.",
+      "action": "Either extend forcing beyond 120 hours while keeping the operational display focused on the first 72 hours, or rename the preset to a three-day heat emergency. Add tests for nonzero forcing at T+72 when the heatwave label is used."
+    },
+    {
+      "id": "GM0363-FLOOD-SPAT-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Pluvial and coastal neighbourhood maps reuse one random spatial ordering rather than event-specific flood footprints.",
+      "evidence": "Focused T+24 checks show different municipal amplitudes but exactly the same rank order across all 517 neighbourhoods because hazardSeed uses city seed, common scenario seed and neighbourhood id, not disaster type or hydraulic data. E04 distinguishes Oost/Zuidoost pluvial concentration, an IJmuiden coastal breach and a Lek/Amsterdam-Rijnkanaal river pathway; E07 provides the appropriate scenario-layer concept.",
+      "action": "Add scenario-specific raster/polygon sampling for pluvial, coastal and river hazards. Prefer pinned LIWO releases and validated municipal/water-manager layers; record publisher, scenario, resolution, release, retrieval hash and licence. Do not operationalize E08's 60 mm/hour demo service until Amsterdam confirms status and reuse rights."
+    },
+    {
+      "id": "GM0363-MOB-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "Amsterdam's multimodal mobility dependencies are visible but absent from causal flow and recovery.",
+      "evidence": "The data contain twelve station points and 700 grouped transit stop areas, while E04 describes rail, tram and metro interruption during storm/power cases. The model nevertheless uses sixteen road-derived municipality edges for mobility and every non-mobility service, and OVapi GTFS is only scheduled geometry without actual operations or capacity.",
+      "action": "Create separate road, rail, urban-rail, ferry and emergency-access graphs; use versioned NWB/ProRail/GTFS geometry, then accept incident closures, actual operations and operator-provided capacity as inputs. Keep unavailable ridership and disaster restoration transparent synthetic scenarios, never derive them from trip-record counts."
+    },
+    {
+      "id": "GM0363-TRANSIENT-001",
+      "severity": "high",
+      "category": "demography",
+      "status": "open",
+      "summary": "Resident-only affected totals materially understate Amsterdam's daytime and event exposure.",
+      "evidence": "All local population and affected totals reconcile to 934,526 residents, while E04 describes millions of daily movements, large tourist/event populations and a scenario with approximately 40,000 passengers per hour at Amsterdam Centraal. Business activity shifts service demand locally but does not add commuters, visitors, patients or event attendees to exposure or evacuation need.",
+      "action": "Add optional time-of-day transient-population surfaces with source/date/provenance and uncertainty. Use public aggregate mobility/event/visitor data where licensing and temporal meaning are clear; preserve the resident baseline and never infer person counts from business counts or scheduled GTFS trips."
+    },
+    {
+      "id": "GM0363-SVC-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Named Amsterdam lifelines and critical facilities are absent while roads proxy every utility.",
+      "evidence": "E04 identifies Weesperkarspel drinking-water supply, Diemen-origin electricity effects, BovenIJ emergency-power failure, pump and medium-voltage dependencies, K-buurt gas/water disruption and telecom/payment/logistics cascades. None is a typed node or service area; synthetic flows on NWB edges cannot establish physical supply, backup autonomy or restoration.",
+      "action": "Integrate only publicly attributable facilities, service areas and aggregate operator outage feeds with licence, timestamp and quality metadata. For non-public/security-sensitive feeder, pipe, valve, control and telecom topology, use the smallest explicitly synthetic zonal dependency graph, editable ranges and ensemble sensitivity rather than guessed asset locations."
+    },
+    {
+      "id": "GM0363-72H-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "open",
+      "summary": "The first-72-hour response view lacks resources, official role states and locally verified preparedness inputs.",
+      "evidence": "E05 defines adaptive GMK/CoPI/ROT/GBT/RBT roles and E06 frames 72 hours as self-reliance while acute services prioritize urgent needs. E08 says Amsterdam support points are still being developed. The model instead uses national household preparedness 0.44 and generic response/repair parameters without staff, stock, fuel, water distribution, shelter or support-point observations.",
+      "action": "Add an incident-input panel and timeline for verified warnings, GRIP/role activation, available crews, backup fuel, emergency water, shelter/support points, road closures and mutual aid, each with source and as-of time. Keep defaults editable and visibly hypothetical; never publish undeclared support-point locations."
+    },
+    {
+      "id": "GM0363-OTHERHAZ-001",
+      "severity": "medium",
+      "category": "limitation",
+      "status": "accepted-limitation",
+      "summary": "Winter, earthquake and wildfire directions are plausible screens, but their exact local magnitudes are uncalibrated.",
+      "evidence": "E04 supports major winter mobility/shelter consequences, rates local earthquake likelihood very small with limited impact and identifies little regional woodland beyond areas such as Amsterdamse Bos. The model gives a winter T+24 peak with 289,109 affected, Groningen-earthquake peak 0.00574 g with zero affected, and wildfire direct flame zero but smoke-driven effects; none is an Amsterdam observation or KNMI/operator forecast.",
+      "action": "Retain explicit scenario-only labelling. Future calibration should ingest KNMI warning/observation grids for wind, heat and winter, authoritative land cover plus meteorological smoke transport for wildfire, and KNMI/KNMI-induced-seismic products for earthquakes; record cadence and licences at ingestion."
+    },
+    {
+      "id": "GM0363-INV-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The current deterministic accounting and proxy semantics pass the municipality release harness.",
+      "evidence": "The complete matrix passes finite bounds, determinism, exact zero-event behavior, monotone event-attributable person-hours, exact causal ledgers, counterfactual signs, neutral official-neighbourhood priority, service-invariant local hazard, preserved zero residents and municipality/local population-demand-delivery reconciliation. Route explanations call connectivity a logical proxy rather than physical utility topology.",
+      "action": "Keep these invariants in the national gate and add the Amsterdam-specific river, A2/A10/E35 physical-corridor and heat-duration regressions before accepting corrections."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Replace Amsterdam major-river proximity screening and generic local flood modulation with versioned, source-specific hydrologic masks; immediately prevent an unsupported zero river all-clear.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "scripts/fetch-realism-data.mjs (or a new versioned hazard-layer importer)"
+      ],
+      "validation": "For the selected Lek/Amsterdam-Rijnkanaal scenario, GM0363 has nonzero river forcing through T+72 and source-derived neighbourhood concentration in Watergraafsmeer/Business & Science Park; unrelated catchments remain zero. Pluvial, coastal and river rank orders must differ when their official footprints differ, with release, layer, hash, licence and expert-review provenance asserted."
+    },
+    {
+      "summary": "Resolve E35 against section-level NWB wegnummer and retain separate physical A2 and A10 crossings before building logical municipal links.",
+      "files": [
+        "scripts/fetch-realism-data.mjs",
+        "apps/web/public/data/transport-network.json",
+        "packages/sim-core/src/municipality-coverage.test.ts"
+      ],
+      "validation": "GM0363–GM0437 exposes one physical road-2/A2 crossing and one physical road-10/A10 crossing with E35 retained as an A10 alias; no primary E35 duplicate appears in any service graph, and contributing NWB wvk IDs remain traceable. Run pnpm data:validate and MUNICIPALITY_AUDIT_CODE=ALL pnpm audit:model."
+    },
+    {
+      "summary": "Make the heatwave name and forcing duration consistent with the official minimum duration while retaining the first-72-hour operational view.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/scenarios.ts",
+        "apps/web/src/components/ScenarioControls.tsx"
+      ],
+      "validation": "A preset labelled heatwave lasts at least 120 hours and has nonzero event forcing at T+72, or the 72-hour preset is consistently renamed heat emergency in core, web and accessible labels; canonical web/core equality and full tests pass."
+    },
+    {
+      "summary": "Separate multimodal mobility from utility transfer and add public, typed aggregate service/facility inputs without inferring sensitive topology.",
+      "files": [
+        "scripts/fetch-realism-data.mjs",
+        "scripts/fetch-transit.mjs",
+        "apps/web/src/data.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts"
+      ],
+      "validation": "Road, rail, urban-rail and ferry state can fail independently; public facilities/service areas display source, licence, edition and as-of time; non-public utility topology is explicitly synthetic and parameterized. Removing road capacity must not silently remove physical water/gas/power capacity unless a declared cross-dependency supports it."
+    },
+    {
+      "summary": "Represent Amsterdam's transient exposure and first-72-hour response resources as provenance-bearing optional inputs.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/ScenarioControls.tsx",
+        "apps/web/src/components/OperationsBrief.tsx"
+      ],
+      "validation": "Resident and transient denominators remain separately visible and reconcile; time-of-day/event occupancy never derives from business or GTFS trip counts; role activation, crews, fuel, emergency water, shelter and support points show explicit hypothetical/verified state, source and timestamp, and no unpublished support point is rendered."
+    }
+  ],
+  "residualLimitations": [
+    "No public source reviewed provides safe, complete and current feeder, pipe, valve, sewer-control, telecom-control or backup-fuel topology. Exact topology, switching and restoration commitments must not be invented from roads or facility points.",
+    "LIWO layers require water-manager interpretation and scenario selection; public reuse/licence and automated service terms were not discoverable on the cited landing page and require confirmation before redistribution.",
+    "Amsterdam's public ArcGIS climate dashboard has no published reuse licence or guaranteed cadence, and the inspected 60 mm/hour neighbourhood service explicitly calls itself a demo without official status.",
+    "CBS neighbourhood statistics are annual resident/household aggregates, not people present at a particular hour, individual vulnerability, demand, asset location or response priority.",
+    "OVapi GTFS is a best-effort scheduled feed without SLA; stop_times are not processed and scheduled trip records are not actual service, ridership, capacity or disaster passability.",
+    "District-heating share and public-charging points are unavailable across all GM0363 neighbourhoods in the current bundle and must stay null rather than be imputed as zero.",
+    "Exact hazard intensities, affected totals, service availability, reserve hours, synthetic flows, interventions and deprived person-hours are inspectable scenario outputs, not forecasts, measurements, operator commitments or official emergency decisions.",
+    "This audit covers the first 72 display hours; longer heat, high-water, infrastructure repair, displacement and recovery consequences remain outside the visible window."
+  ],
+  "provinceReviewFlags": [
+    "Audit all Noord-Holland and Utrecht municipalities whose flood exposure depends on the IJ, Lek, Amsterdam-Rijnkanaal, Noordzeekanaal or regional polders; centroid distance to named rivers/coast cannot represent hydraulic connectivity.",
+    "Search the national NWB aggregation for concurrent A/N and E-route aliases and paired carriageways so European route designations cannot create duplicate municipal crossings.",
+    "Require scenario-specific pluvial, coastal and river masks across Amsterdam-Amstelland; the common seeded neighbourhood ordering is a national model issue, not Amsterdam-only.",
+    "Review rail, metro/tram, bus, ferry, tunnel and bridge dependencies for the Amsterdam metropolitan network and Schiphol interfaces without converting scheduled GTFS geometry into capacity.",
+    "Treat public facility/service-area data and security-sensitive operator topology separately across Noord-Holland: integrate authoritative public aggregates, and document bounded synthetic fallbacks for unavailable operational networks.",
+    "Add transient/daytime exposure review for other visitor, event, commuter, port and airport municipalities; resident population alone is not an adequate first-72-hour demand denominator."
+  ]
+}

@@ -1,0 +1,456 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0158",
+    "name": "Haaksbergen",
+    "province": "Overijssel",
+    "safetyRegion": "Twente"
+  },
+  "agent": {
+    "taskName": "municipality_gm0158",
+    "agentId": "/root/municipality_gm0518",
+    "completedAt": "2026-09-03T03:11:05Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "GM0158's identity, Overijssel and Veiligheidsregio Twente assignment, full 2025 PDOK boundary, one BAG place, eleven BRT settlements and 29-neighbourhood census allocation are coherent. Fresh CBS reports 24,225 residents; neighbourhood rows also sum to 24,225, while age-65-plus differs by six through publisher rounding. All ten canonical presets execute deterministically at T+0/6/12/24/48/72 across Power, Water, Drainage, Gas, Telecom, Mobility, Facilities and Supply; finite bounds, exact-zero intensity, selected-layer invariance and arithmetic reconciliation pass. Release is nevertheless correction-required. The generic river preset creates 0.949109 inundation stress through T+72 even though the adopted regional profile describes Twente as high ground without dike rings or primary defences and limits direct flooding to local brooks and rain pathways; the coastal preset creates service damage and 17,802 person-hours at T+24 despite zero local flood forcing. Those results select no local brook, rainfall, terrain, culvert, sewer, water-control or recession state. Eight unrelated hazards reuse one complete neighbourhood order. A controlled ignition inside the official Buurserzand nature-fire polygon ranks the containing neighbourhood only nineteenth of 29. The current Dutch-only graph omits the operational Ahaus/Alstaette fire-response dependency that the 2026-2029 dekkingsplan uses for part of Buurse, one of only two Twente cores outside its target arrival-time band. Haaksbergen's statutory plan reports 30 sewer pumping stations and 876 pump units, whereas the public water snapshot contains two sewer-pump points and no causal water/drainage graph. Five NWB links represent only logical Mobility and road-logistics/Supply; German access, care, transit, internal roads and physical power/water/gas/telecom/facility dependencies remain context. Compound effects worsen all eight services from T+24 to T+72 while every recovery field is zero and no action or resource explains the trajectory. Public context is broadly integration-ready, but source edition/valid time, licence, resolution, coverage and NoData must remain explicit. Static registers, current observations, official scenarios and synthetic outputs are not interchangeable, and missing data never mean zero or safe.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek (CBS)",
+      "title": "E01 — Kerncijfers wijken en buurten 2025, table 86165NED, OData API",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM0158%27%29",
+      "accessedAt": "2026-09-03T03:00:00Z",
+      "edition": 2025,
+      "supports": [
+        "The fresh official municipality row identifies GM0158 Haaksbergen and reports 24,225 residents, 12,122 men, 12,103 women, density 231 per square kilometre, 6,314 residents aged 65 or older, 10,420 households, 3,195 one-person households and 2,965 business establishments.",
+        "A separate machine query using startswith(WijkenEnBuurten,'BU0158') returns 29 neighbourhoods summing to exactly 24,225 residents, 10,420 households and 3,195 one-person households; age-65-plus cells sum to 6,320, six above the separately rounded municipal control.",
+        "The national OData table is an annual 2025 statistical edition under CC BY 4.0, with additions/revisions during the release cycle. Municipality and neighbourhood are the spatial resolutions; values are annual context, not incident-time presence.",
+        "Null, suppressed, rounded and incomplete cells retain publisher semantics. These data may support vulnerability context and reconciliation, but not live evacuation, injury, care demand, customer connectivity, deprivation or service availability."
+      ]
+    },
+    {
+      "publisher": "PDOK / CBS / Kadaster / Rijkswaterstaat / ProRail / OVapi",
+      "title": "E02 — Full municipality geometry, settlements, roads, rail and scheduled transit",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_niet_gegeneraliseerd/items/ad706f67-1e44-5f91-b365-2e96cb829f18?f=json",
+      "accessedAt": "2026-09-03T03:01:00Z",
+      "edition": "CBS boundary 2025; BRT source date 2025-07-01; NWB geometry 2026-08-01; OVapi feed 2026-08-30 through 2026-12-12",
+      "supports": [
+        "Fresh full-resolution GM0158 is one MultiPolygon component with one ring, 1,570 positions and bbox [6.624347345011469, 52.11806948966259, 6.889750259897098, 52.20633143274624]. Generated centre [6.756576608591054, 52.156147114609325] lies inside.",
+        "The generated bundle contains 29 neighbourhoods in eight districts, one BAG woonplaats named Haaksbergen and eleven unsimplified BRT settlements: Haaksbergen, Buurse and Sint Isidorushoeve as woonkernen; Brammelo, Den Braam, Eppenzolder, Harmoele, Honesch, Langelo and Stepelo as buurtschappen; and De Porik as gehucht.",
+        "Five clipped NWB logical links connect N18 to Berkelland and Enschede, N315 to Berkelland, N739 to Hengelo and N347 to Hof van Twente. The two N18 edges are series sections of one physical corridor, not additive capacity. No ProRail station lies inside; the generated spatial check finds 133 GTFS stop areas including Haaksbergen Busstation and Buurse Grens.",
+        "Machine routes are the OGC item above, https://api.pdok.nl/kadaster/bag/ogc/v2, https://api.pdok.nl/kadaster/brt-top10nl/ogc/v1, https://api.pdok.nl/rws/nationaal-wegenbestand-wegen/ogc/v1, https://api.pdok.nl/prorail/spoorwegen/ogc/v1/collections/station and https://gtfs.ovapi.nl/nl/gtfs-nl.zip. CBS/BRT are CC BY 4.0 and edition-based, BAG is daily/Public Domain Mark 1.0, NWB is monthly/CC0 1.0, ProRail is CC0 with publisher-dependent refresh, and OVapi is free-use best effort without an operational SLA.",
+        "These are official geometry, registers and schedules. They do not prove live road or bus operation, passability, emergency priority, throughput, occupancy, German continuity, utility topology, facility capacity or T+72 restoration."
+      ]
+    },
+    {
+      "publisher": "Gemeente Haaksbergen",
+      "title": "E03 — Water en Riolering Programma 2025-2030 and municipal sewer inventory",
+      "url": "https://www.haaksbergen.nl/Docs/bouwen/Brem%205/Bijlage%206%20WRP%20Haaksbergen%202025-2030.pdf",
+      "accessedAt": "2026-09-03T03:02:00Z",
+      "edition": "August 2024 programme, adopted by municipal council 2 October 2024 for 2025-2030",
+      "supports": [
+        "The current municipal page at https://www.haaksbergen.nl/woneninhaaksbergen/Leven-en-wonen/Riolering.html reports 146 km gravity sewer in the cores, 215 km pressure sewer in the rural area, 30 sewer pumping stations, 876 pump units, 11,000 gullies and wadis/storage-settling facilities.",
+        "The WRP records specific functional pathways: Eibergsestraat stormwater still needed connection across the former N18 to Poelsbeek; the Buurse pressure main was moved to Noordsingel; direct connections to the Bolscherbeek reduce Blankenburgerstraat nuisance; and watercourses around Buurse and Kolenbranderweg were reprofiled or adapted.",
+        "The official local stress case is 70 mm in one hour, approximately a 2050 T100 event, against typical sewer design near 20 mm/h. Water that does not fit flows to low points. Brink and Blankenburg are observed planning concerns, and serious nuisance includes building entry, impassable arteries/tunnels or water standing more than four hours.",
+        "Projects for Brink and Veldmaat/Meidoorn are programmed for 2027, Blankenburgerstraat for 2028 and staged mechanical/electrical work on 725 pump pits for 2031-2032. The plan also says continuous monitoring of system function is still a proposed research project; programme dates never prove current completion or live state.",
+        "The PDF is municipal policy/inventory at street or system-description scale with change-driven updates; it is not a machine topology, its reuse licence is not stated on the document, and its missing capacities/states remain Unknown. The public integration route is RIONED/PDOK GWSW OGC at https://api.pdok.nl/rioned/waterschappen-waterketen-gwsw/ogc/v1 (CC0, contributor coverage and refresh unspecified), supplemented by a governed native municipal export."
+      ]
+    },
+    {
+      "publisher": "Twents Waternet / Waterschap Vechtstromen / Het Waterschapshuis",
+      "title": "E04 — Twente climate-stress layers and public managed-water registers",
+      "url": "https://twn.klimaatmonitor.net/api/atlases/33d59613-42fc-41a4-a556-18cd1c6fdee4/",
+      "accessedAt": "2026-09-03T03:04:00Z",
+      "edition": "Regional atlas initiated 2019; Twente-wide rain raster 2023; combined municipal rain raster 2024; HWH retrieval 2026-09-03T01:38:15Z",
+      "supports": [
+        "Vechtstromen describes the atlas as possible 2050 effects for heat, drought, water nuisance and flooding, with the regional analysis repeated every six years. Its public API explicitly calls the results coarse-to-fine modeled context, not observations or determinations of actual local bottlenecks.",
+        "The public theme API at https://twn.klimaatmonitor.net/api/themes/697d3a42-c4f1-497c-a5ff-9f3d6275de6c/ exposes 70, 90 and 160 mm cases. Membership 12d7783a-4a39-4ecd-9a48-38f91b847812 points to public WMS https://nens.lizard.net/wms/ layer nelen-schuurmans:twents_waternet:maximale_waterdiepte_70mm_no_panden for a 2023 3Di 70 mm/one-hour, 2050 T100 scenario across [6.32652993223704, 52.1180694947068, 7.07276336128739, 52.4949807410574].",
+        "Membership 84fcdb38-05f6-4d4b-8b2f-395dea2c057e exposes the 2024 combined-municipality 70 mm/one-hour WMS layer nelen-schuurmans-consultancy:1830_twn_gecombineerd_waterdieptebeeld_gemeenten_2024; the atlas says municipal layers can include sewer discharge/storage while the Twente-wide worst case assumes sewers are full and do not discharge.",
+        "The atlas WMS supplies point values and scenario footprints, but its public metadata states Copyright Lizard, gives no reusable-data licence or raster resolution/NoData rule, and says owner permission/login is required for raster download. Live WMS display can remain context; causal ingestion requires Twents Waternet/municipality permission, fixed edition, CRS, units, resolution, coverage and NoData.",
+        "The current HWH snapshot assigns 362 points to full GM0158: 356 weirs, three sluices, two sewer pumps named Gemaal Buurse and Rioolgemaal Sint Isidorushoeve, and RWZI Haaksbergen. Managers are Vechtstromen (209), Rijn en IJssel (150) and Unknown (3). Endpoints https://api.pdok.nl/hwh/waterschappen-kunstwerken-imwa/ogc/v2 and https://api.pdok.nl/hwh/waterschappen-waterketen-damo/ogc/v1 are CC BY-SA 4.0, partial and contributor-dependent; points do not prove connectivity, capacity, control, power/backup or live operation."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Twente",
+      "title": "E05 — Regionaal Risicoprofiel Twente 2025 and care/fire context",
+      "url": "https://www.vrtwente.nl/sites/vrt/files/vergaderstukken/20260423%20E01h%20Regionaal%20Risicoprofiel%20Twente%202025.pdf",
+      "accessedAt": "2026-09-03T03:05:00Z",
+      "edition": "Risk profile 2025, adopted with the 2026-2029 policy suite on 23 April 2026",
+      "supports": [
+        "The adopted profile describes Twente as relatively high ground with brooks and canals but no dike rings or primary defences. Direct flood risk is limited; the Regge and cross-border Dinkel can cause local nuisance, and long/heavy rainfall can cause locally limited, short-lived flooding. Reliance on rainfall on sandy ground makes prolonged drought a major concern.",
+        "For Haaksbergen it identifies more than 24,000 residents, the cores Haaksbergen, Sint Isidorushoeve and Buurse, green rural land including Haaksbergerveen and Buurserzand, and a new salt-extraction area under development.",
+        "For nature fire it says campsites, recreation and care sites can create impact even for a small fire; access paths can overgrow, extinguishing water is relatively limited, and large water-transport systems take time to establish. Weather, fuel, evacuation time, self-reliance and routes are explicit causal factors.",
+        "It identifies MST Enschede with outpatient clinics in Haaksbergen and Oldenzaal, and ZGT sites in Almelo/Hengelo. It also records regional electricity, drinking-water and telecom/ICT disruptions and cross-service dependencies, but these profile scenarios are not live outage or restoration records.",
+        "The profile notes a 2005 Haaksbergen power outage and 2014 monster-truck disaster as preparedness history. It estimates Twente salt-mining subsidence at 25-34 cm over 50 years and says subsurface instability is monitored by microseismic and sonar methods. Historical events and monitored long-term mining context are not arbitrary current earthquake damage.",
+        "This is authoritative four-year risk-planning context at regional/municipal narrative scale. No machine API, feature resolution, fixed operational refresh or reuse licence is stated; absence from the PDF does not mean zero risk, and it does not itself drive the simulation."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Twente / Brandweer Twente",
+      "title": "E06 — Dekkingsplan Brandweer Twente 2026-2029 and cross-border response",
+      "url": "https://www.vrtwente.nl/sites/vrt/files/vergaderstukken/20260423%20E01f%20Dekkingsplan%20Brandweer%20Twente%202026-2029.pdf",
+      "accessedAt": "2026-09-03T03:05:30Z",
+      "edition": "2026-2029 plan, peildatum 2026-01-01, adopted 23 April 2026",
+      "supports": [
+        "Haaksbergen has one of Twente's 29 fire stations. Buurse and Langeveen are the only two Twente cores outside the applicable target band; Buurse's modeled arrival time is 13.22 minutes, above the 13-minute threshold but within the statutory 18-minute maximum.",
+        "The formal cross-border table states that the Ahaus/Alstaette engine responds to part of Buurse, mainly Holland Markt, Den Braam and campsites, while Haaksbergen responds into Ahaus. Standard dispatch sends one German and one Dutch unit; the first starts incident control and the local-country unit leads.",
+        "The agreements cover dispatch, assistance across territory, liability and insurance. This is an operationally material international dependency, not a generic nearest-neighbour inference.",
+        "The plan is an adopted periodic coverage model and agreement summary, not incident-time dispatch, crew availability, traffic, station readiness or resource status. Its public PDF has no stated machine endpoint, feature-level NoData rule, live cadence or reuse licence; those states must remain Unknown until supplied by authorized response systems."
+      ]
+    },
+    {
+      "publisher": "IPO Risicokaart / Rijkswaterstaat / KNMI",
+      "title": "E07 — Nature-fire eligibility, national rain scenario and observed weather/seismic context",
+      "url": "https://servicespub.risicokaart.nl/geoserver/ISOR_RK/wfs",
+      "accessedAt": "2026-09-03T03:07:00Z",
+      "edition": "Risicokaart metadata updated 2026-02-19; RWS rain catalogue updated 2026-08-05; KNMI observations 2026-09-02T23:30Z and 365-day seismic snapshot",
+      "supports": [
+        "A bounded WFS request for isor_brandbaar_natuurgebied returns Buurserzand, Buurserveen, Witte Veen and Het Lankheet under Haaksbergen's source code, plus two Berkelland polygons touching the bbox. The layer is Public Domain with no guaranteed operational cadence or feature-scale accuracy; beginning-validity dates in these records are from 2005.",
+        "The fire polygons identify an eligible forest/heath/peat domain only. They provide no ignition, fuel/moisture, perimeter, spread, smoke, people, campsites, route, response-water or suppression state; missing polygons remain Unknown, never non-burnable or safe.",
+        "RWS publishes a distinct national 70 mm/two-hour depth raster at https://geo.rijkswaterstaat.nl/services/ogc/gdr/klimaat_effect_atlas/ows with WMS/WCS plus GeoTIFF https://downloads.rijkswaterstaatdata.nl/klimaat_effect_atlas/bij_70mm_per_2uur.tif. It is CC0 and national scenario context updated 5 August 2026; transparent/NoData semantics require confirmation. It must not replace Haaksbergen's 70 mm/one-hour case or become current rain/T+72 prediction.",
+        "No KNMI ten-minute station lies inside GM0158. Hupsel in Berkelland is nearest at 11.96 km and observed 18.2 C, 5.17 m/s gust and zero preceding-hour rain at 2026-09-02T23:30Z. KNMI data are ten-minute CC BY 4.0 point observations with possible missing/revised variables, not a Haaksbergen field or exercise forecast.",
+        "The 365-day KNMI FDSN catalogue has no event origin inside GM0158. The catalogue updates when events are published and is CC BY 4.0 by default; zero matched event points do not establish zero ground motion, future probability or subsurface/mining safety."
+      ]
+    },
+    {
+      "publisher": "Stichting Mijn Aansluiting / Gemeente Haaksbergen / Enexis / Vitens / Netbeheer Nederland / RIVM / RDI / DUO / NDW",
+      "title": "E08 — Public utility, care, telecom, education and current road context",
+      "url": "https://public.geodata.mijnaansluiting.nl/geoserver/mijnaansluiting_open/ows",
+      "accessedAt": "2026-09-03T03:08:00Z",
+      "edition": "Live provider query 2026-09-03; provider records updated 2025-09-07; NBNL/NDW/RIVM/RDI/DUO deployment snapshots 2026-08-31 to 2026-09-03",
+      "supports": [
+        "Public Domain WMS GetFeatureInfo at Haaksbergen's reference point returns Enexis electricity and gas, Vitens drinking water and Ziggo fixed media, all with record timestamp 2025-09-07; the sewer layer returns no feature. A point query is not full municipal coverage, and an empty discipline remains Unknown.",
+        "The public NBNL sample postcode 7481DL maps to Enexis area HBG Haaksbergen: existing withdrawal 41 MW, required 33.1, 9.3 MW/30-request withdrawal queue; existing injection 41, required 49.3, 3.9 MW/16-request injection queue; TenneT class 3 both directions and 13 projects from 2026. Capacity/projects refresh at least quarterly and queues monthly; one sampled postcode, planning classes and an unstated exact licence/API stability are not topology, live load, reserve, outage or T+72 restoration.",
+        "The municipality's current page https://www.haaksbergen.nl/duurzaamheid/Vol-stroomnet-netcongestie.html names Enexis, a Haaksbergen medium-voltage-station upgrade and dependency on TenneT reinforcement. Its 26 May 2026 page https://www.haaksbergen.nl/Nieuwsoverzicht/Nieuwe-drinkwaterverbinding.html describes Vitens's planned west-east Overijssel connection and dry-sand scarcity, with construction only after a planned 2030 route decision. Policy/planning is not incident state or completed capacity.",
+        "RIVM 2026 v1.1 CC0 acute-care data have no surveyed SEH/acute-obstetric site inside GM0158; MST Enschede is 11.36 km straight-line from the municipal reference point and reports a 24/7 SEH, acute obstetrics, 20 treatment rooms and 21,823 visits in 2025. Zero internal matches do not mean no clinic or care; VRT explicitly identifies the Haaksbergen outpatient clinic.",
+        "RDI contributes 49 registered antenna installations with no fixed WFS cadence or standard reuse licence, and daily DUO CC-BY data contribute 14 education locations. Neither proves telecom coverage/backhaul/power/backup or shelter/occupancy/capacity. NDW's CC0 DATEX snapshot at publication 2026-09-02T15:25Z has zero retained records spatially assigned to GM0158; this is scoped NoData, not an all-open road assertion.",
+        "The best public current-outage route is https://energieonderbrekingen.nl/api/v2/ for electricity/gas, but it requires OAuth client credentials and may be incomplete. Without authorized records, operator topology, switching/valves, load/pressure, customer/facility bindings, backup and restoration remain Unknown; explicit synthetic exercise graphs may be used only with version and uncertainty."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM0158, Haaksbergen, Overijssel and Veiligheidsregio Twente are internally and officially coherent.",
+      "evidenceRefs": ["E01", "E02", "E05"],
+      "notes": [
+        "Generated municipality, province, regional bundle and exactly one safety-region assignment agree.",
+        "The generated centre lies inside the freshly fetched full-resolution 2025 municipality geometry.",
+        "Boundary/statistics edition, register date, observation time, official scenario time and synthetic exercise clock remain distinct."
+      ]
+    },
+    "geography": {
+      "status": "fail",
+      "summary": "Administrative containment is sound, but flood and fire surfaces and neighbourhood allocation are not source-specific.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E07"],
+      "notes": [
+        "Full 2025 municipality geometry, not a bbox or generalized overview, was used for identity and source-containment checks.",
+        "The model does not sample the Buurserbeek/Poelsbeek/Bolscherbeek system, Twents Waternet rain rasters, terrain, culverts, sewers, managed controls or local recession.",
+        "Eight unrelated hazards reuse one 29-neighbourhood order; a controlled official Buurserzand ignition ranks its containing neighbourhood nineteenth."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Official municipality controls and all 29 neighbourhood rows reconcile under CBS rounding and null semantics.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "The 29 neighbourhood cells sum exactly to the municipal 24,225 residents, 10,420 households and 3,195 one-person households.",
+        "Age-65-plus rows total 6,320 versus the separately rounded municipal 6,314; the model's 26.1% is consistent but not an exact headcount.",
+        "Resident-equivalent impacts omit incident-time workers, students, visitors, campsite guests, patients, transit passengers and responders."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "All 29 neighbourhoods are present, but selected statistics and all operational lifeline states remain incomplete.",
+      "evidenceRefs": ["E01", "E02", "E03", "E04", "E08"],
+      "notes": [
+        "Population, ages, households, density, homes, businesses and doctor/supermarket distances cover all 29 rows; home-value, tenure/housing and three benefit fields cover 28, cars-per-household 26, while district-heating percentage and public charging counts are absent for all 29.",
+        "Null statistical fields remain null; they are not imputed to zero in the audit.",
+        "Water, provider, antenna, education, care, weather and road records have different dates and coverage and remain context unless a valid causal binding is supplied."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "Haaksbergen's core and dispersed settlement structure is preserved without inventing operational roles.",
+      "evidenceRefs": ["E02", "E05", "E06"],
+      "notes": [
+        "One BAG woonplaats and eleven full BRT settlement polygons are retained; BRT distinguishes three woonkernen, seven buurtschappen and one gehucht.",
+        "Buurse, Den Braam and dispersed rural areas are visible in public context, which is important for response and access review.",
+        "Settlement labels and census population do not establish fire cover, shelter, care, supply, occupancy or incident-time presence."
+      ]
+    },
+    "transport": {
+      "status": "fail",
+      "summary": "Dutch road-border proxies exist, but German response, internal access, transit, care and live restrictions are absent.",
+      "evidenceRefs": ["E02", "E06", "E08"],
+      "notes": [
+        "Five NWB links correctly support only Mobility and explicitly assumed road-logistics/Supply; two N18 edges are consecutive series sections, not additive throughput.",
+        "The graph has no Germany node or Alstaette-Buurse response link and no internal forest/campsite, ambulance, scheduled bus or destination-specific route.",
+        "Zero GM0158-assigned NDW situations is scoped missing current evidence, not proof that N18, N roads, local roads or the border are open."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "Official local fire, cross-border, water, care, mining and utility contexts are material but not causally represented.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "Buurse's documented arrival-time attention and Ahaus/Alstaette assistance are absent from the resource graph.",
+        "Buurserzand/Haaksbergerveen, local water systems, an outpatient clinic, external acute care, salt extraction and provider territories are present only as static or narrative context.",
+        "No public source supplies incident-time dispatch, capacity, occupancy, topology, outage, control state, owner actions or restoration commitments."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten canonical presets execute at all six mandatory checkpoints for all eight services.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "Current-code MUNICIPALITY_AUDIT_CODE=GM0158 pnpm audit:model passed one file/two tests in 29.16 seconds; a separate focused reproduction passed one file/one test in 30.80 seconds, and a controlled Buurserzand source test passed in 1.26 seconds.",
+        "At T+24 modeled severity / affected resident-equivalents / cumulative local pre-network person-hours are storm 0.228303 / 5,822 / 114,728.208500; pluvial 0.317717 / 3,378 / 95,639.879214; river 0.294713 / 6,052 / 134,719.617922; coastal 0.043338 / 0 / 17,801.833355; heat 0.115100 / 2,495 / 74,532.116969.",
+        "Remaining T+24 values are winter 0.606758 / 3,754 / 124,814.018167; cyber 0.455366 / 6,360 / 120,528.373814; earthquake zero current severity/affected after a T+6 peak of 0.030331; wildfire 0.103292 / 114 / 25,861.216448 with zero direct fire; compound 0.931850 / 13,213 / 230,366.106003.",
+        "At T+72 direct severity is zero for storm, pluvial, coastal, winter, earthquake and wildfire; river remains 0.294713, heat 0.115100, cyber 0.053442 and compound 0.529185. Structural execution does not validate Haaksbergen-specific physics.",
+        "Headless Chromium at 1440x900 and 390x844 selected GM0158, river flood, Mobility and T+24/T+72 without page/console error or horizontal overflow; desktop map selection opened Leemdijk. Initial readiness was 0.77/0.71 seconds and municipality selection 4.77/4.61 seconds."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Outputs are finite, bounded, deterministic, exact at zero intensity, selected-layer invariant and locally reconciled.",
+      "evidenceRefs": ["E01", "E02"],
+      "notes": [
+        "All ten intensity-zero runs give exact zero event severity, affected resident-equivalents and attributable person-hours at all checkpoints.",
+        "All service availabilities stay within [0,1], causal quantities remain finite/non-negative and cumulative attributable burden does not decrease.",
+        "Every local detail has 29 rows summing to 24,225; all eight demand/delivery totals reconcile with maximum floating error 7.105427357601002e-15.",
+        "Changing the selected map/service layer leaves hazard, system pressure and affected population exactly invariant."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "Flood, rain, heat, storm, cyber and wildfire allocations reuse a municipal seed instead of their physical evidence domains.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E07"],
+      "notes": [
+        "Storm, pluvial, river, coastal, heat, winter, cyber and wildfire share the exact 29-neighbourhood order led by Haaksbergen Kern-Centrum, Haaksbergen Kern-2, Hassinkbrink, De Pas and rural Veldmaat south of the former rail line.",
+        "The shared allocator ranks pluvial/heat/river districts identically: Haaksbergen-kern first, Beckum second, Rietmolen third, rural Haaksbergen fourth, Buurse fifth, Haaksbergen village sixth, Hengevelde seventh and Sint Isidorushoeve eighth.",
+        "With the scenario ignition moved inside the official Buurserzand polygon at [6.762005, 52.15163125], direct fire becomes 0.571738 but the containing Verspreide huizen Langelo en Honesch neighbourhood ranks nineteenth of 29; the same generic leaders remain on top.",
+        "No local rain raster, eligible fire polygon, smoke wind field, terrain, water path, urban-heat surface, cyber-system boundary or exposed-object geometry determines these ranks."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "Eight-service balances are arithmetically coherent but exceed the verified road, sewer, utility, care and response topology.",
+      "evidenceRefs": ["E02", "E03", "E04", "E06", "E08"],
+      "notes": [
+        "At compound T+24 availability is Power 0.434197, Water 0.383568, Drainage 0.228894, Gas 0.581156, Telecom 0.264687, Mobility 0.854703, Facilities 0.352797 and Supply 0.690353; all eight worsen slightly by T+72.",
+        "Only Mobility and road-logistics/Supply have five route proxies each. Power, Water, Drainage, Gas, Telecom and Facilities correctly receive no NWB topology, yet their exact municipality-level values remain unsupported synthetic indices.",
+        "The public water registers contain two sewer pumps versus the municipality's 30 pumping stations and 876 pump units; neither source supplies a causal pipe/catchment/pump/RWZI graph.",
+        "Provider areas, one NBNL postcode, 49 antenna registrations, 14 schools, a clinic narrative and an external hospital survey do not establish customer connectivity, compatible capacity, backup, incident state or restoration."
+      ]
+    },
+    "causalTrace": {
+      "status": "fail",
+      "summary": "Arithmetic ledgers close, but event selection, authority decisions, actions, resources and valid-time evidence do not explain local consequences.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E08"],
+      "notes": [
+        "Hazard contributions sum to headline severity, service baseline plus stage deltas sum to availability, and weighted losses sum to municipality pressure.",
+        "Cumulative person-hours reconcile against a no-event local pre-network counterfactual and exclude intermunicipal transfers; they are not observed outage duration.",
+        "No scenario chooses local rain/fire/water source, German response, owner/control state, crew, water, material, fuel, access, hospital role or operator repair action.",
+        "Current code has no GM0158 support guard or unsupported-dimension message; compound returns an empty unsupportedDimensions array despite absent local causal evidence."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "Standing-water guards operate mechanically, but Haaksbergen plateaus and recoveries have no selected physical or action/resource cause.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E08"],
+      "notes": [
+        "River forcing holds at 0.949109 inundation stress through T+72; seven service values remain exactly fixed, Facilities falls 0.671981 to 0.540606, affected rises 6,052 to 6,680 and all recovery fields stay zero. Persistent flooding can block recovery, but this local footprint was never selected.",
+        "Compound severity falls 0.931850 to 0.529185 from T+24 to T+72, yet affected rises 13,213 to 13,550 and every availability worsens: for example Power 0.434197 to 0.408067, Drainage 0.228894 to 0.224488 and Facilities 0.352797 to 0.343320. All recovery fields remain zero while burden grows to 896,011.403680 person-hours.",
+        "Coastal local flood forcing is zero, but T+24 service losses generate 17,801.833355 person-hours and T+72 exact recovery fractions range from 0.468983 to 0.928268 without a coastal pathway or owner schedule.",
+        "Storm, pluvial, heat, winter, cyber, earthquake and wildfire expose exact restoration trajectories without local resources, access, decision time or operator commitments."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": ["power", "water", "drainage", "gas", "telecom", "mobility", "facilities", "supply"]
+  },
+  "findings": [
+    {
+      "id": "GM0158-DATA-001",
+      "severity": "informational",
+      "category": "identity",
+      "status": "fixed",
+      "summary": "Generated Haaksbergen identity, full boundary, region assignment, settlements and demographic reconciliation are coherent.",
+      "evidence": "CBS gives 24,225 residents and all 29 neighbourhood rows sum exactly to that control; households and one-person households also reconcile exactly. The six-person age-65-plus difference is publisher rounding. Fresh full PDOK geometry contains the reference point, and province/safety-region assignments agree.",
+      "action": "Retain source editions, full-resolution geometry, published-versus-allocated totals, rounding/suppression rules and explicit null semantics on every refresh."
+    },
+    {
+      "id": "GM0158-FLOOD-SUPPORT-001",
+      "severity": "critical",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Generic river and coastal screens produce unsupported direct Haaksbergen consequences and obscure its actual brook/pluvial pathways.",
+      "evidence": "VRT describes Twente as high ground without dike rings or primary defences, with limited local flooding from brooks and long/heavy rain. The model nevertheless holds river inundation stress 0.949109 through T+72, reports 6,052/6,680 affected and exact services without selecting a local source, hydrograph, terrain, culvert, sewer or recession. Coastal flood forcing is zero, yet the preset creates 17,801.833355 person-hours at T+24 and exact recovery. UI shows 29% scenario severity and 63% inundation stress as derived-screening.",
+      "action": "Suppress the generic direct Rhine/Meuse/IJssel and coastal amplitudes, local ranks, affected counts and dependent service consequences for GM0158. Retain the selectors only as non-operational diagnostics, and retain local Buurserbeek/Poelsbeek/Bolscherbeek, rainfall, groundwater, culvert, sewer and indirect national supply/evacuee pathways as unresolved Unknown—not safe/zero. Calibrate only a water-manager-selected 70 mm/one-hour or brook event with footprint, units, controls, arrival and recession."
+    },
+    {
+      "id": "GM0158-SPATIAL-SEED-001",
+      "severity": "critical",
+      "category": "geography",
+      "status": "open",
+      "summary": "Eight unrelated hazards reuse one full neighbourhood order instead of mechanism-specific exposure.",
+      "evidence": "Storm, pluvial, river, coastal, heat, winter, cyber and wildfire all rank the same 29 neighbourhoods in the same order. They also produce the same eight-district order. No Twents Waternet rain raster, terrain, local water path, heat surface, cyber boundary, weather footprint or eligible fire domain is sampled.",
+      "action": "Replace the municipality seed with hazard-family-specific eligible domains and event surfaces, preserve NoData and require an explicit municipality-hazard support gate. Add a regression that unrelated hazards cannot silently reuse a complete ordering."
+    },
+    {
+      "id": "GM0158-FIRE-CONTAINMENT-001",
+      "severity": "critical",
+      "category": "hazard",
+      "status": "open",
+      "summary": "A controlled ignition inside official Buurserzand fails local source-containment ranking.",
+      "evidence": "The canonical remote wildfire gives Haaksbergen zero direct flame and 114 affected at T+24 from drought/smoke. Moving the same scenario source inside the official Buurserzand polygon gives direct fire 0.571738, but the containing Verspreide huizen Langelo en Honesch neighbourhood ranks 19/29 while generic Haaksbergen-centre neighbourhoods stay first. VRT says local nature-fire impact depends on fuel, weather, access, water, campsites, evacuation and response.",
+      "action": "Intersect a selected ignition/perimeter with versioned IPO/BGT vegetation, fuel/moisture, wind/smoke, people/recreation, routes and response-water evidence. The source cell/polygon must lead direct exposure unless an explicit physical model explains otherwise; use VRT-authorized suppression actions and keep no selected ignition as Unknown."
+    },
+    {
+      "id": "GM0158-DRAINAGE-CHAIN-001",
+      "severity": "critical",
+      "category": "service",
+      "status": "open",
+      "summary": "Sparse public water points and no causal sewer graph cannot support exact Water or Drainage values.",
+      "evidence": "Haaksbergen reports 146 km gravity sewer, 215 km rural pressure sewer, 30 sewer pumping stations, 876 pump units and 11,000 gullies, plus named Poelsbeek/Bolscherbeek/Buurse pathways. HWH exposes only two sewer-pump points and one RWZI in the boundary among 362 partial records. The model has zero Water/Drainage routes but shows pluvial Drainage 0.442692 and Water 0.679953 at T+24.",
+      "action": "Integrate governed native GWSW/catchment/pipe/pump/overflow/RWZI topology and the 2024 municipal/2023 Twente 3Di rain rasters with explicit edition, CRS, units, resolution, coverage, licence and NoData. Add power/backup, controls, telemetry, capacity and recession only when verified; incomplete HWH/GWSW records remain Unknown."
+    },
+    {
+      "id": "GM0158-CROSSBORDER-RESPONSE-001",
+      "severity": "critical",
+      "category": "network",
+      "status": "open",
+      "summary": "The graph omits Buurse's documented German fire-response dependency and destination-specific access.",
+      "evidence": "Buurse is one of only two Twente cores outside its target arrival band at 13.22 minutes. The adopted plan dispatches Ahaus/Alstaette to part of Buurse—especially Holland Markt, Den Braam and campsites—and Haaksbergen into Ahaus, with two-country dispatch and local command. The graph contains five Dutch NWB boundary proxies, no Germany node, no Alstaette resource and no internal campsite/forest access.",
+      "action": "Add a treaty/authority-reviewed cross-border response graph with country, station/resource, incident eligibility, dispatch order, command, route/direction, travel-time band, availability, validity, language/legal constraints and fallback. Never infer incident-time crew or road state from the plan or static geometry."
+    },
+    {
+      "id": "GM0158-RECOVERY-LEDGER-001",
+      "severity": "critical",
+      "category": "explainability",
+      "status": "open",
+      "summary": "Sustained river and compound trajectories lack named blockers, actions and resources through T+72.",
+      "evidence": "River freezes seven services, worsens Facilities and increases affected population through T+72 under an unselected footprint. Compound severity falls but all eight services worsen, affected rises to 13,550 and recovery stays zero while burden reaches 896,011 person-hours. Coastal, storm, rain, heat, winter, cyber, earthquake and wildfire also recover at exact rates without owner actions or resources.",
+      "action": "Require a typed incident/action/resource ledger at all six checkpoints: authority/owner, target, prerequisite, crew/material/fuel/water, route/access, start/end, state, issue/observation/valid time, evidence class and uncertainty. Every deterioration, plateau and restoration must cite an active causal condition and retain counterfactual reconciliation."
+    },
+    {
+      "id": "GM0158-LIFELINE-PROVENANCE-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Exact physical-lifeline values lack compatible topology, live state and evidence-valid time.",
+      "evidence": "Centre-point provider context identifies Enexis, Vitens and Ziggo but not connectivity or coverage. One NBNL postcode gives planning MW/queues; 49 antennas and 14 schools are registers. The municipal net-congestion page and planned Vitens connection show dependencies, not outage or reserve. Power, Water, Gas, Telecom and Facilities have no route graph but expose exact percentages and recovery.",
+      "action": "Integrate authorized operator topology, outage, backup, priority-user and restoration evidence where security agreements allow, including authenticated Energieonderbrekingen records. Keep Mijn Aansluiting, NBNL, RDI, DUO and planning pages affectsSimulation=false absent a verified binding; otherwise use minimal versioned synthetic zones with ranges and explicit uncertainty."
+    },
+    {
+      "id": "GM0158-CARE-SUPPLY-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "Local outpatient care, external acute care, rural supply and transit lack operational destinations and capacity.",
+      "evidence": "VRT identifies an MST outpatient clinic in Haaksbergen; the RIVM acute-care survey has zero internal SEH records and locates 24/7 MST Enschede 11.36 km straight-line away. The model has no Facilities route or hospital/clinic node and no patient/staff/supply presence, acceptance, diversion, backup, ambulance or scheduled-bus state. Buurse Grens and 132 other scheduled stop areas are context only.",
+      "action": "Add authority-reviewed care, aid and supply destinations with role, activation, staffing/capacity, critical stocks, backup endurance, valid time and explicit routes to alternatives. Missing internal SEH records remain Unknown for local care and never mean no facility; annual visits and schedules never become live capacity."
+    },
+    {
+      "id": "GM0158-MINING-INDUSTRIAL-001",
+      "severity": "high",
+      "category": "limitation",
+      "status": "open",
+      "summary": "Haaksbergen salt extraction and external-safety pathways have no canonical incident family and must not be mapped to generic earthquake/cyber output.",
+      "evidence": "The adopted profile names a new Haaksbergen salt-extraction area and regional subsidence/cavity monitoring. The generic earthquake peaks at only 0.009706 g/T+6 and then creates exact service recovery, but it selects no mining location, cavern, monitoring signal, ground-motion field, building fragility or authority action. REV/pipeline layers are static context and there is no industrial release preset.",
+      "action": "Use SodM/NLOG/BRO and REV as non-causal context until an authority-approved mining-instability, subsidence, pipeline or hazardous-material exercise selects a source, monitoring/ground field, issue-valid time, consequence model and protective actions. Keep these separate from tectonic earthquake and cyberattack; no selected event is Unknown."
+    },
+    {
+      "id": "GM0158-OTHER-HAZARDS-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Storm, heat, winter, cyber and earthquake execute but remain synthetic exercises without Haaksbergen-specific event or exposure support.",
+      "evidence": "At T+24 the model reports 5,822 affected for storm, 2,495 for heat, 3,754 for winter and 6,360 for cyber. No event-valid KNMI field, local heat exposure, gritting/access state or cyber system boundary is selected. Hupsel's current point observation is outside GM0158 and not aligned to the exercise clock; zero local recent seismic origins is not a hazard all-clear.",
+      "action": "Require explicit event/source, issue and valid time, spatial support, exposed objects, uncertainty and municipality-hazard-service support before decision-facing precision. Use KNMI radar/warnings/observations, heat/green and winter-route data, FDSN/BRO/SodM products and an authorized cyber scope in their proper roles; sparse or missing data remain Unknown."
+    },
+    {
+      "id": "GM0158-EVIDENCE-UI-001",
+      "severity": "high",
+      "category": "ui",
+      "status": "open",
+      "summary": "Responsive desktop/mobile controls expose unsupported exact results more prominently than local evidence limits.",
+      "evidence": "Desktop and 390x844 mobile runs had no runtime/console error or horizontal overflow and exposed municipality/disaster/layer/checkpoint controls; desktop opened Leemdijk. River/Hazard displays 29% severity and 63% inundation stress as derived-screening, while Mobility displays 87% at both T+24 and T+72 as scenario. General Waterinfo/KNMI/geometry caveats are present, but no adjacent GM0158 warning says the major-river/coastal footprint, common neighbourhood ranks, German response and lifeline consequences are unsupported. Twelve checkpoint button nodes exist for six logical checkpoints across responsive layouts.",
+      "action": "Gate hero values, ranks, causal bars and export by municipality-hazard-service support. Put event/source/topology/NoData/valid-time warnings beside the result, label official scenario versus current observation versus register versus synthetic output, and expose one logical six-checkpoint set to keyboard/screen-reader users."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Evidence-gate GM0158 river/coastal forcing while preserving local water risk as unresolved.",
+      "files": ["packages/sim-core/src/types.ts", "packages/sim-core/src/model.ts", "packages/sim-core/src/model.test.ts", "packages/sim-core/src/municipality-coverage.test.ts", "apps/web/src/components/Inspector.tsx"],
+      "validation": "Suppress generic direct Rhine/Meuse/IJssel and coastal effects for GM0158; keep local brook, rain, groundwater, sewer/culvert and indirect cross-regional pathways Unknown. Best inputs are Twents Waternet API/theme/WMS (Twente-wide 2023 and municipal-combined 2024, 70 mm/one-hour/2050 T100; public WMS but owner permission and unstated reuse licence/resolution/NoData), HWH IMWA/DAMO (CC BY-SA 4.0, partial/provider-dependent), municipal native exports and, only if water managers select a relevant scenario, LIWO 2025.1.6 API/OGC with per-layer licence/NoData. Require source, hydrograph/rainfall, CRS/units, footprint, controls, arrival and recession; never infer dry/safe from no layer."
+    },
+    {
+      "summary": "Replace common ranks and make Buurserzand fire exposure source-contained.",
+      "files": ["packages/sim-core/src/model.ts", "packages/sim-core/src/geometry.ts", "packages/sim-core/src/model.test.ts", "scripts/fetch-realism-data.mjs", "apps/web/src/data.ts"],
+      "validation": "Use IPO Risicokaart WFS/WMS isor_brandbaar_natuurgebied (Public Domain, metadata 2026-02-19, static eligibility with 2005 feature validity and no guaranteed cadence), daily CC0 BGT, KNMI ten-minute/radar/warning products (CC BY 4.0 with issue/valid time), Twents Waternet 3Di rasters and authority ignition/perimeter data. Preserve CRS, geometry validity, source time, wind, fuel/moisture, people, routes, response water, licence and NoData. Regress unrelated-order independence and require the selected source polygon to lead direct exposure unless the physical model documents why not."
+    },
+    {
+      "summary": "Build Haaksbergen's managed water/sewer chain from complete governed data rather than two pump points.",
+      "files": ["scripts/fetch-water-assets.mjs", "scripts/fetch-realism-data.mjs", "packages/sim-core/src/network.ts", "packages/sim-core/src/types.ts", "apps/web/src/data.ts"],
+      "validation": "Best public routes are RIONED/PDOK GWSW OGC (CC0, refresh/completeness unspecified) and HWH DAMO/IMWA (CC BY-SA 4.0, provider-contributed snapshot); request Haaksbergen's native GWSW/catchment/pipe/pump/overflow/RWZI and monitoring export. Reconcile 146 km gravity sewer, 215 km pressure sewer, 30 stations, 876 pump units and 11,000 gullies with named Buurse/Poelsbeek/Bolscherbeek paths. Causal use additionally requires units, topology, control/telemetry time, power/backup, capacity and authority approval; missing records remain Unknown."
+    },
+    {
+      "summary": "Add Buurse's cross-border response and Haaksbergen's care/supply access to a destination-aware multimodal graph.",
+      "files": ["scripts/fetch-municipalities.mjs", "scripts/fetch-realism-data.mjs", "packages/sim-core/src/network.ts", "packages/sim-core/src/network.test.ts", "packages/sim-core/src/types.ts", "apps/web/src/data.ts"],
+      "validation": "Use the adopted VRT 2026-2029 dekkingsplan/agreement as periodic authority context (reuse licence/live cadence not stated), monthly CC0 NWB, feed-valid OVapi GTFS best-effort, CC0 NDW DATEX and authorized Dutch/German dispatch and route state. Represent Haaksbergen/Alstaette, Buurse/Den Braam/campsites, N18/N315/N739/N347, internal forest roads, clinic, MST Enschede and alternatives with country, direction, one physical capacity ceiling, validity, command, eligibility, emergency priority and Unknown live state. NWB remains Mobility and explicit road-logistics/Supply only."
+    },
+    {
+      "summary": "Evidence-gate physical utilities, telecom and facilities while expanding public/authorized inputs.",
+      "files": ["packages/sim-core/src/network.ts", "packages/sim-core/src/types.ts", "apps/web/src/data.ts", "apps/web/src/components/OperationsBrief.tsx"],
+      "validation": "Use Mijn Aansluiting WMS/WFS (Public Domain, provider timestamps, point/territory context), NBNL planning map (quarterly capacity/projects and monthly queues; exact licence/API stability unstated), authenticated Energieonderbrekingen API, RIVM care 2026 v1.1 CC0, RDI WFS (cadence/licence unstated) and daily DUO CC-BY. Exact consequences require compatible topology, connectivity, state, capacity, backup and valid time; empty sewer/care/incident results display Unknown. Security-sensitive topology may use a minimal authority-reviewed synthetic graph with version/ranges, never static geometry as operation."
+    },
+    {
+      "summary": "Separate mining, industrial, earthquake, cyber and weather exercises and require local support.",
+      "files": ["packages/sim-core/src/types.ts", "packages/sim-core/src/model.ts", "apps/web/src/config.ts", "apps/web/src/components/Inspector.tsx"],
+      "validation": "Use VRT's adopted profile as context, KNMI FDSN event data (event-updated, CC BY 4.0), BRO APIs/PDOK (CC0, register-dependent), SodM/NLOG monitoring/public downloads and REV public WMS (live tiles but no fixed cadence/licence/version) only in their native roles. An authority-selected exercise must name source/system, issue/valid time, geometry/ground or plume field, exposed objects, uncertainty and protective actions. Absence of a point or record remains Unknown and must not be mapped to zero or a different hazard family."
+    },
+    {
+      "summary": "Make first-72-hour recovery and UI precision conditional on traceable actions/resources and evidence support.",
+      "files": ["packages/sim-core/src/model.ts", "packages/sim-core/src/types.ts", "apps/web/src/components/CausalExplanation.tsx", "apps/web/src/components/Inspector.tsx", "apps/web/src/components/OperationsBrief.tsx"],
+      "validation": "At T+0/6/12/24/48/72 every deterioration, plateau and restoration cites driver, authority/owner, target, prerequisite, crew/material/fuel/water, route/access, start/end, completion state, issue/observation/valid time, evidence class and uncertainty. Desktop/mobile must place GM0158 scope and NoData beside exact values, expose one logical six-checkpoint control set and prevent river/coastal/common-rank/cross-border/lifeline results from appearing decision-grade without support."
+    }
+  ],
+  "residualLimitations": [
+    "Complete physical electricity, gas, drinking-water, sewer/drainage, telecom, care and supply topology, control logic, live load/pressure, outage, backup, crews, materials, fuel and restoration state are unavailable, incomplete or security-sensitive. Public geometry and provider territories cannot honestly replace them.",
+    "The current Twents Waternet WMS exposes useful 2023/2024 modeled rain layers, but the public metadata does not establish a reusable raster licence, actual pixel resolution or NoData semantics, and download requires owner permission. It is context until those conditions and event selection are resolved.",
+    "The national RWS 70 mm/two-hour layer and Haaksbergen/Twente 70 mm/one-hour scenarios have different temporal forcing and model assumptions; neither is a current observation or arbitrary T+72 forecast.",
+    "VRT's high-ground/no-primary-defence description supports suppressing generic major-river/coastal precision, not declaring Haaksbergen flood-safe. Local brooks, intense rain, groundwater, culverts, sewers, RWZI and road crossings remain unresolved.",
+    "HWH points are partial/provider-dependent and show two water-board managers; registered/realised status does not establish current operation, capacity, connectivity, gate/pump position, water quality, defence performance or restoration.",
+    "IPO nature-fire polygons are old-validity eligibility context. They do not establish current fuel, moisture, ignition, perimeter, smoke, access, people, water supply or response and cannot prove non-polygon areas safe.",
+    "The VRT dekkingsplan establishes planned cross-border coverage but not incident-time Dutch/German crew readiness, traffic, resource availability or completion of dispatch actions. Those require authorized operational data.",
+    "NWB, ProRail, GTFS and NDW do not establish scenario-time road/bus operation, internal forest-road or border passability, emergency priority, ambulance travel, care acceptance, evacuation suitability or throughput. No current record is not an open route.",
+    "RIVM's zero internal acute-care matches do not erase Haaksbergen's outpatient clinic or other care; RIVM, RDI and DUO registers do not establish incident-time occupancy, staffing, acceptance, shelter role, radio coverage/backhaul, backup or capacity.",
+    "Provider WMS and one NBNL sample identify responsibility/planning only. They do not establish customer connectivity, switching/valves, current load/pressure, outage, reserve, damage or restoration; empty sewer/provider fields remain Unknown.",
+    "Sparse current KNMI/air/water/road observations are not continuous municipal fields or scenario forecasts. Hupsel's zero preceding-hour rain and no local seismic origin are timestamped observations/scoped catalogue results, not safe/zero future conditions.",
+    "Exact hazard, affected-population, service-availability, recovery and person-hour values remain synthetic/derived exercise outputs—not observations, official forecasts, dispatch records, operator commitments or decision-grade advice—until critical/high findings are corrected and authorities review the selected event. The audit covers only the first 72 hours."
+  ],
+  "provinceReviewFlags": [
+    "GM0158-FLOOD-SUPPORT-001 — Overijssel, Vechtstromen, Rijn en IJssel, Haaksbergen and VRT should suppress generic major-river/coastal direct precision while retaining Buurserbeek/Poelsbeek/Bolscherbeek, intense rain, groundwater, sewer/culvert and indirect cross-regional pathways as Unknown pending a selected event.",
+    "GM0158-FIRE-CONTAINMENT-001 and GM0158-SPATIAL-SEED-001 — Haaksbergen/VRT/land managers should review source-contained nature-fire, rain, heat and other hazard surfaces; an ignition inside Buurserzand currently ranks its containing neighbourhood nineteenth.",
+    "GM0158-DRAINAGE-CHAIN-001 — Haaksbergen and both water boards should provide governed native GWSW/catchment/telemetry metadata and reconcile two public sewer-pump records against the official 30 stations/876 pump units without converting incomplete coverage to zero.",
+    "GM0158-CROSSBORDER-RESPONSE-001 and GM0158-CARE-SUPPLY-001 — VRT, Haaksbergen, Kreis Borken/Ahaus, road authorities and care partners should review Buurse/Alstaette dispatch, internal access, MST clinic/SEH, transit, aid and supply as validity-aligned operational dependencies.",
+    "GM0158-LIFELINE-PROVENANCE-001 and GM0158-MINING-INDUSTRIAL-001 — Province, VRT, operators and SodM should define privacy/security-safe lifeline, salt-extraction and external-safety evidence. Registers and plans must never masquerade as live topology, capacity, incident or restoration."
+  ]
+}

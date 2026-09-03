@@ -1,0 +1,601 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM1978",
+    "name": "Molenlanden",
+    "province": "Zuid-Holland",
+    "safetyRegion": "Zuid-Holland-Zuid"
+  },
+  "agent": {
+    "taskName": "municipality_gm1978",
+    "agentId": "/root/municipality_gm0396",
+    "completedAt": "2026-09-03T08:48:05Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "GM1978 passes the deterministic ten-preset, six-checkpoint and eight-service contract and has a coherent 2025 administrative base: 45,363 residents, 114 neighbourhoods in twenty districts, twenty BAG places, 38 BRT settlement labels, one ProRail station at Arkel, 213 scheduled-transit stop areas and nine logical road/ferry links. Neighbourhood rows sum to 45,390 residents, only 27 above the municipality control (+0.060%), and the difference is correctly retained as rounded source data. Operational release is nevertheless correction-required. Molenlanden is the low Alblasserwaard polder and dike system adjoining the Lek, Noord and Merwede corridors, with boezems, regional kades and pumping concentrated around Kinderdijk. Waterschap Rivierenland says more than 100 km of regional kades failed the applicable assessment and that all Nederwaard/Overwaard water is currently routed through Kinderdijk pending a second route at Hardinxveld-Giessendam. The model instead emits an exact internal river inundation scalar of 2.471323 from T+12 through T+72, 20,844 affected resident-equivalents and 1,688,995.501 deprived person-hours at T+72 without selecting a river level, dike segment/state, breach, hydraulic cell, arrival or recession. Eight active T+24 presets reuse one neighbourhood ranking led by Schelluinen-Zuid and Groot-Ammers-Gelkenes, including heat, cyber and wildfire. Pluvial stress becomes exact zero at T+48 despite the municipality's small street-to-water-level difference, boezem-kade vulnerability, subsidence and coupled sewer/surface-water mechanisms. Public layers add 339 water assets, 80 antenna installations, 32 education records and one electricity-capacity planning sample, but none supplies live state or physical service topology. No acute-care facility is inside the boundary. The current public-context extract also returns no Seveso feature while the municipality's 2026 safety plan states that three sites require provincial oversight and VRZHZ preparation; that contradiction must be reconciled rather than shown as zero risk. Unknown, NoData, catalogue no-match and static-register presence are never zero, open, operational or safe.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek / PDOK",
+      "title": "Gebiedsindelingen 2025 and Kerncijfers wijken en buurten 2025",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_gegeneraliseerd",
+      "accessedAt": "2026-09-03T08:48:05Z",
+      "edition": 2025,
+      "supports": [
+        "GM1978 identity, generalized boundary and centre containment",
+        "45,363 municipality population control, density and age context",
+        "114 neighbourhoods, twenty districts and rounded/suppressed statistics",
+        "CC BY 4.0 source provenance"
+      ]
+    },
+    {
+      "publisher": "Kadaster / PDOK and Basisregistratie Topografie",
+      "title": "BAG woonplaatsen and TOP10NL plaats labels consumed by the simulator",
+      "url": "https://api.pdok.nl/kadaster/bag/ogc/v2/collections/woonplaats",
+      "accessedAt": "2026-09-03T08:48:05Z",
+      "edition": "2025-07-01 deployment snapshot",
+      "supports": [
+        "twenty BAG places with centres inside the generalized boundary",
+        "38 settlement labels classified as woonkern, deelkern, buurtschap or gehucht",
+        "Public Domain Mark 1.0 BAG/PDOK provenance",
+        "settlement labels are not incident-time occupancy"
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Zuid-Holland-Zuid",
+      "title": "Regionaal Risicoprofiel Zuid-Holland Zuid 2025-2028",
+      "url": "https://www.zhzveilig.nl/sites/zhzveilig_corporate/files/2024-12/Regionaal%20Risicoprofiel%20Zuid-Holland%20Zuid%202025-2028.pdf",
+      "accessedAt": "2026-09-03T08:48:05Z",
+      "edition": "2025-2028; adopted December 2024",
+      "supports": [
+        "overstroming is the region's largest identified risk",
+        "digital disruption and electricity outage are among the largest risks",
+        "the region is low-lying, water-rich and enclosed by rivers",
+        "transport over road, water and rail is a regional risk characteristic"
+      ]
+    },
+    {
+      "publisher": "Waterschap Rivierenland",
+      "title": "Kadeversterkingen Alblasserwaard-Vijfheerenlanden, tranche 1",
+      "url": "https://www.waterschaprivierenland.nl/kadeversterkingen-tranche-1",
+      "accessedAt": "2026-09-03T08:48:05Z",
+      "edition": "current page; project milestones through 2040",
+      "supports": [
+        "more than 100 km of regional kades assessed below the applicable safety standard",
+        "17.6 km tranche-1 strengthening through 2030",
+        "stability work along Achterwaterschap, Nederwaard, Ammersche boezem, Ottolandsche Vliet, Peursumsche Vliet, Smoutjesvliet and Zouweboezem",
+        "later low-kade work along Alblas and Giessen"
+      ]
+    },
+    {
+      "publisher": "Waterschap Rivierenland",
+      "title": "Nieuwe Waarden Alblasserwaard",
+      "url": "https://www.waterschaprivierenland.nl/nieuwe-waarden-alblasserwaard-nwa",
+      "accessedAt": "2026-09-03T08:48:05Z",
+      "edition": "current project page accessed 2026-09-03",
+      "supports": [
+        "Nederwaard and Overwaard currently discharge and receive water through Kinderdijk",
+        "extreme rain and high river levels complicate boezem level control",
+        "westerly wind and high river levels can bring salt water inland",
+        "planned Hardinxveld-Giessendam boezem pump and canal create a second Merwede route"
+      ]
+    },
+    {
+      "publisher": "Gemeente Molenlanden",
+      "title": "Klimaatadaptatie and water-overlast information",
+      "url": "https://klimaatadaptatie.molenlanden.nl/klimaatadaptatie/startpagina",
+      "accessedAt": "2026-09-03T08:48:05Z",
+      "edition": "current public pages accessed 2026-09-03",
+      "supports": [
+        "low dike-enclosed bathtub geography",
+        "water nuisance, drought, heat and subsidence mechanisms",
+        "small street-to-water-level difference and groundwater nuisance",
+        "response options including pre-lowering water levels, clearing structures, road closure and emergency pumps"
+      ]
+    },
+    {
+      "publisher": "Gemeente Molenlanden",
+      "title": "Integraal Veiligheidsplan 2026-2029",
+      "url": "https://www.molenlanden.nl/sites/default/files/2026-03/veiligheidsplan-2026-2029.pdf",
+      "accessedAt": "2026-09-03T08:48:05Z",
+      "edition": "2026-2029",
+      "supports": [
+        "first-72-hour preparedness and local emergency-support-point programme",
+        "three locally identified Seveso facilities requiring provincial oversight and VRZHZ preparation",
+        "livestock evacuation planning and continuing population-care professionalisation",
+        "first-72-hour public preparedness and local support points are planned priorities"
+      ]
+    },
+    {
+      "publisher": "Gemeente Molenlanden",
+      "title": "Mobiliteitsvisie Molenlanden 2040",
+      "url": "https://www.molenlanden.nl/sites/default/files/2024-11/Mobiliteitsvisie%20Molenlanden%202040.pdf",
+      "accessedAt": "2026-09-03T08:48:05Z",
+      "edition": "adopted 2024",
+      "supports": [
+        "A15, A27, N214 and N216 are principal external corridors",
+        "dispersed villages rely on narrow historic polder and dike roads",
+        "limited public-transport frequency and long distances to routes",
+        "Merwedelingelijn/Arkel, buses, waterbus and cross-Lek ferries are distinct modes"
+      ]
+    },
+    {
+      "publisher": "Het Waterschapshuis / Dutch water boards",
+      "title": "Waterschappen Kunstwerken IMWA and Waterketen DAMO public registers",
+      "url": "https://api.pdok.nl/hwh/waterschappen-kunstwerken-imwa/ogc/v2",
+      "accessedAt": "2026-09-03T08:48:05Z",
+      "edition": "deployment snapshot retrieved 2026-09-03T01:38:15.250Z",
+      "supports": [
+        "339 assigned GM1978 records: 107 surface-water pumps, 197 weirs, 31 sewer pumps, two sluices and two wastewater-treatment plants",
+        "CC BY-SA 4.0 register provenance",
+        "contributor-dependent partial completeness",
+        "register records do not prove connectivity, state, compatible capacity, backup or restoration"
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / ProRail / OVapi",
+      "title": "NWB roads, ProRail station/rail and public-transport deployment context",
+      "url": "https://downloads.rijkswaterstaatdata.nl/nwb-wegen/geogegevens/shapefile/NWB-light/01-08-2026.zip",
+      "accessedAt": "2026-09-03T08:48:05Z",
+      "edition": "NWB 2026-08-01; deployment retrieved 2026-09-03",
+      "supports": [
+        "nine logical route links using A15, A27, N214, N216, N482 and one Schoonhoven-Gelkenes ferry",
+        "Arkel is the only ProRail station inside the boundary",
+        "213 GTFS stop areas inside the boundary",
+        "corridor identity is not live passability or independent additive capacity"
+      ]
+    },
+    {
+      "publisher": "SEVESO+",
+      "title": "Monthly list of Seveso establishments",
+      "url": "https://seveso-plus.nl/inspectieresultaten/seveso-inrichtingenlijst/",
+      "accessedAt": "2026-09-03T08:48:05Z",
+      "edition": "monthly public list, August 2026 available",
+      "supports": [
+        "authoritative inspection-register context for Seveso establishments",
+        "monthly effective-date requirement",
+        "list may include permitted locations without active Seveso activity",
+        "need to reconcile local three-site statement against the simulator's empty scoped extract"
+      ]
+    },
+    {
+      "publisher": "Rijksinstituut voor Volksgezondheid en Milieu",
+      "title": "Vragenlijst aanbod SEH's en Acute Verloskunde 2026",
+      "url": "https://datacatalogus.rivm.nl/dataset.xhtml?persistentId=doi:10.21945/8E767B2D-9CED-4A85-A95D-3AC1A608C663",
+      "accessedAt": "2026-09-03T08:48:05Z",
+      "edition": "RIVM v1.1 published 2026-07-03; other snapshots retrieved 2026-09-02",
+      "supports": [
+        "no acute-care questionnaire facility inside GM1978",
+        "external emergency departments at Gorinchem and Dordrecht",
+        "CC0 1.0 national-questionnaire context",
+        "hospital records do not prove live occupancy, staffing, diversion, generator endurance or restoration"
+      ]
+    },
+    {
+      "publisher": "Dienst Uitvoering Onderwijs",
+      "title": "RIO education locations",
+      "url": "https://onderwijsdata.duo.nl/dataset/c416acd1-e083-4ec6-9203-3b20f98fe143",
+      "accessedAt": "2026-09-03T08:48:05Z",
+      "edition": "snapshot 2026-08-31; retrieved 2026-09-02",
+      "supports": [
+        "32 registered education locations assigned to GM1978",
+        "Creative Commons Attribution provenance",
+        "daily publisher update statement",
+        "registered use is not incident occupancy, shelter role, capacity, staffing or backup"
+      ]
+    },
+    {
+      "publisher": "Rijksinspectie Digitale Infrastructuur / Antennebureau",
+      "title": "Antenneregister - antenna installations",
+      "url": "https://antenneregister.nl/",
+      "accessedAt": "2026-09-03T08:48:05Z",
+      "edition": "WFS snapshot retrieved 2026-09-02T17:11:55.124Z",
+      "supports": [
+        "80 registered antenna installations assigned to GM1978",
+        "public statutory register coverage",
+        "reuse licence not stated by service capabilities",
+        "locations do not prove coverage, ownership, backhaul, power, traffic, damage or restoration"
+      ]
+    },
+    {
+      "publisher": "Netbeheer Nederland / Partners in Energie",
+      "title": "Landelijke capaciteitskaart elektriciteitsnet - municipality postcode sample",
+      "url": "https://data.partnersinenergie.nl/capaciteitskaart/totaal/afname",
+      "accessedAt": "2026-09-03T08:48:05Z",
+      "edition": "deployment sample retrieved 2026-09-02T21:03:18.313Z",
+      "supports": [
+        "one public postcode sample in Stedin service area CM63",
+        "large-user capacity and queue planning context",
+        "exact dataset licence identifier not found although the product is described as open data",
+        "sample is not full municipal coverage, live load, topology, outage, reserve or restoration"
+      ]
+    },
+    {
+      "publisher": "Gemeente Molenlanden",
+      "title": "Samen oefenen met noodsteunpunt",
+      "url": "https://www.molenlanden.nl/samen-oefenen-met-noodsteunpunt",
+      "accessedAt": "2026-09-03T08:48:05Z",
+      "edition": "published 2026-06-22",
+      "supports": [
+        "2026-06-20 prolonged-power-outage exercise at 't Noorderhuis in Noordeloos",
+        "pilot functions of information, 112 contact and help requests",
+        "municipality and VRZHZ participation",
+        "pilot status rather than proven production capacity or municipality-wide coverage"
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "Official 2025 code, name, province, safety region, boundary edition and centre containment agree.",
+      "evidenceRefs": ["E01", "E03"],
+      "notes": [
+        "Feature id, municipality bundle code/name and manifest identity all equal GM1978 Molenlanden.",
+        "The generated centre 4.8669234, 51.8822289 lies inside the 2025 generalized CBS boundary.",
+        "Zuid-Holland and Veiligheidsregio Zuid-Holland-Zuid agree with official area classifications."
+      ]
+    },
+    "geography": {
+      "status": "warn",
+      "summary": "Administrative geometry is coherent, but it is not adequate for defence, hydraulic, boezem, road or facility intersections.",
+      "evidenceRefs": ["E01", "E04", "E05", "E06"],
+      "notes": [
+        "The municipality is a low, dike-enclosed Alblasserwaard polder adjoining major river and cross-river dependencies.",
+        "Generalized polygons do not encode primary dikes, regional kades, boezem compartments, elevation, flow paths, culverts, pumping catchments or defended-side logic.",
+        "Kinderdijk is both a working water-system node and a major heritage/visitor location; neither hydraulic role nor transient population is represented by the municipal centroid."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Municipality totals and rounded neighbourhood rows reconcile within expected CBS publication semantics.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "Official municipality population is 45,363; published neighbourhood rows sum to 45,390, a +27 (+0.060%) difference.",
+        "Summed neighbourhood households are 17,715 and age-65-plus residents 9,220; the municipality age-65 share is 20.4%.",
+        "Rounded, suppressed and null cells remain source observations or Unknown and are not rewritten to force equality."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "The 114-neighbourhood bundle is rich demographic context but has material null fields and no hazard/utility calibration.",
+      "evidenceRefs": ["E01", "E02", "E09", "E12", "E13", "E14", "E15"],
+      "notes": [
+        "All neighbourhoods have population and age bands; doctor/supermarket distance coverage is 96/114 and home-value/tenure coverage 79/114.",
+        "District-heating and public-charging fields are null in all 114 neighbourhoods; these are NoData, not observed zero.",
+        "Public water, antenna, education and capacity features are map context with affectsSimulation=false and cannot establish network continuity or current state."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "Twenty BAG places and 38 BRT settlement labels are internally coherent and geographically assigned.",
+      "evidenceRefs": ["E02"],
+      "notes": [
+        "All BAG place centres are inside the generalized boundary.",
+        "The settlement layer contains 21 woonkernen, four deelkernen, ten buurtschappen and three gehuchten.",
+        "Labels and modelled settlement population are static cartographic context, not people-present counts for schools, farms, recreation, ferries, industry or Kinderdijk."
+      ]
+    },
+    "transport": {
+      "status": "warn",
+      "summary": "Road, rail, ferry and transit identity is plausible, but event passability, throughput and destination access are unknown.",
+      "evidenceRefs": ["E08", "E10"],
+      "notes": [
+        "Nine logical links connect six neighbouring municipalities through A15, A27, N214, N216, N482 and the Schoonhoven-Gelkenes ferry.",
+        "N214/N216 form the internal spine; villages also depend on narrow 60 km/h polder and dike roads with little spare diversion capacity.",
+        "Arkel station, 213 stop areas, buses, waterbus and ferries are static/scheduled context. No current operation, flood intersection, bridge/landing state, direction, accessible capacity or care/shelter destination is selected."
+      ]
+    },
+    "emergencyContext": {
+      "status": "warn",
+      "summary": "Regional risk priorities and a local support-point pilot are authoritative context, but actionable first-72-hour capacity/state remains unverified.",
+      "evidenceRefs": ["E03", "E06", "E07", "E11", "E12", "E16"],
+      "notes": [
+        "VRZHZ ranks overstroming first, digital disruption third and electricity outage fifth among the region's largest risks.",
+        "Molenlanden and VRZHZ exercised a prolonged-outage noodsteunpunt at 't Noorderhuis, Noordeloos in June 2026 for information, 112 contact and help requests.",
+        "The exercise does not prove production activation time, staffing, radio/backhaul, power, water, stocks, accessibility, endurance or a municipality-wide support-point network.",
+        "The simulator's empty Seveso context conflicts with the 2026 municipal three-site statement and therefore must be labelled unresolved, not safe."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten canonical scenarios execute at all six checkpoints for all eight services.",
+      "evidenceRefs": ["E01", "E03", "E04", "E05", "E06", "E07", "E08", "E09", "E10", "E11", "E12", "E13", "E14", "E15", "E16"],
+      "notes": [
+        "Initial MUNICIPALITY_AUDIT_CODE=GM1978 pnpm audit:model passed two focused coverage tests.",
+        "Inline Vite SSR reproduction captured each preset at T+0/6/12/24/48/72 and all service availabilities without a repository scratch file.",
+        "Earthquake is direct-zero after T+6; wildfire has smoke but zero local flame; coastal has zero direct inundation but wind/service stress; none is an all-clear statement.",
+        "Outputs are deterministic exercise indices and resident-equivalents, not observations, forecasts, probabilities, casualties, operator states or commitments."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Determinism, finite bounds, no-event behavior, allocation, reconciliation, causal ledgers and cumulative burden pass.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "All service availability remains in [0,1]; hazard values, demands, deliveries, affected residents and deprived person-hours remain finite and non-negative.",
+        "Zero intensity produces zero event hazard, affected population and attributable burden; repeated runs are deterministic and burden is monotone.",
+        "Every service allocates all 114 neighbourhoods and reconciles to 45,363 residents; local demand/delivery closes and layer selection does not mutate the scenario.",
+        "Arithmetic correctness does not validate hydraulic state, spatial ranking, transient occupancy, physical topology, action feasibility or restoration timing."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "A source-free river scalar and common cross-hazard neighbourhood order conflict with local defence, water-system and exposure evidence.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E08", "E09", "E11"],
+      "notes": [
+        "River internal floodDepthM rises from zero to 0.869906 at T+6 and 2.471323 at T+12, then remains exact through T+72 without a named river state, dike segment, breach, compartment, hydraulic grid, arrival or recession.",
+        "Storm, pluvial, river, coastal/wind, heat, winter, cyber and wildfire all rank Schelluinen-Zuid, Groot-Ammers-Gelkenes, Nieuw-Lekkerland-Noord, Wijngaarden Kern-Dorp, Wijngaarden Lintbebouwing-Oost, Giessenburg-Buitengebied-Zuid and Oud-Alblas-Dorp first in the same T+24 order.",
+        "The first three ranked neighbourhoods have only 10, 130 and 5 published residents; their common ordering cannot represent heat vulnerability, a cyber target, vegetation fuel, industrial plume, rain/terrain flow and defence hydraulics at once.",
+        "The compound scenario saturates several neighbourhood severities at exactly 1.0, further reducing decision-useful differentiation."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "Logical roads remain separate from utilities, but water control, cross-river access, care, industrial safety and utility dependencies are absent or synthetic.",
+      "evidenceRefs": ["E04", "E05", "E06", "E07", "E08", "E09", "E10", "E11", "E12", "E13", "E14", "E15", "E16"],
+      "notes": [
+        "Road links support mobility/supply only, avoiding false road-derived utility topology, but lack route geometry intersections, direction, event passability, real capacity, destination and ferry/bridge dependencies.",
+        "The 339 HWH records do not form an approved polder-boezem-kade-pump-RWZI graph and do not influence drainage or flood recovery.",
+        "Two Oasen waterwinning areas, Stedin service responsibility, one NBNL sample, 80 antennas, 32 schools, a support-point pilot and external acute care supply context but no physical continuity, priority, occupancy, backup or restoration edges.",
+        "Exact service percentages remain synthetic indices and cannot be presented as operator availability."
+      ]
+    },
+    "causalTrace": {
+      "status": "warn",
+      "summary": "Numerical ledgers close, but selected public events, accountable actions and evidence-valid state are outside the causal graph.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08", "E09", "E10", "E11", "E12", "E13", "E14", "E15", "E16"],
+      "notes": [
+        "Hazard contributions sum to severity, service contributions reconstruct availability and municipality pressure contributions reconcile.",
+        "Public context correctly remains affectsSimulation=false, but trace does not select a defence/river/rain event, water level, kade/pump/route/ferry/facility/Seveso state, forecast validity window or utility incident.",
+        "A foreseeable flood needs pre-impact warning plus evacuation versus vertical shelter, livestock movement, route/landing closure, rescue, care transfer, emergency pumping, support-point activation and re-entry decisions.",
+        "Actions lack accountable owner, trigger, request, decision, resource, dependency, execution, verification, uncertainty and rollback states."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "Persistent river/compound disruption is directionally conservative, but exact plateaus and rapid pluvial clearance are not locally calibrated.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08", "E09", "E10", "E12", "E13", "E14", "E15", "E16"],
+      "notes": [
+        "River T+72 retains internal inundation scalar 2.471323, severity 0.776230, 20,844 affected and 1,688,995.501 person-hours; service availability ranges from drainage 0.412271 to gas 0.730908 and is unchanged from T+48.",
+        "Compound T+72 retains scalar 0.293311, severity 0.373922, 20,277 affected and 1,861,841.462 person-hours; every service is an exact T+24-to-T+72 plateau.",
+        "Pluvial direct stress and affected population become exact zero at T+48 and all services are labelled operational by T+72 despite linked rain, groundwater, sewer, boezem, kade and pump mechanisms.",
+        "Recovery needs event-specific water exclusion, emergency pumping, road inspection/access, utility isolation/repair, facility readiness and public-health milestones with owners and uncertainty."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": ["power", "water", "drainage", "gas", "telecom", "mobility", "facilities", "supply"]
+  },
+  "findings": [
+    {
+      "id": "GM1978-DATA-001",
+      "severity": "informational",
+      "category": "identity",
+      "status": "fixed",
+      "summary": "Official 2025 identity, boundary, places and demographic controls reconcile.",
+      "evidence": "GM1978, Molenlanden, Zuid-Holland and Zuid-Holland-Zuid agree. The centre is contained; twenty BAG places and 114 neighbourhoods are coherent. CBS reports 45,363 residents and neighbourhood rows differ by +27 (+0.060%).",
+      "action": "Retain source editions, licences, suppression/null semantics and published-versus-allocated reconciliation without rewriting rounded observations."
+    },
+    {
+      "id": "GM1978-NODATA-001",
+      "severity": "informational",
+      "category": "regional-data",
+      "status": "fixed",
+      "summary": "Sparse fields and scoped empty queries remain Unknown rather than false zero or safe state.",
+      "evidence": "District heat and charging are null for all 114 neighbourhoods; cars-per-household is available for 47. No acute-care record is inside the boundary, utility topology/live state is absent, and the Seveso map extract has no GM1978 feature despite contrary current municipal evidence.",
+      "action": "Preserve publisher, edition/effective time, retrieval time, coverage, licence, suppression and NoData through ingestion, aggregation, simulation eligibility and UI."
+    },
+    {
+      "id": "GM1978-RIVER-001",
+      "severity": "critical",
+      "category": "hazard",
+      "status": "open",
+      "summary": "A generic scalar creates precise Alblasserwaard river inundation without a selected water or defence event.",
+      "evidence": "The internal floodDepthM scalar reaches 0.869906 at T+6 and 2.471323 at T+12, then stays exact through T+72 with 20,844 affected and 1,688,995.501 person-hours. No Lek/Noord/Merwede level, dike trajectory/state, breach, defended side, compartment, grid, velocity, arrival, recession, issue time or probability is selected.",
+      "action": "Suppress decision-facing inundation, exposure and recovery until WSRL/RWS/VRZHZ select a versioned event. Retain the scalar only as a non-operational diagnostic; unselected locations stay Unknown, not dry."
+    },
+    {
+      "id": "GM1978-EVACUATION-001",
+      "severity": "critical",
+      "category": "network",
+      "status": "open",
+      "summary": "Evacuation versus vertical shelter, livestock movement and dependent-person assistance are absent.",
+      "evidence": "VRZHZ identifies overstroming as the region's largest risk and public guidance distinguishes staying upstairs from leaving before roads exceed safe water levels. Molenlanden explicitly plans livestock evacuation. The model starts at impact and offers no accountable zone/decision, warning lead, population movement, safe building, animal logistics, destination, capacity or verification.",
+      "action": "Add pre-impact owner/trigger/action ledgers for warning, horizontal evacuation versus vertical shelter, dependent-person and livestock assistance, route/ferry closure, rescue, care transfer, support points and re-entry."
+    },
+    {
+      "id": "GM1978-SPATIAL-SEED-001",
+      "severity": "critical",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Eight unrelated hazards reuse one neighbourhood order led by three tiny-population areas.",
+      "evidence": "At T+24 storm, pluvial, river, coastal/wind, heat, winter, cyber and wildfire all rank Schelluinen-Zuid, Groot-Ammers-Gelkenes and Nieuw-Lekkerland-Noord first, with populations 10, 130 and 5, followed by the same four neighbourhoods. These mechanisms require different terrain, defence, shade, vegetation, source/target, plume and exposed-object evidence.",
+      "action": "Replace the common seed with hazard-specific physical surfaces and source/target/exposed-object intersections; deterministic ties apply only after evidence-derived values."
+    },
+    {
+      "id": "GM1978-WATER-SYSTEM-001",
+      "severity": "critical",
+      "category": "service",
+      "status": "open",
+      "summary": "The distinctive Kinderdijk-boezem-kade-pump system is visible but non-causal.",
+      "evidence": "WSRL says all Nederwaard/Overwaard water currently uses Kinderdijk and more than 100 km of regional kades failed assessment. The map assigns 107 surface-water pumps, 197 weirs, 31 sewer pumps, two sluices and two RWZIs, yet none has approved connectivity, compatible units, live state, backup, protected catchment or recovery influence.",
+      "action": "Build an authority-approved non-sensitive compartment-boezem-kade-pump-sewer-RWZI graph, separating current Kinderdijk dependence from planned Hardinxveld redundancy and preserving missing state/capacity as Unknown."
+    },
+    {
+      "id": "GM1978-PLUVIAL-GROUNDWATER-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Pluvial stress clears at exact T+48 without local rain, terrain, groundwater, sewer or pump evidence.",
+      "evidence": "The municipality describes a small street-to-water-level difference, groundwater nuisance, subsidence, boezem-kade weakness and emergency actions including pre-lowering levels and emergency pumps. The preset emits scalar 0.263433 at T+12/T+24 and exact zero at T+48 without a hyetograph, DEM/settlement edition, initial water/groundwater level, sewer state, surface routing or operational pump milestone.",
+      "action": "Obtain the governing stress-test rasters and metadata plus event-valid water/groundwater/pump state; expose uncertainty and prohibit automatic dry/operational labels where drainage evidence is absent."
+    },
+    {
+      "id": "GM1978-SEVESO-001",
+      "severity": "critical",
+      "category": "regional-data",
+      "status": "open",
+      "summary": "The simulator's empty Seveso context contradicts current local safety evidence.",
+      "evidence": "The public-context query returns no GM1978 Seveso feature. Molenlanden's 2026-2029 safety plan states three Seveso establishments require provincial oversight and VRZHZ-specific preparation, while the monthly SEVESO+ list requires an effective-date/activity distinction. The omgevingsvisie identifies locations near Arkel, Groot-Ammers and Wijngaarden.",
+      "action": "Reconcile the current monthly GIR2.0/REV records, legal/activity status, geometry and local authority evidence. Until reconciled show Unknown/conflict, never zero hazardous-industry risk; add scenario selection only from authorised incident/plume data."
+    },
+    {
+      "id": "GM1978-ACCESS-CARE-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "Sparse dike-road, ferry, rail and external-care dependencies cannot influence first-72-hour priorities.",
+      "evidence": "Molenlanden relies on A15/A27/N214/N216, narrow polder/dike roads, Arkel station, buses, waterbus and cross-Lek ferries. No RIVM SEH lies inside GM1978; Rivas Beatrixziekenhuis in Gorinchem and Albert Schweitzer in Dordrecht are cross-boundary. The model has no event route intersection, bridge/landing state, care referral, patient transport or destination capacity.",
+      "action": "Add event-valid, direction-aware access to external acute care, shelters, support points, water/utility sites and neighbouring corridors without inventing throughput or operation from static maps/schedules."
+    },
+    {
+      "id": "GM1978-UTILITIES-SUPPORT-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Electricity, drinking water, communications and noodsteunpunt context is not linked to continuity decisions.",
+      "evidence": "Oasen has two waterwinning areas and strategic reserves in Molenlanden; Stedin is the electricity/gas operator; the map has one large-user planning sample and 80 antenna installations. Noordeloos's support-point pilot tested information, 112 contact and help requests during prolonged regional power loss. No topology, pressure/quality, coverage, backup, staffing, endurance or restoration edge is public.",
+      "action": "Request operator/authority-approved safe aggregate service zones and restoration bands plus support-point role/activation dependencies; retain sensitive or unavailable detail as Unknown."
+    },
+    {
+      "id": "GM1978-HAZARD-SCOPE-001",
+      "severity": "medium",
+      "category": "hazard",
+      "status": "accepted-limitation",
+      "summary": "Coastal, wildfire/smoke, earthquake and cyber outputs are narrow synthetic exercises rather than all-clear states.",
+      "evidence": "Coastal direct inundation is zero while wind and water-system/river-boundary effects remain possible; wildfire has zero flame but smoke 0.310207 at T+12/T+24; earthquake is direct-zero after T+6 and cyber has no selected target. No local KNMI/RIVM event, fire perimeter/fuel, industrial plume or operator incident is selected.",
+      "action": "Keep direct-versus-indirect scope and synthetic labels. Add local events only with source, issue/valid time, geometry/target, units, uncertainty, coverage, licence and NoData."
+    },
+    {
+      "id": "GM1978-RECOVERY-001",
+      "severity": "high",
+      "category": "explainability",
+      "status": "open",
+      "summary": "Exact T+24-72 compound/service plateaus and T+48 pluvial clearing lack local milestone evidence.",
+      "evidence": "Compound service availability is identical from T+24 through T+72 while affected population remains 20,277; river services plateau at T+48/T+72; pluvial direct stress and affected residents become zero at T+48. None is tied to kade stability, water exclusion, pump start, passable routes, inspection, repair, facility readiness or public-health verification.",
+      "action": "Replace exact transitions with uncertainty envelopes and accountable, event-valid milestones for water control, access, utilities, care, support points and re-entry."
+    },
+    {
+      "id": "GM1978-CONTRACT-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The complete numerical, checkpoint, allocation, ledger and burden-accounting contract passes for GM1978.",
+      "evidence": "The mandatory gate covers ten presets, six checkpoints and eight services. Values are finite/deterministic, zero intensity is exact, local/service totals reconcile, ledgers close, burden is monotone, logical roads support mobility/supply only and layer selection is invariant.",
+      "action": "Keep GM1978 and national coverage in regression and add event-selection, hazard-specific ranking, water-system, Seveso-conflict, access and Unknown-versus-zero assertions."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Replace generic GM1978 river proximity with an authority-selected, defence-aware Alblasserwaard event and evacuation/safe-shelter contract.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/public/data/hazards/GM1978-flood-context.json",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/MapView.tsx"
+      ],
+      "validation": "Use WMCN/LIWO, RWS Waterinfo, WSRL primary/regional defence and compartment evidence and VRZHZ plans against full-resolution geometry. Require a named water-level/hydrograph and datum, primary versus regional mechanism, dike/kade segment/current state, breach/overtopping case, probability band, connected depth/velocity/arrival/recession grid, issue/valid time, resolution, uncertainty, coverage, NoData and licence. Add warning lead, owner/decision, evacuation versus vertical shelter, dependent-person/livestock assistance, route/ferry closure, destinations, verification and re-entry. Until selected, direct inundation/exposure/recovery is Unknown and the scalar is diagnostic only."
+    },
+    {
+      "summary": "Build a current and planned Alblasserwaard water-system graph and version local rain, groundwater, subsidence and sewer evidence.",
+      "files": [
+        "scripts/fetch-realism-data.mjs",
+        "apps/web/public/data/water-system-context.json",
+        "apps/web/public/data/hazards/GM1978-climate-water-context.json",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Reconcile WSRL/HWH and municipal safe aggregates into current Kinderdijk and planned Hardinxveld states with explicit effective dates; never assume new redundancy is operational early. Obtain governing rain/stress-test raster, DEM/intervention edition, initial surface/groundwater level, sewer/overland assumptions, catchments, compatible capacity units, power/backup and uncertainty. Tests must reject automatic zero/dry/recovered without cell-valid drainage evidence."
+    },
+    {
+      "summary": "Replace the common GM1978 neighbourhood seed with hazard-specific physical allocation and preserve unsupported cells as Unknown.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/src/components/MapView.tsx"
+      ],
+      "validation": "Use defence/hydraulic and rain-flow cells for floods, shade/building/vulnerability for heat, eligible vegetation and perimeter/plume for fire/smoke, asset targets for cyber and source-specific industrial/seismic evidence. Assert that eight unrelated active hazards cannot share a full rank order and that compound saturation preserves explainable components rather than arbitrary ties."
+    },
+    {
+      "summary": "Reconcile Molenlanden Seveso/REV context and add source-valid dangerous-goods and plume semantics without exposing sensitive data.",
+      "files": [
+        "scripts/fetch-realism-data.mjs",
+        "apps/web/public/data/public-context/rev-seveso-sites.geojson.gz",
+        "apps/web/public/data/hazards/GM1978-industrial-context.json",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/MapView.tsx"
+      ],
+      "validation": "Reconcile the effective-dated SEVESO+ GIR2.0 list, REV collections, provincial/DCMR/OZHZ records and the 2026 municipal three-site statement. Preserve publisher, legal/activity status, issue/effective/retrieval time, geometry quality, coverage, licence and conflicts. Empty scoped queries display no-match/Unknown, never zero risk. Only authorised incident substance/source/perimeter, weather/plume run and public-health advice may affect simulation."
+    },
+    {
+      "summary": "Add event-valid access, external-care, utility, communications and emergency-support dependencies with first-72-hour action ownership.",
+      "files": [
+        "scripts/fetch-realism-data.mjs",
+        "scripts/apply-audited-lifelines.mjs",
+        "apps/web/public/data/transport-network.json",
+        "apps/web/public/data/facilities/GM1978-context.json",
+        "apps/web/public/data/public-context/utility-service-areas.json",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Use NWB/NDW, ProRail/operator, Province, WSRL, GHOR/RIVM, Oasen, Stedin, telecom and municipality/VRZHZ sources. Intersect selected hazards with A15/A27/N214/N216, dike roads, bridges, ferry landings, Arkel rail and destinations. Record direction, decision/valid time, accessibility, role and Unknown capacity. Add owner/trigger/request/decision/resource/execution/verification for care transfer, support-point activation, communication fallback, water distribution, repair and re-entry; schedules/registers do not prove operation."
+    }
+  ],
+  "residualLimitations": [
+    "This audits a deterministic first-72-hour exercise model, not a warning, forecast, hydraulic assessment, evacuation order, outage statement, route guarantee, industrial plume or operator commitment.",
+    "CBS 2025 values are rounded/suppressed and neighbourhood sums need not equal the municipality total; null provider, capacity, monitoring, facility or forecast fields are Unknown, not zero.",
+    "Generalized municipality/neighbourhood geometry is suitable for display and selection, not dike, kade, hydraulic, rainfall, sewer, groundwater, terrain, building, asset or route intersection.",
+    "WSRL kade assessments and project pages are current planning/asset evidence, not live strength, breach, water level, pump state or completion verification.",
+    "The new Hardinxveld-Giessendam boezem route is planned/currently under development and must not be treated as operational redundancy before an effective commissioning record.",
+    "HWH's 339 assigned records have partial contributor coverage; registered capacity values use source-specific semantics and cannot be summed without reconciliation.",
+    "Kinderdijk's water-management, heritage and visitor roles create transient occupancy and access dependencies not represented by registered population.",
+    "No selected LIWO/WMCN/RWS event footprint, Waterinfo hydrograph, defence state, arrival/recession series or probability is consumed for GM1978.",
+    "No complete local rain hyetograph, terrain/intervention edition, groundwater state, sewer/overland model or pump operating state is consumed.",
+    "The simulator's empty Seveso extract conflicts with current municipal safety evidence; legal/activity status and site count remain unresolved pending effective-dated register reconciliation.",
+    "Seveso, BEVI/REV, dangerous-goods route and PFAS context does not itself establish an incident, released substance, plume, exposure, health advice or all-clear.",
+    "NWB/NDW, GTFS, ferry/waterbus pages and ProRail data do not establish live passability, operation, direction, accessibility, emergency throughput or destination access.",
+    "No RIVM acute-care record lies inside GM1978; external hospital records do not establish referral, travel time, occupancy, staffing, diversion, generator endurance or incident capacity.",
+    "DUO school and RDI antenna records identify static locations/applications, not people present, shelter/support role, radio coverage, backhaul, traffic, power/backup, damage or restoration.",
+    "One NBNL postcode sample is large-user planning context, not municipality coverage, current load, switching state, outage, reserve or restoration.",
+    "Oasen waterwinning/strategic-reserve and Stedin provider facts do not expose physical source-to-customer topology, pressure/quality, isolation, backup, live state or repair time.",
+    "The June 2026 Noordeloos noodsteunpunt exercise proves a tested concept at one venue, not production activation, site network, staffing, communications, stocks, capacity or endurance.",
+    "Registered residents do not equal incident-time people at farms, industry, schools, ferries, recreation, events, care sites or support/evacuation locations; livestock is not represented.",
+    "Direct coastal/fire/earthquake zero is a narrow model statement, not absence of surge/river interaction, smoke/vegetation fire, seismic effects, industrial cascades, access or supply disruption.",
+    "Recovery after T+72, pre-impact warning time, cross-boundary dike/service consequences, mutual aid, shelter/care capacity, public health and long-term re-entry remain outside locally validated scope."
+  ],
+  "provinceReviewFlags": [
+    "GM1978-RIVER-001 and GM1978-EVACUATION-001 — WSRL, RWS/WMCN, VRZHZ, Province Zuid-Holland and Molenlanden should require a named, versioned, defence-aware Alblasserwaard event and accountable evacuation/vertical-shelter/livestock plan before direct inundation or exposure is releasable.",
+    "GM1978-WATER-SYSTEM-001 and GM1978-PLUVIAL-GROUNDWATER-001 — WSRL, municipality, HWH and Province should reconcile current Kinderdijk versus planned Hardinxveld water-system states and governing rain/terrain/groundwater/sewer evidence without invented connectivity.",
+    "GM1978-SPATIAL-SEED-001 — Province reviewers should reject the common cross-hazard neighbourhood order and require mechanism-specific surfaces/targets, full-resolution geometry and explicit Unknown cells.",
+    "GM1978-SEVESO-001 — Province/DCMR/OZHZ, VRZHZ, municipality and SEVESO+/REV owners should reconcile the empty simulator extract against the current three-site local statement and preserve legal/activity/effective-date distinctions.",
+    "GM1978-ACCESS-CARE-001 — RWS/NDW, Province, WSRL, ProRail/operators, ferry/waterbus operators, GHOR and neighbours should review event-valid A15/A27/N214/N216, dike-road, bridge, ferry, rail and external-care access with no invented throughput.",
+    "GM1978-UTILITIES-SUPPORT-001 — Oasen, Stedin, telecom operators, municipality and VRZHZ should provide releasable aggregate service/backup/restoration bands and production support-point roles while sensitive/unavailable topology remains Unknown.",
+    "GM1978-RECOVERY-001 — water, road/ferry, utility, care, industry and municipal owners should replace exact plateaus/clearance with owner-verified milestones and uncertainty, including consequences beyond 72 hours."
+  ]
+}

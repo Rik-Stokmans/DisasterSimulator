@@ -1,0 +1,478 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0313",
+    "name": "Bunschoten",
+    "province": "Utrecht",
+    "safetyRegion": "Utrecht"
+  },
+  "agent": {
+    "taskName": "municipality_gm0313",
+    "agentId": "/root/nl_realism_audit",
+    "completedAt": "2026-09-02T18:58:11Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "Bunschoten's generated 2025 identity, population, neighbourhood, place and safety-region inputs reconcile, and the focused deterministic gate passes all ten presets, six checkpoints and eight services. Release remains correction-required. The logical road graph omits the official N806 connection to Nijkerk because its boundary continuation is an unnumbered FRC-4 NWB segment excluded by the importer; this affects mobility and supply and is then copied into all service-layer route views. The major-river preset simultaneously imposes a persistent centre-distance score on a municipality whose relevant official water context is the Eem, Eemmeer/Randmeren, primary defences, low polders and pumping, while the coastal preset reports zero direct inundation. No selected hydraulic footprint justifies either local conclusion. Eight unrelated hazards reuse the exact same ten-neighbourhood order. At T+24 the river exercise reports 7,774 affected people-equivalent and drainage availability 0.4929; at T+72 it still reports 6,855 affected. Those figures, all exact service values and all recovery curves are deterministic exercise outputs, not observations, forecasts, warnings, outage reports or operator commitments. Public NWB, LIWO, HWH, Waterinfo, Stedin, RIVM, RDI, KNMI and municipal sources can materially improve context, but unavailable live topology, capacity, backup, crews and restoration must remain Unknown or transparently synthetic.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek / PDOK",
+      "title": "E01 — Official 2025 municipality, neighbourhood, safety-region and settlement inputs",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM0313%27%29",
+      "accessedAt": "2026-09-02T18:45:00Z",
+      "edition": 2025,
+      "supports": [
+        "GM0313 identity, province Utrecht, generalized boundary, 22,684 residents, density 746/km², 3,995 residents aged 65+ and 2,426 one-person households",
+        "Ten neighbourhoods and CBS rounding/suppression/null semantics; published neighbourhood population sums to 22,685, one above the municipal total",
+        "Companion PDOK CBS OGC API is annual CC BY 4.0; BAG woonplaatsen are Public Domain Mark 1.0; generalized polygons are suitable for overview selection, not local hydraulic or asset intersection"
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / PDOK / NDW / Gemeente Bunschoten",
+      "title": "E02 — NWB road topology, rail/current-road context and the official N806 corridor",
+      "url": "https://api.pdok.nl/rws/nationaal-wegenbestand-wegen/ogc/v1/collections/wegvakken/items",
+      "accessedAt": "2026-09-02T18:45:00Z",
+      "edition": "NWB-Light 2026-08-01; live OGC query 2026-09-02",
+      "supports": [
+        "The current NWB API returns Bunschoten N806/Nijkerkerweg segment 601359433, FRC 4, ending at node 311342005, while the adjacent Nijkerk Bunschoterweg segment 311342002 shares that node but has no route number",
+        "The municipality identifies N199, N414 and N806 as its three provincial roads and defines N806 through Nijkerkerweg to the Nijkerk municipal boundary: https://www.bunschoten.nl/gladheid-en-strooiroutes",
+        "The official execution plan states that Bunschoten roads connect Nijkerk, Amersfoort and Baarn and names inter-municipal continuations: https://www.bunschoten.nl/_flysystem/media/uitvoeringsplan-gladheidsbestrijding-2021-2025.pdf",
+        "NWB is monthly CC0 and integration-ready via OGC API/download; ProRail OGC rail/station context is manually updated CC0; NDW's current DATEX snapshot is CC0 unless stated and time-valid context, but zero intersecting records never means roads are clear or operational"
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Utrecht",
+      "title": "E03 — Regionaal Risicoprofiel 2023 and Regionaal Crisisplan 2024–2027",
+      "url": "https://vru.nl/documents/676/AB20230206-05-2_Bijlage_A_-_Regionaal_risicoprofiel_VRU_2023.pdf",
+      "accessedAt": "2026-09-02T18:45:00Z",
+      "edition": "Risk profile 2023; crisis plan 2024–2027",
+      "supports": [
+        "VRU's major-river worst cases concern the Lek/Alblasserwaard and a Grebbedijk breach; Bunschoten is not identified as a Rhine/Meuse/IJssel exposure location",
+        "VRU explicitly links very severe storms to Randmeren flooding and electricity-mast failure, heavy rain to water nuisance and possible utility failure beyond flooded streets, and wind plus ice to power failure",
+        "The companion crisis plan https://vru.nl/documents/864/AB20230703-22-4_Bijlage_C_-_Regionaal_Crisisplan_VRU_2024-2027.pdf defines adaptive CoPI/ROT/bevolkingszorg/municipal-regional decision structures, not automatic resource deployment, restoration or evacuation at fixed hours",
+        "Official plans are governance/scenario context without an open live-capacity API or reuse licence stated on the documents page"
+      ]
+    },
+    {
+      "publisher": "Gemeente Bunschoten",
+      "title": "E04 — Local climate, heat, reachability, utility-dependency and preparedness context",
+      "url": "https://www.bunschoten.nl/klimaatadaptatie",
+      "accessedAt": "2026-09-02T18:45:00Z",
+      "edition": "Current web pages accessed 2026-09-02",
+      "supports": [
+        "The municipality identifies heat, drought, extreme rain and flooding as separate adaptation concerns; its local heat plan targets health vulnerability and partner coordination: https://www.bunschoten.nl/hitteplan",
+        "Eemdijk and Zevenhuizen rely on Bunschoten-Spakenburg for doctors and groceries: https://www.omgevingsvisie.bunschoten.nl/gebieden/eemdijk/thema-s/leefbaarheid-en-gezondheid/detail",
+        "Official mobility context includes bus 76, neighbourhood buses 572 and 503, and the seasonal Eemdijk–Eemnes ferry, while Bunschoten has no rail station: https://www.bunschoten.nl/vervoer-in-bunschoten and https://www.bunschoten.nl/veerpont",
+        "The municipality names Stedin/TenneT electricity constraints and warns that power loss can affect heat, wifi, phones and potentially tap water: https://www.bunschoten.nl/netcongestie",
+        "These pages are current official context but expose no stable machine-readable licence/cadence, live occupants, road operation, emergency stocks, crews or operator state"
+      ]
+    },
+    {
+      "publisher": "Waterschap Vallei en Veluwe / Het Waterschapshuis",
+      "title": "E05 — Local defences, pumping assets and national water-board OGC layers",
+      "url": "https://www.vallei-veluwe.nl/wat-doen-wij/werken-aan-veilige-dijken/",
+      "accessedAt": "2026-09-02T18:45:00Z",
+      "edition": "Current official pages; HWH snapshot 2026-09-02",
+      "supports": [
+        "The water board identifies primary Randmeerdijken plus Eemdijken/old Zeedijken and annual inspection/maintenance responsibility; its organization map names Westdijk and Veendijk pumping stations in Bunschoten-Spakenburg: https://www.vallei-veluwe.nl/over-ons/contact/fotobox/gebied/",
+        "The generated HWH intersection contains 104 context objects: 17 surface-water pumps, two sewer pumps, one sluice and 84 weirs; 102 are attributed to Waterschap Vallei en Veluwe",
+        "HWH Kunstwerken IMWA OGC v2 and Waterketen DAMO OGC v1 are integration-ready CC BY-SA 4.0 national aggregations with contributor-dependent completeness: https://api.pdok.nl/hwh/waterschappen-kunstwerken-imwa/ogc/v2 and https://api.pdok.nl/hwh/waterschappen-waterketen-damo/ogc/v1",
+        "Asset points and water-board responsibility are context, not connectivity, directional flow, unit-correct capacity, operating state, backup or restoration"
+      ]
+    },
+    {
+      "publisher": "Watermanagementcentrum Nederland / Rijkswaterstaat",
+      "title": "E06 — LIWO scenario catalogue and Waterinfo observations",
+      "url": "https://iplo.nl/thema/water/applicaties-modellen/berichtgeving-crisismanagement/liwo/",
+      "accessedAt": "2026-09-02T18:45:00Z",
+      "edition": "LIWO 2025.1.6; Waterinfo snapshot 2026-09-02",
+      "supports": [
+        "LIWO supplies professional flood layers and requires specialist water-manager interpretation; it distinguishes primary-defence, regional-defence, regional-water and unprotected-area mechanisms",
+        "The public WFS at https://basisinformatie-overstromingen.nl/geoserver/ows?service=WFS&version=2.0.0&request=GetCapabilities exposes scenario/breach, warning-time, duration and evacuation-fraction products, but a scenario, version, provenance and terms must be selected before it affects simulation",
+        "Waterinfo's public endpoints provide latest point water-level/discharge observations, generally produced every ten minutes and CC0 unless a component says otherwise: https://www.rijkswaterstaat.nl/water/waterdata",
+        "Waterinfo points are observations, not a hydraulic footprint, breach, scenario-clock forecast or instruction; LIWO licence and guaranteed release cadence were not established and must be confirmed before redistribution"
+      ]
+    },
+    {
+      "publisher": "Stedin / Vitens / Stichting Mijn Aansluiting",
+      "title": "E07 — Public electricity, gas and drinking-water responsibility and asset context",
+      "url": "https://www.stedin.net/zakelijk/open-data/liggingsdata-kabels-en-leidingen",
+      "accessedAt": "2026-09-02T18:45:00Z",
+      "edition": "Provider-area snapshots 2025–2026; Stedin current download page",
+      "supports": [
+        "The municipality reference point resolves to Stedin electricity, Stedin gas and Vitens drinking-water responsibility areas; the public Mijn Aansluiting WFS is Public Domain and variable-date territory context: https://public.geodata.mijnaansluiting.nl/geoserver/mijnaansluiting_open/wfs?service=wfs&version=2.0.0&request=getcapabilities",
+        "Stedin publishes SHP electricity cable/station positions, excludes specific categories and refreshes at least annually after calendar-year close; free reuse is described, but no standardized licence identifier is stated",
+        "Vitens' January 2026 enterococcus event affected parts of Bunschoten-Spakenburg and used a postcode checker, demonstrating that water quality/advisory state is distinct from pressure or volume: https://www.vitens.nl/over-vitens/pers-en-nieuws/nieuws/kookadvies-voor-amersfoort-en-omgeving",
+        "Provider areas and annual asset geometry do not establish complete topology, switching, capacity, pressure, quality, backup, live outage or restoration; current operator pages expose no documented open incident API/licence suitable for causal ingestion"
+      ]
+    },
+    {
+      "publisher": "KNMI / NIPV / RIVM / RDI / Rijksoverheid",
+      "title": "E08 — Weather, fire, acute-care, telecom and first-72-hour public context",
+      "url": "https://dataplatform.knmi.nl/en/dataset/10-minute-in-situ-meteorological-observations-1-0",
+      "accessedAt": "2026-09-02T18:45:00Z",
+      "edition": "Public-context snapshots 2026-09-02",
+      "supports": [
+        "KNMI ten-minute observations and five-minute radar WMS are CC BY 4.0 integration-ready event context; KNMI earthquake/ShakeMap services can identify real events, but observations are not the canonical scenario clock or arbitrary future forecasts",
+        "NIPV's professional Risico Index Natuurbranden uses 17 parameters on a 1-km grid; no public bulk API, reuse licence or fixed cadence was established: https://nipv.nl/informatievoorziening/voorzieningen/risico-index-natuurbranden/",
+        "RIVM's 2026 v1.1 acute-care questionnaire is national CC0 context; zero listed acute hospitals inside GM0313 and nearest Meander at 7.7 km do not establish care absence, travel time, acceptance, staff, occupancy or generator endurance: https://datacatalogus.rivm.nl/dataset.xhtml?persistentId=doi:10.21945/8E767B2D-9CED-4A85-A95D-3AC1A608C663",
+        "RDI public WFS exposes 23 antenna sites/46 antennas inside the boundary but states no reuse licence or cadence; sites do not establish coverage, backhaul, capacity, power/backup or availability: https://antenneregister.nl/mapserver/wfs/",
+        "Denk Vooruit describes cascading power/telecom/heating/water-pressure consequences and preparation for 72 hours; it is preparedness guidance, not a restoration service level: https://www.denkvooruit.nl/risicos/risicos-in-nederland/geen-stroom"
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "The generated code, name, province and safety-region assignment agree with official 2025 inputs.",
+      "evidenceRefs": ["E01", "E03"],
+      "notes": [
+        "Feature id, municipality bundle code and bundle name all equal GM0313 / Bunschoten.",
+        "The official safety-region layer assigns GM0313 uniquely to Veiligheidsregio Utrecht."
+      ]
+    },
+    "geography": {
+      "status": "warn",
+      "summary": "The generalized boundary and centre are coherent for overview selection but do not resolve Bunschoten's lake-edge, dike, polder or pump geography.",
+      "evidenceRefs": ["E01", "E03", "E05", "E06"],
+      "notes": [
+        "Generated centre is [5.35708861377534, 52.23980719202183] and lies inside the 2025 municipality polygon.",
+        "The bundle contains 3,039 ha land and 46 ha water, but an overview boundary/centre is not a flood source, connected basin, protection state or hydraulic unit.",
+        "Use full-resolution geometry plus a selected water-manager scenario before intersecting Randmeren/Eem water, Eemdijken, old Zeedijken, pumps, roads, buildings or facilities."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Municipal totals match CBS 2025 and neighbourhood population reconciles within small-area publication rounding.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "Official/generated population is 22,684, density 746/km², age 65+ is 3,995 or 17.6%, and one-person households number 2,426.",
+        "Published neighbourhood population sums to 22,685, one above the municipal total (+0.004%); the deterministic allocator reconciles exactly to 22,684.",
+        "Resident aggregates do not identify present occupancy, tourists/visitors, individual health vulnerability, evacuation need or household emergency stocks."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "All ten neighbourhood rows load, but missing fields remain Unknown and none is a hazard footprint or live demand surface.",
+      "evidenceRefs": ["E01", "E04"],
+      "notes": [
+        "Largest published neighbourhoods are Spakenburg 4,835, Blokhuiswetering 3,655, Bunschoten 3,250, Bikkersvaart 3,240 and Broerswetering 2,605.",
+        "District-heating percentage and public-charging fields have 0/10 usable values; cars per household is missing for De Haar and Verspreide huizen. These values correctly remain null, never zero.",
+        "CBS doctor/supermarket distances are general access indicators and cannot establish incident-time care, pharmacy, food, fuel or transport availability."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "BAG places and BRT settlements resolve without label-centre leakage, including the distinct Eemdijk community.",
+      "evidenceRefs": ["E01", "E04"],
+      "notes": [
+        "BAG woonplaatsen are Bunschoten-Spakenburg and Eemdijk; BRT additionally names Zevenhuizen.",
+        "E04 confirms Eemdijk and Zevenhuizen rely on Bunschoten-Spakenburg for doctors and groceries, which is dependency context rather than proof of outage or evacuation need.",
+        "Settlement labels and source population metadata are descriptive and do not replace building-level occupancy or a causal exposure footprint."
+      ]
+    },
+    "transport": {
+      "status": "fail",
+      "summary": "The graph omits the official N806 route to Nijkerk and does not represent bus/ferry schedules or live road state.",
+      "evidenceRefs": ["E02", "E04"],
+      "notes": [
+        "The generated graph has only A1 and N199 to Amersfoort plus N414 to Baarn, with total synthetic nominal capacity 560; it has no GM0313–GM0267 Nijkerk edge.",
+        "Current NWB proves a shared-node N806/Bunschoterweg continuation, while the importer admits FRC 0/1/2 or A/N route records and therefore drops the adjacent FRC-4 blank-route connector.",
+        "The municipality also documents neighbourhood bus 503 to Nijkerk, bus 76/572 toward Amersfoort and the seasonal Eemdijk–Eemnes ferry. Static GTFS and web schedules are not live operation, capacity or emergency access.",
+        "No NDW situations intersected the cached boundary snapshot; that is Unknown coverage/state, not an all-clear."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "Official VRU and municipal roles exist, but current warnings, decisions, vulnerable occupancy, support points, stocks, crews and continuity actions are absent.",
+      "evidenceRefs": ["E03", "E04", "E07", "E08"],
+      "notes": [
+        "VRU's crisis structure is situation-driven; it does not validate the simulator's automatic status labels or fixed-hour interventions.",
+        "No RIVM acute hospital lies inside GM0313; nearest Meander is 7.7 km straight-line. This says nothing about ambulance travel, acceptance, staffing, occupancy, diversion or generator state.",
+        "Fifteen DUO education locations, five government-registry locations and 23 RDI antenna sites are public context only, not verified shelters, distribution hubs, command posts, care capacity or communication availability.",
+        "Preparedness guidance supports a 72-hour planning horizon but not a local household-preparedness coefficient, guaranteed self-reliance, evacuation, supply delivery or restoration time."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten canonical presets produce complete finite output at every required checkpoint and service, with evidential defects recorded separately.",
+      "evidenceRefs": ["E03", "E04", "E06", "E08"],
+      "notes": [
+        "The focused matrix executed severe storm, pluvial flood, river flood, coastal flood, heatwave, winter storm, cyberattack, earthquake, wildfire and compound at T+0/6/12/24/48/72 across all eight services.",
+        "At T+24 severity / pressure / affected / cumulative event-attributable person-hours are storm 0.2383 / 0.2955 / 4,970 / 122,617.18; pluvial 0.3181 / 0.2845 / 4,617 / 86,813.90; river 0.1784 / 0.3833 / 7,774 / 75,805.29; coastal 0.0210 / 0.0962 / 0 / 7,997.03; heat 0.0810 / 0.2010 / 1,949 / 44,225.10.",
+        "Remaining T+24 values are winter 0.6317 / 0.3590 / 6,997 / 119,318.40; cyber 0.4934 / 0.3210 / 5,784 / 118,128.08; earthquake 0 / 0.0678 / 0 / 9,980.39; wildfire 0.1648 / 0.1835 / 1,389 / 42,474.23; compound 0.9592 / 0.5769 / 13,964 / 225,357.05.",
+        "At T+72 river remains degraded at severity 0.1784, pressure 0.3545 and 6,855 affected; compound remains critical at severity 0.5390, pressure 0.5774 and 13,980 affected. These are deterministic exercise estimates, never measurements or forecasts.",
+        "Coastal reports zero direct inundation but wind-driven service effects; zero is scoped to the model's sea-screen calculation and is not evidence of safety from Eemmeer/Randmeren flooding."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "The focused gate passes deterministic, finite, exact-zero, causal, allocation, reconciliation and monotonic-burden contracts.",
+      "evidenceRefs": [],
+      "notes": [
+        "MUNICIPALITY_AUDIT_CODE=GM0313 pnpm audit:model passed both tests on current code across 10 presets × 6 checkpoints × 8 services.",
+        "All intensity-zero runs have exactly zero current/peak severity, affected people-equivalent and event-attributable person-hours at every checkpoint.",
+        "Every local map allocates exactly 22,684 people; maximum demand/delivery/reconciliation error is floating-point epsilon (about 1e-15).",
+        "Service/map selection leaves local hazard values exactly invariant, cumulative person-hours are monotonic and all route flows remain within declared logical capacity."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "The flood screens and shared neighbourhood seed do not represent Bunschoten's distinct lake, polder, rain, heat, fire, infrastructure and cyber geographies.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E08"],
+      "notes": [
+        "At T+24 storm, pluvial, river, coastal, heat, winter, cyber and wildfire have the exact same ten-neighbourhood order: Verspreide huizen, Eemdijk, Bunschoten, Bikkersvaart, Spakenburg, Koenraadswetering, Rengerswetering, De Haar, Blokhuiswetering, Broerswetering.",
+        "The river range 0.1618–0.2026 and coastal range 0.0191–0.0239 are deterministic perturbations of one ordering, not selected Eem/Eemmeer, dike, pump or connected-polder footprints.",
+        "The allocator samples no full-resolution defence/hydraulic surface, AHN drainage catchment, paving/shade, vegetation/fuel, wind-aware plume, road asset or cyber target.",
+        "Canonical wildfire ignition is 27.585 km from the municipality centre and has zero direct flame but smoke 0.4466 at T+24. A synthetic fire placed at the municipal centre makes the containing Verspreide huizen neighbourhood rank first, which verifies editable-source mechanics but is not an authoritative local fire scenario."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "All eight balances are inspectable, but road-cloned flows omit N806 and cannot represent physical utilities, drainage, telecom, facilities or stocked logistics.",
+      "evidenceRefs": ["E02", "E04", "E05", "E07", "E08"],
+      "notes": [
+        "Power, water, drainage, gas, telecom, mobility, facilities and supply all reuse the same three road-derived routes and total 560 synthetic logical units; none is a cable, pipe, sewer, pressure zone, radio link, patient transfer or inventory path.",
+        "Public context identifies Stedin electricity/gas and Vitens water responsibility at the centre, 104 HWH water objects and 23 RDI antenna sites, but not complete connectivity, unit-correct capacity, switching, quality, state, backup, priority users or restoration.",
+        "At river T+24 modeled availability is power 0.6225, water 0.6584, drainage 0.4929, gas 0.8371, telecom 0.7048, mobility 0.6243, facilities 0.4496 and supply 0.5727; no cited operator or water-manager evidence validates these exact values.",
+        "The empty drainage-provider polygon result is Unknown/incomplete provider mapping, never evidence that drainage has no responsible organization or no service."
+      ]
+    },
+    "causalTrace": {
+      "status": "fail",
+      "summary": "Arithmetic closes, but local flood evidence and N806 connectivity do not; causal labels risk overstating national screening and logical roads as physical evidence.",
+      "evidenceRefs": ["E02", "E03", "E05", "E06", "E07"],
+      "notes": [
+        "Service-stage deltas, weighted pressure and matched-no-event event-attributable person-hour arithmetic reconcile for the full matrix.",
+        "The Rhine, Meuse & IJssel preset labels spatial evidence derived-screening and uses centre distance to national schematic corridors; it ingests no Eem/Eemmeer boundary condition, defence state, breach/overtopping choice, connected footprint, terrain, arrival or recession.",
+        "Internal floodDepthM is user-facing normalized inundation stress. The T+24 river value 0.5754 and pluvial value 0.4404 must never be read as observed metres.",
+        "The missing N806 connection affects logical transfers, but adding that road must not be presented as restoring electricity, water, gas, drainage or telecom topology."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "The 72-hour curves are numerically coherent but not calibrated to local hydraulic duration, operator restoration, mobility clearance, care continuity or public actions.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "At T+72 storm, pluvial, coastal, winter, earthquake and wildfire initiating forcing has cleared; cumulative burdens are 281,484.28, 183,814.87, 27,299.97, 251,655.23, 15,837.70 and 124,505.35 event-attributable service person-hours respectively.",
+        "River forcing persists unchanged through T+72 and compound remains critical; no selected water-manager scenario validates the exact 168-hour persistence, recession, 6,855/13,980 affected counts or service curves.",
+        "Heat retains drought 0.4502 and severity 0.0810 at T+72 while affected people-equivalent is zero. That threshold outcome cannot be interpreted as no residual health, water, vegetation or care burden.",
+        "No live warning, dike/pump state, provider switching, crews/fuel/spares, N806/ferry/bus clearance, hospital acceptance, emergency stock or restoration commitment is ingested. Preparedness for 72 hours is not a promise that services recover by T+72."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": ["power", "water", "drainage", "gas", "telecom", "mobility", "facilities", "supply"]
+  },
+  "findings": [
+    {
+      "id": "GM0313-N806-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "The logical network deterministically drops Bunschoten's N806 connection to Nijkerk at an importer boundary.",
+      "evidence": "E02 and the live NWB OGC API show N806/Nijkerkerweg segment 601359433 in Bunschoten (FRC 4) sharing node 311342005 with Nijkerk Bunschoterweg segment 311342002, whose route fields are blank. The fetcher includes FRC 0–2 plus A/N-labelled records; it therefore admits the Bunschoten N806 segment but excludes the adjacent blank-route FRC-4 continuation. The generated graph has A1/N199 to GM0307 and N414 to GM0308 but no GM0313–GM0267 edge, even though the municipality explicitly names N806 to the Nijkerk boundary and bus 503 serves Eemdijk–Nijkerk.",
+      "action": "Make boundary-connector closure part of NWB ingestion: after selecting the national road backbone, include adjoining shared-node segments needed to cross municipality boundaries, with bounded functional-class/length criteria and no guessed route label. Regenerate road/transport outputs and assert a physical N806/Bunschoterweg GM0313–GM0267 corridor, preserving its source ids and differing road-manager/route labels. Verify mobility and supply only; never use this road as physical utility topology."
+    },
+    {
+      "id": "GM0313-FLOOD-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The river and coastal screens make unsupported local claims about a defence- and pumping-dependent Eem/Eemmeer municipality.",
+      "evidence": "E03 says VRU's named river worst cases concern the Lek/Alblasserwaard and Grebbedijk, while very severe storm can produce Randmeren flooding. E05 identifies Randmeerdijken, Eemdijken/old Zeedijken and Westdijk/Veendijk pumping assets. Canonical river instead applies severity 0.1784 from T+12 through T+72, with 7,774 affected at T+24 and 6,855 at T+72, using a national Rhine/Meuse/IJssel centre-distance screen. Coastal reports zero direct inundation. Neither includes a selected Eem/Eemmeer level, defence state, breach/overtopping, polder connection, pump state, depth grid, arrival or recession.",
+      "action": "Mark both local water amplitudes unsupported for operational use. Introduce separate source classes for North Sea coast, Randmeren/lake setup, Eem inflow, primary/regional defence failure, unprotected water and pluvial/polder surcharge. Use one expert-selected, versioned LIWO/water-board event clipped to full-resolution geometry; carry units, probability/scenario class, boundary condition, defences, connected footprint, arrival/duration, no-data mask, uncertainty and licence. If unavailable, label a minimal synthetic footprint hypothetical instead of converting Unknown to zero or safety."
+    },
+    {
+      "id": "GM0313-SPATIAL-001",
+      "severity": "high",
+      "category": "geography",
+      "status": "open",
+      "summary": "Eight unrelated hazards reuse one neighbourhood ranking rather than hazard-specific spatial evidence.",
+      "evidence": "At T+24 storm, pluvial, river, coastal, heat, winter, cyber and wildfire have exactly the same full order across all ten neighbourhoods, starting Verspreide huizen and Eemdijk and ending Blokhuiswetering and Broerswetering. E03–E08 distinguish hydraulic connections/defences, intense-rain drainage, heat/vulnerability, ice/road treatment, vegetation/fire, power/telecom assets and cyber targets. The shared ranking therefore cannot be interpreted as a calibrated exposure map for any of them.",
+      "action": "Replace the shared deterministic seed with hazard-specific, source-backed eligibility/susceptibility surfaces and explicit Unknown masks. Add tests that two materially different hazards can rank neighbourhoods differently and that changing selected map/service leaves the one scenario hazard field invariant. For wildfire require an authorized RIN/fuel surface or a named synthetic source/perimeter plus event-valid weather; for cyber require a named target/attack path or suppress local spatial precision."
+    },
+    {
+      "id": "GM0313-LIFELINE-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "open",
+      "summary": "One three-road logical graph is cloned into eight lifelines and lacks operator-calibrated state, capacity, backup and repair.",
+      "evidence": "All eight service-layer route views reuse A1, N199 and N414 with 560 abstract units, including water, drainage, gas, telecom and facilities. E05/E07/E08 expose partial water assets, provider areas, annual Stedin asset geometry and antenna sites, but not complete safe topology, flow direction, pressure, switch state, quality, backhaul, stock, backup or restoration. The current explanation that logical connectivity is not physical topology is correct, but exact availability still looks locally precise.",
+      "action": "Keep NWB only for mobility and eligible logistics/repair access. Build separate safe aggregate synthetic service zones and uncertainty ranges, or ingest authorized operator aggregates with unit contracts. Every layer must expose source/version/valid time, observed/context/scenario status, completeness, topologySemantics and affectsSimulation. Where connectivity/state is unavailable or security-sensitive, show Unknown—not a cloned road or inferred zero."
+    },
+    {
+      "id": "GM0313-WATER-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "open",
+      "summary": "Drainage, drinking-water availability and drinking-water quality are collapsed despite distinct public evidence and no-data states.",
+      "evidence": "E05 exposes 104 water-control points and named Westdijk/Veendijk pumps but HWH states contributor-dependent completeness; the provider lookup returns no drainage polygon, which is Unknown. E07 documents a real 2026 Vitens enterococcus advisory in parts of Bunschoten-Spakenburg, demonstrating usable water quality/advisory can fail separately from pressure/volume. The simulation has one water availability and one drainage score without catchment connectivity, pump controls, sewer surcharge, quality, advisory reach or sampling delay.",
+      "action": "Create separate states for potable volume/pressure, quality/advisory and wastewater/surface-water drainage. Use HWH points and provider territories as context until the water board/operator supplies catchment, direction, unit-correct capacity and state. Add explicit missingness masks and tests that empty provider/HWH/NDW results remain Unknown. Historical Vitens events may be selectable dated replays, never a timeless baseline or future prediction."
+    },
+    {
+      "id": "GM0313-MOBILITY-FACILITY-001",
+      "severity": "medium",
+      "category": "regional-data",
+      "status": "open",
+      "summary": "Eemdijk/Zevenhuizen dependencies, ferry/bus conditions and external acute care are visible as context but absent from local allocation and continuity.",
+      "evidence": "E04 says Eemdijk and Zevenhuizen use Bunschoten-Spakenburg for doctors and groceries and documents bus 503 to Nijkerk, bus 76/572, and a seasonal ferry closed Sundays and November–February. The current bundle has no rail station, 22 GTFS stop areas and no acute hospital; Meander is 7.7 km straight-line. None supplies live service, vehicle/ferry capacity, accessibility, ambulance time, facility acceptance, staffing, stock or generator endurance.",
+      "action": "Model typed mobility paths and conditional ferry/bus schedules separately from road topology, with event-time state and Unknown semantics. Add privacy-safe care-home/pharmacy/primary-care/food/fuel/support-point classes only where officially published and role-verified. Couple N806 and other access loss to travel/logistics/repair paths, not automatic facility closure, and keep external-hospital acceptance/occupancy unknown without authorized feeds."
+    },
+    {
+      "id": "GM0313-72H-001",
+      "severity": "medium",
+      "category": "explainability",
+      "status": "open",
+      "summary": "The first-72-hour dashboard lacks a validated action/decision ledger and can turn preparedness guidance into false restoration certainty.",
+      "evidence": "E03 defines adaptive crisis teams and authority; E08 advises preparation for 72 hours and describes power-driven telecom/heating/water-pressure cascades. Neither validates a fixed local preparedness coefficient, automatic evacuation, restoration deadline or resource arrival. The simulation has exact checkpoint statuses and cumulative person-hours but no confirmed warnings, decisions, requested/accepted assistance, support points, fuel/water/food stocks, crew availability or owner/time confidence.",
+      "action": "Add a separate action ledger with requested/confirmed/completed/cancelled state, responsible authority/operator, timestamp, expiry and source. At every checkpoint show current hazard, all eight availabilities, affected people-equivalent, cumulative event-attributable person-hours and confidence/no-data. Label 72 hours as the modeled window and household preparedness horizon, never a guaranteed service-recovery deadline."
+    },
+    {
+      "id": "GM0313-HAZARDS-001",
+      "severity": "medium",
+      "category": "hazard",
+      "status": "accepted-limitation",
+      "summary": "Storm, heat, winter, cyber, earthquake and wildfire are coherent exercises but lack municipality-specific calibration.",
+      "evidence": "E03/E04 support severe weather, heat, drought and cascading utility concerns but no exact preset curve. Canonical earthquake produces only residual service pressure after a tiny peak, and canonical wildfire is a remote-smoke exercise with zero direct flame in GM0313. KNMI event APIs and observations can anchor replays; NIPV RIN can inform professional fire susceptibility. Cyber has no named target, architecture or attack path. No authoritative source validates the exact T+24 winter 0.6317, cyber 0.4934, heat 0.0810 or wildfire 0.1648 severities.",
+      "action": "Retain these only as visibly synthetic stress tests with parameter ranges and sensitivity. For observed replays pin KNMI/Rijkswaterstaat/RIVM data to valid time and source edition. Require a named earthquake event plus ground-motion/site/fragility method, a local fire source/fuel/weather/perimeter, and a named cyber target/attack path before showing local direct-impact precision."
+    },
+    {
+      "id": "GM0313-NODATA-001",
+      "severity": "medium",
+      "category": "ui",
+      "status": "open",
+      "summary": "Several zero-result views can be mistaken for zero risk, zero infrastructure or normal operation.",
+      "evidence": "Examples are coastal direct inundation 0, no drainage provider polygon, zero acute hospitals inside the boundary, zero intersecting NDW situation records, and null district-heating/public-charging statistics. These mean respectively a screened scenario component, incomplete provider mapping, no RIVM-listed acute hospital in-boundary, no records in one snapshot, and unavailable CBS fields. Only the first is a calculated zero, and even it says nothing about Randmeren flooding.",
+      "action": "Use a three-state contract throughout maps, legends, tooltips, APIs and exports: measured/modeled zero, Unknown/not covered, and not applicable. Display completeness and valid time next to each layer. Add tests that empty provider, facility and incident intersections cannot render as safe/operational or as zero infrastructure."
+    },
+    {
+      "id": "GM0313-DEMO-001",
+      "severity": "low",
+      "category": "demography",
+      "status": "accepted-limitation",
+      "summary": "Population allocation is numerically sound but resident-equivalent exposure excludes dynamic occupancy and suppressed small-area detail.",
+      "evidence": "E01 gives 22,684 municipality residents and rounded neighbourhood rows summing to 22,685; the allocator reconciles to 22,684. It does not include visitors, commuters, school attendance, care-home occupancy, events, seasonal harbour/recreation use, household supplies or individual vulnerability. Missing district heat, charging and two car-ownership fields remain null as required.",
+      "action": "Keep resident-equivalent wording, show CBS edition and reconciliation, and never infer people present or individual vulnerability. Add optional privacy-safe daytime/visitor/facility occupancy scenarios only with licensed aggregate sources, explicit valid time and uncertainty."
+    },
+    {
+      "id": "GM0313-INVARIANTS-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The focused numerical and semantic invariants pass for GM0313 on the audited build.",
+      "evidence": "The focused harness passes two tests covering all ten presets, six checkpoints and eight services. Outputs are finite and bounded, intensity-zero semantics are exact, 22,684 people are reconciled in every local map, demand/delivery balances close to floating-point epsilon, layer selection cannot change hazard, route flow stays within declared logical capacity, cumulative event-attributable person-hours are monotonic and matched to the no-event baseline.",
+      "action": "Retain the focused municipality gate in CI and add regressions for the N806 boundary connector, distinct hazard rankings, no-data rendering and one expert-selected Bunschoten water scenario."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Restore Bunschoten's official N806/Nijkerk logical corridor without fabricating route labels or utility topology.",
+      "files": [
+        "scripts/fetch-realism-data.mjs",
+        "apps/web/public/data/transport-roads.geojson",
+        "apps/web/public/data/transport-network.json",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts"
+      ],
+      "validation": "Current graph has no GM0313–GM0267 link although NWB segments 601359433 and 311342002 share node 311342005 and the municipality names N806 to the Nijkerk boundary. After correction assert one source-preserving N806/Bunschoterweg physical corridor, no duplicate capacity, deterministic regeneration, and changed mobility/supply reachability where applicable. All physical utility layers must remain separate/Unknown."
+    },
+    {
+      "summary": "Replace Bunschoten's national river/coastal screens with a selected Eem/Eemmeer/Randmeren defence-aware scenario.",
+      "files": [
+        "packages/sim-core/src/scenarios.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/public/data/hazards/GM0313-water-context.json",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Before correction river severity is 0.1784 at T+12/T+24/T+48/T+72, with 7,774 affected at T+24 and 6,855 at T+72; coastal direct inundation is zero. Require a water-manager-selected LIWO event with source class, boundary water level, defence/breach state, connected footprint, terrain, arrival/duration/recession, units, uncertainty, no-data, version and terms. Suppress local amplitude when no approved event exists."
+    },
+    {
+      "summary": "Retire the shared neighbourhood seed and make each hazard's source, eligibility and footprint spatially controlling.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/public/data/hazards/GM0313-spatial-context.json"
+      ],
+      "validation": "Before correction eight T+24 hazards share the exact complete ten-neighbourhood order. Test materially different ranks for flood, heat, fire and cyber, eligibility-driven zeros where appropriate, explicit Unknown cells, reproducibility, and hazard invariance across all eight selected service layers."
+    },
+    {
+      "summary": "Separate drinking-water pressure/volume, quality/advisory, wastewater and surface-water drainage with safe public context and explicit unknowns.",
+      "files": [
+        "scripts/fetch-realism-data.mjs",
+        "apps/web/public/data/public-context/water-assets.geojson.gz",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts"
+      ],
+      "validation": "Keep all 104 HWH objects context-only until connectivity/direction/capacity/state is authorized. Preserve an empty drainage provider mapping as Unknown. Add separate quality/advisory state and a selectable dated replay contract for the January 2026 Vitens event; it must never contaminate default baseline or forecast output."
+    },
+    {
+      "summary": "Represent conditional mobility, external care and Eemdijk/Zevenhuizen supply access without inventing live operational state.",
+      "files": [
+        "apps/web/public/data/transport-network.json",
+        "apps/web/public/data/transit/transit-manifest.json",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Add typed bus 76/503/572 and seasonal Eemdijk ferry context with schedules and Unknown live state; use N806 and road closures only for mobility/logistics/repair. RIVM/DUO/government/provider/register points must not become live facility capacity. External hospital acceptance, pharmacy/food/fuel stock, shelters and support points remain Unknown until role-verified."
+    },
+    {
+      "summary": "Make source class, no-data, first-72-hour decisions and uncertainty explicit at every operational-looking output.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/AnalyticsDrawer.tsx"
+      ],
+      "validation": "Every metric/layer/export must show observed versus official scenario versus synthetic exercise, source/version/valid time, unit, completeness, confidence and affectsSimulation. Render zero, Unknown and not-applicable distinctly. Add a requested/confirmed/completed/cancelled action ledger with owner and timestamp. At T+72 display residual hazard, eight service availabilities, affected people-equivalent and cumulative event-attributable proxy together; never imply 72-hour restoration."
+    }
+  ],
+  "residualLimitations": [
+    "This is a deterministic first-72-hour planning stress test, not a KNMI/Rijkswaterstaat forecast, official warning, probability estimate, evacuation order, casualty model or operator outage/restoration forecast.",
+    "No expert-selected Eem/Eemmeer/Randmeren hydraulic event, boundary level, current defence state, connected footprint, arrival/recession, depth unit or no-data mask is ingested for GM0313; normalized inundation stress is not observed metres.",
+    "The generalized CBS boundary and deterministic neighbourhood seed do not resolve dikes, polders, catchments, terrain, buildings, paving, shade, fuel, households, visitors or individual vulnerability.",
+    "CBS neighbourhood data are rounded/suppressed; the +1 population difference is publication semantics, and null district-heat/charging/car fields are unknown rather than zero.",
+    "The N806 corridor defect is deterministic and reproducible; NWB itself is static physical-road context and does not establish incident-time passability, traffic, clearance, evacuation throughput or repair access.",
+    "GTFS, web schedules and ProRail data do not establish bus, train or ferry operation; NDW snapshot absence is not an all-clear.",
+    "HWH's national aggregation is contributor-dependent and partial; 104 points do not define a connected drainage/sewer network or usable live capacity.",
+    "No complete public causal Stedin feeder/switching, Vitens pipe/pressure/quality, gas pressure-district, sewer, Ziggo/mobile backhaul or operator restoration topology is authorized in the model.",
+    "Provider territories identify potential responsibility at one reference point, not full-boundary coverage, connectivity, capacity or state; absent drainage mapping remains Unknown.",
+    "RDI antenna records do not establish operator, coverage, backhaul, traffic, power/backup, damage, congestion, availability or restoration.",
+    "All eight services currently reuse three road-derived logical corridors and cannot be interpreted as physical utility, wastewater, telecom, patient-transfer or stocked logistics networks.",
+    "No RIVM acute hospital is inside GM0313 in the dated layer; straight-line distance to Meander does not establish travel time, acceptance, staffing, occupancy, diversion or backup endurance.",
+    "DUO/government points do not establish command, care, shelter or distribution roles; facilities/supply lack verified care-home, pharmacy, support-point, stock, depot, vehicle and staff state.",
+    "The 2026 Vitens contamination is a historical observation and possible replay, not current state, baseline vulnerability or a forecast.",
+    "Wildfire lacks a local canonical ignition/perimeter, authorized RIN surface, fuel/moisture, wind-aware spread, suppression water and access; canonical output is remote smoke only.",
+    "Cyber lacks a named target, attack path, detection/containment evidence and operator architecture; earthquake lacks a selected event, local ground motion/site response and asset fragility.",
+    "Generic preparedness, backup, demand, repair and intervention multipliers are exercise controls rather than observed GM0313 resources or commitments.",
+    "Event-attributable essential-service person-hours is a matched-no-event weighted availability proxy, not customer outage-hours, casualties, displacement or welfare loss; six-hour checkpoints can miss rapid changes and 72 hours excludes prolonged high water, contamination and reconstruction."
+  ],
+  "provinceReviewFlags": [
+    "Utrecht/VRU/Vallei en Veluwe: distinguish North Sea coastal flooding, Randmeren/lake setup, Eem inflow, primary/regional defence failure, unprotected areas and pluvial/polder surcharge; replace generic national distance screens with selected water-manager events.",
+    "Utrecht/Rijkswaterstaat/NWB: include bounded shared-node municipal boundary connectors so N806/Bunschoterweg connects GM0313 to GM0267 without fabricating road aliases or duplicate capacity.",
+    "Utrecht/Bunschoten/VRU: validate first-72-hour warning, evacuation/shelter, support-point, vulnerable-population, ferry/bus/road, fuel/water/food and public-information workflows as decisions/actions, not automatic simulation facts.",
+    "Utrecht/operators: use HWH, Stedin, Vitens, RDI and Mijn Aansluiting public data as typed context where licensed; preserve unavailable/security-sensitive topology, capacity, backup and live restoration as Unknown or clearly synthetic aggregates.",
+    "Utrecht/NIPV/KNMI: replace shared neighbourhood ordering with hazard-specific hydraulic, rain/drainage, heat, winter-access, fire/fuel/weather and named-event evidence with explicit valid time and no-data."
+  ]
+}

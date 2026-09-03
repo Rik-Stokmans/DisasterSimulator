@@ -1,0 +1,447 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0502",
+    "name": "Capelle aan den IJssel",
+    "province": "Zuid-Holland",
+    "safetyRegion": "Rotterdam-Rijnmond"
+  },
+  "agent": {
+    "taskName": "municipality_gm0502",
+    "agentId": "/root/municipality_gm0518",
+    "completedAt": "2026-09-02T19:13:28Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "GM0502's identity, 2025 CBS population, Rotterdam-Rijnmond membership, 79 neighbourhoods, one BAG woonplaats, Capelle Schollevaar station and 88 GTFS stop areas are coherent. Neighbourhood population totals 68,620, only four below the official 68,624 residents (-0.006%), and unavailable attributes remain null. All ten canonical exercises run deterministically at T+0/6/12/24/48/72 across all eight services; exact-zero, finite-bound, local-allocation, reconciliation, cumulative-burden, recovery-guard and layer-invariance checks pass. Release nevertheless requires correction. The river preset applies 2.200977 normalized inundation stress throughout its 168-hour forcing and reaches 40,996 affected people-equivalent at T+72; coastal reports 1.144847 stress, 37,379 affected and critical status at T+24. Neither selects a Hollandsche IJssel barrier state, defence or breach segment, water level/probability, hydraulically connected footprint, arrival or dewatering curve, while the UI can render the clamped result as 100% inundation stress. Pluvial, coastal, heat and remote-smoke maps also reuse exactly the same synthetic neighbourhood ranking; the public municipal climate atlas instead contains 3,063 water-affected building polygons and 298 currently classified impassable road segments with materially different local patterns. Mobility and supply use only two A20 border links, omitting the N210/Algerabrug corridor, local road passability, metro and rail dependencies, and those same road IDs are copied into all eight lifelines. HHSK water assets, the major Kralingseveer wastewater plant, IJsselland Hospital, schools, antennas, provider territories and current Waterinfo remain correctly non-causal context. No unavailable or security-sensitive physical utility topology, live outage state, backup, capacity or restoration promise is fabricated.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek (CBS)",
+      "title": "Kerncijfers wijken en buurten 2025, table 86165NED, OData API",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=WijkenEnBuurten%20eq%20%27GM0502%20%20%20%20%27&%24select=WijkenEnBuurten%2CGemeentenaam_1%2CAantalInwoners_5%2CBevolkingsdichtheid_34%2Ck_65JaarOfOuder_12%2CEenpersoonshuishoudens_30",
+      "accessedAt": "2026-09-02T18:36:00Z",
+      "edition": 2025,
+      "supports": [
+        "The fresh official GM0502 row gives Capelle aan den IJssel, 68,624 residents, density 4,852 per square kilometre, 15,275 residents aged 65+ and 13,084 one-person households.",
+        "The 79 generated neighbourhood rows sum to 68,620 residents, four below the municipality total (-0.006%), consistent with independent CBS small-area rounding rather than missing residents being silently set to zero.",
+        "The OData service is machine-readable and reusable under CC BY 4.0. CBS labels this a 2025 table, modified 25 June 2026, with quarterly additions where source variables become available; it is demographic context, not live presence or exposure."
+      ]
+    },
+    {
+      "publisher": "PDOK / CBS / Kadaster / Rijkswaterstaat / ProRail",
+      "title": "CBS Gebiedsindelingen 2025 and national administrative, settlement and transport-reference APIs",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/api?f=html",
+      "accessedAt": "2026-09-02T18:38:00Z",
+      "edition": "2025 boundaries; current generated BAG, BRT, NWB and ProRail reference editions",
+      "supports": [
+        "GM0502 is one multipolygon component and one exterior ring. Its generated overview has 104 positions and contains the generated centre and the BAG woonplaats Capelle aan den IJssel; full-resolution geometry is required for asset, defence, road and raster intersection.",
+        "The generated bundle contains nine districts, 79 neighbourhoods, one BRT woonkern, Capelle Schollevaar station and 88 GTFS stop areas. These are identity, geometry and schedule/reference context, not current passengers, closures, capacity or service state.",
+        "CBS boundary OGC collections are annual and CC BY 4.0; BAG is daily/Public Domain Mark, NWB is monthly/CC0 1.0 and ProRail reference geometry is editioned/CC0. Each source's edition and no-data semantics must survive ingestion."
+      ]
+    },
+    {
+      "publisher": "Gemeente Capelle aan den IJssel",
+      "title": "Klimaatatlas Capelle aan den IJssel ArcGIS MapServer",
+      "url": "https://geo.capelleaandenijssel.nl/arcgis/rest/services/Klimaatatlas/MapServer",
+      "accessedAt": "2026-09-02T18:43:00Z",
+      "edition": "Live service inspected 2 September 2026; several heat-layer names reference 2016–2019 and a 2020 heat-stress test",
+      "supports": [
+        "The public EPSG:28992 service exposes REST query, JSON/GeoJSON/PBF and linked WMS/WFS access. It contains heat, vulnerable-object, affected-building, road-passability, flow-path, maximum-flood-depth, groundwater, water-level-area and terrain layers.",
+        "Current feature queries return 122 vulnerable objects, 3,063 affected-building polygons, 3,166 road segments and 321,851 flow-path segments. Of the road segments, 1,365 are classified passable, 1,503 only passable for emergency traffic and 298 impassable under the source scenario.",
+        "The building-layer depth attribute ranges from 0.01 to 1.44 in the current response; Rivium Promenade contains the 1.44 maximum while the model ranks it well below several neighbourhoods whose queried maxima are 0.04–0.24. This comparison establishes a spatial contradiction, not a validated depth calibration.",
+        "The service metadata leave copyright/licence, contractual refresh cadence, scenario definition, units for some attributes and several layer descriptions blank. Obtain publisher confirmation and retain scenario, edition, unit, resolution and no-data before causal ingestion; absence or an empty query must not mean safe/zero."
+      ]
+    },
+    {
+      "publisher": "Hoogheemraadschap van Schieland en de Krimpenerwaard (HHSK) / Het Waterschapshuis",
+      "title": "HHSK flood-risk and wastewater programme; IMWA/DAMO OGC water APIs",
+      "url": "https://waterbeheerprogramma.hhsk.nl/themas/een-veilige-en-aantrekkelijke-leefomgeving-voorbereid-op-de-verandering-van-het-klimaat/overstromingsrisicos",
+      "accessedAt": "2026-09-02T18:47:00Z",
+      "edition": "HHSK Waterbeheerprogramma 2022–2027; live HWH services inspected 2 September 2026",
+      "supports": [
+        "HHSK explains that much of its delta area is below sea level and that primary defences protect against the Nieuwe Maas, Lek and Hollandsche IJssel. It specifically plans reinforcement work in Capelle aan den IJssel and says defence failure consequences depend on the protected area's land use.",
+        "HHSK identifies Kralingseveer in Capelle as its largest wastewater treatment plant, serving parts of Rotterdam, Capelle and Lansingerland for about 360,000 people and roughly 100,000 cubic metres per day. HHSK states it generates the electricity needed for its wastewater treatment itself, including biogas use, so a generic municipal drainage-power dependency is not a plant-specific continuity model.",
+        "The generated non-causal intersection contains 101 public water objects: seven sewer pumps, two wastewater plants, 15 surface-water pumps, one sluice and 76 weirs, including Kralingseveer, Groenedijk, Capelle-West, Rivium and Algerasluis context.",
+        "HWH Kunstwerken, Keringen and Waterbeheergebieden IMWA are integration-ready OGC APIs, generally weekly and CC BY-SA 4.0, with provider-supplied and potentially incomplete coverage. Registers do not establish catchments, connectivity, capacity, condition, control logic, emergency power or live operation."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / Watermanagementcentrum Nederland (WMCN)",
+      "title": "Hollandsche IJsselkering, Waterinfo and Landelijk Informatiesysteem Water en Overstromingen",
+      "url": "https://www.rijkswaterstaat.nl/water/waterbeheer/bescherming-tegen-het-water/waterkeringen/deltawerken/hollandsche-ijsselkering",
+      "accessedAt": "2026-09-02T18:50:00Z",
+      "edition": "Current pages and services inspected 2 September 2026; LIWO release page lists 2025.1.6 dated 30 October 2025",
+      "supports": [
+        "Rijkswaterstaat says the two 80-by-12-metre Hollandsche IJsselkering gates protect the lowest part of the Netherlands and close on average three to four times per year. One gate is normally used; both are used only under extreme conditions. Barrier state is therefore a necessary scenario variable, not implied by municipal proximity.",
+        "The generated context assigns one Waterinfo observation at Krimpen aan de IJssel on the Hollandsche IJssel: 106 centimetres NAP at 2026-09-02T17:30:00Z. It was fresh at retrieval but is one timestamped point observation, not a municipality inundation surface, barrier-failure assertion or T+72 forecast.",
+        "Waterinfo exposes parameter/location-specific observations and forecasts, commonly ten-minute water-level series, with a public API and CC0 unless a dataset states otherwise. LIWO provides versioned professional scenario layers for depth, arrival, duration and flow; use requires expert event/defence selection and per-layer metadata.",
+        "LIWO cadence and a single blanket redistribution licence were not established from the public landing pages. Preserve source version, probability/event, defence state, unit, CRS, resolution, issue/valid time and explicit no-data such as -9999; no-data must never become dry or safe."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Rotterdam-Rijnmond (VRR)",
+      "title": "Regionaal Risicoprofiel Rotterdam-Rijnmond 2022–2025",
+      "url": "https://vr-rr.nl/publish/pages/37670/regionaal_risicoprofiel_2022-2025.pdf",
+      "accessedAt": "2026-09-02T18:53:00Z",
+      "edition": "2022–2025 planning profile; expired after 2025",
+      "supports": [
+        "VRR characterizes the region as dense, water-rich and petrochemical. It ranks extreme weather, inner-dike flooding and vital-infrastructure disturbance among its most severe risks and also treats outer-dike flooding, chemical incidents, industrial fire, cyber disruption and nature fire.",
+        "The profile explicitly covers electricity, drinking water, communications, gas, industrial water, sewer/wastewater, food supply and emergency communications, supporting cross-sector scenario scope but not the model's exact service availability values.",
+        "Nature fire is principally described for dune areas and the canonical GM0502 wildfire has zero direct flame; an earthquake remains a low-probability regional context. Neither remote exercise should be presented as a local observed incident.",
+        "This fixed profile is authoritative planning evidence but its edition has expired, it exposes no live operational API, and no standard reuse licence or contractual cadence is stated. A current VRR replacement must supersede it when published."
+      ]
+    },
+    {
+      "publisher": "Provincie Zuid-Holland / Rijkswaterstaat / NDW / ProRail / public-transport publishers",
+      "title": "Algeracorridor agreement and machine-readable road, traffic, rail and timetable sources",
+      "url": "https://www.zuid-holland.nl/publish/besluitenattachments/bestuursovereenkomst-algera-corridor-en-langzaam-verkeerverbinding/bestuursovereenkomst-algeracorridor-en-langzaam-verkeerverbinding-versie-3-9-van.pdf",
+      "accessedAt": "2026-09-02T18:56:00Z",
+      "edition": "2023 corridor agreement; current public feeds inspected 2 September 2026",
+      "supports": [
+        "The agreement identifies the N210 Algeracorridor from Kralingseplein toward Krimpenerwaard as an important Capelle connection, discusses maximum use of existing Algerabrug capacity, an additional Algeraweg lane and a grade-separated Capelseplein. None appears in the two-link A20 causal graph.",
+        "The province exposes traffic-count locations through an OGC Features endpoint including N210/Capelle records; the service metadata inspected did not establish a contractual cadence or standard licence, so those must be recorded before caching.",
+        "RWS NWB OGC is monthly and CC0 1.0; NDW DATEX II supplies timestamped observed road state under dataset-specific open terms; ProRail geometry is editioned/CC0; GTFS is valid only for its feed window. These can support mobility/supply matching but not infer evacuation throughput or future closure.",
+        "Capelle Schollevaar and 88 GTFS stop areas, including metro nodes at Capelle Centrum, De Terp and Rivium, are present as reference context. Timetables and stop points are not operational continuity, accessibility, passenger load or replacement capacity."
+      ]
+    },
+    {
+      "publisher": "Stichting Mijn Aansluiting / KNMI / RDI / RIVM / DUO / Interprovinciaal Overleg",
+      "title": "Public provider-area WMS/WFS, weather APIs and national facility/external-safety registries",
+      "url": "https://wiki.service.mijnaansluiting.nl/wiki/spaces/Wiki/pages/693731329",
+      "accessedAt": "2026-09-02T19:00:00Z",
+      "edition": "Live provider and application context inspected 2 September 2026",
+      "supports": [
+        "A live WMS query at the municipality reference point returns Stedin electricity (provider timestamp 24 March 2026), Stedin gas (17 December 2025), Evides drinking water (12 May 2026) and Ziggo fixed-media context (7 September 2025). No sewer/drainage polygon returned; that is incomplete/no-data, not absence of sewer service.",
+        "The provider WMS/WFS is Public Domain with provider-specific lastUpdated fields and partial/overlapping disciplines. It describes responsibility areas only, not cables/pipes, topology, capacity, current outage, backup, priority or restoration.",
+        "The generated non-causal registers contain IJsselland Hospital, 45 education locations, seven government/public-safety locations, 90 RDI antenna-installation sites and REV external-safety context. Register presence is not live staffing, occupancy, continuity, radio coverage, backhaul, incident or evacuation state.",
+        "KNMI Data Platform current weather/radar products are integration-ready, product-specific 5-/10-minute files/notifications under CC BY 4.0; KNMI'23 climate scenarios are versioned 12-by-12-kilometre NetCDF grids under CC BY 4.0. Observations can bind a named replay and climate grids can support screening, but neither is a local impact forecast."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM0502, Capelle aan den IJssel, Zuid-Holland and safety region Rotterdam-Rijnmond are internally and officially coherent.",
+      "evidenceRefs": ["E01", "E02", "E06"],
+      "notes": [
+        "Generated feature id, municipality bundle, province and exactly one safety-region membership agree.",
+        "Boundary/statistics editions are 2025 and the generated centre [4.591759455449441, 51.935087396429374] is inside the municipality geometry.",
+        "VRR's regional planning profile covers Capelle's governing safety region; the profile itself is now an expired 2022–2025 edition and is not current incident state."
+      ]
+    },
+    "geography": {
+      "status": "warn",
+      "summary": "Administrative topology is coherent, but a 104-position overview polygon and one centre cannot resolve river connectivity, defences, low points, infrastructure or asset catchments.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05"],
+      "notes": [
+        "GM0502 has one multipolygon component and one exterior ring; no obvious component is dropped in the generated overview.",
+        "Use the non-generalized annual PDOK boundary for raster, defence, river, road, building and point assignment; retain the overview only for map selection.",
+        "Rivium, Schollevaar, Oostgaarde, Middelwatering and the Hollandsche IJssel edge have distinct hazard and service mechanisms that a municipal-centre distance cannot allocate."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Generated totals reproduce official 2025 CBS values and neighbourhood population reconciles within publication precision.",
+      "evidenceRefs": ["E01", "E02"],
+      "notes": [
+        "Official/generated population is 68,624, density 4,852 per square kilometre, age 65+ count 15,275 (22.3%) and one-person households 13,084.",
+        "Neighbourhood population sums to 68,620, four below the municipality total (-0.006%); households sum to 32,495 and rounded age-65-plus rows to 15,280.",
+        "The allocator reconciles to the municipality total without rewriting published rows; census residence is not live occupancy at stations, schools, the hospital, Rivium workplaces or events."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "All 79 neighbourhoods and non-residential activity support are retained, but source gaps and synthetic hazard priority prevent operational hotspot use.",
+      "evidenceRefs": ["E01", "E02", "E03", "E08"],
+      "notes": [
+        "All 79 neighbourhoods are present, including ten official zero-resident areas. Housing/composition fields are available for 65/79, household size for 70/79, doctor/supermarket distance for 69/79 and benefit indicators for 66/79.",
+        "District-heating percentage and public-charging count are unavailable in all 79 rows and correctly remain null rather than zero.",
+        "Zero-resident areas retain non-residential activity demand. Compound T+24 includes all 79 rows and reconciles population, affected people-equivalent and each service total."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "One BAG woonplaats and one BRT woonkern are represented without substituting their descriptive totals for CBS control totals.",
+      "evidenceRefs": ["E01", "E02"],
+      "notes": [
+        "Capelle aan den IJssel is the sole BAG woonplaats and BRT/TOP10NL woonkern assigned by point-in-polygon.",
+        "The settlement metadata population of 68,575 is descriptive and is correctly not substituted for the official municipality control total 68,624.",
+        "A place label does not define a hydraulic compartment, service territory, hospital catchment or present population."
+      ]
+    },
+    "transport": {
+      "status": "fail",
+      "summary": "Rail/transit context is rich, but the causal network has only two A20 border links and omits the N210/Algerabrug/local-access system.",
+      "evidenceRefs": ["E02", "E03", "E07"],
+      "notes": [
+        "The graph contains A20 links to Zuidplas and Rotterdam with nominal capacities 260 and distances 1.241 and 1.114 kilometres; it contains no N210, Algerabrug, Capelseplein, metro or local road-passability edge.",
+        "Capelle Schollevaar station and 88 GTFS stop areas provide reference/schedule context, not live operation, passenger load, accessibility, replacement service or evacuation throughput.",
+        "The municipality's public climate atlas classifies 298 road segments impassable under its source scenario, but these do not alter model mobility. Current road observations must stay timestamped context and must not become a synthetic T+72 closure forecast."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "Strong public water, facility, communications and external-safety context is present but cannot support the precise incident, exposure or service-state claims currently shown.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E08"],
+      "notes": [
+        "The generated intersection contains 101 water assets, IJsselland Hospital, 45 education locations, seven government/public-safety points, 90 antenna sites, one fresh Waterinfo station observation and REV external-safety context.",
+        "All are correctly marked affectsSimulation=false. They do not establish breach, catchment, operating state, facility continuity, coverage, outage, evacuation or response-resource availability.",
+        "No RIVM PM2.5 station is assigned to GM0502; this is no local observation/no-data, not zero particulate concentration or safe air."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten canonical presets execute at all six checkpoints across all eight services with complete finite output.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "MUNICIPALITY_AUDIT_CODE=GM0502 pnpm audit:model passed one file/two tests in the final current-code rerun (28.97 seconds; 28.79 seconds in tests); a separate focused reproduction also passed.",
+        "At T+24/T+72: storm current severity is 0.138402/0 with attributable burden 355,961.630/879,374.900; pluvial 0.526838/0 with 427,488.710/1,010,600.600; river 0.680786/0.680786 with 678,609.270/2,641,357.730 person-hours.",
+        "Coastal T+24 has severity 0.434492, stress 1.144847, gust 26.473351 m/s, 37,379 affected and 657,084.580 person-hours; by T+72 physical forcing is zero, 6,223 remain affected and burden is 2,142,647.650.",
+        "Heat T+24 has current severity 0.102466, 25.3002 degrees Celsius, drought 0.569255, 3,661 affected and T+72 burden 472,434.570. Winter T+24 is 0.603623 with -6.5699 degrees Celsius, snow 3.2043 and 24,332 affected; T+72 burden is 1,068,339.560.",
+        "Cyber T+24 is 0.430315 with 17,795 affected and T+72 residual disruption 0.050502/burden 1,038,259.590. Earthquake peak severity is 0.005179 with zero affected; wildfire T+24 has zero flame, smoke 0.240277, drought 0.529657 and zero affected. Both are synthetic remote exercises.",
+        "Compound T+24 severity is 0.941143 with rain 49.9296 mm/h, stress 0.753488, gust 28.8359 m/s, cyber disruption 0.443054 and 48,723 affected. At T+72 stress remains 0.753488, cyber 0.057624, 48,774 are affected and burden is 2,975,817.270."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Determinism, finite bounds, exact no-event semantics, local allocation, reconciliation, cumulative burden and layer invariance pass.",
+      "evidenceRefs": [],
+      "notes": [
+        "All service availability stays in [0,1]; hazard dimensions, demand, delivery, affected people-equivalent and event-attributable person-hours remain finite and non-negative.",
+        "For all ten presets and six checkpoints, intensity zero gives exactly zero current/peak event severity, affected population and event-attributable essential-service person-hours.",
+        "Compound T+24 local rows sum to 68,624 residents and 48,723 affected people-equivalent; all eight demand/delivery totals reconcile with maximum floating discrepancy 1.78×10^-14.",
+        "Repeated frames are deterministic, cumulative event-attributable burden never decreases, route flow respects effective capacity, and all selectable map layers leave hazard, system pressure and affected population invariant."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "Flood scenarios lack a hydraulic footprint and one common seed gives unrelated hazards the same neighbourhood order.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E08"],
+      "notes": [
+        "At T+24 pluvial, coastal, heat and wildfire rank all 79 neighbourhoods in exactly the same order: Rozenburcht, Hovenbuurt, Klaverweide, Koperwiek, Rossinibuurt and AWZI Rivium lead.",
+        "The municipal atlas instead shows the maximum queried affected-building depth in Rivium Promenade (1.44), followed by Oude Kern (0.71), Zeeheldenbuurt-oost (0.69) and Fascinatio-west (0.68); model-leading Rozenburcht, Klaverweide and Rossinibuurt have queried maxima of 0.07, 0.05 and 0.04. The atlas scenario/units still require publisher confirmation, so this rejects the common ranking rather than calibrating exact impact.",
+        "River and coastal are generated from simplified distance screens, not a selected Hollandsche IJssel barrier/defence state or connected flow surface. River T+72 applies 2.200977 stress and affects 40,996 people-equivalent despite no selected breach, water level, probability, arrival or dewatering path.",
+        "Wildfire has zero local flame and remote smoke; earthquake is a weak remote Groningen exercise. Neither may be relabelled as a local observed event."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "All eight balances calculate coherently, but A20 road proxies replace sector topology and ignore locally material corridor and wastewater resilience.",
+      "evidenceRefs": ["E03", "E04", "E07", "E08"],
+      "notes": [
+        "Compound T+24 availability is power 0.419490, water 0.302221, drainage 0.270351, gas 0.567008, telecom 0.194594, mobility 0.431161, facilities 0.316178 and supply 0.360001.",
+        "Every service exposes the same two A20 route IDs with transferSemantics logical-proxy. Flow differs, but no public source establishes A20 road segments as electricity, drinking-water, drainage, gas, telecom or facility transfer topology.",
+        "The model omits the N210/Algerabrug/metro/rail access system for mobility/supply and does not use the public local road-passability layer; exact flows and restoration are therefore scenario indices, not throughput claims.",
+        "HHSK's Kralingseveer catchment and self-generated wastewater-treatment electricity are not represented. Public assets/provider areas still do not disclose enough safe topology or live status for a physical substitute."
+      ]
+    },
+    "causalTrace": {
+      "status": "warn",
+      "summary": "Numerical ledgers close and public overlays remain non-causal, but a derived flood screen is still translated into precise direct exposure and service consequences.",
+      "evidenceRefs": ["E03", "E04", "E05", "E08"],
+      "notes": [
+        "Hazard contributions sum to headline severity; each service baseline plus ordered stage deltas sums to availability; eight weighted service-pressure contributions sum to municipality pressure.",
+        "Drivers, dependencies, local allocation and restoration counterfactuals are finite and arithmetically closed. Preparedness changes modeled consequences rather than physical forcing.",
+        "A headless Chromium workflow loaded Capelle, selected river flood and T+24 without page or console errors. The inspector labels the source 'Scenario · evidence class derived-screening' and public Waterinfo/ROR/HWH/provider layers explicitly non-causal.",
+        "The same screen is nevertheless rendered as 100% inundation stress and drives exact affected/service values. Arithmetic explainability does not supply the missing barrier, event, footprint or local calibration."
+      ]
+    },
+    "recovery72h": {
+      "status": "warn",
+      "summary": "Standing-water recovery guards behave correctly, but all local restoration rates remain synthetic and uncalibrated to operators or dewatering.",
+      "evidenceRefs": ["E03", "E04", "E05", "E07", "E08"],
+      "notes": [
+        "River forcing persists for 168 hours; at T+72 all eight recoveryProgress values remain zero under 2.200977 standing-water stress. Compound also retains 0.753488 stress and keeps all eight recovery values at zero.",
+        "Coastal forcing has ended by T+72 and modeled recovery ranges approximately 0.449–0.887, leaving 6,223 affected, without an event-specific barrier, drainage/dewatering, access or operator repair schedule.",
+        "Storm, pluvial, winter, earthquake and wildfire direct forcing has ended by T+72; cumulative attributable burden correctly does not decrease. Heat/cyber follow their deterministic preset schedules.",
+        "The corrected zero-intensity and sustained-flood mechanics work as intended, but no source validates an exact GM0502 availability or recovery percentage."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": [
+      "power",
+      "water",
+      "drainage",
+      "gas",
+      "telecom",
+      "mobility",
+      "facilities",
+      "supply"
+    ]
+  },
+  "findings": [
+    {
+      "id": "GM0502-DATA-001",
+      "severity": "informational",
+      "category": "identity",
+      "status": "fixed",
+      "summary": "Generated identity, regional membership, demographic totals and official small-area structure are coherent.",
+      "evidence": "CBS gives 68,624 residents; 79 neighbourhood rows sum to 68,620 (-0.006%) and are reconciled without rewriting observations. Code, name, province, safety region, one BAG place and one BRT woonkern agree.",
+      "action": "Retain source editions, full-resolution boundary access, rounding/suppression rules, published-versus-allocated totals and null semantics on each refresh."
+    },
+    {
+      "id": "GM0502-NODATA-001",
+      "severity": "informational",
+      "category": "regional-data",
+      "status": "fixed",
+      "summary": "Unavailable neighbourhood and monitoring values remain unknown rather than false zero/safe observations.",
+      "evidence": "District-heating and public-charging fields are unavailable for all 79 neighbourhoods and remain null. No local RIVM PM2.5 station and no provider sewer polygon were returned; neither absence means zero pollution or no drainage service.",
+      "action": "Keep explicit availability, query time, completeness and no-data metadata through ingestion, aggregation and UI rendering."
+    },
+    {
+      "id": "GM0502-FLOOD-SCENARIO-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Generic river/coastal distance screens create precise municipality-wide inundation impacts without a selected hydraulic event or defence state.",
+      "evidence": "River T+72 reports 2.200977 normalized inundation stress, 40,996 affected and 2,641,357.730 attributable person-hours while forcing continues; coastal T+24 reports 1.144847 stress and 37,379 affected. The UI can show 100% inundation stress. RWS documents an actively operated Hollandsche IJsselkering and HHSK documents reach-specific defences, but the run selects no barrier/segment state, breach/overflow, level, probability, connected footprint, arrival, duration or dewatering curve.",
+      "action": "Mark direct river/coastal local exposure unsupported/unknown until an expert selects a versioned LIWO/HHSK/RWS event tied to an explicit defence state and full-resolution GM0502. Do not suppress real flood risk to zero; retain only clearly labelled screening diagnostics."
+    },
+    {
+      "id": "GM0502-SPATIAL-SEED-001",
+      "severity": "high",
+      "category": "geography",
+      "status": "open",
+      "summary": "A single synthetic neighbourhood order is reused for physically unrelated hazards and conflicts with the public municipal climate atlas.",
+      "evidence": "Pluvial, coastal, heat and wildfire have the identical 79-neighbourhood T+24 order, led by Rozenburcht and Hovenbuurt. The atlas's current queried affected-building maximum instead peaks in Rivium Promenade at 1.44, and it exposes 298 impassable road segments with their own spatial pattern. Because the atlas lacks complete scenario/unit/licence/cadence metadata, it cannot yet calibrate exact effects, but it invalidates the shared synthetic order as local evidence.",
+      "action": "Replace the common seed with hazard-specific, versioned surfaces/targets; label current neighbourhood values synthetic and suppress hotspot language until source scenario, units, resolution, no-data and licence are confirmed."
+    },
+    {
+      "id": "GM0502-MOBILITY-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "The two-link A20 graph omits Capelle's N210/Algerabrug, metro, rail and local road-passability dependencies.",
+      "evidence": "Only two A20 border links appear, while the provincial agreement identifies the N210 Algeracorridor/Algerabrug as a critical connection. The atlas exposes 298 scenario-impassable road segments, and Capelle has one rail station and 88 GTFS stop areas including metro nodes; none can change mobility, supply, access or evacuation state.",
+      "action": "Build an explicitly mobility/supply-only network using NWB, verified N210/Algerabrug links, feed-valid GTFS/ProRail and event-valid NDW plus source-defined local passability. Do not infer future closure or throughput from a context record alone."
+    },
+    {
+      "id": "GM0502-WATER-DRAINAGE-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "open",
+      "summary": "Generic drainage/power logic cannot represent the Kralingseveer treatment system, catchments or HHSK's stated energy resilience.",
+      "evidence": "Public context includes 101 water objects and HHSK describes Kralingseveer as its largest plant, serving about 360,000 people/100,000 m³ per day across municipalities, with wastewater-treatment electricity generated by HHSK itself. The model uses municipality-average generic dependencies and road proxies, so it cannot attribute an exact Kralingseveer outage or recovery.",
+      "action": "Use HWH/HHSK registers only as context until safe aggregate catchment, capacity, self-supply/backup and continuity data are authorized. Then create service-specific aggregate nodes; otherwise keep exact physical topology and status unknown."
+    },
+    {
+      "id": "GM0502-UTILITY-FACILITY-001",
+      "severity": "medium",
+      "category": "limitation",
+      "status": "accepted-limitation",
+      "summary": "Provider, antenna and facility registers do not disclose complete physical topology, live capacity or restoration state.",
+      "evidence": "Provider WMS identifies Stedin, Evides and Ziggo responsibility at the reference point; context includes IJsselland Hospital, 45 education locations, seven government/public-safety points and 90 antenna sites. None establishes connectivity, pressure/flow, radio coverage/backhaul, staffing, occupancy, generator endurance, stock, outage or repair commitment.",
+      "action": "Prefer authorized safe aggregate operator interfaces. Where unavailable or security-sensitive, retain unknown fields and transparent service-specific synthetic fallbacks without operator attribution or reverse-engineering."
+    },
+    {
+      "id": "GM0502-REGIONAL-RISK-001",
+      "severity": "medium",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Industrial/external-safety and target-specific cyber pathways are important regional context but absent from the canonical local causal event set.",
+      "evidence": "VRR emphasizes petrochemical, chemical, industrial-fire, cyber and vital-infrastructure risk; REV context is visible but correctly non-causal. The cyber preset has no selected local target or observed incident, while wildfire and earthquake are remote exercises. The expired 2022–2025 profile cannot stand in for live status.",
+      "action": "Keep REV/VRR context non-causal and add only separately named, source-timestamped or transparently synthetic local exercise pathways after governance review; never treat a registry object as an incident."
+    },
+    {
+      "id": "GM0502-CONTRACT-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The complete numerical, allocation, causal-ledger, checkpoint and sustained-flood contract passes for GM0502.",
+      "evidence": "The focused gate covers ten presets, six checkpoints and eight services. Values are finite/deterministic, zero intensity is exact, local totals reconcile, ledgers close arithmetically, burden is monotone, layer selection is invariant and standing water blocks repair. Browser inspection preserves official overlays as non-causal context.",
+      "action": "Keep GM0502 and national ALL coverage in regression and add defence-selection, hazard-specific neighbourhood rank, N210/Algerabrug and Kralingseveer safe-aggregate assertions."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Replace GM0502 river/coastal distance screens with an explicit defence-dependent hydraulic scenario and honest unsupported/no-data states.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/public/data/hazards/GM0502-flood-context.json",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/MapView.tsx"
+      ],
+      "validation": "Best machine source is expert-selected RWS/WMCN LIWO OGC from https://basisinformatie-overstromingen.nl/geoserver/ows (versioned maximum-depth, arrival, duration and flow scenario grids; latest public release page lists 2025.1.6; cadence and blanket redistribution licence not established), combined with HWH Keringen IMWA https://api.pdok.nl/hwh/waterschappen-keringen-imwa/ogc/v1 (weekly, CC BY-SA 4.0) and event-valid RWS Waterinfo (parameter/location-specific, commonly ten-minute, CC0 unless stated). Use annual full-resolution PDOK CBS geometry (CC BY 4.0). Require barrier/defence segment and state, overflow/breach, water-level hydrograph, probability, unit, CRS, resolution, issue/valid time, arrival/recession and explicit no-data. Until approved, expose screen values only as non-operational diagnostics and assert that the UI cannot show them as supported local depth/percentage."
+    },
+    {
+      "summary": "Replace the shared neighbourhood seed with hazard-specific Capelle spatial adapters while preserving source/scenario provenance.",
+      "files": [
+        "scripts/fetch-realism-data.mjs",
+        "apps/web/public/data/hazards/GM0502-climate-context.json",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "The municipality's ArcGIS MapServer https://geo.capelleaandenijssel.nl/arcgis/rest/services/Klimaatatlas/MapServer exposes REST JSON/GeoJSON/PBF plus WMS/WFS, including 3,063 affected-building polygons, 3,166 road segments and 321,851 flow paths in the current response. Before caching, obtain written publisher confirmation for reuse licence, contractual cadence, layer edition, rainfall/design event, units, raster/vector resolution and no-data because service metadata omit them. PDOK AHN WCS and BGT can supply open terrain/surface covariates with their own metadata; KNMI Data Platform 5-/10-minute weather/radar files (CC BY 4.0) can bind a named replay but are not impact surfaces. Tests must reject identical full neighbourhood rankings across unrelated hazards and keep empty/unknown cells distinct from zero exposure."
+    },
+    {
+      "summary": "Model the N210/Algerabrug, rail/metro and local-access system for mobility/supply without cloning roads into utilities.",
+      "files": [
+        "scripts/fetch-realism-data.mjs",
+        "scripts/apply-audited-lifelines.mjs",
+        "apps/web/public/data/transport-network.json",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/MapView.tsx"
+      ],
+      "validation": "Use RWS NWB OGC https://api.pdok.nl/rws/nationaal-wegenbestand-wegen/ogc/v1 (monthly, CC0 1.0) for routable reference, Province Zuid-Holland OGC traffic features https://geodata.zuid-holland.nl/geoserver/ogc/features/v1/collections/verkeer%3AVERKEERSINTENSITEIT_MEETPUNTEN_MET_PDF/items (publisher cadence/licence not established), timestamped NDW DATEX II observations under dataset-specific terms, ProRail editioned CC0 reference data and feed-valid OVapi GTFS. The municipal passability layer may be used only after the missing scenario/licence metadata are confirmed. Preserve observation/validity times and do not derive future closure, emergency routing or evacuation throughput without an explicit scenario. Assert N210/Algerabrug/local access can affect only mobility/supply unless a separately sourced sector dependency exists, and remove A20 route IDs from the other six services."
+    },
+    {
+      "summary": "Represent HHSK wastewater and other utilities/facilities as safe service-specific aggregates, using public registers as context rather than inferred topology.",
+      "files": [
+        "scripts/fetch-realism-data.mjs",
+        "scripts/apply-audited-lifelines.mjs",
+        "apps/web/public/data/water-system-context.json",
+        "apps/web/public/data/facilities/GM0502-context.json",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "HWH Kunstwerken/Waterketen DAMO OGC endpoints such as https://api.pdok.nl/hwh/waterschappen-kunstwerken-imwa/ogc/v2 and https://api.pdok.nl/hwh/waterschappen-waterketen-damo/ogc/v1 are CC BY-SA 4.0 with provider timestamps/variable completeness; they locate assets but do not give verified catchments, capacity, control, current state or backup. Mijn Aansluiting WMS/WFS https://service.mijnaansluiting.nl/mijn-aansluiting/wms is Public Domain with provider-specific timestamps and incomplete/overlapping disciplines; it is territory only. RIVM acute care, DUO education, RDI antennas and REV remain dataset-versioned non-causal registers. Request authorized HHSK/operator safe aggregates for Kralingseveer catchment, self-supply, continuity and restoration plus facility role/capacity. If unavailable or sensitive, keep them unknown and use transparent aggregate synthetic indices; test that no road/provider/register geometry is presented as physical topology or live state."
+    }
+  ],
+  "residualLimitations": [
+    "This audits a deterministic first-72-hour exercise model, not a forecast, warning, flood assessment, evacuation plan, outage statement or operator commitment.",
+    "CBS 2025 small-area values are rounded/suppressed and neighbourhood sums need not equal municipality totals; null district-heating, charging, air-quality or provider results are unknown, not zero.",
+    "Resident population does not equal present people at IJsselland Hospital, schools, metro/rail nodes, Rivium workplaces, shops or events; no authoritative timestamped occupancy is consumed.",
+    "The 104-position overview boundary is suitable for selection, not hydraulic, defence, road, building, catchment or asset intersection; use full-resolution PDOK geometry.",
+    "HHSK/RWS/HWH defence and water-asset registers describe legal/physical context, not current condition, barrier operation, failure probability, inundation footprint, arrival, flow, dewatering or repair performance.",
+    "The municipal climate atlas is unusually useful machine-readable local context, but missing licence, cadence, scenario, unit and some layer-description metadata prevent unqualified causal integration.",
+    "Waterinfo, NDW and KNMI observations can support timestamped context or a named replay; they do not create a generic T+72 inundation, traffic, weather-impact, outage or restoration forecast.",
+    "The VRR 2022–2025 profile is expired planning context and does not provide live incidents, crews, shelters, logistics, facility state, industrial plumes or continuity resources.",
+    "Provider territories, antennas, facilities, REV objects, GTFS stops, NWB roads and ProRail stations do not establish connectivity, capacity, operational state, occupancy, backup, priority or restoration.",
+    "No complete public physical electricity, drinking-water, wastewater, gas, telecom, facility, fuel, stock, staff, backup, repair or restoration topology is consumed; unavailable/security-sensitive gaps remain unknown or synthetic.",
+    "The Groningen earthquake and remote-wildfire presets are exercises; cyber has no selected GM0502 target, and generic weather presets are synthetic unless bound to a named replay.",
+    "Recovery after T+72, cross-boundary wastewater/service catchments, Krimpenerwaard/Rotterdam dependencies and mutual-aid/resource constraints remain outside locally validated scope."
+  ],
+  "provinceReviewFlags": [
+    "GM0502-FLOOD-SCENARIO-001 — Zuid-Holland/HHSK/Rijkswaterstaat/WMCN must require an expert-selected, versioned Hollandsche IJssel/LIWO event and explicit barrier/defence state before direct flood depth/exposure is releasable.",
+    "GM0502-SPATIAL-SEED-001 — Capelle/Zuid-Holland/HHSK must establish licence, cadence, scenario, units, resolution and no-data for the public climate-atlas layers and replace the common hazard ranking.",
+    "GM0502-MOBILITY-001 — Zuid-Holland/RWS/NDW/ProRail/transit partners must represent N210/Algerabrug, metro/rail and local access for mobility/supply without turning current/reference records into future closures or capacity.",
+    "GM0502-WATER-DRAINAGE-001 — HHSK/Evides/Stedin and relevant operators should provide safe aggregate catchment, continuity and restoration interfaces where releasable; otherwise Kralingseveer and utility status must remain unknown rather than derived from roads or registries.",
+    "Rotterdam-Rijnmond/VRR and municipal partners should publish the current successor to the expired 2022–2025 risk profile with version, cadence, access terms and machine-readable scenario references where available."
+  ]
+}

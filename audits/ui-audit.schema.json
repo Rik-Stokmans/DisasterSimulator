@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rikstokmans.com/schemas/disaster-simulator/ui-audit-1.0.0.json",
+  "title": "Disaster Simulator independent UI optimization audit",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "kind",
+    "track",
+    "agent",
+    "executiveSummary",
+    "methods",
+    "measurements",
+    "findings",
+    "implementedChanges",
+    "rejectedRecommendations",
+    "validation",
+    "residualLimitations"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" },
+    "kind": { "const": "ui-optimization-audit" },
+    "track": {
+      "enum": ["runtime-map-performance", "operations-workflow", "accessibility-mobile-visualization"]
+    },
+    "agent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["taskName", "agentId", "completedAt"],
+      "properties": {
+        "taskName": { "type": "string", "pattern": "^ui_[a-z0-9_]+$" },
+        "agentId": { "type": "string", "minLength": 1 },
+        "completedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "executiveSummary": { "type": "string", "minLength": 40 },
+    "methods": {
+      "type": "array",
+      "minItems": 2,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "measurements": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["metric", "unit", "environment", "before", "after", "interpretation"],
+        "properties": {
+          "metric": { "type": "string", "minLength": 1 },
+          "unit": { "type": "string", "minLength": 1 },
+          "environment": { "type": "string", "minLength": 1 },
+          "before": { "type": ["number", "string", "null"] },
+          "after": { "type": ["number", "string", "null"] },
+          "interpretation": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "findings": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/finding" }
+    },
+    "implementedChanges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["summary", "files", "linkedFindingIds"],
+        "properties": {
+          "summary": { "type": "string", "minLength": 1 },
+          "files": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+          "linkedFindingIds": { "type": "array", "items": { "type": "string", "minLength": 1 } }
+        }
+      }
+    },
+    "rejectedRecommendations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["summary", "reason"],
+        "properties": {
+          "summary": { "type": "string", "minLength": 1 },
+          "reason": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "validation": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["command", "status", "result"],
+        "properties": {
+          "command": { "type": "string", "minLength": 1 },
+          "status": { "enum": ["pass", "fail", "not-run"] },
+          "result": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "residualLimitations": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    }
+  },
+  "$defs": {
+    "finding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "priority", "status", "summary", "evidence", "recommendation"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "priority": { "enum": ["critical", "high", "medium", "low"] },
+        "status": { "enum": ["implemented", "accepted-pending", "rejected", "observation"] },
+        "summary": { "type": "string", "minLength": 1 },
+        "evidence": { "type": "string", "minLength": 1 },
+        "recommendation": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}

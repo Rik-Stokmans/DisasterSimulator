@@ -1,0 +1,747 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0060",
+    "name": "Ameland",
+    "province": "Fryslân",
+    "safetyRegion": "Fryslân"
+  },
+  "agent": {
+    "taskName": "municipality_gm0060",
+    "agentId": "/root/nl_realism_audit",
+    "completedAt": "2026-09-02T13:05:00Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "Ameland's generated 2025 identity, generalized boundary, 3,800 residents, seven neighbourhoods, four BAG woonplaatsen, five BRT settlements and Veiligheidsregio Fryslân assignment are coherent, and the dedicated ten-preset by six-checkpoint by eight-service deterministic model gate passes. Official neighbourhood populations reconcile exactly to the municipality, null CBS district-heating and charging fields remain unavailable rather than zero, local allocations close and the major-river preset correctly gives Ameland no direct Rhine/Meuse/IJssel forcing. A correction-required verdict is nevertheless necessary for the first-72-hour island use case. The simulation network gives Ameland zero intermunicipal links even though the app's own GTFS context contains the Holwerd–Ameland ferry and Rijkswaterstaat and the municipality describe that connection as essential for people, goods, care and welfare. Consequently the model cannot represent storm-driven island isolation, mainland reinforcement, evacuation, medical transfer or replenishment. Demand and affected people-equivalent use only 3,800 residents although municipal sources report about 2.01 million annual overnight stays and a visitor study cites 666,832 non-island residents transported in 2022. The coastal preset is a generic proximity/seed screen: official planning describes a primary-barrier breach near Nes, detection after 30 minutes, extensive Nes inundation within three hours, loss of electricity, drinking water and calling, on-island shelter/high-ground movement and no mainland evacuation until the storm subsides; the model instead gives Hollum the highest local coastal hazard at T+24 and has no breach, arrival, refuge, ferry or evacuation state. Public aggregate evidence also establishes a two-thirds mainland wad-main drinking-water dependency, a local sweet-water lens, Ameland wastewater treatment, planned Buren/Nes east-west electricity structure and island-specific CoWa/geneeskundige response. None is represented as a typed dependency or facility. Exact availability, backup, restoration, impact and person-hour values therefore remain transparent scenario outputs—not forecasts, operator topology, current capacity or commitments.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek",
+      "title": "E01 — Kerncijfers wijken en buurten 2025, municipality and neighbourhood rows for GM0060",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM0060%27%29&%24select=WijkenEnBuurten%2CAantalInwoners_5%2CBevolkingsdichtheid_34%2Ck_65JaarOfOuder_12%2CEenpersoonshuishoudens_30",
+      "accessedAt": "2026-09-02T13:05:00Z",
+      "edition": 2025,
+      "supports": [
+        "Official GM0060 resident population of 3,800 and density of 67 residents per square kilometre.",
+        "Official age-65-plus share of 25.6% and 760 one-person households.",
+        "Reference totals for generated-data and local-allocation reconciliation."
+      ]
+    },
+    {
+      "publisher": "PDOK / Centraal Bureau voor de Statistiek",
+      "title": "E02 — CBS Gebiedsindelingen 2025, generalized municipality collection",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_gegeneraliseerd/items?f=json&limit=1000&datetime=2025-07-01T00%3A00%3A00Z",
+      "accessedAt": "2026-09-02T13:05:00Z",
+      "edition": 2025,
+      "supports": [
+        "Authoritative generalized GM0060 code, name and island geometry.",
+        "Boundary used for the generated municipal centre and point-in-polygon audit."
+      ]
+    },
+    {
+      "publisher": "PDOK / Centraal Bureau voor de Statistiek",
+      "title": "E03 — CBS Gebiedsindelingen 2025, generalized neighbourhood collection",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/buurt_gegeneraliseerd",
+      "accessedAt": "2026-09-02T13:05:00Z",
+      "edition": 2025,
+      "supports": [
+        "Seven generated neighbourhood geometries in one district for GM0060.",
+        "Administrative areas used for local allocation, not flood compartments, utility zones or response catchments."
+      ]
+    },
+    {
+      "publisher": "PDOK / Kadaster",
+      "title": "E04 — Basisregistratie Adressen en Gebouwen, woonplaats collection",
+      "url": "https://api.pdok.nl/kadaster/bag/ogc/v2/collections/woonplaats",
+      "accessedAt": "2026-09-02T13:05:00Z",
+      "edition": "retrieved 2026-08-31",
+      "supports": [
+        "Four active BAG woonplaats polygons assigned by bronhouder GM0060: Ballum, Buren, Hollum and Nes.",
+        "The polygons extend over substantial municipal water areas, so their geometric centroids are not village-centre labels."
+      ]
+    },
+    {
+      "publisher": "PDOK / Kadaster",
+      "title": "E05 — BRT TOP10NL plaats_vlak collection",
+      "url": "https://api.pdok.nl/kadaster/brt-top10nl/ogc/v1/collections/plaats_vlak",
+      "accessedAt": "2026-09-02T13:05:00Z",
+      "edition": "source date 2025-07-01 in generated features",
+      "supports": [
+        "Five generated settlement polygons: Ballum, Buren, Hollum and Nes as woonkernen and Kooiplaats as a gehucht.",
+        "BRT settlement type is descriptive geography and not emergency capacity or a substitute for BAG/CBS concepts."
+      ]
+    },
+    {
+      "publisher": "PDOK / Centraal Bureau voor de Statistiek",
+      "title": "E06 — CBS generalized safety-region collection",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/veiligheidsregio_gegeneraliseerd",
+      "accessedAt": "2026-09-02T13:05:00Z",
+      "edition": 2025,
+      "supports": [
+        "Unique GM0060 membership of Veiligheidsregio Fryslân.",
+        "Administrative response-region geography, not resource or response-time evidence."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / PDOK",
+      "title": "E07 — Nationaal Wegenbestand wegvakken",
+      "url": "https://service.pdok.nl/rws/nationaal-wegenbestand-wegen/wfs/v1_0?service=WFS&version=2.0.0&request=GetCapabilities",
+      "accessedAt": "2026-09-02T13:05:00Z",
+      "edition": "NWB-Light 2026-08-01",
+      "supports": [
+        "Road geometry underlying the generated logical transport graph.",
+        "The absence of a road boundary crossing for an island does not establish the absence of transport, supply or medical links."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat",
+      "title": "E08 — Bereikbaarheid Waddeneilanden",
+      "url": "https://www.rijkswaterstaat.nl/water/waterbeheer/beheer-en-ontwikkeling-rijkswateren/waddenzee/bereikbaarheid-waddeneilanden",
+      "accessedAt": "2026-09-02T13:05:00Z",
+      "edition": 2026,
+      "supports": [
+        "The Wadden islands remain accessible by ferry through managed channels and ferry facilities.",
+        "Channels move and are dredged daily to preserve width and depth.",
+        "Approximately half of the roughly EUR 7.5 million annual Wadden channel-maintenance cost is used to keep Ameland accessible."
+      ]
+    },
+    {
+      "publisher": "Gemeente Ameland",
+      "title": "E09 — Toerismebeleid ‘Van meer naar beter’",
+      "url": "https://cuatro.sim-cdn.nl/ameland/uploads/def_toerismebeleid_ameland.pdf",
+      "accessedAt": "2026-09-02T13:05:00Z",
+      "edition": "adopted 24 April 2023; facts include data through 2021",
+      "supports": [
+        "The municipality calls the mainland connection through Holwerd the island's lifeline for guests, goods, care and welfare.",
+        "Annual overnight stays grew from about 1.95 million to 2.01 million over ten years.",
+        "Nes is described as the tourist centre, and visitor pressure affects infrastructure, services, energy demand and seasonal staffing."
+      ]
+    },
+    {
+      "publisher": "Gemeente Ameland / Bureau voor Ruimte & Vrije Tijd",
+      "title": "E10 — Bezoekersonderzoek Ameland 2022–2023",
+      "url": "https://cuatro.sim-cdn.nl/ameland/uploads/bezoekersonderzoek_ameland_-_definitief_rapport_november_2023.pdf",
+      "accessedAt": "2026-09-02T13:05:00Z",
+      "edition": "October/November 2023",
+      "supports": [
+        "The report cites 666,832 non-island residents transported by Wagenborg in 2022 as an annual visitor-order proxy, not a concurrent or unique-visitor count.",
+        "The visitor survey had 1,142 respondents but explicitly was not representative of all visitors because online vehicle reservations dominated recruitment.",
+        "A period with only one ferry caused cancellations and rebookings, demonstrating that a displayed schedule is not guaranteed capacity."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Fryslân",
+      "title": "E11 — Risico’s in de gemeente Ameland",
+      "url": "https://www.risicosinfryslan.nl/gemeente/ameland",
+      "accessedAt": "2026-09-02T13:05:00Z",
+      "edition": "current through January 2026 incident lists",
+      "supports": [
+        "Ameland-specific risk selection includes island flooding, water nuisance, nature fire, cold, heat, drought, electricity and gas outage, drinking-water contamination, wastewater-treatment outage and speech/data outage.",
+        "The current list does not identify Rhine/Meuse/IJssel major-river flooding as an Ameland risk mechanism.",
+        "Current public profile context reports 3,840 inhabitants, an edition difference from the simulator's cited CBS 2025 figure rather than proof of a generated-data error."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Fryslân",
+      "title": "E12 — Risico Overstroming eiland",
+      "url": "https://www.risicosinfryslan.nl/risico/overstroming%20eiland",
+      "accessedAt": "2026-09-02T13:05:00Z",
+      "edition": "current through January 2026 incident list",
+      "supports": [
+        "The planning scenario is a northeast storm and spring tide on Ameland with warning two days in advance.",
+        "The primary barrier fails near Nes, is detected after about 30 minutes and inundates large parts of the industrial area and Nes within three hours.",
+        "Electricity, drinking water and calling fail; campsites are evacuated to a sports hall, people first move to high ground on the island and cannot be taken to the mainland until the storm subsides.",
+        "The scenario includes fewer than 4,000 directly affected and fewer than 40,000 involved people and wastewater-treatment impacts."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Fryslân",
+      "title": "E13 — Risico Natuurbrand",
+      "url": "https://www.risicosinfryslan.nl/risico/natuurbrand",
+      "accessedAt": "2026-09-02T13:05:00Z",
+      "edition": "current through January 2026 incident list",
+      "supports": [
+        "Dune areas of the Wadden islands are explicitly nature-fire terrain.",
+        "The island scenario notes limited local firefighters and equipment and more than two hours before mainland fire units can arrive.",
+        "Recreation population, difficult terrain, smoke and evacuation are material parts of island fire response."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Fryslân",
+      "title": "E14 — Risico Uitval elektriciteitsvoorziening",
+      "url": "https://www.risicosinfryslan.nl/risico/uitval%20elektriciteitsvoorziening",
+      "accessedAt": "2026-09-02T13:05:00Z",
+      "edition": "current through January 2026 incident list",
+      "supports": [
+        "Liander is the regional distribution operator and power loss can cascade into transport, retail, fuel, payment, heating, telecom, drinking water and wastewater treatment.",
+        "The profile says complete restoration can take days and in some cases more than a week, without making an Ameland restoration commitment.",
+        "It records a prolonged Ameland power outage on 16 April 2021."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Fryslân",
+      "title": "E15 — Risico Uitval gasvoorziening",
+      "url": "https://www.risicosinfryslan.nl/risico/uitval%20gasvoorziening",
+      "accessedAt": "2026-09-02T13:05:00Z",
+      "edition": "current through January 2026 incident list",
+      "supports": [
+        "Gas outage is applicable to Ameland and can remove space heating, hot water and cooking during cold weather.",
+        "A regional contamination scenario requires house-by-house isolation and phased reconnection and takes eight to ten days; it is not a local asset guarantee or generic recovery curve."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Fryslân",
+      "title": "E16 — Risico Uitval spraak- en datacommunicatie",
+      "url": "https://www.risicosinfryslan.nl/risico/uitval-spraak-en-datacommunicatie",
+      "accessedAt": "2026-09-02T13:05:00Z",
+      "edition": "current through January 2026 incident list",
+      "supports": [
+        "Telecom/ICT loss can affect 112, C2000/P2000, payments, traffic and utility operations across provincial boundaries.",
+        "Cybercrime can trigger the disruption; the illustrated two-day restoration is a regional hypothetical scenario, not an operator promise."
+      ]
+    },
+    {
+      "publisher": "Vitens",
+      "title": "E17 — Drinkwater in Friesland: bijzondere situatie Waddeneilanden",
+      "url": "https://www.vitens.nl/over-water/projecten/friesland",
+      "accessedAt": "2026-09-02T13:05:00Z",
+      "edition": 2026,
+      "supports": [
+        "Ameland has a fresh-water lens surrounded by salt water and replenished by infiltrating rain.",
+        "Ameland and Terschelling receive two-thirds of their drinking water through a wad main from the mainland.",
+        "Drought, demand growth and salinisation are public aggregate resilience context; pressure zones, controls, stocks and restoration remain non-public."
+      ]
+    },
+    {
+      "publisher": "Gemeente Ameland / Overheid.nl",
+      "title": "E18 — Gemeentelijk Rioleringsplan Ameland 2020–2025",
+      "url": "https://zoek.officielebekendmakingen.nl/gmb-2023-461984.pdf",
+      "accessedAt": "2026-09-02T13:05:00Z",
+      "edition": "2020–2025, published 30 October 2023",
+      "supports": [
+        "Local hydraulic work identifies attention locations in Ballum and Buren, experienced vulnerability at De Meer in Hollum, earlier issues at Kroonstuk/Fostaland in Nes and floating manhole covers in east Buren during very heavy summer rain.",
+        "The sewer system has five external overflows and two overloaded pressure-sewer systems were identified for earlier intervention.",
+        "The municipality reports salinisation through seepage during drought and says Wadden wind and wet flats reduce experienced heat stress in the village cores.",
+        "These are dated public aggregate plans, not proof of present component condition or storm capacity."
+      ]
+    },
+    {
+      "publisher": "Gemeente Ameland / Wetterskip Fryslân",
+      "title": "E19 — Bouw Energiepark Ballumerbocht symbolisch gemarkeerd",
+      "url": "https://www.ameland.nl/bouw-energiepark-ballumerbocht-symbolisch-gemarkeerd-met-leggen-paneel",
+      "accessedAt": "2026-09-02T13:05:00Z",
+      "edition": "27 August 2025",
+      "supports": [
+        "A Wetterskip Fryslân wastewater-treatment installation is located at Ballumerbocht on Ameland.",
+        "The treatment process serves wastewater from residents, businesses and visitors.",
+        "About 156 solar panels were planned for direct connection to treatment; this does not establish islanding, backup autonomy or current operational state."
+      ]
+    },
+    {
+      "publisher": "Liander",
+      "title": "E20 — Uitbreiding elektriciteitsnet op Ameland",
+      "url": "https://www.liander.nl/regio/friesland/ameland/elektriciteitsstation",
+      "accessedAt": "2026-09-02T13:05:00Z",
+      "edition": "current plan, construction 2026–2029",
+      "supports": [
+        "Liander plans a new station at the Nes industrial area and public east/west cable work because demand and voltage pressure are increasing.",
+        "The planned station has two feeding connections from switching station Buren and separate east/west outgoing structure, with completion expected after the audit date.",
+        "This public project context is not current feeder condition, failure probability, switch state or restoration evidence."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Fryslân",
+      "title": "E21 — Partners voor een veilig en gezond Fryslân: bijzondere positie Waddeneilanden",
+      "url": "https://www.veiligheidsregiofryslan.nl/samenwerken/partners-voor-een-veilig-en-gezond-fryslan/",
+      "accessedAt": "2026-09-02T13:05:00Z",
+      "edition": 2026,
+      "supports": [
+        "Because of their isolated location, the Frisian islands must cope themselves during the first hours of an incident.",
+        "CoWa coordinates multidisciplinary island response.",
+        "Island mass-casualty arrangements support prolonged stabilisation and a special vehicle can move four casualties at once toward a boat or helicopter."
+      ]
+    },
+    {
+      "publisher": "Kwadrant",
+      "title": "E22 — Bewoners De Stelp verhuisd naar Ambla",
+      "url": "https://www.kwadrantgroep.nl/nieuwsoverzicht/bewoners-de-stelp-verhuisd-naar-ambla",
+      "accessedAt": "2026-09-02T13:05:00Z",
+      "edition": "15 January 2025",
+      "supports": [
+        "Thirty-three residents moved into the new Ambla care centre in Hollum in January 2025.",
+        "Ambla has 44 apartments for people with and without care needs.",
+        "Published occupancy and building role do not reveal generator autonomy, staff, medicines or current incident availability."
+      ]
+    },
+    {
+      "publisher": "Rijksoverheid",
+      "title": "E23 — Wat zit er in een noodpakket?",
+      "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/veiligheidsregios-en-crisisbeheersing/wat-zit-er-in-een-noodpakket",
+      "accessedAt": "2026-09-02T13:05:00Z",
+      "edition": 2026,
+      "supports": [
+        "Households are advised to prepare for the first 72 hours with water, food, radio, power bank, first aid, warmth, cash and personal medicines.",
+        "The water recommendation is three litres per person per day.",
+        "Preparedness advice is not evidence that 44% of Ameland residents or visitors have usable supplies."
+      ]
+    },
+    {
+      "publisher": "KNMI",
+      "title": "E24 — ShakeMaps archive and ground-motion method",
+      "url": "https://www.knmi.nl/nederland-nu/seismologie/shakemaps-archief",
+      "accessedAt": "2026-09-02T13:05:00Z",
+      "edition": 2026,
+      "supports": [
+        "KNMI ShakeMaps represent ground movement for a specific observed earthquake using measurements and a ground-motion prediction equation.",
+        "Induced-event ShakeMaps are published for Groningen events above magnitude 2.0 and express PGA in percent g.",
+        "A synthetic distance decay without a named magnitude/event, measurements or local site-response validation is not a calibrated Ameland PGA estimate."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Fryslân",
+      "title": "E25 — Programmabegroting 2025: handelingsperspectieven overstroming Ameland",
+      "url": "https://www.veiligheidsregiofryslan.nl/media/ruhdf4qg/programmabegroting-vrf-2025.pdf",
+      "accessedAt": "2026-09-02T13:05:00Z",
+      "edition": 2025,
+      "supports": [
+        "VRF began its shelter-or-evacuate strategy work on Ameland with municipalities, utilities, Rijkswaterstaat, police, ambulance services, ferry operators, KNRM and care institutions.",
+        "The strategy requires street-level water extent, duration and damage information and explicitly considers medically dependent people.",
+        "Local flood decisions therefore cannot be inferred from a municipality-wide proximity score alone."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM0060 identity, name, province and safety-region assignment are coherent.",
+      "evidenceRefs": ["E01", "E02", "E06"],
+      "notes": [
+        "Feature id/code and regional bundle code/name all identify GM0060 Ameland.",
+        "The generated province and safety region are both Fryslân.",
+        "The VFR current-page population of 3,840 reflects a different current reference edition; the simulator consistently and explicitly uses CBS 2025 population 3,800."
+      ]
+    },
+    "geography": {
+      "status": "warn",
+      "summary": "The municipal centre lies inside the 2025 generalized island polygon, but BAG polygon centroids must not be rendered or interpreted as village centres.",
+      "evidenceRefs": ["E02", "E03", "E04"],
+      "notes": [
+        "The generated centre [5.7922957970, 53.4495886761] lies inside the municipal geometry.",
+        "All seven CBS neighbourhood label points pass their local geometry checks.",
+        "The computed BAG polygon centres for Hollum, Ballum, Nes and Buren lie outside the independently versioned generalized municipal land polygon. Direct source inspection shows the woonplaats polygons extend far into municipal water, so this is a coastal ontology/generalisation caveat rather than evidence of a coordinate transform error.",
+        "Use BRT/official address labels for village display and preserve BAG woonplaats polygons as administrative areas."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Official 2025 resident demography and neighbourhood reconciliation are preserved exactly.",
+      "evidenceRefs": ["E01", "E03"],
+      "notes": [
+        "Official resident population is 3,800, density 67, age-65-plus share 25.6% and one-person households 760.",
+        "The seven published neighbourhood populations sum exactly to 3,800; households sum to 1,855 and published age-65-plus counts sum to 970.",
+        "Largest neighbourhoods are Hollum 1,205, Nes 1,200, Buren 755 and Ballum 410.",
+        "Resident demography does not measure visitors, seasonal staff, day population, campsite occupancy or people awaiting ferry transport."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "The seven-neighbourhood 36-field bundle is internally complete for most CBS fields but omits the island's material transient population and typed assets.",
+      "evidenceRefs": ["E01", "E03", "E09", "E10", "E18"],
+      "notes": [
+        "All 36 regional fields exist in the schema; most have seven of seven values and cars per household has five of seven.",
+        "District-heating percentage and public charging points have zero usable values. These are null/unavailable, not proof of zero heat networks or chargers.",
+        "No neighbourhood has zero resident population.",
+        "Business/non-residential-building weights redistribute resident-derived demand but are not workers, guests, campground occupancy, treatment load or criticality.",
+        "About 2.01 million annual overnight stays mechanically average roughly 5,500 guest-nights per day across a year—already larger than the resident population—but seasonality and concurrent peak occupancy are not available in the model."
+      ]
+    },
+    "settlements": {
+      "status": "warn",
+      "summary": "The four BAG woonplaatsen and five BRT settlement polygons are plausible but distinct concepts with a coastal centroid trap.",
+      "evidenceRefs": ["E04", "E05", "E09"],
+      "notes": [
+        "BAG woonplaatsen are Ballum, Buren, Hollum and Nes; BRT adds Kooiplaats as a gehucht and classifies the four villages as woonkernen.",
+        "BAG polygon centres are geometry centroids influenced by water extent and should not be used as village labels, facilities or evacuation destinations.",
+        "Nes's tourism and harbour role is not encoded by settlement type alone."
+      ]
+    },
+    "transport": {
+      "status": "fail",
+      "summary": "The generated simulation graph isolates Ameland despite an observed Holwerd–Ameland ferry and an officially essential mainland connection.",
+      "evidenceRefs": ["E07", "E08", "E09", "E10", "E21"],
+      "notes": [
+        "The audit context reports logicalRouteDegree 0, no neighbours and no simulation routes; there is correctly no ProRail station and there are 44 local transit stop areas.",
+        "The app's observed GTFS ferry asset contains WPD route 'Holwerd - Ameland' with both ferry/fast-service route ids and 40 scheduled-trip records, but it is only a visual context layer and is not consumed by the model network.",
+        "NWB road-only boundary inference cannot represent island access. A zero road degree must not mean zero maritime mobility.",
+        "No live sailing, tide/wind constraint, harbour state, passenger/cargo/ambulance capacity, queue, evacuation clearance or mainland responder-arrival state is modeled."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "Island-specific response, shelter, vulnerable-care and medical-transfer context exists but is absent from operational state.",
+      "evidenceRefs": ["E12", "E21", "E22", "E23", "E25"],
+      "notes": [
+        "There is no typed CoWa, fire station/team, ambulance, KNRM, helicopter/boat transfer, sports-hall shelter, high-ground refuge, huisarts/apotheek or Ambla care-centre object in the simulation.",
+        "Official response planning expects island self-support during the first hours and prolonged casualty stabilisation before boat or helicopter transfer.",
+        "The generated 25.6% age-65-plus share and public 44-apartment Ambla role are material context, but individual dependency, occupancy, staffing, medicines, generator fuel and current availability remain unknown.",
+        "Official 72-hour household advice does not provide local emergency-stock inventories, distribution-point locations or a restoration deadline."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten canonical presets, six required checkpoints and eight services execute for GM0060 with finite and complete state.",
+      "evidenceRefs": ["E11", "E12", "E13", "E14", "E15", "E16", "E18", "E24"],
+      "notes": [
+        "MUNICIPALITY_AUDIT_CODE=GM0060 pnpm audit:model passes both dedicated harness tests, covering 480 service-checkpoint cells plus hazard, network, causal and explanation contracts.",
+        "At T+24 the model reports: severe storm severity 0.0336 (peak 0.4527), 327 affected; pluvial flood 0.2299 (peak 0.3858), raw flood amplitude 0.318 and 563 affected; river flood zero forcing and zero affected; coastal flood 0.5833, raw amplitude 1.767, 29.19 m/s wind and 2,664 affected.",
+        "Also at T+24: heatwave severity 0.0811 with drought 0.4507 and 90 affected; winter storm 0.4587 and 675; cyberattack 0.3718 and 962; earthquake forcing has ended after 0.04817 g at T+6 but 270 remain affected; wildfire has zero direct flame, 0.2017 smoke and 64 affected; compound is 0.7973 with raw flood amplitude 0.329, 42.489 mm/h rain, 22.82 m/s wind, 0.3828 cyber disruption and 2,206 affected.",
+        "By T+72 cumulative event-attributable deprived person-hours are 23,078.97 storm, 31,522.56 pluvial, 0 river, 140,917.92 coastal, 20,789.13 heat, 39,571.10 winter, 49,132.61 cyber, 23,875.29 earthquake, 21,657.75 wildfire and 130,188.61 compound.",
+        "These exact values are deterministic stress-test output, not observed incidents, probabilities, forecasts, casualty counts or operator predictions."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Bounds, deterministic repeats, causal ledgers, local reconciliation and no-event counterfactuals close for Ameland.",
+      "evidenceRefs": [],
+      "notes": [
+        "All hazard dimensions, service availability, utilization, affected people-equivalent, reserve and person-hour values remain finite and bounded as required.",
+        "Intensity zero produces zero event hazard fields, zero affected people-equivalent and zero event-attributable deprived person-hours across all presets/checkpoints.",
+        "At coastal T+24 all seven local populations sum to exactly 3,800, affected population to 2,664 and every service's demand and delivered total reconcile to the municipality within 4.44e-16.",
+        "Local coastal hazard range 0.4870–0.6852 is identical under all eight selected service layers; official neighbourhoods receive neutral priority and no local utility link/hub is fabricated.",
+        "Every intermunicipal service has zero route snapshots for Ameland, consistent with the supplied graph but incomplete for real island mobility."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "Major-river exclusion is sensible, but coastal, pluvial, earthquake and wildfire fields are not calibrated to Ameland's named mechanisms or footprints.",
+      "evidenceRefs": ["E11", "E12", "E13", "E18", "E24", "E25"],
+      "notes": [
+        "River forcing, affected people and event-attributable person-hours remain exactly zero at T+0/6/12/24/48/72, correctly excluding direct Rhine/Meuse/IJssel inundation. Indirect mainland high-water supply effects cannot propagate because the ferry/supply graph is absent.",
+        "The coastal preset uses municipality-to-coast exposure and deterministic local modulation, not the official near-Nes breach, connected inundation, elevation, primary barrier, arrival, recession or refuge geography.",
+        "At coastal T+24 Hollum has the highest local hazard 0.6852 and lowest mobility availability 0.1906; Nes is 0.6484/0.2963. That ordering cannot reproduce or validate the official Nes-centred scenario.",
+        "Pluvial T+24 local hazard ranges 0.1919–0.2700. Hollum again has the highest seed-derived value, while the public GRP identifies multiple specific streets/areas and records that some Nes issues improved after works; the model has no sewer-catchment or intervention-date layer.",
+        "The default wildfire is Veluwe-centred, so direct Ameland flame is zero and only generic smoke/drought tails occur despite official Wadden dune-fire risk. The editor can retarget a point but has no land cover, fuel, wind-driven spread or mainland-response delay.",
+        "The Groningen earthquake value is a distance-decay proxy without event magnitude, KNMI ShakeMap, measurement or local site response."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "Generic dependency equations are internally consistent but omit publicly known island dependencies and cannot distinguish maritime, mainland and on-island resilience.",
+      "evidenceRefs": ["E09", "E12", "E14", "E15", "E16", "E17", "E18", "E19", "E20", "E21"],
+      "notes": [
+        "The engine models power dependencies for water, drainage, gas, telecom and facilities and mobility dependency for supply, with deterministic backup/repair assumptions.",
+        "No ferry link means mainland reinforcements and supplies cannot flow, but neither can ferry failure further degrade the zero-link baseline; island isolation is therefore causally invisible.",
+        "Vitens's public two-thirds wad-main/one-third local-lens structure is absent. Coastal T+24 water availability 0.4010 is an unsupported aggregate scenario value, not continuity of either source.",
+        "The local Ameland wastewater-treatment installation, five sewer overflows and pressure-sewer constraints are absent; drainage availability 0.2561 coastal and 0.5655 pluvial at T+24 is a generic equation.",
+        "Liander's dated planned Buren/Nes/east-west structure is not current topology and is correctly not inferred, but the model has no operator-calibrated electricity resilience at all.",
+        "Gas/heating and telecom are aggregate services. The CBS district-heating field is entirely unavailable and no public operator topology, backup autonomy, restoration distribution or critical-customer state is consumed."
+      ]
+    },
+    "causalTrace": {
+      "status": "warn",
+      "summary": "The mathematical causal chain closes and proxy semantics are explicit, while Ameland's most important physical dependencies are missing.",
+      "evidenceRefs": ["E08", "E09", "E12", "E17", "E21"],
+      "notes": [
+        "Direct hazard, recovery, power/mobility dependency, intervention and logical-network ledgers reconcile numerically.",
+        "Deprived person-hours quarter-hour integrate event-attributable weighted service shortfall against a matched no-event baseline before intermunicipal transfers; they are not customer outage-hours or counts of identified deprived people.",
+        "The UI and explanations state that NWB connectivity is a logical transfer proxy rather than physical utility topology and that generic flood output is normalized inundation stress rather than metres.",
+        "Because Ameland has no route in the supplied graph, causal explanations truthfully report no active intermunicipal transfer but fail to represent the real ferry lifeline, source replenishment or mainland mutual aid.",
+        "A closed synthetic ledger proves reproducibility, not the completeness of the island dependency graph."
+      ]
+    },
+    "recovery72h": {
+      "status": "warn",
+      "summary": "The 72-hour trajectories improve or persist consistently, but none is calibrated to ferry reopening, island response, utility assets, visitor evacuation or official restoration evidence.",
+      "evidenceRefs": ["E10", "E12", "E14", "E15", "E16", "E21", "E23", "E25"],
+      "notes": [
+        "Coastal forcing is zero by T+48, yet Ameland remains critical with 2,577 affected people-equivalent; at T+72 it is recovering with 747 affected and availability power 0.7887, water 0.7090, drainage 0.7029, gas 0.8498, telecom 0.7301, mobility 0.6380, facilities 0.7728 and supply 0.5595.",
+        "The improvement supports the model's T+72 recovering label internally, but no ferry/weather clearance, breach recession, repair crew, mainland access or operator timeline validates it.",
+        "Compound forcing and all eight service states remain critical and unchanged from T+48 to T+72; the label does not falsely claim recovery in that interval.",
+        "The regional gas scenario can take eight to ten days and power/water restoration can exceed a week, illustrating why 72-hour public preparedness is not a service-restoration promise.",
+        "Official island flood planning includes two days of warning, pre-event departure and on-island shelter/evacuation. The current clock begins at T+0 and has no negative-time preparation or people movement ledger."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": ["power", "water", "drainage", "gas", "telecom", "mobility", "facilities", "supply"]
+  },
+  "findings": [
+    {
+      "id": "GM0060-MOB-001",
+      "severity": "critical",
+      "category": "network",
+      "status": "open",
+      "summary": "Ameland has no intermunicipal simulation edge, so the Holwerd ferry lifeline and storm isolation are absent from every first-72-hour causal path.",
+      "evidence": "The generated context reports logicalRouteDegree 0, no neighbour and no route for GM0060, and every service has zero route snapshots. The app nevertheless contains an observed GTFS WPD 'Holwerd - Ameland' ferry feature with 40 scheduled-trip records. E08 establishes managed ferry access; E09 calls the Holwerd connection the lifeline for guests, goods, care and welfare; E12 says mainland evacuation is impossible until the storm subsides; E21 says islands must initially self-support. A road-only NWB graph therefore creates a reproducible false omission for mobility, supply and response even though it remains honest about lacking utility topology.",
+      "action": "Introduce typed intermunicipal links with mode and service eligibility. Add a sourced Holwert/Noardeast-Fryslân–Ameland ferry mobility link and separately model passenger, cargo/supply and medical-transfer roles, schedule validity, weather/tide/harbour passability, queues and unknown capacity. Do not reuse the ferry or road link as electricity, water, gas or telecom topology. Add regressions proving a coastal storm can close mainland movement, delay reinforcement/replenishment and later reopen it without fabricating utility flows."
+    },
+    {
+      "id": "GM0060-POP-001",
+      "severity": "high",
+      "category": "demography",
+      "status": "open",
+      "summary": "Resident-only demand materially understates Ameland's seasonal people-at-risk and service load.",
+      "evidence": "All affected people-equivalent and total municipal demand derive from the 3,800 CBS residents. E09 reports about 2.01 million annual overnight stays (roughly 5,500 guest-nights per day as an annual arithmetic average, with peaks not supplied) and identifies visitor pressure on infrastructure and services. E10 cites 666,832 non-island residents transported in 2022, explicitly not a concurrent/unique visitor count. E12 allows fewer than 40,000 involved people and specifically evacuates campsites. The model has no guest, day visitor, seasonal worker, campground/hotel occupancy, ferry queue or evacuation population ledger.",
+      "action": "Add a separately sourced, time-varying present-population ledger with residents, overnight visitors, day visitors, seasonal workers and ferry-terminal queues. Preserve CBS resident population unchanged; expose date/season/scenario and uncertainty; reconcile service demand and evacuation separately for each population class. Until then label affected counts as resident-based only and prevent use as total people present."
+    },
+    {
+      "id": "GM0060-FLOOD-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The coastal preset cannot reproduce the official near-Nes breach, arrival and shelter/evacuation sequence.",
+      "evidence": "E12 describes a primary barrier failure near Nes, detection after 30 minutes, extensive Nes/industrial-area inundation within three hours, utility loss, campsite evacuation to a sports hall, movement to high ground and delayed mainland evacuation. E25 says actual shelter-versus-evacuate decisions need street-level extent, duration and damage data. The canonical model instead derives municipality stress from coastline proximity and neighbourhood stress from deterministic modulation. At T+24 Hollum has the maximum local hazard 0.6852 and mobility availability 0.1906 while Nes is 0.6484/0.2963; no breach id, connected footprint, arrival, high ground, refuge, ferry state or people movement causes those values.",
+      "action": "Keep the present layer explicitly as unitless screening stress. Add a named Ameland/Nes official-scenario adapter with primary-barrier/breach id, connected inundation cells, arrival/recession, uncertainty, warning phase and sourced shelter/high-ground/evacuation choices. Validate the official Nes footprint and utility/ferry sequence; never relabel the generic 1.767 raw amplitude as metres or an official flood map."
+    },
+    {
+      "id": "GM0060-WATER-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Drinking-water availability ignores Ameland's publicly known split between a mainland wad main and the island fresh-water lens.",
+      "evidence": "E17 says Ameland receives two-thirds of drinking water through a mainland wad main and also uses a rain-recharged fresh-water lens surrounded by salt water. E12 specifically says drinking water fails after the Nes breach. The model has no intermunicipal route and no source-type state, yet reports water availability 0.5543 at coastal T+6/T+12, 0.4010 at T+24 and 0.7090 at T+72. Those exact values cannot establish either wad-main continuity, local production, salinity/contamination, pressure, emergency water or restoration.",
+      "action": "Add only the public aggregate two-source structure with date, provenance and unknown capacity/backup fields; model wad-main interruption separately from local-lens production, contamination and drought/salinity. Keep pressure zones, valves, controls and security-sensitive topology unknown. Add emergency-water demand/activation as incident data, not a fixed invented site."
+    },
+    {
+      "id": "GM0060-RESP-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "The facilities layer omits island self-support, CoWa, medical stabilisation/transfer and known vulnerable-care context.",
+      "evidence": "E21 says the Frisian islands must initially self-support, CoWa coordinates the response and island teams can stabilise casualties for longer before a four-person vehicle moves them toward boat or helicopter. E22 identifies Ambla in Hollum as a 44-apartment care centre with 33 residents moved in January 2025. E25 highlights medically dependent people as an Ameland flood-planning dilemma. The simulator exposes one generic facilities availability value and no typed response resource, shelter, care facility, huisarts/apotheek, casualty, transfer route or mutual-aid delay.",
+      "action": "Add public typed facility/response context with explicit unknown occupancy, staff, generator, fuel, medicine and operational state. Model local-first response, CoWa activation, stabilisation, boat/helicopter transfer and weather-delayed mainland aid as scenario resources; never infer live capacity from building presence."
+    },
+    {
+      "id": "GM0060-POWER-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "open",
+      "summary": "Electricity scores have no Ameland calibration and do not distinguish current state from the publicly planned Buren/Nes east-west reinforcement.",
+      "evidence": "E14 documents cross-service cascades and a prolonged Ameland outage in 2021. E20 describes a new Nes station, Buren feeds and east/west rings planned across 2026–2029 because demand/voltage pressure is rising. The project is not yet an operational topology fixture and reveals no live switch state or restoration distribution. The model's coastal power availability 0.3854 at T+6–T+24 and 0.7887 at T+72 comes from generic hazard/backup/repair equations and zero intermunicipal edges.",
+      "action": "Keep exact availability clearly scenario-only. Add dated aggregate current/planned infrastructure context and commissioning state without inferring feeders or switches; calibrate outage/restoration only with Liander-approved incident distributions and distinguish present network from future reinforcement."
+    },
+    {
+      "id": "GM0060-DRAIN-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "open",
+      "summary": "Pluvial and wastewater effects ignore the local treatment installation, sewer constraints and named nuisance locations.",
+      "evidence": "E18 identifies five external overflows, two overloaded pressure-sewer systems and named water-nuisance locations/interventions in all four villages. E19 confirms an Ameland wastewater-treatment installation at Ballumerbocht serving residents, businesses and visitors. E12 says wastewater treatment fails in the island flood scenario. The model applies one generic drainage dependency and seeded neighbourhood hazard, producing drainage availability 0.5655 pluvial and 0.2561 coastal at T+24 without sewer catchments, pumping, overflow, treatment, visitor load or component state.",
+      "action": "Represent public aggregate sewer/treatment/catchment components and distinguish urban surface-water nuisance, sewer surcharge, wastewater treatment and wider water-system flooding. Source power dependency and intervention dates; retain unknown capacity/backup where not public and require exact demand/delivery reconciliation."
+    },
+    {
+      "id": "GM0060-FIRE-001",
+      "severity": "medium",
+      "category": "limitation",
+      "status": "accepted-limitation",
+      "summary": "The default wildfire safely has no direct Ameland flame, but it does not exercise the official island dune-fire mechanism.",
+      "evidence": "The Veluwe-centred canonical wildfire gives Ameland zero direct flame, smoke 0.2017 at T+12/T+24, 64 affected people-equivalent at T+24 and 21,657.75 cumulative deprivation hours at T+72. E13 identifies Wadden dune fire, limited island crews/equipment, more than two hours for mainland units, recreation exposure and difficult evacuation. Point retargeting is possible, but the model lacks burnable land cover, dunes/forest, fuel moisture, wind spread, access and reinforcement timing.",
+      "action": "Retain finite direct-fire support and separate flame from smoke. Add a separately named Ameland dune-fire exercise only with land cover/fuel, ignition, wind, evacuation population, local resources and weather-dependent mainland reinforcement; model smoke with dispersion/exposure thresholds rather than distance alone."
+    },
+    {
+      "id": "GM0060-MET-001",
+      "severity": "medium",
+      "category": "limitation",
+      "status": "accepted-limitation",
+      "summary": "Storm, heat/drought and winter scenarios point in credible directions but omit maritime microclimate and ferry-access calibration.",
+      "evidence": "E11 selects cold, heat, drought, water nuisance and island flooding for Ameland, while E18 says village heat stress was not considered a major local problem because wet Wadden flats and wind reduce experienced heat and notes drought-driven salinisation. The model reports a strained heat state at T+12/T+24 and winter mobility 0.6069/supply 0.4745 at T+24, but uses analytic envelopes and deterministic seeds rather than KNMI island grids, observations, salinity or ferry operability.",
+      "action": "Keep scenario/not-forecast wording. Future calibration should use time-stamped KNMI forcing, local climate-stress/salinity evidence and weather-dependent ferry/road operation with uncertainty; do not convert the current exact values into probabilities or service promises."
+    },
+    {
+      "id": "GM0060-EQ-001",
+      "severity": "medium",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The generic Groningen earthquake creates a material Ameland service tail without a named event or KNMI ground-motion product.",
+      "evidence": "The canonical preset uses an unnamed epicentre and exponential distance decay, yielding 0.04817 g at Ameland at T+6, 270 affected people-equivalent at T+24 and 23,875.29 event-attributable deprivation hours by T+72. E11 does not select earthquake among Ameland's current public municipal risks. E24 says ShakeMaps are event-specific products combining measurements and a ground-motion model. No magnitude, event id, ShakeMap, local site response or damage threshold validates the model's exact PGA-like value or service consequences.",
+      "action": "Require a named event/magnitude and KNMI or validated ground-motion grid before presenting local g or applying operational damage. Threshold unsupported distance tails to no consequence or label a deliberately hypothetical exercise explicitly; retain separate probability and consequence semantics."
+    },
+    {
+      "id": "GM0060-GASTEL-001",
+      "severity": "medium",
+      "category": "limitation",
+      "status": "accepted-limitation",
+      "summary": "Gas/heating and telecom dependencies are credible but exact Ameland topology, backup and restoration remain unavailable.",
+      "evidence": "E15 applies gas outage to Ameland and illustrates an eight-to-ten-day house-by-house reconnection after contamination; E16 applies telecom/cyber loss and identifies 112/C2000/P2000 and utility dependencies. The model collapses gas and heating, uses no operator network, and assigns deterministic backup and recovery curves. CBS district-heating values are entirely unavailable. Regional example durations are not Ameland operator commitments.",
+      "action": "Keep generic scenario assumptions visible and maintain unknown topology. Separate heat need/fuel from gas-network availability and expose backup/restoration uncertainty. Add operator-approved aggregate service areas or distributions only after security review; never infer telecom or gas paths from roads/ferry."
+    },
+    {
+      "id": "GM0060-SUP-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "open",
+      "summary": "Emergency supply combines a national household-preparedness proxy with resident-only demand and no ferry replenishment.",
+      "evidence": "The engine's 44% household-preparedness default is explicitly national, editable and not a GM0060 observation. E23 recommends 72-hour household supplies including nine litres of water per person, food, radio, power, medicines and cash. Visitors/campsites and their stocks are unknown, and the missing ferry edge prevents replenishment or mainland access from entering the supply ledger. One composite supply availability therefore cannot support decisions about water, food, medicines, warmth, communications or cash.",
+      "action": "Keep preparedness as an uncertain scenario input, not a local statistic. Split essential supply categories, add resident/visitor-specific need and incident-activated stocks/distribution, and couple replenishment to the typed ferry state. Do not invent warehouse, shelter or emergency-water capacity."
+    },
+    {
+      "id": "GM0060-GEO-001",
+      "severity": "low",
+      "category": "geography",
+      "status": "accepted-limitation",
+      "summary": "All four BAG woonplaats polygon centroids fall outside the generalized island land polygon and are unsuitable as village labels.",
+      "evidence": "The generated centres are Hollum [5.60950, 53.40635], Ballum [5.69570, 53.41154], Nes [5.75638, 53.42517] and Buren [5.89368, 53.43463]. Direct E04 geometry inspection shows the official woonplaats polygons extend over substantial Wadden water; E02 is an independently generalized municipality geometry. The mismatch is therefore explainable, but a centroid icon could appear offshore and be mistaken for the village or a facility.",
+      "action": "Preserve the BAG polygons and their source edition, but label the centres as geometric polygon centroids or suppress them for island display. Use BRT place geometry or an authoritative label/address point for village labels and keep a cross-edition point-in-polygon caveat."
+    },
+    {
+      "id": "GM0060-RIVER-001",
+      "severity": "informational",
+      "category": "hazard",
+      "status": "fixed",
+      "summary": "Finite major-river support correctly excludes direct Rhine/Meuse/IJssel flooding from Ameland.",
+      "evidence": "The river-flood preset gives zero hazard forcing, zero affected people-equivalent and zero event-attributable deprivation at all six checkpoints for GM0060. E11 selects island flooding and water nuisance but not major-river flooding. This is the correct direct-local result; it does not establish that mainland logistics could never be affected by a broader river event.",
+      "action": "Retain the finite river corridor and regression. Once ferry/supply links exist, keep direct Ameland river forcing zero while allowing separately sourced indirect mainland logistics effects."
+    },
+    {
+      "id": "GM0060-UI-001",
+      "severity": "informational",
+      "category": "ui",
+      "status": "fixed",
+      "summary": "The current interface correctly distinguishes observed context, normalized flood stress and deterministic planning output from forecasts.",
+      "evidence": "Inspector/statistics surfaces label the legacy raw flood amplitude as inundation stress/depth-proxy rather than hydraulic metres; ground motion is called a scenario proxy; analytics says curves are not live measurements or forecasts; the method guide says the tool is not for operational dispatch; household preparedness is labelled a national survey proxy. These safeguards reduce false precision but do not disclose that the visible Holwerd ferry is absent from causal simulation unless the user inspects network details.",
+      "action": "Retain all provenance and proxy wording. Add a municipality-level completeness warning when observed transport (especially a ferry) has no simulation link, and state that zero route flow means omitted/not modeled rather than confirmed isolation capacity."
+    },
+    {
+      "id": "GM0060-INV-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The deterministic causal, local-allocation and counterfactual contracts close for GM0060.",
+      "evidence": "The dedicated two-test gate passes the complete 10×6×8 matrix. Hazard/service/municipal contribution ledgers reconcile; repeated frames are deterministic; local population, affected, demand and delivered values reconcile; local hazard is service-layer invariant; official regions have neutral priority and no fabricated local utility graph; zero intensity is exact; person-hours are monotonic and event-attributable; and the no-route state is consistently represented.",
+      "action": "Retain these invariants in the national release gate while adding ferry completeness, transient-population and named Ameland flood regressions."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Add a typed Holwert–Ameland ferry connection and island-isolation state without converting maritime or road geometry into utility topology.",
+      "files": [
+        "scripts/fetch-transit.mjs",
+        "scripts/fetch-realism-data.mjs",
+        "apps/web/public/data/transit/transit-routes-ferry.geojson",
+        "apps/web/public/data/transport-network.json",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/src/components/MapView.tsx"
+      ],
+      "validation": "Assert GM0060 has a sourced ferry-mode mobility link to the Holwert mainland side while power/water/gas/telecom remain unknown and receive no ferry utility flow. In the named coastal fixture, close the ferry during unsafe storm conditions, delay mainland reinforcements/supply/medical transfer, keep on-island movement separate, and reopen only under an explicit scenario condition. Preserve deterministic replay and all 10×6×8 invariants."
+    },
+    {
+      "summary": "Add seasonal present-population and demand classes while preserving official CBS resident population.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/data.ts",
+        "apps/web/src/components/AdvancedScenarioPanel.tsx",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/OperationsBrief.tsx"
+      ],
+      "validation": "Use sourced low/typical/peak Ameland fixtures for residents, overnight guests, day visitors, workers and ferry queues. Assert residents remain exactly 3,800, population classes and uncertainty are separately visible, demand/affected/evacuated totals reconcile by class, and no annual crossing or guest-night total is misrepresented as concurrent unique visitors."
+    },
+    {
+      "summary": "Create a named Ameland/Nes island-flood adapter with warning, breach, arrival, shelter and evacuation phases.",
+      "files": [
+        "apps/web/public/data/hazards/GM0060-coastal-context.geojson",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/scenarios.ts",
+        "apps/web/src/components/MapView.tsx",
+        "apps/web/src/components/OperationsBrief.tsx"
+      ],
+      "validation": "With an approved VRF/Wetterskip/Rijkswaterstaat fixture, assert a two-day warning phase, named primary-barrier breach near Nes, connected Nes/industrial/campsite footprint, source-specific arrival/recession and on-island shelter/high-ground logic; block mainland evacuation while ferry conditions are unsafe. Without the fixture, assert only normalized stress is shown and no metres, arrival, official footprint or evacuation clearance is claimed."
+    },
+    {
+      "summary": "Represent the public aggregate Ameland drinking-water and wastewater dependencies with explicit unknown topology/capacity.",
+      "files": [
+        "apps/web/public/data/services/GM0060-water-context.geojson",
+        "apps/web/src/data.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/MapView.tsx"
+      ],
+      "validation": "Model the sourced two-thirds mainland wad-main and local fresh-water-lens roles separately, without valves/pressure-zone invention; test distinct outage, contamination, drought and salinity states. Represent Ballumerbocht treatment and public aggregate sewer constraints separately from drainage. Assert source dates/unknown capacities render and local/municipal demand-delivery totals still reconcile."
+    },
+    {
+      "summary": "Add public typed island response and vulnerable-facility context with no inferred live capacity.",
+      "files": [
+        "apps/web/public/data/facilities/GM0060.geojson",
+        "apps/web/src/data.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/MapView.tsx",
+        "apps/web/src/components/OperationsBrief.tsx"
+      ],
+      "validation": "Render CoWa/response role, Ambla, huisarts/apotheek, named shelter/refuge only where public and properly sourced. Exercise local self-support, prolonged casualty stabilisation and boat/helicopter transfer delay. Assert occupancy, staff, beds, medicine, generator/fuel, shelter capacity and incident availability remain unknown unless an incident/provider source supplies them; provide an accessible table alternative."
+    },
+    {
+      "summary": "Add dated aggregate Ameland electricity/drainage context and distinguish planned infrastructure from operational state.",
+      "files": [
+        "apps/web/public/data/services/GM0060-electricity-context.geojson",
+        "apps/web/public/data/services/GM0060-drainage-context.geojson",
+        "apps/web/src/data.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts"
+      ],
+      "validation": "Represent current/under-construction/planned states explicitly; never treat the future Nes station/rings as commissioned before source confirmation. Test public aggregate wastewater and pluvial-context fixtures without exposing controls. Keep exact outage/restoration as scenario uncertainty unless operator-calibrated and preserve null semantics for district heat."
+    },
+    {
+      "summary": "Prevent unsupported Groningen earthquake tails from becoming Ameland operational impacts and add a separately named Wadden dune-fire exercise.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/explainability.test.ts",
+        "apps/web/src/scenarios.ts"
+      ],
+      "validation": "Require event id, magnitude and KNMI/validated ground-motion field before local g and damage; otherwise threshold or mark consequence as deliberately hypothetical. For dune fire, require an explicit Ameland ignition with land-cover/fuel/wind/access and mainland-response assumptions, keep direct flame finite, and retain separate smoke provenance."
+    }
+  ],
+  "residualLimitations": [
+    "The ten canonical presets are deterministic planning stress tests, not current incidents, KNMI forecasts, official probabilities, casualty estimates or operator outage predictions.",
+    "No security-sensitive TenneT/Liander, Vitens, gas, telecom, sewer/Wetterskip, ferry/harbour, healthcare, KNRM, ambulance or emergency-service topology, controls, switching, isolation, priority-customer or restoration data is consumed.",
+    "The simulation's NWB-derived graph contains no GM0060 edge; the observed GTFS ferry is a map context layer and carries neither guaranteed service nor emergency capacity.",
+    "Annual overnight stays, passenger movements and visitor survey responses cannot establish concurrent peak population, unique visitors, campsite occupancy, vulnerable guests or evacuation demand.",
+    "The activity allocator redistributes resident-derived demand using aggregate CBS context; businesses and non-residential buildings do not provide measured workers, guests, wastewater load, electricity demand or criticality.",
+    "The internal floodDepthM field is a legacy depth-like scenario amplitude. Public views normalize it as stress, but physical damage, access and recovery remain uncalibrated screens.",
+    "No primary-barrier breach, connected inundation, elevation, dune/high-ground, arrival time, standing-water duration, sewer catchment or refuge-capacity layer is used.",
+    "BAG woonplaatsen, BRT settlements, CBS neighbourhoods and generalized municipal land geometry have different ontologies/reference dates; water-dominated BAG polygon centroids are not village centres.",
+    "Vitens's public two-source fraction is aggregate context and does not establish wad-main routing, island production capacity, pressure zones, storage, contamination isolation or restoration duration.",
+    "Liander's public Nes/Buren/east-west project is planned/under construction during the audit period and does not establish current feeder topology, failure probability, redundancy or restoration.",
+    "Public Ambla, CoWa and medical-transfer information establishes roles and some static context, not current occupancy, staffing, vehicles, beds, medicine, generator/fuel autonomy, weather availability or incident capacity.",
+    "The 44% household-preparedness value is a national survey proxy rather than an Ameland measurement and says nothing about visitor or business stocks.",
+    "Six-hour checkpoints can miss the official 30-minute breach detection, three-hour inundation arrival, earthquake impulse, ferry cancellations and other rapid transitions even though the engine integrates internally at quarter-hour steps.",
+    "The first-72-hour scope excludes prolonged inundation, gas reconnection beyond a week, contamination monitoring, displacement, infrastructure reconstruction, ecological/economic loss and long-term recovery."
+  ],
+  "provinceReviewFlags": [
+    "Fryslân/Wadden islands: road-only NWB graph construction must not leave ferry-dependent municipalities causally disconnected; introduce typed ferry mobility/supply/medical links without inventing utility topology.",
+    "Fryslân/Wadden islands: add time-varying residents/overnight guests/day visitors/seasonal workers and preserve CBS resident totals separately.",
+    "Ameland/Wetterskip/VRF: replace proximity/seed-only coastal stress with a named primary-barrier/Nes connected-inundation scenario, warning phase, arrival/recession and shelter-versus-evacuation evidence when licensed.",
+    "Fryslân/Vitens: represent Ameland's public wad-main/local-lens drinking-water split as aggregate dependency context with unknown capacity and controls.",
+    "Fryslân/Wadden islands: encode CoWa, island self-support, delayed mainland fire/medical aid and boat/helicopter transfer as response mechanisms, not generic facilities availability.",
+    "Ameland: distinguish current versus planned/under-construction Nes/Buren/east-west electricity infrastructure and never infer operator switch or feeder state.",
+    "Ameland: distinguish pluvial street/sewer nuisance, wastewater treatment and island/coastal inundation; use the dated GRP only with source-date and intervention caveats.",
+    "Fryslân/Wadden islands: use authoritative label/address points rather than water-dominated BAG woonplaats polygon centroids for village display.",
+    "Fryslân: require a named KNMI ground-motion product before remote Groningen earthquake tails create local operational consequences.",
+    "Shared/national: 72-hour preparedness is a household continuity objective, not a guaranteed service-restoration/all-clear deadline, and national preparedness percentages are not municipal or visitor inventories."
+  ]
+}

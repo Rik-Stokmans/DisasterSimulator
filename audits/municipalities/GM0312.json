@@ -1,0 +1,443 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0312",
+    "name": "Bunnik",
+    "province": "Utrecht",
+    "safetyRegion": "Utrecht"
+  },
+  "agent": {
+    "taskName": "municipality_gm0312",
+    "agentId": "/root/causal_engine_v3",
+    "completedAt": "2026-09-02T18:45:53Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "GM0312 passes the complete deterministic contract over all ten canonical scenarios, T+0/6/12/24/48/72 and all eight essential services. Its 2025 CBS identity, generalized boundary, 16,279 residents, eight neighbourhoods, three BAG places, four BRT settlements, Bunnik station, 19 transit stop areas and public water/facility context are coherent; official nulls, zero-intensity behavior, local reconciliation, causal ledgers, cumulative event-attributable essential-service person-hours and map-layer invariance also pass. Release remains correction-required for three reproducible defects. First, the transport generator treats the E30 co-designation at Knooppunt Rijnsweerd as an independent 150-capacity Bunnik-Utrecht edge alongside A27 even though live official NWB records carry routeltr E/routenr 30 with wegnummer 027; deleting only that generated edge changes compound T+24 telecom availability by -0.067143, demonstrating material solver sensitivity but not licensing blind removal. Second, river, pluvial and heat maps rank all eight neighbourhoods identically because one hazard-independent hash drives local allocation, while official Utrecht water, heat and drought surfaces differ and frequently return NoData. Third, an ignition placed inside official TOP10NL deciduous forest in Buitengebied Werkhoven leaves that source neighbourhood last. The canonical river result also retains an internal depth-like proxy of 1.422296 through T+72 without a selected Lek/Kromme Rijn hydraulic event; Bunnik has genuine flood pathways, so the conservative state is Unknown rather than zero or safe. Public provider, water-object, station, stop, antenna, school and facility records remain context only. Complete physical utility topology, operating state, backup, stock, crews and restoration commitments are unavailable or security-sensitive and were not invented; all service transfers correctly remain labeled logical proxies.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek",
+      "title": "Kerncijfers wijken en buurten 2025 — filtered rows for GM0312",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM0312%27%29&%24select=WijkenEnBuurten%2CGemeentenaam_1%2CAantalInwoners_5%2CBevolkingsdichtheid_34%2Ck_65JaarOfOuder_12%2CEenpersoonshuishoudens_30",
+      "accessedAt": "2026-09-02T18:21:50Z",
+      "edition": 2025,
+      "supports": [
+        "Official-context GM0312/Bunnik identity, population 16,279, density 441 residents per square kilometre, 3,696 residents aged 65 or older and 2,316 one-person households.",
+        "The machine-readable OData table is an annual official statistical release under CC BY 4.0. Independently rounded neighbourhood rows require reconciliation and suppressed, unknown or not-applicable values must remain null rather than zero.",
+        "CBS aggregates support transparent vulnerability and demand context, not individual vulnerability, daytime population, patients, visitors, preparedness or observed emergency demand."
+      ]
+    },
+    {
+      "publisher": "PDOK / CBS / Kadaster / Rijkswaterstaat / ProRail",
+      "title": "Gemeente and buurt gegeneraliseerd 2025 with BAG, BRT TOP10NL, NWB and railway context",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_gegeneraliseerd/items?f=json&limit=1000&datetime=2025-07-01T00%3A00%3A00Z",
+      "accessedAt": "2026-09-02T18:21:50Z",
+      "edition": "CBS/BAG/BRT 2025 context; NWB live WFS inspected 2 September 2026",
+      "supports": [
+        "Official annual CC BY 4.0 GM0312 municipality and eight-neighbourhood geometry consumed by the application; the generated reference point and the Bunnik, Odijk and Werkhoven BAG place centres are inside the generalized polygon.",
+        "BAG place access is https://api.pdok.nl/kadaster/bag/ogc/v2/collections/woonplaats. BRT/TOP10NL access is https://api.pdok.nl/kadaster/brt-top10nl/ogc/v1 and contributes four topographic settlements plus national 1:10,000 editioned topography under CC BY 4.0. Deciduous-forest objects 106214199 at [5.164840585970715, 52.07507181474737] and 106205688 at [5.24986531144451, 52.03430213300161] support focused synthetic diagnostics in Buitengebied Bunnik Noord and Buitengebied Werkhoven; static land cover is not live fuel, spread or an incident perimeter.",
+        "NWB WFS https://service.pdok.nl/rws/nationaal-wegenbestand-wegen/wfs/v1_0?service=WFS&version=2.0.0&request=GetCapabilities is national monthly CC0 road geometry. Live Knooppunt Rijnsweerd records wvk 278309019 and 278309026 both carry routeltr E/routenr 30, but their wegnummer values are respectively 027 and 028. E30 is therefore a co-designation spanning physical A27 and A28 sections at the interchange, not one independent Dutch road identity. ProRail OGC https://api.pdok.nl/prorail/spoorwegen/ogc/v1/collections/station identifies Bunnik station but not live rail operation or capacity."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Utrecht",
+      "title": "Regionaal Risicoprofiel Utrecht 2023",
+      "url": "https://vru.nl/documents/676/AB20230206-05-2_Bijlage_A_-_Regionaal_risicoprofiel_VRU_2023.pdf",
+      "accessedAt": "2026-09-02T18:21:50Z",
+      "edition": 2023,
+      "supports": [
+        "The adopted strategic profile treats river flooding as potentially catastrophic and identifies the northern Lekdijk multi-breach case as a regional worst case; this supports a genuine pathway near Bunnik but not the simulator's depth, arrival, footprint or duration.",
+        "It covers extreme rain, drought/nature fire, heat, heavy storm, snow/ice, earthquake and cyber/vital-infrastructure failure, including utility disruption outside directly wet areas and long-duration response-capacity pressure.",
+        "The profile is qualitative regional scenario context, not a live warning, local incident footprint, recurrence probability, asset inventory or restoration commitment. It also says there is no reliable method for converting neighbourhood self-reliance differences into exact response capacity, so demographic aggregates must remain contextual."
+      ]
+    },
+    {
+      "publisher": "Gemeente Bunnik",
+      "title": "Milieu-effectscreening Omgevingsvisie Bunnik 2040",
+      "url": "https://www.bunnik.nl/fileadmin/bestanden/Omgevingswet/Omgevingsvisie/Bijlage_4_Milieu_Effectscreening_Bunnik_2040.pdf",
+      "accessedAt": "2026-09-02T18:21:50Z",
+      "edition": "Bunnik 2040 effect screening, inspected 2 September 2026",
+      "supports": [
+        "The municipality states that the sewer was designed for a roughly once-in-two-years event up to 20 mm/h; few reports do not prove adequacy, Werkhoven has critical perched-groundwater conditions, and a 60 mm/h climate event is used for stress context.",
+        "It distinguishes the Kromme Rijn/Amsterdam-Rijnkanaal catchment, local storage and Nieuw Wulven storage, and identifies local hotspots including Zeisterweg and Langstraat for the 2024–2028 programme. These are mechanism/location context, not live drainage state or a calibrated citywide 72-hour flood trajectory.",
+        "The report identifies heat and warm-night stress in the Bunnik, Odijk and Werkhoven cores. Its public PDF offers no machine API, fixed update cadence or explicit blanket redistribution licence; the official municipal page must remain cited with edition and retrieval time."
+      ]
+    },
+    {
+      "publisher": "Hoogheemraadschap De Stichtse Rijnlanden / Het Waterschapshuis",
+      "title": "Bunnik water-system context, pumping station Odijk, RWZI Bunnik and national IMWA/DAMO registers",
+      "url": "https://www.hdsr.nl/buurt/bunnik/",
+      "accessedAt": "2026-09-02T18:21:50Z",
+      "edition": "Current HDSR pages and national register snapshot inspected 2 September 2026",
+      "supports": [
+        "HDSR explains that pumping station Odijk on the N229 supports drainage during heavy rainfall and water supply during dry periods. Its RWZI overview at https://www.hdsr.nl/werk/werken-we-samen/rioolwaterzuivering/artikel/ states that RWZI Bunnik treats wastewater from Bunnik, Odijk, Werkhoven and 't Goy and discharges to the Kromme Rijn.",
+        "Machine access is available through HWH Kunstwerken IMWA https://api.pdok.nl/hwh/waterschappen-kunstwerken-imwa/ogc/v2 and Waterketen DAMO https://api.pdok.nl/hwh/waterschappen-waterketen-damo/ogc/v1 under CC BY-SA 4.0. Kunstwerken is published weekly; DAMO contributor completeness and cadence vary and must travel with each snapshot.",
+        "The current boundary query yields 52 display-only water objects: two sewer pumps, RWZI Bunnik, 11 surface-water pumps, one sluice and 37 weirs. Presence does not establish hydraulic/sewer connectivity, capacity, setpoint, operating state, emergency power or first-72-hour restoration."
+      ]
+    },
+    {
+      "publisher": "Provincie Utrecht",
+      "title": "Klimaatadaptatie raster MapServer and open water-depth/road-passability datasets",
+      "url": "https://gis.provincie-utrecht.nl/server/rest/services/Water/w01_7_Klimaatadaptatie_raster/MapServer",
+      "accessedAt": "2026-09-02T18:21:50Z",
+      "edition": "Current ArcGIS service and data.overheid.nl metadata inspected 2 September 2026",
+      "supports": [
+        "The public machine service exposes distinct rasters for 140/70 mm in two hours, HDSR 200 mm in 48 hours T1000, HDSR 75 mm in one hour T250, warm nights, place-flood probability, drought stress and urban-heat-island effect. Layers are modeled scenario/context surfaces, not observations or the simulator clock.",
+        "At the eight CBS neighbourhood reference points, the HDSR 75 mm layer returns 0.18 m in Buitengebied Odijk and 0.01 m in Buitengebied Bunnik Zuid and Buitengebied Werkhoven, while five points return NoData. UHI samples range from 0 in the rural north to 1.065 in Bunnik core; drought classes include low, moderate and high. These are point diagnostics, not zonal means, and every NoData value remains Unknown.",
+        "The integration-ready water-depth record https://data.overheid.nl/dataset/82761-maximale-waterdiepte-op-en-langs-de-weg-na-bui-van-70-mm-in-1-uur supplies WMS and TIFF under Public Domain metadata, updated 17 August 2026; the road-passability record https://data.overheid.nl/dataset/69171-begaanbaarheid-van-wegen-na-bui-van-70-mm-in-1-uur supplies WMS/WFS/download under Public Domain metadata, updated 23 April 2026. These catalogue update dates are not guaranteed physical refresh schedules."
+      ]
+    },
+    {
+      "publisher": "Watermanagementcentrum Nederland / Informatiepunt Leefomgeving",
+      "title": "Landelijk Informatiesysteem Water en Overstromingen (LIWO)",
+      "url": "https://iplo.nl/thema/water/applicaties-modellen/berichtgeving-crisismanagement/liwo/",
+      "accessedAt": "2026-09-02T18:21:50Z",
+      "edition": "LIWO 2025.1.6, released 30 October 2025",
+      "supports": [
+        "LIWO is the official national flood-information system intended for preparation, exercises and crisis management and contains consequence information for named scenarios.",
+        "The publisher explicitly requires specialist interpretation. A local integration must pin the selected scenario, connected water pathway, defence/breach/control assumptions, depth, arrival, duration/recession, units, resolution, NoData and edition rather than deriving impact from municipality-centre distance.",
+        "No blanket open-data licence or guaranteed update cadence was established from the inspected landing page. Until an approved extract is available, unavailable local hydraulic-event coverage is Unknown and must not become zero, safe or a synthetic precision claim."
+      ]
+    },
+    {
+      "publisher": "Stichting Mijn Aansluiting / KNMI / RDI / DUO / KVK / NDW",
+      "title": "National public provider, weather, telecom, facility and mobility context routes",
+      "url": "https://data.overheid.nl/en/dataset/81000-netbeheergebieden-elektriciteit--gas--media--riolering--warmte-en-water",
+      "accessedAt": "2026-09-02T18:21:50Z",
+      "edition": "Provider catalogue current in 2026; deployed public-context snapshots and APIs inspected 2 September 2026",
+      "supports": [
+        "Public-domain Mijn Aansluiting WMS/WFS https://public.geodata.mijnaansluiting.nl/geoserver/mijnaansluiting_open/ows identifies Stedin for electricity and gas, Vitens for drinking water and Ziggo for media at the GM0312 reference point. Provider features are event/provider updated, not on a guaranteed operational cadence; the empty drainage result is contributor-incomplete Unknown, not no sewer service. Provider territories are not topology, capacity, telemetry, outage or restoration state.",
+        "KNMI OGC EDR https://developer.dataplatform.knmi.nl/edr-api provides API-key access to 10-minute near-real-time observations and hourly/daily validated data; KNMI catalogue licences are dataset-specific, commonly CC BY 4.0. Valid-time observations or forecasts may drive a clearly typed scenario, but must never be silently mixed with deterministic exercise weather.",
+        "The deployed boundary context contains 24 RDI antenna registrations, 18 DUO education records and five KVK government-service records, while the RIVM acute-care query returns no facility. RDI WFS https://antenneregister.nl/mapserver/wfs/ is a public statutory register with no fixed cadence/licence established here; DUO RIO https://onderwijsdata.duo.nl/dataset/c416acd1-e083-4ec6-9203-3b20f98fe143 is national daily around 06:15 under CC BY; KVK OGC https://api.pdok.nl/kvk/overheidsdiensten-geharmoniseerd/ogc/v1 is partial Public Domain context. Registry absence is Unknown, not zero capability.",
+        "NDW DATEX II https://opendata.ndw.nu/actueel_beeld.xml.gz supplies national CC0 event-valid road closures, incidents and traffic with publication/validity time. It can supplement monthly CC0 NWB geometry for observed mobility context, not create utility topology or prove emergency throughput."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM0312, Bunnik, province Utrecht and safety region Utrecht are internally and officially coherent.",
+      "evidenceRefs": ["E01", "E02", "E03"],
+      "notes": [
+        "Generated municipality code/name and feature identity equal GM0312/Bunnik.",
+        "The safety-region layer assigns GM0312 to exactly one region, Utrecht, and E03 is its adopted regional profile.",
+        "No identity, province, boundary/statistics edition or safety-region mismatch was found."
+      ]
+    },
+    "geography": {
+      "status": "pass",
+      "summary": "The consumed 2025 generalized boundary and reference point are coherent, while administrative, hydraulic, transport, provider and incident geographies remain distinct.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E06", "E07"],
+      "notes": [
+        "Generated reference point [5.216477211330337, 52.042366081532755] is inside the official generalized GM0312 polygon; boundaryEdition and statisticsEdition both equal 2025.",
+        "E03-E07 distinguish Lek-defence scenarios, Kromme Rijn/Amsterdam-Rijnkanaal catchments, local drainage/storage, climate cells and water controls from the municipality polygon and centre point.",
+        "A neighbourhood, BAG place, BRT label, NWB route designation, provider territory, climate pixel, forest polygon and exercise incident footprint are not treated as interchangeable evidence."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Headline municipality statistics match CBS 2025 and independently rounded neighbourhood population reconciles within publication precision.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "Generated population 16,279, density 441, age65Pct 22.7 and one-person-household count 2,316 agree with the official municipality record after documented rounding.",
+        "The eight neighbourhood rows sum to 16,270 residents, nine below the municipality row (-0.055%); households sum to 7,025 and rounded age-65-plus rows to 3,700 versus the official municipality total 3,696.",
+        "The simulator proportionally reconciles neighbourhood allocation to exactly 16,279 rather than presenting independently rounded rows as exact additive counts.",
+        "Aggregate age, household, housing, car, density and access context is not an individual record, medically dependent population or observed emergency demand."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "Eight neighbourhoods expose useful aggregate context, but unavailable fields and a shared hazard-independent allocator limit operational interpretation.",
+      "evidenceRefs": ["E01", "E04", "E06"],
+      "notes": [
+        "Population, age, household, density, GP/supermarket distance and land/water context are populated across all eight neighbourhoods; cars per household covers seven of eight.",
+        "District-heating share and public-charging-point count are available in 0/8 neighbourhoods and correctly remain null; missing or suppressed values are not converted to zero.",
+        "Largest neighbourhoods are Bunnik 7,005, Odijk 5,475 and Werkhoven 2,070 residents, followed by the outlying areas.",
+        "Compound T+24 local population, affected population and every service demand/delivery total reconcile exactly, but identical river/pluvial/heat ranks are not supported by E04/E06."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "Three BAG places and four BRT settlements are coherent and remain distinct from the eight official CBS neighbourhoods.",
+      "evidenceRefs": ["E02"],
+      "notes": [
+        "The BAG places Bunnik, Odijk and Werkhoven have centres inside the generalized municipal boundary.",
+        "BRT provides woonkern records for Bunnik, Odijk and Werkhoven plus Vechten as a gehucht; topographic classes are not municipality population totals or operational emergency zones.",
+        "No out-of-boundary, identity or duplicate-settlement review flag was produced."
+      ]
+    },
+    "transport": {
+      "status": "fail",
+      "summary": "Static road, rail and transit context is structurally present, but the generated E30 edge double-represents an A27 co-designation and materially changes service results.",
+      "evidenceRefs": ["E02", "E04", "E06", "E08"],
+      "notes": [
+        "Eight generated links connect GM0312 to Utrecht, Houten, Utrechtse Heuvelrug and Wijk bij Duurstede: two A12 boundary pairs plus A27, E30, N421, N411, N229 and N410. Endpoint fragments total 11.748 km and nominal logical capacity totals 1,530.",
+        "The generated A27 and E30 links both connect Bunnik to Utrecht. Live NWB E30 records wvk 278309019/278309026 at Knooppunt Rijnsweerd use different physical wegnummer values, 027 and 028; scripts/fetch-realism-data.mjs:402-404,488-491,535-569 groups by route label before physical corridor identity, blending A27/A28 contributions into one misidentified 150-capacity edge.",
+        "A controlled compound T+24 rerun without only the generated E30 edge changes system pressure 0.615179 to 0.625228 and telecom availability 0.687549 to 0.620406; the non-monotonic cascade means the correct action is identity-aware rebuilding, not blind route deletion.",
+        "Bunnik station and 19 GTFS stop areas are static infrastructure/schedule context, not proof of operating trains/buses, passenger capacity or first-72-hour availability. NWB/NDW should govern mobility/access only; all utility routes remain logical proxies."
+      ]
+    },
+    "emergencyContext": {
+      "status": "warn",
+      "summary": "Strong public climate, water, transport, provider and registry context exists, but physical topology, operating state and validated local capacity remain unavailable.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "Official strategic, modeled stress-test, registry and provider evidence is kept separate from the canonical deterministic scenario clock; none is presented as a T+0 observation or T+72 forecast.",
+        "The current boundary snapshot contains 52 HWH water objects, 24 RDI antenna registrations, 18 DUO education records and five KVK government-service records. All are display-only/affectsSimulation=false; registry presence is not capability, occupancy, backup or availability.",
+        "The RIVM acute-care query returns no facility, and Mijn Aansluiting drainage returns no provider. Both are Unknown/coverage-limited results, not evidence of zero care or drainage service.",
+        "No authorized feeder, pipe, pressure zone, complete sewer catchment, antenna backhaul/coverage, facility continuity, pharmacy/food/fuel stock, priority-customer, crew or restoration dataset is loaded or inferred."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "warn",
+      "summary": "All ten canonical presets completed at all six required checkpoints for all eight services, but execution does not establish local calibration.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "Peak municipality severities were storm 0.505127, pluvial 0.271818, river 0.440119, coastal 0.085020, heat 0.730938, winter 0.630838, cyber 0.454110, earthquake 0.020187, wildfire 0.151928 and compound 0.795742.",
+        "At T+24 compound had rain 42.334218 mm/h, normalized inundation-stress amplitude 0.189487, wind 25.711673 m/s, cyber disruption 0.398390, severity 0.789690, system pressure 0.615179, 10,899 modeled people under pressure and 140,966 cumulative event-attributable essential-service person-hours.",
+        "At T+72 compound retained normalized inundation-stress amplitude 0.188159 and cyber disruption 0.051815, with severity 0.241245, pressure 0.548322, 9,365 modeled people under pressure and 557,248 cumulative proxy person-hours.",
+        "Canonical coastal direct inundation is zero in Bunnik while a modeled wind tail produces T+24 severity 0.085020 and service pressure. Canonical wildfire has zero direct flame and transported smoke/drought; the focused TOP10NL forest ignition is a separate reproducibility diagnostic.",
+        "At T+24 storm severity is 0.064825, pluvial 0.131911, heat 0.114063 at 25.961721 C with drought 0.633682, winter 0.626584 at -7.150186 C with snow 3.276078 cm/h and ice 0.560527, cyber 0.386936, and the remote Groningen-centred earthquake current severity zero with remembered peak 0.020187.",
+        "All meteorological, hydraulic, wildfire, earthquake and untargeted cyber values are deterministic exercise assumptions, not observations, probabilities, warnings, attack intelligence or outage forecasts."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Finite bounds, exact no-event semantics, determinism, cumulative burden, route bounds, local reconciliation and layer invariance pass.",
+      "evidenceRefs": [],
+      "notes": [
+        "MUNICIPALITY_AUDIT_CODE=GM0312 pnpm audit:model passed both focused coverage tests across 10 presets × 6 checkpoints × 8 services in 28.03 seconds (27.85 seconds test execution) on the final rerun.",
+        "Every preset at intensity zero produced exactly zero current severity, peak severity, affected population and event-attributable essential-service person-hours at every required checkpoint.",
+        "Repeated frames are deterministic; outputs are finite and bounded; cumulative person-hours are monotonic; route flow never exceeds effective logical capacity; all eight headline pressure weights participate and close to one.",
+        "Compound T+24 local allocation reconciles population 16,279, affected population 10,899 and all eight demand/delivery balances, with maximum observed floating-point discrepancy 1.78e-15.",
+        "Changing among all eleven map layers leaves hazard, system pressure and affected population exactly invariant."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "The common neighbourhood allocator, source-insensitive wildfire map and unselected river field contradict Bunnik's public climate, forest and hydraulic context.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E06", "E07"],
+      "notes": [
+        "packages/sim-core/src/model.ts:3567-3580 derives one hazardSeed from city seed, scenario seed and region id; no hazard dimension or source geometry enters the local multiplier. River, pluvial and heat therefore have the identical eight-neighbourhood rank order: Buitengebied Bunnik Noord, Buitengebied Bunnik Zuid, Odijk, Buitengebied Odijk, Bunnik, Werkhoven, Vechten and Buitengebied Werkhoven.",
+        "E06 exposes different pluvial, UHI and drought surfaces. Reference-point samples include 0.18 m water in Buitengebied Odijk, UHI 1.065 in Bunnik, UHI 0 and high drought in Buitengebied Bunnik Noord, and multiple NoData water pixels; these point diagnostics are not zonal means but falsify any claim that the common order was source-derived.",
+        "A focused synthetic T+24 ignition [5.24986531144451, 52.03430213300161] intersects official TOP10NL deciduous forest object 106205688 and BU03120209 Buitengebied Werkhoven. Direct fire is 0.583712 and city severity 0.576035, but the source neighbourhood ranks eighth at 0.516364 while Buitengebied Bunnik Noord ranks first at 0.675324.",
+        "packages/sim-core/src/model.ts:430-470 derives named-major-river exposure from municipality-reference-point distance to approximate line segments rather than a selected Lek/Kromme Rijn scenario. At T+24 and T+72 river retains internal depth-like proxy 1.422296, displayed as about 94.82% normalized inundation stress, despite no local depth/arrival/duration/recession footprint.",
+        "The river result emits derived-screening and pluvial/heat/wildfire emit synthetic evidence, so these maps must not support neighbourhood dispatch, evacuation or resource-priority claims."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "warn",
+      "summary": "All eight service balances and dependency stages are inspectable, but magnitudes are not calibrated to Bunnik's providers, water controls, rail/road access, facilities or supply chain.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E08"],
+      "notes": [
+        "Compound T+24 availability is power 0.135557, water 0.463555, drainage 0.109198, gas 0.579492, telecom 0.687549, mobility 0.218417, facilities 0.214579 and supply 0.760335.",
+        "River T+24 availability is power 0.810168, water 0.719389, drainage 0.169562, gas 0.756338, telecom 0.332576, mobility 0.518174, facilities 0.810609 and supply 0.790041; at T+72 facilities falls to 0.550187 while the other seven remain unchanged under sustained forcing.",
+        "E03-E06 support the direction and timing importance of electricity, telecom, water, wastewater, mobility, facility and supply cascades; none calibrates exact availability, demand, delivery, reserve, backup or repair values.",
+        "The graph has no named Odijk pumping-station/RWZI Bunnik/Kromme Rijn chain, Stedin feeder or gas zone, Vitens pressure area, Ziggo/backhaul path, Bunnik station continuity, facility continuity role or food/fuel depot.",
+        "All eight services reuse the same eight road-derived records and nominal capacity 1,530. Emitted transferSemantics correctly remains logical-proxy, but the A27/E30 identity defect shows that even proxy topology must be deduplicated by physical corridor before it can support stable scenario comparisons.",
+        "Aggregate household, housing, density, car and access context changes local demand transparently, but coefficients remain scenario assumptions rather than individual vulnerability or measured first-72-hour demand."
+      ]
+    },
+    "causalTrace": {
+      "status": "pass",
+      "summary": "Hazard, service and municipality explanation ledgers close and preserve confidence, dependency order, scenario operations and counterfactual scope.",
+      "evidenceRefs": ["E03", "E05", "E08"],
+      "notes": [
+        "Hazard contributions sum to headline severity; every service baseline plus exact-stage deltas sums to availability; all eight weighted service shortfalls sum to municipality pressure.",
+        "System-pressure weights are power 0.18, water 0.15, drainage 0.08, gas 0.09, telecom 0.12, mobility 0.12, facilities 0.14 and supply 0.12, summing to one.",
+        "Dependency chains, local context factors, drivers, recovery progress and restore-service counterfactual deltas are finite and arithmetically closed.",
+        "Household preparedness changes modeled people/supply consequences after physical pressure rather than changing physical hazard fragility. Day type, local start clock, demand, backup, network and repair multipliers are normalized and labeled scenario assumptions; delayed interventions do not masquerade as known crews/assets.",
+        "Event-attributable essential-service person-hours integrate weighted unmet-service pressure against a matched no-event baseline; they are not observed outage-hours, casualties, evacuation, displacement or welfare loss."
+      ]
+    },
+    "recovery72h": {
+      "status": "warn",
+      "summary": "Sustained-water repair gating behaves consistently, but no selected local event, access, backup, stock or crew evidence calibrates Bunnik restoration through T+72.",
+      "evidenceRefs": ["E03", "E04", "E05", "E07", "E08"],
+      "notes": [
+        "For river flooding, internal depth-like stress 1.422296 and severity 0.440119 remain active through T+72 and recoveryProgress remains exactly zero for all eight services; this avoids instantaneous rebuilding while inundation persists.",
+        "River power/water/drainage/gas/telecom/mobility/supply availability stays 0.810168/0.719389/0.169562/0.756338/0.332576/0.518174/0.790041 from T+24 to T+72, while facilities declines from 0.810609 to 0.550187 through dependency dynamics. Affected population increases from 4,914 to 5,750 and cumulative event-attributable person-hours from 142,792 to 581,398.",
+        "Compound T+72 also retains active water/cyber forcing, zero service recovery progress, pressure 0.548322 and 557,248 cumulative event-attributable person-hours.",
+        "E03-E07 establish that event mechanism, defences, controls, access and cascades matter; they do not validate this amplitude/duration or provide pump/control state, backup endurance, stocks, named crews, repair travel or operator restoration commitments.",
+        "Other preset recovery curves are bounded scenario assumptions. They must not be shown as Bunnik provider, municipality, rail or water-board restoration forecasts."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": ["power", "water", "drainage", "gas", "telecom", "mobility", "facilities", "supply"]
+  },
+  "findings": [
+    {
+      "id": "GM0312-NWB-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "The generated Bunnik-Utrecht E30 logical edge blends physical A27 and A28 corridor sections under one route-label proxy and materially changes the eight-service solver.",
+      "evidence": "E02's live official NWB WFS records wvk 278309019 and 278309026 at Knooppunt Rijnsweerd carry routeltr E/routenr 30 but respectively wegnummer 027 and 028. A27 records wvk 600128588/600128864 use wegnummer 027; nationally signed A28 records establish 028 as the separate A28 corridor. The generated transport file nevertheless contains independent links nwb-link-353 A27, 1.129 km/capacity 260 and nwb-link-436 E30, 0.363 km/capacity 150, both GM0312-GM0344, with the E30 edge collapsing source sections from both physical road numbers. scripts/fetch-realism-data.mjs:402-404,488-491,535-569 derives and deduplicates by route label before physical NWB corridor identity. At compound T+24 the E30 proxy has nonzero normalized flow for power 0.343766, water 0.098907, drainage 0.275292, telecom 0.728530, mobility 0.626967, facilities 0.288219 and supply 0.653343. Removing only that edge changes pressure 0.615179116 to 0.625228077, affected population 10,899 to 11,129, water availability 0.463555182 to 0.453127791 and telecom 0.687549056 to 0.620405729. This is a sensitivity diagnostic, not evidence that either physical corridor should be deleted.",
+      "action": "Before release, rebuild corridor identity from NWB wvk/wegnummer, shared/coincident geometry, direction and endpoint evidence; coalesce route co-designations and parallel carriageways into one inspectable logical physical-corridor group while retaining every source wvkId and route label. Add GM0312 A27/E30 regression and national duplicate checks. Do not remove all E-routes blindly, infer utility topology, or treat nominal capacity as vehicles/megawatts/litres."
+    },
+    {
+      "id": "GM0312-SPATIAL-001",
+      "severity": "high",
+      "category": "geography",
+      "status": "open",
+      "summary": "One hazard-independent neighbourhood hash makes Bunnik river, pluvial and heat maps exactly rank-identical despite distinct official climate surfaces.",
+      "evidence": "packages/sim-core/src/model.ts:3567-3580 uses one hazardSeed based on city seed, scenario seed and region id. River, pluvial and heat all rank Buitengebied Bunnik Noord, Buitengebied Bunnik Zuid, Odijk, Buitengebied Odijk, Bunnik, Werkhoven, Vechten and Buitengebied Werkhoven in exactly that order. E06 instead exposes distinct HDSR 75 mm/1 h water, UHI, warm-night and drought rasters: diagnostic reference points include water 0.18 m in Buitengebied Odijk, UHI 1.065 in Bunnik, and high drought with UHI 0 in Buitengebied Bunnik Noord, with NoData at five of eight water points. Point samples are not zonal means or observations, but establish that the simulator order is not source-derived.",
+      "action": "Until event-specific geometry is integrated, mark neighbourhood impact ranks unsupported and prohibit operational prioritization from them. Pin source layer/version/event/reference date/units/resolution/licence, compute polygon-aware zonal values, preserve NoData as Unknown, and type modeled climate context separately from synthetic T+0–72 output."
+    },
+    {
+      "id": "GM0312-FIRE-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "An explicit ignition inside official deciduous forest in Buitengebied Werkhoven does not control the displayed local wildfire impact.",
+      "evidence": "E02 identifies TOP10NL forest object 106205688 and focused source [5.24986531144451, 52.03430213300161] inside BU03120209 Buitengebied Werkhoven. A focused synthetic T+24 run reports direct fire 0.583712, smoke 0.529699, drought 0.609758 and city severity 0.576035, yet the source neighbourhood ranks eighth at 0.516364 while Buitengebied Bunnik Noord ranks first at 0.675324. Static forest cover and this diagnostic are neither an observed incident nor a forecast, but they falsify source-aware local allocation.",
+      "action": "Keep direct-fire neighbourhood ranks visibly synthetic/unsupported and prohibit operational rank use. Make local allocation source/perimeter and eligible-fuel aware using versioned TOP10NL as an open static fallback, while modeling transported smoke, drought, wind, access, extinguishing water and suppression assumptions separately."
+    },
+    {
+      "id": "GM0312-RIVER-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "A coarse Rhine/Meuse/IJssel proximity field produces persistent Bunnik inundation stress without a selected local Lek/Kromme Rijn hydraulic event.",
+      "evidence": "packages/sim-core/src/model.ts:430-470 uses municipality-reference-point distance to approximate named-major-river segments. At T+24 and T+72 the canonical river preset reports internal depth-like proxy 1.422296, approximately 94.82% normalized UI inundation stress, severity 0.440119 and zero recovery for all services; affected population is 4,914 then 5,750 and cumulative event-attributable person-hours 142,792 then 581,398. E03 supports genuine northern-Lekdijk regional catastrophe potential, and E04-E05 support Kromme Rijn/local drainage pathways, but no selected connected event, defence/control state, depth, arrival, duration or recession surface supports the displayed Bunnik-wide amplitude. This is municipality-specific evidence of a shared screening defect, not a claim that Bunnik is flood-safe.",
+      "action": "Conservatively render direct GM0312 river impact Unknown/numerically neutral until an expert selects a named, connected and versioned LIWO/HDSR event. Keep Lek-defence, Kromme Rijn, local drainage/pluvial and indirect access/supply pathways separately visible and unresolved; never convert unavailable event coverage to zero or safety."
+    },
+    {
+      "id": "GM0312-DRAINAGE-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "accepted-limitation",
+      "summary": "Fifty-two public water objects improve Bunnik context but do not establish drainage/wastewater connectivity, capacity, control state or restoration.",
+      "evidence": "E05 contributes two sewer pumps, RWZI Bunnik, 11 surface-water pumps, one sluice and 37 weirs, including Odijk drainage/supply and the RWZI catchment/discharge description. The application correctly marks all 52 objects affectsSimulation=false. Compound T+24 drainage availability 0.109198 and river T+24/T+72 availability 0.169562 arise from generic equations, not catchment/pipeline connectivity, inlet blockage, storage, receiving-water level, pump/weir capacity, controls, emergency power or telemetry. HWH/DAMO contributor coverage is context; absence of complete municipal sewer topology remains Unknown.",
+      "action": "Keep IMWA/DAMO/HDSR objects as non-causal context. Obtain a licensed, security-reviewed GWSW/native municipal drainage and authorized HDSR connectivity/state export before causal use; otherwise expose bounded named subsystem assumptions with capacity, controls, backup and state explicitly Unknown."
+    },
+    {
+      "id": "GM0312-MOBILITY-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "accepted-limitation",
+      "summary": "Bunnik's roads, station and transit stops are static context and do not establish first-72-hour transport or repair access.",
+      "evidence": "E02 and deployed data identify eight generated links, Bunnik station and 19 GTFS stop areas; E04 identifies the station's two-track Sprinter role and bus 41 linkage among the three cores, while Odijk/Werkhoven lack stations. No current timetable trip, NDW event/closure/speed, evacuation throughput, response route, rail interruption or repair access enters the solver. Compound mobility availability 0.218417 at T+24/T+72 is a scenario balance, not observed state. The separate E30 identity blocker is recorded in GM0312-NWB-001.",
+      "action": "Use monthly CC0 NWB only for geometry and event-valid CC0 NDW DATEX II for clearly timestamped observed mobility context. Keep ProRail/GTFS as dated infrastructure/schedule context; do not infer disaster-time passenger, evacuation, repair or emergency throughput."
+    },
+    {
+      "id": "GM0312-CONTINUITY-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "accepted-limitation",
+      "summary": "Provider polygons, antennas, schools and government/facility records do not resolve Bunnik utility, care or household continuity.",
+      "evidence": "E01 supports aggregate older and one-person populations; E08 identifies Stedin, Vitens and Ziggo responsibility context plus 24 antenna, 18 education and five government-service records. The RIVM acute-care query returns no facility and the public drainage-provider layer returns no feature. None establishes feeder/pipe/backhaul topology, coverage, load, priority customers, backup duration, occupancy, staffing, shelter role, stocks or restoration. Compound T+24 power 0.135557, water 0.463555, gas 0.579492, telecom 0.687549, facilities 0.214579 and supply 0.760335 are synthetic scenario balances, not provider/facility observations.",
+      "action": "Keep provider and public registries display-only with publisher, edition, retrieval time, coverage and licence. Use capacity, state, backup, stock and restoration only from authorized operator/GHOR/municipal exercise inputs; otherwise retain the smallest service-specific synthetic prior and explicit Unknown."
+    },
+    {
+      "id": "GM0312-OTHER-HAZARDS-001",
+      "severity": "medium",
+      "category": "limitation",
+      "status": "accepted-limitation",
+      "summary": "Storm, heat/drought, winter, cyber, earthquake and remote coastal/wildfire effects are bounded exercises but not calibrated Bunnik forecasts or probabilities.",
+      "evidence": "E03 establishes these hazard families and cascade relevance. Canonical Bunnik peaks are storm 0.505127, heat 0.730938, winter 0.630838, cyber 0.454110, remote Groningen-centred earthquake 0.020187, wildfire 0.151928 and coastal 0.085020. Coastal direct water is zero and its T+24 effect is a wind tail; canonical wildfire has zero direct flame and remote smoke/drought. Untargeted cyber assigns generic exposure, and meteorological values are deterministic equations rather than valid-time KNMI observations. These results are conditional exercise consequences, not annual likelihood, live weather, attack intelligence or outage forecasts.",
+      "action": "Keep scenario, observation and probability labels distinct. Allow source and target selection; add versioned KNMI observed/forecast inputs only with valid time, licence and coverage, and use local underground/cyber effects only through selected expert scenarios or authorized aggregate operator fragility envelopes."
+    },
+    {
+      "id": "GM0312-NODATA-001",
+      "severity": "informational",
+      "category": "regional-data",
+      "status": "fixed",
+      "summary": "The current adapter and audit preserve null, empty-coverage, NoData and display-only semantics instead of silently turning missing evidence into zero or truth.",
+      "evidence": "District-heating share and public-charging count remain null in all eight neighbourhoods; car access remains null in one; the empty Mijn Aansluiting drainage and RIVM acute-care responses are incomplete/Unknown; HWH/RDI/DUO/KVK/provider data remain affectsSimulation=false. Province Utrecht reference-point identify returned NoData at five of eight water points and those values remain NoData rather than zero. These semantics passed focused model/data inspection.",
+      "action": "Retain typed Unknown/not-applicable/suppressed/NoData states, source coverage and retrieval time in every future ingestion; test that no public-context absence creates zero hazard, zero service, zero need or a causal simulation input."
+    },
+    {
+      "id": "GM0312-CONTRACT-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The deterministic ten-scenario contract, zero-intensity baseline, causal ledgers, reconciliation and sustained-water recovery guard pass for GM0312.",
+      "evidence": "The focused gate passes 10 presets × 6 checkpoints × 8 services. All zero-intensity runs are exactly zero for severity, peak, affected population and cumulative event-attributable person-hours; repeated frames, finite bounds, monotonic accumulation and route bounds pass. Compound T+24 reconciles 16,279 people, 10,899 affected and every demand/delivery ledger within 1.78e-15; all eleven map layers are invariant. Active river/compound water holds every service recoveryProgress at zero through T+72. Explanations label person-hours, operational multipliers, interventions and road-derived transfers as scenario/proxy semantics.",
+      "action": "Preserve these regressions while correcting A27/E30 corridor identity, unsupported river forcing, common hazard allocation and source-insensitive wildfire mapping; a passing arithmetic contract must remain separate from physical validation."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Rebuild NWB logical-corridor identity so the E30 co-designation is split and reconciled to its physical A27/A28 sections before Bunnik-Utrecht capacities are derived.",
+      "files": [
+        "scripts/fetch-realism-data.mjs",
+        "apps/web/public/data/transport-network.json",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "audits/correction-ledger.json"
+      ],
+      "validation": "Smallest safe release correction: group generated candidate crossings by stable physical corridor evidence using NWB wvkId/wegnummer, coincident or connected geometry, direction and municipality endpoints before route display aliases are expanded; represent E30 as an alias on the corresponding A27 and A28 physical proxies and retain every source wvkId. A blind deletion of every E route is unsafe. Regression for GM0312 must find exactly one road-27/A27 and one road-28/A28 proxy, no independent primary E30 edge, retained directional provenance and bounded flow. Run transport generator checks, unit tests, focused GM0312 and national ALL municipality gates."
+    },
+    {
+      "summary": "Replace common Bunnik pluvial/heat allocation and source-insensitive wildfire mapping with event-specific, geometry-aware public context.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/src/data.ts",
+        "apps/web/public/data/hazards/utrecht-climate-context.json"
+      ],
+      "validation": "Preferred machine sources are Province Utrecht klimaatadaptatie MapServer https://gis.provincie-utrecht.nl/server/rest/services/Water/w01_7_Klimaatadaptatie_raster/MapServer plus Public Domain WMS/TIFF/WFS records https://data.overheid.nl/dataset/82761-maximale-waterdiepte-op-en-langs-de-weg-na-bui-van-70-mm-in-1-uur and https://data.overheid.nl/dataset/69171-begaanbaarheid-van-wegen-na-bui-van-70-mm-in-1-uur. Preserve event/layer, reference date, units, native resolution, retrieval time, NoData and licence; compute neighbourhood polygon/zonal values, never centre-point substitution. For wildfire, use Kadaster TOP10NL OGC https://api.pdok.nl/kadaster/brt-top10nl/ogc/v1 under CC BY 4.0 only as static eligible-fuel context with object/source dates plus a named exercise source/perimeter and valid-time weather. Assert river/pluvial/heat rankings can differ and a Werkhoven-forest source governs local direct flame under equal conditions."
+    },
+    {
+      "summary": "Stop presenting Bunnik's generic major-river proximity scalar as supported local inundation and require a selected connected hydraulic event.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/public/data/hazards/bunnik-flood-context.geojson",
+        "audits/correction-ledger.json"
+      ],
+      "validation": "Interim: treat GM0312 direct river amplitude as Unknown/numerically neutral and preserve genuine Lek-defence, Kromme Rijn, pluvial/drainage and indirect access/supply risk as explicitly unresolved rather than safe. Durable source: require an expert-selected LIWO/HDSR footprint with scenario name, connected pathway, defence/breach/control assumptions, probability class where applicable, edition, depth, arrival, duration/recession, units, resolution, no-data, licence and retrieval time. Regression: without an approved footprint GM0312 cannot receive a precise direct depth or neighbourhood rank; selected valid pixels control impact and NoData remains Unknown; rerun unit, focused GM0312 and national ALL gates."
+    },
+    {
+      "summary": "Integrate authoritative Bunnik public-service and transport context by discipline and valid time without promoting it into physical topology or live state.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/data.ts",
+        "apps/web/public/data/public-context/water-assets.geojson.gz",
+        "apps/web/public/data/public-context/rdi-antenna-sites.geojson.gz",
+        "apps/web/public/data/transport-network.json"
+      ],
+      "validation": "Water/drainage: HWH Kunstwerken IMWA is weekly and Waterketen DAMO cadence/completeness varies, both CC BY-SA 4.0; keep the 52 objects non-causal until connectivity, units, controls, state and backup are authorized. Providers: Mijn Aansluiting WMS/WFS is Public Domain and event/provider updated but assigns only connection responsibility; drainage absence is Unknown. Mobility: NWB monthly CC0 supplies physical road geometry, NDW DATEX II supplies CC0 event-valid closures/incidents with publication/validity time, and ProRail/GTFS gives infrastructure/schedule context only. Facilities/telecom: DUO RIO is national daily around 06:15 under CC BY; KVK OGC is partial Public Domain context; RDI is a statutory public antenna register with cadence/licence unresolved in this audit. None establishes live occupancy, capacity, coverage, backup or restoration. Preserve utility/facility topology and live state as Unknown unless operator/GHOR-authorized; use only the smallest named service-specific synthetic fallback with sensitivity."
+    }
+  ],
+  "residualLimitations": [
+    "This is a deterministic planning-model audit, not validation against an observed Bunnik disaster, outage, casualty, evacuation, welfare or restoration dataset.",
+    "The 2025 generalized CBS boundary is appropriate for municipal aggregation but not parcel-level hydraulics, asset ownership, response jurisdiction or exact incident geometry.",
+    "Province Utrecht water/heat/drought layers are modeled context surfaces; reference-point identify is not zonal analysis, NoData is common, and catalogue update dates do not prove physical refresh cadence.",
+    "Official Lek, Kromme Rijn, sewer, watercourse and asset context does not prove hydraulic connection, defence failure, depth, arrival, duration or recession; an expert must select and version a physically relevant event.",
+    "TOP10NL forest cover is static context rather than live fuel, moisture, spread, suppression or access state; the focused Werkhoven ignition is synthetic.",
+    "HWH/provider/antenna/facility/station/GTFS records are partial dated context, not complete topology, capacity, operating state, backup, stock or restoration commitments.",
+    "No reviewed public safe source provides complete Stedin, Vitens, municipal sewer, gas, telecom, care, food/fuel or emergency-resource topology/state; sensitive detail was not inferred.",
+    "First-72-hour household behavior, medically dependent people, responders, mutual aid, shelters, pharmacies, fuel/food stocks, crew travel, repair priorities and visitor/daytime demand remain scenario assumptions or Unknown."
+  ],
+  "provinceReviewFlags": [
+    "Municipality-specific: treat Bunnik direct river forcing as Unknown until a named connected Lek/Kromme Rijn/HDSR/LIWO event is selected; distinguish defences, controls, drainage and pluvial pathways.",
+    "Municipality-specific: use Province Utrecht water/heat/drought layers only with event/version/units/no-data/licence and geometry-aware aggregation; validate Bunnik, Odijk, Werkhoven and rural differences.",
+    "Municipality-specific: correct the Werkhoven forest source allocation and validate eligible vegetation, access and extinguishing-water assumptions without treating static TOP10NL cover as live fire behavior.",
+    "Shared/national release blocker: coalesce NWB route co-designations and carriageways by physical corridor identity. For Bunnik, E30 at Rijnsweerd is carried on wegnummer 027 and must not create extra logical capacity beside A27.",
+    "Shared/national: replace common neighbourhood hazard hashes with event-specific public water/heat/fire surfaces and grey unsupported rankings; all road-derived utility transfers remain logical proxies.",
+    "Shared/national: coordinate HDSR, municipalities, Stedin, Vitens, provider territories, RDI, public facilities, ProRail/GTFS and NDW as non-causal context unless authorized operational topology/state is supplied; incomplete registry/provider coverage remains Unknown."
+  ]
+}

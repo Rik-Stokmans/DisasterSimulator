@@ -1,0 +1,450 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0216",
+    "name": "Culemborg",
+    "province": "Gelderland",
+    "safetyRegion": "Gelderland-Zuid"
+  },
+  "agent": {
+    "taskName": "municipality_gm0216",
+    "agentId": "/root/municipality_gm0518",
+    "completedAt": "2026-09-02T19:37:30Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "GM0216's code, Culemborg name, Gelderland province, Gelderland-Zuid membership, 2025 CBS population, two districts, 20 neighbourhoods, one BAG woonplaats and three BRT settlement labels are coherent. Published neighbourhood population sums to 30,295, only 14 above the official 30,281 residents (+0.046%), and unavailable values remain null. All ten canonical exercises run deterministically at T+0/6/12/24/48/72 across all eight services; exact-zero, finite-bound, local-allocation, reconciliation, cumulative-burden, recovery-guard and layer-invariance checks pass. Release nevertheless requires correction. The river preset applies 1.920349 normalized inundation stress and reaches 17,564 affected people-equivalent and 1,139,025.544 attributable person-hours at T+72 without selecting a Lek water level, primary-defence segment/state, breach or overflow, hydraulically connected footprint, arrival or dewatering curve; the UI renders the clamped metric as 100% inundation stress. Pluvial, river, coastal, heat and wildfire use exactly the same neighbourhood order, while Culemborg's adopted 2024 programme identifies Binnenstad and Parijsch as priority heat locations and Goilberdingerstraat/Binnenstad plus Beesdseweg/Pavijen as priority pluvial locations even though the model places those neighbourhoods at or near the bottom. All eight lifelines copy the same four A2/N320/N833 road IDs; mobility and supply also omit the water-level-sensitive Culemborg-Schalkwijk/Houten ferry, local passability and rail/transit continuity. Waterschap Rivierenland assets, RWZI Culemborg, provider territories, schools, government/safety locations and antennas remain non-causal context. No unavailable or security-sensitive physical utility topology, live outage, backup, staffing, stock, capacity or restoration promise is fabricated.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek (CBS)",
+      "title": "Kerncijfers wijken en buurten 2025, table 86165NED, OData API",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=WijkenEnBuurten%20eq%20%27GM0216%20%20%20%20%27&%24select=WijkenEnBuurten%2CGemeentenaam_1%2CAantalInwoners_5%2CBevolkingsdichtheid_34%2Ck_65JaarOfOuder_12%2CEenpersoonshuishoudens_30",
+      "accessedAt": "2026-09-02T19:20:00Z",
+      "edition": 2025,
+      "supports": [
+        "The fresh official GM0216 row gives Culemborg, 30,281 residents, density 1,034 per square kilometre, 6,303 residents aged 65+ and 4,612 one-person households.",
+        "The 20 generated neighbourhood rows sum to 30,295 residents, 14 above the municipality total (+0.046%), consistent with independent CBS small-area rounding rather than a hidden exposure correction.",
+        "The OData service is machine-readable and reusable under CC BY 4.0. CBS labels this a 2025 table, modified 25 June 2026, with quarterly additions when source variables become available; neighbourhood counts are rounded/suppressed and no-data is not zero.",
+        "Simulation role is official demographic/context and an allocation denominator only; registered residence is not live presence at schools, the station, Pavijen, the ferry, care settings or an incident footprint."
+      ]
+    },
+    {
+      "publisher": "PDOK / CBS / Kadaster / Rijkswaterstaat / ProRail",
+      "title": "CBS Gebiedsindelingen 2025 non-generalized geometry and national settlement/transport reference APIs",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_niet_gegeneraliseerd/items?f=json&limit=100&datetime=2025-07-01T00%3A00%3A00Z&bbox=5.13%2C51.90%2C5.29%2C51.99",
+      "accessedAt": "2026-09-02T19:24:00Z",
+      "edition": "2025 boundaries; current generated BAG, BRT, NWB and ProRail reference editions",
+      "supports": [
+        "Fresh full-resolution GM0216 is one MultiPolygon component and one exterior ring with 1,041 positions. The generated overview preserves the topology with 51 positions and contains its generated centre; full-resolution geometry is required for dike, river, raster, ferry, road and asset intersection.",
+        "The generated bundle contains two districts, 20 neighbourhoods, BAG woonplaats Culemborg and three BRT labels: Culemborg, Goilberdingen and Werk aan het Spoel. Labels and centroids are descriptive, not physical hazard or service footprints.",
+        "Culemborg station and 16 GTFS stop areas are represented. The causal graph has four border links: A2 to West Betuwe and Vijfheerenlanden, N320 to Buren and N833 to West Betuwe; these are logical scenario connectors, not observed throughput.",
+        "CBS boundary OGC is annual/CC BY 4.0; BAG is daily/Public Domain Mark; NWB OGC is monthly/CC0 1.0; ProRail reference geometry is manually refreshed/CC0 1.0; GTFS is valid only for its feed window. Simulation role is administrative/reference context, never current occupancy, closure or utility topology."
+      ]
+    },
+    {
+      "publisher": "Gemeente Culemborg",
+      "title": "Uitvoeringsprogramma Klimaatadaptatie Culemborg, priority list and public climate tiles",
+      "url": "https://culemborg.bestuurlijkeinformatie.nl/Document/LoadAgendaItemDocument/119546e7-4fea-4c7e-bc19-ead9db4080d3?agendaItemId=93c8db9b-9156-4718-9da1-8eab6a7101c5",
+      "accessedAt": "2026-09-02T19:18:00Z",
+      "edition": "Council decision 17 October 2024; public tile service modified 18 January 2021",
+      "supports": [
+        "The council approved the climate-adaptation proposal by 94% on 17 October 2024. The programme says its priority list follows risk dialogues and deeper stress tests, and that P1 locations require further site-specific investigation within five years; it is planning/screening evidence, not observed T+0 impact.",
+        "P1 heat locations include Winkelcentrum Parijsch, Mariakroon, Varkensmarkt and Markt in Binnenstad, and hardened parts of Hoge Prijs. P1 pluvial locations include Thijsselaan and Hoefblad in Voorkoop, Componistenbuurt Noord, Goilberdingerstraat in Binnenstad and Beesdseweg at Pavijen.",
+        "The programme records street-water signals around Griegstraat/Componistenbuurt and severe-rain nuisance at Pavijen in 2007. It also explicitly requires investigation before a measure or exact local consequence is asserted.",
+        "The linked public EPSG:28992 tile-only MapServer at https://tiles.arcgis.com/tiles/IrCHt1arNMmYtNtb/arcgis/rest/services/gisdata_culemborg_LH_WTL2/MapServer covers Culemborg and exposes rendered layers for 90 mm in one hour, heat risk and urban heat-island effect. The item is public but has no description, copyright/licence, source resolution, scenario edition or refresh cadence and was last modified in January 2021; display-tile LOD is not source-data resolution and the service cannot support numeric causal calibration."
+      ]
+    },
+    {
+      "publisher": "Gemeente Culemborg",
+      "title": "Omgevingsvisie Culemborg — changing conditions and area context",
+      "url": "https://omgevingsvisie.culemborg.nl/waar-staan-we-nu-en-wat-komt-er-op-ons-af/tijden-veranderen/detail",
+      "accessedAt": "2026-09-02T19:26:00Z",
+      "edition": "Omgevingsvisie adopted 19 September 2024",
+      "supports": [
+        "The municipality describes high water, seepage and housing directly behind the dike as a vulnerable combination. Its medium-probability planning map states an average flood depth of 2–5 metres and less depth in the historic centre; this is a named planning scenario, not current water or a value directly comparable to the simulator's normalized stress metric.",
+        "A separate area page identifies the Veerweg area as outside the dike. Binnendijkse, outer-dike and historical-centre areas therefore cannot be represented by one municipality scalar or common neighbourhood multiplier.",
+        "The vision also says electricity transport capacity needs extra cables, transformers, substation expansion and storage. The municipality's current net-congestion page identifies Liander and Culemborg substation expansion, which is capacity-planning context rather than evidence of an outage.",
+        "The fixed web vision has no operational API, incident refresh cadence or standard reuse licence stated. Simulation role is local risk/scenario selection and qualitative validation, not live warning, flood extent, service availability or repair time."
+      ]
+    },
+    {
+      "publisher": "Waterschap Rivierenland / Het Waterschapshuis / PDOK",
+      "title": "Legger waterkeringen and IMWA/DAMO water APIs",
+      "url": "https://www.waterschaprivierenland.nl/legger-waterkeringen",
+      "accessedAt": "2026-09-02T19:22:00Z",
+      "edition": "Legger adopted 2 September 2025 and valid from 23 September 2025; live HWH APIs inspected 2 September 2026",
+      "supports": [
+        "Waterschap Rivierenland's downloadable register distinguishes primary, regional and other defences and supplies reference lines, normative dimensions, constructions and maintenance responsibility. It describes the legally required/normative state, not actual condition, failure probability, breach or current operation.",
+        "The generated non-causal intersection contains 104 water objects: 96 weirs, five surface-water pumps, one sewer pump, RWZI Culemborg and one sluice. Named context includes pumps Parijsch and Vretstrooi and the Fort Everdingen Beersluis.",
+        "Integration-ready HWH endpoints include Keringen IMWA https://api.pdok.nl/hwh/waterschappen-keringen-imwa/ogc/v1 (weekly, CC0 1.0), Kunstwerken IMWA https://api.pdok.nl/hwh/waterschappen-kunstwerken-imwa/ogc/v2 (weekly, CC BY-SA 4.0) and Waterketen DAMO https://api.pdok.nl/hwh/waterschappen-waterketen-damo/ogc/v1 (CC BY-SA 4.0, contributor timestamps and incomplete/variable delivery).",
+        "Registers can support defence/asset context and a scope for authorised enrichment, but point/line presence and an unverified capacity attribute do not establish catchment connectivity, design/available capacity, control, live state, emergency power, interdependency or restoration."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Gelderland-Zuid (VRGZ)",
+      "title": "Regionaal Beleidsplan 2024–2027 and regional risk context",
+      "url": "https://www.vrgz.nl/media/3718/03a-regionaal-beleidsplan-2024-2027-vrgz.pdf",
+      "accessedAt": "2026-09-02T19:21:00Z",
+      "edition": "Adopted 21 December 2023 for 2024–2027",
+      "supports": [
+        "The plan explicitly includes Culemborg among VRGZ's 14 municipalities and identifies river flooding, heat, nature fire near vulnerable objects, electricity interruption, telecom/ICT disruption, cyber/digital disruption and hazardous-material transport among regional concerns.",
+        "VRGZ notes electricity-network pressure and increasing cyber/telecom dependency and prepares for long-duration crises. This supports multi-service exercise scope but not the simulator's exact eight availability values or generic interdependency coefficients.",
+        "Its nature-fire focus concerns suitable vegetation and vulnerable objects across the region; it does not assert a Culemborg ignition. Coastal flooding is not a direct open-sea mechanism here, and the canonical earthquake remains a remote Groningen exercise.",
+        "The fixed four-year planning PDF exposes no live operational API, local footprint, staffing/asset state, standard reuse licence or contractual event cadence. Simulation role is scenario governance and qualitative consequence logic only."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / Watermanagementcentrum Nederland / Informatiepunt Leefomgeving",
+      "title": "Waterinfo and Landelijk Informatiesysteem Water en Overstromingen (LIWO)",
+      "url": "https://www.rijkswaterstaat.nl/water/waterdata",
+      "accessedAt": "2026-09-02T19:23:00Z",
+      "edition": "Current services inspected 2 September 2026; LIWO release page lists 2025.1.6 dated 30 October 2025",
+      "supports": [
+        "Waterinfo provides parameter/location-specific current, expected and historical water data; many water-level series are produced every ten minutes. The application snapshot assigns zero level and zero discharge stations inside GM0216, which is no local mapped observation and never zero water or safe conditions.",
+        "Waterinfo material is generally CC0 unless a component states otherwise and supports timestamped observation/replay context, not a continuous municipality inundation surface, breach assertion or generic T+72 forecast.",
+        "LIWO contains professional flood-preparation layers and versioned scenario outputs for depth, flow, arrival, duration, consequences and infrastructure. IPLO explicitly says interpretation requires specialist water-manager knowledge; its latest listed release is 2025.1.6.",
+        "The LIWO WMS/GeoServer route https://basisinformatie-overstromingen.nl/geoserver/ows is machine-readable, but blanket redistribution licence and contractual refresh cadence were not established. Capture per-layer event, defence/breach state, probability, unit, CRS, grid resolution, version and no-data; simulation role is expert-selected scenario forcing, not observed current flooding."
+      ]
+    },
+    {
+      "publisher": "Veerbedrijf Mason / Stichting Mijn Aansluiting / KNMI / NDW",
+      "title": "Culemborg ferry, public provider-area WFS and event-valid weather/traffic sources",
+      "url": "https://veerpontculemborg.nl/",
+      "accessedAt": "2026-09-02T19:25:00Z",
+      "edition": "Live pages/services inspected 2 September 2026",
+      "supports": [
+        "The official operator page says the Culemborg II autoveer connects Culemborg and Schalkwijk/Houten across the Lek, has a 15-tonne maximum vehicle weight and had resumed its regular timetable after sufficient water returned on 25 August 2026. Its live status is water-level-sensitive, human-readable and has no documented API, licence or contractual update cadence.",
+        "No Culemborg ferry appears in the generated GTFS ferry geometry or causal graph. An operator status page can support timestamped current context only; it cannot be replayed as a future closure or converted directly to scenario capacity.",
+        "A full-geometry point-in-polygon query of the public-domain Mijn Aansluiting WFS at the generated centre identifies Liander electricity (provider timestamp 24 March 2026), Liander gas (17 December 2025), Vitens drinking water (7 September 2025) and overlapping media territories including Ziggo/KPN. No sewer or heat polygon contains the point; that is incomplete/no-data, not absence of those services. The dataset metadata were updated 14 August 2026, but provider-specific timestamps replace a guaranteed common cadence; territories are responsibility context, not topology or live state.",
+        "KNMI Data Platform 5-/10-minute weather/radar products are product-versioned under CC BY 4.0 and can bind a named observed replay; NDW DATEX II can supply timestamped road situations under dataset-specific open terms. Neither observation source creates an unsourced T+72 forecast, local impact map, closure or repair commitment."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM0216, Culemborg, Gelderland and safety region Gelderland-Zuid are internally and officially coherent.",
+      "evidenceRefs": ["E01", "E02", "E06"],
+      "notes": [
+        "Generated feature id, municipality bundle code/name, province and exactly one safety-region membership agree.",
+        "Boundary and statistics editions are 2025; the generated centre [5.206558722108329, 51.94280723528127] lies inside the overview and fresh full-resolution municipality geometry.",
+        "VRGZ's adopted 2024–2027 plan names Culemborg within Gelderland-Zuid; the plan is governance context, not incident status."
+      ]
+    },
+    "geography": {
+      "status": "warn",
+      "summary": "Administrative topology is coherent, but a 51-position overview and one centre cannot resolve the Lek, defences, outer-dike land, low points, roads or assets.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E07"],
+      "notes": [
+        "Fresh non-generalized and overview GM0216 each have one component/one exterior ring; the full polygon has 1,041 positions versus 51 in the overview.",
+        "Use annual non-generalized PDOK geometry for LIWO/WSRL/terrain/building/road/ferry intersection; retain the generalized shape for overview selection only.",
+        "The Veerweg outer-dike area, protected neighbourhoods, historical centre, Pavijen and local low points require different flood/pluvial mechanisms that a municipality-centre distance cannot allocate."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Generated municipality values reproduce the official 2025 CBS row and neighbourhood population reconciles within publication precision.",
+      "evidenceRefs": ["E01", "E02"],
+      "notes": [
+        "Official/generated population is 30,281, density 1,034/km², age 65+ is 6,303 (20.8%) and one-person households total 4,612.",
+        "Published neighbourhood population sums to 30,295, 14 above the municipality total (+0.046%); households sum to 13,400 and rounded age-65-plus rows to 6,300.",
+        "The allocator reconciles to 30,281 without rewriting source rows; residence does not equal live occupancy at schools, the station, care settings, Pavijen, shops or the ferry."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "All 20 neighbourhoods and available statistics are retained, but source gaps and synthetic hazard priorities limit operational drilldown.",
+      "evidenceRefs": ["E01", "E02", "E03", "E04"],
+      "notes": [
+        "All 20 neighbourhoods are present; 33 of 36 material fields have complete coverage, while cars per household is available for 19/20 and two fields are wholly unavailable.",
+        "District-heating percentage and public-charging count are unavailable for all 20 rows and correctly remain null rather than zero.",
+        "Compound T+24 has 20 local rows and reconciles 30,281 residents, 19,233 affected people-equivalent and each of the eight service demand/delivery totals, but its priority order is not source-calibrated."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "One BAG woonplaats and three BRT settlement labels represent Culemborg without substituting labels or descriptive totals for CBS controls.",
+      "evidenceRefs": ["E01", "E02"],
+      "notes": [
+        "BAG assigns woonplaats Culemborg; BRT assigns the Culemborg woonkern, Goilberdingen buurtschap and Werk aan het Spoel gehucht.",
+        "The BAG centre is inside the overview polygon and settlement metadata remain descriptive context.",
+        "A settlement label or centre does not define a hydraulic compartment, flood defence, ferry catchment, service territory or present population."
+      ]
+    },
+    "transport": {
+      "status": "fail",
+      "summary": "Road, station and timetable context is present, but the causal graph omits the Lek ferry/local passability and copies road links into every lifeline.",
+      "evidenceRefs": ["E02", "E03", "E07", "E08"],
+      "notes": [
+        "Four logical links represent A2 crossings to West Betuwe/Vijfheerenlanden, N320 to Buren and N833 to West Betuwe; the graph has no direct Houten connection.",
+        "The official Culemborg-Schalkwijk/Houten autoveer is water-level-sensitive and limited to 15 tonnes but is absent from both GTFS ferry geometry and the mobility/supply graph. Its human status page is current context, not a guaranteed future state.",
+        "Culemborg station and 16 GTFS stop areas are reference/schedule context without live operation, passenger load, accessibility, replacement capacity or evacuation throughput; no source-defined local road passability affects the model."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "Strong public flood, water, provider, facility and communications context is available but cannot support current incident, exposure or service-state precision.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "Generated context contains 104 water objects, 27 education locations, four government/public-safety locations, 38 RDI antenna sites and zero RIVM acute-care points inside GM0216; all correctly remain non-causal registers.",
+        "Zero current NDW road situations, zero local RIVM PM2.5 stations and zero Waterinfo observations are snapshot/no-local-data results, never proof of an open road, clean air, zero water or safe conditions.",
+        "No reviewed public source supplies live crews, shelter activation/capacity, facility occupancy, grid switching, drinking-water pressure, wastewater control, telecom backhaul, stocks, backups or repair commitments."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten canonical presets execute at all six checkpoints across all eight services with complete finite output.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "MUNICIPALITY_AUDIT_CODE=GM0216 pnpm audit:model passed one file/two tests in the final current-code run (31.54 seconds total; 31.36 seconds in tests). A separate focused 10×6×8 reproduction passed, and a headless Chromium municipality/river/T+24 workflow completed without page or console errors.",
+        "Peak severity / maximum affected / T+72 attributable deprived person-hours are storm 0.511848 / 9,355 / 407,994.099; pluvial 0.344988 / 4,718 / 294,189.569; river 0.603613 / 17,564 / 1,139,025.544; coastal 0.025405 / 0 / 59,234.321; heat 0.588969 / 1,844 / 183,739.547.",
+        "The remaining values are winter 0.808401 / 8,435 / 605,011.299; cyber 0.462956 / 10,886 / 400,948.574; earthquake 0.009969 / 0 / 12,101.249; wildfire 0.143555 / 25 / 145,793.652; compound 0.914788 / 19,271 / 1,170,573.297.",
+        "At T+24 river has severity 0.603613, raw normalized flood stress 1.920349, 16,797 affected and critical status. Compound has rain 54.670932 mm/h, standing-water stress 0.449668, gust 31.150742 m/s, cyber disruption 0.406150 and 19,233 affected.",
+        "Coastal has zero direct inundation and only a distant wind/system exercise; earthquake is a remote Groningen exercise; wildfire has zero direct flame and remote smoke/drought. Storm, pluvial, heat, winter, cyber and compound are deterministic synthetic exercises, not observations, warnings or forecasts."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Determinism, finite bounds, exact no-event semantics, local allocation, reconciliation, cumulative burden and layer invariance pass.",
+      "evidenceRefs": [],
+      "notes": [
+        "All service availability stays in [0,1]; hazard dimensions, demand, delivery, affected people-equivalent and event-attributable person-hours remain finite and non-negative.",
+        "For every preset and checkpoint, intensity zero gives exactly zero current/peak event severity, affected population and event-attributable essential-service person-hours.",
+        "Compound T+24 local rows sum to 30,281 residents and 19,233 affected people-equivalent; all eight demand/delivery totals reconcile with maximum floating discrepancy 7.11×10^-15.",
+        "Repeated frames are deterministic, cumulative event-attributable burden never decreases, route flow respects effective capacity, and every selectable map layer leaves hazard, system pressure and affected population invariant."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "Flood scenarios lack a selected hydraulic footprint and one synthetic seed gives physically unrelated hazards the same neighbourhood order.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E07"],
+      "notes": [
+        "At T+24 pluvial, river, coastal, heat and wildfire give all 20 neighbourhoods the same rank order, led by Voorkoop Noord and Ter Weijde Componistenbuurt and ending with Pavijen and Binnenstad.",
+        "The adopted programme partly agrees on Voorkoop/Componistenbuurt pluvial concern but identifies Goilberdingerstraat/Binnenstad and Beesdseweg/Pavijen as P1 pluvial sites although their model neighbourhoods are last and second-last. It also identifies Binnenstad and Parijsch P1 heat sites although Binnenstad is last and Parijsch neighbourhoods are low-ranked.",
+        "River T+72 uses 1.920349 normalized stress and affects 17,564 people-equivalent without a selected Lek level, defence/breach state, connected footprint, arrival or dewatering path. The municipal 2–5 metre medium-risk map, lesser historic-centre depth and Veerweg outer-dike status are distinct scenario/geography evidence and cannot validate that scalar.",
+        "The municipality's tile service and planning priorities can reject the common seed but cannot calibrate exact effects until the publisher exposes source rasters/vectors with licence, edition, unit, resolution, scenario and no-data."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "All eight balances calculate coherently, but four road connectors replace sector topology and omit locally material water, utility and mobility structure.",
+      "evidenceRefs": ["E02", "E04", "E05", "E08"],
+      "notes": [
+        "Compound T+24 availability is power 0.429706, water 0.369409, drainage 0.392966, gas 0.556701, telecom 0.161662, mobility 0.758720, facilities 0.405369 and supply 0.230804.",
+        "Every service exposes the same four A2/N320/N833 route IDs with transferSemantics logical-proxy. Flow differs, but no source establishes those roads as electricity, drinking-water, drainage, gas, telecom or facility transfer topology.",
+        "The mobility/supply graph omits the ferry, rail/transit continuity and local access/passability; exact nominal capacities 260/150 and service flows are scenario units rather than people, vehicles, tonnes, megawatts or cubic metres.",
+        "RWZI Culemborg, water-board assets, Liander/Vitens territories, net congestion and facility/antenna registers do not establish safe physical connectivity, current condition, backup or restoration."
+      ]
+    },
+    "causalTrace": {
+      "status": "warn",
+      "summary": "Numerical ledgers close and official overlays remain non-causal, but unsupported screening is still translated into precise direct exposure and service consequences.",
+      "evidenceRefs": ["E03", "E04", "E05", "E07", "E08"],
+      "notes": [
+        "Hazard contributions sum to headline severity; each service baseline plus ordered stage deltas sums to availability; eight weighted service-pressure contributions sum to municipality pressure.",
+        "Drivers, dependencies, local allocation and restoration counterfactuals are finite and arithmetically closed. Preparedness changes modeled consequences rather than physical forcing.",
+        "Headless Chromium loaded Culemborg, selected river flood and T+24 in 457 ms to initial readiness and about 20.6 ms reported simulation duration, then selected Binnenstad without errors. The inspector labels the source 'Scenario · evidence class derived-screening' and Waterinfo/defence/AHN/provider layers as non-causal context.",
+        "The same screen is nevertheless rendered as 100% inundation stress and drives exact affected/service values. Arithmetic explainability and an evidence-class label do not supply the missing event, defence, footprint or calibration."
+      ]
+    },
+    "recovery72h": {
+      "status": "warn",
+      "summary": "Standing-water recovery guards behave correctly, but exact local repair and dewatering rates remain synthetic and unvalidated.",
+      "evidenceRefs": ["E03", "E04", "E05", "E07", "E08"],
+      "notes": [
+        "River forcing persists for 168 hours; at T+72 all eight recoveryProgress values remain zero under 1.920349 standing-water stress. Compound retains 0.449668 stress and keeps all eight recovery values at zero.",
+        "Coastal forcing ends by T+72 and modeled recovery ranges 0.552260–0.946455, without a direct flood footprint or operator repair schedule; no people remain affected but attributable burden correctly remains cumulative.",
+        "Storm, pluvial, winter, earthquake and wildfire direct forcing has ended by T+72; heat/cyber follow their deterministic preset schedules. No public source validates an exact GM0216 availability or recovery percentage.",
+        "The corrected zero-intensity, sustained-flood and standing-water guards work as intended, but actual restoration depends on access, dewatering, staff, spares, backup and cross-boundary operators not represented."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": ["power", "water", "drainage", "gas", "telecom", "mobility", "facilities", "supply"]
+  },
+  "findings": [
+    {
+      "id": "GM0216-DATA-001",
+      "severity": "informational",
+      "category": "identity",
+      "status": "fixed",
+      "summary": "Generated identity, regional membership, demographic totals and official small-area structure are coherent.",
+      "evidence": "CBS gives 30,281 residents; 20 neighbourhood rows sum to 30,295 (+0.046%) and are reconciled without rewriting observations. Code, name, province, safety region, one BAG place and three BRT settlement labels agree.",
+      "action": "Retain source editions, non-generalized boundary access, rounding/suppression rules, published-versus-allocated totals and null semantics on each refresh."
+    },
+    {
+      "id": "GM0216-NODATA-001",
+      "severity": "informational",
+      "category": "regional-data",
+      "status": "fixed",
+      "summary": "Unavailable statistics and monitoring results remain unknown rather than false zero or safe observations.",
+      "evidence": "District heating and public charging are unavailable for 20/20 neighbourhoods and remain null. No local Waterinfo or RIVM PM2.5 station and no current NDW situation are assigned; those are absence of a local record at retrieval, not zero water, clean air or open roads.",
+      "action": "Preserve query time, source coverage, freshness, publisher flags and explicit no-data through ingestion, aggregation and UI rendering."
+    },
+    {
+      "id": "GM0216-FLOOD-SCENARIO-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The river screen creates precise Lek inundation impacts without a selected hydraulic event, defence or outer-dike state.",
+      "evidence": "River T+72 reports 1.920349 normalized inundation stress, 17,564 affected and 1,139,025.544 attributable person-hours while forcing continues. The UI shows 100% inundation stress. Culemborg's vision distinguishes a 2–5 m medium-risk map, less depth in the historic centre and outer-dike Veerweg; WSRL provides normative defences, but the run selects no water level, defence segment/state, breach/overflow, probability, connected footprint, arrival, duration or dewatering curve.",
+      "action": "Mark direct river local exposure unsupported/unknown until a water-manager-approved, versioned LIWO/WSRL Lek scenario is selected. Do not turn real flood risk into zero; retain any distance screen only as a clearly labelled non-operational diagnostic."
+    },
+    {
+      "id": "GM0216-SPATIAL-SEED-001",
+      "severity": "high",
+      "category": "geography",
+      "status": "open",
+      "summary": "One synthetic neighbourhood order is reused across unrelated hazards and contradicts Culemborg's adopted priority locations.",
+      "evidence": "Pluvial, river, coastal, heat and wildfire have exactly the same 20-neighbourhood order. The model ranks Binnenstad last and Pavijen second-last and puts Parijsch neighbourhoods low; the 2024 programme names Markt/Varkensmarkt/Binnenstad and Winkelcentrum Parijsch as P1 heat areas, and Goilberdingerstraat/Binnenstad plus Beesdseweg/Pavijen as P1 pluvial areas. Voorkoop and Componistenbuurt happen to rank high and are also P1 pluvial areas, but that partial agreement does not validate a common cross-hazard seed.",
+      "action": "Replace the seed with hazard-specific, versioned surfaces/targets and suppress hotspot precision until source scenario, unit, resolution, no-data, edition and licence are recorded. Keep programme priorities as screening/context unless validated source rasters/vectors are published."
+    },
+    {
+      "id": "GM0216-NETWORK-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "The same four road links are copied into all eight services despite no physical utility evidence.",
+      "evidence": "Power, water, drainage, gas, telecom, mobility, facilities and supply all expose identical A2/A2/N320/N833 route IDs with logical-proxy semantics and scenario capacities 260/260/150/150. NWB supports road geometry only; provider territories and water-asset registers do not establish cable, pipe, radio/backhaul, facility or stock-transfer topology.",
+      "action": "Restrict NWB edges to mobility/supply unless a separately governed dependency is evidenced. For the other services request safe aggregate operator topology/capacity; where unavailable or security-sensitive, expose explicit synthetic municipal aggregates without road geometry or operator attribution."
+    },
+    {
+      "id": "GM0216-MOBILITY-001",
+      "severity": "medium",
+      "category": "network",
+      "status": "open",
+      "summary": "Mobility and supply omit the Lek ferry, local passability and rail/transit continuity.",
+      "evidence": "The official Culemborg-Schalkwijk/Houten autoveer is a water-level-sensitive route with a 15-tonne vehicle limit, but neither the generated ferry feed nor the causal graph connects GM0216 to Houten. Culemborg station and 16 GTFS stop areas cannot alter access; no event-valid NDW or local pluvial passability state affects mobility.",
+      "action": "Add a mobility/supply-only audited ferry/reference edge using NWB/BGT geometry and preserve operator status as timestamped current context with unknown future state. Add feed-valid rail/transit and source-defined road passability only under explicit scenarios; do not infer evacuation throughput."
+    },
+    {
+      "id": "GM0216-WATER-DRAINAGE-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "accepted-limitation",
+      "summary": "Public water assets locate RWZI Culemborg and controls but do not validate catchments, live capacity, backup or restoration.",
+      "evidence": "The non-causal intersection contains 104 objects, including RWZI Culemborg, its influent pump, five surface-water pumps, one sluice and 96 weirs. HWH data are provider-supplied and incomplete; attributes and point geometry do not establish connected catchments, units/available capacity, pump state, emergency power, hydraulic response or T+72 repair.",
+      "action": "Use HWH/WSRL objects as context until authorised safe aggregate catchment, capacity, continuity and dewatering information is supplied. Otherwise keep topology/state unknown and clearly label drainage/water values as synthetic exercise indices."
+    },
+    {
+      "id": "GM0216-UTILITY-FACILITY-001",
+      "severity": "medium",
+      "category": "limitation",
+      "status": "accepted-limitation",
+      "summary": "Provider, facility and antenna registers do not disclose complete physical topology, live capacity or operational continuity.",
+      "evidence": "The public provider WFS identifies Liander electricity/gas and Vitens water responsibility at the centre; the municipality documents net congestion and Vitens has a Culemborg production location. Context includes 27 education locations, four government/public-safety locations, 38 antenna sites and no acute-care point. None establishes connectivity, pressure/flow, radio coverage/backhaul, staffing, occupancy, generator endurance, stock, outage or restoration.",
+      "action": "Prefer authorised safe aggregate operator/facility interfaces. Where unavailable or sensitive, retain unknown fields and transparent service-specific synthetic fallbacks without reverse-engineering, live-state claims or false facility coverage."
+    },
+    {
+      "id": "GM0216-REMOTE-HAZARDS-001",
+      "severity": "low",
+      "category": "hazard",
+      "status": "accepted-limitation",
+      "summary": "Coastal, earthquake and wildfire presets are remote or indirect exercises rather than direct local incidents.",
+      "evidence": "Coastal T+24 has zero flood stress and zero affected but a 17.117103 m/s wind/system exercise; earthquake peaks at 0.009969 g with zero affected; wildfire has zero local flame, smoke 0.363434, drought 0.590569 and 25 affected. VRGZ recognizes regional nature-fire and vital-infrastructure risk but supplies no Culemborg ignition, coastal mechanism or earthquake observation.",
+      "action": "Keep explicit remote/indirect exercise labels, event time and evidence class. Bind direct fire only to a named ignition/perimeter/fuel scenario and observations only to timestamped KNMI/RIVM/incident sources; no-data must remain unknown."
+    },
+    {
+      "id": "GM0216-CONTRACT-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The complete numerical, allocation, causal-ledger, checkpoint and sustained-flood contract passes for GM0216.",
+      "evidence": "The focused gate covers ten presets, six checkpoints and eight services. Values are finite/deterministic, zero intensity is exact, local totals reconcile, ledgers close arithmetically, burden is monotone, layer selection is invariant and standing water blocks repair. Browser inspection preserves official overlays as non-causal context.",
+      "action": "Keep GM0216 and national ALL coverage in regression and add Lek event-selection, hazard-specific priority, ferry, water-system safe-aggregate and utility-route-separation assertions."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Replace GM0216's river distance screen with an explicit Lek/defence-dependent hydraulic scenario and honest unsupported/no-data states.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/public/data/hazards/GM0216-flood-context.json",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/MapView.tsx"
+      ],
+      "validation": "Best machine source is a water-manager-approved selection from RWS/WMCN LIWO WMS/GeoServer https://basisinformatie-overstromingen.nl/geoserver/ows (professional versioned depth, arrival, duration, flow and consequence scenario grids; release page lists 2025.1.6, but contractual cadence and blanket redistribution licence were not established), combined with WSRL's adopted downloadable 2025 legal register and HWH Keringen IMWA https://api.pdok.nl/hwh/waterschappen-keringen-imwa/ogc/v1 (national line/register geometry, weekly, CC0 1.0), event-valid RWS Waterinfo (point/parameter series commonly ten-minute, generally CC0) and annual full-resolution PDOK CBS geometry (CC BY 4.0). Require Lek hydrograph, defence segment/state, breach/overflow, probability, event/version, unit, CRS, grid resolution, arrival/recession/dewatering and explicit no-data. Until approved, direct local exposure must be Unknown and the UI must not render normalized stress as supported depth or a 100% inundation claim."
+    },
+    {
+      "summary": "Replace the shared neighbourhood seed with hazard-specific Culemborg spatial adapters while preserving planning, scenario and observation provenance.",
+      "files": [
+        "scripts/fetch-realism-data.mjs",
+        "apps/web/public/data/hazards/GM0216-climate-context.json",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "The municipality's tile-only EPSG:28992 MapServer https://tiles.arcgis.com/tiles/IrCHt1arNMmYtNtb/arcgis/rest/services/gisdata_culemborg_LH_WTL2/MapServer provides Culemborg-wide rendered 90-mm/h, heat-risk and urban-heat-island context and was modified 18 January 2021, but it exposes no raw query, source resolution, licence, scenario edition or contractual cadence; use it only for non-causal visual validation. Request the municipality/Climate Active Rivierenland source rasters or vectors via OGC API/WMS/WCS/COG with explicit reuse terms, units, cell size, no-data and update cycle. PDOK AHN4 DTM (0.5 m, acquisition 2020–2022, CC0), daily BGT (Public Domain Mark), annual PDOK CBS (CC BY 4.0) and KNMI Data Platform 5-/10-minute weather/radar files (CC BY 4.0) can supply open covariates or a named replay, not an impact surface by themselves. Tests must reject identical full neighbourhood rankings across unrelated hazards and preserve unknown versus zero."
+    },
+    {
+      "summary": "Model ferry, rail/transit and event-valid local access for mobility/supply, and remove road geometry from unevidenced utility routes.",
+      "files": [
+        "scripts/fetch-realism-data.mjs",
+        "scripts/apply-audited-lifelines.mjs",
+        "apps/web/public/data/transport-network.json",
+        "apps/web/public/data/transit/transit-routes-ferry.geojson",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/MapView.tsx"
+      ],
+      "validation": "Use RWS NWB OGC https://api.pdok.nl/rws/nationaal-wegenbestand-wegen/ogc/v1 (named roads, monthly, CC0 1.0) and BGT where necessary for routable ferry landing geometry, ProRail OGC https://api.pdok.nl/prorail/spoorwegen/ogc/v1 (rail/station reference, manual refresh, CC0 1.0), feed-valid OVapi GTFS and timestamped NDW DATEX II observations under dataset-specific open terms. The operator page https://veerpontculemborg.nl/ has current water-level-sensitive status and a 15-tonne limit but no API, licence or contractual cadence; cache only an explicit retrieval time and otherwise set scenario-time status Unknown. Assert that the Culemborg-Houten ferry and local/rail access affect only mobility/supply under an explicit scenario and that A2/N320/N833 IDs disappear from the other six services unless separately sourced physical dependencies are approved."
+    },
+    {
+      "summary": "Represent water, utilities, telecom and facilities as safe service-specific aggregates, keeping public registers/territories non-causal.",
+      "files": [
+        "scripts/fetch-realism-data.mjs",
+        "scripts/apply-audited-lifelines.mjs",
+        "apps/web/public/data/water-system-context.json",
+        "apps/web/public/data/facilities/GM0216-context.json",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "HWH Kunstwerken IMWA https://api.pdok.nl/hwh/waterschappen-kunstwerken-imwa/ogc/v2 (weekly, CC BY-SA 4.0) and Waterketen DAMO https://api.pdok.nl/hwh/waterschappen-waterketen-damo/ogc/v1 (CC BY-SA 4.0, contributor timestamps/variable completeness) locate WSRL controls and RWZI Culemborg but do not validate connectivity, available capacity, control or backup. Mijn Aansluiting WFS https://public.geodata.mijnaansluiting.nl/geoserver/mijnaansluiting_open/wfs is public-domain, national responsibility-area data with provider-specific timestamps and no guaranteed common cadence; it identifies Liander/Vitens territories, not cables, pipes, outages or repair. Keep DUO, RDI, RIVM and government registers versioned and non-causal. Request authorised safe aggregate WSRL/Liander/Vitens/telecom/facility interfaces for catchment, service population, continuity, backup bands and restoration; if unavailable or security-sensitive, retain unknown physical topology and use transparent municipal synthetic indices without operator attribution."
+    }
+  ],
+  "residualLimitations": [
+    "This audits a deterministic first-72-hour exercise model, not a forecast, warning, flood assessment, evacuation plan, outage statement or operator commitment.",
+    "CBS 2025 neighbourhood values are rounded/suppressed and sums need not equal the municipality total; null district-heating, charging, air-quality, road-situation or monitoring results are unknown, not zero.",
+    "Registered residents do not equal people present at schools, the station, care settings, shops, Pavijen workplaces, the ferry or events; no authoritative timestamped occupancy is consumed.",
+    "The 51-position overview polygon is suitable for map selection, not hydraulic, defence, building, ferry, road, catchment or asset intersection; use the 1,041-position non-generalized PDOK geometry.",
+    "The municipality's 2–5 m map statement and 2024 P1 lists are planning/stress-test evidence requiring event/site interpretation, not observed current depth, probability or exact impact.",
+    "The public municipal climate MapServer is tile-only and lacks raw values, source resolution, standard licence, scenario edition, no-data and contractual refresh cadence.",
+    "WSRL/HWH defence and water-asset registers describe legal/normative or physical context, not current condition, failure, water level, connected catchment, operating state, backup, dewatering or repair.",
+    "Waterinfo, NDW and KNMI observations can support timestamped context or a named replay; they do not create a generic T+72 inundation, traffic, weather-impact, outage or restoration forecast.",
+    "The current ferry webpage is operational context only and has no machine API/SLA; absent GTFS ferry data and future operator status remain Unknown rather than closed or open.",
+    "Provider territories, antenna/facility registers, GTFS stops, NWB roads and ProRail station geometry do not establish connectivity, capacity, occupancy, coverage, live state, backup, priority or restoration.",
+    "No complete public physical electricity, drinking-water, wastewater, gas, telecom, facility, fuel, stock, staff, backup, repair or restoration topology is consumed; unavailable/security-sensitive gaps remain unknown or synthetic.",
+    "Coastal, Groningen-earthquake and remote-smoke presets are exercises; cyber has no selected GM0216 target, and generic weather presets are synthetic unless bound to a named replay.",
+    "Recovery after T+72, Lek/ferry cross-boundary operations, regional water/service catchments, evacuation, mutual aid and resource constraints remain outside locally validated scope."
+  ],
+  "provinceReviewFlags": [
+    "GM0216-FLOOD-SCENARIO-001 — Gelderland/Waterschap Rivierenland/Rijkswaterstaat/WMCN/VRGZ must require an expert-selected, versioned Lek/LIWO event and explicit primary-defence/outer-dike state before direct flood depth or exposure is releasable.",
+    "GM0216-SPATIAL-SEED-001 — Culemborg/Gelderland/Waterschap Rivierenland should publish the source climate-stress rasters/vectors with licence, cadence, scenario, units, resolution and no-data and replace the common hazard ranking.",
+    "GM0216-NETWORK-001 — Gelderland/RWS/NDW/ProRail/transit/operator partners must separate mobility/supply from utilities and represent the Houten ferry, rail/transit and local passability only under source-valid scenarios.",
+    "GM0216-WATER-DRAINAGE-001 — Waterschap Rivierenland/Vitens/Liander and relevant operators should provide safe aggregate catchment, continuity, backup and restoration interfaces where releasable; otherwise physical service state must remain unknown.",
+    "VRGZ and municipal partners should retain river, extreme-weather, nature-fire, electricity/telecom and cyber risks as planning context while preventing any register, provider territory or regional profile from being presented as a live incident."
+  ]
+}

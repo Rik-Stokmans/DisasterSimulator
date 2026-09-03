@@ -1,0 +1,496 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0899",
+    "name": "Brunssum",
+    "province": "Limburg",
+    "safetyRegion": "Limburg-Zuid"
+  },
+  "agent": {
+    "taskName": "municipality_gm0899",
+    "agentId": "/root/municipality_gm0518",
+    "completedAt": "2026-09-02T18:49:44Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "Brunssum's generated identity, Limburg-Zuid membership and 2025 CBS totals are coherent: 27,534 residents, 45 neighbourhoods, one BAG woonplaats, one BRT woonkern, no ProRail station and 26 GTFS stop areas are present. Published neighbourhood population totals 27,525, only nine below the municipality value (-0.033%), and unavailable district-heating and charging fields remain null. All ten canonical scenarios execute deterministically at T+0/6/12/24/48/72 across all eight services; exact-zero, finite-bound, causal-ledger, local-allocation, reconciliation, cumulative-burden and layer-selection invariants pass. Release is nevertheless correction-required. A centre-to-national-line river screen sustains raw flood stress 1.186284, assigns up to 12,078 affected people-equivalent and 859,062.829 T+72 deprived person-hours without selecting a Roode Beek/Waterschap hydraulic footprint. Pluvial, river, heat and wildfire reuse one synthetic neighbourhood order: Emma ranks first in all four, while the public Parkstad T100 WMS returns 0.216 m at the Centrum reference point and null at Emma, and official combustible-area polygons intersect De Heide and Brunssumer Heide. Null is unknown/no returned value, never zero or safe. The wildfire has zero direct flame; the Groningen earthquake yields almost zero local shaking despite separate official Zuid-Limburg seismic and former-mining context. Five Dutch road links are copied into every service, while cross-border access and physical utility/facility topology remain unknown. Public context is correctly non-causal; no operator accuracy is fabricated.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek (CBS)",
+      "title": "Kerncijfers wijken en buurten 2025, table 86165NED, OData API",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=WijkenEnBuurten%20eq%20%27GM0899%20%20%20%20%27&%24select=WijkenEnBuurten%2CGemeentenaam_1%2CAantalInwoners_5%2CBevolkingsdichtheid_34%2Ck_65JaarOfOuder_12%2CEenpersoonshuishoudens_30",
+      "accessedAt": "2026-09-02T18:23:00Z",
+      "edition": 2025,
+      "supports": [
+        "A fresh official GM0899 row gives Brunssum, 27,534 residents, density 1,597 per square kilometre, 7,601 residents aged 65+ and 5,600 one-person households.",
+        "The generated municipality values reproduce the official row. Forty-five published neighbourhood populations sum to 27,525 and age-65+ rows to 7,595; the small differences are consistent with independent CBS rounding and are reconciled without rewriting observations.",
+        "CBS OData is machine-readable and CC BY 4.0. Table 86165NED is a 2025 edition with an irregular publication schedule; variables can be rounded, suppressed or unavailable.",
+        "Simulation role is official demographic/context and allocation denominator only, not present occupancy, individual vulnerability, hazard exposure or response priority."
+      ]
+    },
+    {
+      "publisher": "PDOK / CBS / Kadaster / Rijkswaterstaat / ProRail",
+      "title": "CBS Gebiedsindelingen 2025 non-generalized geometry and national reference APIs",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_niet_gegeneraliseerd/items?f=json&limit=100&datetime=2025-07-01T00%3A00%3A00Z&bbox=5.88%2C50.88%2C6.06%2C51.02",
+      "accessedAt": "2026-09-02T18:24:00Z",
+      "edition": "2025 boundaries; current generated BAG/BRT/NWB/ProRail/GTFS editions",
+      "supports": [
+        "Fresh full-resolution GM0899 and the generated overview are each one MultiPolygon component with one exterior ring. The full feature has 661 positions versus 62 generated positions; approximate areas are 17.313 and 17.304 square kilometres, a -0.047% overview difference.",
+        "The generated municipality centre and the Brunssum BAG woonplaats centre are contained. The bundle has one BRT woonkern, no ProRail station, 26 GTFS stop areas and five N274/N276/N300 logical Dutch border links to Beekdaelen, Heerlen and Landgraaf.",
+        "CBS geometry is annual and CC BY 4.0; BAG is daily/Public Domain Mark; BRT TOP10NL is annual/CC BY 4.0; NWB OGC is monthly/CC0 1.0 with a daily public-domain GeoPackage; ProRail reference data are editioned/CC0; GTFS has a feed-validity window and best-effort publication rather than a live-service SLA.",
+        "HWH/PDOK water registers (CC BY-SA 4.0), KVK government points (Public Domain Mark), RIVM/DUO facility registers and RDI antenna points are integration-ready context services but do not establish topology, capacity, occupancy or operating state.",
+        "Simulation role is administrative geometry and reference transport/context. Use the non-generalized polygon for raster, terrain, nature, defence, road and asset intersections; no reference feature alone proves a current closure, passenger load, evacuation capacity or utility connection."
+      ]
+    },
+    {
+      "publisher": "Gemeente Brunssum",
+      "title": "Jaarstukken 2023: climate adaptation, sewer programme and Brunssummerheide nature-fire management",
+      "url": "https://www.brunssum.nl/Bestuur_en_Organisatie/college_van_b_w/Jaarverslagen/Jaarstukken_2023_gemeente_Brunssum.pdf",
+      "accessedAt": "2026-09-02T18:25:00Z",
+      "edition": "Municipal annual report 2023; nature-fire work continuing in 2024–2025",
+      "supports": [
+        "Brunssum reports deeper climate stress tests and maps for water nuisance, drought and heat, together with a basic sewer plan and local storage/sewer works at Clemensdomein, Kerkstraat/Kerkeveldstraat, Hof van Oeloven/Kattenkoelenvijver and Bodemplein.",
+        "The municipality reports replacement of pump-station electrical/telemetry systems from 2G to 4G IEC104, showing that drainage continuity has explicit telecom/power dependencies not represented by road adjacency.",
+        "A 2023 Nature Fire Management Plan for Brunssummerheide was developed with the fire service, Heerlen and Landgraaf from the Risk Index Nature Areas and continued through 2024–2025.",
+        "This is a dated annual documentary source with no public machine event API, standard reuse licence, asset topology, live telemetry, capacity or restoration feed. Simulation role is local mechanism and exercise-review context only."
+      ]
+    },
+    {
+      "publisher": "Parkstad municipalities, including Gemeente Brunssum / Nelen & Schuurmans",
+      "title": "Klimaatatlas Parkstad public API, WMS catalogue and model metadata",
+      "url": "https://parkstad.klimaatmonitor.net/api/atlases/?domain=parkstad",
+      "accessedAt": "2026-09-02T18:26:00Z",
+      "edition": "Public atlas inspected 2 September 2026; map attribution Copyright Lizard 2016",
+      "supports": [
+        "The public JSON API exposes five themes and 32 WMS memberships covering water depth, building vulnerability, road passability, runoff structures, vulnerable groups, emergency-service locations, energy, ICT/telecom, flow paths, heat, groundwater, nature and nature-fire risk over Parkstad.",
+        "The water-nuisance layer is a modeled T100 maximum-depth screen. For Brunssum and most of Parkstad it uses 3Di with 60 mm rain in one hour; the documentation warns that sewer/open-water drainage is usually omitted and that model results can differ from reality.",
+        "Reproducible WMS GetFeatureInfo at generated neighbourhood reference points returned 0.216 m at Centrum and null at Emma, Brunssumer Heide, De Heide and Rode Beek. These are point samples from an old screening layer; null is no returned value/no-data, not proof of zero water over a neighbourhood.",
+        "The API and WMS are technically integration-ready for external viewing/query. The catalogue says raster download needs owner permission and login; attribution says Copyright Lizard 2016, no standard reuse licence or guaranteed refresh cadence is stated, and inputs include AHN2 acquired in Limburg in 2012.",
+        "Simulation role is a versioned design-scenario/context adapter and qualitative rank check, never current rain, observed depth, a live road closure or an operator state."
+      ]
+    },
+    {
+      "publisher": "Waterschap Limburg",
+      "title": "Overstromingskaarten regionaal watersysteem and T100-2100 ArcGIS services",
+      "url": "https://www.waterschaplimburg.nl/over-ons/kaarten-en-data/overstromingskaarten-regionaal-watersysteem/",
+      "accessedAt": "2026-09-02T18:28:00Z",
+      "edition": "T100-2100 releases dated December 2025/January 2026; Web Map modified 27 January 2026",
+      "supports": [
+        "Waterschap Limburg instructs users to apply the fluvial layer for flooding from a modeled brook and the pluvial layer elsewhere, or both where the mechanisms interact. The regional page explicitly warns that depth and velocity can make people, vehicles and buildings unsafe.",
+        "Machine-addressable 1 metre RD New ImageServers provide separate T100-2100 pluvial and fluvial water-depth and safety-class rasters. Relevant endpoints include https://tiledimageservices.arcgis.com/pCDwdQn0AhSP66VA/arcgis/rest/services/T100_2100Waterdiepte_Totaal_10122025Water/ImageServer and https://tiledimageservices.arcgis.com/pCDwdQn0AhSP66VA/arcgis/rest/services/T100_2100waterdiepte_Fluviaal_V2_17_12_2025Water/ImageServer.",
+        "Public feature services at https://maps.waterschaplimburg.nl/arcgis/rest/services expose watercourses, structures, rainwater buffers, groundwater layers and wastewater transport context. The generated HWH intersection contains one sewer pump and 15 weirs inside GM0899.",
+        "The inspected ImageServers are TilesOnly with allowCopy=false and blank copyright/licence fields; neither a standard reuse licence nor guaranteed refresh cadence is published. Obtain terms before caching or redistribution and preserve raster unit, no-data mask, edition and uncertainty.",
+        "These are official design scenarios/registers, not observed T+0 water, a selected breach, sewer capacity, pump state, flow direction, backup or restoration evidence."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Limburg-Noord / Veiligheidsregio Zuid-Limburg",
+      "title": "Provinciaal Risicoprofiel Limburg 2023–2027",
+      "url": "https://lokaleregelgeving.overheid.nl/CVDR720013",
+      "accessedAt": "2026-09-02T18:29:00Z",
+      "edition": "2023–2027, legally current from 1 January 2024",
+      "supports": [
+        "The joint statutory profile covers river flooding, nature fire, cold, heat, storm, drought, earthquake and extreme rain; technological and societal risks include hazardous materials, large cyber incidents, road/rail disruption and failure of gas, electricity, drinking water, wastewater and voice/data lifelines.",
+        "The profile uses realistic most-credible regional planning scenarios rather than a worst case, live incident feed or municipality-specific forecast and is refreshed on a four-year policy cycle with dynamic review advised.",
+        "For Zuid-Limburg it explicitly includes cross-border nature fire, tributary/brook flooding from heavy rain abroad, toxic clouds, energy/telecom disruption and road/rail obstruction, making German and Belgian dependencies operationally material.",
+        "The document is public but has no machine event API or fine spatial layer and restricts reproduction without permission. Simulation role is scenario selection, dependency review and governance context, not live crews, resources, warnings, evacuation orders or restoration commitments."
+      ]
+    },
+    {
+      "publisher": "Interprovinciaal Overleg / BIJ12 / Risicokaart",
+      "title": "Natuurbranden and Natuurramp — combustible-nature and seismic-zone WFS/WMS",
+      "url": "https://data.overheid.nl/dataset/13235-natuurbranden",
+      "accessedAt": "2026-09-02T18:31:00Z",
+      "edition": "Nature-fire metadata updated 19 February 2026; registry features inspected 2 September 2026",
+      "supports": [
+        "The integration-ready ISOR_RK OGC WFS/WMS returns two Brunssum-area combustible polygons: Brunssummerheide (mixed forest/heath) and Schinveldse bossen (mixed forest). Generated reference-point containment places the first in De Heide and Brunssumer Heide, not Emma.",
+        "The same official service exposes geological Mercalli zones. A point-in-polygon check at the generated municipal centre intersects overlapping registry polygons labelled Mercalli VI and VIII; these old registry zones are screening context, not a forecast or event-specific shaking field.",
+        "Data.overheid lists the nature-fire dataset as Public Domain with metadata updated 19 February 2026. The companion Natuurramp metadata at https://data.overheid.nl/dataset/42108-natuurramp lists CC BY 4.0 and was updated in 2024; no guaranteed operational feature-refresh interval or source-scale accuracy is stated.",
+        "Simulation role is combustible-area eligibility and seismic screening only. The polygons do not provide ignition, live fuel/moisture, spread/smoke, evacuation, probability, ground-motion time series or building damage; absent geometry/value is unknown, never safe."
+      ]
+    },
+    {
+      "publisher": "Staatstoezicht op de Mijnen (SodM) / Koninklijk Nederlands Meteorologisch Instituut (KNMI)",
+      "title": "Former coal-mining after-effects in Brunssum and current FDSN seismic data access",
+      "url": "https://www.sodm.nl/documenten/2021/10/14/staat-van-de-sector-voormalige-steenkoolwinning",
+      "accessedAt": "2026-09-02T18:33:00Z",
+      "edition": "SodM State of the Sector 2021; KNMI FDSN services current in 2026",
+      "supports": [
+        "SodM identifies Brunssum's Feldbiss zone as one of three Zuid-Limburg areas with possible differential ground rise as mine water recovers, and describes monitoring/signalling for local movement, subsidence or sinkhole pathways.",
+        "SodM says former-mining after-effects can continue for decades and require long-term risk management; they include ground movement, shafts/shallow workings, groundwater effects, mine gas and possible microseismicity. This is not equivalent to the canonical Groningen earthquake.",
+        "KNMI's keyless FDSN Event API at https://rdsa.knmi.nl/fdsnws/event/1/query provides event time, location, magnitude, depth and type as observations are processed; current FDSN services are CC BY 4.0 by default and superseded static catalogues in January 2025.",
+        "SodM's report is documentary and KNMI events are observed/revisable. Their safe simulation role is provenance, monitoring context or a named replay; neither is a future local probability, mine-water forecast, continuous shaking field or damage model."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM0899, Brunssum, Limburg and safety region Limburg-Zuid agree across generated bundles and official 2025 records.",
+      "evidenceRefs": ["E01", "E02", "E06"],
+      "notes": [
+        "Generated feature id, municipality bundle code/name, province and exactly one safety-region membership agree.",
+        "Boundary and statistics editions are 2025, and the generated reference centre lies inside the overview and fresh non-generalized geometry.",
+        "The legally current joint Limburg risk profile covers Zuid-Limburg and the municipality's cross-border setting."
+      ]
+    },
+    "geography": {
+      "status": "warn",
+      "summary": "Administrative topology is coherent, but the 62-position overview and one municipality centre cannot resolve steep runoff, brook flooding, former-mine zones or nature-fire footprints.",
+      "evidenceRefs": ["E02", "E04", "E05", "E07", "E08"],
+      "notes": [
+        "Generated and fresh GM0899 each have one component and one ring; the -0.047% approximate area difference reveals no material component loss.",
+        "The full boundary has 661 positions and is required for 1 metre Waterschap rasters, Parkstad WMS, nature/seismic polygons, road passability, terrain and asset intersections.",
+        "Built-up western neighbourhoods, Roode Beek/Merkelbeekerdal, Brunssummerheide and the Feldbiss/former-mining zone require different spatial mechanisms that a centre scalar cannot assign."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Generated municipal totals reproduce official 2025 CBS values and neighbourhood totals reconcile within publication precision.",
+      "evidenceRefs": ["E01", "E02"],
+      "notes": [
+        "Official/generated population is 27,534, density 1,597/km², age 65+ is 7,601 or 27.6%, and one-person households number 5,600.",
+        "Published neighbourhood population sums to 27,525, nine below the municipality total (-0.033%); households sum to 13,715 and age-65+ rows to 7,595.",
+        "The allocator reconciles to 27,534 without rewriting CBS rows. Resident population excludes present workers, pupils, visitors, transit users and displaced people."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "All 45 official neighbourhoods and available statistics are retained, but missing indicators and synthetic priorities limit operational use.",
+      "evidenceRefs": ["E01", "E02", "E03", "E04"],
+      "notes": [
+        "Core population, age, business, car, home, household, land/water and urbanity fields cover all 45 neighbourhoods; average household size covers 44/45 and several housing/social/access fields 35–38/45.",
+        "District-heating share and public-charging counts are unavailable for all 45 and correctly remain null rather than zero.",
+        "Largest published neighbourhoods are Treebeek-Zuid, De Eggen, Treebeek-Noord, Op de Vos, Langenberg, Rozengaard and Emma.",
+        "CBS context cannot locate T100 water, combustible vegetation, mine workings, live vulnerable occupants, evacuation need or service-restoration priority."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "One BAG woonplaats and one BRT woonkern represent compact Brunssum without substituting labels for physical footprints.",
+      "evidenceRefs": ["E02", "E04", "E07"],
+      "notes": [
+        "The BAG woonplaats Brunssum centre lies inside the overview polygon; BRT supplies the built-up woonkern Brunssum with source date 1 July 2025.",
+        "The single named urban core is consistent with the municipality's compact built form, while official neighbourhoods retain the heath, brook and peripheral areas.",
+        "A place label or population is not a flood compartment, fire perimeter, mine zone, sewer catchment, facility service area or present occupancy observation."
+      ]
+    },
+    "transport": {
+      "status": "warn",
+      "summary": "Dutch road and scheduled-transit context is present, but cross-border access, passability and evacuation throughput are not modeled.",
+      "evidenceRefs": ["E02", "E04", "E05", "E06"],
+      "notes": [
+        "Five logical N274/N276/N300 border links connect Beekdaelen, Heerlen and Landgraaf; every link has nominal capacity 150 synthetic scenario units.",
+        "Brunssum has no ProRail station and 26 GTFS stop areas, including Brunssum Busstation and Medisch Centrum. Schedules and stop points do not provide passengers, vehicle availability, incident accessibility or evacuation capacity.",
+        "The graph has no German node or cross-border road/transit/mutual-aid edge, despite the VR profile's cross-border fire, water, toxic-cloud, energy/telecom and access dependencies.",
+        "Parkstad publishes scenario road-passability WMS and NDW supplies timestamped current situations, but neither currently changes the five model edges. Zero locally assigned NDW records is no record in the snapshot, not proof all roads are open."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "Authoritative water, nature-fire, seismic/mining and cross-border context is available but does not drive incident state, exposure or response prioritisation.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "The generated context intersection contains one sewer pump, 15 weirs, three government-service points, 15 education uses, zero RIVM acute-care points and 53 RDI antenna sites; all correctly remain non-causal registers.",
+        "The Parkstad T100 grid/passability, Waterschap T100-2100 pluvial/fluvial rasters, official combustible-area polygons, seismic zones and former-mining monitoring context do not change neighbourhood rank, route passability, service state or recovery.",
+        "Provider WMS at the municipal reference point returns Enexis for power/gas, WML for drinking water and Ziggo for media, with source lastUpdated 7 September 2025; it returns no drainage polygon. These are responsibility areas, not physical or live topology, and missing drainage coverage remains unknown.",
+        "No reviewed public source supplies current crews, shelters, facility occupancy, feeder switching, drinking-water pressure, sewer control, telecom backhaul, stocks, backups or operator restoration commitments."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten canonical presets execute at T+0/6/12/24/48/72 across all eight services with complete finite output.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "Focused reproduction used MUNICIPALITY_AUDIT_CODE=GM0899 pnpm audit:model; one file and two tests passed over the full 10 × 6 × 8 municipality contract.",
+        "Peak checkpoint severity / maximum affected / T+72 attributable deprived person-hours are: severe storm 0.536080 / 1,455 / 351,894.776; pluvial 0.340966 / 9,854 / 213,371.975; river 0.374854 / 12,078 / 859,062.829; coastal 0.013271 / 0 / 29,903.910; heat 0.512289 / 2,225 / 163,614.266.",
+        "The remaining values are winter 0.712063 / 10,870 / 495,049.106; cyber 0.521683 / 9,264 / 447,356.642; earthquake 0.001231 / 0 / 1,469.794; wildfire 0.088737 / 878 / 90,332.183; compound 0.873919 / 20,521 / 1,084,598.950.",
+        "Coastal inundation is zero and the preset is only an indirect inland storm exercise. Wildfire has zero direct flame and is remote smoke/drought; earthquake is the remote Groningen exercise. Weather and cyber forcing remain synthetic unless a named replay is selected.",
+        "These values are deterministic exercise pressure and people-equivalent allocation, not observations, probabilities, forecasts, measured depth, casualties or operator commitments."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Determinism, finite bounds, exact no-event behavior, local allocation, reconciliation, cumulative burden and selected-layer invariance pass.",
+      "evidenceRefs": [],
+      "notes": [
+        "All service availability stays in [0,1]; hazard dimensions, demand, delivery, affected people-equivalent and deprived person-hours are non-negative, and cumulative event-attributable burden never decreases.",
+        "At zero intensity every canonical scenario has maximum severity, affected population and deprived person-hours exactly zero.",
+        "Compound T+24 allocates 45 local rows for every service and reconciles exactly to 27,534 residents and 19,837 affected people-equivalent; demand/delivery discrepancies are at most 1.78 × 10^-15.",
+        "Repeated runs are deterministic, route flow respects effective capacity, and all eleven selected map layers leave hazard, system pressure and affected population invariant."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "One shared seeded neighbourhood order cannot represent Brunssum's distinct water, heat, nature-fire and seismic/mining geography.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E07", "E08"],
+      "notes": [
+        "At T+24 pluvial, river, heat and wildfire all rank Emma first, Op de Vos second and Lemmender third; Brunssumer Heide is seventh, De Heide tenth, Rode Beek nineteenth and Centrum thirty-ninth in every list.",
+        "Pluvial local severity is 0.264513 at Emma and 0.200976 at Centrum, while the public Parkstad T100 WMS point samples returned null at Emma and 0.216 m at Centrum. Point samples do not prove whole-neighbourhood exposure, but the inversion demonstrates that the displayed rank is not sourced from the local raster.",
+        "Wildfire local severity is 0.104601 at Emma, 0.100193 at Brunssumer Heide and 0.098835 at De Heide, although the official Brunssummerheide combustible polygon contains the latter two reference points and not Emma.",
+        "The same scenario-shared region-id multiplier distributes municipality severity without a selected hydraulic, heat, fuel/smoke, seismic or mine-zone footprint. Hotspot/rank precision is unsupported."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "All eight service balances calculate coherently, but identical road proxies replace physical sector topology and omit documented local dependencies.",
+      "evidenceRefs": ["E02", "E03", "E05", "E06"],
+      "notes": [
+        "Compound T+24 availability is power 0.690264, water 0.163011, drainage 0.137242, gas 0.440457, telecom 0.107672, mobility 0.578214, facilities 0.268486 and supply 0.245370.",
+        "Every service exposes the same five N-road route IDs with transferSemantics logical-proxy and nominal capacity 150. No evidence maps those roads to Enexis, WML, municipal/WBL drainage, Ziggo/other telecom, facilities or stocks.",
+        "The municipal annual report documents drainage pump electrical and telemetry modernization, but current dependency weights are generic and no public data validate capacity, control, backup autonomy or failure state.",
+        "Public provider areas, water structures, antennas, facilities, transit and road geometry can scope responsibility/context but cannot safely provide connectivity, flow, occupancy, current state or restoration."
+      ]
+    },
+    "causalTrace": {
+      "status": "pass",
+      "summary": "Hazard, service and municipality ledgers close, while the UI distinguishes scenario/derived-screening/synthetic evidence from non-causal official and observed context.",
+      "evidenceRefs": ["E04", "E05", "E07", "E08"],
+      "notes": [
+        "Hazard contributions sum to headline severity; each service baseline plus ordered stage deltas sums to availability; eight weighted service-loss contributions sum to municipal system pressure.",
+        "Drivers, dependencies, interventions, local demand/vulnerability terms and restoration counterfactuals are finite and arithmetically closed. Preparedness changes modeled consequences rather than hazard fragility.",
+        "At river T+24 the browser labels the hazard 'derived-screening' and explicitly says zero Brunssum Waterinfo stations means no data, never zero/safe; wildfire is labelled synthetic and the IPO polygons are eligibility/context that does not affect simulation.",
+        "Reproducible Chromium checks at 1440×1000 and 390×844 selected Brunssum, river and wildfire T+24. Initial readiness was 0.98–0.98 s; selection was 0.06 s desktop and 1.08 s mobile; the mobile path required opening Tune and toggling details. There was no horizontal overflow, local HTTP failure or console/page error; desktop selected Brunssumer Heide by map click.",
+        "Evidence-class labelling is honest, but arithmetic closure does not validate source relevance, spatial assignment or exact operator outcomes."
+      ]
+    },
+    "recovery72h": {
+      "status": "warn",
+      "summary": "Sustained-water repair gating works, but footprint, dewatering, access and exact operator recovery remain uncalibrated.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06"],
+      "notes": [
+        "River retains raw flood stress 1.186284 from T+12 through T+72, remains degraded, affects 11,992 people-equivalent at T+72 and holds every service recoveryProgress at zero.",
+        "Compound retains flood stress 0.321858 through T+72, affects 20,521 people-equivalent, reaches 1,084,598.950 deprived person-hours and likewise blocks all eight recoveries.",
+        "Pluvial forcing clears by T+48 and its lowest availability improves from drainage 0.209029 at T+24 to a minimum service availability 0.883686 at T+72; storm, winter, earthquake and wildfire forcing also recede without reducing cumulative burden.",
+        "The conservative standing-water gate is internally consistent, but no selected footprint, recession/dewatering curve, road access, operator resources, switching or repair evidence validates exact GM0899 service percentages or times."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": [
+      "power",
+      "water",
+      "drainage",
+      "gas",
+      "telecom",
+      "mobility",
+      "facilities",
+      "supply"
+    ]
+  },
+  "findings": [
+    {
+      "id": "GM0899-DATA-001",
+      "severity": "informational",
+      "category": "identity",
+      "status": "fixed",
+      "summary": "Generated identity, regional membership, settlements and 2025 demographic totals are coherent.",
+      "evidence": "Code, name, province, safety region and editions agree. CBS gives 27,534 residents; 45 neighbourhood rows sum to 27,525 (-0.033%), a normal publication difference reconciled without changing observations. The overview preserves the one-component/one-ring topology and the BAG centre is contained.",
+      "action": "Retain source edition, retrieval time, null semantics, full-resolution geometry access and published-versus-allocated reconciliation on every refresh."
+    },
+    {
+      "id": "GM0899-NODATA-001",
+      "severity": "informational",
+      "category": "regional-data",
+      "status": "fixed",
+      "summary": "Unavailable statistics and absent local observations remain unknown rather than false zero observations.",
+      "evidence": "District heating and public charging remain null for 45/45 neighbourhoods. The UI says zero Waterinfo and RIVM PM2.5 stations assigned to Brunssum means no mapped local station, not zero water or pollution. Parkstad WMS null samples are not converted into zero exposure, and public context does not affect simulation.",
+      "action": "Keep source availability, issue/valid time, no-data mask and completeness metadata through adapters, aggregation, UI and exports; never coerce absent field, station, polygon or pixel to safe or zero."
+    },
+    {
+      "id": "GM0899-RIVER-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "A national centre-distance river screen creates sustained municipality-wide pressure without a selected Roode Beek/Waterschap hydraulic event.",
+      "evidence": "From T+12 to T+72 the model reports raw flood stress 1.186284 and severity 0.374854, assigns up to 12,078 affected people-equivalent and reaches 859,062.829 deprived person-hours. It has no Waterschap pluvial/fluvial layer id, event probability, depth unit, footprint, arrival, velocity, recession or defence state, and GM0899 is not marked unsupported.",
+      "action": "Require an expert-selected, versioned Waterschap/LIWO hydraulic event intersected with full-resolution GM0899. Until approved, mark direct local river/brook stress and exposure unknown and retain only separately supported indirect exercise effects."
+    },
+    {
+      "id": "GM0899-PLUVIAL-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The pluvial preset ignores public local depth, runoff and road-passability layers and overstates neighbourhood precision.",
+      "evidence": "Pluvial T+24 reports flood stress 0.310704, 9,854 affected and drainage availability 0.209029 from a generic scalar. Parkstad publishes a T100 60 mm/hour 3Di depth screen, building vulnerability, flow paths and road passability; current Waterschap services publish separate 1 metre T100-2100 pluvial/fluvial rasters. None changes the simulation.",
+      "action": "Build a versioned raster adapter retaining scenario, unit, CRS, native resolution, no-data, model inclusions, edition, licence and uncertainty. Use the older Parkstad WMS for review/context and the current Waterschap layer only after terms and expert event selection; do not call either observed T+0 water."
+    },
+    {
+      "id": "GM0899-SPATIAL-001",
+      "severity": "high",
+      "category": "geography",
+      "status": "open",
+      "summary": "Pluvial, river, heat and wildfire reuse one synthetic neighbourhood ordering that is independent of local source geometry.",
+      "evidence": "Emma ranks first and Centrum thirty-ninth in all four T+24 maps. Yet the Parkstad point sample returns 0.216 m at Centrum and null at Emma, while official combustible nature contains Brunssumer Heide/De Heide rather than Emma. A single region-id multiplier cannot encode low points, brook paths, heat, fuels, smoke and mine/seismic zones simultaneously.",
+      "action": "Replace the shared seed with hazard-specific, versioned exposure adapters. Suppress hotspot/rank language and label local values synthetic until each adapter retains provenance, event, resolution, no-data and uncertainty while preserving municipal reconciliation."
+    },
+    {
+      "id": "GM0899-WILDFIRE-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The canonical wildfire is a remote smoke/drought exercise and does not test Brunssummerheide direct-fire operations.",
+      "evidence": "At T+24 direct flame is zero, drought 0.496516, smoke 0.145777 and 690 people-equivalent are affected; maximum affected is 878. The municipality has a multi-agency Brunssummerheide Nature Fire Management Plan and the official WFS contains Brunssummerheide at the De Heide/Brunssumer Heide reference points, but Emma remains the model hotspot.",
+      "action": "Keep this preset labelled remote smoke and add a separately named local nature-fire exercise using IPO eligibility and event-valid KNMI weather. If no authorised ignition/perimeter/fuel/spread feed exists, use the smallest transparent versioned synthetic perimeter and never imply observation."
+    },
+    {
+      "id": "GM0899-SEISMIC-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The Groningen earthquake preset cannot validate Brunssum's Zuid-Limburg seismic and former-coal-mining pathways.",
+      "evidence": "The preset peaks at ground motion 0.000394 g and severity 0.001231 at T+6, affects zero residents and reaches 1,469.794 deprived person-hours. Official screening places the municipal reference point in overlapping Mercalli VI/VIII registry zones, and SodM identifies Brunssum's Feldbiss differential-ground-rise zone and decades-long former-mining after-effects. Those screens do not prove a future event, but they show the remote preset is not a local validation.",
+      "action": "Offer separately named Zuid-Limburg seismic and former-mining ground-movement exercises with expert-reviewed source, attenuation, ground/deformation and building-vulnerability assumptions. Use KNMI FDSN only for observed provenance/replay and preserve future probability and unobserved ground state as unknown."
+    },
+    {
+      "id": "GM0899-NETWORK-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "Five road-border links are copied into all eight services and cannot support exact outage or restoration claims.",
+      "evidence": "The same N274/N276/N300 route IDs and nominal capacity 150 appear for power, water, drainage, gas, telecom, mobility, facilities and supply. No evidence maps them to Enexis, WML, wastewater/sewer, telecom, facility or stock connectivity, while compound T+24 exact availability ranges from telecom 0.107672 to power 0.690264.",
+      "action": "Use NWB/NDW/GTFS only for matched mobility/supply and create separate safe aggregate sector adapters. Keep logical-proxy labels and never attribute exact state or recovery to a provider without authorised evidence."
+    },
+    {
+      "id": "GM0899-MOBILITY-001",
+      "severity": "medium",
+      "category": "network",
+      "status": "open",
+      "summary": "Cross-border response/access and water-related road passability are absent from the T+0–72 mobility graph.",
+      "evidence": "The graph ends at Beekdaelen, Heerlen and Landgraaf and has no German node, even though the VR profile identifies cross-border nature-fire, heavy-rain tributary flooding, toxic-cloud, energy/telecom and road/rail dependencies. Parkstad road-passability WMS and timestamped NDW records remain non-causal; zero local NDW records is not an all-open state.",
+      "action": "Add a public non-sensitive cross-border reference graph and match an expert-selected water/fire footprint to full-resolution NWB and event-valid NDW. Preserve GTFS feed validity and model evacuation/response throughput only as calibrated exercise assumptions."
+    },
+    {
+      "id": "GM0899-FACILITY-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "open",
+      "summary": "Facility continuity, shelter/care roles and transient demand remain synthetic despite an older and substantially single-person population.",
+      "evidence": "Residents aged 65+ are 27.6% and one-person households number 5,600. Context has zero RIVM acute-care points, 15 DUO education uses and three government points, but none supplies live shelter role, attendance, staffing, accessibility, generator/fuel endurance, stocks or patient transfer. Compound T+24 facilities availability 0.268486 is therefore an index, not operating capacity.",
+      "action": "Keep RIVM/DUO/KVK/BAG registers non-causal and request authorised Brunssum/VRZL aggregate shelter, care, cooling, backup and transfer interfaces. Preserve occupancy, staffing, capacity and priority as unknown otherwise."
+    },
+    {
+      "id": "GM0899-RECOVERY-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "open",
+      "summary": "Standing water correctly pauses repair, but exact restoration and dewatering are not locally calibrated.",
+      "evidence": "River and compound hold every recoveryProgress at zero through T+72 while synthetic flood stress persists; pluvial resumes recovery after the synthetic water clears. This is conservative but there is no selected exposed asset set, recession/dewatering path, accessible route, operator resource, switching plan or restoration band for the exact values.",
+      "action": "Retain the conservative repair gate but apply it only to selected exposed zones/assets and publish its assumptions. Prefer authorised aggregate restoration ranges; otherwise keep versioned synthetic intervals without operator attribution."
+    },
+    {
+      "id": "GM0899-CONTRACT-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The complete numerical, causal, allocation, checkpoint and sustained-flood contract passes for GM0899.",
+      "evidence": "The focused gate covers ten presets, six checkpoints and eight services. Values are finite and deterministic, zero intensity is exact, local totals reconcile, causal ledgers close, cumulative burden is monotone, layer selection is invariant and continuing water blocks premature restoration. Desktop/mobile browser paths complete without runtime or local-fetch error.",
+      "action": "Keep GM0899 and national ALL coverage in regression and add source-class, Roode Beek/Waterschap footprint, Parkstad no-data, Brunssummerheide, local seismic/mining, cross-border and sector-network assertions."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Replace GM0899's generic river/pluvial scalars with expert-selected, versioned hydraulic footprints and explicit unsupported/no-data semantics.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/public/data/hazards/GM0899-water-context.json",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/MapView.tsx"
+      ],
+      "validation": "Preferred regional inputs are Waterschap Limburg's 1 metre RD New T100-2100 pluvial ImageServer https://tiledimageservices.arcgis.com/pCDwdQn0AhSP66VA/arcgis/rest/services/T100_2100Waterdiepte_Totaal_10122025Water/ImageServer and fluvial ImageServer https://tiledimageservices.arcgis.com/pCDwdQn0AhSP66VA/arcgis/rest/services/T100_2100waterdiepte_Fluviaal_V2_17_12_2025Water/ImageServer, releases dated December 2025/January 2026 with Web Map modified 27 January 2026. They are TilesOnly/allowCopy=false and publish no standard licence or guaranteed cadence, so obtain terms before caching. The Parkstad API/WMS https://parkstad.klimaatmonitor.net/api/themememberships/?atlas=0736b4ca-96e3-4057-8cdf-455502cdc0cc supplies T100 depth/passability/runoff context but carries Copyright Lizard 2016, old AHN inputs, no guaranteed refresh, and download requires permission/login. Clip with annual non-generalized PDOK CBS geometry (CC BY 4.0); preserve scenario/layer id, mechanism, probability, unit, CRS, 1 metre or native resolution, no-data, issue/valid time, arrival/recession and licence. Until reviewed, direct local flood exposure is unknown rather than zero or a depth-like scalar."
+    },
+    {
+      "summary": "Replace the common neighbourhood seed and add a separately named Brunssummerheide nature-fire exercise.",
+      "files": [
+        "apps/web/public/data/hazards/GM0899-wildfire-context.json",
+        "packages/sim-core/src/scenarios.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/scenarios.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Use IPO/Risicokaart WFS https://servicespub.risicokaart.nl/geoserver/ISOR_RK/wfs?service=WFS&request=GetCapabilities as combustible-area eligibility only; it is vector polygon coverage, Public Domain for the nature-fire dataset, metadata updated 19 February 2026, with source scale and guaranteed feature cadence unstated. Use KNMI Data Platform/EDR https://api.dataplatform.knmi.nl/edr/v1/docs for event-valid weather or a pinned replay; product grids/stations and cadence vary, including 5-/10-minute products where available, under CC BY 4.0. No reviewed public source provides ignition, current fuels/moisture, incident perimeter, spread, smoke plume, evacuation or resources, so fallback must be a minimal versioned synthetic perimeter. Validate that Brunssumer Heide/De Heide can differ from Emma, direct flame is zero outside the selected footprint, missing geometry remains unknown and municipality totals still reconcile."
+    },
+    {
+      "summary": "Provide separate Zuid-Limburg seismic and former-mining ground-movement exercises instead of treating Groningen as local validation.",
+      "files": [
+        "apps/web/public/data/hazards/GM0899-ground-context.json",
+        "packages/sim-core/src/scenarios.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/scenarios.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Use KNMI's keyless FDSN Event/Station/DataSelect services documented at https://www.knmi.nl/kennis-en-datacentrum/dataset/seismische-en-akoestische-data-tools for observed event provenance/replay; event/station resolution varies, updates occur as observations are processed and CC BY 4.0 applies by default. IPO seismic polygons at https://servicespub.risicokaart.nl/geoserver/ISOR_RK/wfs are feature-level CC BY 4.0 screening with 2006 validity starts and no guaranteed operational refresh. SodM's 2021 Feldbiss/Brunssum assessment is static documentary context with no event API. Any future source, mine-water/deformation forcing, attenuation, exposure and building vulnerability must be expert-reviewed and versioned; observations and old zones must never become automatic forecast probability."
+    },
+    {
+      "summary": "Separate mobility/supply from physical utilities and add non-sensitive cross-border and provider responsibility context.",
+      "files": [
+        "scripts/fetch-realism-data.mjs",
+        "scripts/apply-audited-lifelines.mjs",
+        "apps/web/public/data/transport-network.json",
+        "apps/web/public/data/lifelines/GM0899-context.json",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "For mobility/supply use RWS NWB OGC https://api.pdok.nl/rws/nationaal-wegenbestand-wegen/ogc/v1 (monthly, CC0 1.0; daily public-domain GeoPackage), timestamped NDW DATEX observations (record/availability-specific cadence and licence), and feed-valid GTFS; add public German border references but keep throughput synthetic unless calibrated. Stichting Mijn Aansluiting WMS https://public.geodata.mijnaansluiting.nl/geoserver/mijnaansluiting_open/ows is Public Domain/provider-supplied; its 7 September 2025 reference-point records identify Enexis, WML and Ziggo but are responsibility polygons, not topology. HWH IMWA/DAMO OGC https://api.pdok.nl/hwh/waterschappen-waterketen-damo/ogc/v1 is CC BY-SA 4.0 with variable contributor timestamps/completeness and must remain asset context. Request authorised safe aggregate service zones/restoration bands; preserve connectivity, flow, capacity, telemetry, backup and current state as unknown."
+    },
+    {
+      "summary": "Add safe facility-role and continuity context without turning public registers into live capacity.",
+      "files": [
+        "scripts/fetch-public-facilities.mjs",
+        "apps/web/public/data/facilities/GM0899-context.json",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Retain RIVM 2026 acute-care questionnaire locations (annual dated release, CC0), daily DUO RIO education uses (Creative Commons Attribution), KVK/PDOK government-service points (Public Domain Mark) and daily BAG buildings (Public Domain Mark) as context only: the current GM0899 intersection is zero acute-care, 15 education and three government points. Zero acute-care is no local point in that register, not zero care demand or access. Request authorised Brunssum/VRZL aggregate shelter, care, cooling, staffing, generator/fuel, supply and transfer interfaces; if unavailable, keep occupancy, capacity, backup and restoration unknown and facilities explicitly synthetic."
+    }
+  ],
+  "residualLimitations": [
+    "This audits a deterministic first-72-hour exercise model, not a forecast, warning, emergency instruction, hydraulic assessment, nature-fire forecast, mine-safety assessment or operator commitment.",
+    "CBS 2025 values are rounded/suppressed and neighbourhood totals need not equal the municipality total; null district-heating, charging and partial housing/access fields are unknown, not zero.",
+    "Resident population excludes present workers, pupils, visitors, transit users, cross-border travellers and displaced people; no authoritative timestamped occupancy is consumed.",
+    "The 62-position overview boundary is suitable for selection, not for 1 metre raster, runoff, brook, nature, seismic/mine-zone, road or asset intersection; use full-resolution PDOK geometry.",
+    "Parkstad layers are modeled planning screens with old source inputs, Copyright Lizard 2016, permission-gated download and no guaranteed refresh; WMS null is no returned value/no-data, not zero or safety.",
+    "Waterschap T100-2100 rasters are design scenarios, not current water; layer choice, units, no-data, issue, accuracy, licence and local validation must be resolved before causal ingestion.",
+    "The VR profile and municipal nature-fire plan are documentary planning sources, not live incidents, crews, resources, cross-border dispatch, warnings or evacuation orders.",
+    "IPO combustible polygons identify eligibility, not ignition, fuel/moisture, perimeter, spread, smoke, evacuation or response; seismic polygons are old overlapping screens, not event probability or shaking.",
+    "SodM's former-mining context does not provide a live deformation field; KNMI FDSN observations do not forecast future shaking, mine-water change or damage.",
+    "Waterinfo/RIVM observations support provenance or replay but are sparse point observations, not continuous local surfaces or arbitrary T+72 forecasts; zero local stations is no data.",
+    "HWH assets, provider areas, RDI antennas, facilities, GTFS, NWB and ProRail are partial registers and do not establish connectivity, capacity, state, occupancy, backup or priority.",
+    "No complete public physical electricity, drinking-water, wastewater, gas, telecom, facility, fuel, stock, staff, repair or restoration topology is consumed; security-sensitive gaps remain unknown or synthetic.",
+    "Coastal and Groningen-earthquake presets are remote exercises for Brunssum; wildfire is remote smoke/drought, and weather/cyber forcing remains synthetic unless explicitly replayed.",
+    "Cross-border incident propagation and mutual aid, household stocks, vulnerable-person registries, public-health consequences, ecological impacts and recovery beyond T+72 remain outside locally validated scope."
+  ],
+  "provinceReviewFlags": [
+    "Limburg/Waterschap Limburg/Rijkswaterstaat: block direct GM0899 river/brook depth and exposure until an expert-selected, licensed, versioned fluvial/pluvial event is intersected at full resolution with no-data preserved.",
+    "Limburg/Parkstad municipalities: resolve ownership, reuse, native resolution, edition and refresh for local climate-atlas WMS/download layers before ingestion; retain the 2016/old-input atlas as planning context, not observation.",
+    "Limburg-Zuid/VRZL/IPO/Brunssum: define a separate Brunssummerheide nature-fire exercise and non-sensitive cross-border response context; combustible polygons are not an incident perimeter.",
+    "Limburg/SodM/KNMI/mining municipalities: distinguish remote Groningen, local tectonic seismicity and former-mining deformation, with observations used only for provenance and future scenarios expert-reviewed.",
+    "Limburg/Brunssum/utility, water, telecom, mobility, health and logistics operators: publish or authorise safe aggregate service zones, outage/restoration and event-capacity interfaces where possible; retain unavailable physical topology/state as unknown rather than deriving it from roads or registries."
+  ]
+}

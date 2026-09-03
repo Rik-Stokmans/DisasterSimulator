@@ -1,0 +1,253 @@
+{
+  "schemaVersion": "1.0.0",
+  "source": {
+    "publisher": "Rijkswaterstaat / Provincie Limburg / Gemeente Krimpen aan den IJssel / Gemeente Leiderdorp / Gemeente Lingewaard",
+    "title": "Named official road restrictions",
+    "urls": [
+      "https://www.rijkswaterstaat.nl/wegen/projectenoverzicht/n3-renovatie-beweegbare-deel-papendrechtsebrug",
+      "https://www.rijkswaterstaat.nl/wegen/wegenoverzicht/a27/merwedebrug",
+      "https://krimpenaandenijssel.nl/dossiers/groot-onderhoud-algerabrug/",
+      "https://www.leiderdorp.nl/inwoner/nieuws/artikel/spanjaardsbrug-dicht-voor-autoverkeer-tot-en-met-11-september",
+      "https://www.rijkswaterstaat.nl/nieuws/archief/2026/06/n280-vrachtwagens-landbouwvoertuigen-en-bussen-niet-meer-toegestaan-op-kelperbrug",
+      "https://samen.lingewaard.nl/p/Dijkversterking/i/05tYK/afsluiting-rijndijk-vanwege-realisatie-bouwweg-via15"
+    ],
+    "retrievedAt": "2026-09-03T07:06:00Z",
+    "cadence": "Project/current-status pages; event-driven updates, fixed cadence not stated",
+    "licence": "Public factual notices; no machine-dataset licence stated",
+    "coverage": "Six named road restrictions only; absence is Unknown, never open",
+    "affectsSimulation": "A full closure alters a matching edge only for an explicitly overlapping referenceDate. Vehicle-class restrictions remain context-only until their share of scenario-unit capacity is calibrated."
+  },
+  "restrictions": [
+    {
+      "match": {
+        "from": "GM0505",
+        "to": "GM0590",
+        "name": "N3",
+        "sourceFeatureIdsAny": [
+          "NWB-215253054",
+          "NWB-216252006",
+          "NWB-600119483",
+          "NWB-600119484"
+        ]
+      },
+      "restriction": {
+        "id": "rws-n3-papendrechtsebrug-2026-2027",
+        "state": "closed",
+        "simulationEffect": "close-route",
+        "validFrom": "2026-07-17",
+        "validThrough": "2027-04-21",
+        "affectedServices": [
+          "mobility",
+          "supply"
+        ],
+        "scope": "Papendrechtsebrug closed to all road traffic in both directions; published diversions add approximately 30–60 minutes",
+        "publisher": "Rijkswaterstaat",
+        "sourceUrl": "https://www.rijkswaterstaat.nl/wegen/projectenoverzicht/n3-renovatie-beweegbare-deel-papendrechtsebrug",
+        "retrievedAt": "2026-09-02T21:49:00Z",
+        "evidenceClass": "official-plan",
+        "note": "The temporary Baanhoek emergency route and cyclist/pedestrian ferries are not represented as capacity-bearing alternatives; their capacity remains Unknown. Planning can change."
+      }
+    },
+    {
+      "match": {
+        "from": "GM0512",
+        "to": "GM1959",
+        "name": "A27",
+        "sourceFeatureIdsAny": [
+          "NWB-248252017",
+          "NWB-248253016",
+          "NWB-600124478",
+          "NWB-600124804"
+        ]
+      },
+      "restriction": {
+        "id": "rws-a27-merwedebrug-heavy-vehicle-2026",
+        "state": "vehicle-class-restricted",
+        "simulationEffect": "context-only",
+        "validFrom": "2026-07-18",
+        "validThrough": "2026-09-03",
+        "affectedServices": [
+          "mobility",
+          "supply"
+        ],
+        "affectedVehicleClasses": [
+          "trucks",
+          "touring coaches"
+        ],
+        "unaffectedVehicleClasses": [
+          "passenger cars",
+          "scheduled buses",
+          "emergency services"
+        ],
+        "detours": [
+          "A15/A16/A59",
+          "A15/A2/A59",
+          "A2 for dangerous goods"
+        ],
+        "scope": "Merwedebrug closed in both directions to trucks and touring coaches; passenger cars, scheduled buses and emergency services remain allowed",
+        "publisher": "Rijkswaterstaat",
+        "sourceUrl": "https://www.rijkswaterstaat.nl/wegen/wegenoverzicht/a27/merwedebrug",
+        "retrievedAt": "2026-09-03T02:25:00Z",
+        "evidenceClass": "official-observation",
+        "note": "The publisher gives no machine-readable vehicle share, throughput loss or end date. The evidence interval therefore stops at retrieval day; it is visible but has no invented numeric route-capacity effect, and no later date is extrapolated."
+      }
+    },
+    {
+      "match": {
+        "from": "GM0502",
+        "to": "GM0542",
+        "name": "N210 / Algerabrug",
+        "sourceFeatureIdsAny": [
+          "NWB-198273080",
+          "NWB-198273045"
+        ]
+      },
+      "restriction": {
+        "id": "rws-algerabrug-ordinary-motor-closure-2026",
+        "state": "vehicle-class-restricted",
+        "simulationEffect": "context-only",
+        "validFrom": "2026-08-10",
+        "validThrough": "2026-09-07",
+        "affectedServices": [
+          "mobility",
+          "supply"
+        ],
+        "affectedVehicleClasses": [
+          "ordinary motor traffic"
+        ],
+        "unaffectedVehicleClasses": [
+          "controlled emergency services"
+        ],
+        "detours": [
+          "N210/N207/A20/N219 signed motor detour",
+          "temporary pedestrian/cycle bridge",
+          "increased Stormpolder-Rivium Waterbus context"
+        ],
+        "scope": "Algerabrug closed to ordinary motor traffic from 10 August 2026 00:00 through 7 September 2026 05:00; emergency services use a controlled lane, while active modes and Waterbus are separate alternatives",
+        "publisher": "Rijkswaterstaat / Gemeente Krimpen aan den IJssel",
+        "sourceUrl": "https://krimpenaandenijssel.nl/dossiers/groot-onderhoud-algerabrug/",
+        "retrievedAt": "2026-09-03T05:51:00Z",
+        "evidenceClass": "official-plan",
+        "note": "The exercise reference field is date-only and cannot resolve the 05:00 end on 7 September. The restriction is therefore context-only for every matched day and never deletes the generalized edge. Published ordinary-motor, controlled-emergency, active-mode, Waterbus and high-shipping states remain distinct; no public vehicle mix or alternative throughput justifies a numeric effect, and state after expiry is Unknown rather than guaranteed open."
+      }
+    },
+    {
+      "match": {
+        "from": "GM0546",
+        "to": "GM0547",
+        "name": "Lage Rijndijk / Spanjaardsbrug",
+        "sourceFeatureIdsAny": [
+          "NWB-190328122",
+          "NWB-600420705"
+        ]
+      },
+      "restriction": {
+        "id": "leiderdorp-spanjaardsbrug-car-bus-closure-2026",
+        "state": "vehicle-class-restricted",
+        "simulationEffect": "context-only",
+        "validFrom": "2026-08-17",
+        "validThrough": "2026-09-11",
+        "affectedServices": [
+          "mobility",
+          "supply"
+        ],
+        "affectedVehicleClasses": [
+          "cars",
+          "scheduled buses"
+        ],
+        "unaffectedVehicleClasses": [
+          "emergency services",
+          "cycles",
+          "mopeds"
+        ],
+        "detours": [
+          "Sumatrastraat/Willem de Zwijgerlaan/Engelendaal/Zijldijk",
+          "direction-specific Baanderij access via the Praxis car park from Rietschans"
+        ],
+        "scope": "Lage Rijndijk between Sumatrastraat and Spanjaardsbrug closed to cars and buses from 17 August through 11 September 2026; emergency services, cycles and mopeds can pass, with direction-specific Baanderij access",
+        "publisher": "Gemeente Leiderdorp",
+        "sourceUrl": "https://www.leiderdorp.nl/inwoner/nieuws/artikel/spanjaardsbrug-dicht-voor-autoverkeer-tot-en-met-11-september",
+        "retrievedAt": "2026-09-03T07:06:00Z",
+        "evidenceClass": "official-plan",
+        "note": "The notice gives calendar dates and role-specific access but no machine-readable direction geometry, traffic mix, detour throughput or emergency priority capacity. The local crossing is therefore visible context only and excluded from causal transfers; missing post-expiry or live state remains Unknown rather than guaranteed open."
+      }
+    },
+    {
+      "match": {
+        "from": "GM0988",
+        "to": "GM1640",
+        "name": "N280",
+        "sourceFeatureIdsAny": [
+          "NWB-600948347",
+          "NWB-366121023"
+        ]
+      },
+      "restriction": {
+        "id": "rws-n280-kelperbrug-heavy-vehicle-2026",
+        "state": "vehicle-class-restricted",
+        "simulationEffect": "context-only",
+        "validFrom": "2026-06-09",
+        "validThrough": "2026-09-03",
+        "affectedServices": [
+          "mobility",
+          "supply"
+        ],
+        "affectedVehicleClasses": [
+          "trucks",
+          "agricultural vehicles",
+          "buses excluding scheduled public transport"
+        ],
+        "unaffectedVehicleClasses": [
+          "scheduled public transport",
+          "emergency services",
+          "passenger cars and other permitted traffic"
+        ],
+        "detours": [
+          "Eindhoven to Roermond via N275/N279",
+          "Roermond to Weert via N280/N273/A2",
+          "Weert to Kelpen-Oler or Roermond via A2/A73"
+        ],
+        "scope": "Heavy vehicle restriction on the N280 Kelperbrug over Kanaal Wessem-Nederweert from 9 June 2026 because corrosion reduced structural capacity; scheduled public transport and emergency services are exempt",
+        "publisher": "Rijkswaterstaat / Provincie Limburg",
+        "sourceUrl": "https://www.rijkswaterstaat.nl/nieuws/archief/2026/06/n280-vrachtwagens-landbouwvoertuigen-en-bussen-niet-meer-toegestaan-op-kelperbrug",
+        "retrievedAt": "2026-09-03T06:39:00Z",
+        "evidenceClass": "official-observation",
+        "note": "The authority notice gives no end date or machine-readable vehicle mix. The evidence interval stops at the 3 September audit retrieval; no later state is extrapolated. It remains context-only and does not invent a numeric route-capacity effect, while an empty NDW match or later absence remains Unknown rather than proof the bridge is open."
+      }
+    },
+    {
+      "match": {
+        "from": "GM1705",
+        "to": "GM1705",
+        "name": "Rijndijk Angeren–Doornenburg",
+        "sourceFeatureIdsAny": [
+          "NWB-389272008",
+          "NWB-391270006"
+        ]
+      },
+      "restriction": {
+        "id": "lingewaard-rijndijk-via15-closure-2026",
+        "state": "closed",
+        "simulationEffect": "context-only",
+        "validFrom": "2026-08-24",
+        "validThrough": "2026-10-02",
+        "affectedServices": [
+          "mobility",
+          "supply"
+        ],
+        "affectedVehicleClasses": [
+          "through road traffic"
+        ],
+        "detours": [
+          "Lodderhoeksestraat / N838"
+        ],
+        "scope": "Rijndijk between Zahnstraat/Scherpekamp in Angeren and Krakkedel in Doornenburg closed from 24 August through 2 October 2026 for construction of the ViA15 work-road crossing",
+        "publisher": "Gemeente Lingewaard / GelreGroen",
+        "sourceUrl": "https://samen.lingewaard.nl/p/Dijkversterking/i/05tYK/afsluiting-rijndijk-vanwege-realisatie-bouwweg-via15",
+        "retrievedAt": "2026-09-03T06:48:00Z",
+        "evidenceClass": "official-plan",
+        "note": "The notice supplies dates, endpoints and the N838 detour but does not publish machine-readable direction geometry, modal/emergency exemptions, queue or detour throughput. The internal corridor is visible context only and excluded from causal transfers; empty NDW remains Unknown rather than proof the road is open."
+      }
+    }
+  ]
+}

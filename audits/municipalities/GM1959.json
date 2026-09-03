@@ -1,0 +1,802 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM1959",
+    "name": "Altena",
+    "province": "Noord-Brabant",
+    "safetyRegion": "Midden- en West-Brabant"
+  },
+  "agent": {
+    "taskName": "municipality_gm1959",
+    "agentId": "/root/causal_engine_v3",
+    "completedAt": "2026-09-02T12:56:39Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "Altena's identity, generalized 2025 boundary, municipality totals, 63 CBS neighbourhoods, 19 BAG woonplaatsen and source-derived road/transit context are coherent, and the dedicated ten-preset by six-checkpoint by eight-service numerical contract passes. River flooding is locally relevant: current official sources describe Altena as a partly bathtub-like island surrounded by the Boven Merwede, Bergsche Maas and Afgedamde Maas, with potentially 2–5 m maximum inundation and severe service disruption after a breach. The model's sustained T+72 river stress and repair guard are therefore directionally plausible, but the result is not hydraulic validation. The audit is correction-required because no canonical scenario can represent the official benedenrivieren transition mechanism in which storm surge, river discharge and barrier operation interact: direct coastal stress is exactly zero in GM1959, the river preset is river-only, and the compound preset contains only storm, pluvial flooding and cyberattack. Local flood variation is seeded rather than derived from dike rings, breach paths, terrain or LIWO layers. First-72-hour operations also omit concrete Altena dependencies: Kromme Nol/Wilhelminasluis protection, the centralized Sleeuwijk wastewater system, hospital access outside the municipality, ferry/waterway alternatives, and the current Merwedebrug ban on freight and coaches; the road-derived solver instead gives that northern A27 edge full logical capacity. Exact electricity, gas, drinking-water, telecom, pump, facility and restoration topology is not publicly available and must remain unknown. All map flows are correctly labeled logical transfer proxies, and the output remains a deterministic stress-test prototype rather than an operational forecast.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek",
+      "title": "Kerncijfers wijken en buurten 2025 — filtered municipality row GM1959",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM1959%27%29&%24select=WijkenEnBuurten%2CAantalInwoners_5%2CBevolkingsdichtheid_34%2Ck_65JaarOfOuder_12%2CEenpersoonshuishoudens_30",
+      "accessedAt": "2026-09-02T12:56:39Z",
+      "edition": 2025,
+      "supports": [
+        "Official GM1959 population 58,726, density 294 per square kilometre, age-65-plus count 12,339 and one-person-household count 7,245.",
+        "Reference totals for the generated municipality and neighbourhood reconciliation."
+      ]
+    },
+    {
+      "publisher": "PDOK / Centraal Bureau voor de Statistiek",
+      "title": "Gemeente gegeneraliseerd 2025",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_gegeneraliseerd/items?f=json&limit=1000&datetime=2025-07-01T00%3A00%3A00Z",
+      "accessedAt": "2026-09-02T12:56:39Z",
+      "edition": 2025,
+      "supports": [
+        "Official GM1959 code, Altena name and generalized administrative geometry.",
+        "Municipality-centre point-in-polygon and province checks."
+      ]
+    },
+    {
+      "publisher": "PDOK / Kadaster",
+      "title": "Definitieve Bestuurlijke Gebieden 2026 — GM1959 feature",
+      "url": "https://api.pdok.nl/kadaster/brk-bestuurlijke-gebieden/ogc/v1/collections/gemeentegebied/items?f=json&limit=10&identificatie=GM1959",
+      "accessedAt": "2026-09-02T12:56:39Z",
+      "edition": 2026,
+      "supports": [
+        "Current independent municipality identifier, Altena name and Noord-Brabant province.",
+        "A newer boundary reference that does not silently replace the generated 2025 generalized edition."
+      ]
+    },
+    {
+      "publisher": "PDOK / Centraal Bureau voor de Statistiek",
+      "title": "Buurt gegeneraliseerd 2025",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/buurt_gegeneraliseerd",
+      "accessedAt": "2026-09-02T12:56:39Z",
+      "edition": 2025,
+      "supports": [
+        "Sixty-three official neighbourhood geometries and nineteen district groupings in GM1959.",
+        "Spatial basis for aggregate local statistics and allocation."
+      ]
+    },
+    {
+      "publisher": "PDOK / Kadaster",
+      "title": "BAG woonplaats OGC API",
+      "url": "https://api.pdok.nl/kadaster/bag/ogc/v2/collections/woonplaats",
+      "accessedAt": "2026-09-02T12:56:39Z",
+      "edition": 2026,
+      "supports": [
+        "Nineteen active BAG woonplaatsen associated with GM1959.",
+        "BAG woonplaats is a different ontology from BRT settlement polygons and CBS neighbourhoods."
+      ]
+    },
+    {
+      "publisher": "PDOK / Kadaster",
+      "title": "BRT TOP10NL plaats_vlak OGC API",
+      "url": "https://api.pdok.nl/kadaster/brt-top10nl/ogc/v1/collections/plaats_vlak",
+      "accessedAt": "2026-09-02T12:56:39Z",
+      "edition": 2026,
+      "supports": [
+        "Forty-five BRT settlement polygons assigned to GM1959, including twenty-one woonkernen.",
+        "Settlement names, types and populations are contextual rather than municipality-total statistics."
+      ]
+    },
+    {
+      "publisher": "PDOK / Centraal Bureau voor de Statistiek",
+      "title": "Veiligheidsregio gegeneraliseerd 2025",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/veiligheidsregio_gegeneraliseerd",
+      "accessedAt": "2026-09-02T12:56:39Z",
+      "edition": 2025,
+      "supports": [
+        "GM1959 intersects exactly one safety region, Midden- en West-Brabant."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / PDOK",
+      "title": "Nationaal Wegenbestand wegen WFS capabilities and NWB-light geometry",
+      "url": "https://service.pdok.nl/rws/nationaal-wegenbestand-wegen/wfs/v1_0?service=WFS&version=2.0.0&request=GetCapabilities",
+      "accessedAt": "2026-09-02T12:56:39Z",
+      "edition": "NWB-light 2026-08-01",
+      "supports": [
+        "Road-source provenance for the generated A27, N322 and N267 municipality links.",
+        "Road identity and geometry do not establish emergency throughput or utility topology."
+      ]
+    },
+    {
+      "publisher": "ProRail / PDOK",
+      "title": "ProRail stations OGC API",
+      "url": "https://api.pdok.nl/prorail/spoorwegen/ogc/v1/collections/station",
+      "accessedAt": "2026-09-02T12:56:39Z",
+      "edition": 2026,
+      "supports": [
+        "No ProRail station geometry lies inside GM1959."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Midden- en West-Brabant",
+      "title": "Regionaal Risicoprofiel 2023–2027",
+      "url": "https://www.vrmwb.nl/media/qnmkutwa/regionaal-risicoprofiel-2023_2027.pdf",
+      "accessedAt": "2026-09-02T12:56:39Z",
+      "edition": "2023–2027",
+      "supports": [
+        "Altena is explicitly described as surrounded by the Boven Merwede, Bergsche Maas and Afgedamde Maas, with a stated regional-profile flood probability of once in 160 years.",
+        "The benedenrivieren framework distinguishes coastal, river and sea-river transition scenarios and explains that storm surge, river discharge and closable barriers can jointly determine high water.",
+        "Biesbosch is named among the region's largest nature areas; extreme weather includes rain, drought, heat, storm, cold, snow and ice; the eastern region has natural earthquake risk.",
+        "Digital disruption and electricity, gas, drinking water, telecom, water management, road, rail and shipping processes are treated as vital and cascade-prone."
+      ]
+    },
+    {
+      "publisher": "Gemeente Altena",
+      "title": "Klimaatadaptatiestrategie Altena 2021–2027",
+      "url": "https://www.gemeentealtena.nl/fileadmin/Altena_bestanden/PDF_bijlagen/Duurzaamheid/2021-07-15_Bijlage_RIB_Vaststelling_klimaatadaptatiestrategie_2021-2027_-_klimaatadaptatiestrategie.pdf",
+      "accessedAt": "2026-09-02T12:56:39Z",
+      "edition": "2021–2027",
+      "supports": [
+        "Altena's lower polders, surrounding rivers and landscape create local water vulnerability; the western and eastern systems, polders and built cores differ materially.",
+        "A dike breach can produce 2–5 m maximum depth and total disruption, while flooding in Biesbosch and Noordwaard is intentional and has comparatively low risk.",
+        "A 75 mm in one hour stress test produces 10–15 cm street water, with locally different effects and possible electricity, communications, road, vulnerable-function and sewer-overflow consequences.",
+        "Heat concentrates in built cores and business parks; drought affects agriculture, water quality, foundations, shipping and cooling water; high water disrupts utilities and shipping.",
+        "The source explicitly notes that the detailed 2018 local stress test is not public because of sensitivity and parcel-level inaccuracy."
+      ]
+    },
+    {
+      "publisher": "Waterschap Rivierenland",
+      "title": "Klimaatregio Altena (We4Climate)",
+      "url": "https://www.waterschaprivierenland.nl/klimaatregio-altena-we4climate",
+      "accessedAt": "2026-09-02T12:56:39Z",
+      "edition": 2026,
+      "supports": [
+        "Current water-board confirmation of Altena's rain, heat, drought, blue-green water-quality and agricultural water-management vulnerabilities.",
+        "Altena depends on Maas water intake and that water is subject to ebb and flood influence."
+      ]
+    },
+    {
+      "publisher": "Waterschap Rivierenland",
+      "title": "Waterschap Rivierenland test hoogwaterkering Kromme Nol",
+      "url": "https://www.waterschaprivierenland.nl/waterschap-rivierenland-test-hoogwaterkering-kromme-nol",
+      "accessedAt": "2026-09-02T12:56:39Z",
+      "edition": 2026,
+      "supports": [
+        "Kromme Nol and Wilhelminasluis jointly protect the full Altena and Bommelerwaard dike ring.",
+        "The complex barrier is tested twice yearly and its closure also interrupts shipping."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat",
+      "title": "Heusdensch Kanaal and Kromme Nolkering",
+      "url": "https://www.rijkswaterstaat.nl/water/vaarwegenoverzicht/heusdensch-kanaal",
+      "accessedAt": "2026-09-02T12:56:39Z",
+      "edition": 2026,
+      "supports": [
+        "The Kromme Nol barrier protects Land van Heusden en Altena and Bommelerwaard and closes at a stated water-level trigger.",
+        "Barrier operation creates a joint water-safety, road and navigation context absent from a municipality-centroid field."
+      ]
+    },
+    {
+      "publisher": "Waterschap Rivierenland",
+      "title": "Centralisatie afvalwatersysteem Land van Heusden en Altena — completion newsletter",
+      "url": "https://www.waterschaprivierenland.nl/_flysystem/media/wsrl20_097-nieuwsbrief-centralisatie-sleeuwijk-07_webversie.pdf",
+      "accessedAt": "2026-09-02T12:56:39Z",
+      "edition": 2020,
+      "supports": [
+        "The centralization was completed: new pumping stations at Wijk en Aalburg, Dussen and Eethen and pressure pipes transport wastewater to the renovated Sleeuwijk treatment plant.",
+        "A real shared drainage/wastewater dependency exists that is not represented by independent neighbourhood branches or road-derived utility flows."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / Informatiepunt Leefomgeving",
+      "title": "Landelijk Informatiesysteem Water en Overstromingen",
+      "url": "https://iplo.nl/thema/water/applicaties-modellen/berichtgeving-crisismanagement/liwo/",
+      "accessedAt": "2026-09-02T12:56:39Z",
+      "edition": 2026,
+      "supports": [
+        "LIWO provides professional map layers for flood preparation and requires specialist interpretation with water managers.",
+        "Official scenario-specific spatial evidence exists and is methodologically different from centroid distance and deterministic neighbourhood seeds."
+      ]
+    },
+    {
+      "publisher": "Informatiepunt Leefomgeving / Rijkswaterstaat",
+      "title": "Technische uitgangspunten en methode LIWO afgeleide kaarten",
+      "url": "https://iplo.nl/publish/pages/245268/11211536-000-zws-0003_v1-0-technische-uitgangspunten-en-methode-liwo-afgeleide-kaarten_voor-publ.pdf",
+      "accessedAt": "2026-09-02T12:56:39Z",
+      "edition": 2026,
+      "supports": [
+        "LIWO is based on a large set of flood scenarios with at least maximum-depth maps and, where available, velocity, rise-rate and arrival-time information.",
+        "A defensible local flood path requires a named scenario rather than interpreting one municipality scalar as observed depth."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat",
+      "title": "Verbod vrachtwagens en touringcars Merwedebrug (A27)",
+      "url": "https://www.rijkswaterstaat.nl/wegen/wegenoverzicht/a27/merwedebrug",
+      "accessedAt": "2026-09-02T12:56:39Z",
+      "edition": 2026,
+      "supports": [
+        "The A27 Merwedebrug between Gorinchem and Sleeuwijk has been closed to trucks and coaches since 18 July 2026 because the steel arch is weaker than expected; scheduled buses remain allowed.",
+        "The generated GM0512–GM1959 A27 edge needs time-stamped modal status before it can be read as current emergency mobility or supply capacity."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat",
+      "title": "Biesboschsluizen",
+      "url": "https://www.rijkswaterstaat.nl/water/waterbeheer/bescherming-tegen-het-water/waterkeringen/dammen-sluizen-en-stuwen/biesboschsluizen",
+      "accessedAt": "2026-09-02T12:56:39Z",
+      "edition": 2026,
+      "supports": [
+        "The Biesbosch water system, tides, Haringvliet closure and the Spieringsluis near Werkendam are real interacting water and navigation contexts.",
+        "The Biesbosch cannot be represented faithfully by distance to an abstract open-coast segment alone."
+      ]
+    },
+    {
+      "publisher": "Brabant Water",
+      "title": "45,500 fire hydrants in the region accessible and maintained",
+      "url": "https://www.brabantwater.nl/over-brabant-water/nieuws-en-pers/45500-brandkranen-regio-goed-bereikbaar-en-onderhouden",
+      "accessedAt": "2026-09-02T12:56:39Z",
+      "edition": 2024,
+      "supports": [
+        "Altena has 2,531 fire hydrants and was the first of the safety region's municipalities to sign uniform maintenance arrangements with Brabant Water.",
+        "Brabant Water alone maintains the wet network component, evidencing a drinking-water/fire-response dependency without disclosing pipe topology or operational availability."
+      ]
+    },
+    {
+      "publisher": "Enexis Netbeheer",
+      "title": "Altena Eethen — expansion electricity grid and replacement gas network",
+      "url": "https://www.enexis.nl/storingen-en-onderhoud/werkzaamheden/noord-brabant/altena-eethen",
+      "accessedAt": "2026-09-02T12:56:39Z",
+      "edition": 2026,
+      "supports": [
+        "Current local confirmation that Enexis operates electricity and gas assets in Altena and is expanding/replacing them in Eethen.",
+        "Construction and capacity context does not establish disaster fragility, switching topology, outage extent or restoration time."
+      ]
+    },
+    {
+      "publisher": "Gemeente Altena",
+      "title": "Vervoer op afspraak",
+      "url": "https://www.gemeentealtena.nl/verkeer/vervoer-in-altena/vervoer-op-afspraak",
+      "accessedAt": "2026-09-02T12:56:39Z",
+      "edition": 2026,
+      "supports": [
+        "Current local demand-responsive transport depends on hubs at Sleeuwijk, Nieuwendijk, Hank and Kromme Nol.",
+        "The municipality directs emergency-department access to hospitals outside Altena in Gorinchem, Tilburg and 's-Hertogenbosch and describes transport support for older and disabled residents."
+      ]
+    },
+    {
+      "publisher": "KNMI",
+      "title": "KNMI'23 climate scenarios for the Netherlands",
+      "url": "https://www.knmi.nl/kennis-en-datacentrum/publicatie/knmi-23-klimaatscenario-s-voor-nederland",
+      "accessedAt": "2026-09-02T12:56:39Z",
+      "edition": "KNMI'23",
+      "supports": [
+        "National forcing and uncertainty context for precipitation extremes, heat, drought, storm and sea level.",
+        "Climate scenarios are possible futures, not municipality forecasts or incident observations."
+      ]
+    },
+    {
+      "publisher": "KNMI",
+      "title": "Natuurbranden",
+      "url": "https://www.knmi.nl/kennis-en-datacentrum/uitleg/natuurbranden",
+      "accessedAt": "2026-09-02T12:56:39Z",
+      "edition": 2026,
+      "supports": [
+        "Wildfire occurrence depends on weather, burnable material and ignition, while wind affects spread.",
+        "A finite geometric footprint is safer than an unlimited direct-fire tail but is not local fuel, ignition or spread validation."
+      ]
+    },
+    {
+      "publisher": "KNMI",
+      "title": "ShakeMaps archive",
+      "url": "https://www.knmi.nl/nederland-nu/seismologie/shakemaps-archief",
+      "accessedAt": "2026-09-02T12:56:39Z",
+      "edition": 2026,
+      "supports": [
+        "Official Groningen ground-shaking products are event-specific maps combining measurements and a Groningen-specific ground-motion equation.",
+        "The preset's exponential distance tail is a hypothetical stress test rather than an Altena ground-motion assessment."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM1959, Altena, Noord-Brabant and safety region Midden- en West-Brabant agree across the manifest, generated files and primary official geography.",
+      "evidenceRefs": [
+        "E01",
+        "E02",
+        "E03",
+        "E07"
+      ],
+      "notes": [
+        "Municipality feature id, code, regional-bundle code and name all agree.",
+        "The municipality intersects exactly one generated safety region, Midden- en West-Brabant.",
+        "Generated boundary and municipal-statistics editions are both 2025; the 2026 Kadaster feature is an independent current identity check."
+      ]
+    },
+    "geography": {
+      "status": "pass",
+      "summary": "The generated 2025 generalized boundary, municipal centre and assigned local label points are internally coherent.",
+      "evidenceRefs": [
+        "E02",
+        "E03",
+        "E04",
+        "E05"
+      ],
+      "notes": [
+        "The generated centre [4.954732924104595, 51.76732634648741] lies inside the municipality geometry.",
+        "All nineteen BAG woonplaats label centres are inside the generalized boundary and all 63 neighbourhoods retain GM1959 membership.",
+        "A generalized administrative polygon is not a dike ring, flood compartment, terrain, catchment, sewer, water-pressure or utility-service boundary."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "The municipality totals reproduce CBS 2025 and published neighbourhood rounding reconciles closely.",
+      "evidenceRefs": [
+        "E01",
+        "E04"
+      ],
+      "notes": [
+        "Generated municipality values are 58,726 residents, density 294/km², age-65-plus share 21.0% and 7,245 one-person households; CBS reports 12,339 residents aged 65+.",
+        "Published neighbourhood populations sum to 58,745, nineteen above the municipality total (+0.032%); age 65+ sums to 12,350, households to 24,195 and one-person households to 7,260.",
+        "No GM1959 neighbourhood has an official zero population in this source edition, so the zero-resident activity-allocation edge case is not locally available to retest."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "All 63 official neighbourhoods expose the 36-field schema and usable aggregate context, but several fields are suppressed or wholly unavailable and no demographic field establishes incident priority.",
+      "evidenceRefs": [
+        "E04",
+        "E11"
+      ],
+      "notes": [
+        "Population, age, household, business, non-residential-building, cars, land/water and address-density fields cover 63/63 neighbourhoods.",
+        "Home-value, tenure and multi-family fields cover 54/63; cars per household 45/63; benefit fields 58/63; doctor/supermarket distance and density 62/63.",
+        "District-heating percentage and public charging points have 0/63 usable observations and remain null, not zero.",
+        "Neighbourhood sums include 8,540 businesses, 3,378 non-residential buildings, 32,155 cars, 19,977 ha land and 2,687 ha water.",
+        "All neighbourhood priorities remain neutral at 2 and isHub=false. This avoids inventing operational importance but cannot represent Kromme Nol, Wilhelminasluis, Sleeuwijk RWZI, fire stations, hospitals or response hubs."
+      ]
+    },
+    "settlements": {
+      "status": "warn",
+      "summary": "The nineteen BAG woonplaatsen and forty-five BRT settlements are source-valid but non-equivalent views with different population semantics.",
+      "evidenceRefs": [
+        "E05",
+        "E06"
+      ],
+      "notes": [
+        "BAG retains Almkerk, Andel, Babyloniënbroek, Drongelen, Dussen, Eethen, Genderen, Giessen, Hank, Meeuwen, Nieuwendijk, Rijswijk (NB), Sleeuwijk, Uitwijk, Veen, Waardhuizen, Werkendam, Wijk en Aalburg and Woudrichem.",
+        "BRT retains five buurtschappen, ten deelkernen, nine gehuchten and twenty-one woonkernen; the small BRT gehucht Enschede is present in the official source and is not assumed to be the Overijssel city.",
+        "BRT settlement populations total 57,920, 806 below the CBS municipality total (1.37%); this is an ontology/reference-date caveat rather than a failed population reconciliation."
+      ]
+    },
+    "transport": {
+      "status": "fail",
+      "summary": "Static road identities are plausible, but the current northern A27 restriction and locally important bridge, ferry and waterway dependencies are absent from the operational graph.",
+      "evidenceRefs": [
+        "E08",
+        "E09",
+        "E13",
+        "E14",
+        "E18",
+        "E19",
+        "E22"
+      ],
+      "notes": [
+        "The generated graph has four logical road links: A27 to Geertruidenberg and Gorinchem, N322 to Zaltbommel and N267 to Heusden, with nominal capacities 260 for trunk and 150 for regional links.",
+        "At the no-event T+0 baseline, the GM0512–GM1959 A27 edge reports health 1 and effective capacity 260 for every service; it carries mobility flow 0.949258 and supply flow 0.080305 in synthetic units.",
+        "Rijkswaterstaat currently bars trucks and coaches from that exact Merwedebrug crossing. The static graph has no timestamped modal restriction and therefore cannot be treated as current first-72-hour heavy-supply access.",
+        "No ProRail station lies inside GM1959 and 92 scheduled-transit stop areas are retained. Ferries, shipping, Kromme Nol closure and modal substitution are not solver edges even though local sources establish their relevance.",
+        "All capacities and flows are logical scenario units, not vehicles/hour, vessel capacity, detour time, emergency lane status or verified redundancy."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "Official sources identify concrete water-safety, wastewater, fire-water and cross-boundary care dependencies that are absent from the operational state.",
+      "evidenceRefs": [
+        "E10",
+        "E11",
+        "E12",
+        "E13",
+        "E14",
+        "E15",
+        "E20",
+        "E21",
+        "E23"
+      ],
+      "notes": [
+        "Kromme Nol and Wilhelminasluis protect the dike ring, and Kromme Nol operation can stop shipping; neither is an asset, dependency or scenario control.",
+        "Wastewater from multiple former treatment sites is pumped through pressure pipes to Sleeuwijk, but the simulator has no plant/pump nodes or their power, access, capacity and backup relationships.",
+        "Altena has 2,531 documented fire hydrants and a Brabant Water maintenance dependency, while the public model has no fire-water availability or hydrant context.",
+        "The municipality's own care information points to emergency departments outside Altena. Generic local facility capacity does not encode hospital destination, bridge/route access, ambulance availability or cross-safety-region coordination.",
+        "Public sources do not disclose security-sensitive feeder, pipe, valve, pressure-zone, telecom backhaul, control-system, priority-customer, crew, fuel or restoration topology; these remain unknown rather than inferred."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten canonical presets execute at T+0/6/12/24/48/72 across all eight services for GM1959 without missing or non-finite state.",
+      "evidenceRefs": [
+        "E10",
+        "E11",
+        "E12",
+        "E20",
+        "E23",
+        "E24",
+        "E25"
+      ],
+      "notes": [
+        "Reproduction: MUNICIPALITY_AUDIT_CODE=GM1959 pnpm audit:model; both coverage tests passed in 27.35 seconds on 2026-09-02. The current national ALL harness also passes 342 municipalities × 10 scenarios × 6 checkpoints × 8 services.",
+        "Peak severities are severe-storm 0.716544, pluvial-flood 0.371497, river-flood 0.665251, coastal-flood 0, heatwave 0.500164, winter-storm 0.724463, cyberattack 0.475310, earthquake 0.009115, wildfire 0.148357 and compound 0.927183.",
+        "Representative T+24 values are severe storm severity 0.211751 with internal flood amplitude 0.382328; pluvial 0.217736/0.301481; river 0.665251/2.110355; coastal direct flood and severity zero with 15.353022 m/s wind; heat 23.096280 °C plus drought 0.449700; winter -8.099129 °C, 3.827267 cm/h snow and 0.647142 ice; cyber disruption 0.405000; earthquake current shaking zero after a T+6 0.001795 g impulse; wildfire direct flame zero with smoke 0.337512 and drought 0.673785; compound severity 0.917924, rain 57.770790 mm/h, flood amplitude 0.426046, wind 32.426952 m/s and cyber 0.416989.",
+        "At T+72, river forcing remains 0.665251 with the same internal flood amplitude, 38,565 modeled residents under service pressure and 2,279,782 cumulative event-attributable person-hours; compound retains 0.426046 flood amplitude, 0.054234 cyber disruption, 41,894 residents under pressure and 2,353,575 person-hours.",
+        "A headless Chromium check selected Altena, river-flood, T+72 and each of all eleven map layers. The UI rendered 100% inundation stress rather than metres, showed 38.6K residents under pressure, exposed the Midden- en West-Brabant safety region and logical-transfer disclaimer, and emitted no console or page errors."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Bounds, deterministic repetition, exact no-event behavior, local allocation, causal ledgers, transfer semantics and layer invariance pass.",
+      "evidenceRefs": [],
+      "notes": [
+        "All required hazard, demand, delivery, reserve and explanation values are finite; service availability stays in [0,1], delivery does not exceed demand, current severity does not exceed remembered peak and person-hours are monotonic.",
+        "For all ten presets at intensity zero and all six checkpoints, maximum current severity, peak severity, affected population and event-attributable deprived person-hours are exactly zero, verifying CORR-009 locally.",
+        "At compound T+24, switching among all eleven public layers leaves Altena's physical hazard, system pressure and affected population exactly unchanged.",
+        "At compound T+24, local population is exactly 58,726 and affected population exactly 42,218 for each service. Demand/delivery reconcile to the national gateway within 1.78e-14: power 62.658155/20.568829, water 45.156237/15.246026, drainage 34.432356/9.632583, gas 55.562435/28.488493, telecom 27.824126/5.980449, mobility 43.475196/23.921389, facilities 26.390665/7.339554 and supply 34.347028/11.654408.",
+        "The coverage gate verifies hazard, service-availability and municipal-pressure ledger closure, counterfactual deltas, deterministic T+24 repetition and logical-proxy typing for every route/service."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "River direction is credible and direct-fire support is finite, but Altena's official flood mechanisms and compartments cannot be represented by the current coast/river fields and seeded neighbourhood variation.",
+      "evidenceRefs": [
+        "E10",
+        "E11",
+        "E12",
+        "E13",
+        "E14",
+        "E16",
+        "E17",
+        "E19",
+        "E24",
+        "E25"
+      ],
+      "notes": [
+        "packages/sim-core/src/model.ts riverExposure measures the municipality centre against three simplified Rhine/Meuse/IJssel line segments and coastalExposure measures it against three open-coast segments. Neither intersects a breach scenario, dike ring, barrier, waterbody, terrain or LIWO layer.",
+        "The current GM1959 coastal preset has zero direct flood stress at every checkpoint. The river preset has no storm-surge or barrier-operation driver, and the compound preset components are severe-storm, pluvial-flood and cyberattack only. The official sea-river transition mechanism is therefore absent rather than safely classified.",
+        "At river T+24 every neighbourhood inherits the municipal hazard times a deterministic random factor. Drongelen ranks highest at 0.779083 while Buitengebied Biesbosch is 0.574628, with 109 of its 175 allocated residents under service pressure. This ordering does not consume official intentional-flood, dike, terrain or arrival information.",
+        "The municipal strategy distinguishes low polders, higher eastern ground, built river cores and intentionally flooding Biesbosch/Noordwaard. The same source warns that even its detailed parcel-level 2018 stress test is sensitive and inaccurate, reinforcing that deterministic seeds are not evidence.",
+        "Severe storm, pluvial rain, heat/drought, winter weather and cyber are qualitatively relevant but exact forcing is analytic. The finite wildfire correction yields no direct flame from the distant default ignition while retaining smoke; users can explicitly focus the ignition on Altena, but no fuel/spread layer exists.",
+        "The Groningen earthquake tail is small and hypothetical. Regional natural earthquake relevance in eastern Midden- en West-Brabant does not validate a Groningen-centred Altena ground-motion value."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "All eight service models and aggregate local allocation run transparently, but several evidenced first-72-hour dependencies are missing and every intermunicipal service uses the road graph.",
+      "evidenceRefs": [
+        "E10",
+        "E12",
+        "E13",
+        "E14",
+        "E15",
+        "E18",
+        "E20",
+        "E21",
+        "E22",
+        "E23"
+      ],
+      "notes": [
+        "System-pressure weights include all services and sum to one: power 0.18, water 0.15, drainage 0.08, gas 0.09, telecom 0.12, mobility 0.12, facilities 0.14 and supply 0.12.",
+        "At river T+72, availability is power 0.403128, water 0.417488, drainage 0.261992, gas 0.663973, telecom 0.391780, mobility 0.342089, facilities 0.347997 and supply 0.343299; all eight direct recovery-progress values are zero.",
+        "The model cannot cause a drainage cascade from loss of the Sleeuwijk plant or Wijk en Aalburg/Dussen/Eethen pumps, nor model the pumps' power, telecom, access, storage, overflow and repair dependencies.",
+        "It cannot represent Kromme Nol/Wilhelminasluis state, Brabant Water/fire-hydrant state, external hospital destination/access, Merwedebrug freight status, ferry substitution or port/shipping access.",
+        "Bedrijventerrein Werkendam is correctly retained with 380 allocated residents and is the highest non-residential activity-weight region for all eight services at compound T+24. Its service-specific weights redistribute fixed municipal totals; they are not workers, port throughput, industrial process demand or asset criticality.",
+        "Enexis and Brabant Water sources establish operators and current local context, not feeder/pipe topology, failure likelihood, backup autonomy, isolation options, crew capacity or restoration time."
+      ]
+    },
+    "causalTrace": {
+      "status": "warn",
+      "summary": "Typed contributions, dependencies, drivers and counterfactuals close mathematically and present safe proxy labels, but cannot repair missing local mechanisms or assets.",
+      "evidenceRefs": [
+        "E10",
+        "E12",
+        "E15",
+        "E18",
+        "E20",
+        "E23"
+      ],
+      "notes": [
+        "Hazard, direct-loss, dependency, backup, recovery, intervention, demand, local-context and network contributions are inspectable; counterfactual differences reconcile exactly.",
+        "Household preparedness affects household need/supply rather than physical fragility, while demand, backup, network and repair multipliers remain separately exposed scenario controls.",
+        "Generator-priority and mutual-aid effects are response-delay-gated and ramped; explanations correctly call them assumptions rather than actual generators, crews, fuel or commitments.",
+        "Every intermunicipal edge declares transferSemantics=logical-proxy. The map badge says 'logical service transfers', and explanations state that the NWB graph is not physical power, water, drainage, gas or telecom topology.",
+        "The UI converts the internal floodDepthM amplitude to unitless inundation stress under CORR-017. It does not present the 2.110355 river value as a measured Altena-wide water depth.",
+        "Deprived person-hours integrate event-attributable eight-service shortfall above a matched no-event baseline. They are modeled service-pressure person-hours, not observed customer interruption, evacuation, injury or identified individuals."
+      ]
+    },
+    "recovery72h": {
+      "status": "warn",
+      "summary": "Sustained and standing-water recovery guards pass mechanically, but actual Altena recession, access and restoration cannot be inferred without spatial water and asset state.",
+      "evidenceRefs": [
+        "E10",
+        "E12",
+        "E13",
+        "E14",
+        "E15",
+        "E18",
+        "E20",
+        "E23"
+      ],
+      "notes": [
+        "River flood remains at internal amplitude 2.110355 from T+12 through T+72; all eight service recoveryProgress values remain exactly zero at T+12/T+24/T+48/T+72, verifying CORR-011 and CORR-016 mechanics.",
+        "Compound retains internal standing-water amplitude 0.426046 at T+72 and all eight recoveryProgress values are zero, avoiding instantaneous restoration while water is above the explicit access screen.",
+        "At T+72 the other cumulative person-hour proxies are severe storm 911,700, pluvial 478,425, coastal 19,010, heat 362,698, winter 1,042,500, cyber 845,230, earthquake 14,119 and wildfire 401,071.",
+        "The winter event has zero current wind, snow, ice and severity at T+72 while retaining its historical peak, verifying CORR-018 locally.",
+        "Actual recovery depends on breach/compartment, barrier operation, water recession, pump/plant state, contamination, road/ferry access, hospital continuity, switching, crews, fuel and mutual aid. No primary source in this audit calibrates those trajectories."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [
+      0,
+      6,
+      12,
+      24,
+      48,
+      72
+    ],
+    "services": [
+      "power",
+      "water",
+      "drainage",
+      "gas",
+      "telecom",
+      "mobility",
+      "facilities",
+      "supply"
+    ]
+  },
+  "findings": [
+    {
+      "id": "GM1959-HYD-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "No canonical Altena scenario represents the officially documented benedenrivieren sea-river transition mechanism.",
+      "evidence": "E10 distinguishes coastal, river and transition flooding and states that benedenrivieren high water can depend jointly on storm surge, river discharge and closable-barrier strategy. E11-E14 establish Altena's surrounding rivers, Biesbosch/tidal context and Kromme Nol/Wilhelminasluis protection. In packages/sim-core/src/model.ts, coastalExposure uses only open-coast distance and returns zero direct stress for GM1959; riverExposure has no sea/barrier driver; scenarioPresets.compound includes only severe-storm, pluvial-flood and cyberattack. Focused outputs confirm coastal floodDepthM/peakSeverity=0 at every checkpoint while the river path is a separate 2.110355 scalar. This is Altena-specific evidence exposing a shared benedenrivieren scenario-taxonomy gap.",
+      "action": "Add an explicitly named benedenrivieren transition scenario or composable sea-river-barrier forcing based on approved LIWO/water-manager scenario identifiers. Do not simply assign a coast-distance value. Expose source, mechanism, scenario/breach, barrier assumptions, probability class, spatial coverage, arrival and uncertainty; keep river-only and open-coast cases distinct."
+    },
+    {
+      "id": "GM1959-FLOOD-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Municipality and neighbourhood flood state ignores Altena's distinct dike rings, compartments, terrain and intentional Noordwaard/Biesbosch inundation.",
+      "evidence": "E11 differentiates lower central polders, higher eastern areas, built river cores and Biesbosch/Noordwaard where flooding is intended and risk is comparatively low; E12-E14 identify barrier-dependent protection. E16-E17 explain that scenario-specific depth, velocity and arrival maps exist. Current model.ts gives one centroid-derived municipal flood amplitude and simulateCityDetail multiplies municipal severity by a seeded 0.82–1.18 factor. At river T+24, Drongelen is arbitrarily 0.779083 and Buitengebied Biesbosch 0.574628; no geometry or flood-control state drives the difference.",
+      "action": "Replace seeded local flood variation with intersected, licensed scenario rasters/polygons and public dike/compartment/barrier context. Distinguish intentional conveyance/storage areas from inhabited protected polders, preserve dry cells, and expose missing coverage. Retain unitless stress unless a named hydraulic result supports physical depth."
+    },
+    {
+      "id": "GM1959-MOB-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "The first-72-hour road state omits the current freight/coach restriction on Altena's northern A27 lifeline.",
+      "evidence": "The generated GM0512–GM1959 NWB edge is the A27 crossing between Gorinchem and Altena. At no-event T+0 it has health=1 and effectiveCapacity=260 for every service, with positive mobility and supply flow. E18 states that since 18 July 2026 the Merwedebrug between Gorinchem and Sleeuwijk is closed to trucks and coaches because of weakened steel, although scheduled buses may cross. The model has no time-stamped modal restriction or bridge asset, so its current accessible-capacity/supply reading cannot distinguish cars, buses, coaches or freight.",
+      "action": "Introduce dated operational overlays and typed structure/modal status separate from static NWB geometry. Mark the Merwedebrug restriction, expiry/last-verified time and allowed modes, support explicit detours and ferry alternatives, and never reinterpret the 260 synthetic units as vehicles/hour. If live/current data is unavailable, label status unknown rather than fully healthy."
+    },
+    {
+      "id": "GM1959-DRAIN-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "The drainage layer omits the centralized Sleeuwijk wastewater system and its distributed pump dependencies.",
+      "evidence": "E15 documents completed centralization: pumping stations at Wijk en Aalburg, Dussen and Eethen and pressure pipes convey wastewater to the renovated Sleeuwijk plant. The current model contains no treatment-plant, pump, pressure-main, overflow or catchment objects and instead allocates drainage from a municipality gateway across generic neighbourhood branches and NWB road proxies. Consequently power/cyber/flood/access loss at a real shared node cannot propagate through the stated causal chain, even though river T+72 reports drainage availability 0.261992 and zero generic recovery.",
+      "action": "Add security-reviewed public aggregate wastewater zones and typed plant/pump dependencies with source provenance. Model power, telecom, access, storage/overflow and recovery only where approved; keep capacity, controls, backup and failure probability unknown until the water board supplies non-sensitive aggregates."
+    },
+    {
+      "id": "GM1959-FAC-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "open",
+      "summary": "Critical-facility capacity does not represent Altena's documented cross-boundary emergency-department access.",
+      "evidence": "E22 directs emergency care to hospitals in Gorinchem, Tilburg and 's-Hertogenbosch and describes mobility services for older and disabled residents. The model has no hospital/facility nodes, destination catchments, ambulance state or explicit bridge/ferry dependency; facilities are a generic municipal service and share the road proxy. River T+72 reports facilities availability 0.347997 without identifying whether any external emergency department is reachable.",
+      "action": "Add approved public facility-role and destination nodes plus route/closure relationships, while leaving beds, staff, occupancy, generator fuel, ambulance capacity, triage and restoration unknown unless sourced. Validate cross-boundary access separately from generic local facility demand."
+    },
+    {
+      "id": "GM1959-WATER-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "accepted-limitation",
+      "summary": "Drinking-water and fire-water state lacks Altena's documented Brabant Water/hydrant dependency and any authorized topology.",
+      "evidence": "E20 records 2,531 municipal fire hydrants and says Brabant Water alone can maintain the wet network component. This establishes a real power/water/fire-response relationship but not pipe routes, pressure zones, isolation, reservoir state, hydrant flow, damage or repair. The current water layer uses generic municipal fragility and road-derived logical transfers and therefore must not be read as Brabant Water network availability.",
+      "action": "Retain logical-proxy and scenario labels. Add only operator-authorized aggregate supply zones, resilience envelopes and fire-water context; do not map sensitive pipes, infer hydrant flow or convert maintenance agreements into availability."
+    },
+    {
+      "id": "GM1959-NET-001",
+      "severity": "medium",
+      "category": "network",
+      "status": "accepted-limitation",
+      "summary": "All eight services share four NWB-derived logical transfer corridors rather than physical operator networks.",
+      "evidence": "A27, N322 and N267 edges are reused for power, water, drainage, gas, telecom, mobility, facilities and supply, each with transferSemantics=logical-proxy. E15, E20 and E21 demonstrate that actual wastewater, drinking-water, power and gas contexts differ, and no consulted public source provides complete authorized topology. The UI and causal trace correctly disclose the proxy.",
+      "action": "Keep the logical-transfer disclaimer in map, inspector, explanations and exports. Introduce service-specific topology only from operator-authorized, security-reviewed aggregates, and keep mobility/ferry/shipping graphs distinct from utility flows."
+    },
+    {
+      "id": "GM1959-MET-001",
+      "severity": "medium",
+      "category": "limitation",
+      "status": "accepted-limitation",
+      "summary": "Storm, pluvial rain, heat/drought, winter weather and cyber are credible Altena directions but their exact forcing and service trajectories are uncalibrated.",
+      "evidence": "E10-E12 and E23 support these hazard directions and associated cascades, including a local 75 mm/hour test, heat in built cores, drought/shipping impacts and vital-infrastructure disruption. Exact canonical values come from analytic envelopes, municipal density and deterministic seeds rather than time-stamped KNMI grids, the non-public local stress-test raster, operator incident distributions or threat intelligence. A bounded result is not an observed likelihood or forecast.",
+      "action": "Retain scenario/not-forecast labeling and expose forcing provenance and uncertainty. Add official time-stamped weather and licensed local stress layers when available; never convert climate projections, grid construction or regional cyber concern into outage probability."
+    },
+    {
+      "id": "GM1959-EQ-001",
+      "severity": "medium",
+      "category": "hazard",
+      "status": "accepted-limitation",
+      "summary": "The Groningen-centred earthquake tail is not a locally validated Altena ground-motion scenario.",
+      "evidence": "The canonical run produces 0.001795 g at T+6, peak severity 0.009115 and 14,119 cumulative event-attributable person-hours at T+72. E10 identifies regional natural earthquake risk in the eastern part of Midden- en West-Brabant, while E25 explains that official Groningen ShakeMaps are event-specific and use measurements plus a Groningen-specific GMPE. The preset's unnamed exponential propagation cannot validate Altena shaking, building response or service recovery for either mechanism.",
+      "action": "Require a named event, magnitude/source, validated GMPE/site-response grid and applicability statement before treating g as physical. Keep Groningen induced shaking and southern natural-fault scenarios distinct and label unsupported tails hypothetical."
+    },
+    {
+      "id": "GM1959-FIRE-001",
+      "severity": "informational",
+      "category": "hazard",
+      "status": "fixed",
+      "summary": "The shared finite-fire-footprint correction prevents direct flame from a distant default ignition while retaining separately identified smoke.",
+      "evidence": "At every required checkpoint GM1959 wildfireIntensity is zero; at T+12/T+24 smokeSeverity is 0.337512 and droughtSeverity 0.673785. This verifies CORR-010's finite-support behavior. E10 names Biesbosch among the region's largest nature areas and E24 requires weather, burnable material and ignition, so the zero direct result means only that the default epicentre is remote; users may explicitly focus a hypothetical ignition on Altena.",
+      "action": "Retain finite direct-fire support and separate smoke semantics. Future local claims need burnable land cover, ignition, moisture, wind-aware spread, access, suppression and atmospheric dispersion rather than municipality distance alone."
+    },
+    {
+      "id": "GM1959-ZERO-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The exact intensity-zero invariant passes for all ten presets and all six checkpoints.",
+      "evidence": "Focused runs at intensity=0 return maximum current severity=0, peak severity=0, affected population=0 and event-attributable deprived person-hours=0 for every canonical scenario across T+0/6/12/24/48/72. The coverage gate also verifies event hazard dimensions and causal accounting. This locally confirms CORR-009.",
+      "action": "Retain the all-preset no-event invariant in focused and national release gates."
+    },
+    {
+      "id": "GM1959-REC-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "Sustained and standing-water guards prevent instantaneous generic restoration in the Altena river and compound runs.",
+      "evidence": "River flood remains at internal amplitude 2.110355 and all eight recoveryProgress values are zero from T+12 through T+72. Compound retains 0.426046 water at T+72 and all eight values remain zero. This verifies CORR-011/CORR-016 mechanics without validating the flood field, recession or actual access premise.",
+      "action": "Retain forcing/water-gated recovery tests, then calibrate recession, access and asset restoration only against named local scenarios and approved operator envelopes."
+    },
+    {
+      "id": "GM1959-WINTER-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "Ordinary seasonal cold no longer leaks into winter-event severity outside the event envelope.",
+      "evidence": "At T+72 the winter preset reports 1.433329 °C ambient context but zero current wind, snow, ice and event severity while retaining peak severity 0.724463. Intensity zero is also exact. This verifies CORR-018 for GM1959.",
+      "action": "Retain pre-arrival, post-event and intensity-zero winter regression checks."
+    },
+    {
+      "id": "GM1959-DEMAND-001",
+      "severity": "informational",
+      "category": "service",
+      "status": "fixed",
+      "summary": "Service-specific non-residential allocation gives Bedrijventerrein Werkendam inspectable activity demand while conserving municipality totals.",
+      "evidence": "The official neighbourhood contains 380 allocated residents and is the highest aggregate activity-weight location for all eight services. At compound T+24, demand is power 2.371998, water 0.976317, drainage 0.878144, gas 1.639391, telecom 0.911564, mobility 1.828382, facilities 0.443555 and supply 0.990119; every municipality demand/delivery total reconciles. This confirms the intent of CORR-015 locally, although GM1959 has no zero-resident neighbourhood.",
+      "action": "Retain separate resident and activity semantics. Add workers, port throughput, livestock/agricultural demand, time occupancy and critical-process load only from sourced privacy-safe inputs."
+    },
+    {
+      "id": "GM1959-SET-001",
+      "severity": "informational",
+      "category": "regional-data",
+      "status": "accepted-limitation",
+      "summary": "BAG, BRT and CBS provide valid non-equivalent local geographies and population totals.",
+      "evidence": "E04-E06 support 63 neighbourhoods, 19 BAG woonplaatsen and 45 BRT settlements. BRT population totals 57,920 versus CBS municipality population 58,726, and the BRT source includes small named features such as Enschede outside BAG woonplaats semantics. No evidence supports forcing these products to reconcile exactly.",
+      "action": "Keep source type, edition and ontology visible; do not merge BAG/BRT counts or treat BRT population as emergency occupancy."
+    },
+    {
+      "id": "GM1959-INV-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The current engine closes its deterministic, causal, counterfactual, local-allocation and safe UI-semantics contracts for GM1959.",
+      "evidence": "The dedicated gate passes; repeated T+24 frames are deterministic; hazard/service/system ledgers and counterfactual deltas close; all local population, affected, demand and delivery totals reconcile; hazard is invariant across selected layers; all regions have neutral priority and no fabricated hub; every route is typed logical-proxy; and live Chromium inspection exposes eleven layers, unitless inundation stress and explicit scenario/proxy labels without errors.",
+      "action": "Retain these invariants in the national release gate while correcting the transition-hazard, transport-status and real public-dependency gaps above."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Add a sourced benedenrivieren sea-river transition mechanism and replace GM1959 centroid flood amplitudes with named scenario geometry.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/src/scenarios.ts",
+        "apps/web/src/data.ts",
+        "apps/web/public/data/hazards/benedenrivieren-scenarios.geojson"
+      ],
+      "validation": "Using an approved LIWO/water-manager fixture, select GM1959 and verify separate open-coast, river-only and transition cases. Assert that transition output responds to the named storm-surge, river-discharge and barrier assumptions; cells outside the chosen scenario stay dry; Biesbosch/Noordwaard and protected inhabited compartments remain distinct; source/scenario/probability/resolution/coverage are visible; and no value is labeled metres without an applicable depth layer. Re-run MUNICIPALITY_AUDIT_CODE=GM1959 pnpm audit:model and the national ALL gate."
+    },
+    {
+      "summary": "Represent public Altena water-safety and centralized wastewater dependencies without inventing sensitive controls or reliability.",
+      "files": [
+        "apps/web/public/data/services/GM1959-water-context.geojson",
+        "apps/web/public/data/services/GM1959-drainage-context.geojson",
+        "apps/web/src/data.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/explainability.test.ts",
+        "apps/web/src/components/MapView.tsx",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Expose Kromme Nol, Wilhelminasluis, Sleeuwijk RWZI and approved aggregate pump/catchment roles with source and unknown-state semantics. Test the causal path only for sourced relationships such as power/access-to-pump and plant-to-zone; never fabricate capacity, control logic, backup, valve/pipe topology, failure likelihood or restoration. Ensure every unsupported field remains null/unknown and public road service edges remain logical proxies."
+    },
+    {
+      "summary": "Separate static NWB geometry from current modal/structure status and add Altena's first-72-hour cross-boundary access context.",
+      "files": [
+        "apps/web/public/data/transport-operations/GM1959.json",
+        "apps/web/public/data/transport-local/GM1959.geojson",
+        "apps/web/src/data.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/components/MapView.tsx",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "At an as-of time covered by the Rijkswaterstaat notice, assert that the Merwedebrug structure is restricted for trucks/coaches but available to stated allowed modes, with provenance and last-verified/expiry semantics. Validate detour and ferry states separately, and show unknown when no current feed exists. Do not convert NWB geometry or generic capacity into observed traffic, route clearance, ambulance time or freight throughput."
+    },
+    {
+      "summary": "Add public cross-boundary critical-facility destinations and fire-water context while keeping resources and operational availability unknown.",
+      "files": [
+        "apps/web/public/data/facilities/GM1959.geojson",
+        "apps/web/public/data/services/GM1959-fire-water-context.geojson",
+        "apps/web/src/data.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/components/MapView.tsx",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Expose approved public emergency-department destinations, transport hubs and aggregate hydrant context with role/source only. Assert that presence does not imply beds, staff, ambulance availability, hydrant flow, generator/fuel, priority, current operational status or restoration; route accessibility must reference the dated transport layer rather than the generic utility graph."
+    }
+  ],
+  "residualLimitations": [
+    "The ten canonical presets are deterministic stress tests, not KNMI forecasts, warnings, return-period estimates, current incidents, casualty predictions or operator outage forecasts.",
+    "No approved LIWO/breach/arrival scenario is ingested for Altena; the internal river and pluvial amplitudes are not municipality-wide observed water depths.",
+    "The scenario set cannot currently represent the official benedenrivieren sea-river transition or explicit Kromme Nol/Wilhelminasluis state.",
+    "Neighbourhood outputs use aggregate CBS polygons, label points and deterministic allocation; they do not resolve buildings, parcels, terrain, dike compartments, catchments, households, workers, visitors or individual vulnerability.",
+    "The 2018 detailed municipal climate stress test is not public because the municipality identifies sensitivity and parcel-level inaccuracy; this audit does not reconstruct or invent it.",
+    "No security-sensitive Enexis, TenneT, Brabant Water, gas, telecom, Waterschap Rivierenland, hospital or emergency-service topology, controls, priority customers, crews, fuel or restoration data is consumed.",
+    "All eight intermunicipal service flows use NWB-derived logical corridors; they are not physical electricity, gas, drinking-water, drainage, telecom, hospital or supply networks.",
+    "Static NWB and GTFS inputs do not establish current road/bridge/ferry status, vehicles, detours, timetable execution, emergency throughput or accessibility.",
+    "The finite wildfire footprint lacks local land cover, fuel moisture, ignition, wind-aware spread, suppression and fire-water state; smoke is not a dispersion concentration or health dose.",
+    "The earthquake preset lacks an event magnitude, southern-fault scenario, validated local GMPE/site response and event-specific ShakeMap.",
+    "CBS businesses and non-residential buildings are allocation proxies, not jobs, workers, port tonnage, industrial process load, farm/livestock demand or critical-asset priority.",
+    "Facilities lack verified hospital beds/staff, care-home occupancy, pharmacy stock, ambulance resources, generator fuel and cross-boundary continuity agreements.",
+    "Emergency supply lacks local household-preparedness observations, supermarket/pharmacy inventory, depots, vehicles, water-distribution points and last-mile plans.",
+    "Generic preparedness, backup, demand, network and repair multipliers and delayed intervention ramps are scenario controls, not verified Altena resources or commitments.",
+    "Six-hour audit checkpoints can miss short cloudburst, shaking, road-closure and dispatch changes; peak-memory fields do not create temporal observation.",
+    "The first-72-hour horizon excludes prolonged evacuation/displacement, contamination, public health, agricultural loss, economic damage, reconstruction and long-duration governance.",
+    "The official sources quote different flood probabilities for different products/context (regional profile once in 160 years; municipal strategy theoretical once in 1,000 years). Neither is used to calibrate the synthetic preset, and they must not be conflated.",
+    "CBS fields are rounded and field coverage varies; BAG, BRT, CBS municipality/neighbourhood and safety-region products use distinct ontologies and reference dates."
+  ],
+  "provinceReviewFlags": [
+    "Noord-Brabant/benedenrivieren shared: audit every municipality influenced by Hollands Diep, Amer, Biesbosch, Merwedes and Maas for the missing sea-river-transition mechanism; use official scenario geometry rather than centre-to-open-coast distance.",
+    "Altena-specific: distinguish dike rings/compartments, Kromme Nol and Wilhelminasluis operation, higher eastern ground, central polders and intentionally flooding Biesbosch/Noordwaard before local inundation or evacuation claims.",
+    "Altena-specific: represent the centralized Sleeuwijk wastewater plant and Wijk en Aalburg/Dussen/Eethen pump relationship as sourced public context, leaving capacity, controls, backup and fragility unknown.",
+    "Altena-specific/current: the Merwedebrug freight/coach restriction materially affects heavy supply and detour interpretation; static NWB geometry needs dated modal status rather than a permanent hard-coded assumption.",
+    "Altena-specific: external hospital destinations make bridge/road/ferry accessibility part of critical-facility continuity; generic municipal facilities availability cannot answer that question.",
+    "Midden- en West-Brabant: separate road, ferry, inland-shipping and public-transport modes and their structure/closure state before claiming mobility or supply redundancy.",
+    "Midden- en West-Brabant: Biesbosch wildfire relevance requires local fuels, ignition, wind, access and bluswater; a distant default wildfire with smoke only is not a local Biesbosch assessment.",
+    "Noord-Brabant: regional natural earthquake scenarios and Groningen induced-earthquake scenarios need distinct applicability, event and ground-motion evidence.",
+    "Shared/national: preserve exact no-event behavior, finite direct-fire support, event-attributable person-hours, standing-water repair guards, service-layer-invariant hazard and unitless flood-stress presentation.",
+    "Shared/national: preserve service-specific business/non-residential allocation, but add workers, occupancy and critical process demand only from sourced privacy-safe inputs.",
+    "Shared/national: every road-derived power, water, drainage, gas, telecom, facilities and supply edge must remain prominently labeled a logical transfer proxy.",
+    "Shared/national: treat T+72 as an operational checkpoint and possible transition to prolonged crisis management, not an automatic all-clear or restoration deadline."
+  ]
+}

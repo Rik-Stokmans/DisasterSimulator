@@ -1,0 +1,466 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0664",
+    "name": "Goes",
+    "province": "Zeeland",
+    "safetyRegion": "Zeeland"
+  },
+  "agent": {
+    "taskName": "municipality_gm0664",
+    "agentId": "/root/causal_engine_v3",
+    "completedAt": "2026-09-03T02:21:10Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "GM0664 passes the deterministic execution contract for all ten canonical presets, T+0/6/12/24/48/72 and all eight essential services. Its 2025 identity, 40,120 residents, 29 neighbourhoods, seven BAG places, 21 settlement labels, Goes rail station and ten section-traceable NWB border links are internally coherent; current NWB semantics correctly limit unqualified roads to Mobility and road-logistics Supply. Release is nevertheless correction-required. The major-river preset gives Goes 0.713781 normalized flood stress at both T+24 and T+72 even though the canonical Rhine/Meuse/IJssel mechanism is not a direct local source; that scalar should be suppressed, while Oosterschelde, Veerse Meer, Goese Sas/canal and polder-water pathways must remain explicitly Unknown rather than safe. The coastal preset is locally relevant, but its exact 1.855446 stress, 24,772 affected people-equivalent at T+24 and complete hydraulic disappearance by T+72 have no selected tide/surge, Oosterscheldekering, defence, breach/overtopping, depth, arrival, duration, recession or pumping state. Nine unrelated hazard families reuse one exact neighbourhood order. A controlled Poelbos source inside official woodland leaves its containing neighbourhood 24th of 29. Public water-board, RWS, Zeeland climate, KNMI, REV, road, rail, provider and care sources offer strong typed context, but do not establish live utility topology, asset operability, backup, capacity or restoration. Goes also has material hazardous-goods rail, Seveso/ammonia and Borssele-response context outside the ten hazard families. Exact first-72-hour service and recovery values therefore remain exercise assumptions, never observations, forecasts or operator commitments.",
+  "provinceReviewFlags": [
+    "Municipality-specific release blocker GM0664-RIVER-SCOPE-001: suppress the canonical direct major-river scalar for Goes; retain Oosterschelde, Veerse Meer, canal, polder, seepage/backwater and indirect supply pathways as unresolved, never as zero/safe.",
+    "Municipality-specific release blocker GM0664-COASTAL-001: retain nonzero coastal forcing only as a visibly unsupported diagnostic until a versioned authority-reviewed tide/surge and defence scenario supplies a connected local footprint and T+0–72 water path.",
+    "Municipality-specific release blocker GM0664-FIRE-001: a controlled Poelbos source ranks its containing neighbourhood 24/29; official woodland context cannot establish ignition or spread, but the result falsifies source-aware allocation.",
+    "Municipality-specific release blocker GM0664-INDUSTRIAL-NUCLEAR-001: Goes has current REV hazardous-activity, daily hazardous-goods rail and regional Borssele-response context but no industrial, toxic-cloud or radiological scenario/mechanism.",
+    "Shared/national release blocker GM0664-SPATIAL-001: nine unrelated hazard families reuse one shared deterministic neighbourhood order and GM0664 has no selected-municipality unsupported-spatial guard.",
+    "Zeeland review: keep Oosterscheldekering, primary/regional defences, Goese Sas, pumping catchments, wastewater conveyance and A58/N256/rail/waterway dependencies distinct; register geometry never proves current state or causal connectivity.",
+    "Shared/national correction confirmed: unqualified NWB roads support only Mobility and eligible road-logistics Supply and remain logical transfer proxies, never utility topology.",
+    "Shared/national: observations, forecasts/warnings, official scenarios, legal norms, registers, plans and synthetic T+72 output require separate evidence classes; NoData, empty query, stale result and null are not zero or safe."
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM0664, Goes, Zeeland and safety region Zeeland are internally and officially coherent.",
+      "evidenceRefs": ["E01", "E04"],
+      "notes": [
+        "The generated code/name, province, safety region, 2025 boundary edition and 2025 statistical edition agree.",
+        "Reference point [3.838357449559916, 51.51600091595495] lies inside the generalized boundary. The current full PDOK boundary is a MultiPolygon with 15,968 coordinate positions and bounding box [3.705536319678312, 51.479121579221314, 3.9714492210982058, 51.552494367207274].",
+        "CBS reports 40,120 residents, density 434 residents/km², 24.7 percent age 65 or older and 7,560 one-person households.",
+        "No municipality identity or safety-region contradiction was found."
+      ]
+    },
+    "geography": {
+      "status": "warn",
+      "summary": "Administrative geography is coherent, but the heavily generalized overview boundary cannot resolve Goes's island-edge, water, defence, industrial or lifeline geography.",
+      "evidenceRefs": ["E01", "E02", "E03", "E04", "E05", "E07"],
+      "notes": [
+        "The generated overview boundary has 156 coordinate positions versus 15,968 in the full current municipality feature; this difference is material along water, polder, harbour and defence edges.",
+        "Official sources distinguish Oosterschelde, Veerse Meer, Kanaal Goes, Goese Sas, primary/regional defences, drainage areas, polders and Zuid-Beveland transport corridors. A centroid or neighbourhood hash cannot encode their connectivity.",
+        "Twenty-nine CBS neighbourhoods are useful administrative aggregation units, not hydraulic compartments, pump/sewer catchments, industrial effect zones, utility service areas or evacuation zones.",
+        "Full official geometry should drive reproducible source containment; authority hydraulic/effect geometry must drive scenario impacts."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Headline population and aggregate vulnerability inputs reconcile closely with CBS 2025, subject to normal publication rounding and missing-field semantics.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "Twenty-nine neighbourhood rows sum to 40,115 residents, five below the municipality total (-0.012 percent), and to 18,840 households and 9,910 residents aged 65 or older.",
+        "Largest neighbourhoods are Goes-NW 6,645, Goes-Oost 5,855, Goes-Zuid 4,470, Goes-West 3,300 and Overzuid 2,670.",
+        "Average home value covers 28/29 rows, cars per household 22/29 and housing percentages 28/29. District-heating share and public-charging count cover 0/29 and correctly remain null rather than calculated zero.",
+        "Aggregate age, household form, car access, density and distance inputs are context, not individual medical dependence, daytime population, evacuation need or preparedness."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "Neighbourhood detail reconciles numerically, but hazard-independent ranking makes local prioritization physically unsupported.",
+      "evidenceRefs": ["E01", "E03", "E06"],
+      "notes": [
+        "All 29 rows carry core population, household, density, land/water and proximity inputs, with explicit partial-field completeness.",
+        "Official climate/water sources supply scenario rasters, susceptibility, terrain and catchment assets at different resolutions; none currently affects local allocation.",
+        "Storm, pluvial, river, coastal, heat, winter, cyber, wildfire and compound all produce the same exact 29-neighbourhood order.",
+        "Population, affected population and service demand/delivery reconcile, but reconciliation validates arithmetic rather than exposure placement."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "Seven BAG places and 21 BRT settlement labels preserve Goes's municipal place context without fabricating service districts.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "BAG places are 's-Heer Arendskerke, 's-Heer Hendrikskinderen, Goes, Kattendijke, Kloetinge, Wilhelminadorp and Wolphaartsdijk.",
+        "BRT labels also preserve Oud-Sabbinge, Eindewege, Het Sas and smaller named places.",
+        "Place and settlement labels are not pump catchments, pressure zones, telecom cells, shelter districts, incident perimeters or restoration territories."
+      ]
+    },
+    "transport": {
+      "status": "warn",
+      "summary": "NWB and ProRail identities are useful and road service scope is correct, but road, rail, waterway, lock and incident-time continuity are not modelled.",
+      "evidenceRefs": ["E01", "E05", "E07"],
+      "notes": [
+        "Ten generated NWB links connect Goes to Kapelle, Middelburg, Borsele and Noord-Beveland using physical A58, N62, N289, N665, N256, N670 and N669 identities. All 32 source wvk ids are unique and no section is duplicated.",
+        "Current model semantics expose these unqualified NWB routes only to Mobility and Supply; power, water, drainage, gas, telecom and facilities route sets are empty. This is the correct public-road safeguard.",
+        "ProRail records station Goes on the Roosendaal–Vlissingen corridor. The model does not represent rail operation, level crossings, the hazardous-goods rail pathway, Kanaal Goes/Goese Sas, navigation, A58/N256 chokepoints or emergency-access alternatives.",
+        "NWB/ProRail/GTFS geometry is static topology or schedule, never present passability, vehicle/train/vessel availability or restoration access. A filtered NDW no-match is Unknown, not proof of an open route."
+      ]
+    },
+    "emergencyContext": {
+      "status": "warn",
+      "summary": "Strong public water, care, industrial, weather, provider and response context is available, but it does not supply complete live topology, capacity, backup or resources.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E06", "E08"],
+      "notes": [
+        "Current water context assigns 75 objects: eight sewer-transfer pumps, thirteen surface-water pumps, 53 weirs and Goese Sas sluice. Live Scheldestromen data additionally distinguish a planned Wilhelminapolder pump. Register status and design capacity do not prove real-time operation, achievable flow, backup power or restoration.",
+        "No WWTP point lies inside the full boundary. This suggests a cross-boundary wastewater dependency for investigation but does not prove the receiving plant, catchment, flow direction or current state.",
+        "RIVM identifies Adrz Goes as a 24/7 acute-care site; the deployment reports one acute-care record, 53 DUO records and 89 RDI antennas. Counts do not establish capacity, staffing, stock, access, coverage, backup or emergency role.",
+        "REV returns 42 activity records, including Bison International as Seveso, McCain ammonia refrigeration, a Gasunie station and fuel/storage activities. Activity rows are not unique facilities and register presence is not an incident, source term, plume or probability.",
+        "Mijn Aansluiting/operator sources identify Stedin electricity/gas and Evides drinking water at reviewed locations. Provider polygons and dynamic status pages are responsibility/status context, not reusable topology or guaranteed continuity.",
+        "One KNMI Wilhelminadorp observation, three NDW records, one NBNL planning sample and zero assigned Waterinfo/warning/seismic records are time- and coverage-bounded context. Empty assignment never means zero hazard or full availability."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": ["power", "water", "drainage", "gas", "telecom", "mobility", "facilities", "supply"]
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "warn",
+      "summary": "All ten presets execute at every required checkpoint and service, but bounded deterministic output is not local calibration.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "Peak municipal severities are storm 0.613314, pluvial 0.289870, river 0.221010, coastal 0.619553, heat 0.519854, winter 0.426881, cyber 0.466945, earthquake 0.001768, wildfire 0.089539 and compound 0.873279.",
+        "At T+24 severity/pressure/affected people-equivalent are storm 0.134181/0.333083/10,914; pluvial 0.147910/0.191011/2,883; river 0.221010/0.279349/7,877; coastal 0.619553/0.578242/24,772; heat 0.083605/0.153680/773; winter 0.426833/0.291523/8,565; cyber 0.397872/0.320598/10,208; earthquake 0/0.043479/0; wildfire 0.089539/0.097815/0; and compound 0.831118/0.570874/24,355.",
+        "River flood stress is 0.713781 at both T+24 and T+72 despite the unselected/nonlocal canonical major-river mechanism. Coastal stress is 1.855446 at T+24 and exactly zero at T+72 while pressure remains 0.282986 and 8,083 affected people-equivalent remain.",
+        "Compound T+24 includes 47.505256 mm/h rain, 0.272078 flood stress, 27.492969 m/s wind and 0.409650 cyber disruption. At T+72 current severity is 0.319188, flood stress remains 0.272078 and pressure rises to 0.604488 with 26,255 affected.",
+        "Canonical wildfire has zero direct flame at T+24 with smoke 0.137393 and drought 0.517166; canonical earthquake has zero current shaking at T+24. These narrow zeros do not test another source or unmodelled pathway.",
+        "Outputs are scenario calculations, not current observations, official warnings, outage reports, probabilities or forecasts."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Determinism, zero-event behavior, finite bounds, cumulative burden, road-service scope, local reconciliation and layer invariance pass.",
+      "evidenceRefs": [],
+      "notes": [
+        "The focused municipality gate executes 10 presets × 6 checkpoints × 8 services and passes the current deterministic contract.",
+        "Every zero-intensity preset produces exact zero current/peak severity, affected population and event-attributable essential-service person-hours at all checkpoints.",
+        "Repeated frames are deterministic; values remain finite/bounded; event-attributable essential-service person-hours are monotonic; logical route flow stays within effective capacity.",
+        "T+24 local population, affected population and every service demand/delivery ledger reconcile; maximum local floating-point discrepancy is 2.1316282072803006e-14, demand 4.263256414560601e-14 and delivery 2.1316282072803006e-14.",
+        "Changing among all eleven map layers leaves municipal hazard, pressure and affected output invariant; maximum regional layer-hazard delta is zero.",
+        "The pressure weights include all eight services and sum to one. Passing arithmetic does not establish physical causality or calibration."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "Local hazard allocation is hazard-independent, source-insensitive and unguarded for Goes.",
+      "evidenceRefs": ["E01", "E03", "E06"],
+      "notes": [
+        "Nine nonzero families produce exactly the same full order: Verspreide huizen Wilhelminadorp, Verspreide huizen north of 's-Heer-Hendrikskinderen, Mannee, 's-Heer-Hendrikskinderen, dispersed Wolphaartsdijk, Oud-Sabbinge and Goes-Northeast lead; Goes-NW ranks 27.",
+        "packages/sim-core/src/model.ts:4384 seeds every local family from the same city/scenario/region hash and line 4396 scales municipal severity with it; it does not sample hydraulic, wind, heat, cyber-domain, ground-motion, fuel or source-distance fields.",
+        "A controlled source [3.8092723568110145, 51.492123390240984] lies in current TOP10NL deciduous woodland and BU06640559 near Poelbos. At T+24 direct flame is 0.461724, but the containing neighbourhood ranks 24/29 at 0.415743 while Verspreide huizen Wilhelminadorp ranks first at 0.546840.",
+        "The BIJ12 combustible-nature layer returns no qualifying local polygon because its planning coverage uses a minimum-area threshold; absence there is Unknown, not proof Poelbos lacks fuel.",
+        "GM0664 has no municipality-specific unsupported-spatial note, so precise local polygons remain presented as derived screening."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "Service ledgers are inspectable and public roads are scoped correctly, but precise values omit Goes's water, rail, acute-care, industrial and cross-boundary continuity mechanisms.",
+      "evidenceRefs": ["E02", "E03", "E05", "E07", "E08"],
+      "notes": [
+        "Current route applicability correctly yields ten NWB logical corridors for Mobility/Supply and zero for the other six services; model.ts:2940 enforces the safeguard.",
+        "River T+24 availability is power 0.702915, water 0.678944, drainage 0.553315, gas 0.805317, telecom 0.654045, mobility 0.869090, facilities 0.730690 and supply 0.753903. At T+72 seven values are exact while facilities falls to 0.607824.",
+        "Compound T+24 availability is power 0.342357, water 0.446675, drainage 0.295986, gas 0.613830, telecom 0.260519, mobility 0.706265, facilities 0.585967 and supply 0.196065; at T+72 all stay exact except facilities falls to 0.345861.",
+        "Water-board registers expose pumps, weirs, sluice, sewer conveyance and defence context but not causal catchment connectivity, compatible capacity, live control, backup or repair state. No in-boundary WWTP cannot establish no dependency.",
+        "Station/rail, canal/lock/navigation, Adrz acute care, Stedin/Evides, RDI, REV and NBNL sources are context only. The model has no safe physical utility graph, external treatment path, care acceptance, rail/waterway continuity or hazardous-release dependency."
+      ]
+    },
+    "causalTrace": {
+      "status": "warn",
+      "summary": "Cause contributions and counterfactual arithmetic reconcile, but local drivers and interventions remain unvalidated assumptions.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E08"],
+      "notes": [
+        "Municipal pressure uses transparent weights power 0.18, water 0.15, drainage 0.08, gas 0.09, telecom 0.12, mobility 0.12, facilities 0.14 and supply 0.12.",
+        "The trace calls intermunicipal transfers logical proxies and exposes demand, capacity, backup, repair and preparedness assumptions.",
+        "An internally exact trace cannot validate an omitted Oosterschelde/Veerse Meer/polder hydraulic path, pump/sluice state, wastewater destination, rail/waterway access, industrial release, acute-care load or restoration resource.",
+        "VRZ's crisis plan gives command activation targets and handover doctrine; Oosterscheldekering rules and operator plans establish conditional procedures. They are not confirmed actions, crews, usable stock or asset commitments in this scenario.",
+        "Demand, capacity, backup, repair, household preparedness, generator priority and mutual aid remain bounded/time-gated exercise assumptions."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "Exact T+0–72 persistence, disappearance and service recovery lack event-specific water states, actions, access, resources and operator commitments.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E07", "E08"],
+      "notes": [
+        "Coastal T+24 to T+72 drops severity 0.619553 and flood stress 1.855446 to exact zero, yet pressure is 0.282986, affected population 8,083 and cumulative unmet-service burden reaches 1,528,924.94 person-hours. No selected tide/surge, closure, defence/failure, storage, pump, recession or repair state supports that path.",
+        "River T+24–72 freezes severity 0.221010 and flood stress 0.713781; pressure rises 0.279349 to 0.296550, affected population 7,877 to 8,849 and burden 197,126.92 to 794,225.20 person-hours despite the direct major-river source being out of scope locally.",
+        "Compound pressure rises 0.570874 to 0.604488 and affected population 24,355 to 26,255 while service values largely freeze; burden reaches 1,484,342.93 person-hours.",
+        "No selected defence/sluice/pump status, road/rail/waterway access, external wastewater/care state, shelter/supply stock, crew/material, backup endurance or restoration schedule supports these exact changes.",
+        "Current RWS/KNMI/NDW/operator observations have their own valid times; warnings cover at most 48 hours and cannot be extrapolated to T+72 without a typed forecast/scenario transformation."
+      ]
+    }
+  },
+  "evidenceSources": [
+    {
+      "publisher": "Statistics Netherlands (CBS), Kadaster and PDOK",
+      "title": "Wijken en buurten 2025, bestuurlijke gebieden, BAG places and TOP10NL land cover",
+      "url": "https://api.pdok.nl/kadaster/bestuurlijkegebieden/ogc/v1/collections/gemeentegebied/items/f7433a12-c6cd-52d9-adb8-bc81bccf12eb?f=json",
+      "accessedAt": "2026-09-03T02:00:00Z",
+      "edition": "2025 statistics/boundary; TOP10NL source-year varies by feature",
+      "supports": [
+        "CBS OData https://opendata.cbs.nl/ODataApi/OData/86165NED and PDOK OGC downloads are machine-readable; CBS/TOP10NL are CC BY 4.0 and BAG is Public Domain Mark 1.0.",
+        "GM0664 identity, 40,120 residents, 29 neighbourhoods, seven BAG places, 21 settlement labels and close neighbourhood-total reconciliation.",
+        "The full boundary has 15,968 positions versus 156 in the overview and should be used for source containment, not as hydraulic geometry.",
+        "TOP10NL terrain collection https://api.pdok.nl/kadaster/brt-top10nl/ogc/v1/collections/terrein_vlak provides annual/rotating static cover; the reviewed source point lies in deciduous-forest feature a963f482-1f87-590e-9b96-d1454003f2ba. Land cover establishes eligibility context, not ignition, fuel state or spread."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat",
+      "title": "Waterdata DDAPI 2.0, Waterinfo, Oosterschelde and Oosterscheldekering",
+      "url": "https://rijkswaterstaatdata.nl/waterdata/",
+      "accessedAt": "2026-09-03T02:06:00Z",
+      "edition": "DDAPI 2.0 live since 2025-12-05; catalogue updated 2026-08-05",
+      "supports": [
+        "Current machine services are https://ddapi20-waterwebservices.rijkswaterstaat.nl/METADATASERVICES/OphalenCatalogus, .../ONLINEWAARNEMINGENSERVICES/OphalenWaarnemingen and WFS https://geo.rijkswaterstaat.nl/services/ogc/hws/DDAPI20/ows; the classic DBO endpoints were switched off 2026-04-30.",
+        "Measurements are commonly ten-minute, weather-driven water-level forecasts are generated every six hours and catalogue metadata state Public Domain. Preserve process type meting/verwachting/astronomisch, quality, valid time and freshness incidents.",
+        "The Oosterschelde is tidal; the 9 km barrier has 62 gates, is normally open, has an expected-water-level closure threshold of +3.0 m NAP and takes about 75 minutes to close. Threshold or forecast is not observed closure or inundation.",
+        "Use observations for time-aligned replay and forecasts/boundaries for selected scenarios. Missing/quality-coded values are never zero."
+      ]
+    },
+    {
+      "publisher": "Waterschap Scheldestromen",
+      "title": "Live water-management, water-level, defence and wastewater ArcGIS registers",
+      "url": "https://geo.scheldestromen.nl/arcgis/rest/services/Extern/EXT_WB_Waterbeheer/FeatureServer",
+      "accessedAt": "2026-09-03T02:07:00Z",
+      "edition": "Live extraction 2026-09-03; data edition/cadence not stated",
+      "supports": [
+        "Machine endpoints include Waterbeheer layers 4/6/14/15/16, Waterstandsmeters, Waterkeringen layers 45/55/56 and Afvalwaterketen layers 4/5/6; query supports JSON/GeoJSON/PBF and pagination.",
+        "Exact GM0664 join finds thirteen in-service and one planned water-management pump, Goese Sas sluice, primary/regional defence segments, eight sewer-transfer pumps and zero in-boundary WWTPs.",
+        "Named capacities include P.J.J. Dekker 430 m³/min to Oosterschelde; De Piet 250, Oosterland 145 and Wilhelmina 144 m³/min to Veerse Meer; sewer pump Goes requires 2,305 m³/h. Unit and field provenance must be preserved.",
+        "Server version 11.5 is software, not data edition; no explicit reuse licence or fixed cadence was found. Retain extraction time/ETag and mark reuse unverified. Register state/design capacity does not establish telemetry, operability, backup or achievable incident flow.",
+        "The municipality's GRP 2022–2027 execution context is documented at https://www.goes.nl/sites/goes/files/2023-07/5%29%20Programmajaarrekening%202022.pdf; it is plan/account evidence, not an asset-state feed."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Zeeland",
+      "title": "Regionaal Crisisplan 2026–2029 and operative regional risk-profile lineage",
+      "url": "https://lokaleregelgeving.overheid.nl/CVDR754715/1",
+      "accessedAt": "2026-09-03T02:08:00Z",
+      "edition": "Crisis plan v1.0 adopted 2025-12-11, effective from 2026-01-03; risk-profile public lineage 2020–2026",
+      "supports": [
+        "The legally published current plan sets first CoPI within 30 minutes, ROT within 45 minutes and GBT/RBT within 60 minutes after large-scale alerting, continuous command and careful transfer into recovery/aftermath.",
+        "It includes a Commandoteam Water for Delta waters, neighbouring Dutch/Belgian coordination and radiation-plan activation for Borssele/Doel. These are doctrine and targets, not live staff, stock or guaranteed arrival.",
+        "The base risk-profile PDF is 2020–2023 at https://www.veiligheidsregiozeeland.nl/sites/veiligheidsregiozeeland/files/2023-08/regionaal_risicoprofiel_2020-2023.pdf; official accounts describe extension/update into 2023–2026 but no consolidated current public GIS edition was found.",
+        "No public machine incident/resource API or explicit standard reuse licence is stated; review is at least four-yearly with interim updates."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat, PDOK, ProRail and NDW",
+      "title": "NWB roads/waterways, ProRail rail and current traffic-message feeds",
+      "url": "https://data.overheid.nl/dataset/14767-nwb---wegen",
+      "accessedAt": "2026-09-03T02:09:00Z",
+      "edition": "NWB/rail catalogues updated August 2026; NWB formal monthly plus daily files",
+      "supports": [
+        "NWB OGC API https://api.pdok.nl/rws/nationaal-wegenbestand-wegen/ogc/v1/ and daily GeoPackage are CC0; use section-level wvkId plus wegnummer and preserve A/N identities.",
+        "Goes has A58, N256, N289, N62, N664, N665, N668, N669 and N670 context. Static geometry/ownership is not passability or service state.",
+        "ProRail WFS https://service.pdok.nl/prorail/spoorwegen/wfs/v1_0 identifies Goes station on Roosendaal–Vlissingen and is CC0; VRZ says hazardous-goods trains pass through Goes daily. Neither proves present service or incident.",
+        "NWB waterways are monthly CC0 and navigation notices are available through https://vaarweginformatie.nl/frp/nts/list. Model Kanaal Goes/Goese Sas, rail, A58/N256 and cross-boundary logistics separately.",
+        "NDW https://opendata.ndw.nu/ is event-driven/CC0 unless a file states otherwise. Preserve file/snapshot time; no assigned event is Unknown rather than open."
+      ]
+    },
+    {
+      "publisher": "Provincie Zeeland and KNMI",
+      "title": "Zeeland climate atlas/stress-test services and KNMI weather/warning APIs",
+      "url": "https://opengeodata.zeeland.nl/geoserver/klimaat/ows?service=WMS&version=1.3.0&request=GetCapabilities",
+      "accessedAt": "2026-09-03T02:10:00Z",
+      "edition": "Upper-regional stress-test areas 2026; KNMI v1.0 continual, metadata modified 2026-09-02",
+      "supports": [
+        "The official atlas https://kaarten.zeeland.nl/map/klimaat exposes WMS/WCS pluvial depth, heat/PET, water susceptibility and 200 mm upper-regional stress-test products; WFS classifies Goes in Walcheren–Bevelanden.",
+        "The 2026 stress-test-area dataset is Public Domain and the urban water-susceptibility map is CC0. Legacy water studies were assembled piecemeal in 2004–2021 and the atlas warns some current-condition layers are outdated.",
+        "Scenario rasters are not observations or probabilities. Preserve event, units, model edition, coverage and NoData; GRAY_INDEX 255/transparent cells must never become 255 mm or zero.",
+        "KNMI ten-minute observations and 48-hour warning datasets are CC BY 4.0/tokened APIs; Wilhelminadorp AWS 323 supplies nearby observations. Warnings are broader than GM0664 and leave T+48–72 uncovered without a forecast/scenario.",
+        "The national adaptation portal identifies Goes centre as having greater urban heat-island effect than small villages; this supports local heat context, not a present heat event or exact neighbourhood ranking."
+      ]
+    },
+    {
+      "publisher": "Ministry of Infrastructure and Water Management REV, Veiligheidsregio Zeeland and Rijksoverheid",
+      "title": "Register Externe Veiligheidsrisico, hazardous-goods rail and Borssele iodine/radiation context",
+      "url": "https://rev-portaal.nl/geoserver/wfs?request=GetCapabilities",
+      "accessedAt": "2026-09-03T02:11:00Z",
+      "edition": "REV public register snapshot 2026-09-03; API model v5 since May 2025",
+      "supports": [
+        "WFS/WMS layers include activities, transport/pipelines, attention areas, risk contours and detailed activity locations; source holders update records, but no fixed public cadence or explicit WFS licence was found.",
+        "Exact-boundary screening finds 42 activity records: Bison International Seveso, McCain ammonia refrigeration, Gasunie regulation/measurement, fuel filling, packaged storage and gas tanks. Multiple rows can belong to one facility.",
+        "VRZ's hazardous-goods rail evidence is https://www.veiligheidsregiozeeland.nl/nieuws/verhalen/zo-zitten-de-scholieren-straks-veilig. A daily transport statement is route context, not a current release.",
+        "Rijk iodine guidance https://www.rijksoverheid.nl/themas/familie-zorg-en-gezondheid/straling/jodiumtabletten and current crisis-plan references establish Borssele regional-response context. Spatial overlap with a 20 km ring does not imply every address is inside it or that a release exists.",
+        "REV status means register inclusion, never current operation, availability, material inventory, probability or plume. Regulatory/scenario contours are not observations."
+      ]
+    },
+    {
+      "publisher": "Stedin, Evides, Adrz, RDI, RIVM, Netbeheer Nederland and Stichting Mijn Aansluiting",
+      "title": "Essential-service provider, status, care, telecom and planning context for Goes",
+      "url": "https://www.evides.nl/over-evides/wat-we-doen/drinkwater/drinkwater-levering",
+      "accessedAt": "2026-09-03T02:12:00Z",
+      "edition": "Current public pages/registry extracts accessed 2026-09-03; source-specific cadences",
+      "supports": [
+        "Evides explicitly covers Goes and operates an infrastructure base there; Waterstoring.nl provides event-driven direct-source drinking-water outage/work/advice context. Stedin's Goes page provides dynamic power/gas status.",
+        "Adrz Goes is the regional acute/complex-care location with 24/7 emergency department and level-2 ICU: https://www.adrz.nl/spoed/. Registry/website presence does not supply live acceptance, staffing, beds, supplies, backup or access.",
+        "RDI documents the outdoor mobile coverage obligation and that power failure can affect mobile 112: https://www.rdi.nl/onderwerpen/consumenten/informatiepunt-112/veelgestelde-vragen. Antenna points do not prove coverage or backup endurance.",
+        "Mijn Aansluiting public OGC is Public Domain provider-responsibility context; one NBNL Goes de Poel planning sample describes queue/project context. Planning is not live load, outage, switching or topology.",
+        "Operator status pages are dynamic but no reviewed stable reusable incident API, licence, complete topology, backup duration or restoration SLA was found. Blank client-rendered results are Unknown, not zero outage."
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "id": "GM0664-CONTRACT-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The full deterministic contract, reconciliation and public-road service-scope safeguard pass.",
+      "evidence": "The focused gate executes 10 presets × 6 checkpoints × 8 services and checks zero-event behavior, determinism, bounds, burden monotonicity, reconciliation, all eight pressure contributions and layer invariance. Ten NWB links affect only Mobility and Supply; all six non-road service route sets are empty.",
+      "action": "Retain the gate, section-level wvk/wegnummer provenance, supportedServices safeguard, logical-proxy wording and distinct evidence classes in future corrections."
+    },
+    {
+      "id": "GM0664-GEOGRAPHY-001",
+      "severity": "medium",
+      "category": "geography",
+      "status": "accepted-limitation",
+      "summary": "The overview boundary is valid for selection/aggregation but not exact hydraulic, asset or fire containment.",
+      "evidence": "E01's current full boundary has 15,968 positions versus 156 in the generated overview, a material difference around water and polder edges. Administrative polygons encode no defence, catchment, utility, fuel or passability semantics.",
+      "action": "Keep overview geometry for national selection. Use versioned full official geometry for audit joins and authority hydraulic/effect/service geometry for computation; show edition/generalization."
+    },
+    {
+      "id": "GM0664-RIVER-SCOPE-001",
+      "severity": "critical",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The canonical major-river signal is a false direct source for Goes and must be suppressed without turning local water pathways into an all-clear.",
+      "evidence": "River T+24/T+72 reports 0.713781 flood stress and 0.221010 severity, rising from 7,877 to 8,849 affected people-equivalent. Goes is a Zuid-Beveland/Oosterschelde–Veerse Meer/polder municipality, not a direct Rhine/Meuse/IJssel municipality under the canonical source definition. E02/E03 support tidal, canal, sluice, defence, pump, seepage/backwater and indirect-network context, none of which is selected by this preset.",
+      "action": "Release gate: suppress direct canonical major-river forcing for GM0664 and test exact zero for that narrow source. Preserve regional/local water pathways as Unknown and offer an authority-reviewed separate coastal/tidal/polder or indirect-supply scenario; never label the suppression safe."
+    },
+    {
+      "id": "GM0664-COASTAL-001",
+      "severity": "critical",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Coastal forcing should be retained only as a non-operational diagnostic; its exact local magnitude and recovery are unsupported.",
+      "evidence": "Primary sources confirm direct Oosterschelde/Veerse Meer, barrier, defence, canal/Goese Sas and polder relevance. Yet coastal T+24 reports 1.855446 stress and 24,772 affected without tide/surge, barrier/defence/failure state, connected depth, arrival or pump state, then flood stress/severity become exact zero at T+72 while 8,083 affected and 0.282986 pressure remain.",
+      "action": "Retain nonzero coastal context but mark local result unsupported/Unknown until a versioned RWS/water-board scenario defines boundary condition, datum/unit/time, Oosterscheldekering and defence state, breach/overtopping, connected footprint, depth, arrival/duration/recession, drainage and NoData."
+    },
+    {
+      "id": "GM0664-SPATIAL-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Nine unrelated hazards reuse one exact neighbourhood order and selected Goes has no evidence-gap guard.",
+      "evidence": "Storm, pluvial, river, coastal, heat, winter, cyber, wildfire and compound all rank the same 29 neighbourhoods; model.ts:4384/4396 uses a shared region hash rather than hazard-family surfaces. Official water/climate/terrain/register layers do not affect allocation and no GM0664 unsupported note exists.",
+      "action": "Mark all local families unsupported until their source contracts pass. Replace shared ranking with family-specific hydraulic/pluvial, wind, heat/land-cover, cyber-domain, fire/smoke and ground-motion inputs; test rank divergence, source containment, conservation and deterministic Unknown fallback."
+    },
+    {
+      "id": "GM0664-FIRE-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "A controlled Poelbos-area source leaves its containing neighbourhood 24th of 29.",
+      "evidence": "Source [3.8092723568110145, 51.492123390240984] lies inside current TOP10NL deciduous woodland and BU06640559. At T+24 direct flame is 0.461724, but the containing neighbourhood is 24th at 0.415743 while Verspreide huizen Wilhelminadorp is first at 0.546840. The BIJ12 >=100 ha planning layer has no local match, which is Unknown rather than no fuel.",
+      "action": "Require a named source/perimeter, eligible fuel/moisture, event-valid wind, barriers, access, extinguishing water and suppression state. Enforce source containment/decay tests; keep TOP10NL/Poelbos as eligibility context only."
+    },
+    {
+      "id": "GM0664-PLUVIAL-HEAT-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Public Zeeland pluvial/heat/drought layers are display/context evidence and do not drive the exact local rankings.",
+      "evidence": "E06 exposes official WMS/WCS depth, 200 mm stress-test, susceptibility and PET/heat products and notes Goes-centre heat context. Pluvial and heat nevertheless reuse the same order as river/cyber/fire; scenario rasters have differing editions, resolution and NoData and are not observations.",
+      "action": "Integrate a licensed/versioned scenario surface only after pinning event, units, edition, coverage and NoData. Keep older/outdated layers non-causal; derive heat exposure from authoritative land cover/buildings/shade plus vulnerability, with uncertainty rather than exact unsupported rank."
+    },
+    {
+      "id": "GM0664-WATERCHAIN-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Exact water/drainage availability omits known pump, sluice, defence, catchment and external-wastewater mechanisms.",
+      "evidence": "E03 finds named Oosterschelde/Veerse Meer drainage pumps, Goese Sas, eight sewer pumps and no in-boundary WWTP. These are actionable context but do not establish catchment/direction, compatible capacity, controls, telemetry, backup or receiving plant. Coastal T+24 still emits exact water/drainage service values and full hydraulic disappearance at T+72.",
+      "action": "Separate potable water, wastewater and surface-water control. Ingest records first as versioned affectsSimulation=false context; add catchments, directions, units, defence/control state, power/backup and restoration only from authority-reviewed data, otherwise use transparent zones/ranges and Unknown."
+    },
+    {
+      "id": "GM0664-CONTINUITY-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "The municipal graph omits rail, waterway/lock, acute-care and internal/cross-boundary recovery dependencies.",
+      "evidence": "The current ten NWB road links are correctly road-only, but Goes station/Roosendaal–Vlissingen, daily hazardous-goods rail, Kanaal Goes/Goese Sas, A58/N256 chokepoints, external wastewater and Adrz access/capacity are absent. Static GTFS/NWB/ProRail records and empty NDW notices cannot prove operation.",
+      "action": "Add typed rail, waterway/lock, external-treatment, care and response-access nodes with source/version/time. Use incident passability, vehicle/train/vessel availability, hospital acceptance and repair priority only as explicit scenario states unless confirmed."
+    },
+    {
+      "id": "GM0664-INDUSTRIAL-NUCLEAR-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Material industrial, hazardous-goods and regional nuclear response context has no modeled hazard family or coupled service pathway.",
+      "evidence": "E07 identifies current Seveso Bison, ammonia refrigeration, gas/fuel/storage records, hazardous-goods rail through Goes and Borssele response/iodine context. The ten presets include no selected industrial release, toxic plume, contaminated fire-water, rail incident or radiological pathway. Registers/plans do not prove an incident.",
+      "action": "Add a clearly selected industrial/technology/radiological exercise family or declare these mechanisms out of scope above affected views. Require authority-reviewed generic source term, weather/effect model and conditional actions while protecting sensitive inventories."
+    },
+    {
+      "id": "GM0664-RECOVERY-001",
+      "severity": "high",
+      "category": "explainability",
+      "status": "open",
+      "summary": "First-72-hour service persistence and recovery are not tied to local actions, access, resources or operator commitments.",
+      "evidence": "Coastal water stress disappears exactly while residual burden remains; river forcing freezes despite false local source; compound services largely freeze while pressure rises. E02–E08 establish doctrine, registers, observations and plans—not dispatched pumps, closure decisions, backup endurance, crews, stock or completed restoration.",
+      "action": "Add a checkpointed action/resource ledger with proposed/requested/confirmed/dispatched/active/completed/cancelled state, owner, source, geography, valid/expiry time, delay/ramp, capacity, dependencies, access and uncertainty. Show no-action counterfactual/sensitivity."
+    },
+    {
+      "id": "GM0664-NODATA-UX-001",
+      "severity": "high",
+      "category": "ui",
+      "status": "open",
+      "summary": "Evidence-class wording exists, but Goes can still appear precisely locally supported when its source contract fails.",
+      "evidence": "Headless Chromium at 1440×1000 and 390×844 selected Goes and T+72. All eleven layer controls kept the Goes inspector, mobile Details opened, there was no horizontal overflow, no page error and no HTTP >=400 response. Waterinfo correctly says no municipal station means no data, never zero/safe. Yet river shows an exact 48% inundation-stress hero and coastal shows exact 0% at T+72 while only a national unsupported-count message appears; both remain evidence class derived-screening and no selected GM0664 warning explains the source-contract failure.",
+      "action": "Add a selected-municipality support banner and suppress exact local patches/comparisons when source contracts fail. For every layer/export show modeled zero, no record, Unknown, not applicable and stale/error distinctly plus publisher, edition/valid/ingest time, coverage, licence, unit/datum, confidence and affectsSimulation."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Suppress Goes's canonical direct major-river scalar while preserving unresolved local/coastal water pathways.",
+      "files": ["packages/sim-core/src/model.ts", "packages/sim-core/src/model.test.ts", "apps/web/src/components/Inspector.tsx"],
+      "validation": "GM0664 river-flood direct flood/current severity and affected population are exact zero under the narrow Rhine/Meuse/IJssel source, while UI states that Oosterschelde, Veerse Meer, canal, polder, seepage/backwater and indirect dependencies remain Unknown/unmodelled rather than safe."
+    },
+    {
+      "summary": "Guard GM0664 local output and replace the shared neighbourhood hash with hazard-specific, source-aware allocation.",
+      "files": ["packages/sim-core/src/model.ts", "packages/sim-core/src/model.test.ts", "apps/web/src/components/Inspector.tsx"],
+      "validation": "All selected local families are unsupported until evidence contracts pass. Tests require hazard-family rank divergence, source containment/decay, conservation, deterministic fallback and exact zero semantics; unsupported UI renders Unknown rather than precise polygons."
+    },
+    {
+      "summary": "Retain coastal forcing only as an unsupported diagnostic until a selected Oosterschelde/Veerse Meer/polder event is bound.",
+      "files": ["packages/sim-core/src/model.ts", "packages/sim-core/src/model.test.ts", "apps/web/src/components/MapView.tsx", "apps/web/src/components/Inspector.tsx"],
+      "validation": "A supported run records publisher/version, issue/valid time, tide/surge/datum, Oosterscheldekering and defence/failure state, connected depth footprint, arrival/duration/recession, pump/sluice state, coverage, licence and NoData. T+72 follows explicit hydraulics/actions."
+    },
+    {
+      "summary": "Integrate official water/climate/transport/industrial datasets as typed context before promoting any source into causal simulation.",
+      "files": ["apps/web/public/data/public-context", "apps/web/src/components/MapView.tsx", "apps/web/src/components/Inspector.tsx"],
+      "validation": "Each record retains publisher, id, edition/extraction/valid time, cadence, licence, geometry, units, quality, coverage and affectsSimulation=false. Observations, forecasts, scenarios, norms, registers and plans remain separate; missing/transparent/stale results remain Unknown."
+    },
+    {
+      "summary": "Add safe aggregate water-chain, rail/waterway, external-care and industrial-response dependencies without inventing sensitive topology.",
+      "files": ["packages/sim-core/src/model.ts", "packages/sim-core/src/model.test.ts", "apps/web/src/components/MapView.tsx"],
+      "validation": "Tests distinguish potable/wastewater/surface water, model Goese Sas/pump/external-treatment and rail/waterway/care dependency states, and keep NWB roads limited to Mobility/eligible logistics. Capacity, backup and restoration remain Unknown/ranged unless authority/operator reviewed."
+    },
+    {
+      "summary": "Make first-72-hour actions, resources, evidence classes and NoData semantics explicit in model, UI and exports.",
+      "files": ["packages/sim-core/src/model.ts", "packages/sim-core/src/model.test.ts", "apps/web/src/App.tsx", "apps/web/src/components/Inspector.tsx"],
+      "validation": "Every action has state, owner, source, geography, valid/expiry time, delay/ramp, capacity, access, dependencies and confidence; counterfactuals reconcile at all six checkpoints. UI/export separates modeled zero, no record, Unknown, not applicable and stale/error."
+    }
+  ],
+  "residualLimitations": [
+    "VRZ plans establish regional mechanisms, organization and activation targets, not a current incident, municipal probability/loss calibration, live resource inventory or guaranteed response.",
+    "No reviewed source selects an Oosterschelde/Veerse Meer tide or surge, barrier/defence/breach/overtopping state, connected inundation footprint, depth, arrival, duration, recession or drainage path for this exercise.",
+    "Suppressing the canonical major-river scalar is narrow: it does not suppress tidal, lake, canal, polder, seepage/backwater, pluvial or indirect supply risk.",
+    "Water-board register status and design capacity do not prove current operability, compatible flow, catchment/direction, reserve, backup or restoration; zero in-boundary WWTP is not zero wastewater dependency.",
+    "RWS/KNMI/NDW/operator observations and warnings are time-bounded; forecasts, warnings, observations and synthetic T+72 scenario values must remain separate.",
+    "Zeeland climate layers include scenarios, susceptibility and legacy studies with different dates/coverage. Raster transparency, encoded NoData and out-of-coverage areas are never zero exposure.",
+    "TOP10NL woodland establishes land-cover context only; the BIJ12 minimum-area screen can omit smaller fuel areas and neither source establishes ignition, fuel/moisture, spread or suppression.",
+    "REV activity rows can duplicate facilities and registers/contours do not establish operation, inventory, probability, source term or plume; Borssele plan/ring context is not a current event.",
+    "Provider territories, one NBNL planning sample and operator status pages do not supply complete reusable feeder, pipe, backhaul, backup, load, outage, crew or restoration topology.",
+    "NWB, ProRail, waterway and GTFS data are static topology/schedule. Absent NDW/navigation events do not prove route passability or service availability.",
+    "RIVM acute-care, RDI antenna and DUO education records do not establish capacity, coverage, staffing, stock, backup, access or emergency use.",
+    "Public utility topology and operational resource inventories may be unavailable or security-sensitive; use authority-reviewed aggregates and explicit synthetic ranges rather than fabricated precision."
+  ]
+}

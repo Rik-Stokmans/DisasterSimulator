@@ -1,0 +1,539 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM1774",
+    "name": "Dinkelland",
+    "province": "Overijssel",
+    "safetyRegion": "Twente"
+  },
+  "agent": {
+    "taskName": "municipality_gm1774",
+    "agentId": "/root/nl_realism_audit",
+    "completedAt": "2026-09-02T21:43:24Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "GM1774 passes the complete deterministic execution contract over all ten canonical scenarios, T+0/6/12/24/48/72 and all eight essential services. Its 2025 CBS/PDOK identity, generalized boundary, 26,728 residents, 46 neighbourhoods, 11 BAG places, 24 BRT settlement labels and Twente safety-region assignment reconcile. Release remains correction-required. Seven unrelated nonzero T+24 presets reuse exactly the same complete 46-neighbourhood order, although a focused synthetic source in Verspreide huizen Breklenkamp does pass the wildfire source-containment regression. The named Rhine, Meuse & IJssel preset correctly gives Dinkelland zero direct local major-river forcing, but it omits the distinct cross-border Dinkel and Regge/Dinkel regional-water pathway documented by Veiligheidsregio Twente and Waterschap Vechtstromen. Despite zero local river hazard and zero cumulative local pre-network deprivation, the road-derived network reports 10,360 affected people-equivalent at T+12, 6,564 at T+24 and 4,389 at T+72; those different metric scopes are mathematically documented but operationally easy to compare incorrectly. The deployed national water-object snapshot returns zero inside GM1774, while the public established Vechtstromen Legger query intersects 8 pumps, 585 weirs, 1,501 culverts, 1,477 discharge reaches and other managed-water features, proving that zero is contributor NoData rather than absence. Dinkelland's German border, N342/B403 continuity, short hazardous-goods rail section, rural pressure sewer, documented rain locations, drought/drinking-water stress, narrow Ootmarsum access, external acute care and first-72-hour continuity are not represented by the ten Dutch road-derived lifelines. Public authoritative sources can improve hazard-specific context, but complete physical utility topology, live state, backup, stocks, crews and restoration remain unavailable or security-sensitive and must stay Unknown or transparently synthetic.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek",
+      "title": "Kerncijfers wijken en buurten 2025 — filtered rows for GM1774",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM1774%27%29&%24select=WijkenEnBuurten%2CGemeentenaam_1%2CAantalInwoners_5%2CBevolkingsdichtheid_34%2Ck_65JaarOfOuder_12%2CEenpersoonshuishoudens_30",
+      "accessedAt": "2026-09-02T21:36:27Z",
+      "edition": 2025,
+      "supports": [
+        "Official-context GM1774/Dinkelland identity, population 26,728, density 152 residents per square kilometre, 24.7% aged 65 or older and 2,999 one-person households.",
+        "The machine-readable OData release is annual and CC BY 4.0. Published neighbourhood counts are rounded and can be suppressed; null, Unknown and not-applicable values must never become zero.",
+        "CBS aggregates support transparent population allocation and vulnerability context, not named vulnerable people, event-time visitors/workers, home medical dependence, household emergency stocks or observed service demand."
+      ]
+    },
+    {
+      "publisher": "PDOK / CBS / Kadaster / Rijkswaterstaat / ProRail",
+      "title": "Gemeente and buurt gegeneraliseerd 2025 with BAG, BRT TOP10NL, NWB and railway context",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_gegeneraliseerd/items?f=json&limit=1000&datetime=2025-07-01T00%3A00%3A00Z",
+      "accessedAt": "2026-09-02T21:36:27Z",
+      "edition": "CBS/BAG/BRT 2025 context; NWB 1 August 2026 edition",
+      "supports": [
+        "The application consumes the 2025 CC BY 4.0 generalized municipality and 46-neighbourhood geometry. Reference point [6.920703910352089, 52.36948036782031] and all eleven BAG place centres are inside GM1774.",
+        "BAG woonplaatsen are accessible at https://api.pdok.nl/kadaster/bag/ogc/v2/collections/woonplaats under Public Domain Mark 1.0. BRT TOP10NL is available at https://api.pdok.nl/kadaster/brt-top10nl/ogc/v1 under CC BY 4.0 with a rotating update cycle and supplies 24 settlement labels plus source-scale topography.",
+        "Monthly CC0 NWB geometry is downloadable at https://downloads.rijkswaterstaatdata.nl/nwb-wegen/geogegevens/shapefile/NWB-light/01-08-2026.zip. Ten generated links use A1, N342, N343, N349, N736 and N737, but collapse to six physical corridor identities and 1,720 non-additive scenario units.",
+        "ProRail OGC https://api.pdok.nl/prorail/spoorwegen/ogc/v1 is CC0 static infrastructure context with manual cadence. Zero stations in GM1774 does not mean no railway: the Twente profile records a short hazardous-goods rail section outside the built-up area."
+      ]
+    },
+    {
+      "publisher": "Gemeente Dinkelland",
+      "title": "Water en Riolerings Programma Dinkelland 2025–2030 and Northeast-Twente drinking-water communication",
+      "url": "https://www.dinkelland.nl/sites/default/files/2024-09/Water%20en%20Riolerings%20Programma%20Dinkelland%202025-2030.pdf",
+      "accessedAt": "2026-09-02T21:36:27Z",
+      "edition": "WRP 2025–2030; supplied PDF marked concept 5 July 2024; municipal drinking-water page dated 17 June 2026",
+      "supports": [
+        "The WRP identifies extreme-rain work around Veldkamp/Borchert, Prins Hendrikstraat/Julianastraat and Diepengoor in Denekamp and Pastoor Gloerichstraat/Pastoor Havinkstraat in Deurningen. It also reports slower implementation from project-lead capacity, participation and the energy transition.",
+        "Dinkelland's policy stress test uses 70 mm in one hour, approximately a future 1-in-100-year event, with explicit consequences: vital systems or buildings affected, through-road/calamity-route depth under 20 cm, and water-on-street duration no longer than 120 minutes. This is an official planning test, not a current observation or forecast.",
+        "Most eligible rural parcels use pressure sewer; erroneous rainwater connections can cause faults and capacity problems, and sewer-inspection/data processing had a backlog. The WRP distinguishes wastewater, rainwater, groundwater, surface water, culverts, roads and receiving-water quality.",
+        "The current municipal communication https://www.dinkelland.nl/drinkwatertekort says prolonged warm/dry conditions can make demand exceed replenishment across Northeast Twente and cause lower pressure; on 17 June 2026 the outcome was explicitly still uncertain. It is preparedness/current context, not a measured future T+72 pressure state. No blanket machine-data licence or fixed update cadence is stated for the PDF/pages; underlying municipal GIS requires an authorized export."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Twente",
+      "title": "Regionaal Risicoprofiel Twente 2025, Regionaal Crisisplan and first-72-hour preparedness guidance",
+      "url": "https://www.vrtwente.nl/sites/vrt/files/2025-12/Regionaal%20Risicoprofiel%20Twente%202025.pdf",
+      "accessedAt": "2026-09-02T21:36:27Z",
+      "edition": "Risk profile 2025; crisis plan effective 10 July 2026; guidance inspected 2 September 2026",
+      "supports": [
+        "The profile describes Dinkelland as a rural coulisse landscape with hedgerows, brook valleys, agriculture, nature and recreation; narrow historic Ootmarsum can limit fire-service access. It identifies the short hazardous-goods rail section and residual radiological planning around decommissioned Emsland/Lingen.",
+        "Twente is relatively high and has no primary dike rings. The cross-border Dinkel and Regge can produce locally limited, short-lived flooding during prolonged or intense rain; high sandy soils make water supply rain-dependent and susceptible to drought. This is a different mechanism from the Rhine, Meuse & IJssel preset.",
+        "Nature-fire planning includes recreation/care, restricted extinguishing water and setup time; drinking-water planning separates quantity/pressure from bacteriological and chemical quality; telecom loss can cascade into payments, road signs, patient records, doors, bridges, sluices and drinking-water pumps.",
+        "The current official crisis plan is available as durable HTML at https://lokaleregelgeving.overheid.nl/CVDR764048/1, sets roles, processes and direction-setting effort requirements, and explicitly says performance is not an outcome guarantee. Twente Veilig guidance at https://twenteveilig.nl/zorg-voor-een-noodpakket recommends 72 hours of supplies and 3 litres of water per person per day; it is not a survey of actual stocks. No blanket reuse licence for the risk-profile PDF was established."
+      ]
+    },
+    {
+      "publisher": "Waterschap Vechtstromen / Niedersächsischer Landesbetrieb für Wasserwirtschaft, Küsten- und Naturschutz",
+      "title": "Established public Vechtstromen Legger and cross-border Dinkel water context",
+      "url": "https://services1.arcgis.com/3RkP6F5u2r7jKHC9/arcgis/rest/services/Legger_publiek_Vastgesteld_Openbaar/FeatureServer",
+      "accessedAt": "2026-09-02T21:36:27Z",
+      "edition": "Established public Legger service, data last edited 7 January 2026; Dinkel pages and gauge inspected 2 September 2026",
+      "supports": [
+        "A reproducible ArcGIS spatial-intersects query against the current generalized GM1774 polygon returns 8 gemaal points, 585 weirs, 1,501 culverts, 1,477 discharge reaches, 80 dike sections, 37 surface-water bodies, 46 zones, 25 surface-water polygons, 112 drops, 89 pits, 42 fish passages and 9 siphons. These are legal/register intersections, not a connected live hydraulic network.",
+        "The public item a5c346b5cc4f46bfb9e83072e6a83e7d exposes Query/Extract but declares no licenceInfo, accessInformation or termsOfUse. Its cadence is not guaranteed; reuse and bundling require terms confirmation, source timestamps and a stable snapshot.",
+        "Vechtstromen's Dinkeldal page https://www.vechtstromen.nl/projecten/actuele-projecten/dinkeldal/ describes the Dinkel crossing Germany and the Netherlands around Gronau/Lattrop before reaching the Vecht near Neuenhaus. A 22 December 2023 Vechtstromen report records German inflow, roads/cycleways/meadows flooded, saturated systems and continued staffing; that dated event is mechanism/replay evidence, not a current forecast.",
+        "NLWKN gauge Lage I on the Dinkel is available at https://www.pegelonline.nlwkn.niedersachsen.de/Pegel/Karte/Binnenpegel/ID/388 and exposes timestamped raw measurements through a documented REST web service, generally at least hourly from 15-minute means with possible gaps/unverified values. It is upstream observed/replay context, not an inundation surface or T+72 forecast, and its stated reuse terms require a permissions review."
+      ]
+    },
+    {
+      "publisher": "Provincie Overijssel",
+      "title": "Waterdiepte bij hevige neerslag — 70 mm in two hours",
+      "url": "https://metadata.geodataoverijssel.nl/metadata/dataset/5439c0ac-4932-4cba-b12e-e8a5f7071300.xml",
+      "accessedAt": "2026-09-02T21:36:27Z",
+      "edition": "Raster created/revised 20 June 2022, published 11 July 2023, metadata revised 22 July 2025",
+      "supports": [
+        "The official Overijssel layer Waterdiepte_bui_hevige_neerslag_70mm is modeled current-climate depth-class scenario context for 70 mm in two hours, approximately 1-in-100-year, not the municipality's separate 70 mm in one hour test and not an observation or forecast.",
+        "Machine access is WMS at https://services.geodataoverijssel.nl/geoserver/LIP/wms?service=WMS&request=GetCapabilities&version=1.3.0 and raster download at https://download.geoportaaloverijssel.nl/download/raster/5439c0ac-4932-4cba-b12e-e8a5f7071300 under CC0. Maintenance is as-needed rather than operational cadence.",
+        "Ingest source-native cells/classes with CRS, scenario duration, units, edition, coverage and transparent/NoData mask. Catalogue publication or refresh time must not be presented as event valid time."
+      ]
+    },
+    {
+      "publisher": "KNMI",
+      "title": "KNMI Data Platform OGC EDR and RDSA seismic services",
+      "url": "https://developer.dataplatform.knmi.nl/edr-api",
+      "accessedAt": "2026-09-02T21:36:27Z",
+      "edition": "Versioned live service documentation inspected 2 September 2026",
+      "supports": [
+        "The EDR API is an integration-ready OGC API for spatial/temporal weather queries and CoverageJSON/GeoJSON responses, including ten-minute station observations and gridded rain, temperature and wind collections. Product, version, issue time, valid time, lead, processing state and dataset-specific licence must remain attached.",
+        "Earthquake events are machine-readable from https://rdsa.knmi.nl/fdsnws/event/1/ under CC BY 4.0; reviewed ShakeMap NetCDF grids for qualifying events are available at https://rdsa.knmi.nl/shakemaps/2/. An event point is not ground motion, and a grid is not a generic Groningen-centred Dinkelland fragility curve.",
+        "Observations, nowcasts, forecasts, historical replay and canonical deterministic exercise forcing are separate modes. A deployment-time radar or event catalogue must never be projected silently to T+72."
+      ]
+    },
+    {
+      "publisher": "Stichting Mijn Aansluiting / Netbeheer Nederland / RIVM / RDI / DUO / NDW / Rijkswaterstaat",
+      "title": "Public provider, grid-planning, care, telecom, education, road and water-observation context",
+      "url": "https://data.overheid.nl/en/dataset/81000-netbeheergebieden-elektriciteit--gas--media--riolering--warmte-en-water",
+      "accessedAt": "2026-09-02T21:36:27Z",
+      "edition": "Public services and deployed snapshots inspected 2 September 2026",
+      "supports": [
+        "Public Domain Mijn Aansluiting WMS/WFS https://public.geodata.mijnaansluiting.nl/geoserver/mijnaansluiting_open/ows returns overlapping Enexis/Coteq electricity and gas provider polygons, Vitens drinking water and eight fixed-media providers at the reference point. Feature update dates vary from 7 September 2025 into July 2026; polygons are responsibility context, not full-boundary topology, capacity, outage or restoration.",
+        "Netbeheer Nederland public frontend JSON routes https://data.partnersinenergie.nl/api/servicearea/find and /get return one postcode planning sample for 7596KN: service area ODZ Oldenzaal, regional operator string Coteq, Enexis, existing/required/queued withdrawal 94.5/61.2/11.2 MW and injection 92/63/7.3 MW, 56/36 queued requests and 13 projects. Capacity/project values are quarterly and queues monthly; the publisher calls the product open data but the exact licence and endpoint stability are unstated. One sample is neither municipality coverage, live load, outage, topology nor T+72 reserve.",
+        "RIVM's 2026 v1.1 acute-care questionnaire is versioned CC0 at https://datacatalogus.rivm.nl/dataset.xhtml?persistentId=doi%3A10.21945%2F8E767B2D-9CED-4A85-A95D-3AC1A608C663. GM1774 contains no acute-hospital point; straight-line reference-point distances are about 17.16 km to Medisch Spectrum Twente and 19.35 km to ZGT Almelo. Reported roles, rooms and 2025 visits are not incident-time access, staffing, occupancy, diversion, power/fuel or acceptance.",
+        "The deployed context contains 60 RDI sites/138 antennas and 20 DUO locations. RDI WFS https://antenneregister.nl/mapserver/wfs/ has no fixed cadence or reuse licence established and does not prove operator, coverage, backhaul, backup or service state. DUO RIO https://onderwijsdata.duo.nl/dataset/c416acd1-e083-4ec6-9203-3b20f98fe143 refreshes daily around 06:15 under CC BY with version unspecified; a registered school is not a confirmed shelter, reception or supply point.",
+        "NDW DATEX II https://opendata.ndw.nu/actueel_beeld.xml.gz supplies event-valid CC0 road context and the deployed GM1774 snapshot contains zero records; RWS Waterinfo likewise assigns zero level/discharge stations to the polygon. Empty current messages or station assignment means NoData/coverage only, never every road open, zero flow or safe water."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM1774, Dinkelland, province Overijssel and safety region Twente agree across generated and official 2025 inputs.",
+      "evidenceRefs": [
+        "E01",
+        "E02",
+        "E04"
+      ],
+      "notes": [
+        "Feature id, bundle code and bundle name all equal GM1774 / Dinkelland; the official safety-region layer assigns it uniquely to Twente.",
+        "BoundaryEdition and statisticsEdition are both 2025. Later plans, 2026 registers/current observations and the synthetic scenario clock are separate time semantics.",
+        "No municipality code, name, province, safety-region or edition mismatch was found."
+      ]
+    },
+    "geography": {
+      "status": "warn",
+      "summary": "The municipal reference point is inside the generalized boundary, but a closed Dutch polygon cannot resolve the cross-border Dinkel catchment, brook valleys, sewer subcatchments, rural fuel or utility systems.",
+      "evidenceRefs": [
+        "E02",
+        "E03",
+        "E04",
+        "E05",
+        "E06"
+      ],
+      "notes": [
+        "Generated centre [6.920703910352089, 52.36948036782031] lies inside the official generalized 2025 GM1774 polygon and all eleven BAG place centres are inside.",
+        "Dinkelland directly borders Germany; the Dinkel crosses the national boundary and the source-to-receptor system cannot be clipped to GM1774 or the Dutch municipal graph.",
+        "Generalized municipality and neighbourhood geometry cannot establish river connectivity, depth, terrain flow, culvert blockage, sewer capacity, fuel, asset ownership or incident reachability."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Official 2025 headline statistics agree and the rounded neighbourhood population reconciles within publication semantics.",
+      "evidenceRefs": [
+        "E01"
+      ],
+      "notes": [
+        "Generated/official population is 26,728, density 152 per square kilometre, age65Pct 24.7 and one-person-household count 2,999.",
+        "Forty-six published neighbourhood rows sum to 26,705 people, 23 below the municipality total (-0.086%); deterministic local allocation reconciles exactly to 26,728. There are no zero-population neighbourhoods in the current allocation.",
+        "Aggregate age and household context cannot identify medically dependent residents, care occupants, tourists, cross-border workers, responders or event-time presence."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "All 46 neighbourhoods load and useful public regional layers exist, but several attributes and operational systems are incomplete or absent.",
+      "evidenceRefs": [
+        "E01",
+        "E03",
+        "E05",
+        "E06",
+        "E08"
+      ],
+      "notes": [
+        "Home value, housing form/tenure, benefit and proximity fields cover 44/46 rows; cars per household covers 41/46. District-heating share and public-charging count have 0/46 usable values and correctly remain null.",
+        "Largest neighbourhoods are Janskamp 1,925, Veldkamp en Borchert 1,795, Rossum kern 1,385, Deurningen kern 1,250 and Kerkeres 1,170 before rounded-total reconciliation.",
+        "Established Vechtstromen geometry, Overijssel rain depth, provider areas, capacity planning, antennas, schools and care locations are typed context. None is automatically a hazard footprint, live topology, capacity or first-72-hour state."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "Eleven BAG woonplaatsen and 24 BRT settlement labels are retained without a reference-point boundary mismatch.",
+      "evidenceRefs": [
+        "E02",
+        "E04"
+      ],
+      "notes": [
+        "BAG places are Agelo, Denekamp, Deurningen, Lattrop-Breklenkamp, Nutter, Ootmarsum, Oud Ootmarsum, Rossum, Saasveld, Tilligte and Weerselo.",
+        "BRT supplies ten buurtschappen, one deelkern, two gehuchten and eleven woonkernen, including Breklenkamp, Noord-Deurningen, Volthe and rural labels that matter for dispersed access.",
+        "Places and settlement labels are topographic/administrative context, not counts of people present, isolation, refuge capacity or service availability."
+      ]
+    },
+    "transport": {
+      "status": "fail",
+      "summary": "Dutch road aliases and 94 transit stops load, but the graph omits Germany, the N342/B403 continuation, internal road state and the hazardous-goods rail section.",
+      "evidenceRefs": [
+        "E02",
+        "E04",
+        "E08"
+      ],
+      "notes": [
+        "Ten NWB edges connect Oldenzaal, Hengelo (O.), Losser, Enschede and Tubbergen using six physical A1/N-road corridor identities; 1,720 raw scenario capacity units must not be summed as independent measured throughput.",
+        "No graph node or edge represents Germany even though the municipality and Dinkel are cross-border and the official province has described N342 Denekamp–German-border routing. Monthly geometry does not establish incident passability.",
+        "No ProRail station lies inside GM1774, yet official risk evidence identifies a short hazardous-goods rail segment outside the built-up area. Ninety-four GTFS stop areas are static schedule/access context, not guaranteed incident service.",
+        "The deployed NDW snapshot has no GM1774 record. No current message never means all routes are open and cannot be advanced silently through T+72."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "Official roles and 72-hour preparedness guidance exist, but no event-time action, resource, access, facility or household-continuity state is ingested.",
+      "evidenceRefs": [
+        "E03",
+        "E04",
+        "E08"
+      ],
+      "notes": [
+        "The current Twente crisis plan defines crisis-team, municipal care, acute health, water-care, communication and cross-border processes as direction-setting effort requirements, not guaranteed outcomes or automatically triggered interventions.",
+        "Twente Veilig recommends 72 hours of self-reliance, 3 litres water per person per day, food, radio/powerbank, cash, medication and other supplies. The simulator has no measured GM1774 household inventory or equitable-access state.",
+        "Zero acute-hospital points inside, 20 DUO records and 60 RDI sites do not establish staffed care, shelter, reception, distribution, communications, backup or continuity."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten presets produce complete finite deterministic output at all six checkpoints and all eight services; evidence and scope contradictions are recorded separately.",
+      "evidenceRefs": [
+        "E03",
+        "E04",
+        "E05",
+        "E06",
+        "E07"
+      ],
+      "notes": [
+        "The focused gate executed severe storm, pluvial flood, river flood, coastal flood, heatwave, winter storm, cyberattack, earthquake, wildfire and compound at T+0/6/12/24/48/72 for power, water, drainage, gas, telecom, mobility, facilities and supply.",
+        "At T+24 severity / post-network pressure / affected people-equivalent / cumulative local pre-network event-attributable person-hours are storm 0.2065 / 0.3194 / 6,754 / 141,439.14; pluvial 0.1472 / 0.3085 / 6,343 / 73,940.50; named river 0 / 0.3143 / 6,564 / 0; coastal 0.0781 / 0.1261 / 0 / 43,236.82; heat 0.1005 / 0.1465 / 245 / 79,086.32.",
+        "Remaining T+24 values are winter 0.5035 / 0.2693 / 4,868 / 126,731.94; cyber 0.4870 / 0.4538 / 11,817 / 156,220.39; earthquake 0 / 0.0591 / 0 / 34,504.18; wildfire 0.1185 / 0.0959 / 0 / 39,409.24; compound 0.8873 / 0.6663 / 19,820 / 275,075.00.",
+        "At T+72 named-river local severity/stress remains zero while post-network pressure is 0.2566 and 4,389 are affected; heat remains severity 0.1005 with temperature 24.92 C and drought 0.5581 but affected rounds to zero; compound remains severity 0.3902, pressure 0.6777 and 20,247 affected. These are exercise outputs, not observations, probabilities, warnings or restoration forecasts."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "The focused gate passes deterministic, finite, exact-zero, causal, allocation, reconciliation and monotonic-burden contracts.",
+      "evidenceRefs": [],
+      "notes": [
+        "MUNICIPALITY_AUDIT_CODE=GM1774 pnpm audit:model passed both tests on current code across 10 presets × 6 checkpoints × 8 services.",
+        "Every intensity-zero run has exactly zero event severity, affected people-equivalent and event-attributable deprived person-hours at every checkpoint; repeated output and scenario/web preset parity pass.",
+        "All 46 local rows allocate exactly 26,728 residents. Maximum population reconciliation and service-delivery error is 1.4210854715202004e-14; maximum demand error is 2.1316282072803006e-14.",
+        "Changing selected service produces maximum local hazard delta zero, cumulative event-attributable person-hours are monotonic and declared logical route bounds hold."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "One shared neighbourhood pattern cannot represent Dinkelland's Dinkel, urban-rain, brook-valley, heat/drought, forest-fire, cyber, seismic and infrastructure geographies.",
+      "evidenceRefs": [
+        "E03",
+        "E04",
+        "E05",
+        "E06",
+        "E07"
+      ],
+      "notes": [
+        "At T+24 severe storm, pluvial flood, coastal flood, heatwave, winter storm, cyberattack and canonical wildfire have the exact same complete 46-neighbourhood order: Verspreide huizen Breklenkamp, Lattrop kern, Verspreide huizen Noord Deurningen, Veldkamp en Borchert, 't Stift, Wildehof, Reestman and De Mors lead.",
+        "The named-river and earthquake local arrays are all-zero ties at T+24; compound differs through saturation. No Dinkel footprint, municipal 70 mm/1 h grid, provincial 70 mm/2 h raster, valid-time heat/wind, cyber target or selected ground-motion grid drives those ranks.",
+        "A controlled synthetic wildfire point [6.983550305508839, 52.44778517275667] lies in BU17741198 Verspreide huizen Breklenkamp; municipality fire is 0.2431 and the containing neighbourhood correctly ranks 1/46 at local hazard 0.3818. Source containment therefore passes, but fuel eligibility, perimeter/spread, moisture, suppression water and access remain uncalibrated."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "All eight balances are inspectable, but one ten-road logical graph cannot represent Dinkelland's physical utilities, water control, telecom, care or stocked logistics.",
+      "evidenceRefs": [
+        "E03",
+        "E04",
+        "E05",
+        "E08"
+      ],
+      "notes": [
+        "Every GM1774 route omits supportedServices, so power, water, drainage, gas, telecom, mobility, facilities and supply all reuse the ten A1/N-road edges. The UI labels this a logical transfer proxy, but exact service values remain unsupported by operator topology.",
+        "At compound T+24 modeled availability is power 0.6641, water 0.1878, drainage 0.1223, gas 0.3440, telecom 0.1043, mobility 0.7066, facilities 0.2014 and supply 0.1641. No cited source validates those exact values, dependencies or restoration paths.",
+        "Provider polygons, one grid-capacity postcode sample, RDI sites, care/school points and Legger objects are non-causal context. They do not establish feeder/pipe/backhaul connectivity, customer load, sewer and surface-water direction, control state, priority, backup, stock, crew or repair state.",
+        "Drinking-water quantity/pressure and bacteriological/chemical quality, wastewater collection/treatment and regional surface-water control are distinct systems and cannot safely collapse into generic water/drainage scores."
+      ]
+    },
+    "causalTrace": {
+      "status": "fail",
+      "summary": "Stage arithmetic closes, but local pre-network deprivation, post-network affected counts and the absent Dinkel mechanism leave an operationally misleading causal story.",
+      "evidenceRefs": [
+        "E03",
+        "E04",
+        "E05",
+        "E08"
+      ],
+      "notes": [
+        "For the named river preset, direct local severity, peak severity and inundation stress are zero at T+0/6/12/24/48/72 and cumulative local pre-network person-hours are zero. Post-network pressure / affected people are 0.0470/0, 0.2089/2,596, 0.4151/10,360, 0.3143/6,564, 0.2566/4,389 and 0.2566/4,389 respectively.",
+        "This is not an arithmetic failure: model.ts quarter-hour-integrates matched-no-event local service shortfall before intermunicipal transfers, then computes system pressure and affected population after solving every service network. The current analytics labels/descriptions disclose the difference, but raw fields and the operational presentation do not carry a typed comparable-scope contract.",
+        "The preset is explicitly Rhine, Meuse & IJssel high water and its narrow local zero is preferable to inventing a Dinkel depth. It still imports large remote road-proxy service effects while the locally relevant cross-border Dinkel water pathway is absent.",
+        "Current Waterinfo/NDW/weather, a dated high-water event, static official registers/stress tests, official crisis roles and synthetic T+72 output remain different evidence classes and must not be blended into one operational-looking timeline."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "The 72-hour curves are deterministic but not calibrated to Dinkel hydrology, rural systems, operators, cross-border access, facilities, supplies or action completion.",
+      "evidenceRefs": [
+        "E03",
+        "E04",
+        "E05",
+        "E08"
+      ],
+      "notes": [
+        "The canonical river forcing lasts 168 hours, but GM1774 has zero direct named-river forcing throughout; its T+48 and T+72 post-network availability is an identical plateau for seven services, with facilities changing earlier, without a selected remote event or operator restoration plan.",
+        "Compound availability at T+48 and T+72 is exactly power 0.6454, water 0.1770, drainage 0.1193, gas 0.3363, telecom 0.0976, mobility 0.7215, facilities 0.1586 and supply 0.1608 while cumulative deprivation grows from 689,433.93 to 1,104,423.42 person-hours. Persistent stress may be a conservative exercise, but the plateau is not locally calibrated.",
+        "Heat remains forced through T+72 and local drought context is relevant, but affected population rounds to zero despite continuing 0.1005 severity/drought 0.5581. The canonical wildfire is only remote smoke/drought in GM1774 and reaches direct fire zero; local wildfire duration and winter outage/heating effects lack selected events.",
+        "No Dinkel hydrograph or inundation footprint, weather issue/valid time, utility switching, Vitens pressure/quality state, sewer/control telemetry, road/rail state, crew/fuel/spares, hospital acceptance, temporary water/reception point, household stock or action completion is ingested. Seventy-two hours is a preparedness horizon, not a recovery deadline."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [
+      0,
+      6,
+      12,
+      24,
+      48,
+      72
+    ],
+    "services": [
+      "power",
+      "water",
+      "drainage",
+      "gas",
+      "telecom",
+      "mobility",
+      "facilities",
+      "supply"
+    ]
+  },
+  "findings": [
+    {
+      "id": "GM1774-PERSONHOURS-001",
+      "severity": "high",
+      "category": "explainability",
+      "status": "open",
+      "summary": "Zero local pre-network deprivation coexists with thousands of post-network affected people in the named-river scenario, so metric scope can dominate the apparent conclusion.",
+      "evidence": "Direct local river severity/stress and cumulative local pre-network person-hours are zero at every checkpoint. Post-network pressure/affected is T+0 0.0470/0, T+6 0.2089/2,596, T+12 0.4151/10,360, T+24 0.3143/6,564, T+48 0.2566/4,389 and T+72 0.2566/4,389; T+24 power/mobility availability is 0.4314/0.3990. model.ts integrates the matched no-event local shortfall before transfers and computes pressure/affected after network balancing. Current analytics cards now say local pre-network versus current post-network and warn they are not directly comparable, which is a useful mitigation; the core numeric property and operational readouts still do not encode a machine-readable scope/denominator, and none of the figures is an observed outage.",
+      "action": "Treat this as a release gate for every presentation and export of these metrics: show adjacent, persistent local-pre-network/current-post-network labels and non-comparability, or add a separately named matched-baseline post-network deprived-person-hours series. Preserve counterfactual closure, avoid equating people-equivalent with identified customers, and regression-test the exact GM1774 six-checkpoint sequence."
+    },
+    {
+      "id": "GM1774-DINKEL-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The Rhine, Meuse & IJssel preset's exact local zero is narrow, while Dinkelland's distinct cross-border Dinkel regional-water hazard is missing.",
+      "evidence": "The canonical river preset produces exact zero GM1774 direct severity, peak and inundation stress from T+0 through T+72 and has no municipality evidenceNote/unsupportedDimensions. E04 says Twente has no primary dike rings and that Regge/Dinkel flooding is locally limited and generally short-lived during prolonged/intense rain. E05 establishes a Germany–Netherlands Dinkel pathway and a December 2023 event with German inflow, flooded roads/cycleways/meadows, saturated systems and continuing response. That evidence does not justify reinterpreting the named national preset as a Dinkel event, but it falsifies an all-water-risk reading of zero.",
+      "action": "Keep zero explicitly scoped to no selected direct Rhine/Meuse/IJssel forcing and render Dinkel/regional-water exposure Unknown, never safe. Add a separate authority-selected Dinkel scenario using a versioned upstream hydrograph or gauge series, rainfall, catchment/control state, connected depth/extent or threshold footprint, arrival/recession, uncertainty, licence and NoData. Use NLWKN observations only with valid time/quality and never as an automatic T+72 forecast."
+    },
+    {
+      "id": "GM1774-WATER-ASSET-NODATA-001",
+      "severity": "high",
+      "category": "regional-data",
+      "status": "open",
+      "summary": "The deployed zero HWH water-object intersection is incomplete contributor coverage, not absence of Dinkelland's managed-water system.",
+      "evidence": "The deployed HWH/PDOK snapshot displays zero records inside GM1774. An exact spatial-intersects query against the established public Vechtstromen FeatureServer returns 8 gemaal points, 585 weirs, 1,501 culverts, 1,477 discharge reaches, 80 dike sections, 37 water bodies, 46 zones, 25 surface-water polygons, 112 drops, 89 pits, 42 fish passages and 9 siphons. E03 separately describes a fine-grained sewer, pump, gully, wadi, storage, pressure-sewer and receiving-water system. The Legger has no stated reuse licence/cadence and neither register gives live topology, capacity or state, but the count contradiction proves NoData.",
+      "action": "Relabel the national zero as contributor NoData immediately. After confirming terms, add a versioned Vechtstromen Legger adapter or live on-demand query with publisher, layer, legal status, data-last-edit/retrieval, geometry, coverage and licence. Keep records non-causal until direction, catchment, compatible units, capacity, controls, live state, backup and restoration are authorized; absence must stay Unknown."
+    },
+    {
+      "id": "GM1774-SPATIAL-001",
+      "severity": "high",
+      "category": "geography",
+      "status": "open",
+      "summary": "Seven unrelated hazards share one complete 46-neighbourhood order instead of mechanism-specific Dinkelland surfaces.",
+      "evidence": "At T+24 storm, pluvial, coastal, heat, winter, cyber and canonical wildfire rank all 46 neighbourhoods identically, led by Verspreide huizen Breklenkamp, Lattrop kern, Verspreide huizen Noord Deurningen and Veldkamp en Borchert. River and earthquake are all-zero ties; compound differs through saturation. The equality conflicts with E03/E04 distinctions among Denekamp/Deurningen rain locations, Dinkel/brook valleys, high sandy drought, Ootmarsum access, rural vegetation and infrastructure targets. A controlled local fire source in BU17741198 does rank its containing neighbourhood first, so source containment passes, but it does not validate the common base seed or real fuels.",
+      "action": "Mark GM1774's nine hazard-family neighbourhood layers unsupported until mechanism-specific zonal values replace the common seed. Prefer CC0 Overijssel rain raster plus authorized municipal/water-board surfaces for pluvial flow; KNMI valid-time weather; selected Dinkel and fire footprints; KNMI ShakeMap for a selected earthquake; and explicit cyber targets. Preserve CRS, units, scenario, edition/valid time, resolution, licence, coverage and NoData and test distinct rankings."
+    },
+    {
+      "id": "GM1774-PLUVIAL-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Pluvial forcing and recovery are not tied to Dinkelland's two different public rain tests, known locations or rural sewer/surface-water mechanisms.",
+      "evidence": "Canonical pluvial output has 55.15 mm/h rain and flood stress 0.1317 at T+6, then zero rain but stress 0.2038, pressure 0.4652 and 12,246 affected at T+12; stress remains 0.2038 at T+24 and is zero at T+48. E03 defines a municipal 70 mm/1 h planning test with building, vital-network, road-depth and 120-minute criteria and names Denekamp/Deurningen projects; E06 is a separate province-wide 70 mm/2 h depth-class raster. The model samples neither, and also omits documented pressure-sewer rain connections, overflow/water-quality effects, culverts, groundwater, receiving water and event-valid road depth.",
+      "action": "Do not combine 70 mm/1 h and 70 mm/2 h as one calibrated event. Integrate each as a typed official-scenario layer, then select an explicit hyetograph and couple source-native depth/flow classes to terrain, imperviousness, sewer/pressure-sewer, culvert, receiving-water and road/facility thresholds. Preserve transparent/NoData cells and keep planning output separate from observations and forecasts."
+    },
+    {
+      "id": "GM1774-LIFELINE-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "Ten NWB road links are reused for every essential service and cannot establish Dinkelland's physical lifelines or exact 72-hour availability.",
+      "evidence": "All GM1774 routes omit supportedServices, so the same road graph carries power, water, drainage, gas, telecom, mobility, facilities and supply. At compound T+24 exact availability ranges from telecom 0.1043 and drainage 0.1223 to mobility 0.7066, without operator validation. E08 provider territories overlap Enexis/Coteq and multiple media providers; the one NBNL postcode sample is planning context only. E03–E05 show distinct potable quantity/quality, wastewater, surface-water control and telecom dependencies. No public safe source supplies full feeder, pipe, pressure-area, sewer, backhaul, backup, switching, crew or repair topology.",
+      "action": "Restrict NWB causality to mobility and explicitly assumed logistics/repair access. Give each non-road service an evidence/version/topologySemantics field and use the smallest transparent aggregate synthetic fallback until security-reviewed operator/GHOR/water-board data exists. Provider/capacity/register geometry remains affectsSimulation=false; exact service values must say uncalibrated rather than physical."
+    },
+    {
+      "id": "GM1774-CROSSBORDER-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "The Dutch municipal graph closes Dinkelland at the border and omits cross-border water, road and emergency dependencies.",
+      "evidence": "GM1774 borders Germany, but its ten links end at five Dutch municipalities. There is no German node, N342/B403 continuation, Dinkel upstream dependency or mutual-aid/authority edge. E04 explicitly says language, culture and legal differences make cross-border crisis cooperation special; E05 establishes the cross-border river; the official N342 Denekamp–German-border route is outside the generated municipal network. Static 94 GTFS stops and zero ProRail stations do not resolve the official short hazardous-goods rail segment or incident operations.",
+      "action": "Add a typed cross-border layer for mobility/logistics and water-boundary conditions using monthly CC0 NWB plus an authorized German road/rail/hydrometric source; use NDW only for valid-time Dutch road state. Preserve country, authority, direction, mode, validity, licence and units. Do not map this layer automatically onto utility services or infer passability from absent incidents."
+    },
+    {
+      "id": "GM1774-CONTINUITY-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "accepted-limitation",
+      "summary": "External acute care, dispersed-village access, emergency facilities, household stocks and institutional actions are Unknown through the first 72 hours.",
+      "evidence": "No RIVM acute-care point lies in GM1774; the nearest listed hospitals are approximately 17.16 km straight-line to Medisch Spectrum Twente and 19.35 km to ZGT Almelo, which is not ambulance travel time or acceptance. E04 notes narrow Ootmarsum fire access and official crisis/municipal-care roles; E08 contributes 20 education records and 60 antenna sites. None gives route state, facility opening, occupancy, staff, generator/fuel, diversion, shelter/reception role, supply stock, crew allocation or restoration. The 72-hour kit is guidance, not observed preparedness.",
+      "action": "Model time-dependent road/ambulance reachability separately from facility capability. Accept only event-authorized GHOR, municipality, operator and facility states with owner, valid time, expiry and confidence; track proposed/requested/confirmed/completed actions. Until then keep school/reception role, hospital acceptance, radio coverage/backup, household stock and aid timing Unknown or clearly assumed."
+    },
+    {
+      "id": "GM1774-OTHER-HAZARDS-001",
+      "severity": "medium",
+      "category": "limitation",
+      "status": "accepted-limitation",
+      "summary": "Storm, coastal, heat/drought, winter, cyber, earthquake, wildfire and omitted radiological/rail incidents remain scenario families rather than calibrated Dinkelland forecasts.",
+      "evidence": "The focused matrix is bounded, and canonical heat now remains active through T+72. Yet E03/E04 support different local mechanisms: high-sandy drought and seasonal drinking-water pressure, rural nature-fire/extinguishing-water/access, vulnerable residents and winter power/heating dependence, narrow Ootmarsum access, cyber cascades, a hazardous-goods rail section and residual Lingen/Emsland planning. The canonical wildfire source is remote and yields zero direct flame locally; the earthquake is Groningen-centred; coastal output has zero water with a wind tail; cyber has no named target. Radiological and hazardous-material incidents are outside the ten-preset scope.",
+      "action": "Keep scenario/observation/probability labels distinct and disclose omitted hazards. Use versioned KNMI EDR only with issue/valid time and dataset licence; require explicit fire perimeter, seismic event/grid, cyber target and authority exercise before local claims. Do not silently map rail, hazardous-material or radiological incidents onto another preset."
+    },
+    {
+      "id": "GM1774-NODATA-001",
+      "severity": "informational",
+      "category": "regional-data",
+      "status": "fixed",
+      "summary": "The current adapters and audit preserve missing-value and display-only semantics instead of treating absence as zero or safety.",
+      "evidence": "District heat and public charging are null in all 46 neighbourhoods; other incomplete CBS fields remain null. Zero HWH, acute-care, NDW, Waterinfo and PM2.5 station assignment is recorded as incomplete/coverage NoData, not no assets, no care need, open roads, zero water level or clean air. Provider, NBNL, Legger, RDI, DUO, Waterinfo, radar and other public context remain non-causal. Browser inspection at 1440×900 and 390×844 showed the Waterinfo no-station warning, provider/topology caveats, logical-transfer language, no horizontal overflow and zero console errors.",
+      "action": "Retain typed Unknown, suppressed, not applicable and NoData states with publisher, edition, retrieval/valid time, coverage, licence and affectsSimulation. Add regression tests so empty public responses never create zero hazard, zero service, zero need, current availability or future T+72 state."
+    },
+    {
+      "id": "GM1774-CONTRACT-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The ten-scenario deterministic contract, baseline closure, causal arithmetic, population/service reconciliation and selected-layer invariance pass for GM1774.",
+      "evidence": "The focused model gate passes two tests over every required preset, checkpoint and service. Zero-intensity event outputs close exactly; all local populations and service demand/delivery totals reconcile within 2.132e-14; repeated frames are deterministic; selected-layer local hazard delta is exactly zero; cumulative event-attributable person-hours are monotonic and route ceilings hold. The UI correctly labels public registers as context and road connectivity as a logical proxy, and the controlled Breklenkamp wildfire source ranks the containing neighbourhood first.",
+      "action": "Preserve these regressions while correcting metric-scope presentation, Dinkel/regional-water omission, incomplete water-register semantics, common hazard ranking and cross-border/service-network claims. Passing arithmetic is not local physical calibration."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Make local pre-network deprivation and post-network pressure/affected scope impossible to confuse, or add a matched post-network burden metric.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/src/components/statistics/statisticsCatalog.ts",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/App.tsx"
+      ],
+      "validation": "Current analytics labels are a partial mitigation. Require adjacent visible and machine-readable scope, time basis, counterfactual and transfer-stage metadata wherever both metrics appear or leave the application; alternatively integrate a separately named post-network DPH over matched full-network baseline states. Regression: river local hazard and pre-network DPH remain zero at all six checkpoints while post-network affected remains 0/2,596/10,360/6,564/4,389/4,389, with a non-comparability announcement and no observed-outage language."
+    },
+    {
+      "summary": "Keep the named national-river zero narrow and add an evidence-bound Dinkel/regional-water pathway rather than relabelling the Rhine, Meuse & IJssel preset.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/public/data/hazards/GM1774-water-context.json"
+      ],
+      "validation": "Add a GM1774 evidenceNote/unsupportedDimensions contract saying direct Rhine/Meuse/IJssel forcing is zero but Dinkel, brook, pluvial and regional-water exposure is Unknown. A nonzero Dinkel exercise requires a water-manager-selected versioned cross-border hydrograph/rainfall and connected footprint or threshold rules, with gauge/datum, controls, depth/stress units, arrival/recession, uncertainty, licence and NoData. Test separate preset identity, no all-clear wording and no automatic projection of current NLWKN values to T+72."
+    },
+    {
+      "summary": "Replace the shared GM1774 neighbourhood seed with mechanism-specific, coverage-aware public context and explicit unsupported states.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/public/data/hazards/GM1774-spatial-context.json",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Before correction, seven nonzero T+24 presets have exactly the same 46-neighbourhood order. Integrate the Overijssel CC0 70 mm/2 h WMS/raster and authorized Dinkelland 70 mm/1 h/municipal GIS as separate official scenarios; use selected Dinkel, KNMI weather/seismic and fire source/perimeter layers by mechanism. Preserve CRS, units, scenario, edition/valid time, resolution, licence, coverage and NoData. Assert distinct hazards can produce distinct ranks and retain the passing Breklenkamp source-containment regression."
+    },
+    {
+      "summary": "Fill the Dinkelland managed-water coverage gap and separate physical services from NWB road-derived logical transfers.",
+      "files": [
+        "scripts/fetch-water-assets.mjs",
+        "apps/web/public/data/public-context/water-assets.geojson.gz",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Label the deployed zero as contributor NoData. After confirming reuse terms, ingest or query the established Vechtstromen Legger with snapshot/data-last-edit and layer coverage; reproduce the audited intersection counts. Keep legal/register geometry non-causal until catchment, direction, capacity, control, state, backup and restoration are authorized. NWB may support mobility and assumed logistics/repair access only; all unavailable/security-sensitive power, water, drainage, gas, telecom and facility topology stays Unknown or transparently aggregate synthetic."
+    },
+    {
+      "summary": "Add cross-border and time-dependent mobility/care continuity plus an auditable first-72-hour action ledger.",
+      "files": [
+        "apps/web/public/data/transport-network.json",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/AnalyticsDrawer.tsx",
+        "apps/web/public/data/public-context/GM1774-response-context.json"
+      ],
+      "validation": "Use monthly CC0 NWB geometry and valid-time CC0 NDW only for Dutch mobility; add authorized N342/B403/German, internal road and rail continuity with country/authority/mode/validity/licence. Validate time-dependent ambulance reachability to external hospitals without treating straight-line distance or questionnaire roles as availability. Track proposed/requested/confirmed/completed/cancelled actions with owner, evidence time, expiry and confidence; schools, reception/water points, stocks, crews and hospital acceptance remain Unknown until confirmed."
+    }
+  ],
+  "residualLimitations": [
+    "This is a deterministic first-72-hour planning-model audit, not a KNMI, Rijkswaterstaat, Vechtstromen, Veiligheidsregio Twente, municipality, NLWKN or infrastructure-operator forecast, warning, probability, evacuation order, casualty estimate or restoration commitment.",
+    "The 2025 generalized CBS boundary and neighbourhoods are suitable for overview aggregation, not parcel hydraulics, cross-border catchments, water/land separation, asset ownership, incident perimeters or emergency routes.",
+    "No selected Dinkel hydrograph, upstream/downstream boundary, gauge/datum, rainfall, control/defence state, connected inundation footprint, arrival/recession, verified depth unit or NoData mask drives GM1774.",
+    "The exact-zero Rhine/Meuse/IJssel direct result is narrow and cannot mean zero Dinkel, brook, pluvial, sewer, groundwater, access or indirect supply risk.",
+    "The WRP's 70 mm/1 h and province's 70 mm/2 h products are different official planning scenarios; neither is a current observation or T+72 forecast, and the model currently samples neither.",
+    "Vechtstromen Legger features are legal/register geometry without a stated reuse licence or guaranteed cadence; intersections do not establish hydraulic connectivity, capacity, setpoint, operation, backup or restoration.",
+    "HWH, provider, capacity, antenna, facility, education, road, rail, transit, Waterinfo and air-quality records have distinct coverage and time semantics; empty assignment is Unknown rather than no asset, open road, zero water or clean air.",
+    "No complete public safe source supplies Coteq/Enexis electrical and gas topology, Vitens pressure/quality network, municipal sewer, Vechtstromen controls, telecom backhaul, facility dependencies, fuel/food stock, backups, crews or restoration; sensitive details were not inferred.",
+    "All eight services currently reuse ten road-derived logical links, which cannot be interpreted as physical utility, wastewater, water-control, telecom, patient-transfer or stocked-logistics networks.",
+    "NWB, ProRail and GTFS are static geometry/schedule context. NDW is a deployment-time Dutch current picture; none establishes German continuity, incident-time passability, evacuation throughput or future T+72 state.",
+    "RIVM hospital role and straight-line distance do not establish ambulance time, reachability, acceptance, staffing, occupancy, diversion, generator/fuel or backup endurance.",
+    "RDI sites do not establish operator, radio coverage, traffic, power/backhaul, congestion, availability or restoration. DUO locations do not establish shelter, reception, care or distribution roles.",
+    "The focused local fire point is synthetic and tests containment only; no current fuel/moisture, wind, perimeter, suppression-water, access, evacuation or smoke-exposure model is calibrated.",
+    "Cyber lacks a named target/architecture/attack path; earthquake lacks a selected local event, ground-motion/site-response surface and asset fragility; residual Lingen and hazardous-goods rail incidents are outside the ten presets.",
+    "Household preparedness, medically dependent people, visitors/workers, mutual aid, water/reception points, medicine, food/fuel, staff, vehicles and repair priorities remain assumptions or Unknown. Official 72-hour guidance is not measured readiness or an aid/recovery deadline.",
+    "Affected population is a current post-network people-equivalent threshold metric, while deprived person-hours is a cumulative local pre-network matched-baseline service-pressure proxy. Neither is identified customers, casualties, displacement, welfare loss or economic damage; six-hour checkpoints can miss rapid changes."
+  ],
+  "provinceReviewFlags": [
+    "Municipality-specific release blocker: label the Rhine/Meuse/IJssel direct zero as narrow and add a separate Vechtstromen/VR Twente/NLWKN-reviewed Dinkel pathway with cross-border hydrograph, controls, footprint, arrival/recession, uncertainty, licence and NoData; current gauge values are not a T+72 forecast.",
+    "Municipality-specific release blocker: treat the deployed zero HWH intersection as contributor NoData and evaluate the established Vechtstromen Legger adapter after licence confirmation; public objects stay non-causal until hydraulic topology/state is authorized.",
+    "Municipality-specific: integrate Dinkelland's 70 mm/1 h criteria and Overijssel's CC0 70 mm/2 h raster as separate scenario evidence, including named Denekamp/Deurningen locations, pressure sewer, culverts, receiving water and road/facility thresholds.",
+    "Municipality-specific: represent N342/B403 and German/Dinkel continuity, the short hazardous-goods rail section, dispersed villages, narrow Ootmarsum access and external acute-care reachability without treating static records as operational state.",
+    "Shared/national release blocker: seven unrelated hazards reuse one complete neighbourhood order; mark all nine GM1774 hazard-family layers unsupported until mechanism-specific public surfaces and selected events control allocation.",
+    "Shared/national release blocker: local pre-network person-hours can be zero while current post-network pressure affects thousands. Preserve adjacent scope labels everywhere or add a matched post-network burden metric; no metric is an observed outage.",
+    "Shared/national: restrict NWB to mobility and assumed logistics/repair semantics. Provider territories, grid planning, Legger/water assets, antennas, hospitals, schools and current observations are context only; unavailable/security-sensitive topology, state, backup, stocks and restoration remain Unknown or transparently synthetic."
+  ]
+}

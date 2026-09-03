@@ -1,0 +1,636 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0197",
+    "name": "Aalten",
+    "province": "Gelderland",
+    "safetyRegion": "Noord- en Oost-Gelderland"
+  },
+  "agent": {
+    "taskName": "municipality_gm0197",
+    "agentId": "/root/municipality_gm0518",
+    "completedAt": "2026-09-02T11:08:13Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "The generated 2025 CBS/PDOK identity, generalized boundary, centre, population, all 29 buurten, four BAG woonplaatsen, fourteen TOP10NL settlements, Noord- en Oost-Gelderland safety-region membership, Aalten station and domestic NWB context verify. The dedicated GM0197 gate passes all ten canonical presets at 0/6/12/24/48/72 hours for all eight services, including bounds, deterministic replay, causal ledgers, event-attributable person-hours, neutral local priority and exact municipality reconciliation. Local physical interpretation nevertheless requires correction. The major-river preset assigns 2.542 m of direct inundation to the high sandy Achterhoeks plateau from T+12 through T+72, then restores services and reduces affected people-equivalent to zero while that peak inundation remains unchanged. A single wildfire epicentre 62.42 km away also creates direct local fire damage within six hours, rather than a land-cover, wind and propagation footprint. The national-only graph omits the materially important German gateway at Dinxperlo/N313. Utility topology, backup and restoration remain transparent planning proxies, not operator-validated forecasts.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek (CBS)",
+      "title": "E01 — Kerncijfers wijken en buurten 2025 (86165NED), GM0197 municipality row",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM0197%27%29",
+      "accessedAt": "2026-09-02T11:02:01Z",
+      "edition": 2025,
+      "supports": [
+        "Official GM0197 population of 27,466 and density of 285 residents per square kilometre",
+        "Official municipality totals of 6,791 residents aged 65 or older, 11,845 households and 3,725 one-person households",
+        "Published null semantics for district heating, public charging and several municipal energy fields"
+      ]
+    },
+    {
+      "publisher": "Centraal Bureau voor de Statistiek (CBS)",
+      "title": "E02 — Gebieden in Nederland 2025 (86059NED)",
+      "url": "https://www.cbs.nl/nl-nl/cijfers/detail/86059NED",
+      "accessedAt": "2026-09-02T11:02:01Z",
+      "edition": 2025,
+      "supports": [
+        "Official municipality code and spelling",
+        "Province Gelderland and safety-region hierarchy",
+        "Administrative-edition context"
+      ]
+    },
+    {
+      "publisher": "PDOK / Centraal Bureau voor de Statistiek",
+      "title": "E03 — CBS Gebiedsindelingen 2025, generalized municipality collection",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_gegeneraliseerd/items?f=json&limit=1000&datetime=2025-07-01T00%3A00%3A00Z",
+      "accessedAt": "2026-09-02T11:02:01Z",
+      "edition": 2025,
+      "supports": [
+        "Official GM0197 generalized MultiPolygon",
+        "Aalten name and code",
+        "Point-in-polygon check for the generated centre"
+      ]
+    },
+    {
+      "publisher": "PDOK / Centraal Bureau voor de Statistiek",
+      "title": "E04 — CBS Gebiedsindelingen 2025, generalized buurt collection",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/buurt_gegeneraliseerd",
+      "accessedAt": "2026-09-02T11:02:01Z",
+      "edition": 2025,
+      "supports": [
+        "Twenty-nine official buurt geometries in four wijken",
+        "Buurt identifiers and municipality membership",
+        "Spatial basis of the local allocation view"
+      ]
+    },
+    {
+      "publisher": "PDOK / Kadaster",
+      "title": "E05 — Basisregistratie Adressen en Gebouwen, woonplaats collection",
+      "url": "https://api.pdok.nl/kadaster/bag/ogc/v2/collections/woonplaats",
+      "accessedAt": "2026-09-02T11:02:01Z",
+      "edition": "generated retrieval 2026-08-31",
+      "supports": [
+        "Active woonplaatsen Aalten, Bredevoort, De Heurne and Dinxperlo",
+        "No woonplaats centre outside the generated generalized boundary"
+      ]
+    },
+    {
+      "publisher": "PDOK / Kadaster",
+      "title": "E06 — BRT TOP10NL plaats_vlak collection",
+      "url": "https://api.pdok.nl/brt/top10nl/ogc/v1/collections/plaats_vlak?f=html",
+      "accessedAt": "2026-09-02T11:02:01Z",
+      "edition": "source date 2025-07-01",
+      "supports": [
+        "Fourteen settlement polygons assigned to GM0197 by point-in-polygon",
+        "Six buurtschappen and eight woonkernen",
+        "Settlement names, types and separately sourced population metadata"
+      ]
+    },
+    {
+      "publisher": "PDOK / Centraal Bureau voor de Statistiek",
+      "title": "E07 — CBS Gebiedsindelingen 2025, generalized safety-region collection",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/veiligheidsregio_gegeneraliseerd",
+      "accessedAt": "2026-09-02T11:02:01Z",
+      "edition": 2025,
+      "supports": [
+        "Unique GM0197 membership of VR06 Noord- en Oost-Gelderland",
+        "Twenty-two generated municipalities in the safety region"
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat",
+      "title": "E08 — Nationaal Wegenbestand",
+      "url": "https://www.rijkswaterstaat.nl/zakelijk/zakendoen-met-rijkswaterstaat/werkwijzen/werkwijze-in-gww/data-eisen-rijkswaterstaatcontracten/nationaal-wegenbestand",
+      "accessedAt": "2026-09-02T11:02:01Z",
+      "edition": "NWB-Light 2026-08-01 in generated data",
+      "supports": [
+        "Official road geometry underlying the N313, N318 and N317 domestic links",
+        "NWB as road topology rather than utility topology or emergency transfer capacity"
+      ]
+    },
+    {
+      "publisher": "ProRail / PDOK",
+      "title": "E09 — ProRail station OGC collection",
+      "url": "https://api.pdok.nl/prorail/spoorwegen/ogc/v1/collections/station",
+      "accessedAt": "2026-09-02T11:02:01Z",
+      "edition": "generated retrieval 2026-08-31",
+      "supports": [
+        "Aalten station point and code Atn inside GM0197",
+        "Official station-map provenance"
+      ]
+    },
+    {
+      "publisher": "Gemeente Aalten",
+      "title": "E10 — Denk vooruit",
+      "url": "https://www.aalten.nl/nood",
+      "accessedAt": "2026-09-02T11:02:01Z",
+      "edition": "accessed 2026-09-02",
+      "supports": [
+        "Local relevance of long power outages, water nuisance, extreme heat and heavy storm",
+        "Municipal coordination with Waterschap Rijn en IJssel on closures and additional pumping during heavy rain",
+        "Crisis coordination with VNOG, fire, police and GHOR"
+      ]
+    },
+    {
+      "publisher": "Waterschap Rijn en IJssel",
+      "title": "E11 — Schone en natuurlijke beken in het Achterhoeks plateau",
+      "url": "https://www.wrij.nl/achterhoeks-plateau",
+      "accessedAt": "2026-09-02T11:02:01Z",
+      "edition": "accessed 2026-09-02",
+      "supports": [
+        "Aalten lies on the Achterhoeks plateau extending from the German border through Groenlo and Lichtenvoorde",
+        "Local beeks must retain water during dry periods and discharge water after long or heavy rain",
+        "Catchment-specific wet-versus-dry context"
+      ]
+    },
+    {
+      "publisher": "Waterschap Rijn en IJssel",
+      "title": "E12 — Verboden om water te halen uit rivieren, beken en sloten",
+      "url": "https://www.wrij.nl/actueel/nieuwsoverzicht/verboden-water-halen-rivieren-beken-sloten",
+      "accessedAt": "2026-09-02T11:02:01Z",
+      "edition": "published 2025-06-24",
+      "supports": [
+        "The Achterhoek is highly drought-sensitive because of its high sandy soils",
+        "The area can import almost no additional water from the large rivers and depends on rain",
+        "Local measures address both extreme rain and drought"
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Noord- en Oost-Gelderland",
+      "title": "E13 — Regionaal Beleidsplan, Risicoprofiel en Dekkingsplan 2025–2028",
+      "url": "https://www.vnog.nl/sites/default/files/2024-06/14.%20Regionaal%20Beleidsplan%20Risicoprofiel%20en%20Dekkingsplan%202025-2028.pdf",
+      "accessedAt": "2026-09-02T11:02:01Z",
+      "edition": "2025–2028",
+      "supports": [
+        "Regional relevance of flooding associated with the IJssel and randmeren, extreme weather, heat and drought",
+        "Regional nature-fire risk in the Veluwe and smaller Achterhoek nature areas",
+        "Nature-fire access, response capacity and multi-partner coordination context"
+      ]
+    },
+    {
+      "publisher": "Provincie Gelderland",
+      "title": "E14 — Traject 137: N318 Varsseveld–Winterswijk",
+      "url": "https://geodata.gelderland.nl/bestanden/Geo-teksten/IVW/Dataset_IVW/InWe_Prov_trajectvisies/doc/137.pdf",
+      "accessedAt": "2026-09-02T11:02:01Z",
+      "edition": "trajectory vision 2021/2030/2039",
+      "supports": [
+        "N318 connects Winterswijk, Aalten and Varsseveld/N18",
+        "Cross-border freight uses N313 toward Bocholt/A3 and Borken/B67/A31",
+        "The generated domestic link capacities are not the published traffic intensities"
+      ]
+    },
+    {
+      "publisher": "Gemeente Aalten",
+      "title": "E15 — Dinxperlo omgevingsgesprekken",
+      "url": "https://www.aalten.nl/dinxperlo",
+      "accessedAt": "2026-09-02T11:02:01Z",
+      "edition": "2024–2025 engagement reports",
+      "supports": [
+        "Dinxperlo is a German-border community integrated with Suderwick",
+        "Local accounts identify a Dinxperlo–Bocholt bus link and cross-border orientation",
+        "Ambulance access, digital infrastructure, ageing and public-transport availability are local concerns"
+      ]
+    },
+    {
+      "publisher": "Koninklijk Nederlands Meteorologisch Instituut",
+      "title": "E16 — ShakeMaps voor Groningen",
+      "url": "https://www.knmi.nl/kennis-en-datacentrum/achtergrond/shakemaps-voor-groningen",
+      "accessedAt": "2026-09-02T11:02:01Z",
+      "edition": "accessed 2026-09-02",
+      "supports": [
+        "Ground acceleration depends on event magnitude, distance, local soil and wave propagation",
+        "KNMI combines measurements with a Groningen-specific ground-motion prediction equation",
+        "A radial exponential alone does not validate local PGA or damage"
+      ]
+    },
+    {
+      "publisher": "Vitens",
+      "title": "E17 — Nieuwe winputten Loohuisbos, Aalten",
+      "url": "https://www.vitens.nl/over-water/projecten/gelderland/aalten/aalten-winputten",
+      "accessedAt": "2026-09-02T11:02:01Z",
+      "edition": "project period November 2024–end 2025",
+      "supports": [
+        "Aalten's four-well field has a one-million-cubic-metre-per-year abstraction permit",
+        "Aalten pre-treats groundwater and transfers it to production site Corle for softening",
+        "Public facility context does not reveal or validate complete pipe topology, backup or restoration"
+      ]
+    },
+    {
+      "publisher": "Waterschap Rijn en IJssel",
+      "title": "E18 — Waterzuiveringen",
+      "url": "https://www.wrij.nl/waterzuiveringen",
+      "accessedAt": "2026-09-02T11:02:01Z",
+      "edition": "accessed 2026-09-02",
+      "supports": [
+        "Aalten is a named wastewater-treatment location",
+        "Vitens provides drinking-water treatment in the water-board area",
+        "Wastewater and drinking-water functions must not be conflated"
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "Generated GM0197 identity and administrative hierarchy agree with official 2025 CBS/PDOK records.",
+      "evidenceRefs": [
+        "E01",
+        "E02",
+        "E03",
+        "E07"
+      ],
+      "notes": [
+        "Feature id, feature code, regional-bundle code and manifest code are GM0197; every name is Aalten.",
+        "Province is Gelderland and the municipality belongs uniquely to VR06 Noord- en Oost-Gelderland."
+      ]
+    },
+    "geography": {
+      "status": "pass",
+      "summary": "The application uses the official 2025 generalized MultiPolygon and its generated centre is inside the boundary.",
+      "evidenceRefs": [
+        "E03",
+        "E05"
+      ],
+      "notes": [
+        "The corrected audit point-in-polygon check places [6.567557056847674, 51.93019559721263] inside GM0197.",
+        "All four active BAG woonplaats centres raise no generalized-boundary review flag.",
+        "Administrative inclusion does not establish terrain, catchment or hazard exposure."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Municipality-level 2025 demographics reproduce CBS and buurt differences are small, explainable publication-rounding differences.",
+      "evidenceRefs": [
+        "E01",
+        "E04"
+      ],
+      "notes": [
+        "Generated population 27,466, density 285, age-65-plus share 24.7 percent and 3,725 one-person households match the municipality row.",
+        "The 29 published buurt populations sum to 27,445, 21 below the municipality total (-0.076 percent).",
+        "Buurt households sum to 11,860 versus 11,845 municipality-wide; buurt age-65-plus counts sum to 6,790 versus 6,791. Separate five-person rounding is preserved rather than treated as corruption."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "All 29 official buurten and core fields are present, while unavailable CBS context remains null and local allocation correctly reconciles to the municipality total.",
+      "evidenceRefs": [
+        "E01",
+        "E04"
+      ],
+      "notes": [
+        "The bundle contains 29 buurten in four wijken and exposes all 36 supported statistic fields.",
+        "Population, household and age fields are complete; cars per household is available for 25 of 29 rows; district-heating percentage and public-charging-point count are unavailable in all 29 rows.",
+        "No buurt has an official zero population in this edition; the smallest published value is 80.",
+        "Official buurten receive neutral priority 2 and no inferred hub. Missing context has a neutral effect rather than zero imputation."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "BAG woonplaats and TOP10NL settlement membership is internally coherent and source-dated.",
+      "evidenceRefs": [
+        "E05",
+        "E06"
+      ],
+      "notes": [
+        "The four active BAG woonplaatsen are Aalten, Bredevoort, De Heurne and Dinxperlo.",
+        "The fourteen TOP10NL features comprise six buurtschappen and eight woonkernen, each assigned by point-in-polygon with source date 2025-07-01.",
+        "Their descriptive population metadata sums to 23,000 and is not substituted for the CBS municipality total because settlement polygons use a different concept and date."
+      ]
+    },
+    "transport": {
+      "status": "warn",
+      "summary": "Domestic NWB, rail and GTFS context is recognizable, but the logical graph truncates at the German border and all disaster transfer capacities are synthetic.",
+      "evidenceRefs": [
+        "E08",
+        "E09",
+        "E14",
+        "E15"
+      ],
+      "notes": [
+        "Four NWB-derived links reach three unique Dutch neighbours: N313 to Oost Gelre, N318 to Oude IJsselstreek and Winterswijk, and N317 to Oude IJsselstreek.",
+        "Every link is a regional logical proxy with nominal capacity 150; that value is not an NWB traffic count, evacuation capacity or utility rating.",
+        "Aalten ProRail station lies inside the boundary and 27 GTFS stop areas are locally assigned; timetable, vehicle, passenger, accessibility and incident capacity are not simulated.",
+        "No foreign gateway represents N313 toward Bocholt/A3 and Borken/B67/A31 or the Dinxperlo–Bocholt connection, despite their documented local importance."
+      ]
+    },
+    "emergencyContext": {
+      "status": "warn",
+      "summary": "The correct municipality, water-board and VNOG context is documented, but the simulation does not represent actual command roles, responder locations, shelters, care capacity or cross-border coordination.",
+      "evidenceRefs": [
+        "E10",
+        "E11",
+        "E12",
+        "E13",
+        "E15"
+      ],
+      "notes": [
+        "Aalten identifies power outage, water nuisance, heat and storm and works with Waterschap Rijn en IJssel on closures and extra pumping during heavy rain.",
+        "VNOG supports region-wide flood, nature-fire and extreme-weather preparation; these regional classes do not prove the simulator's local depth, burn footprint or restoration curve.",
+        "The model has generic intervention multipliers but no incident command structure, German partner, responder roster, shelter inventory or operational resource state."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "fail",
+      "summary": "All ten canonical scenarios execute at all six checkpoints, but the major-river and wildfire direct footprints are physically implausible for their declared Aalten event geometry.",
+      "evidenceRefs": [
+        "E10",
+        "E11",
+        "E12",
+        "E13",
+        "E16",
+        "in-repo:packages/sim-core/src/model.ts",
+        "in-repo:apps/web/src/scenarios.ts"
+      ],
+      "notes": [
+        "The mandated command passed 10 presets × 6 checkpoints × 8 services; the separate web preset test confirms that the UI factory deeply clones the canonical sim-core configurations.",
+        "Severe-storm: local storm and heavy-rain relevance is supported; the app-like run reaches 20.67 m/s gust, 32.83 mm/h rain and 0.065 m retained water at T+12, but these exact values are scenario assumptions rather than a KNMI event.",
+        "Pluvial-flood: local water nuisance and pumping action are supported; 57.40 mm/h at T+6 and 0.213 m at T+12/T+24 remain uncalibrated municipality-label-point outputs.",
+        "River-flood: the Rhine, Meuse & IJssel preset produces 0.895 m at T+6 and 2.542 m at T+12/T+24/T+48/T+72, contradicting the local high-sandy-plateau and catchment evidence.",
+        "Coastal-flood: direct Aalten flood depth is correctly zero at every checkpoint after finite coastal screening; the retained 21.43 m/s wind at T+6–T+24 is an indirect scenario component, not coastal inundation.",
+        "Heatwave: municipality and water-board evidence supports heat/drought sensitivity; T+12 is 32.94 °C with drought index 0.440, while exact service losses are not locally calibrated.",
+        "Winter-storm: T+6–T+24 combines 21.48 m/s wind, 3.28 cm/h snow and ice index 0.561; it is a hypothetical stress case without a local forecast or road-treatment model.",
+        "Cyberattack: the generic untargeted scenario reaches disruption 0.477 at T+12 and 0.407 at T+24; it is useful sensitivity analysis but contains no Aalten incident, operator scope or threat intelligence.",
+        "Earthquake: the Groningen epicentre 143.35 km away yields 0.00611 g at T+6 and 21,531 event-attributable deprived person-hours by T+72 without a magnitude, KNMI grid or Aalten site response.",
+        "Wildfire: the configured epicentre is 62.42 km away, yet by T+12 the model gives direct wildfire intensity 0.1765, smoke 0.2869 and 4,140 affected people-equivalent; at T+24 affected rises to 5,384.",
+        "Compound: the storm/pluvial/cyber cascade is numerically coherent and reaches 15,493 affected people-equivalent at T+24; its 0.221 m water depth and generic cascade parameters are scenario values, not an Aalten forecast."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "The dedicated GM0197 gate passes bounds, deterministic replay, local conservation, route semantics and cumulative-burden invariants.",
+      "evidenceRefs": [
+        "in-repo:packages/sim-core/src/municipality-coverage.test.ts",
+        "in-repo:packages/sim-core/src/model.ts"
+      ],
+      "notes": [
+        "Command: MUNICIPALITY_AUDIT_CODE=GM0197 pnpm audit:model; result: two tests passed on 2026-09-02.",
+        "All hazard and service values are finite and bounded, affected population is integral and within 0..27,466, and T+24 deterministic replay is byte-identical.",
+        "At compound T+24, every service has 29 district rows whose population and affected population exactly equal 27,466 and 15,493; demand and delivery errors are at most 3.56e-15.",
+        "Local hazard severity is service-layer invariant with maximum cross-service delta exactly zero; all official regions retain priority 2 and no hub.",
+        "Event-attributable deprived person-hours are monotonic and matched no-event accumulation is zero."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "Real administrative geometry is combined with municipality-centre distance fields rather than Aalten terrain, catchments, connected flood pathways or fire propagation.",
+      "evidenceRefs": [
+        "E11",
+        "E12",
+        "E13",
+        "E16",
+        "in-repo:packages/sim-core/src/model.ts"
+      ],
+      "notes": [
+        "River exposure is exponential distance from three hand-coded line segments inside a 50 km screening radius; the source comment correctly calls it proximity screening rather than hydraulics, but the UI output is expressed as metres.",
+        "WRIJ identifies Aalten as high sandy Achterhoeks plateau governed by beeks, rain retention, drought and heavy-rain drainage, with almost no ability to import large-river water.",
+        "Wildfire and smoke use separate unlimited exponential distance decays of 46 km and 125 km from one point, without land cover, fuels, wind, barriers, rate of spread or ignition connectivity.",
+        "Earthquake uses a 42 km exponential decay, without magnitude, measured ground motion, Groningen-specific GMPE grid or local soil response.",
+        "Buurt severity differences use deterministic seeded variation and aggregate CBS context, not a hazard raster intersected with the 29 geometries; exact neighbourhood rankings are allocation proxies."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "warn",
+      "summary": "All eight service chains are bounded and explainable, but their topology, capacities, backups and restoration are generic assumptions rather than Aalten operator evidence.",
+      "evidenceRefs": [
+        "E08",
+        "E10",
+        "E14",
+        "E17",
+        "E18",
+        "in-repo:packages/sim-core/src/model.ts"
+      ],
+      "notes": [
+        "Power: it is the principal upstream dependency and public sources confirm local network assets exist, but no Liander/TenneT feeder, switching, outage or crew model is consumed.",
+        "Water: power dependency and reserves are generic; the documented Aalten extraction/pre-treatment to Corle treatment chain is absent, and no Vitens-approved pipe, storage, emergency-power or restoration data is used.",
+        "Drainage: power dependence is directionally plausible and WRIJ names an Aalten treatment facility and heavy-rain pump actions, but sewers, beeks, culverts, pumps, storage, treatment capacity and live levels are absent.",
+        "Gas: partial passive capacity plus power-dependent control is a scenario assumption; no pressure district, regulator, customer mix or operator restoration evidence is present.",
+        "Telecom: battery and power/cyber dependencies are transparent assumptions; no mast, fibre, backhaul, coverage, battery-runtime or operator incident data is modeled.",
+        "Mobility: NWB, ProRail and GTFS provide map context, while transfer capacity 150, disruption, flow and cross-border truncation are not observed transport operations.",
+        "Facilities: power/generator dependence is credible in direction only; hospitals, care homes, fire/ambulance posts, shelters, occupancy, staffing, generator fuel and mutual aid are not inventoried.",
+        "Supply: mobility and household-preparedness dependencies are generic; shops, warehouses, pharmacies, farm/food chains, stocks, depots, German alternatives and last-mile resources are unobserved.",
+        "The same road-derived logical adjacency can balance every service. It is explicitly labelled logical-proxy and must never be presented as cables, pipes, towers or physical utility flow."
+      ]
+    },
+    "causalTrace": {
+      "status": "pass",
+      "summary": "Hazard, service, pressure, dependency and counterfactual ledgers reconcile exactly under the declared deterministic equations.",
+      "evidenceRefs": [
+        "in-repo:packages/sim-core/src/municipality-coverage.test.ts",
+        "in-repo:packages/sim-core/src/model.ts"
+      ],
+      "notes": [
+        "Hazard contributions sum to current severity; service-availability contributions reconcile from baseline one; system-pressure contributions sum to pressure.",
+        "Every counterfactual obeys counterfactual value minus observed value equals delta, and dependency chains expose upstream service, multiplier, backup state and modeled remaining backup time.",
+        "The T+72 river power trace records direct flood pressure 0.78 and recovery progress 1.0; its no-recovery counterfactual is exactly 0.504604 availability below observed. This makes the recovery contradiction auditable rather than hiding it.",
+        "Proportional hazard attribution is deterministic model explanation, not empirical causal inference."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "The major-river scenario restores services while the same unchanged peak inundation remains active through and beyond T+72.",
+      "evidenceRefs": [
+        "E11",
+        "E12",
+        "in-repo:packages/sim-core/src/model.ts"
+      ],
+      "notes": [
+        "At T+72 the river preset still reports 2.541923 m depth and severity 0.792452, yet affected people-equivalent is zero and system pressure is only 0.082929.",
+        "T+72 app-like service availability is power 0.894, water 0.940, drainage 0.880, gas 0.944, telecom 0.962, mobility 0.952, facilities 0.911 and supply 0.855.",
+        "Modeled recovery progress ranges from 0.812 for mobility to 1.000 for power although the 168-hour forcing is still at its peak; repair eligibility is capped at 18 hours after event start rather than gated by current inundation or access.",
+        "Other scenarios remain bounded and cumulative burden is monotonic, but zero affected people-equivalent is a thresholded output and must not be treated as proof of complete recovery while hazard or pressure remains."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [
+      0,
+      6,
+      12,
+      24,
+      48,
+      72
+    ],
+    "services": [
+      "power",
+      "water",
+      "drainage",
+      "gas",
+      "telecom",
+      "mobility",
+      "facilities",
+      "supply"
+    ]
+  },
+  "findings": [
+    {
+      "id": "GM0197-HYD-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "A proximity line assigns catastrophic Rhine/Meuse/IJssel inundation to the high sandy Achterhoeks plateau.",
+      "evidence": "The canonical river preset gives GM0197 0.895 m at T+6 and 2.542 m at T+12, T+24, T+48 and T+72, with 16,945 affected people-equivalent at T+24. The function uses distance from three hand-coded corridors and explicitly says it is screening, not hydraulics. E11–E12 identify Aalten's relevant high sandy plateau, beeks, rain dependence and near-inability to import water from the large rivers. No connected breach, catchment or inundation path supports the displayed metre depth.",
+      "action": "Mask the named major-river preset with official LIWO/LVO breach and connected-inundation extents and require a hydrologic path before assigning depth. Model Achterhoeks beeks, groundwater, saturated soil and cloudburst water separately; until then show a proximity index, not metres."
+    },
+    {
+      "id": "GM0197-REC-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Generic restoration reaches near-completion while the modeled 2.542 m flood remains at peak intensity.",
+      "evidence": "At river T+72, depth and severity remain 2.541923 m and 0.792452, but affected people-equivalent is zero, pressure is 0.082929 and all eight services are 0.855–0.962 available. Recovery progress is 0.812–1.000. The code caps earliest repair at start plus 18 hours even for 168-hour forcing; the power ledger shows recovery adding back 0.504604 availability while direct flood pressure remains 0.78.",
+      "action": "Gate damage repair and access-sensitive restoration on current local forcing, safe access and asset inspection, or explicitly model protected/remote repair. Add a regression that unchanged peak direct inundation cannot silently produce zero affected people-equivalent and near-full restoration without a documented intervention."
+    },
+    {
+      "id": "GM0197-FIRE-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "An unlimited radial decay turns a wildfire 62.42 km away into direct local burning within six hours.",
+      "evidence": "The canonical wildfire starts at [5.75, 52.18], 62.42 km from the Aalten centre. At T+12, six hours after start, GM0197 already has direct wildfire intensity 0.1765, smoke 0.2869 and 4,140 affected people-equivalent; affected rises to 5,384 at T+24. The direct fire field is exp(-distance/46) with no finite support, land cover, wind, barriers or propagation time. E13 supports genuine nature-fire risk in the Achterhoek, but not direct burning from this particular distant ignition.",
+      "action": "Give direct fire a finite, time-dependent spread footprint based on ignition, fuels/land cover, wind, barriers and access; retain a distinct wider smoke plume. If the intent is simultaneous regional fires, declare and source multiple ignitions instead of using one epicentre."
+    },
+    {
+      "id": "GM0197-NET-001",
+      "severity": "medium",
+      "category": "network",
+      "status": "open",
+      "summary": "The national-only logical graph omits Aalten's operationally material German-border gateway.",
+      "evidence": "Generated GM0197 connectivity contains four links to three Dutch neighbours only. E14 documents N313 cross-border freight toward Bocholt/A3 and Borken/B67/A31; E15 describes Dinxperlo's integration with Suderwick and a Dinxperlo–Bocholt bus connection. The current graph therefore understates mobility and supply alternatives and dependencies at the municipality's border.",
+      "action": "Add an explicitly typed foreign mobility/supply gateway with source, direction and uncertainty, or prominently disclose national truncation in GM0197. Do not project that gateway onto electricity, gas, water or telecom without operator evidence."
+    },
+    {
+      "id": "GM0197-SEIS-001",
+      "severity": "medium",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The Groningen-earthquake tail presents exact Aalten PGA and service burden without an event or site-response model.",
+      "evidence": "The configured Groningen epicentre is 143.35 km from Aalten, yet the model produces 0.00611 g at T+6 and 21,531 event-attributable deprived person-hours by T+72 from a simple exp(-distance/42) field. E16 states that magnitude, distance, soil, wave propagation, observations and a Groningen-specific GMPE determine a ShakeMap. The scenario has no magnitude or official grid.",
+      "action": "Use a named hypothetical magnitude plus a valid KNMI/GMPE ground-motion grid and service fragility thresholds, or label the output an uncalibrated sensitivity index and suppress false PGA precision outside supported coverage."
+    },
+    {
+      "id": "GM0197-WATER-001",
+      "severity": "medium",
+      "category": "service",
+      "status": "open",
+      "summary": "The water layer omits the documented Aalten extraction and Corle treatment dependency.",
+      "evidence": "E17 documents four Aalten wells with a one-million-m3/year permit, local pre-treatment and transfer to Vitens production site Corle for softening. The simulator has one generic municipal water state with synthetic power backup and road-derived balancing; it does not represent the source/treatment distinction, water-quality state, storage or this cross-municipality dependency.",
+      "action": "Add the public Aalten and Corle facilities as sourced contextual nodes and distinguish extraction, treatment and distribution. Do not infer pipe geometry, emergency power, usable reserve or restoration performance without Vitens-approved evidence."
+    },
+    {
+      "id": "GM0197-PROXY-001",
+      "severity": "medium",
+      "category": "limitation",
+      "status": "accepted-limitation",
+      "summary": "Road-derived intermunicipal routes and capacities are logical balancing proxies for every service, not physical utility networks.",
+      "evidence": "E08 validates road topology only. The same four domestic road adjacencies can carry modeled power, water, drainage, gas, telecom, facilities, mobility and supply, each with nominal capacity 150. Public sources do not validate those service flows, physical topology, backup, switching or restoration.",
+      "action": "Retain the logical-proxy disclosure, remove any implication of engineering capacity units, and add service-specific connectivity only from operator-approved aggregated data."
+    },
+    {
+      "id": "GM0197-DATA-001",
+      "severity": "low",
+      "category": "regional-data",
+      "status": "accepted-limitation",
+      "summary": "Small CBS rounding differences and unavailable energy/context fields are correctly preserved.",
+      "evidence": "The buurt population sum is 21 below the municipality total, household sum is 15 above and age-65-plus sum is one below. Cars per household is missing in four buurten, while district-heating and public-charging values are unavailable in all 29. These are separate publication and suppression semantics, not evidence for zero filling.",
+      "action": "Keep the municipality total authoritative for simulation reconciliation, preserve nulls, expose coverage, and never manufacture buurt-level precision."
+    },
+    {
+      "id": "GM0197-CONTRACT-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "Current GM0197 numerical, causal and local-allocation contracts close exactly.",
+      "evidence": "The dedicated gate passes all ten scenarios, six checkpoints and eight services. Hazard/service/pressure ledgers, counterfactual identities, deterministic replay, event-attributable person-hours, route bounds, service-invariant local hazard and exact population/demand/delivery reconciliation all pass; official regions have neutral priority and no inferred hub.",
+      "action": "Keep these invariants in the release gate and add physical-plausibility assertions without weakening the existing arithmetic checks."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Replace Aalten's distance-based major-river depth with an official connected flood mask and keep local brook/cloudburst processes separate.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/public/data/hazards/major-river-flood-footprints.geojson"
+      ],
+      "validation": "For the canonical Rhine/Meuse/IJssel preset, assert zero direct GM0197 depth unless an official connected LIWO/LVO scenario includes the location; independently test local pluvial/brook forcing, then rerun GM0197 and ALL matrices."
+    },
+    {
+      "summary": "Make restoration conditional on persistent hazard and access rather than allowing near-complete repair during unchanged peak inundation.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts"
+      ],
+      "validation": "At GM0197 river T+72, verify a documented relationship among current depth, safe access, recovery progress, service availability, pressure and affected people-equivalent; preserve deterministic ledgers and monotonic event-attributable burden."
+    },
+    {
+      "summary": "Separate direct wildfire spread from regional smoke and remove the unlimited instantaneous direct-fire tail.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/public/data/hazards/wildfire-footprints.geojson"
+      ],
+      "validation": "With the canonical [5.75, 52.18] ignition, verify direct GM0197 fire is zero until a sourced time-dependent spread footprint reaches it, while independently modeled smoke may remain nonzero; test boundary continuity, deterministic replay and service ledgers."
+    },
+    {
+      "summary": "Represent or disclose the German-border mobility and supply gateway at Dinxperlo/N313.",
+      "files": [
+        "scripts/fetch-realism-data.mjs",
+        "apps/web/public/data/transport-network.json",
+        "apps/web/src/data.ts"
+      ],
+      "validation": "GM0197 transport context must expose a source-backed Germany gateway distinct from Dutch municipality nodes, or an explicit national-truncation warning; verify it is not reused as physical utility topology and preserve domestic route deduplication."
+    },
+    {
+      "summary": "Calibrate the Groningen-earthquake footprint to an identified event and KNMI-compatible ground-motion product.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/src/scenarios.ts"
+      ],
+      "validation": "Require scenario magnitude/source metadata, compare GM0197 PGA with the chosen official or documented hypothetical ground-motion grid, and test service fragility thresholds and uncertainty instead of an unrestricted exponential tail."
+    },
+    {
+      "summary": "Add sourced Vitens Aalten/Corle context without fabricating pipe topology, reserve or restoration.",
+      "files": [
+        "apps/web/src/data.ts",
+        "apps/web/public/data/critical-facilities/GM0197.geojson",
+        "packages/sim-core/src/model.ts"
+      ],
+      "validation": "Each contextual facility must carry publisher, URL, date, observed-versus-scenario semantics and licence; calculations remain disabled until Vitens-approved capacity, dependency, backup and restoration evidence is available."
+    }
+  ],
+  "residualLimitations": [
+    "No complete public physical electricity feeder/switching, gas pressure-district, drinking-water pipe/storage, sewer/pump, telecom mast/backhaul, critical-facility or emergency-supply topology is consumed for GM0197. Backup endurance, asset protection, crews, fuel and restoration distributions are likewise unavailable; no such accuracy is claimed.",
+    "All hazard and service states are deterministic planning scenarios, not forecasts, probabilities, return periods, live telemetry, dispatch advice, evacuation orders or operator commitments.",
+    "CBS buurt statistics are separately rounded and some fields are suppressed or unavailable; aggregate context must not be interpreted as individual vulnerability or household readiness.",
+    "BAG woonplaatsen, TOP10NL settlements and CBS administrative totals use different concepts and dates; settlement population is descriptive and not an alternate municipal total.",
+    "NWB, ProRail and GTFS establish contextual geometry only. The four nominal-capacity-150 links and 27 local stops do not establish disaster-time throughput, ridership, vehicle availability, closures, accessibility or evacuation capacity.",
+    "The resident-population model omits cross-border commuters, German service use, visitors, seasonal activity, school/work populations and incident-driven evacuation or shelter movement.",
+    "Local hazard allocation is seeded and context-weighted rather than derived from AHN terrain, LIWO/LVO hydraulics, sewer models, KNMI grids, fuels, wind or observed incident footprints.",
+    "Affected population is a thresholded people-equivalent, not a count of identified persons; zero can coexist with residual pressure and should not be labelled complete recovery.",
+    "Public Vitens and WRIJ facility descriptions support context but do not disclose sufficient topology, backup, water-quality response or restoration performance for operational simulation."
+  ],
+  "provinceReviewFlags": [
+    "Review every Gelderland municipality inside the 50 km analytic river corridor against official LIWO/LVO connected flood and catchment extents; proximity to a line must not create metre-scale direct inundation.",
+    "Add a province-wide persistence/recovery invariant so active peak flooding cannot coexist with near-complete generic repair and zero affected people-equivalent without documented protection or intervention.",
+    "Separate wildfire ignition/spread and smoke across Gelderland using land cover, fuels, wind, barriers, propagation time, access and VNOG/VGGM/VRGZ operational context; remove unlimited direct-fire tails.",
+    "Represent or clearly disclose Germany-border gateways for Gelderland municipalities, while keeping mobility/supply links distinct from utility networks and sensitive cross-border topology.",
+    "Audit the Groningen-earthquake radial tail across Gelderland against named events, magnitude, KNMI-compatible ground motion, soil response and service fragility.",
+    "Preserve the distinction between official NWB road geography and logical service transfer across the province; electricity, water, drainage, gas and telecom zones cross municipal boundaries differently.",
+    "Where public operator facilities such as Vitens Aalten/Corle are known, add them as provenance-rich context only and require operator evidence before calculating physical capacity, backup or restoration."
+  ]
+}

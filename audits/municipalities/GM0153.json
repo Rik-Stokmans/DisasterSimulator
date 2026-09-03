@@ -1,0 +1,506 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0153",
+    "name": "Enschede",
+    "province": "Overijssel",
+    "safetyRegion": "Twente"
+  },
+  "agent": {
+    "taskName": "municipality_gm0153",
+    "agentId": "/root/causal_engine_v3",
+    "completedAt": "2026-09-03T00:54:29Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "GM0153 passes the deterministic execution contract for all ten canonical scenarios, T+0/6/12/24/48/72 and all eight essential services. Its 2025 CBS identity, generalized boundary, 162,317 residents, seventy neighbourhoods, seven settlement labels, four in-boundary ProRail stations and first-72-hour arithmetic are coherent. Current NWB semantics are also correct: six Dutch road corridors affect only Mobility and road-logistics Supply, never the other six services. Release is nevertheless correction-required. Eight unrelated nonzero hazard presets reuse one exact neighbourhood order; a controlled fire source inside the official Lonnekerberg combustible-nature polygon ranks its containing neighbourhood only 39th. The generic Rhine/Meuse/IJssel preset holds 0.587789 flood stress, all eight services and 28,718 affected residents exactly unchanged from T+24 to T+72 even though the current Twente risk profile describes relatively high sandy terrain, no primary dike rings and only limited local brook/canal flooding. Official Enschede cloudburst data and the documented 2024 Pathmos event conflict with the model ranking Pathmos 57th and Eekmaat first. The causal graph has no German municipality, rail, emergency-response or supply node despite the Enschede–Gronau border, an RB51 Enschede–Dortmund map trace and an explicit Glanerbrug–Gronau fire agreement. Precise water/drainage and recovery values omit 383 intersecting public water-register objects, the municipality's 888 km gravity sewer, two RWZIs, local catchments, live controls, access, backups and resources. Four Enschede Seveso sites, hazardous-goods transport, salt caverns/subsidence, aviation and radiological risks also fall outside the ten-preset scope. Public datasets can improve selection and context, but static plans/registers and current observations must remain distinct from simulated T+72 state; no feature or NoData never means zero or safe.",
+  "provinceReviewFlags": [
+    "Municipality-specific release blocker GM0153-SPATIAL-001: eight unrelated hazard families reuse one exact seventy-neighbourhood order and GM0153 has no unsupported-spatial guard.",
+    "Municipality-specific release blocker GM0153-FLOOD-001: the Rhine/Meuse/IJssel screen sustains 0.587789 flood stress and 28,718 affected residents through T+72 without selecting a connected Enschede/Twente water mechanism.",
+    "Municipality-specific release blocker GM0153-PLUVIAL-001: official 70 mm/hour water-on-street geometry and the documented Pathmos event contradict the shared local ranking.",
+    "Municipality-specific release blocker GM0153-FIRE-001: an official Lonnekerberg source ranks its containing neighbourhood 39/70; the public eligibility layer also omits named Aamsveen, so absence remains Unknown.",
+    "Municipality-specific release blocker GM0153-XBORDER-001: Germany is visible in context but absent from the causal network, response and recovery model.",
+    "Municipality-specific release blocker GM0153-WATERCHAIN-001: public municipal/HWH data reveal material sewer, RWZI, pump, weir and cross-boundary water context that exact water/drainage outputs do not model.",
+    "Municipality-specific release blocker GM0153-RECOVERY-001: river state is frozen T+24–72 and compound pressure/affected population worsen through T+72 without selected actions, access or resources.",
+    "Municipality-specific scope blocker GM0153-INDUSTRIAL-001: official Seveso, hazardous-transport, subsurface, aviation and radiological mechanisms are not represented by the ten presets.",
+    "Shared/national correction confirmed: unqualified NWB geometry is now restricted to Mobility and road-logistics Supply and is explicitly a logical transfer proxy.",
+    "Shared/national: current observations, provider territories, public registers and planning layers must retain publisher, edition/valid time, cadence, licence, coverage and affectsSimulation=false unless an expert binds them to a scenario."
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM0153, Enschede, province Overijssel and safety region Twente are internally and officially coherent.",
+      "evidenceRefs": ["E01", "E02"],
+      "notes": [
+        "Generated municipality id/name, regional bundle, province, response region, boundary edition and statistics edition agree.",
+        "Reference point [6.868473561215144, 52.21836623695494] lies inside the generalized 2025 municipality boundary.",
+        "CBS 2025 reports 162,317 residents, density 1,153 residents/km², age-65 share 18.6 percent and 39,237 one-person households.",
+        "No identity, province or safety-region defect was found."
+      ]
+    },
+    "geography": {
+      "status": "warn",
+      "summary": "Administrative geography is coherent, but it does not represent catchments, German dependencies, fire fuels/perimeters, industrial effect areas or utility zones.",
+      "evidenceRefs": ["E01", "E02", "E04", "E05", "E06", "E07"],
+      "notes": [
+        "The generated center, seventy CBS neighbourhoods and one BAG woonplaats are valid aggregation geography; seven BRT settlement labels retain Enschede, Glanerbrug, Lonneker, Boekelo, Usselo, Broekheurne and Rutbeek.",
+        "The official risk profile distinguishes dense urban Enschede, the German border, agriculture, forest, Aamsveen, Lonnekermeer, Seveso premises, salt caverns and Twente Airport. These are not reducible to a municipality centroid.",
+        "Municipal flood polygons, HWH point assets, Risicokaart fire polygons, NWB sections and GTFS shapes each have separate resolution, time and scope; none establishes another dataset's topology or incident state.",
+        "The generalized CBS boundary is unsuitable for parcel hydraulics, cross-border catchments, exact emergency routes or facility/utility service areas."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Headline population and aggregate vulnerability inputs agree with CBS 2025 and neighbourhood totals reconcile within publication rounding.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "Seventy independently rounded neighbourhood rows sum to 162,345 residents, 28 above the municipality total, a +0.017 percent difference; they sum to 81,955 households and 30,250 residents aged 65 or older.",
+        "Largest neighbourhoods are De Bothoven 5,960, Velve-Lindenhof 4,760, Tubantia-Toekomst 4,760, Stroinkslanden-Zuid 4,675 and Getfert 4,635.",
+        "Age, household form, car access, density and GP/supermarket distance are aggregate context, not individual medical dependence, present location, preparedness or emergency priority.",
+        "German visitors, students, commuters, event crowds, hospital patients and responders are not represented by resident population allocation."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "Seventy neighbourhoods provide substantial context, but missing fields and hazard-independent allocation prevent operational prioritization.",
+      "evidenceRefs": ["E01", "E04"],
+      "notes": [
+        "Most core demographic, land/water, address-density, car and building fields cover all 70 neighbourhoods. Home value, housing form/tenure and benefit shares cover 67/70; cars per household 64/70; GP/supermarket distance and population density 69/70.",
+        "District-heating share and public-charging count cover 0/70 and correctly remain null. Missing, suppressed, NoData and not-applicable values are not converted to zero.",
+        "Pathmos, Stadsveld and other officially identified water-overlast locations are not ranked through municipal hydraulic data.",
+        "Local population, affected population and all eight demand/delivery totals reconcile, but eight unrelated nonzero hazards retain the same exact neighbourhood order."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "One BAG woonplaats and seven BRT settlement labels preserve the municipality's city, village and hamlet context without fabricating population or service districts.",
+      "evidenceRefs": ["E01", "E02"],
+      "notes": [
+        "The BAG place is Enschede; BRT settlement context contains five woonkernen and two buurtschappen.",
+        "The risk profile independently names Enschede, Lonneker, Glanerbrug, Boekelo and Usselo.",
+        "Settlement labels are reference geography, not evacuation zones, shelters, provider areas or resource bases."
+      ]
+    },
+    "transport": {
+      "status": "warn",
+      "summary": "Dutch physical-road identities and road-only service scope are coherent, but German and incident-time continuity are absent.",
+      "evidenceRefs": ["E02", "E03", "E07", "E08"],
+      "notes": [
+        "Six generated logical routes connect Enschede only to Dutch municipalities: A35 and A1 to Hengelo, N18 to Haaksbergen, N732 to Losser, N737 to Dinkelland and N733 to Oldenzaal.",
+        "The engine exposes all six only to Mobility and Supply, and zero to power, water, drainage, gas, telecom and facilities. This is the correct NWB semantic safeguard.",
+        "Four ProRail stations and 256 scheduled stop areas lie inside GM0153. The deployed GTFS map includes RB51 Enschede–Dortmund, but stop_times are omitted and context geometry does not create causal capacity.",
+        "No German graph node or border corridor exists, despite official descriptions of cross-border road/rail traffic, German visitors and Glanerbrug–Gronau emergency assistance.",
+        "The deployed NDW snapshot has no point assigned to GM0153. No current record is coverage-limited no-match, never proof that roads remain open now or through T+72."
+      ]
+    },
+    "emergencyContext": {
+      "status": "warn",
+      "summary": "Strong public water, provider, care, telecom, education and observation context exists, but complete topology, live state and response-resource inventories do not.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E08"],
+      "notes": [
+        "Exact point-in-polygon checks find 383 deployed HWH objects: two sewer pumps, two RWZIs, four surface-water pumps and 375 weirs. The municipal 2026 budget separately reports 888 km gravity sewer, 205 km pressure sewer, 52,017 drains, 21,413 manholes, 22 storage structures, 1,042 pump units and 79 pumping stations.",
+        "Mijn Aansluiting identifies Enexis electricity/gas, Vitens water and Ziggo media responsibility at the reference point; drainage and heat return no feature. Territory presence or absence is not complete coverage, connectivity, capacity, outage or restoration.",
+        "One NBNL sample reports Enschede van Heekstraat planning capacity/queues and twelve projects; it is large-user planning context, not load, outage telemetry, switching state or emergency reserve.",
+        "The deployment contains 261 RDI antenna installations, 118 DUO education records and one RIVM emergency department: Medisch Spectrum Twente, reported 24/7 with 20 treatment rooms and 21,823 visits in 2025. Registers do not prove coverage, occupancy, backup, access or incident capacity.",
+        "No reviewed public source supplies complete safe feeder, pressure-zone, sewer-catchment, telecom-backhaul, supply-stock, crew, vehicle, pump-control, backup or restoration state."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": ["power", "water", "drainage", "gas", "telecom", "mobility", "facilities", "supply"]
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "warn",
+      "summary": "All ten presets execute at all six checkpoints for all eight services, but completion is not local calibration.",
+      "evidenceRefs": ["E02", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "Peak municipality severities are storm 0.528002, pluvial 0.519538, river 0.185752, coastal 0.061675, heat 0.595012, winter 0.430142, cyber 0.541512, earthquake 0.061292, wildfire 0.110473 and compound 0.901416.",
+        "At T+24, pressure/affected values are storm 0.278204/31,606, pluvial 0.308079/38,438, river 0.265578/28,718, coastal 0.120067/0, heat 0.188840/11,170, winter 0.266461/28,920, cyber 0.377324/54,272, earthquake 0.086548/0, wildfire 0.132903/0 and compound 0.610299/107,551.",
+        "Compound T+24 has 50.300486 mm/h rain, 0.515047 flood stress, 23.612732 m/s wind and 0.475067 cyber disruption. At T+72 current severity is 0.462248 while pressure rises to 0.625083 and affected residents to 110,932; unsupportedDimensions is empty.",
+        "River stress/severity remain 0.587789/0.185752 through T+24–72. Direct coastal flood stress is zero; its T+24 severity is a generic wind component and not evidence about all Enschede water pathways.",
+        "Canonical wildfire has zero direct flame at T+24 and represents transported smoke/drought; the Groningen-centred earthquake has no current shaking at T+24. Those scoped zeros are not all-clears for another local fire, subsurface or seismic mechanism.",
+        "All weather, flood, fire, seismic and cyber values are deterministic exercise assumptions, not observations, warnings, probabilities, attack intelligence, outages or forecasts."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Finite bounds, determinism, exact no-event behavior, cumulative burden, route limits, local reconciliation and layer invariance pass.",
+      "evidenceRefs": [],
+      "notes": [
+        "MUNICIPALITY_AUDIT_CODE=GM0153 pnpm audit:model passed two focused tests across 10 presets × 6 checkpoints × 8 services in 51.55 seconds, with 51.08 seconds test execution.",
+        "Every zero-intensity preset produces exact zero current severity, peak severity, affected population and event-attributable essential-service person-hours at every checkpoint.",
+        "Repeated frames are deterministic; values are finite and bounded; cumulative person-hours are monotonic; route flow stays within effective logical capacity.",
+        "T+24 local population, affected population and all eight demand/delivery balances reconcile. Maximum observed floating-point discrepancy is 1.4210854715202004e-13.",
+        "All eight municipal pressure weights participate and sum to one; changing among all eleven map layers leaves hazard/pressure/affected values invariant."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "A shared neighbourhood hash, unselected flood screen and failed source containment conflict with official Enschede flood/fire geography.",
+      "evidenceRefs": ["E02", "E04", "E05", "E06"],
+      "notes": [
+        "At audit time packages/sim-core/src/model.ts:4343 derives hazardSeed only from municipality seed, scenario seed and region id. Hazard family, source containment, terrain, land cover and selected hazard surfaces are absent.",
+        "Severe storm, pluvial, river, coastal, heat, winter, cyber and wildfire all rank Eekmaat, Buurtschap Usselo and Noord Esmarke first through third at T+24; earthquake is all zero and compound clips the same ordering.",
+        "For pluvial T+24, Pathmos ranks 57th at 0.319923, Stadsveld-Zuid 66th at 0.304945 and Eekmaat first at 0.424398. Official 70 mm/hour ArcGIS data return 0.131 m depth at the Pathmos center and no polygon at the tested Eekmaat center; VRT documents severe 2024 Pathmos house flooding.",
+        "Controlled source [6.9307, 52.2694] is inside official feature isor_brandbaar_natuurgebied.0153200525867 Lonnekerberg and CBS BU01530902 Buurtschap Lonneker-West. At T+24 direct fire is 0.301325, smoke 0.427939 and severity 0.351785, yet the source neighbourhood ranks 39th at 0.338560 while Eekmaat ranks first at 0.414232.",
+        "The IPO bounding-box query returns two Enschede-held polygons, Hooge Boekel and Lonnekerberg, but not Aamsveen, which VRT names as nature area. The eligibility layer is incomplete for total fuel/ignition scope; no feature is Unknown.",
+        "GM0153 has no entry in auditedUnsupportedSpatialNotes, so the browser renders precise local/service output without an Enschede-specific support warning."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "All eight service ledgers are inspectable, but exact Enschede magnitudes omit reviewed utility, water, German and response topology.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E07", "E08"],
+      "notes": [
+        "Current source applicability yields six NWB logical corridors for Mobility and Supply and zero for power, water, drainage, gas, telecom and facilities. This safeguard is correct.",
+        "River T+24 availability is power 0.762211, water 0.726397, drainage 0.651075, gas 0.856013, telecom 0.714775, mobility 0.765371, facilities 0.677817 and supply 0.721875; every value is unchanged at T+72 despite no selected event/topology.",
+        "Compound T+24 availability is power 0.429968, water 0.351309, drainage 0.338653, gas 0.547648, telecom 0.226009, mobility 0.440529, facilities 0.378324 and supply 0.418998. By T+72 all eight decline further.",
+        "The public water, provider, NBNL, RDI, care and education records are displayed context, not causal inputs. No safe authorized physical topology/state is inferred from roads, points, territories or object counts.",
+        "German fire mutual aid, RB51 and cross-border visitors/supply routes are absent from the causal graph; this omission can change access, demand, assistance and recovery in both directions."
+      ]
+    },
+    "causalTrace": {
+      "status": "warn",
+      "summary": "Cause contributions, dependencies, counterfactuals and logical-proxy metadata reconcile, but their local driver magnitudes remain scenario assumptions.",
+      "evidenceRefs": ["E02", "E03", "E05", "E08"],
+      "notes": [
+        "Municipal pressure uses transparent weights power 0.18, water 0.15, drainage 0.08, gas 0.09, telecom 0.12, mobility 0.12, facilities 0.14 and supply 0.12; focused tests close the ledger.",
+        "The UI labels the current state Derived/evidence class scenario and describes NWB-based transfers as logical rather than physical utility topology.",
+        "Exact causal contributions can explain model arithmetic but cannot validate missing catchments, physical service paths, German nodes, live failures, facility roles or restoration resources.",
+        "VRT's outage phases provide authoritative dependency mechanisms at 0–2, 2–8, >8 and >24 hours, but not an Enschede event, customer topology or asset inventory. They should constrain scenario design, not become observed state.",
+        "Household preparedness, backup, demand/capacity and repair multipliers remain normalized scenario assumptions; no public context record is silently promoted into them."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "The first-72-hour trajectory presents exact recovery or deterioration without selected event-specific actions, access, resources or German mutual aid.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E07", "E08"],
+      "notes": [
+        "River T+24 and T+72 retain exactly the same severity, flood stress, pressure, affected population and all eight availability values; cumulative unmet-service person-hours rise from 577,130.86 to 2,382,822.36.",
+        "Compound severity declines from 0.878635 to 0.462248, but pressure worsens 0.610299 to 0.625083, affected population rises 107,551 to 110,932 and cumulative burden reaches 6,122,554.22 person-hours.",
+        "No selected Pathmos/Stadsveld outfall, RWZI/pump/control state, road access, backup endurance, crew/material, shelter/supply, hospital surge, Glanerbrug–Gronau dispatch or restoration schedule supports these exact paths.",
+        "The VRT coverage plan is a 1 January 2026 regional planning inventory. Counts such as 29 stations, 13 wildfire vehicles and water-transport systems do not prove which assets are available or assigned to Enschede at scenario time.",
+        "Generic intervention effects are bounded/time-gated model assumptions, not actual commitments, and the browser must say so beside every recovery result."
+      ]
+    }
+  },
+  "evidenceSources": [
+    {
+      "publisher": "Statistics Netherlands (CBS), Kadaster and PDOK",
+      "title": "Wijken en buurten 2025, CBS generalized areas and BAG woonplaatsen",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED",
+      "accessedAt": "2026-09-03T00:51:54Z",
+      "edition": "2025; generated snapshots retrieved 2026-08-31",
+      "supports": [
+        "Machine-readable OData and OGC APIs; CBS/area data CC BY 4.0 and BAG Public Domain Mark 1.0.",
+        "GM0153 identity, 162,317 residents, 1,153/km² density, 18.6% age 65+, 39,237 one-person households, seventy neighbourhoods and one BAG woonplaats.",
+        "Neighbourhood population sum 162,345 differs from municipality total by +28 (+0.017%) because published rows are independently rounded.",
+        "Administrative geometry/statistics support aggregation only; missing fields remain null and do not establish incident exposure."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Twente",
+      "title": "Regionaal Risicoprofiel Twente 2025",
+      "url": "https://www.vrtwente.nl/sites/vrt/files/2025-12/Regionaal%20Risicoprofiel%20Twente%202025.pdf",
+      "accessedAt": "2026-09-03T00:45:00Z",
+      "edition": "2025; public board document used in 23 April 2026 meeting cycle",
+      "supports": [
+        "Statutory regional planning PDF; periodic/continuously reviewed profile, no machine API and no standard reuse licence stated in the document.",
+        "Twente is mainly higher sandy terrain with brooks/canals, no primary dike rings and limited local flood risk; drought, extreme rain, heat and wildfire are increasing concerns.",
+        "Enschede-specific context: Aamsveen/Lonnekermeer, dense center, MST trauma function, four Seveso sites, strategic gasoil storage, salt extraction/subsidence, Twente Airport and FC Twente crowds.",
+        "Documented 2024 Pathmos cloudburst flooded homes and made some uninhabitable for years.",
+        "Electricity-outage dependency phases at 0–2, 2–8, >8 and >24 hours; regional mechanisms, not an event, forecast, asset inventory or restoration promise.",
+        "German border, international transport/visitors and radiological/industrial/subsurface risks require cross-border and expanded scenario scope."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Twente / Brandweer Twente",
+      "title": "Dekkingsplan Brandweer Twente 2026–2029",
+      "url": "https://www.vrtwente.nl/sites/vrt/files/vergaderstukken/20260423%20E01f%20Dekkingsplan%20Brandweer%20Twente%202026-2029.pdf",
+      "accessedAt": "2026-09-03T00:46:00Z",
+      "edition": "2026–2029; inventory reference date 2026-01-01",
+      "supports": [
+        "Official planning PDF, no machine operational feed or standard reuse licence stated; inventory is a dated regional plan, not live availability.",
+        "Stations include Enschede Hoofdpost, Enschede Noord and Glanerbrug; regional resource counts include wildfire and water-transport equipment but do not prove scenario assignment.",
+        "The Glanerbrug–Gronau convention sends Glanerbrug to Gronau and permits a Gronau unit into Glanerbrug as the third/fourth vehicle; cross-border deployments alarm both Dutch and German units and retain local command.",
+        "The model has no corresponding German node, dispatch, delay, capacity or availability assumption."
+      ]
+    },
+    {
+      "publisher": "Gemeente Enschede",
+      "title": "Water op Straat ArcGIS MapServer and Gemeentebegroting 2026 water/sewer inventory",
+      "url": "https://geoportaal.enschede.nl/arcgis/rest/services/Water_WaterOpStraat/MapServer",
+      "accessedAt": "2026-09-03T00:48:00Z",
+      "edition": "Map service last updated September 2018; municipal budget 2026",
+      "supports": [
+        "Public ArcGIS REST Map/Query/Data service with four current/future 70/90 mm one-hour model layers; standard reuse licence and refresh cadence are not stated, so redistribution/causal use requires confirmation.",
+        "Exact Query at Pathmos center returns event 'bui# 70 mm 1 uur', DEPTH2D 0.131 and timing attributes T_FLOOD_DU 4397, T_INUDATIO 1003 and T_PEAK_2D 5247; units other than documented depth must not be guessed.",
+        "Tested centers in Stadsveld-Zuid, Eekmaat and City returned no containing polygon in layer 0; no polygon is coverage/threshold NoData, not zero or safe.",
+        "Budget source https://documenten.enschede.nl/paragrafen2732 reports 888 km gravity sewer, 205 km pressure sewer, 52,017 drains, 21,413 manholes, 22 storage structures, 1,042 pump units and 79 pumping stations.",
+        "The budget identifies Pathmos/Stadsveld, Marathonstraat/Sportlaan and Theresastraat measures; plans and model surfaces are context, not current flooding or a T+72 forecast."
+      ]
+    },
+    {
+      "publisher": "Het Waterschapshuis / Dutch water boards via PDOK",
+      "title": "Waterschappen Kunstwerken IMWA and Waterketen DAMO OGC APIs",
+      "url": "https://api.pdok.nl/hwh/waterschappen-kunstwerken-imwa/ogc/v2",
+      "accessedAt": "2026-09-03T00:49:00Z",
+      "edition": "Deployment snapshot retrieved 2026-09-02T13:45:55Z",
+      "supports": [
+        "National machine-readable OGC APIs under CC BY-SA 4.0; IMWA is generally weekly while DAMO/contributor completeness and cadence vary.",
+        "Exact GM0153 point-in-polygon intersection contains 383 points: 375 weirs, four surface-water pumps, two sewer pumps and two RWZIs.",
+        "Named records include RWZI Enschede/Glanerbrug, sewer pumps Enschede Zuid/Boekelo and Vechtstromen pumps Middenweg, Christinalust, Helmerstraat and Smuddeboshoek.",
+        "Register status, count and capacity field do not establish compatible units, connectivity, direction, live operation, power/backup, damage or T+72 service."
+      ]
+    },
+    {
+      "publisher": "Interprovinciaal Overleg / Risicokaart",
+      "title": "ISOR combustible-nature public WFS",
+      "url": "https://servicespub.risicokaart.nl/geoserver/ISOR_RK/ows?service=WFS&version=2.0.0&request=GetCapabilities",
+      "accessedAt": "2026-09-03T00:50:00Z",
+      "edition": "Catalogue metadata updated 2026-02-19; feature validity dates vary",
+      "supports": [
+        "National WFS/WMS, catalogued Public Domain; feature scale, accuracy and refresh cadence vary by source holder.",
+        "Bounding-box WFS query returns Enschede-held Hooge Boekel and Lonnekerberg polygons, both valid-from 2013 and classified mixed forest/heath or mixed deciduous/conifer forest.",
+        "Point [6.9307, 52.2694] lies inside Lonnekerberg feature isor_brandbaar_natuurgebied.0153200525867 and CBS neighbourhood BU01530902.",
+        "Aamsveen is named by VRT but absent from this query/layer; no feature is incomplete eligibility context, never no fuel or no wildfire.",
+        "Polygons are not ignition, fuel moisture, current perimeter, spread, access, evacuation, smoke or suppression state."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat, ProRail and OVapi/NDOV",
+      "title": "NWB roads, ProRail stations/traces and national GTFS reference transport",
+      "url": "https://service.pdok.nl/rws/nationaal-wegenbestand-wegen/wfs/v1_0?service=WFS&version=2.0.0&request=GetCapabilities",
+      "accessedAt": "2026-09-03T00:51:54Z",
+      "edition": "NWB 2026-08 monthly extract; ProRail current snapshot; GTFS feed 2026-08-30 to 2026-12-12",
+      "supports": [
+        "NWB/ProRail public OGC/download reference is CC0 1.0; NWB updates monthly and ProRail cadence is not guaranteed.",
+        "Six exact NWB logical links, four ProRail stations and 256 scheduled stop areas are inside/relevant to GM0153; road geometry is not incident passability.",
+        "OVapi download https://gtfs.ovapi.nl/nl/gtfs-nl.zip is free-use/best-effort/no-SLA aggregate context. It maps RB51 Enschede–Dortmund with 83 and 51 scheduled trip records on two clipped shapes.",
+        "GTFS stop_times are intentionally omitted from deployment processing; map geometry is not service operation, capacity, demand or a cross-border causal edge."
+      ]
+    },
+    {
+      "publisher": "Stichting Mijn Aansluiting, Netbeheer Nederland, KNMI, RIVM, RDI, DUO and NDW",
+      "title": "Public provider, capacity, observation, care, telecom, education and road-context interfaces",
+      "url": "https://public.geodata.mijnaansluiting.nl/geoserver/mijnaansluiting_open/ows",
+      "accessedAt": "2026-09-03T00:52:00Z",
+      "edition": "Provider timestamps vary; deployed public-context snapshots 2026-09-02",
+      "supports": [
+        "Mijn Aansluiting live WMS/WFS is catalogued Public Domain and returns Enexis electricity/gas, Vitens water and Ziggo media at the reference point, all timestamped 2025-09-07; drainage/heat return no feature and remain Unknown.",
+        "NBNL frontend JSON sample for Enschede van Heekstraat is planning context; capacity/projects update at least quarterly and queues monthly, exact dataset licence identifier and endpoint stability are unstated.",
+        "KNMI 10-minute observations are CC BY 4.0: Twenthe Airport at 2026-09-02T23:30Z observed 17.5°C, gust 5.58 m/s and zero preceding-hour rain. It is current point context, never automatically projected to T+72.",
+        "RIVM 2026 acute-care questionnaire v1.1 is CC0; MST is one dated facility record, not live occupancy/staffing/diversion/backup. RIVM PM2.5 at Enschede-Winkelhorst is an indicative hourly observation under no stated standard reuse licence, not a smoke field or forecast.",
+        "RDI WFS contains 261 antenna-installation records but states no reuse licence/cadence in capabilities; DUO contains 118 education records. Neither proves coverage, occupancy, dependency, backup or service state.",
+        "Current snapshots contain zero GM0153-assigned NDW, Waterinfo or KNMI-seismic features. Every no-match remains Unknown, not open road, normal water, no earthquake or safe."
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "id": "GM0153-SPATIAL-001",
+      "severity": "high",
+      "category": "geography",
+      "status": "open",
+      "summary": "Eight unrelated nonzero hazards reuse one exact neighbourhood order without an Enschede unsupported-result guard.",
+      "evidence": "At audit time packages/sim-core/src/model.ts:4343 seeds local hazard from municipality seed, scenario seed and region id, omitting hazard family, source containment and evidence surfaces. Severe storm, pluvial, river, coastal, heat, winter, cyber and wildfire all rank Eekmaat, Buurtschap Usselo and Noord Esmarke first to third at T+24. Pathmos is 57th, Stadsveld-Zuid 66th and City 68th across those families. GM0153 has no auditedUnsupportedSpatialNotes entry, and Chromium shows precise map/service values without an Enschede-specific warning.",
+      "action": "Before operational release, mark all nine nonzero GM0153 hazard families spatialEvidence=unsupported and grey local ranks, affected counts and derivative services. Replace the common hash with selected hazard-specific surfaces/source containment and assert independent ranks, typed coverage/NoData and visible municipality caveats."
+    },
+    {
+      "id": "GM0153-FLOOD-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "A generic Rhine/Meuse/IJssel field is presented as persistent Enschede flooding without a connected local mechanism.",
+      "evidence": "The river preset reports flood stress 0.587789, severity 0.185752, pressure 0.265578, 28,718 affected residents and all eight service values exactly unchanged at T+24 and T+72. VRT states Twente is higher sandy terrain without primary dike rings and with limited, local/short-lived brook or canal flooding; the model selects no Dinkel/brook/canal, boundary condition, defence, connected depth, arrival, duration, recession, pump or catchment. Direct coastal stress zero is appropriately narrow but is not an all-flood all-clear.",
+      "action": "Suppress the unsupported direct major-river amplitude for GM0153 or retain it only as a non-operational diagnostic. Keep local water exposure Unknown until an expert selects a versioned Vechtstromen/LIWO/municipal scenario with connected footprint, mechanism, probability/boundary, arrival/duration/recession, units, resolution, licence and NoData."
+    },
+    {
+      "id": "GM0153-PLUVIAL-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "An integration-ready municipal cloudburst surface contradicts the shared pluvial ranking.",
+      "evidence": "Municipal ArcGIS layer 0 models a 70 mm one-hour event and returns DEPTH2D 0.131 m at the verified Pathmos centre, with timing attributes retained. VRT documents a 2024 cloudburst that flooded Pathmos homes and made some uninhabitable for years; the 2026 budget prioritizes Pathmos/Stadsveld drainage works. The simulator instead ranks Pathmos 57/70 at 0.319923 and Eekmaat first at 0.424398, with 0.499041 municipality flood stress and 38,438 affected residents at T+24.",
+      "action": "Build a versioned adapter for the public MapServer Query endpoint, preserving exact event/layer, edition, depth units, timing-field metadata, coverage/threshold semantics and unconfirmed licence. Keep it official model/context until the exercise duration and legal reuse are verified; never convert an empty query to zero. Validate polygon aggregation and independent local ranks."
+    },
+    {
+      "id": "GM0153-FIRE-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "A selected Lonnekerberg source does not control direct-fire allocation and public eligibility is incomplete.",
+      "evidence": "Point [6.9307, 52.2694] is inside IPO feature isor_brandbaar_natuurgebied.0153200525867 Lonnekerberg and BU01530902 Buurtschap Lonneker-West. A controlled T+24 scenario produces fire 0.301325, smoke 0.427939 and severity 0.351785, yet the containing neighbourhood ranks 39th at 0.338560 while Eekmaat ranks first at 0.414232. The WFS returns Hooge Boekel/Lonnekerberg but omits VRT-named Aamsveen, so layer absence cannot mean no fuel.",
+      "action": "Mark direct-fire local allocation unsupported. Require a named source/perimeter, eligible fuel/land cover, fuel moisture, event-valid wind, access, extinguishing water and suppression state; the containing source area must govern direct flame before generic susceptibility. Keep remote smoke separate and IPO no-feature as Unknown."
+    },
+    {
+      "id": "GM0153-XBORDER-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "German transport, demand and mutual-aid dependencies are visible as context but absent from the causal model.",
+      "evidence": "The causal network has six Dutch-only routes and no German node. Yet the deployed GTFS map includes RB51 Enschede–Dortmund, VRT describes German road/rail links and visitors to Enschede, and the 2026–2029 coverage plan specifies Glanerbrug–Gronau response rules with dual alarm and staged German assistance. Consequently T+0–72 demand, evacuation/access, hospital/fire support, supply and restoration cannot react to border state or German availability.",
+      "action": "Add typed, non-additive German border nodes/edges for scenario use with source, mode, direction, schedule/valid time, capacity range, border/access state and uncertainty. Model the Glanerbrug–Gronau agreement as a delayed, bounded scenario resource—not guaranteed live availability—and keep GTFS geometry non-causal until aligned operational evidence exists."
+    },
+    {
+      "id": "GM0153-WATERCHAIN-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Exact water/drainage impacts omit Enschede's large registered sewer, RWZI and managed-water chain.",
+      "evidence": "Point-in-polygon checks find 383 HWH objects: 375 weirs, four surface-water pumps, two sewer pumps and RWZI Enschede/Glanerbrug. The municipal budget reports 888 km gravity sewer, 205 km pressure sewer, 1,042 pump units and 79 pumping stations. None supplies verified catchment connectivity, compatible capacity units, power/backup or live control, yet pluvial T+24 water/drainage are exactly 0.655890/0.523809 and compound 0.351309/0.338653.",
+      "action": "Retain HWH and municipal inventories as versioned context and obtain owner-authorized GWSW/native catchments, pipe/outfall/RWZI connectivity, flow units, direction, pump/control state and power/backup before causal use. Where sensitive/unavailable, expose editable aggregate synthetic zones with ranges and uncertainty; object count/status/null/zero must never automatically change service."
+    },
+    {
+      "id": "GM0153-LIFELINE-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Exact non-road service availability has no reviewed Enschede physical topology or live state.",
+      "evidence": "Current NWB routing correctly gives power, water, drainage, gas, telecom and facilities zero road-derived routes, but exact percentages still arise from generalized fragility/dependency assumptions. Mijn Aansluiting gives responsibility only; NBNL gives one large-user planning sample; RDI gives antenna locations; RIVM/DUO give facility registers. No source provides complete feeder, pressure-zone, gas, telecom-backhaul, facility/supply dependency, backup, load, damage or restoration topology/state.",
+      "action": "Use authorized operator/GHOR safe aggregate service zones and outage/restoration interfaces when available. Preserve public registers/territories as non-causal context. For unavailable or security-sensitive detail, use separate versioned synthetic graphs per service with editable ranges, sensitivity and prominent synthetic/Unknown labels—never roads, provider polygons or points presented as physical topology."
+    },
+    {
+      "id": "GM0153-RECOVERY-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "T+24–72 trajectories imply exact persistence or deterioration without selected actions and resources.",
+      "evidence": "River hazard, pressure, affected residents and all eight availability values are identical at T+24/T+72 while cumulative burden reaches 2,382,822.36 person-hours. Compound severity falls 0.878635 to 0.462248, yet pressure rises 0.610299 to 0.625083, affected residents rise 107,551 to 110,932 and every service declines, reaching 6,122,554.22 person-hours. No local pump/outfall, road access, backup endurance, crew/material, hospital surge, supply/shelter or German assistance ledger supports this.",
+      "action": "Treat trajectories as sensitivity output only. Require typed event/resource/action assumptions with owner/source, start, dispatch delay, ramp, capacity, access/dependencies and uncertainty; display unsupported recovery when absent. Assert no intervention is instantaneous and no plan/register count implies actual crews, pumps, generators, stock or commitment."
+    },
+    {
+      "id": "GM0153-INDUSTRIAL-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The ten presets omit several officially material Enschede technological and cross-border hazards.",
+      "evidence": "VRT identifies four Enschede Seveso installations (De Marssteden strategic gasoil storage, Avia Weghorst, Diversey and Nippon Gases), hazardous-goods road/rail transport, salt caverns/subsidence/leakage, Twente Airport and regional radiological risk from Urenco/Emsland. None has a canonical preset, selected source/effect area or service/decontamination/shelter pathway. Generic cyber, earthquake, wildfire or compound outputs cannot stand in for them.",
+      "action": "Expose the ten-preset scope limitation prominently and add a scenario-plugin contract before claiming comprehensive disaster coverage. Prefer REV/official operator/authority source locations and expert-selected effect zones with licence/edition/valid time; do not infer current inventory, release, plume, probability or response from regulated-site geometry."
+    },
+    {
+      "id": "GM0153-TIME-NODATA-001",
+      "severity": "medium",
+      "category": "ui",
+      "status": "open",
+      "summary": "The UI labels evidence classes but still juxtaposes current/static context with precise unsupported T+72 values.",
+      "evidence": "KNMI Twenthe Airport is a 2026-09-02T23:30Z ten-minute observation, RIVM Winkelhorst PM2.5 is an indicative 2026-09-02T17:00Z point, HWH/provider/RIVM/DUO are registers and the Enschede flood map is an older planning model. NDW, Waterinfo and KNMI-seismic return zero assigned records; municipal ArcGIS point queries can return no polygon. The desktop/mobile inspector labels scenario evidence and several context caveats, but has no GM0153 support guard and still displays exact local/service trajectories.",
+      "action": "Show observation time, scenario clock, forecast/plan edition and coverage separately beside every value. Add municipality/hazard support badges and grey derivative outputs when forcing/topology/recovery is unsupported. No observation/register/polygon/feature must remain Unknown rather than zero, safe or normal."
+    },
+    {
+      "id": "GM0153-NETWORK-001",
+      "severity": "informational",
+      "category": "network",
+      "status": "fixed",
+      "summary": "Current NWB routes retain physical identity and are restricted to road-relevant services.",
+      "evidence": "The six GM0153 routes retain exact NWB source ids and physical corridors A35, A1, N18, N732, N737 and N733. Runtime routesByService contains all six only for Mobility and Supply and none for the other six services; transferSemantics is logical-proxy. No duplicate route id occurs.",
+      "action": "Retain exact wvkId/primary wegnummer/physicalCorridorId and Mobility/Supply-only assertions. Continue section-level identity and non-additive series checks; never reinterpret NWB geometry as incident passability or utility topology."
+    },
+    {
+      "id": "GM0153-CONTRACT-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The deterministic matrix, arithmetic, all-layer desktop UI and responsive mobile details flow execute successfully.",
+      "evidence": "Focused model gate passed 2/2 tests across all 10×6×8 combinations; local reconciliation error is at most 1.4210854715202004e-13 and layer hazard delta is zero. Headless Chromium at 1440×1000 selected Enschede and traversed all eleven layer buttons at compound T+72; at 390×844 the map/controls have no horizontal overflow and the Details · Enschede button opens a 376×560 inspector within the viewport. No page error, console error or local HTTP >=400 response occurred in the stable-preview run.",
+      "action": "Keep these gates mandatory after corrections. Preserve keyboard labels, the mobile details affordance and context disclaimers, while treating rendering/arithmetic success separately from calibration, spatial support and operational authorization."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Add conservative GM0153 unsupported guards and suppress the unselected major-river result.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/src/components/Inspector.tsx",
+        "tests/e2e/app.spec.ts",
+        "audits/correction-ledger.json"
+      ],
+      "validation": "Smallest safe correction: add audited unsupported notes for all nine nonzero GM0153 hazard families, suppress unsupported direct Rhine/Meuse/IJssel stress while retaining local-water exposure as Unknown, and grey affected/service derivatives. Run unit, GM0153 focused, national ALL and desktop/mobile support-warning tests; exact coast zero stays narrowly scoped."
+    },
+    {
+      "summary": "Replace common Enschede neighbourhood hashes with hazard-specific official surfaces and source containment.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/data.ts",
+        "apps/web/src/components/MapView.tsx",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/public/data/hazards/enschede-context.json"
+      ],
+      "validation": "Integrate the municipal Water_WaterOpStraat Query service only after pinning licence, edition/layer/event, depth/timing units and coverage/NoData; bind a scenario only when duration matches. Integrate IPO fire polygons as incomplete eligibility context. Require Pathmos/Stadsveld sensitivity and a Lonnekerberg direct-fire source to control their own local footprint; preserve empty queries/features as Unknown."
+    },
+    {
+      "summary": "Represent Enschede's water/drainage chain without converting public objects into operational topology.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/data.ts",
+        "apps/web/src/components/MapView.tsx",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "HWH IMWA weekly and DAMO contributor-dependent OGC APIs are CC BY-SA 4.0; preserve asset ids/types, timestamps, owner, units and partial coverage with affectsSimulation=false. Obtain licensed/authorized GWSW/native catchments, connectivity, compatible capacity, power/backup and control state before causal use. Assert count, register status, null, numeric zero and live operation remain distinct."
+    },
+    {
+      "summary": "Add German scenario dependencies and preserve road-only/local-provider provenance.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/data.ts",
+        "apps/web/src/components/Inspector.tsx",
+        "tests/e2e/app.spec.ts"
+      ],
+      "validation": "Retain monthly CC0 NWB only for Mobility/Supply and add versioned German road/rail/emergency logical nodes with non-additive physical identity, direction, event-valid access, schedule/capacity range and uncertainty. Keep OVapi GTFS best-effort/no-SLA and non-causal until operationally aligned. Encode Glanerbrug–Gronau assistance as delayed/bounded assumptions, never guaranteed assets."
+    },
+    {
+      "summary": "Make utility/facility topology and T+0–72 recovery explicitly supported, synthetic or Unknown.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Use authorized operator/GHOR safe aggregates where available; provider territories, NBNL planning, RDI/DUO/RIVM registers and current KNMI/RIVM observations remain contextual. If secure topology is unavailable, use separate editable synthetic networks with ranges. Require every recovery action/resource to carry start, dispatch delay, ramp, capacity, access/dependency and provenance; test no instantaneous effect and no observed/context data projected to T+72."
+    },
+    {
+      "summary": "Expose and extend the current ten-preset hazard-scope boundary.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/scenarios.ts",
+        "apps/web/src/components/ScenarioPanel.tsx",
+        "apps/web/src/components/Inspector.tsx",
+        "audits/correction-ledger.json"
+      ],
+      "validation": "First add a visible Enschede scope warning naming industrial/toxic, hazardous-transport, subsurface, aviation and radiological scenarios as unavailable. A later scenario-plugin contract may use REV and authoritative source/effect data with explicit edition, licence, event time, footprint and uncertainty; static regulated-site geometry must never imply inventory, release, plume or probability."
+    }
+  ],
+  "residualLimitations": [
+    "This is a deterministic planning-model audit, not validation against an observed Enschede disaster, outage, evacuation, casualty, health, welfare or restoration dataset.",
+    "The CBS 2025 generalized boundary supports municipal aggregation but not parcel hydraulics, catchments, border crossings, fire perimeters, effect zones, provider zones, asset ownership or internal emergency routes.",
+    "The VRT 2025 profile and 2026–2029 coverage plan supply official mechanisms and planning resources, not current forcing, local probabilities, live dispatch, asset availability or restoration commitments.",
+    "Municipal water-on-street polygons are an older model for named one-hour events; the standard reuse licence, refresh cadence and several timing-field units are unstated and must be resolved before ingestion.",
+    "HWH IMWA/DAMO is partial provider-supplied inventory; object count, status and capacity field do not establish compatible units, connectivity, operation, power/backup or delivered service.",
+    "IPO combustible-nature polygons are incomplete eligibility context and do not supply ignition, fuel moisture, perimeter, spread, smoke, evacuation, access or suppression.",
+    "NWB/ProRail/GTFS and a no-match NDW snapshot do not provide German causal links, complete internal-road access, transit operation, passenger demand, evacuation throughput or future passability.",
+    "Provider/capacity/antenna/school/care records are partial dated context, not complete topology, coverage, current load, occupancy, criticality, backup, stock, access or restoration.",
+    "No reviewed safe public source supplies complete Enexis, Vitens, municipal sewer/RWZI, gas, telecom/backhaul, facility, food/fuel or emergency-resource topology/state; security-sensitive detail was not inferred.",
+    "Current Twenthe Airport weather and Winkelhorst air-quality observations are point/time context and are not interpolated, attributed to a hazard or projected to the exercise clock.",
+    "First-72-hour household behavior, medically dependent residents, German visitors, students/commuters, event crowds, responders, mutual aid, shelters, hospital acceptance, buses, pharmacies, fuel/food stocks, pump controls, crew travel and repair priorities remain assumptions or Unknown.",
+    "Headless Chromium used a local macOS arm64 stable preview at 1440×1000 and 390×844. Initial full-national-data rendering required an explicit 35-second stabilization window and a separate development-server run exceeded two minutes waiting for network idle; this is environment-specific performance evidence, not an Enschede calibration result."
+  ]
+}

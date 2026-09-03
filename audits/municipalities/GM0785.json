@@ -1,0 +1,434 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0785",
+    "name": "Goirle",
+    "province": "Noord-Brabant",
+    "safetyRegion": "Midden- en West-Brabant"
+  },
+  "agent": {
+    "taskName": "municipality_gm0785",
+    "agentId": "/root/municipality_gm0518",
+    "completedAt": "2026-09-03T02:26:30Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "GM0785's identity, 2025 full PDOK boundary, Noord-Brabant and Veiligheidsregio Midden- en West-Brabant assignment, two BAG places and 31-neighbourhood census allocation are coherent. Fresh CBS reports 24,468 residents; neighbourhood rows sum to 24,470 (+2, +0.008%), and the simulator reconciles all local rows exactly to the municipal control. All ten canonical presets execute deterministically at T+0/6/12/24/48/72 across Power, Water, Drainage, Gas, Telecom, Mobility, Facilities and Supply; finite bounds, exact-zero intensity, selected-layer invariance and arithmetic ledgers pass. Release is nevertheless correction-required. The official Hart van Brabant stress test identifies Tijvoort and central Goirle for pluvial water nuisance, Tijvoort for heat and regional-water storage in Goirle, while its direct Maas-breakthrough list excludes Goirle. The generic Rhine/Meuse/IJssel preset instead sustains severity 0.639043, 2.057772 normalized inundation stress and more than 15,000 affected resident-equivalents without a selected river, defence, breach, connected footprint, arrival or recession. Goirle has zero logical transport edges even though official sources identify the N630 as its north-south connection between Tilburg/A58 and Poppel/Turnhout in Belgium. Nine unrelated presets reuse exactly one 31-neighbourhood order. A controlled source inside the official De Zeven Vennen nature-fire polygon and Verspreide huizen Goirle ranks that containing neighbourhood 23rd of 31. Compound severity falls from T+24 to T+72 while affected count and every service value are frozen and every recovery field is zero. Public registers expose roads, scheduled stops, water assets, providers, antennas, education and care, but none proves physical utility topology, live state, capacity, backup or restoration. Current observations, static registers, official scenarios and synthetic results remain distinct; missing coverage never means zero or safe.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek (CBS)",
+      "title": "E01 — Kerncijfers wijken en buurten 2025, table 86165NED, OData API",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM0785%27%29",
+      "accessedAt": "2026-09-03T02:10:00Z",
+      "edition": 2025,
+      "supports": [
+        "The fresh official municipality row identifies GM0785 Goirle and reports 24,468 residents, density 569 per square kilometre, 6,135 residents aged 65 or older, 10,632 households and 3,223 one-person households.",
+        "The 31 generated neighbourhood rows sum to 24,470 residents (+2, +0.008%), 6,135 residents aged 65 or older, 10,630 households and 3,223 one-person households. Small differences preserve CBS randomized rounding, suppression and incomplete-value semantics.",
+        "The 25.1% age-65-plus context is material to heat, warnings, evacuation, care and supply, but is not an incident-time presence, self-reliance or needs register.",
+        "CBS OData is machine-readable under CC BY 4.0; CBS describes quarterly additions for this annual table. Null, suppressed, rounded and incomplete values remain publisher states and never become zero.",
+        "Simulation role is official demographic/context and a reconciled allocation control only, not observed exposure, evacuation, injury, deprivation or customer topology."
+      ]
+    },
+    {
+      "publisher": "PDOK / CBS / Kadaster / Rijkswaterstaat / ProRail / OVapi",
+      "title": "E02 — Full municipality geometry, settlements, NWB roads, rail and scheduled transit",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_niet_gegeneraliseerd/items/8ca4f185-e8a3-5e96-844f-b35e1cc1e82e?f=json",
+      "accessedAt": "2026-09-03T02:11:00Z",
+      "edition": "2025 full boundary; current generated BAG, BRT, NWB, ProRail and GTFS reference editions",
+      "supports": [
+        "Fresh full-resolution GM0785 is one MultiPolygon component with one ring, 1,571 positions and bbox [4.9625727459340805, 51.47110814938934, 5.110645332850253, 51.54013286562539]. Generated centre [5.033961944847684, 51.50863846306969] lies inside.",
+        "The regional bundle contains 31 neighbourhoods and BAG places Goirle and Riel. Twelve BRT labels preserve Goirle and Riel as woonkernen plus Abcoven, Bakertand, Boschkens, Brakel, Breehees, Looienhoek, Nieuwkerk, Spaansehoek, Vijfhuizen and Zandeind.",
+        "The generated logical graph attaches no transport neighbour or route to GM0785 and identifies no ProRail station, while 49 GTFS stop areas provide scheduled-transit location context.",
+        "Machine routes are CBS boundary OGC, https://service.pdok.nl/rws/nationaal-wegenbestand-wegen/wfs/v1_0, https://api.pdok.nl/prorail/spoorwegen/ogc/v1/collections/station and https://gtfs.ovapi.nl/nl/gtfs-nl.zip. Boundary OGC is half-yearly/CC BY 4.0, BAG daily/Public Domain Mark 1.0, NWB monthly/CC0 1.0 and ProRail geometry manually refreshed/CC0 1.0; OVapi GTFS is free-use best-effort without an operational SLA.",
+        "These registers support official location and Mobility/Supply reference connectivity only. Geometry and schedules do not prove live direction, passability, throughput, utility topology, occupancy or restoration."
+      ]
+    },
+    {
+      "publisher": "Provincie Noord-Brabant / Regio Hart van Brabant",
+      "title": "E03 — Klimaatstresstest regio Hart van Brabant",
+      "url": "https://www.klimaatadaptatiebrabant.nl/voorbeelden/voorbeelden-detail/420/klimaatstresstest-regio-hart-van-brabant",
+      "accessedAt": "2026-09-03T02:13:00Z",
+      "edition": "Stress-test note dated 7 February 2020; provincial page added 6 July 2020",
+      "supports": [
+        "The official regional stress test covers Goirle and identifies bedrijventerrein Tijvoort and parts of central Goirle as vulnerable to heavy-rain water nuisance, and Tijvoort as heat-sensitive.",
+        "For direct Maas-dike breakthrough it enumerates Waalwijk, Heusden, northern Dongen, eastern Haaren and north-western Loon op Zand, not Goirle. It separately says De Dommel designated regional-system water-storage areas especially in Goirle, Hilvarenbeek, Oisterwijk and Haaren.",
+        "This evidence contradicts a decision-ready generic direct Rhine/Meuse/IJssel footprint in Goirle but is not an all-clear for Poppelsche/Rovertsche/Nieuwe Leij, regional water, pluvial rain, groundwater or indirect disruption.",
+        "The page exposes a PDF and ArcGIS viewer, but no stable analytical API, standard reuse licence, fixed cadence or complete raster NoData contract was found. The integration path is the native publisher service/export after licence, CRS, event, units, edition and NoData are confirmed.",
+        "It is official awareness/scenario context, not current inundation, an incident-time forecast or causal service state."
+      ]
+    },
+    {
+      "publisher": "Gemeente Goirle",
+      "title": "E04 — Current Riel area vision, 2025 traffic circulation and external-safety planning",
+      "url": "https://www.goirle.nl/fileadmin/Goirle/PDF-documenten/Fysiek/Gebiedsvisie_Riel_Goirle_LRes.pdf",
+      "accessedAt": "2026-09-03T02:15:00Z",
+      "edition": "Definitive Riel area vision 2026; traffic-circulation report 18 March 2025; external-safety appendix 2021",
+      "supports": [
+        "The 2026 vision identifies extreme precipitation, prolonged drought and heat; higher parts of Riel need local rain storage, the Oude Leij needs more storage, a Riels Kwadrant buffer is being investigated and Riel overlaps a drinking-water groundwater-protection area.",
+        "It directs through traffic to N260, N630 and A58. The municipality's 2025 circulation report at https://raad.goirle.nl/Vergaderingen/Lijst-Ingekomen-Stukken/2025/25-maart/19%3A30/Informatie-van-B-W-voor-kennisgeving-aannemen/C1-Bijlage-1-bij-rib-18-3-2025-Verkeerscirculatie-Goirle.pdf identifies N630 as the principal north-south link between Tilburg/A58, Goirle and Turnhout; after the Belgian border it continues as N12.",
+        "Current project material at https://www.goirle.nl/fileadmin/Goirle/PDF-documenten/Projecten/Presentatie_19_mei_2025_Rotonde_Turnhoutsebaan-Tijvoortsebaan.pdf shows that an N630 closure requires local and large-scale Poppel diversions, demonstrating cross-boundary dependency rather than live closure.",
+        "The official external-safety appendix at https://raad.goirle.nl/Vergaderingen/Besluitvormend/2021/13-juli/19%3A30/13-Bijlage-2-Separate-bijlagen-bij-het-vast-te-stellen-bestemmingsplan-Ronde-Akkers-Riel.pdf identifies A58 and N630 dangerous-goods routes and relevant gas pipelines. This is planning context, not a current shipment, release, pipeline state or probability.",
+        "These HTML/PDF sources are policy/event-updated and declare no stable API/WMS/WFS, machine licence or fixed cadence. Request the native road, diversion, climate, sewer/catchment and groundwater layers with explicit version/licence/NoData."
+      ]
+    },
+    {
+      "publisher": "Waterschap De Dommel / Waterschap Brabantse Delta / Het Waterschapshuis",
+      "title": "E05 — Belgian-fed Leij system, local water projects and machine water registers",
+      "url": "https://www.dommel.nl/poppelscheleij",
+      "accessedAt": "2026-09-03T02:17:00Z",
+      "edition": "De Dommel project phase 2025–2026; current public services and deployment snapshot 3 September 2026",
+      "supports": [
+        "De Dommel places the Poppelsche Leij in south-west Goirle beside N630 to Poppel, works with Flemish authorities and seeks both water retention against drought and more room against water nuisance. Its official route page states that the Poppelsche and Rovertsche Leij enter the Netherlands from Belgium and join at Goirle as the Nieuwe Leij toward Tilburg.",
+        "Goirle spans De Dommel and Brabantse Delta water-management context. The deployment's full-boundary register screen finds 33 points: 30 weirs, two sewer pumps and RWZI Riel. A record marked realised is static register context, not live operation.",
+        "Integration-ready national endpoints are https://api.pdok.nl/hwh/waterschappen-kunstwerken-imwa/ogc/v2 and https://api.pdok.nl/hwh/waterschappen-waterketen-damo/ogc/v1 under CC BY-SA 4.0; aggregation is partial and weekly or contributor-dependent. Brabantse Delta also exposes latest WMS/WFS/download from https://www.brabantsedelta.nl/over-ons/organisatie/regels-en-handhaving/legger/geodata-via-webservices/ under catalogue CC0 1.0.",
+        "De Dommel's official 2023 legger and public measurement/download portal at https://www.dommel.nl/waterdata-openbare-gegevens-over-water provide local geometry and current observations; item-level API, licence, cadence and NoData must be preserved rather than assumed.",
+        "Asset and project data support hydrologic context only. They do not establish cross-border inflow, catchment connectivity, pump/weir position, spare capacity, power/backup, condition, flood footprint, route passability or T+72 operation."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Midden- en West-Brabant / IPO Risicokaart",
+      "title": "E06 — Regionaal Risicoprofiel 2023–2027 and official combustible-nature polygons",
+      "url": "https://www.vrmwb.nl/media/qnmkutwa/regionaal-risicoprofiel-2023_2027.pdf",
+      "accessedAt": "2026-09-03T02:19:00Z",
+      "edition": "VRMWB profile 2023–2027; Risicokaart metadata updated 19 February 2026",
+      "supports": [
+        "VRMWB identifies nature fire, extreme weather and digital/vital-infrastructure disruption among priority regional risks, uses qualitative assessment where quantitative evidence is insufficient and includes Belgian emergency-planning partners.",
+        "The profile explains that dry heat raises nature-fire likelihood, sufficient extinguishing water and access can constrain response, and mobility plus less-self-reliant locations can be affected.",
+        "IPO Risicokaart WFS https://servicespub.risicokaart.nl/geoserver/ISOR_RK/wfs exposes GM0785-owned polygons De Blaak, De Zeven Vennen, 't Riels Hoefke–Brakelse Heide, Beekse Heide, Het Ooijevaarsnest and Bos in Zuid-Westen van Goirle after full-boundary containment.",
+        "Risicokaart geometry is Public Domain; the audited layer metadata was updated 19 February 2026 while individual Goirle records begin in 2006. Bbox results include neighbouring municipalities, so the full GM0785 polygon, feature date and owner must be retained.",
+        "A registered combustible area and regional risk class are context, not current fuel/moisture, ignition, perimeter, wind, smoke, access, firewater, suppression resource or forecast."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / Informatiepunt Leefomgeving",
+      "title": "E07 — LIWO flood scenarios, Waterinfo and REV Basisnet dangerous-goods route context",
+      "url": "https://iplo.nl/thema/water/applicaties-modellen/berichtgeving-crisismanagement/liwo/",
+      "accessedAt": "2026-09-03T02:21:00Z",
+      "edition": "LIWO 2025.1.6; deployment Waterinfo snapshot 2 September 2026; live REV WMS inspected 3 September 2026",
+      "supports": [
+        "LIWO is the professional route for expert-selected, named flood scenarios and layers such as depth, arrival and duration. Machine endpoints are https://basisinformatie-overstromingen.nl/api/v2 and https://basisinformatie-overstromingen.nl/geoserver/ows.",
+        "LIWO updates are release-driven rather than fixed; its landing/configuration does not state a blanket redistribution licence, so every layer requires pinned edition, scenario, conditions, units, resolution, licence and NoData review.",
+        "No Waterinfo observation point intersects GM0785; the nearest deployment points are Tilburg sluis 3 above/below roughly eight kilometres from the municipal centre. Public Waterinfo is CC0 and generally ten-minute but not mission-critical; no local sensor is Unknown, not zero or safe.",
+        "The app's Rijkswaterstaat REV public WMS displays Basisnet road/rail/water activities. It is regulated-route context only: the WMS states no fixed cadence, record timestamp or reuse-licence version and does not prove a current dangerous-goods movement, incident, restriction or capacity.",
+        "Official scenario, current point observation and static regulated-route context remain separate and do not automatically affect the synthetic T+0–72 model."
+      ]
+    },
+    {
+      "publisher": "KNMI / NDW / Stichting Mijn Aansluiting / Netbeheer Nederland / RIVM / RDI / DUO",
+      "title": "E08 — Timestamped observation, provider, capacity-planning, care, telecom and education context",
+      "url": "https://api.dataplatform.knmi.nl/open-data/v1/datasets/10-minute-in-situ-meteorological-observations/versions/1.0/files",
+      "accessedAt": "2026-09-03T02:23:00Z",
+      "edition": "Deployment snapshots 2–3 September 2026; RIVM acute care 2026 v1.1",
+      "supports": [
+        "No KNMI station lies inside GM0785; the nearest is Gilze-Rijen Airport about 9.27 km from the centre. Its 2026-09-02T23:30Z observation was 18.8°C, gust 5.07 m/s and zero preceding-hour rain. KNMI ten-minute data are CC BY 4.0; a point-time zero is not municipal zero or a future T+72 forecast.",
+        "No NDW deployment situation intersects GM0785. NDW DATEX is near-real-time and CC0 unless stated; absence in a time-bounded snapshot never proves N630/A58/local roads open. The model consumes none of these records.",
+        "Public-domain provider WMS/WFS at https://public.geodata.mijnaansluiting.nl/geoserver/mijnaansluiting_open/ows returns Enexis electricity/gas, Brabant Water and Ziggo at the centre but no drainage provider. Provider dates vary and one point is not full coverage; territory identifies responsibility, not topology, pressure, load, outage or restoration.",
+        "One public NBNL sample postcode 5051HJ maps to Enexis TBZ Tilburg Zuid and reports capacity, queues and projects. Capacity/projects update at least quarterly and queues monthly, but exact licence and frontend API stability are undocumented; one postcode is not feeder coverage or outage telemetry.",
+        "RIVM 2026 v1.1 CC0 data contain no emergency department in GM0785; ETZ Tilburg is about 5.91 km straight-line from the centre. RDI contributes 37 antenna sites and DUO's daily CC BY feed 13 education locations. These are dated registers, not route time, live acceptance, staffing, shelter activation, radio coverage/backhaul, capacity, backup or restoration.",
+        "Use these sources as affectsSimulation=false context until a verified binding exists. Complete physical lifeline topology/state remains unavailable or security-sensitive; any fallback must be explicitly synthetic, versioned and uncertain."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM0785, Goirle, Noord-Brabant and Veiligheidsregio Midden- en West-Brabant are internally and officially coherent.",
+      "evidenceRefs": ["E01", "E02", "E06"],
+      "notes": [
+        "Generated municipality, regional bundle, province and exactly one safety-region assignment agree.",
+        "The generated centre lies inside both generated and freshly fetched full-resolution 2025 PDOK geometry.",
+        "Annual boundary/statistics, policy/registers, timestamped observations and synthetic exercise time remain distinct."
+      ]
+    },
+    "geography": {
+      "status": "fail",
+      "summary": "Administrative geometry is sound, but river, pluvial, heat and fire allocation contradict mechanism-specific local evidence.",
+      "evidenceRefs": ["E02", "E03", "E05", "E06"],
+      "notes": [
+        "The full 2025 polygon, not its bbox or generalized overview, was used for containment checks.",
+        "Nine unrelated presets share one complete 31-neighbourhood order despite official Tijvoort/centre rain, Tijvoort heat, Leij/regional-water and combustible-nature distinctions.",
+        "A controlled source inside De Zeven Vennen and Verspreide huizen Goirle leaves that source-containing neighbourhood 23rd of 31."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Official municipal controls and neighbourhood aggregates reconcile within CBS rounding and suppression semantics.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "CBS reports 24,468 residents; 31 rows sum to 24,470 (+2, +0.008%), while model detail rescales and reconciles exactly to 24,468.",
+        "Official controls are 6,135 age-65-plus residents, 10,632 households and 3,223 one-person households; row sums are 6,135, 10,630 and 3,223.",
+        "Resident-equivalent results omit incident-time workers, pupils, passengers, visitors, patients and responders."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "Thirty-one neighbourhoods support census allocation, but attributes and all live physical lifeline states remain incomplete.",
+      "evidenceRefs": ["E01", "E02", "E05", "E08"],
+      "notes": [
+        "Average home value and household size exist for 29/31 neighbourhoods, cars per household for 26/31, and multiple social/housing percentages for 29/31.",
+        "District heating and public-charging fields are absent for all 31; absence is Unknown, not zero.",
+        "Water objects, antennas, schools, provider territories and care points are static/datetime context and do not supply operational topology or state."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "Goirle and Riel are preserved as BAG places and smaller official settlement labels are retained.",
+      "evidenceRefs": ["E02"],
+      "notes": [
+        "Both BAG place centres lie inside the generalized municipality geometry.",
+        "Twelve settlement labels distinguish two woonkernen and ten smaller named places.",
+        "Settlement labels do not imply shelter, response post, care, supply, population-at-time or service capacity."
+      ]
+    },
+    "transport": {
+      "status": "fail",
+      "summary": "The logical graph has zero edges despite Goirle's documented N630/A58, Belgian and local access dependencies.",
+      "evidenceRefs": ["E02", "E04", "E07", "E08"],
+      "notes": [
+        "No logical route is attached to GM0785 for any service; consequently no N630 connection to Tilburg/A58 or Poppel/Turnhout can carry modeled Mobility or explicit road-logistics/Supply.",
+        "Forty-nine GTFS stop areas do not establish a scenario-time operating bus, external Tilburg rail/hospital access, evacuation destination or throughput.",
+        "NWB, GTFS and NDW are integration-ready references but require direction, validity, closures, emergency priority and cross-border continuation; missing NDW is not open-road evidence."
+      ]
+    },
+    "emergencyContext": {
+      "status": "warn",
+      "summary": "Local nature, water, dangerous-goods and external-care contexts are material but not causally connected to the model.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "Official evidence identifies regional-water storage, Belgian-fed Leij streams, multiple combustible-nature areas, dangerous-goods corridors and gas pipelines.",
+        "No emergency department lies inside GM0785; external ETZ access is not represented by a route, acceptance, staff, capacity or backup state.",
+        "No industrial/hazardous-material preset exists among the ten canonical families, and static REV/planning context cannot be converted into a current incident."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten canonical presets execute at all six mandatory checkpoints for all eight services.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "MUNICIPALITY_AUDIT_CODE=GM0785 pnpm audit:model passed one file/two tests in 29.25 seconds (29.04 seconds test time).",
+        "A private focused reproduction passed one file/one test in 45.91 seconds and recorded 10 presets × 6 checkpoints × 8 services, routes, local ranks, balances, zero intensity and layer invariants.",
+        "At T+24 modeled severity / affected resident-equivalents / cumulative local pre-network person-hours are storm 0.053851 / 3,514 / 71,798.123213; pluvial 0.144284 / 1,187 / 59,165.805031; river 0.639043 / 15,091 / 223,128.078850; coastal 0.004706 / 0 / 2,255.388574; heat 0.113860 / 2,965 / 83,540.052573.",
+        "Remaining T+24 values are winter 0.559066 / 6,267 / 119,488.869257; cyber 0.370258 / 6,722 / 111,969.791057; earthquake 0 / 0 / 1,726.411777 after a T+6 0.003199 pulse; wildfire 0.131267 / 327 / 40,576.560644; compound 0.775294 / 13,928 / 206,373.551746.",
+        "At T+72 direct severity is zero for storm, pluvial, coastal, winter, earthquake and wildfire; river remains 0.639043, heat 0.113860, cyber 0.043454 and compound 0.241218. Structural execution does not establish local physical accuracy.",
+        "Headless Chromium at 1440×900 and 390×844 selected GM0785, River flood, Mobility and T+24 without page/console errors or horizontal overflow; desktop map selection opened Verspreide huizen Goirle and mobile required opening the operations menu and tuning panel."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Outputs are finite, bounded, deterministic, exact at zero intensity, selected-layer invariant and locally reconciled.",
+      "evidenceRefs": ["E01", "E02"],
+      "notes": [
+        "Every preset's zero-intensity run returns exact zero event hazard, affected resident-equivalents and cumulative deprived person-hours at every checkpoint.",
+        "Changing selected display service leaves hazard, pressure and affected-population results exactly identical.",
+        "Each local detail has 31 rows summing to 24,468; maximum reconciliation error is 7.105427357601002e-15.",
+        "All eight route collections are empty, so there is no route duplication but also no physical or proxy connectivity to validate."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "Local allocation ignores documented mechanism-specific hotspots and an explicit official fire source.",
+      "evidenceRefs": ["E02", "E03", "E05", "E06"],
+      "notes": [
+        "Storm, pluvial, river, coastal, heat, winter, cyber, wildfire and compound share the exact order led by De Nieuwe Erven, Wildackers, Tijlvoort-Zuid, De Leijzoom and Bomen.",
+        "Goirle-Centrum ranks 21st and Riel-Dorp 25th; the allocator does not sample official Tijvoort/centre rain, Tijvoort heat, Riel water or Leij/regional-storage geometry.",
+        "A controlled explicit fire source at [5.0904675, 51.5211325] lies inside De Zeven Vennen, GM0785 and Verspreide huizen Goirle, but that neighbourhood ranks 23rd of 31.",
+        "The controlled source is an audit fixture, not an observed ignition. It falsifies source containment without claiming a current fire."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "Exact eight-service states exceed verified local topology, cross-border connectivity, capacity, backup and live-state evidence.",
+      "evidenceRefs": ["E02", "E04", "E05", "E07", "E08"],
+      "notes": [
+        "At compound T+24/T+72 exact availability is Power 0.412286, Water 0.434533, Drainage 0.404769, Gas 0.627615, Telecom 0.256994, Mobility 0.630251, Facilities 0.424684 and Supply 0.514866.",
+        "There are zero modeled routes for all eight services. NWB cannot carry Power, Water, Drainage, Gas, Telecom or Facilities and here also supplies no Mobility/Supply edge.",
+        "Provider territories, one NBNL postcode, 33 water objects, 37 antennas, 13 schools, 49 stops and an external hospital are context, not compatible topology/state/capacity/backup/restoration inputs.",
+        "No complete safe public live utility topology/state source was found. Use authorized operator data where possible; otherwise label a minimal versioned synthetic exercise graph with ranges and uncertainty."
+      ]
+    },
+    "causalTrace": {
+      "status": "warn",
+      "summary": "Arithmetic ledgers close, but operational cause, authority, resources, action state and evidence lineage remain absent.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E08"],
+      "notes": [
+        "Outputs contain hazard, direct-service, interdependency, network, recovery and local-allocation records with matched totals.",
+        "Cumulative person-hours reconcile to a no-event local pre-network counterfactual and exclude intermunicipal transfers; they are not observed outage duration.",
+        "Explanations cite deterministic pressure weights but no selected local event, operator graph, authority decision, activated intervention or resource state.",
+        "Each deterioration, plateau and restoration needs owner, action, target, prerequisite, crew/material/fuel/water, access, start/end, state, evidence class and uncertainty."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "Persistent river and frozen compound service states have no selected blocking mechanism or action/resource explanation.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E08"],
+      "notes": [
+        "River forcing keeps severity 0.639043 and normalized inundation stress 2.057772 through T+72; affected rises 15,091 to 16,145 and Facilities worsens 0.559082 to 0.340668 while seven other service availabilities remain exact and every recovery field is zero.",
+        "Compound severity falls 0.775294 to 0.241218, but 13,928 affected and all eight service availabilities remain exactly fixed; every recovery field is zero while person-hours rise 206,373.551746 to 807,816.004133.",
+        "Storm, pluvial, heat and wildfire expose numerical recovery without named crews, access, water, fuel, spares, actions or observed restoration.",
+        "Sustained forcing may prevent restoration, but it must be an explicit selected condition with resource/access state rather than an unexplained municipal plateau."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": ["power", "water", "drainage", "gas", "telecom", "mobility", "facilities", "supply"]
+  },
+  "findings": [
+    {
+      "id": "GM0785-RIVER-SCOPE-001",
+      "severity": "critical",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Unsupported generic major-river stress overwhelms Goirle despite contrary direct-Maas screening and distinct regional-water evidence.",
+      "evidence": "The official Hart van Brabant stress test omits Goirle from the municipalities exposed to direct Maas-dike-breakthrough flooding but separately places regional-water storage in Goirle. The current Rhine/Meuse/IJssel preset holds severity 0.639043 and 2.057772 normalized inundation stress through T+72, reports 15,091 affected at T+24 and 16,145 at T+72, and selects no river, hydrograph/datum, defence/breach, connected footprint, probability, arrival, duration or recession. The output is tagged derived-screening with no adjacent unsupported dimension. This does not prove zero water risk: Belgian-fed Leij, regional water, pluvial, groundwater and indirect pathways remain material.",
+      "action": "Suppress decision-facing direct major-river amplitude, local ranks and dependent services for GM0785; optionally retain the scalar internally as a plainly labelled non-operational diagnostic. Show local impact Unknown until De Dommel/Brabantse Delta/WMCN select a versioned LIWO/LDO or catchment event with source water, boundary, defence/control state, connected footprint, true units, arrival, duration/recession, probability, CRS, NoData, licence and expert approval."
+    },
+    {
+      "id": "GM0785-ZERO-TRANSPORT-001",
+      "severity": "critical",
+      "category": "network",
+      "status": "open",
+      "summary": "Goirle has no modeled transport edge despite its N630/A58 and Belgian cross-border access spine.",
+      "evidence": "The audit context reports logical transport degree zero, no neighbours and no routes for any service. Official Goirle evidence identifies N630 as the main north-south connection between Tilburg/A58, Goirle and Poppel/Turnhout, continuing as Belgian N12; current closure planning requires local and large-scale Poppel diversions. Forty-nine GTFS stop areas remain unmapped context. The UI nevertheless shows River/Mobility as exactly 39% available at T+24 and T+72 without a route to Tilburg, Belgium, external care, supply or mutual aid.",
+      "action": "Block route-dependent Mobility/Supply/care claims until a clipped, direction-aware NWB/local/Belgian road graph represents N630/N12, A58 access, Riel and alternatives. Add editioned GTFS/operational transit, border continuity, structures, closure validity, emergency priority, capacity and destination roles; preserve absent NDW/Belgian observations as Unknown rather than open."
+    },
+    {
+      "id": "GM0785-FIRE-SOURCE-001",
+      "severity": "critical",
+      "category": "geography",
+      "status": "open",
+      "summary": "An explicit official nature-fire source does not control its containing neighbourhood's rank.",
+      "evidence": "IPO Risicokaart contains six GM0785-owned combustible-nature polygons. A controlled T+24 source at [5.0904675, 51.5211325] lies inside De Zeven Vennen, the full GM0785 boundary and CBS Verspreide huizen Goirle, but that neighbourhood ranks 23rd of 31; De Nieuwe Erven, Wildackers, Tijlvoort-Zuid, De Leijzoom and Bomen remain the top five. The controlled run produces municipality direct fire 0.500459 and smoke 0.544299. The source is an audit fixture, not an observed ignition.",
+      "action": "Block local wildfire ranks from operational use. Require explicit source/perimeter and full-boundary intersection with eligible Risicokaart/BRT/BGT vegetation, then use issue-valid KNMI wind/humidity, fuel/moisture, access, extinguishing-water and suppression assumptions. Add a regression requiring an eligible source-containing region to respond consistently; no selected ignition remains Unknown."
+    },
+    {
+      "id": "GM0785-SHARED-SPATIAL-SEED-001",
+      "severity": "critical",
+      "category": "geography",
+      "status": "open",
+      "summary": "Nine unrelated hazard families reuse one complete neighbourhood order despite documented local pathway differences.",
+      "evidence": "Storm, pluvial, river, coastal, heat, winter, cyber, wildfire and compound all rank the same 31 neighbourhoods in the same order. Only earthquake differs. Official evidence instead distinguishes Tijvoort and central Goirle pluvial nuisance, Tijvoort heat, Riel/Leij/regional-water mechanisms and six local nature-fire areas; cyber has no defensible reason to share their order. Compound unsupportedDimensions is empty.",
+      "action": "Replace the common municipality seed with hazard-family-specific eligible domains, source/forcing surfaces and exposed-object adapters plus a support gate. Integrate licensed native climate/water/fire evidence at its real edition and NoData semantics. Require unrelated presets not to silently share a complete rank and render unsupported local allocation Unknown."
+    },
+    {
+      "id": "GM0785-COMPOUND-RECOVERY-001",
+      "severity": "critical",
+      "category": "service",
+      "status": "open",
+      "summary": "All eight compound services freeze through T+72 without a traceable blocking condition, action or resource ledger.",
+      "evidence": "From T+24 to T+72 compound severity falls 0.775294 to 0.241218, but affected remains 13,928 and availability stays exactly Power 0.412286, Water 0.434533, Drainage 0.404769, Gas 0.627615, Telecom 0.256994, Mobility 0.630251, Facilities 0.424684 and Supply 0.514866. Every recovery field is zero while person-hours rise from 206,373.551746 to 807,816.004133. No owner, cross-border access, crews, material, fuel, water, switching, repair or observation explains the plateau.",
+      "action": "Require a typed incident/action/resource ledger with authority, owner, target, prerequisite, crew/material/fuel/water, route/access, start/end, state, evidence time and uncertainty. At each mandatory checkpoint require every deterioration, plateau and restoration to cite an active causal condition while retaining arithmetic reconciliation and exact-zero behavior."
+    },
+    {
+      "id": "GM0785-REGIONAL-WATER-CHAIN-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Belgian-fed Leij, Riel water-quality/storage and Tijvoort/centre pluvial pathways are absent from local forcing and drainage causality.",
+      "evidence": "De Dommel documents Poppelsche and Rovertsche Leij entering from Belgium and joining at Goirle, while the provincial test identifies Tijvoort and the centre for water nuisance and regional storage in Goirle. The Riel vision adds higher-ground storage, Oude Leij, a possible Riels Kwadrant buffer and a drinking-water groundwater-protection area. At T+24 pluvial nevertheless reports one generic 0.199777 stress, 1,187 affected and Drainage 0.679560. Thirty weirs, two sewer pumps and RWZI Riel remain non-causal points without catchment, state, capacity or backup.",
+      "action": "Request licensed native municipal/board rain-depth, terrain, sewer/catchment, groundwater/protection, stream-boundary and intervention layers. Connect named Belgian inflow and Leij/regional-water scenarios only after harmonizing event, datum, units, CRS, edition, cadence and NoData. Keep projects, buffers and realised assets distinct from live protection/operation."
+    },
+    {
+      "id": "GM0785-LIFELINE-PROVENANCE-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Exact Power, Water, Drainage, Gas, Telecom, Facilities and Supply values lack verified physical topology or operator state.",
+      "evidence": "No physical or proxy route exists for any service. Enexis/Brabant Water/Ziggo centre territories, one NBNL postcode, 33 water objects, 37 antenna sites, 13 schools and public registers are context only. Drainage provider lookup is empty. None supplies customer connectivity, compatible capacity, switching, pressure, sewer catchment, backhaul, backup, damage, outage, crew or restoration state, yet the UI exposes exact percentages to whole-number precision.",
+      "action": "Integrate authorized operator topology/outage/backup/priority-user/restoration data where security agreements permit. Keep public provider, capacity, water, antenna, education and facility layers affectsSimulation=false absent a verified binding. Otherwise publish minimal versioned synthetic service zones/graphs with ranges and uncertainty rather than operator-validated-looking decimals."
+    },
+    {
+      "id": "GM0785-ACCESS-CARE-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "External acute care, bus/rail transfer, village access and cross-border mutual aid are not modeled over the first 72 hours.",
+      "evidence": "RIVM identifies no emergency department inside GM0785; ETZ Tilburg is about 5.91 km straight-line from the centre. The bundle has no station and 49 stops, but no scheduled/operational route, N630/A58 passage, Belgian N12 continuation, Riel alternative, hospital acceptance, shelter, emergency priority or supply/repair throughput. Registers do not prove opening or capacity. River/Mobility remains displayed as 39% without any route-level evidence.",
+      "action": "Build an authority-reviewed multimodal graph from NWB/local and compatible Belgian roads, structures, valid GTFS/operational feeds and explicit ETZ/safe-destination routes. Bind event-valid restrictions and emergency priority; register care, shelters, distribution and mutual-aid roles only with activation, accessibility, staffing/capacity, backup, owner and valid time."
+    },
+    {
+      "id": "GM0785-INDUSTRIAL-SCOPE-001",
+      "severity": "high",
+      "category": "limitation",
+      "status": "open",
+      "summary": "A58/N630 dangerous-goods and gas-pipeline context has no selectable industrial or hazardous-material incident family.",
+      "evidence": "Official Goirle planning identifies A58 and N630 as dangerous-goods transport routes and relevant high-pressure gas pipelines, while the app displays live REV Basisnet WMS context. None of the ten canonical presets selects a shipment, fixed establishment, pipeline segment, release substance, source, wind/plume, heat/overpressure, shelter/evacuation zone or response. Static regulated geometry cannot establish current movement, incident, probability or service impact.",
+      "action": "Add an industrial/hazardous-material exercise only when an authority selects a versioned REV/DSO or authorized source with substance/event, containment/release, issue/valid time, wind, effect model, vulnerable objects, road/care actions and uncertainty. Preserve REV as affectsSimulation=false context otherwise; no matching event must remain Unknown, never zero risk."
+    },
+    {
+      "id": "GM0785-OTHER-HAZARDS-UI-001",
+      "severity": "high",
+      "category": "ui",
+      "status": "open",
+      "summary": "The remaining presets execute responsively but unsupported event, topology, source and valid-time gaps are not adjacent to exact operational values.",
+      "evidence": "At T+24 storm reports 3,514 affected, winter 6,267 and cyber 6,722 without issue-valid forcing/exposure or a defined cyber system boundary. Heat reports 2,965 affected despite not sampling Tijvoort; earthquake uses a fixed remote Groningen event and peaks only 0.003199 at T+6; canonical wildfire has zero direct fire despite local combustible areas; coastal direct water is zero, a narrow result that says nothing about Belgian-fed streams, regional water or indirect systems. Desktop/mobile show River/Mobility as critical and 39% at T+24 with no unsupported warning near the hero. Both layouts had no runtime error or horizontal overflow; mobile selection took eight exposed actions including opening/closing operations and tuning panels and opening details.",
+      "action": "Gate exact status, availability, local ranks, causal bars and export by municipality-hazard-service support. Place missing event/source/topology/recovery, valid-time and NoData warnings beside the hero; distinguish current observation, official scenario, register, synthetic output and Unknown. Preserve responsive named controls and add keyboard/screen-reader regression for municipality, ten hazards, eight services, six checkpoints and neighbourhood details."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Suppress GM0785's unsupported direct major-river result while retaining regional-water risk as unresolved.",
+      "files": ["packages/sim-core/src/types.ts", "packages/sim-core/src/model.ts", "packages/sim-core/src/model.test.ts", "packages/sim-core/src/municipality-coverage.test.ts", "apps/web/src/components/Inspector.tsx"],
+      "validation": "Until an authority-selected event is loaded, decision-facing GM0785 direct Rhine/Meuse/IJssel stress, affected counts, neighbourhood ranks and downstream services render unsupported/Unknown and numerically neutral. Any internal proximity diagnostic is labelled non-operational. A loaded Leij/regional/LIWO case records source water, boundary/datum, defence/control state, connected footprint, true units/resolution, arrival/duration/recession, probability, NoData, licence and expert reviewer."
+    },
+    {
+      "summary": "Restore N630/A58/Belgian and local multimodal connectivity without promoting road geometry to utilities.",
+      "files": ["scripts/fetch-municipalities.mjs", "scripts/fetch-realism-data.mjs", "packages/sim-core/src/network.ts", "packages/sim-core/src/network.test.ts", "apps/web/src/data.ts"],
+      "validation": "GM0785 has direction-aware Mobility and explicit road-logistics/Supply connections for N630/N12 toward Poppel/Turnhout and Tilburg/A58 plus Riel/local alternatives, preserving corridor identity and boundary clipping. Power, Water, Drainage, Gas, Telecom and Facilities receive no NWB support. Tests retain valid-time closure, emergency priority, capacity, border continuity, no-data and destination semantics."
+    },
+    {
+      "summary": "Replace the shared GM0785 neighbourhood seed with source- and hazard-family-aware allocation.",
+      "files": ["packages/sim-core/src/model.ts", "packages/sim-core/src/geometry.ts", "packages/sim-core/src/model.test.ts", "scripts/fetch-realism-data.mjs", "apps/web/src/data.ts"],
+      "validation": "Use the full 2025 polygon; version and clip native Tijvoort/centre rain, Tijvoort heat, Leij/Riel water and Risicokaart nature-fire layers after resolving licence and NoData. The De Zeven Vennen controlled source makes its containing Verspreide huizen Goirle respond consistently, and unrelated hazard families cannot silently share a complete rank."
+    },
+    {
+      "summary": "Integrate public water/climate registers without treating geometry, projects or register status as live hydraulic operation.",
+      "files": ["scripts/fetch-water-assets.mjs", "scripts/fetch-realism-data.mjs", "packages/sim-core/src/types.ts", "apps/web/src/data.ts"],
+      "validation": "Version De Dommel/Brabantse Delta native services and HWH CC BY-SA aggregation separately, preserving manager, coverage, edition, event/observation time, CRS, units, licence and NoData. Poppelsche/Rovertsche/Nieuwe Leij, Riel storage and groundwater protection are typed pathways. Weirs, pumps, RWZI and planned projects remain context until connectivity, state, capacity, power/backup and authority review exist."
+    },
+    {
+      "summary": "Evidence-gate lifelines, external care and industrial/hazardous-material context.",
+      "files": ["packages/sim-core/src/network.ts", "packages/sim-core/src/types.ts", "apps/web/src/data.ts", "apps/web/src/components/OperationsBrief.tsx"],
+      "validation": "Exact service values require compatible topology/state/capacity/backup evidence or clearly synthetic ranges. ETZ, transit, villages, border mutual aid, schools/shelters and distribution expose route, role, activation, staffing/capacity, validity and uncertainty. Provider, NBNL, water, antenna, facility and REV layers remain affectsSimulation=false; empty coverage displays Unknown."
+    },
+    {
+      "summary": "Make first-72-hour changes and UI claims conditional on traceable incident/action/resource evidence.",
+      "files": ["packages/sim-core/src/model.ts", "packages/sim-core/src/types.ts", "apps/web/src/components/CausalExplanation.tsx", "apps/web/src/components/Inspector.tsx", "apps/web/src/components/OperationsBrief.tsx"],
+      "validation": "At T+0/6/12/24/48/72 every deterioration, plateau and restoration cites incident driver, authority/owner, target, prerequisite, crew/material/fuel/water, route/access, start/end, state, valid time and uncertainty. Desktop/mobile place support, scope, observation time and NoData beside exact values and prevent GM0785 compound/river plateaus from appearing decision-grade without causes."
+    }
+  ],
+  "residualLimitations": [
+    "Complete physical electricity, gas, drinking-water, sewer/drainage, telecom, care and supply topology, control logic, live load, outage, backup, crews, spares, water, fuel and restoration state are unavailable or security-sensitive. Public geometry, provider territory and registers cannot honestly replace them.",
+    "The 2020 Hart van Brabant stress test is strong municipality-specific scenario evidence but not a current observation or forecast. Its viewer does not state a stable analytical API, blanket licence, fixed cadence or complete NoData contract.",
+    "Goirle's omission from the stress test's enumerated direct Maas-breakthrough municipalities contradicts generic direct-major-river precision but does not prove zero risk from Belgian-fed Leij streams, regional water, groundwater, pluvial rain or indirect disruption.",
+    "De Dommel, Brabantse Delta and HWH expose water geometry and some observations, but registered status does not establish current catchment connectivity, pump/weir position, capacity, defence condition, backup power or scenario-time operation.",
+    "Risicokaart polygons establish combustible-nature context, not fuel, moisture, ignition, perimeter, smoke, access, extinguishing water or suppression. The controlled source is a test fixture, not an observation.",
+    "NWB, GTFS, ProRail and NDW do not establish scenario-time road/bus/rail operation, Belgian continuity, hospital access, emergency priority, evacuation suitability or throughput. No record is not an open route.",
+    "Current KNMI, Waterinfo and air-quality point observations are not municipal surfaces or arbitrary T+72 forecasts. No local point and a zero at one remote point/time are Unknown at municipal scenario scope.",
+    "CBS residents omit incident-time workers, pupils, passengers, visitors, patients and responders. Rounded/suppressed aggregates cannot identify individual self-reliance, mobility or medical need.",
+    "REV and planning documents identify regulated routes/pipelines, not current dangerous-goods movement, fixed-facility inventory, release, operational state or event probability. No industrial preset is present.",
+    "Exact hazard, population, availability, recovery and person-hour values remain synthetic/derived exercise outputs, not observations, official forecasts, operator commitments or decision-grade advice until critical/high findings are corrected and authorities review the scenario.",
+    "The audit covers the first 72 hours only; flood, displacement, drought, ecosystem damage, infrastructure repair and care/supply effects may continue longer."
+  ],
+  "provinceReviewFlags": [
+    "Noord-Brabant, VRMWB, De Dommel and Brabantse Delta should suppress the generic direct Rhine/Meuse/IJssel result for GM0785 and decide which Leij/regional-water/LIWO scenarios belong, with boundary, control/defence, footprint, arrival, recession and NoData.",
+    "Province, municipality and Belgian partners should review an explicit N630/N12–A58 cross-border Mobility/Supply graph. The current zero-edge result omits Goirle's principal corridor, while NWB must never be reused as utility topology.",
+    "Municipality, boards and Hart van Brabant should provide reusable native Tijvoort/centre rain, Tijvoort heat, Riel/Leij water and sewer/catchment data with licence, event/edition, CRS, units, cadence and NoData.",
+    "VRMWB should require source-aware nature-fire allocation for Regte Heide/Riels Laag and the six clipped Goirle combustible areas, including cross-border access, firewater, vulnerable locations, wind, fuel/moisture and response assumptions.",
+    "VRMWB/Noord-Brabant should define a privacy/security-safe public/authorized contract for external care, telecom, power, water, gas, drainage and supply and a separately selected industrial/hazardous-material exercise. Context registers must not masquerade as live topology, capacity or incident state."
+  ]
+}

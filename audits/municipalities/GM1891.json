@@ -1,0 +1,539 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM1891",
+    "name": "Dantumadiel",
+    "province": "Fryslân",
+    "safetyRegion": "Fryslân"
+  },
+  "agent": {
+    "taskName": "municipality_gm1891",
+    "agentId": "/root/municipality_gm0518",
+    "completedAt": "2026-09-02T20:05:00Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "GM1891's code, Dantumadiel name, Fryslân province, Veiligheidsregio Fryslân membership, 2025 CBS control total, four districts, 17 neighbourhoods, ten BAG places and eleven BRT settlement labels are coherent. The neighbourhood population sum is 19,145, only eight above the official 19,137 residents (+0.042%), and source gaps remain null. All ten canonical exercises run deterministically at T+0/6/12/24/48/72 across all eight services; exact-zero, finite-bound, reconciliation, cumulative-burden, recovery-guard and layer-invariance tests pass. Release nevertheless requires correction. The coastal screen reaches 2.119679 normalized inundation stress, 9,707 affected people-equivalent at T+24 and 674,789.209 attributable person-hours by T+72 without selecting a sea/IJsselmeer level, mainland-dike segment/state, breach or overflow, hydraulically connected footprint, arrival or recession curve; the UI renders the clamped screen as 100% inundation stress. Conversely, the named Rhine/Meuse/IJssel preset is exactly zero, but the product has no typed Dantumadiel polder, boezem, prolonged-rain or pressure-sewer pathway even though official Fryslân sources identify each as locally relevant. Pluvial, coastal, heat and wildfire use exactly the same neighbourhood order despite distinct western peat/water-retention, northeastern salinization and village drainage contexts. All eight lifelines copy the same five N356/N361/N910 road IDs, while stations, GTFS stops, local roads, Wetterskip assets, provider territories, schools and antennas remain non-causal context. No unavailable or security-sensitive physical utility topology, live state, capacity, backup or restoration promise is fabricated.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek (CBS)",
+      "title": "Kerncijfers wijken en buurten 2025, table 86165NED, OData API",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=WijkenEnBuurten%20eq%20%27GM1891%20%20%20%20%27&%24select=WijkenEnBuurten%2CGemeentenaam_1%2CAantalInwoners_5%2CBevolkingsdichtheid_34%2Ck_65JaarOfOuder_12%2CEenpersoonshuishoudens_30",
+      "accessedAt": "2026-09-02T19:40:00Z",
+      "edition": 2025,
+      "supports": [
+        "The fresh official GM1891 row gives Dantumadiel, 19,137 residents, density 226 per square kilometre, 4,615 residents aged 65+ and 2,538 one-person households.",
+        "The 17 generated neighbourhood rows sum to 19,145 residents, eight above the municipality total (+0.042%), consistent with separately rounded small-area values rather than an exposure correction.",
+        "The OData service is machine-readable under CC BY 4.0. CBS labels this a 2025 table, updated in June 2026, with quarterly additions when source variables become available; neighbourhood counts are randomly rounded to multiples of five and suppressed/missing values are not zero.",
+        "Simulation role is official demographic/context and an allocation denominator only; registered residence is not timestamped presence at schools, stations, farms, workplaces, care settings or an incident footprint."
+      ]
+    },
+    {
+      "publisher": "PDOK / CBS / Kadaster / Rijkswaterstaat / ProRail",
+      "title": "CBS Gebiedsindelingen 2025 non-generalized geometry and national settlement/transport reference APIs",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_niet_gegeneraliseerd/items?f=json&limit=100&datetime=2025-07-01T00%3A00%3A00Z&bbox=5.80%2C53.15%2C6.15%2C53.35",
+      "accessedAt": "2026-09-02T19:42:00Z",
+      "edition": "2025 boundaries; current generated BAG, BRT, NWB, ProRail and GTFS reference editions",
+      "supports": [
+        "Fresh full-resolution GM1891 feature 1efce816-86c1-5273-8011-f4bdd108f7cc is one MultiPolygon component and one exterior ring with 2,736 positions. The generated overview keeps one component/ring with 96 positions and contains its generated centre; full-resolution geometry is required for dikes, water, raster, road and asset intersection.",
+        "The bundle contains four districts, 17 neighbourhoods, ten BAG places and eleven BRT settlements. Oostwoud (Eastwâld), population label 75, is an extra BRT buurtschap rather than an extra BAG place or CBS control total; Dutch/Frisian labels remain descriptive context.",
+        "De Westereen and Feanwâlden stations and 42 GTFS stop areas are represented. Five logical border links connect N361/N356 to Tytsjerksteradiel and Noardeast-Fryslân and N910 to Noardeast-Fryslân; exact nominal capacity 150 is a scenario unit, not observed throughput.",
+        "CBS boundary OGC is annual/CC BY 4.0; BAG is daily/Public Domain Mark; BRT is CC BY 4.0; NWB OGC is monthly/CC0 1.0; ProRail reference geometry is manually refreshed/CC0 1.0; GTFS is valid only for its feed window. These are administrative/reference data, never current occupancy, passability or utility topology."
+      ]
+    },
+    {
+      "publisher": "Gemeente Dantumadiel",
+      "title": "Concept Omgevingsvisie Dantumadiel and municipal sewer guidance",
+      "url": "https://www.dantumadiel.frl/sites/default/files/2022-03/Bijlage%201%20Concept%20Omgevingsvisie%20Dantumadiel%20%28tekst%29.pdf",
+      "accessedAt": "2026-09-02T19:44:00Z",
+      "edition": "Concept dated 31 January 2022; current municipal pages and 2025 programme progress checked in 2026",
+      "supports": [
+        "The concept vision identifies cloudburst nuisance in villages where the ditch structure can be insufficient, prolonged-rain waterlogging especially in the west, a vulnerable freshwater lens and salinization around Driezum in the northeast, and western peat-meadow water retention/rewetting needs.",
+        "These are policy and stress-test contexts, not an adopted operational impact map. The municipality's current Omgevingswet page still describes processing of submissions, and a 2025 progress document said the climate-resilience programme moved into 2026; this audit did not establish a published final programme with machine scenario data.",
+        "The official sewer page https://www.dantumadiel.frl/riolering-0 says dispersed rural premises use pressure sewers and that rainwater can overload pressure sewer and pumps and cause waterlogging. It supplies no live pump state, catchment, capacity, backup or restoration time.",
+        "The fixed PDF/web pages have no documented machine API, standard reuse licence or contractual refresh cadence. Simulation role is municipality-specific planning/context and qualitative validation only, not observed T+0 conditions or calibrated T+72 consequences."
+      ]
+    },
+    {
+      "publisher": "Provincie Fryslân / Wetterskip Fryslân / Friese climate partners",
+      "title": "Friese Klimaatatlas: waterlogging, heat, drought and flood scenario viewers",
+      "url": "https://storymaps.arcgis.com/stories/232e40a7366a4f5d8d8639e52be4fbc2",
+      "accessedAt": "2026-09-02T19:46:00Z",
+      "edition": "Atlas story created 2022; inspected public ArcGIS items modified 2022–2023",
+      "supports": [
+        "The atlas explicitly calls its maps indicative computer simulations rather than local truth. It distinguishes built-up cloudburst at 60 mm/hour, rural prolonged-rain scenarios of 100 and 120 mm in two days, heat, drought/salinization, sea/IJsselmeer flooding and boezem flooding.",
+        "The prolonged-rain explanation says excess water can take days to a week to clear and pumping cannot prevent nuisance everywhere. This is materially different from a single open-sea distance scalar and supports sustained drainage/access scenarios without supplying a current incident.",
+        "Public ArcGIS services include https://tiles.arcgis.com/tiles/L6oyL38cimu38LLx/arcgis/rest/services/Wateroverlast_Service_1/MapServer, https://tiles.arcgis.com/tiles/L6oyL38cimu38LLx/arcgis/rest/services/overstroming_zee_IJsselmeer/MapServer and https://tiles.arcgis.com/tiles/L6oyL38cimu38LLx/arcgis/rest/services/overstroming_boezem/MapServer. The boezem service is EPSG:28992 cached display tiles down to about 0.794 m/pixel, not proof of source-raster resolution.",
+        "The inspected map services expose rendered scenario layers but no adequate raw numeric query, standard licence, source-grid resolution, no-data definition or contractual refresh cadence. They are integration-ready for non-causal display/visual validation only until the publishers release governed source rasters/vectors and reuse metadata."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Fryslân",
+      "title": "Risico's in Fryslân 2026–2029 — Dantumadiel municipal profile",
+      "url": "https://www.risicosinfryslan.nl/gemeente/dantumadiel",
+      "accessedAt": "2026-09-02T19:48:00Z",
+      "edition": "Regional risk profile 2026–2029",
+      "supports": [
+        "The current municipal profile identifies mainland sea-dike breach, polder-dike failure, waterlogging, cold, heat, drought, hazardous-facility events, road/water/ice transport, electricity, gas, drinking-water contamination, wastewater, communications and cyber/connectivity disruption as Dantumadiel-relevant planning risks.",
+        "The profile does not list nature fire for Dantumadiel. That supports treating the model's zero direct flame as plausible for this generic ignition, but it does not prove zero ignition probability or calibrate remote smoke/drought effects.",
+        "The regional polder scenario follows days of wind/rain and high boezem water before a local dike breach, while the waterlogging scenario distinguishes intense and prolonged rain. Regional scenario consequence totals cannot be copied into GM1891 as municipality observations.",
+        "The public interactive profile is revised on a four-year policy cycle and provides no documented operational API, standard reuse licence, local live footprint or event cadence. It is authoritative scenario-governance context, not a warning, forecast, service state or operator restoration promise."
+      ]
+    },
+    {
+      "publisher": "Wetterskip Fryslân / Het Waterschapshuis / PDOK",
+      "title": "IMWA and DAMO water-management assets and management-area APIs",
+      "url": "https://api.pdok.nl/hwh/waterschappen-kunstwerken-imwa/ogc/v2",
+      "accessedAt": "2026-09-02T19:50:00Z",
+      "edition": "Live generated intersection retrieved 2 September 2026; provider-supplied object timestamps vary",
+      "supports": [
+        "The full-boundary non-causal intersection contains 144 objects: six sewer pumps, RWZI Damwoude, 24 Wetterskip surface-water pumps, one sluice and 112 weirs. Named context includes De Valom, Petsloot, Woudvaart, Bûtenfjild and De Jordaan; point presence and partial capacity fields do not establish units, connectivity or available capacity.",
+        "Integration-ready services include Kunstwerken IMWA https://api.pdok.nl/hwh/waterschappen-kunstwerken-imwa/ogc/v2 (weekly, CC BY-SA 4.0), Waterketen DAMO https://api.pdok.nl/hwh/waterschappen-waterketen-damo/ogc/v1 (CC BY-SA 4.0, contributor timestamps and variable completeness) and Waterbeheergebieden IMWA https://api.pdok.nl/hwh/waterschappen-waterbeheergebieden-imwa/ogc/v1 (CC BY-SA 4.0, provider-supplied peil/afvoer/aanvoer polygons).",
+        "These registers can support typed asset/management context and a scope for authorised enrichment, but they do not establish hydraulic catchments, current level, command state, emergency power, actual throughput, failure, dependencies or T+72 recovery.",
+        "Missing or null geometry/attributes remain unknown. Capacity values require publisher-defined units and operational interpretation before aggregation; no asset should become a causal service node solely because its point intersects the municipality polygon."
+      ]
+    },
+    {
+      "publisher": "Koninklijk Nederlands Meteorologisch Instituut (KNMI)",
+      "title": "Seismic FDSN services, earthquake catalogue and KNMI Data Platform weather services",
+      "url": "https://www.knmi.nl/kennis-en-datacentrum/dataset/seismische-en-akoestische-data-tools",
+      "accessedAt": "2026-09-02T19:52:00Z",
+      "edition": "Current services inspected 2 September 2026",
+      "supports": [
+        "KNMI exposes keyless FDSN event/station/waveform services at https://rdsa.knmi.nl/fdsnws/event/1/ and an earthquake catalogue that is updated after new events and downloadable as JSON, CSV or KML. A named replay can therefore record origin time, coordinates, magnitude, depth, event identifier and query time.",
+        "KNMI explains that induced earthquakes can occur near gas reservoirs, including reservoirs outside Groningen. This supports seismic exercise scope in the north but does not validate the simulator's fixed Groningen epicentre, missing magnitude, generic attenuation or Dantumadiel site response.",
+        "KNMI Data Platform EDR/files provide product-versioned 5-/10-minute radar, nowcast and weather observations under CC BY 4.0. They can bind a named observed replay or short-horizon forcing, not manufacture a generic first-72-hour impact or service restoration forecast.",
+        "No-data outside product coverage, station/radar quality flags and absent events must remain unknown/no event according to each API's semantics, never silently converted into zero local hazard or safety."
+      ]
+    },
+    {
+      "publisher": "Stichting Mijn Aansluiting / DUO / RDI / NDW / Rijkswaterstaat",
+      "title": "Public provider areas, facility/antenna registers and timestamped mobility/monitoring context",
+      "url": "https://wiki.service.mijnaansluiting.nl/wiki/spaces/Wiki/pages/693731329",
+      "accessedAt": "2026-09-02T19:54:00Z",
+      "edition": "Live services and generated context inspected 2 September 2026",
+      "supports": [
+        "A public-domain point query of https://public.geodata.mijnaansluiting.nl/geoserver/mijnaansluiting_open/ows at the generated municipality reference point identifies Liander electricity (provider timestamp 24 March 2026), Stedin gas (17 December 2025) and Vitens drinking water (7 September 2025). No drainage or telecom/media polygon contains the point; that is incomplete/no-data, not absence of service.",
+        "Provider polygons describe responsibility areas, not cables, pipes, substations, pressure zones, outage, remaining capacity or restoration. Provider-specific timestamps replace a guaranteed common refresh cadence and point lookup cannot establish uniform municipality coverage.",
+        "Generated public context includes 12 DUO education points and 44 RDI antenna sites, but zero RIVM acute-care points, zero RIVM PM2.5 stations, zero RWS Waterinfo observations and zero current NDW situations inside the polygon. These are register/snapshot intersections, not proof of no care dependency, pollution, water condition or road disruption.",
+        "DUO RIO is published daily around 06:15 under attribution terms; the RDI register is a live WFS with no reuse licence or contractual cadence established here; NDW DATEX II is timestamped current/72-hour-valid traffic context generally published under CC0 unless stated; Waterinfo series are commonly ten-minute and generally CC0. Preserve each source's time, coverage and no-data semantics and keep every overlay non-causal."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM1891, Dantumadiel, Fryslân and safety region Fryslân are internally and officially coherent.",
+      "evidenceRefs": [
+        "E01",
+        "E02",
+        "E05"
+      ],
+      "notes": [
+        "Generated feature id, municipality bundle code/name, province and exactly one safety-region membership agree.",
+        "Boundary/statistics edition is 2025; generated centre [5.979522270987102, 53.26858585680665] lies inside both overview and fresh full-resolution municipality geometry.",
+        "Veiligheidsregio Fryslân's current 2026–2029 municipal profile is the relevant governance context; its displayed population uses a different/unspecified reference and does not replace the CBS 2025 control total."
+      ]
+    },
+    "geography": {
+      "status": "warn",
+      "summary": "Administrative topology is coherent, but a 96-position overview and one centre cannot resolve dikes, polders, boezem water, peat, villages, roads or assets.",
+      "evidenceRefs": [
+        "E02",
+        "E03",
+        "E04",
+        "E05",
+        "E06"
+      ],
+      "notes": [
+        "Fresh non-generalized and overview GM1891 each have one component/one exterior ring; the full polygon has 2,736 positions versus 96 in the overview.",
+        "Use annual non-generalized PDOK geometry for climate-raster, dike, water-management, road and asset intersection; retain the generalized shape for overview selection only.",
+        "Western peat/water-retention areas, northeastern Driezum salinization, village drainage, boezem/polder compartments and mainland-dike pathways require separate geometries rather than municipality-centre distance."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Generated municipality controls reproduce the official 2025 CBS row and neighbourhood population reconciles within publication precision.",
+      "evidenceRefs": [
+        "E01",
+        "E02"
+      ],
+      "notes": [
+        "Official/generated population is 19,137, density 226/km², age 65+ is 4,615 (24.1%) and one-person households total 2,538.",
+        "Published neighbourhood population sums to 19,145, eight above the municipality total (+0.042%); households sum to 8,060 and rounded age-65-plus rows to 4,610.",
+        "The allocator reconciles to 19,137 without rewriting source rows; registered residence is not live presence at schools, stations, farms, workplaces, care settings or an incident footprint."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "All 17 neighbourhoods and available statistics are retained, but source gaps and a common synthetic hazard seed limit operational drilldown.",
+      "evidenceRefs": [
+        "E01",
+        "E02",
+        "E03",
+        "E04"
+      ],
+      "notes": [
+        "All 17 neighbourhoods are present. District-heating percentage and public-charging count are unavailable for 17/17 rows and correctly remain null; cars per household is available for 11/17.",
+        "Compound T+24 produces 17 local rows that reconcile 19,137 residents, 11,958 affected people-equivalent and all eight service demand/delivery balances, but its priority values are modeled allocations rather than observed local outcomes.",
+        "Official sources identify different village, peat, salinization and drainage mechanisms but do not publish a complete licensed numeric neighbourhood ranking; absent source cells must remain unknown."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "Ten BAG places and eleven BRT settlement labels preserve Dantumadiel's village structure without substituting labels for CBS controls.",
+      "evidenceRefs": [
+        "E01",
+        "E02"
+      ],
+      "notes": [
+        "BAG places are Broeksterwâld, Damwâld, De Falom, De Westereen, Driezum, Feanwâlden, Readtsjerk, Rinsumageast, Sibrandahûs and Wâlterswâld; all generated BAG centres lie within the overview geometry.",
+        "BRT adds Oostwoud/Eastwâld as a buurtschap and classifies the other labels as two buurtschappen, one gehucht and eight woonkernen; Frisian/Dutch aliases are retained.",
+        "A place label, centroid or descriptive population is not a hydraulic compartment, drainage catchment, station catchment, service territory or timestamped occupancy surface."
+      ]
+    },
+    "transport": {
+      "status": "fail",
+      "summary": "Road, station and timetable context is present, but local passability/rail continuity are non-causal and road links are copied into every lifeline.",
+      "evidenceRefs": [
+        "E02",
+        "E03",
+        "E08"
+      ],
+      "notes": [
+        "Five logical NWB border links represent N356/N361/N910 crossings to Noardeast-Fryslân and Tytsjerksteradiel. They do not encode village access, inundation, winter blockage, bridge/culvert state or observed throughput.",
+        "De Westereen and Feanwâlden stations and 42 GTFS stop areas cannot change mobility/access in the current causal graph; timetable presence is not service continuity, capacity or evacuation suitability.",
+        "Every service reuses the same five road IDs. No public source establishes these roads as electricity, water, drainage, gas, telecom or facility transfer topology, and zero current NDW records is not evidence that roads are open."
+      ]
+    },
+    "emergencyContext": {
+      "status": "warn",
+      "summary": "Current Fryslân planning risks and public asset/facility context are visible, but none is operational incident or capacity evidence.",
+      "evidenceRefs": [
+        "E03",
+        "E04",
+        "E05",
+        "E06",
+        "E07",
+        "E08"
+      ],
+      "notes": [
+        "The current regional profile supports Dantumadiel-specific sea-dike, polder, waterlogging, weather, hazardous-material, utility, wastewater, transport and cyber exercise scope, not exact municipal impacts.",
+        "The generated context contains 144 water assets, 12 education points and 44 antenna sites, but no local acute-care point; cross-boundary care, staffing, occupancy, shelter suitability, generator endurance and mutual aid remain unmodeled.",
+        "Official overlays are correctly presented as context in the inspected browser workflow. Their absence, point presence or provider polygon cannot establish a live condition, safety, capacity, coverage, outage or restoration."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten canonical presets execute at all six checkpoints across all eight services with complete finite output.",
+      "evidenceRefs": [
+        "E03",
+        "E04",
+        "E05",
+        "E06",
+        "E07",
+        "E08"
+      ],
+      "notes": [
+        "MUNICIPALITY_AUDIT_CODE=GM1891 pnpm audit:model passed one file/two tests in the final current-code run (31.96 seconds total; 31.78 seconds in tests). A focused 10×6×8 reproduction and a headless Chromium Dantumadiel/coastal/T+24 workflow also passed without page or console errors.",
+        "Six-checkpoint peak severity / maximum affected / T+72 attributable deprived person-hours are storm 0.363596 / 4,470 / 96,983.376; pluvial 0.258728 / 4,246 / 92,742.845; named river 0 / 0 / 0; coastal 0.710533 / 9,707 / 674,789.209; heat 0.703621 / 2,057 / 159,423.884.",
+        "The remaining values are winter 0.499685 / 8,164 / 201,339.078; cyber 0.464997 / 6,195 / 265,246.719; earthquake 0.213397 / 3,389 / 160,762.428; wildfire 0.088662 / 874 / 56,853.065; compound 0.747890 / 11,958 / 608,293.616.",
+        "At T+24 coastal has raw normalized inundation stress 2.119679, wind 28.415581 m/s, 9,707 affected and power availability 0.303222. Compound has rain 34.671982 mm/h, standing-water stress 0.180893, wind 22.091339 m/s, cyber disruption 0.407941, 11,958 affected and power availability 0.161175.",
+        "Storm, pluvial, heat, winter, cyber and compound are deterministic synthetic exercises; coastal and named river are derived screening; earthquake is an uncalibrated Groningen-centred exercise; wildfire has zero direct local flame and indirect smoke/drought. None is an observation, warning or forecast."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Determinism, finite bounds, exact no-event semantics, local allocation, reconciliation, cumulative burden and layer invariance pass.",
+      "evidenceRefs": [],
+      "notes": [
+        "All service availability stays in [0,1]; hazard dimensions, demand, delivery, affected people-equivalent and event-attributable person-hours remain finite and non-negative.",
+        "For every preset and checkpoint, intensity zero gives exactly zero current/peak event severity, affected population and event-attributable essential-service person-hours.",
+        "Compound T+24 local rows sum to 19,137 residents and 11,958 affected people-equivalent; all eight demand/delivery/inbound totals reconcile with maximum floating discrepancy 1.78×10^-15.",
+        "Repeated frames are deterministic, cumulative event-attributable burden never decreases, route flow respects effective capacity, and every selectable map layer leaves hazard, system pressure and affected population invariant."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "Coastal flooding lacks a selected hydraulic footprint and unrelated hazards reuse one unsupported neighbourhood order.",
+      "evidenceRefs": [
+        "E02",
+        "E03",
+        "E04",
+        "E05",
+        "E06"
+      ],
+      "notes": [
+        "At T+24 pluvial, coastal, heat and wildfire have the same full 17-neighbourhood rank order. The first six are Damwâld, Feanwâlden, Broeksterwâld, Driezum, Wâlterswâld and Readtsjerk; De Westereen and several dispersed areas are among the bottom six.",
+        "Official sources instead distinguish built-up cloudburst, prolonged rural rain, western peat/water retention, northeastern Driezum salinization, sea/IJsselmeer, boezem and polder processes. They do not publish a complete exact competing rank, so the model order is unsupported rather than replaced with invented precision.",
+        "Coastal T+24 uses 2.119679 normalized stress and affects 9,707 people-equivalent without a selected water level, mainland-dike segment/state, breach/overflow, connected footprint, arrival or recession path. A centre-to-coast screen cannot establish these.",
+        "The named Rhine/Meuse/IJssel preset is correctly zero for its stated rivers, but the absence of a typed local polder/boezem pathway means that zero must not be read as all-source flood safety."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "All eight balances calculate coherently, but five road connectors replace sector topology and omit locally material water, utility, rail and facility structure.",
+      "evidenceRefs": [
+        "E02",
+        "E03",
+        "E05",
+        "E06",
+        "E08"
+      ],
+      "notes": [
+        "Compound T+24 demand/delivered values include power 20.459443/3.297544, water 14.715031/8.526407, drainage 11.220447/5.716753, gas 18.210543/14.582712, telecom 9.067028/3.483582, mobility 14.167231/3.231636, facilities 8.611887/1.939403 and supply 11.192642/7.715834 scenario units.",
+        "Every service exposes identical nwb-link-272, -337, -367, -412 and -530 route IDs with logical-proxy semantics and nominal capacity 150. Flow differs, but no source establishes these roads as utility or facility transfer topology.",
+        "Stations, stops, local road passability, RWZI Damwoude, pumps, weirs, provider areas, schools and antennas cannot alter the service graph. Their context does not establish capacity, connectivity, live state, backup or recovery.",
+        "Exact service quantities and flows are dimensionless scenario indices, not megawatts, cubic metres, calls, beds, vehicles, tonnes or operator commitments."
+      ]
+    },
+    "causalTrace": {
+      "status": "warn",
+      "summary": "Numerical ledgers close and official overlays remain non-causal, but screening still becomes precise direct exposure and service consequences.",
+      "evidenceRefs": [
+        "E03",
+        "E04",
+        "E05",
+        "E06",
+        "E08"
+      ],
+      "notes": [
+        "Hazard contributions sum to headline severity; each service baseline plus ordered stage deltas sums to availability; eight weighted service-pressure contributions sum to municipality pressure.",
+        "Drivers, dependencies, local allocation and restoration counterfactuals are finite and arithmetically closed. Preparedness changes modeled consequences rather than physical forcing.",
+        "Browser inspection selected Dantumadiel, coastal flood, T+24 and Damwâld without errors. The inspector labels derived-screening, normalized inundation stress, NWB logical proxies, no local Waterinfo observation and provider/facility overlays as non-causal context.",
+        "The same screen is nevertheless rendered as 100% inundation stress and drives exact affected/service values. Arithmetic explainability and an evidence label do not supply the missing event, dike state, hydraulic footprint or calibration."
+      ]
+    },
+    "recovery72h": {
+      "status": "warn",
+      "summary": "Standing-water recovery guards behave correctly, but exact local drainage, repair and cross-boundary recovery rates remain synthetic and unvalidated.",
+      "evidenceRefs": [
+        "E03",
+        "E04",
+        "E05",
+        "E06",
+        "E08"
+      ],
+      "notes": [
+        "Coastal direct forcing has ended by T+72 and normalized flood stress is zero, yet 822 remain affected, cumulative burden is 674,789.209 and recovery progress ranges 0.437775–0.868624. No source validates that recession or service repair curve.",
+        "Compound retains standing-water stress 0.179338 and cyber disruption 0.053057 at T+72, keeps recovery at zero, leaves 10,941 affected and accumulates 608,293.616 person-hours; the sustained-flood guard works mechanically.",
+        "Pluvial is dry by T+72 and minimum service recovery is 0.942376; heat/drought forcing continues for the preset's 336 hours but affected threshold output reaches zero. Named river has no event forcing or event-attributable burden.",
+        "Actual recovery depends on dike/water levels, dewatering, access, staff, spares, backup, cross-boundary care and operators. The first-72-hour curves are exercise assumptions, not restoration forecasts."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [
+      0,
+      6,
+      12,
+      24,
+      48,
+      72
+    ],
+    "services": [
+      "power",
+      "water",
+      "drainage",
+      "gas",
+      "telecom",
+      "mobility",
+      "facilities",
+      "supply"
+    ]
+  },
+  "findings": [
+    {
+      "id": "GM1891-DATA-001",
+      "severity": "informational",
+      "category": "identity",
+      "status": "fixed",
+      "summary": "Generated identity, regional membership, demographic controls and official small-area structure are coherent.",
+      "evidence": "CBS gives 19,137 residents; 17 neighbourhood rows sum to 19,145 (+0.042%) and reconcile without rewriting observations. Code, name, province, safety region, ten BAG places and eleven BRT settlement labels agree.",
+      "action": "Retain source editions, non-generalized boundary access, bilingual labels, rounding/suppression rules, published-versus-allocated totals and null semantics on each refresh."
+    },
+    {
+      "id": "GM1891-NODATA-001",
+      "severity": "informational",
+      "category": "regional-data",
+      "status": "fixed",
+      "summary": "Unavailable statistics, provider polygons and monitoring results remain unknown rather than false zero or safe observations.",
+      "evidence": "District heating and public charging are null for 17/17 neighbourhoods and cars per household is unavailable for six. No local Waterinfo, PM2.5, acute-care or current NDW point/record and no provider sewer/media polygon are assigned; these are source/coverage absences, not zero water, clean air, no care dependency, open roads or absent services.",
+      "action": "Preserve query time, source coverage, freshness, publisher quality flags and explicit no-data through ingestion, aggregation and UI rendering."
+    },
+    {
+      "id": "GM1891-COASTAL-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The coastal screen creates precise Dantumadiel inundation impacts without a selected water-system event or defence state.",
+      "evidence": "Coastal T+24 reports raw normalized stress 2.119679, 9,707 affected and power availability 0.303222; cumulative T+72 burden is 674,789.209 and the UI shows 100% inundation stress. Official sources distinguish mainland sea-dike, sea/IJsselmeer, boezem and polder scenarios, but the run selects no water level, dike segment/condition, breach/overflow, probability, connected footprint, arrival, duration, recession or dewatering curve.",
+      "action": "Mark direct local exposure unsupported/unknown until a Wetterskip/LIWO-approved, versioned hydraulic scenario is selected. Keep any distance screen only as a clearly labelled non-operational diagnostic and never render it as measured depth or supported percentage inundation."
+    },
+    {
+      "id": "GM1891-FLOOD-MECHANISM-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The scenario catalogue cannot express Dantumadiel's polder, boezem, prolonged-rain and pressure-sewer flood pathways.",
+      "evidence": "The preset explicitly named Rhine, Meuse and IJssel is exactly zero at every checkpoint, which is appropriate for that narrow river set but can be mistaken for all-source flood safety. Veiligheidsregio Fryslân lists polder failure and waterlogging; the climate atlas distinguishes boezem and 100/120-mm two-day events that can take days to a week to clear; the municipality warns that rainwater can overload rural pressure sewers and pumps.",
+      "action": "Add typed, mutually explicit Frisian sea/mainland-dike, boezem, polder and pluvial/pressure-sewer scenario adapters. Preserve unsupported/no-data rather than converting absent event selection to zero risk, and keep observed water levels separate from simulated footprints."
+    },
+    {
+      "id": "GM1891-SPATIAL-SEED-001",
+      "severity": "high",
+      "category": "geography",
+      "status": "open",
+      "summary": "One synthetic neighbourhood order is reused across physically unrelated hazards and is not locally source-calibrated.",
+      "evidence": "Pluvial, coastal, heat and wildfire have exactly the same full T+24 rank order, led by Damwâld and Feanwâlden. Municipal and Fryslân sources distinguish village drainage, western peat/water retention, northeastern Driezum salinization, heat, drought and separate hydraulic mechanisms. They do not provide an exact licensed substitute ranking, so retaining the common order as precise local truth is unsupported.",
+      "action": "Replace the seed with hazard-specific, versioned surfaces/targets and suppress hotspot precision until source scenario, unit, spatial resolution, no-data, edition and licence are recorded. Use tile-only atlas layers for visual context only."
+    },
+    {
+      "id": "GM1891-EARTHQUAKE-001",
+      "severity": "medium",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The Groningen-centred earthquake produces material Dantumadiel effects without a reproducible event magnitude or local response model.",
+      "evidence": "A focused quarter-hour run peaks at 0.110966 g at T+2.25; the audited checkpoints reach severity 0.213397, maximum 3,389 affected and 160,762.428 T+72 person-hours. The preset records no KNMI event identifier, magnitude or depth and has no measured ShakeMap/site response or local asset fragility. KNMI confirms northern induced-seismic scope but cannot validate this fixed attenuation result.",
+      "action": "Bind observed replays to the KNMI FDSN event catalogue with event id, origin time, coordinates, magnitude, depth and query time, or label a fully specified synthetic event. Keep ground-motion/site-response uncertainty explicit and do not present generic impacts as an observed earthquake."
+    },
+    {
+      "id": "GM1891-NETWORK-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "The same five road links are copied into all eight services despite no physical utility or facility evidence.",
+      "evidence": "Power, water, drainage, gas, telecom, mobility, facilities and supply all expose identical N356/N361/N910 route IDs and nominal capacity 150. NWB supports road geometry only; provider territories and water/facility registers do not establish cable, pipe, sewer, radio/backhaul, care, school or stock-transfer topology.",
+      "action": "Restrict NWB edges to mobility/supply unless a separately governed dependency is evidenced. For other services request safe aggregate operator topology/capacity; where unavailable or security-sensitive, expose explicit service-specific synthetic municipal aggregates without road geometry or operator attribution."
+    },
+    {
+      "id": "GM1891-MOBILITY-001",
+      "severity": "medium",
+      "category": "network",
+      "status": "open",
+      "summary": "Mobility and supply omit local passability and rail/transit continuity in a dispersed rural municipality.",
+      "evidence": "The causal graph represents only five N-road boundary links. De Westereen/Feanwâlden stations and 42 GTFS stop areas cannot alter service, and no event-valid NDW, snow/ice, pluvial, culvert or local-road passability state affects access. Zero current NDW situations is only a timestamped absence of matched records.",
+      "action": "Add feed-valid rail/transit and source-defined local-road passability to mobility/supply under explicit events, preserve cross-boundary access and current-vs-scenario time, and keep unobserved routes Unknown rather than open or closed."
+    },
+    {
+      "id": "GM1891-SERVICE-CONTEXT-001",
+      "severity": "medium",
+      "category": "limitation",
+      "status": "accepted-limitation",
+      "summary": "Public water, provider, facility and antenna context cannot validate physical service connectivity, live capacity, backup or restoration.",
+      "evidence": "The intersection contains RWZI Damwoude, six sewer pumps, 24 surface-water pumps, one sluice, 112 weirs, Liander/Stedin/Vitens provider context, 12 education points and 44 antenna sites, but no local acute-care point. Provider/object completeness varies and points/polygons do not establish catchments, units/available capacity, cables/pipes, coverage/backhaul, occupancy, generator endurance, stock, outage or T+72 repair.",
+      "action": "Use registers as versioned non-causal context until authorised safe aggregate catchment, service population, continuity, backup-band and restoration information is supplied. Otherwise keep physical topology/state unknown and label service values as synthetic exercise indices."
+    },
+    {
+      "id": "GM1891-EXERCISE-HAZARDS-001",
+      "severity": "low",
+      "category": "hazard",
+      "status": "accepted-limitation",
+      "summary": "Storm, pluvial, heat, winter, cyber and wildfire results are generic exercises rather than event-valid local observations or forecasts.",
+      "evidence": "No KNMI weather replay, cyber target, wildfire ignition/perimeter or local operational incident is selected. Wildfire direct flame is exactly zero while indirect smoke/drought reaches 874 affected; the current VR profile does not list nature fire for Dantumadiel, but that is planning scope rather than proof of zero ignition. Heat/drought forcing persists through T+72 even when the affected threshold output becomes zero.",
+      "action": "Retain explicit synthetic/indirect labels, source/effective time and uncertainty. Bind a named KNMI/incident/operator replay only when event-valid inputs exist; absent observations or targets remain unknown and must not be read as safe or current."
+    },
+    {
+      "id": "GM1891-CONTRACT-001",
+      "severity": "informational",
+      "category": "explainability",
+      "status": "fixed",
+      "summary": "The complete numerical, allocation, causal-ledger, checkpoint and sustained-flood contract passes for GM1891.",
+      "evidence": "The focused gate covers ten presets, six checkpoints and eight services. Values are finite/deterministic, zero intensity is exact, local totals reconcile, ledgers close arithmetically, burden is monotone, layer selection is invariant and standing water blocks repair. Browser inspection preserves official overlays as non-causal context and labels normalized rather than metre depth.",
+      "action": "Keep GM1891 and national ALL coverage in regression and add Frisian mechanism selection, hazard-specific spatial, earthquake-event, rail/passability and utility-route-separation assertions."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Replace generic GM1891 flood screening with explicit Frisian mainland-dike, sea/IJsselmeer, boezem, polder and prolonged-rain event selection and honest unsupported states.",
+      "files": [
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/public/data/hazards/GM1891-flood-context.json",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/MapView.tsx"
+      ],
+      "validation": "Best public machine context is the Friese Klimaatatlas ArcGIS services for separate sea/IJsselmeer, boezem, built-up 60-mm/h and rural 100/120-mm-in-two-days scenarios (Fryslân-wide rendered tiles, items modified 2022–2023, no adequate raw numeric query, standard licence, source resolution, no-data or contractual cadence established), combined with HWH Waterbeheergebieden IMWA https://api.pdok.nl/hwh/waterschappen-waterbeheergebieden-imwa/ogc/v1 (national provider-supplied management polygons, CC BY-SA 4.0), HWH Kunstwerken IMWA (weekly, CC BY-SA 4.0) and annual non-generalized PDOK CBS geometry (CC BY 4.0). Request publisher-governed source rasters/vectors or expert-selected LIWO scenario data with explicit water level, dike/compartment and breach/overflow state, probability, event/version, unit, CRS, cell size, arrival, duration/recession/dewatering, licence and no-data. Until those fields exist, direct local exposure must be Unknown and the UI must not render a distance screen as supported percentage/depth."
+    },
+    {
+      "summary": "Replace the shared neighbourhood seed with hazard-specific Dantumadiel spatial adapters while preserving policy, scenario and observation provenance.",
+      "files": [
+        "scripts/fetch-realism-data.mjs",
+        "apps/web/public/data/hazards/GM1891-climate-context.json",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Use publisher-governed source layers behind the Friese Klimaatatlas where obtainable: built-up waterlogging, rural 100/120-mm events, heat, drought/salinization, sea/IJsselmeer and boezem, each with scenario, unit, CRS, grid resolution, no-data, edition, licence and refresh cycle. Current ArcGIS tile services are Fryslân-wide and display-ready but have no established raw numeric reuse contract, so they may visually reject a common ranking but must not calibrate exact effects. PDOK AHN/BGT (CC0/Public Domain Mark, acquisition/daily editions), annual PDOK CBS (CC BY 4.0) and KNMI 5-/10-minute products (CC BY 4.0) can supply open covariates or named replay forcing, not an impact surface by themselves. Tests must reject identical complete rankings across unrelated hazards and preserve unknown versus zero."
+    },
+    {
+      "summary": "Model event-valid rural road, rail and transit access for mobility/supply, and remove road geometry from unevidenced utility and facility routes.",
+      "files": [
+        "scripts/fetch-realism-data.mjs",
+        "scripts/apply-audited-lifelines.mjs",
+        "apps/web/public/data/transport-network.json",
+        "apps/web/public/data/transit/GM1891-context.json",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx",
+        "apps/web/src/components/MapView.tsx"
+      ],
+      "validation": "Use RWS NWB OGC https://api.pdok.nl/rws/nationaal-wegenbestand-wegen/ogc/v1 (named roads, national, monthly, CC0 1.0), ProRail OGC https://api.pdok.nl/prorail/spoorwegen/ogc/v1 (rail/station reference, national, manual refresh, CC0 1.0), feed-valid OVapi GTFS and timestamped NDW DATEX II current/72-hour-valid observations under dataset-specific open terms. Record event time, validity window, mode, geometry, passability rule, direction, unit and no-data; GTFS schedule is not live continuity and absent NDW is Unknown. Assert that N356/N361/N910 and rail/transit/passability affect only mobility/supply under explicit scenarios and disappear from the other six services unless a separate approved physical dependency exists."
+    },
+    {
+      "summary": "Represent water, utilities, telecom and facilities as safe service-specific aggregates while keeping public registers and provider territories non-causal.",
+      "files": [
+        "scripts/fetch-realism-data.mjs",
+        "scripts/apply-audited-lifelines.mjs",
+        "apps/web/public/data/water-system-context.json",
+        "apps/web/public/data/facilities/GM1891-context.json",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "HWH Kunstwerken IMWA https://api.pdok.nl/hwh/waterschappen-kunstwerken-imwa/ogc/v2 (national, weekly, CC BY-SA 4.0), Waterketen DAMO https://api.pdok.nl/hwh/waterschappen-waterketen-damo/ogc/v1 (national, CC BY-SA 4.0, contributor timestamps/variable completeness) and Waterbeheergebieden IMWA locate Wetterskip assets/areas but do not validate connectivity, units/available capacity, state or backup. Mijn Aansluiting OGC WFS https://public.geodata.mijnaansluiting.nl/geoserver/mijnaansluiting_open/ows is public-domain national responsibility-area data with provider-specific timestamps and no guaranteed common cadence; it identifies Liander/Stedin/Vitens context, not cables, pipes, outage or repair. Keep DUO (daily, attribution), RDI, RIVM and government registers versioned/non-causal. Request authorised safe aggregate Wetterskip/operator/facility interfaces for catchment, service population, continuity, backup bands and restoration; if unavailable or security-sensitive, retain unknown physical topology and transparent municipal synthetic indices without operator attribution."
+    }
+  ],
+  "residualLimitations": [
+    "This audits a deterministic first-72-hour exercise model, not a warning, forecast, hydraulic assessment, evacuation plan, outage statement or operator commitment.",
+    "CBS 2025 neighbourhood values are rounded/suppressed and sums need not equal the municipality total; null heating, charging, provider, air-quality, road-situation or monitoring results are unknown, not zero.",
+    "Registered residents do not equal people present at schools, stations, farms, workplaces, care settings or events; no authoritative timestamped occupancy is consumed.",
+    "The 96-position overview polygon is suitable for map selection, not dike, hydraulic, terrain, road, catchment or asset intersection; use the 2,736-position non-generalized PDOK geometry.",
+    "The concept Omgevingsvisie and risk-profile/atlas scenarios are planning or indicative evidence, not current observations, adopted asset states or exact local outcomes.",
+    "The public Friese Klimaatatlas services are principally display tiles and lack an established numeric source-grid, standard licence, no-data contract and refresh cadence for causal calibration.",
+    "HWH/Wetterskip assets and management areas describe physical/administrative context, not current water level, connected catchment, operating state, available capacity, backup, failure, dewatering or repair.",
+    "Waterinfo, NDW, KNMI and incident observations can support timestamped context or a named replay; they do not create a generic T+72 hazard-impact, traffic, outage or restoration forecast.",
+    "Provider territories, antenna/facility registers, GTFS stops, NWB roads and ProRail stations do not establish connectivity, capacity, occupancy, coverage, live state, backup, priority or restoration.",
+    "No complete public physical electricity, drinking-water, wastewater, gas, telecom, facility, fuel, stock, staff, backup, repair or restoration topology is consumed; unavailable/security-sensitive gaps remain unknown or synthetic.",
+    "The named river preset covers Rhine, Meuse and IJssel only; zero there is not evidence of zero sea, boezem, polder, pluvial or sewer risk in Dantumadiel.",
+    "Coastal, earthquake and remote-smoke effects are screening/exercises; cyber has no selected GM1891 target, and generic weather presets are synthetic unless bound to a named event/replay.",
+    "Recovery after T+72, cross-boundary water/service catchments, regional acute care, evacuation, mutual aid and resource constraints remain outside locally validated scope."
+  ],
+  "provinceReviewFlags": [
+    "GM1891-COASTAL-001 — Fryslân/Wetterskip Fryslân/Rijkswaterstaat/Veiligheidsregio Fryslân must require an expert-selected, versioned mainland-dike/sea-IJsselmeer event and explicit hydraulic footprint before direct inundation/exposure is releasable.",
+    "GM1891-FLOOD-MECHANISM-001 — Fryslân, Wetterskip and Dantumadiel should separate boezem, polder, prolonged-rain and pressure-sewer pathways from the Rhine/Meuse/IJssel preset and prevent its scoped zero from appearing as all-flood safety.",
+    "GM1891-SPATIAL-SEED-001 — Fryslân/Wetterskip/Dantumadiel should publish or authorize source climate-stress rasters/vectors with licence, cadence, scenario, units, resolution and no-data and replace the common hazard ranking.",
+    "GM1891-NETWORK-001 — Fryslân/RWS/NDW/ProRail/transit and sector partners must separate mobility/supply from utilities and represent rural road/rail/transit continuity only under source-valid scenarios.",
+    "Wetterskip Fryslân, Liander, Stedin, Vitens and relevant telecom/facility partners should provide safe aggregate catchment, continuity, backup and restoration interfaces where releasable; otherwise physical service state must remain unknown.",
+    "Veiligheidsregio Fryslân and municipal partners should retain flood, extreme-weather, infrastructure, transport, hazardous-material and cyber risks as planning context while preventing registers/provider areas from being presented as live incidents."
+  ]
+}

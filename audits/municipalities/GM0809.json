@@ -1,0 +1,421 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM0809",
+    "name": "Loon op Zand",
+    "province": "Noord-Brabant",
+    "safetyRegion": "Midden- en West-Brabant"
+  },
+  "agent": {
+    "taskName": "municipality_gm0809",
+    "agentId": "/root/municipality_gm0397",
+    "completedAt": "2026-09-03T07:25:00Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "GM0809's identity, Noord-Brabant province and Midden- en West-Brabant safety-region assignment are coherent. The 2025 boundary contains the generated centre and all three BAG places; CBS reports 24,151 residents, while 32 neighbourhood rows sum to 24,130 (-21, -0.087%), consistent with annual rounding/suppression. Four districts, three BAG places and ten BRT settlement labels are present. All ten presets execute deterministically at T+0/6/12/24/48/72 across all eight services and pass numerical contracts. Release is nevertheless correction-required. The Loonse en Drunense Duinen, Efteling and three distinct residential cores create large nature-fire, smoke, visitor, evacuation and access mechanisms that registered residents and a generic local seed cannot represent. A controlled ignition at [5.100, 51.640], inside Oost-Loon and a TOP10NL heath polygon, produces municipal fire/smoke 0.436583/0.436581 and 5,216 affected resident-equivalents, yet the source neighbourhood ranks last of 32. Eight individual hazards and compound reuse exactly the same complete T+24 neighbourhood order. Official regional evidence identifies only north-west Loon op Zand as exposed to deep water after a selected Maas-dike breach, while the model selects no breach or footprint and holds 1.231434 normalized inundation stress through T+72, reaching 13,530 affected equivalents and 776,041 person-hours. Municipal evidence distinguishes Kaatsheuvel's high-to-low terrain, limited infiltration, Donge catchment, sewer-overflow interaction and practical cloudburst hotspots, none of which drives pluvial output. Both Brabantse Delta and De Dommel asset records intersect the municipality; current drought measures have their own lifecycle and scope. The logical transport graph has two N261 endpoints on one physical corridor, no station and 21 scheduled stops, but omits Efteling/nature access, independent alternatives and cross-boundary emergency care at ETZ Tilburg. Exact utilities, visitor demand, care, mobility, supply and first-72-hour recovery remain unsupported by live topology, state, resources and actions. Unknown/NoData never means zero, safe, open or available.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek (CBS)",
+      "title": "E01 — Kerncijfers wijken en buurten 2025, table 86165NED, OData API",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM0809%27%29",
+      "accessedAt": "2026-09-03T07:10:00Z",
+      "edition": 2025,
+      "supports": [
+        "The official municipality row identifies GM0809 Loon op Zand and reports 24,151 residents, density 484/km², 24.4% age 65 or older and 3,300 one-person households.",
+        "Thirty-two neighbourhood rows sum to 24,130 residents (-21, -0.087%), 10,575 households and 5,875 rounded residents age 65 or older; deterministic allocation reconciles to the municipality control without changing source rows.",
+        "Core population/age/household fields cover 32/32 rows. Home value covers 29, cars per household 28, benefits 29 and doctor/supermarket distance 30; district heating and charging cover 0/32 and remain Unknown/NoData.",
+        "CBS OData is annual machine-readable context under CC BY 4.0. It measures registered residents, not Efteling/nature visitors, hotel guests, pupils, patients, commuters, workers, responders, individual vulnerability or preparedness."
+      ]
+    },
+    {
+      "publisher": "PDOK / CBS / Kadaster / Rijkswaterstaat / ProRail / OVapi",
+      "title": "E02 — Full municipality geography, settlements and road, rail and scheduled-transit inputs",
+      "url": "https://api.pdok.nl/cbs/gebiedsindelingen/ogc/v1/collections/gemeente_niet_gegeneraliseerd/items?f=json&filter=statcode%3D%27GM0809%27",
+      "accessedAt": "2026-09-03T07:11:00Z",
+      "edition": "2025 boundary/statistics; generated BAG, BRT, NWB, ProRail and GTFS snapshots through 3 September 2026",
+      "supports": [
+        "The generated centre [5.046774448687571, 51.6366390079848] and BAG place labels De Moer, Kaatsheuvel and Loon op Zand lie inside the 2025 municipality boundary.",
+        "The bundle contains four districts, 32 neighbourhoods and ten BRT labels: three woonkernen, two deelkernen, two gehuchten and three buurtschappen.",
+        "Two logical route records are both N261: one to Waalwijk and one to Tilburg. They are opposite/series municipal endpoints of physical corridor NWB-road-261 and are not two independent routes or additive capacity.",
+        "No ProRail station is inside GM0809 and GTFS assigns 21 stop areas, including Efteling, Efteling accommodation and Villa Pardoes stops. Static routes and timetables do not prove incident-time service, accessible vehicles, destinations, evacuation or throughput.",
+        "CBS/BRT are CC BY 4.0; BAG is Public Domain Mark 1.0; NWB-Light and ProRail are CC0. OVapi GTFS is best-effort schedule context without an operational SLA."
+      ]
+    },
+    {
+      "publisher": "Gemeente Loon op Zand",
+      "title": "E03 — Water and sewer programme 2025–2028 and Hemelwatervisie",
+      "url": "https://www.loonopzand.nl/verhuizen-wonen-belastingen/wonen/water-en-riolering",
+      "accessedAt": "2026-09-03T07:13:00Z",
+      "edition": "Current PWR 2025–2028 page; Hemelwatervisie dated 2016 with 2014 event/model evidence",
+      "supports": [
+        "The current page says the municipality manages wastewater, rainfall, groundwater and surface-water duties under PWR 2025–2028 and retains the Hemelwatervisie as its approach to extreme rain, soil/green storage and reduced paving. Programme intent is not current incident capacity or completed action.",
+        "The 2016 vision says Kaatsheuvel falls from about NAP +9.5 m by the dunes to about +1.5 m northwest, has local loam and more limited infiltration westward, while Loon op Zand lies higher on a sand ridge with local low points near Venloonstraat/Ecliptica.",
+        "It places surrounding waters in the Donge/Oosterhout–Waalwijk subcatchment and records practical storage/discharge constraints north and west of Kaatsheuvel when combined-sewer overflows operate, causing impaired sewer function and street water. Extreme July 2014 rain exceeded design standards.",
+        "An older water-system assessment found no norm-exceeding channel inundation, but the same document records real constraints and calls groundwater knowledge sparse. Old assessment is not an all-clear or current state.",
+        "No public live sewer/pump/inlet/blockage state or standard blanket machine licence was identified. Analytical use needs native event/hyetograph, geometry, CRS, resolution, units, uncertainty, licence and NoData."
+      ]
+    },
+    {
+      "publisher": "Provincie Noord-Brabant / Regio Hart van Brabant",
+      "title": "E04 — Klimaatstresstest regio Hart van Brabant",
+      "url": "https://www.klimaatadaptatiebrabant.nl/voorbeelden/voorbeelden-detail/420/klimaatstresstest-regio-hart-van-brabant",
+      "accessedAt": "2026-09-03T07:14:00Z",
+      "edition": "Stress-test note dated 7 February 2020; provincial page added 6 July 2020",
+      "supports": [
+        "The regional stress test explicitly includes Loon op Zand and lists several local streets as vulnerable to heavy-rain water nuisance. It is an awareness/planning scenario, not current flooding or a T+72 forecast.",
+        "For a Maas-dike breach it says water can flow south and identifies north-west Loon op Zand, where scenario depths can reach five metres. This supports conditional partial-municipality eligibility, not a municipality-wide generic scalar or current threat.",
+        "The page separates pluvial, drought, heat, Maas breach and regional-water mechanisms; infrastructure can become impassable during water nuisance. These mechanisms require separate source data and cannot share one population-led neighbourhood order.",
+        "The page exposes a PDF/viewer but no stable analytical API, standard reuse licence, fixed update cadence or complete raster NoData contract was identified. Integration requires publisher-confirmed layer, event, CRS, resolution, units, edition, licence and NoData."
+      ]
+    },
+    {
+      "publisher": "Waterschap Brabantse Delta / Waterschap De Dommel / Het Waterschapshuis",
+      "title": "E05 — Current drought lifecycle and public water/drainage assets",
+      "url": "https://www.brabantsedelta.nl/actueel/nieuws/droogtemaatregelen-versoepeld/",
+      "accessedAt": "2026-09-03T07:16:00Z",
+      "edition": "Drought update published 25 August 2026; HWH snapshot retrieved 3 September 2026 01:38Z",
+      "supports": [
+        "Brabantse Delta ended the regional daytime irrigation-hours rule from 26 August and stopped using Marksluis for added flow, while saying drought was not over, 2026 was among the five percent driest years and abstraction bans remained in free-draining areas. Exact local polygon/state must be checked; a regional notice is not blanket GM0809 status.",
+        "The public water screen assigns 60 points: four sewer pumps, three surface-water pumps, RWZI Kaatsheuvel and 52 weirs. Manager labels are Brabantse Delta for 52, De Dommel for three and generic Waterschap for five, demonstrating cross-authority records rather than one complete system.",
+        "Named sewer pumps include Kaatsheuvel, Loon op Zand and De Moer. Registered capacity values lack a normalized comparable unit in the view, while RWZI capacity is null. Register status 'gerealiseerd' is not live operation.",
+        "HWH is partial/contributor-dependent official context retrieved 2026-09-03T01:38:15.250Z under CC BY-SA 4.0 and affectsSimulation=false. It supplies neither connected catchments/topology nor control, power/backup, maintenance, current operation or restoration."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Midden- en West-Brabant / Gemeente Loon op Zand / Brandweer Nederland",
+      "title": "E06 — Regionaal Risicoprofiel 2023–2027, local nature-fire preparedness and current phase",
+      "url": "https://www.vrmwb.nl/media/qnmkutwa/regionaal-risicoprofiel-2023_2027.pdf",
+      "accessedAt": "2026-09-03T07:18:00Z",
+      "edition": "Regional profile created 13 July 2023; dynamic nature-fire phase inspected 3 September 2026",
+      "supports": [
+        "The safety region names Loonse en Drunense Duinen among its largest nature areas and describes forest, heath, peat and dune fire, difficult access, limited firewater, rapid unpredictable spread in drought, smoke, mobility disruption and risk to visitors or less self-reliant locations.",
+        "It also names Efteling as a site where many people concentrate in a small area and identifies fire, power loss or technical failure as possible crowd-panic triggers. This is risk/governance context, not incident occupancy, evacuation demand or response capacity.",
+        "The municipality says roughly 70% of nature fires arise from human behaviour, warns residents/tourists/recreation visitors and reports annual crisis exercises; an exercise proves preparedness activity, not current ignition, resources or outcome.",
+        "The dynamic national page reports Midden- en West-Brabant at phase 1 on access. Phase 1 is ordinary risk with no extraordinary alert, not zero probability, a fuel-moisture observation, forecast or all-clear.",
+        "No blanket standard machine-reuse licence was identified on the profile/dynamic pages; publication/edition and issue/retrieval time must be retained."
+      ]
+    },
+    {
+      "publisher": "Natuurmonumenten / Kadaster-PDOK / deterministic simulator probe",
+      "title": "E07 — Loonse en Drunense Duinen and controlled Oost-Loon source-containment test",
+      "url": "https://www.natuurmonumenten.nl/natuurgebieden/loonse-en-drunense-duinen",
+      "accessedAt": "2026-09-03T07:19:00Z",
+      "edition": "Current area page; TOP10NL heath feature 7a907da2-1b5e-595b-ad77-505575ecace9 sourced 1 January 2012 and registered 26 October 2013",
+      "supports": [
+        "Natuurmonumenten identifies the Loonse en Drunense Duinen as a large active sand-dune recreation landscape. The site gives a representative area coordinate; area identity supports visitor/fuel/access eligibility, not an ignition or current occupancy.",
+        "Point [5.100, 51.640] lies inside the 2025 CBS Oost-Loon neighbourhood. TOP10NL classifies it as heath from a 2012 aerial source, reported accuracy 0.1; that old CC BY 4.0 land cover is transparent synthetic-source eligibility only.",
+        "A focused T+24 wildfire at that point produces municipality severity 0.445052, direct fire 0.436583, smoke 0.436581, 5,216 affected equivalents and 103,714.394 person-hours, yet source-containing Oost-Loon ranks 32nd of 32 at severity 0.365977 while Schrijversbuurt leads at 0.523306.",
+        "Neither the old heath classification nor current area page establishes fuel/moisture, perimeter, wind/plume, visitors, route closure, firewater, crews or containment. The run remains a synthetic regression."
+      ]
+    },
+    {
+      "publisher": "Gemeente Loon op Zand / RIVM / Netbeheer Nederland / RDI / DUO / Rijksoverheid",
+      "title": "E08 — Efteling, acute-care, utility-planning, telecom, education and 72-hour context",
+      "url": "https://www.loonopzand.nl/vrije-tijd-toerisme/de-efteling",
+      "accessedAt": "2026-09-03T07:21:00Z",
+      "edition": "Current municipal pages; RIVM acute-care v1.1 published 3 July 2026; deployment snapshots retrieved 2–3 September 2026",
+      "supports": [
+        "The municipality confirms Efteling in Kaatsheuvel as a theme park, accommodation/event and business destination. Together with the regional crowd-risk profile and named GTFS stops, this establishes material transient demand but not event-time attendance, evacuation or supplies.",
+        "RIVM assigns zero full emergency departments inside GM0809 and registers the 24/7 Elisabeth-TweeSteden Ziekenhuis ED in Tilburg outside it, with 38 reported treatment rooms and 35,052 visits in 2025. CC0 v1.1 is dated context, not live route, ambulance, acceptance, occupancy, staff or backup.",
+        "One postcode sample 5171WS maps to Enexis TBN Tilburg Noord: withdrawal existing/required/queue 141.1/147.3/62.2 MW with 170 queued requests; injection 131/116.3/37.9 MW with 102 requests; 19 projects and earliest year 2026. Planning is not municipal coverage, feeder topology, live load/outage or project completion; exact licence identifier was not found.",
+        "RDI assigns 34 antenna sites and DUO twelve education records: nine primary, one secondary and two other. RDI WFS has no stated licence/cadence; DUO is daily CC Attribution version unspecified. Neither proves coverage/backhaul/power, occupancy, shelter role, supplies or live operation.",
+        "The municipal 'Denk vooruit' page repeats national three-day preparedness guidance including three litres of water per person per day. Guidance is not measured household stock, distribution capacity or completed action."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "GM0809, Loon op Zand, Noord-Brabant and Veiligheidsregio Midden- en West-Brabant agree.",
+      "evidenceRefs": ["E01", "E02", "E06"],
+      "notes": [
+        "Feature id, bundle code/name, province, exactly one safety-region membership and 2025 editions agree.",
+        "The generated centre and all three BAG place labels lie inside the current boundary.",
+        "Annual/static context, historical events, current operational rules, dynamic phase, official scenarios and synthetic outputs remain distinct evidence classes."
+      ]
+    },
+    "geography": {
+      "status": "fail",
+      "summary": "Administrative geography is coherent, but flood, pluvial, drought/heat, fire/smoke and infrastructure geography does not drive impacts.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E06", "E07"],
+      "notes": [
+        "Neighbourhood cells cannot replace a selected Maas-breach footprint, Donge catchment, Kaatsheuvel terrain/sewers, groundwater, dunes/heath fuel/plume, crowd or lifeline service areas.",
+        "Eight single hazards and compound have the exact same complete T+24 neighbourhood order.",
+        "A controlled source in Oost-Loon/TOP10NL heath ranks its containing neighbourhood last of 32.",
+        "Direct coastal depth is zero, plausible only for narrow North Sea surge scope; it says nothing about conditional Maas, regional-water, pluvial or indirect supply effects."
+      ]
+    },
+    "demography": {
+      "status": "warn",
+      "summary": "Resident controls reconcile, but Efteling and nature recreation make event-time exposure materially different from residence.",
+      "evidenceRefs": ["E01", "E06", "E07", "E08"],
+      "notes": [
+        "CBS reports 24,151 residents; 32 neighbourhoods total 24,130 (-21, -0.087%) and allocations reconcile to the control.",
+        "Age 65 or older is 24.4% and one-person households 3,300, useful aggregate vulnerability context but not individual assistance or preparedness.",
+        "Efteling guests/staff, accommodation users, nature visitors, pupils, commuters, patients and responders are absent from resident population and affected counts.",
+        "No reviewed time-valid visitor/occupancy feed or evacuation-needs inventory exists; that gap is Unknown, not zero transient exposure."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "Most 36 neighbourhood fields are available, while suppressed fields and operational water, visitor and lifeline gaps remain material.",
+      "evidenceRefs": ["E01", "E03", "E05", "E08"],
+      "notes": [
+        "District heat/charging are absent for 32/32 rows and several housing, vehicle, benefit and proximity fields are incomplete.",
+        "Sixty water assets, one grid-planning sample, 34 antenna sites and twelve education records have incompatible coverage, cadence, licence and meaning.",
+        "Counts, published capacity and registered status do not establish connectivity, comparable units, occupancy, live operation, backup or restoration."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "De Moer, Kaatsheuvel and Loon op Zand plus ten BRT labels are contained and semantically coherent.",
+      "evidenceRefs": ["E02", "E03", "E08"],
+      "notes": [
+        "Three BAG places and ten BRT woonkern/deelkern/gehucht/buurtschap labels describe the polycentric municipality without an outside-label caveat.",
+        "Place/settlement features are reference geography, not duplicate population values.",
+        "They do not prove incident occupancy, route access, flood protection, fire exposure, shelter function or utility territory."
+      ]
+    },
+    "transport": {
+      "status": "fail",
+      "summary": "Both logical links use N261; Efteling/nature access, alternatives, live transit and external-care continuity are unresolved.",
+      "evidenceRefs": ["E02", "E06", "E07", "E08"],
+      "notes": [
+        "N261-to-Waalwijk and N261-to-Tilburg are series ends of one physical corridor, not independent redundancy or 300 units of capacity.",
+        "No station and 21 static stops do not prove live buses or absence of rail dependency; Efteling, accommodation, Villa Pardoes and nature access need local road/parking/egress state.",
+        "The only nearby full ED identified is cross-boundary ETZ Tilburg; route, ambulance, destination acceptance and alternative capacity remain Unknown.",
+        "Zero GM0809 NDW situations means no matching record at snapshot scope/time, not that N261/local roads are open."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "Official nature, crowd, water, drought, care and preparedness context is not selected into incident/action/resource state.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "No ignition/perimeter/plume, Efteling attendance/egress state, Maas-breach/rain case, water-control condition, warning, route restriction, hospital acceptance or utility incident drives outputs.",
+        "Current phase 1 and relaxed/remaining regional drought measures have authority/scope/time semantics and remain context-only; neither is an all-clear or scenario calibration.",
+        "No local Waterinfo observation/forecast, KNMI station/warning, NDW situation, RIVM acute/PM2.5 point, seismic origin or government-service record is NoData, never normal, safe, open or absent infrastructure.",
+        "Three-day kit advice is a planning target, not observed household preparedness, municipal stock or distribution."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten canonical presets execute at T+0/6/12/24/48/72 for all eight services.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "The initial MUNICIPALITY_AUDIT_CODE=GM0809 pnpm audit:model gate passed one file/two tests in 29.75 seconds; complete execution is not local calibration.",
+        "Maximum severity / maximum affected / T+72 attributable person-hours are storm 0.426032 / 5,406 / 301,774.417; pluvial 0.280462 / 2,405 / 134,853.118; river 0.386274 / 13,530 / 776,041.297; coastal 0.077050 / 0 / 161,452.146; heat 0.459117 / 308 / 117,261.481.",
+        "Remaining values are winter 0.694177 / 8,381 / 452,505.917; cyber 0.590759 / 8,123 / 449,900.687; earthquake 0.004547 / 0 / 4,782.474; wildfire 0.109310 / 0 / 73,762.273; compound 0.867320 / 17,213 / 969,251.484.",
+        "Every checkpoint/service was inspected; decimals are deterministic exercise outputs, not observations, forecasts, affected people, casualties, outage customers or operator commitments."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Bounds, determinism, layer invariance, causal arithmetic, zero controls and local reconciliation pass.",
+      "evidenceRefs": ["E01", "E02"],
+      "notes": [
+        "All values are finite, service availability stays in [0,1], local population/demand/delivery reconcile and event-attributable deprived person-hours are monotonic.",
+        "Repeat runs match, display-layer choice does not change hazard/pressure/population, and zero-intensity exercises return exact-zero event hazard and event burden.",
+        "The legacy floodDepthM field is normalized inundation stress under CORR-017, never metres. River 1.231434 and compound 0.239191 must not be labelled physical depth.",
+        "Arithmetic correctness describes the synthetic contract only."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "The shared local seed contradicts source containment and distinct flood, drainage, heat, fire, crowd and cyber geography.",
+      "evidenceRefs": ["E01", "E03", "E04", "E06", "E07"],
+      "notes": [
+        "Storm, pluvial, river, coastal, heat, winter, cyber, wildfire and compound have the exact T+24 order led by Schrijversbuurt, Bergeind, De Zandschel, Hil (zuid), Mussenhoek and Pannenhoef (oost); Oost-Loon is last.",
+        "A controlled ignition inside Oost-Loon heath still ranks Oost-Loon 32/32 despite direct fire/smoke about 0.437, while Schrijversbuurt leads. This is a reproducible containment failure.",
+        "River T+24/T+72 keeps normalized stress 1.231434 and severity 0.386274 while affected rises 12,618 to 13,530; it selects no Maas breach or north-west footprint.",
+        "Pluvial T+24 reports stress 0.200286, 2,405 affected and drainage 0.678246 without rain, terrain, infiltration, Donge receiving level, sewers/overflows or control state."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "Eight exact service percentages exceed the available water, transport, utility, telecom, care, visitor and supply evidence.",
+      "evidenceRefs": ["E02", "E03", "E05", "E06", "E08"],
+      "notes": [
+        "At compound T+24 and T+72 the exact unchanged values are power 0.271367, water 0.391685, drainage 0.328844, gas 0.569990, telecom 0.162744, mobility 0.351098, facilities 0.300770 and supply 0.542874.",
+        "River also freezes seven service values after T+24; only facilities changes. No event/action evidence validates these plateaus.",
+        "N261 logical edges are Mobility/Supply proxies, not physical power, drinking-water, drainage, gas, telecom, hospital or Efteling systems.",
+        "Water-register points, grid planning, antennas, schools, stops and ETZ registration supply no connected topology, live load/flow/outage, quality, backup, attendance, staff, acceptance, inventory, crews or repair state."
+      ]
+    },
+    "causalTrace": {
+      "status": "warn",
+      "summary": "Synthetic ledgers close, but no authority-selected local causes, dependencies or interventions govern them.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "Hazard contributions sum to severity, staged service deltas close, weighted service loss closes to pressure and local/municipal balances reconcile.",
+        "Official plans, historical reports, current rules/phases, registers and schedules correctly remain affectsSimulation=false.",
+        "No selected fire source/perimeter, visitor/crowd state, Maas breach, rain field, cyber target, water-control state, route condition, hospital acceptance or operator action drives consequences.",
+        "Arithmetic closure cannot turn phase 1, a relaxed drought rule, old heath, an old stress test, zero local source match or a planning project into current state or safety."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "The T+72 river/compound plateaus and other recoveries lack incident, access, operator, resource and completion evidence.",
+      "evidenceRefs": ["E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "River holds stress/severity and seven service values from T+24 to T+72 while affected rises to 13,530 and burden reaches 776,041.297, without arrival/recession, access or action evidence.",
+        "Compound holds all eight service values and pressure 0.645881 exactly from T+24 through T+72 while affected stays 17,213 and burden reaches 969,251.484.",
+        "Canonical wildfire subsides to zero direct hazard at T+72 and affected returns to zero, but no perimeter/containment, visitor clearance, smoke observation or suppression completion supports recovery.",
+        "No warning, evacuation/reception, Efteling/nature egress, road/transit control, patient diversion, temporary water/sanitation, welfare check, utility crew, firewater/fuel, food or medicine action governs the first 72 hours."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": ["severe-storm", "pluvial-flood", "river-flood", "coastal-flood", "heatwave", "winter-storm", "cyberattack", "earthquake", "wildfire", "compound"],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": ["power", "water", "drainage", "gas", "telecom", "mobility", "facilities", "supply"]
+  },
+  "findings": [
+    {
+      "id": "GM0809-DATA-001",
+      "severity": "informational",
+      "category": "identity",
+      "status": "fixed",
+      "summary": "Identity, boundary, settlements, safety region and resident controls are coherent.",
+      "evidence": "GM0809, Loon op Zand, Noord-Brabant and Midden- en West-Brabant agree; centre and three BAG places are contained. CBS reports 24,151 residents and neighbourhood rows differ by only -0.087%.",
+      "action": "Retain editions, full geometry, retrieval, evidence class, published-versus-allocated values and null/suppression semantics on every refresh."
+    },
+    {
+      "id": "GM0809-NODATA-001",
+      "severity": "informational",
+      "category": "regional-data",
+      "status": "fixed",
+      "summary": "Null indicators and empty current public screens remain Unknown/NoData.",
+      "evidence": "District heat/charging cover 0/32. No assigned Waterinfo observation/forecast, KNMI observation/warning/seismic, NDW situation, RIVM acute/PM2.5 point or government-service location exists at snapshot scope/time.",
+      "action": "Preserve publisher, version, retrieval/issue/valid time, spatial/temporal coverage, licence, evidence class and reason; never coerce absence to zero, normal, dry, safe, open or available."
+    },
+    {
+      "id": "GM0809-FIRE-CONTAINMENT-001",
+      "severity": "critical",
+      "category": "hazard",
+      "status": "open",
+      "summary": "A controlled Loonse en Drunense Duinen-edge ignition ranks its source neighbourhood last.",
+      "evidence": "At [5.100, 51.640] inside CBS Oost-Loon and TOP10NL heath, T+24 direct fire/smoke is 0.436583/0.436581 with 5,216 affected equivalents, but Oost-Loon ranks 32/32 while Schrijversbuurt leads. Official sources establish a major fire-prone/recreation area, difficult access and firewater concerns.",
+      "action": "Retain the run only as a synthetic regression. Add source-cell containment tests and require ignition/perimeter, fuel/moisture, current phase, wind/plume, visitors, access/firewater and suppression state before decision-facing fire/smoke or evacuation output."
+    },
+    {
+      "id": "GM0809-SPATIAL-SEED-001",
+      "severity": "critical",
+      "category": "geography",
+      "status": "open",
+      "summary": "Nine disparate hazards reuse exactly the same complete T+24 neighbourhood ranking.",
+      "evidence": "Storm, pluvial, river, coastal, heat, winter, cyber, wildfire and compound all rank Schrijversbuurt, Bergeind, De Zandschel, Hil (zuid), Mussenhoek and Pannenhoef (oost) first and Oost-Loon last despite distinct flood, terrain, forest/heath, crowd and infrastructure mechanisms.",
+      "action": "Mark all nine non-compound local hazard families unsupported and remove hotspot/rank language until source-specific geometry/target, issue/valid time, uncertainty and NoData replace the common seed; test compound intersections independently."
+    },
+    {
+      "id": "GM0809-MAAS-001",
+      "severity": "critical",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Generic river output does not instantiate the conditional north-west Loon op Zand Maas-breach case.",
+      "evidence": "River holds normalized stress 1.231434 and severity 0.386274 from T+24 to T+72 and rises from 12,618 to 13,530 affected. The official stress test limits the cited deep-water pathway to north-west Loon op Zand after a Maas-dike breach; no hydrograph, defence/breach, connected footprint, depth, arrival or recession is selected.",
+      "action": "Suppress decision-facing depth, affected counts, hotspots and service consequences until a water-manager-approved LIWO/regional event binds river/hydrograph, defence/breach, north-west connected footprint, depth/velocity datum, arrival/duration/recession, edition/licence, valid time and uncertainty."
+    },
+    {
+      "id": "GM0809-PLUVIAL-001",
+      "severity": "high",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Pluvial forcing ignores the municipality's terrain, infiltration, Donge and sewer-overflow pathways.",
+      "evidence": "T+24 reports stress 0.200286, 2,405 affected and drainage 0.678246 without rainfall. Municipal evidence distinguishes Kaatsheuvel's high southeast/low northwest terrain, limited western infiltration, local Loon low points, Donge catchment and street water when receiving water and combined-sewer overflows interact.",
+      "action": "Integrate a governed current municipal/water-board stress surface with KNMI rain, AHN/soil/groundwater, imperviousness, sewer catchments/overflows/inlets, Donge receiving levels and control state. Preserve event, CRS/resolution, units, uncertainty, licence and NoData; old assessments remain dated context."
+    },
+    {
+      "id": "GM0809-DROUGHT-WATER-001",
+      "severity": "high",
+      "category": "explainability",
+      "status": "open",
+      "summary": "Current drought rules and two-water-board context cannot bind the heat/wildfire water trajectory.",
+      "evidence": "Brabantse Delta ended one hours rule on 26 August but retained other scoped bans and said drought was not over; the 60 local HWH points span Brabantse Delta, De Dommel and generic wastewater managers. Heat T+24 nevertheless gives water 0.689602 and drought 0.416873 without a selected rule polygon, soil/groundwater observation, demand or operator state.",
+      "action": "Expose authority, rule geometry, issuedAt, validFrom/to, supersession and affected use for current restrictions, separate from synthetic drought. Bind only verified local polygons; keep water-board registers non-causal and missing soil/groundwater/capacity state Unknown."
+    },
+    {
+      "id": "GM0809-VISITORS-001",
+      "severity": "critical",
+      "category": "demography",
+      "status": "open",
+      "summary": "Resident-only exposure cannot support Efteling and nature visitor consequence or evacuation counts.",
+      "evidence": "Efteling, accommodation, Villa Pardoes stops and the dunes are material visitor destinations; the regional profile identifies Efteling crowd concentration and nature visitors being trapped as risks. The model allocates only 24,151 residents and has no event-time attendance, hotel occupancy, accessibility or egress demand.",
+      "action": "Keep resident and transient populations separate. Add privacy-safe time-valid aggregate attendance/occupancy bands, accessibility needs, gate/parking/transport/egress state and uncertainty from authorized venue/authority feeds; absent visitor data remains Unknown, never zero."
+    },
+    {
+      "id": "GM0809-N261-CARE-001",
+      "severity": "critical",
+      "category": "network",
+      "status": "open",
+      "summary": "Two N261 endpoints are one physical corridor and do not prove Efteling, nature or cross-boundary care resilience.",
+      "evidence": "The graph exposes only N261 to Waalwijk and Tilburg, both capacity 150 on NWB-road-261. No station exists; 21 stops are schedules. GM0809 has no full ED, while ETZ Tilburg is external. Local access/egress, buses, ambulance route, destination acceptance and alternatives are not modeled; zero NDW matches proves nothing.",
+      "action": "Group N261 as one physical corridor, retain direction/series semantics and add local Efteling/nature/settlement access, transit and independent alternatives with authority-valid state. Acute care requires ambulance, route, acceptance/diversion and destination capacity; Unknown cannot become open."
+    },
+    {
+      "id": "GM0809-SERVICE-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Exact eight-service availability has no compatible utility, venue, care or supply evidence.",
+      "evidence": "Compound freezes power 0.271367, water 0.391685, drainage 0.328844, gas 0.569990, telecom 0.162744, mobility 0.351098, facilities 0.300770 and supply 0.542874 from T+24 through T+72. Registers/planning/counts provide no live connectivity, state, backup, staff, stock, crews or repair.",
+      "action": "Keep public context affectsSimulation=false and label operational values synthetic/Unknown. Use authorized time-scoped operator, venue and care aggregates with coverage/uncertainty; roads never become utility topology and sensitive topology stays unavailable."
+    },
+    {
+      "id": "GM0809-ACTIONS-001",
+      "severity": "critical",
+      "category": "limitation",
+      "status": "open",
+      "summary": "No auditable first-72-hour action, resource or completion ledger drives recovery.",
+      "evidence": "River and compound plateau exactly, wildfire clears synthetically, and other services recover without warning, fire containment, visitor/venue evacuation, road/transit control, patient diversion, water-control decisions, temporary water/sanitation, welfare, utility repair, fuel, food or medicine actions.",
+      "action": "Add Unknown-first authority/event/action records with issue/valid time, target, owner, assigned resources, requested/accepted/in-progress/completed state, confidence and completion evidence. Only confirmed actions may change recovery; plans, exercises and advice do not."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Replace the GM0809 shared spatial seed and fix local wildfire source containment.",
+      "files": ["packages/sim-core/src/model.ts", "packages/sim-core/src/model.test.ts", "apps/web/src/components/MapView.tsx", "apps/web/src/App.tsx"],
+      "validation": "All nine non-compound hazards are marked spatially unsupported until distinct sources exist; a [5.100,51.640] Oost-Loon source prioritizes the containing/adjacent plume cells rather than ranking Oost-Loon 32/32, while canonical remote smoke remains separate."
+    },
+    {
+      "summary": "Gate river and pluvial consequences behind governed mechanism-specific water cases.",
+      "files": ["packages/sim-core/src/types.ts", "packages/sim-core/src/model.ts", "packages/sim-core/src/model.test.ts", "apps/web/src/App.tsx"],
+      "validation": "River consequences remain Unknown until a Maas hydrograph, defence/breach, connected north-west footprint, datum, arrival/recession, source/version/licence, valid time and uncertainty exist; pluvial separately binds rainfall, terrain/infiltration, sewers/overflows, Donge boundary/control and NoData. Normalized stress is never metres."
+    },
+    {
+      "summary": "Represent Efteling/nature transient demand and N261/care access without fabricating occupancy or route state.",
+      "files": ["packages/sim-core/src/types.ts", "packages/sim-core/src/model.ts", "apps/web/src/data.ts", "apps/web/src/App.tsx"],
+      "validation": "Resident and privacy-safe visitor bands remain distinct; missing venue/nature occupancy is Unknown. N261 endpoints are one physical series corridor, local access/transit/alternatives retain authority/validity, zero NDW never means open, and ETZ continuity requires ambulance route plus acceptance/diversion state."
+    },
+    {
+      "summary": "Preserve time/scope semantics for current drought, fire phase and public water/utility context.",
+      "files": ["apps/web/src/data.ts", "apps/web/src/App.tsx", "apps/web/src/components/MapView.tsx"],
+      "validation": "Drought rules expose authority, geometry, issue/valid time and supersession; phase 1 remains ordinary-risk context, not all-clear. HWH/grid/antenna/school/care records retain publisher/version/time/coverage/licence/evidence class and affectsSimulation=false; null/empty never becomes zero or safe."
+    },
+    {
+      "summary": "Add an Unknown-first first-72-hour incident action/resource ledger.",
+      "files": ["packages/sim-core/src/types.ts", "packages/sim-core/src/model.ts", "apps/web/src/App.tsx"],
+      "validation": "Warnings, fire containment, Efteling/nature evacuation, route/transit control, patient diversion, water-control, temporary water/sanitation, utility, supply and welfare actions show authority, issue/valid time, owner, resource and completion; only confirmed actions alter recovery."
+    }
+  ],
+  "residualLimitations": [
+    "No reviewed public source supplies complete safe-to-publish Enexis, Brabant Water, gas, telecom, wastewater or drainage topology, live state, backup endurance, priority users, crews, inventories or restoration estimates.",
+    "Nature-fire outcomes require current ignition/perimeter, fuels/moisture, wind/plume, visitors, access, firewater and suppression; current phase 1 and an old heath polygon are not an event.",
+    "Efteling and nature occupancy, accessibility needs, gate/parking/transport/egress and supplies are unavailable as a reviewed time-valid public operational feed; resident population cannot substitute.",
+    "Maas breach outcomes require hydrograph, defence/breach and a connected north-west footprint; pluvial requires rain, terrain/soil/groundwater, sewers/overflows, Donge receiving level and controls.",
+    "Static NWB and GTFS omit local route, bridge, bus, venue/nature access, ambulance/freight/evacuation throughput and restoration; zero NDW matches never proves open.",
+    "Affected population is a resident-equivalent synthetic index and deprived person-hours is weighted event-attributable service deprivation, not casualties, evacuees, visitors, patients or customer interruption-hours.",
+    "Dynamic drought, fire, route, care and utility context can change after completion; stale, empty, out-of-scope or superseded data must degrade to Unknown."
+  ],
+  "provinceReviewFlags": [
+    "Reconcile the conditional north-west Loon op Zand Maas-breach footprint with Waalwijk/Heusden and LIWO/water-manager assumptions; do not spread it municipality-wide.",
+    "Coordinate Brabantse Delta/De Dommel boundary, Donge catchment, Kaatsheuvel sewer/overflow, groundwater and drought-rule geometry while preserving authority and lifecycle.",
+    "Treat Loonse en Drunense Duinen as a cross-municipal fire/smoke, visitor, access and firewater system with Heusden, Tilburg, Oisterwijk and Vught; use Oost-Loon containment as a regression.",
+    "Audit Efteling transient demand, accommodation/Villa Pardoes accessibility, crowd/egress and N261/local-road/transit dependencies using privacy-safe authorized aggregates.",
+    "Group both N261 records as one series corridor and test independent alternatives and ETZ Tilburg ambulance/destination acceptance; static capacity is non-additive.",
+    "Define first-72-hour ownership/evidence for fire containment, visitor evacuation, route control, water decisions, care diversion, utilities, supplies and welfare without exposing sensitive topology."
+  ]
+}
