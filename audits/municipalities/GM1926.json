@@ -1,0 +1,494 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "municipality-audit",
+  "municipality": {
+    "code": "GM1926",
+    "name": "Pijnacker-Nootdorp",
+    "province": "Zuid-Holland",
+    "safetyRegion": "Haaglanden"
+  },
+  "agent": {
+    "taskName": "municipality_gm1926",
+    "agentId": "/root/municipality_gm1926",
+    "completedAt": "2026-09-03T12:25:06Z"
+  },
+  "verdict": "correction-required",
+  "executiveSummary": "GM1926 is identity-correct and passes the deterministic ten-preset, six-checkpoint and eight-service arithmetic contract, but the first-72-hour results are not locally calibrated. River flooding retains an internal normalized inundation scalar of 1.569131 from T+24 through T+72 and coastal reaches 1.673751 at T+24 without selecting a sea, river, regional-boezem or defence-failure case. Storm, pluvial, river, coastal, heat, winter, cyber and wildfire reuse exactly the same five leading neighbourhoods even though primary evidence distinguishes low polders and managed storage, business-park heat, Greenport exposure, transport corridors and cyber targets. At T+48 and T+72 the compound run freezes all eight service values, flood scalar, pressure and 33,066 affected people-equivalent while cumulative burden rises. Public context includes 313 registered water objects, 120,000 m³ of named storage, five logical road-border links, 59 transit stop areas, 34 education locations and 122 antenna registrations, but it supplies neither complete topology nor live operation. No acute-care point is registered inside the boundary; the nearest registered emergency department is approximately 5.93 km straight-line from the municipal centre in Delft, not a guaranteed route or acceptance state. Suppress unsupported local precision, keep official scoped zeros separate from NoData and modeled zero, and evidence-gate hydraulic, lifeline, access and recovery outputs before operational use.",
+  "evidenceSources": [
+    {
+      "publisher": "Centraal Bureau voor de Statistiek / PDOK / Kadaster",
+      "title": "E01 — Official 2025 municipality, neighbourhood, safety-region and settlement inputs",
+      "url": "https://opendata.cbs.nl/ODataApi/OData/86165NED/TypedDataSet?%24filter=startswith%28WijkenEnBuurten%2C%27GM1926%27%29",
+      "accessedAt": "2026-09-03T12:10:00Z",
+      "edition": "CBS Wijken en buurten 2025; BAG/BRT deployment snapshots retrieved 31 August 2026",
+      "supports": [
+        "Annual CBS data identify GM1926 as Pijnacker-Nootdorp in Zuid-Holland and report 58,126 residents, density 1,576/km², 16.5% aged 65 or older and 6,127 one-person households. CBS reports 9,601 residents aged 65 or older.",
+        "The generated reference point [4.42149575764459, 52.01196019700971] lies inside the 2025 generalized municipality polygon and the feature resolves uniquely to Veiligheidsregio Haaglanden. All 32 neighbourhoods across three districts load.",
+        "Published neighbourhood population sums to 58,135, nine above the municipal total (+0.015%) because small-area figures are rounded or suppressed. Published neighbourhood household rows sum to 23,095 and rounded 65+ counts sum to 9,585; neither total should silently replace the municipality value.",
+        "BAG supplies three woonplaatsen—Pijnacker, Nootdorp and Delfgauw—and all three centres fall inside the generalized polygon. BRT TOP10NL supplies eight settlement features: three woonkernen, one deelkern and four buurtschappen. BAG uses Public Domain Mark 1.0 and BRT TOP10NL uses CC BY 4.0.",
+        "CBS/BAG/BRT do not measure commuters, greenhouse workers, pupils, patients, visitors, road users, responders, household stocks, individual vulnerability or incident-time presence. Generalized geometry cannot resolve dikes, level areas, water courses, sewers, individual buildings or infrastructure connections."
+      ]
+    },
+    {
+      "publisher": "Gemeente Pijnacker-Nootdorp",
+      "title": "E02 — PlanMER Omgevingsvisie Pijnacker-Nootdorp 2050 and municipal water/climate evidence",
+      "url": "https://www.pijnacker-nootdorp.nl/wp-content/uploads/2021/05/PlanMER-omgevingsvisie-Pijnacker-Nootdorp-2050.pdf",
+      "accessedAt": "2026-09-03T12:10:30Z",
+      "edition": "PlanMER published 2021; policy/planning evidence rather than live telemetry",
+      "supports": [
+        "The municipality says the water and drainage system generally functions well, while some streets can temporarily flood in heavy rain and future peak showers increase the challenge. Its earlier sewer plan also treats ditches, pumps, nuisance, drought, subsidence, water quality and heat as one managed system: https://openpdc.pijnacker-nootdorp.nl/wp-content/uploads/2021/02/Gemeentelijk-Rioleringsplan-2018-2021-PN.pdf",
+        "The PlanMER describes overall limited urban-heat-island effect from green space and lower paving, but material heat stress on business parks and in parts of neighbourhoods, with more heat and warmer nights expected.",
+        "Dry periods were manageable at publication time, but the area was not fully adapted. Water shortage can affect nature and urban green, buildings and wooden pile foundations, and greenhouse water availability.",
+        "Its maximum-depth flood map combines many breach cases and explicitly is not one situation that can occur. It distinguishes flooding from sea, rivers and regional canals/boezems; a decision case therefore needs one selected event and connected footprint.",
+        "The documents have publication dates but no live operational cadence or blanket machine-data reuse licence identified. They do not validate exact scenario depth, neighbourhood ranking, affected population, service availability or recovery."
+      ]
+    },
+    {
+      "publisher": "Veiligheidsregio Haaglanden",
+      "title": "E03 — Regionaal Risicoprofiel Haaglanden 2023 and Pijnacker-Nootdorp response",
+      "url": "https://www.vrh.nl/sites/default/files/2023-01/6-B%20II%20Bijlagen%20Regionaal%20Risicoprofiel%202023.pdf",
+      "accessedAt": "2026-09-03T12:11:00Z",
+      "edition": "Regional risk profile 2023 and municipal consultation response",
+      "supports": [
+        "Haaglanden identifies late-summer/autumn cluster showers and south-westerly storms. In below-NAP areas around Delft and Pijnacker-Nootdorp, cluster showers can cause substantial economic damage; extreme winter cold, snow and ice are less frequent in the maritime climate.",
+        "The profile distinguishes extreme coastal/Randstad inundation from a realistic regional-boezem or regional-defence failure after drought or heavy rain. It identifies the Delfgauw/Pijnacker area among locations with high potential maximum depths in an extreme sea case, but does not provide a selected GM1926 event footprint or current defence state.",
+        "No Haaglanden area is expected to reach Mercalli VI or higher; earthquakes are assessed very unlikely and limited, while geothermal activity is monitored. Nature-fire risk is regionally limited. Greenport, including Pijnacker-Nootdorp, creates economic crop, pest/disease, energy and logistics exposure.",
+        "The profile describes ICT/telecom cascades and opaque redundancy, highways including A13 hazardous-material transport, and dependencies across sectors. Pijnacker-Nootdorp's consultation response asked that cyber consequence management receive priority: https://www.vrh.nl/sites/default/files/2023-01/6-A%20V%20zienswijze%20Pijnacker-Nootdorp.pdf",
+        "The regional documents are strategic planning evidence, not incident-time warnings, probabilities, operator topology, resource assignments, service percentages or restoration commitments. No blanket open-data licence was identified."
+      ]
+    },
+    {
+      "publisher": "Hoogheemraadschap van Delfland / Het Waterschapshuis",
+      "title": "E04 — Oude Polder/Zuidpolder storage, observed 2023 rainfall response and public water objects",
+      "url": "https://www.hhdelfland.nl/actueel/nieuwsoverzicht/2025/september/nieuwe-informatieborden-onthuld/",
+      "accessedAt": "2026-09-03T12:11:30Z",
+      "edition": "Delfland pages dated 3 November 2023 and September 2025; HWH snapshot retrieved 3 September 2026",
+      "supports": [
+        "Delfland publishes 20,000 m³ storage in the Oude Polder van Pijnacker and 100,000 m³ in the Zuidpolder van Delfgauw. The 120,000 m³ total is named design/storage context intended to slow boezem rise and pressure on dikes, not proof of empty volume, availability or activation at a scenario time.",
+        "On 3 November 2023 Delfland reported about 50 mm rain versus 25–35 mm forecast, use of the Oude Polder storage, local high-water reports and operation of pumps from polder to boezem and onward to sea/New Waterway: https://www.hhdelfland.nl/actueel/nieuwsoverzicht/2023/november/inzet-waterbergingen-extra-pompen/. A Westland boezem pump was partly constrained by debris at its rack. This is a dated observation, not a future response guarantee.",
+        "The bounded HWH snapshot intersects GM1926 with 313 points: one sewer pump, 50 surface-water pumps and 262 weirs. Capacity is null for 282 records and populated for 31; populated fields are not assumed compatible or current without feature-level metadata.",
+        "HWH IMWA is weekly CC BY-SA 4.0 and DAMO depends on contributor delivery under CC BY-SA 4.0: https://api.pdok.nl/hwh/waterschappen-kunstwerken-imwa/ogc/v2 and https://api.pdok.nl/hwh/waterschappen-waterketen-damo/ogc/v1. Registered points do not establish catchment, flow direction, control logic, connected capacity, current position, blockage, power/backup or operation.",
+        "Delfland's public register/WFS is an integration route for formal system geometry: https://www.hhdelfland.nl/over-ons/regelgeving/legger/. Register status remains distinct from current asset condition and incident command."
+      ]
+    },
+    {
+      "publisher": "Provincie Zuid-Holland / Watermanagementcentrum Nederland / IPLO",
+      "title": "E05 — Provincial pluvial maps and official flood-scenario evidence route",
+      "url": "https://data.overheid.nl/en/dataset/84352-wateroverlast---waterdiepte-bij-extreme-neerslag-stedelijk--2018-",
+      "accessedAt": "2026-09-03T12:12:00Z",
+      "edition": "Provincial 100 mm/2 h urban-rain scenario; catalogue updated 19 August 2026; LIWO 2025.1.6",
+      "supports": [
+        "The provincial layer models 100 mm in two hours with 3Di, AHN2/AHN3 terrain, land-use/friction and soil/infiltration inputs and publishes WMS plus Atom GeoTIFF under Public Domain Mark. It is a static scenario rather than an observation or forecast; sewer inclusion varies by contributing municipal model and must be read with the model-information/NoData layer: https://data.overheid.nl/dataset/34813--klimaatatlas----thema-wateroverlast---modelinformatie-extreme-neerslag-stedelijk-gebied",
+        "The province also publishes a Public Domain Mark building-vulnerability service and a 2023 70 mm/hour maximum-water-depth analysis for provincial roads: https://data.overheid.nl/dataset/34810--klimaatatlas----thema-wateroverlast---kwetsbaarheid-panden-extreme-neerslag and https://data.overheid.nl/dataset/42305-risicoanalyse-wateroverlast-hevige-neerslag-2023---veiligheid---maximale-waterdiepte-provincia",
+        "Provincial neighbourhood heat mapping is available at https://data.overheid.nl/en/dataset/84358-hittekaart-gevoelstemperatuur-per-buurt--2022-. It is dated climate/stress context, not incident-time body temperature, occupancy or care demand.",
+        "LIWO is the official WMCN flood-scenario library and IPLO warns that correct interpretation requires water-manager expertise: https://iplo.nl/thema/water/applicaties-modellen/berichtgeving-crisismanagement/liwo/. A valid case must preserve release/layer, source water body, forcing, defence/breach assumptions, probability/context, units, resolution, footprint, arrival/recession, licence, NoData and expert approval.",
+        "Static provincial and national scenario products cannot be silently blended into current observation, forecast or synthetic checkpoint state."
+      ]
+    },
+    {
+      "publisher": "Rijkswaterstaat / ProRail / OVapi",
+      "title": "E06 — NWB border corridors, rail and scheduled public-transport context",
+      "url": "https://downloads.rijkswaterstaatdata.nl/nwb-wegen/geogegevens/shapefile/NWB-light/01-08-2026.zip",
+      "accessedAt": "2026-09-03T12:12:30Z",
+      "edition": "NWB-Light 1 August 2026; ProRail and GTFS deployment snapshots retrieved 31 August 2026",
+      "supports": [
+        "Monthly CC0 NWB geometry generates five logical municipality-border links: A13 to Delft; N470 to Delft; N471 to Lansingerland; N470 to Lansingerland; and N470 to Zoetermeer. Their nominal model ceilings total 860 scenario units but are not measured throughput or five independent physical escape capacities.",
+        "The repeated N470 records are sections of a shared physical corridor. All five links are scoped only to Mobility and explicit road-logistics/Supply, never electricity, water, drainage, gas, telecom or facility topology.",
+        "No ProRail station lies inside GM1926. Static GTFS contains 59 stop areas, including Nootdorp, Pijnacker Centrum and Pijnacker Zuid. The OVapi snapshot feed version 9543 covers the late-August 2026 timetable window on a best-effort basis; schedules do not establish current vehicle operation, passenger capacity, accessibility or disruption.",
+        "The ProRail OGC service is https://api.pdok.nl/prorail/spoorwegen/ogc/v1 and the static feed is https://gtfs.ovapi.nl/nl/gtfs-nl.zip. Rail geometry and transit schedules remain separate from incident-time control and route passability."
+      ]
+    },
+    {
+      "publisher": "RIVM / RDI / DUO / Netbeheer Nederland / MijnAansluiting",
+      "title": "E07 — Acute-care, telecom, education and utility-planning context",
+      "url": "https://datacatalogus.rivm.nl/dataset.xhtml?persistentId=doi%3A10.21945%2F8E767B2D-9CED-4A85-A95D-3AC1A608C663",
+      "accessedAt": "2026-09-03T12:13:00Z",
+      "edition": "RIVM acute-care 2026 v1.1; public deployment snapshots retrieved 31 August–3 September 2026",
+      "supports": [
+        "RIVM's CC0 acute-care questionnaire registers no emergency-department point inside GM1926. From the municipality reference point, the nearest registered points by straight-line distance are Reinier de Graaf Delft at approximately 5.93 km, Haga Zoetermeer at 8.29 km and Franciscus Gasthuis Rotterdam at 8.32 km. Distance does not establish a road route, travel time, acceptance, staffing, backup or specialty availability.",
+        "The daily DUO RIO snapshot intersects 34 education locations. RDI's public WFS intersects 65 antenna sites and 122 antenna registrations: https://antenneregister.nl/mapserver/wfs/. These records do not establish building occupancy or shelter status, radio coverage, backhaul, power dependency, live load or outage.",
+        "One NBNL postcode sample maps to Stedin station Pijnacker 2, with existing/required withdrawal and injection values null, queue values zero, eleven projects and earliest project year 2026: https://data.partnersinenergie.nl/capaciteitskaart/totaal/afname. One sample and a zero planning queue do not prove spare capacity, topology or current service.",
+        "Public provider-territory lookup at the municipality centre returns Stedin for electricity and gas and Dunea for drinking water, while drainage and telecom return no feature: https://wiki.service.mijnaansluiting.nl/wiki/spaces/Wiki/pages/693731329. A point-in-territory result is context, not customer connectivity, pressure/load, backup, switching, failure or restoration.",
+        "The data sets have different coverage, cadence and reuse terms. None authorizes inference of sensitive physical topology or exact incident-time availability."
+      ]
+    },
+    {
+      "publisher": "KNMI / Rijkswaterstaat / Veiligheidsregio Haaglanden",
+      "title": "E08 — Valid-time observation routes and 72-hour household preparedness guidance",
+      "url": "https://dataplatform.knmi.nl/dataset/10-minute-in-situ-meteorological-observations-1-0",
+      "accessedAt": "2026-09-03T12:13:30Z",
+      "edition": "KNMI/RWS deployment snapshots retrieved 2–3 September 2026; current Haaglanden guidance inspected 3 September 2026",
+      "supports": [
+        "KNMI ten-minute in-situ observations are CC BY 4.0. KNMI radar composites and the FDSN event service are valid integration routes, while RWS Waterinfo supplies official water observations/forecasts: https://dataplatform.knmi.nl/dataset/access/radar-reflectivity-composites-2-0, https://rdsa.knmi.nl/fdsnws/event/1/ and https://waterinfo.rws.nl/.",
+        "The bounded deployment snapshot assigns no KNMI weather station, RIVM PM2.5 station, KNMI seismic event or RWS Waterinfo observation/forecast point inside GM1926 and no qualifying NDW road situation. These are coverage/no-match results, never zero rain, wind, smoke, shaking, water level, disruption or hazard.",
+        "A Zuid-Holland public-warning feature was level zero in the bounded snapshot, but it covers only its issue/valid interval and is not a scenario all-clear or justification for forcing synthetic hazard to zero.",
+        "Haaglanden advises households to prepare for 72 hours with water, food, light, power, first aid and warmth: https://haaglandenveilig.nl/goed-voorbereid/denk-vooruit. Guidance is not measured household stock, municipal distribution capacity or a restoration promise."
+      ]
+    }
+  ],
+  "dataChecks": {
+    "identity": {
+      "status": "pass",
+      "summary": "Official code, name, province, safety region, centre and headline demography agree.",
+      "evidenceRefs": ["E01", "E03"],
+      "notes": [
+        "The generated and live CBS records agree on GM1926 / Pijnacker-Nootdorp and the municipality resolves uniquely to Zuid-Holland and Veiligheidsregio Haaglanden.",
+        "The reference point lies inside the 2025 generalized municipal geometry; Pijnacker, Nootdorp and Delfgauw BAG centres also lie inside it.",
+        "Annual 2025 inputs, 2021/2023 strategy, dated 2023 observations, 2025/2026 registers and synthetic checkpoints retain separate editions and evidence classes."
+      ]
+    },
+    "geography": {
+      "status": "warn",
+      "summary": "The generalized boundary is coherent, but low polders, boezems, water storage, greenhouse districts and transport corridors need mechanism-specific geometry.",
+      "evidenceRefs": ["E01", "E02", "E03", "E04", "E05", "E06"],
+      "notes": [
+        "The municipality spans three named cores plus rural/greenhouse land and managed lowland water systems. Centre distance and generalized neighbourhood geometry cannot establish hydraulic or network connectivity.",
+        "Oude Polder and Zuidpolder storage, the Delfland pump/boezem chain, A13/N470/N471 and distinct urban heat context are material causal features absent from the common spatial allocator.",
+        "Use full-resolution AHN/BGT, water/land, level-area, catchment, sewer, dike, building and corridor geometry with explicit edition, licence, coverage and NoData before local exposure claims."
+      ]
+    },
+    "demography": {
+      "status": "pass",
+      "summary": "Official 2025 totals agree and the small neighbourhood rounding mismatch is explicitly retained.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "Population 58,126, density 1,576/km², age65Pct 16.5 and one-person households 6,127 agree with the live official row.",
+        "Published neighbourhood rows total 58,135 residents (+9), 23,095 households and 9,585 residents aged 65 or older; deterministic allocation reconciles to the official municipality total without treating the published mismatch as an error.",
+        "Aggregates are planning denominators, not incident-time people present, people affected or individuals requiring evacuation, cooling, medicines or shelter."
+      ]
+    },
+    "regionalDetail": {
+      "status": "warn",
+      "summary": "All 32 neighbourhoods load, but published attribute gaps and incomplete asset layers require explicit Unknown semantics.",
+      "evidenceRefs": ["E01", "E04", "E07", "E08"],
+      "notes": [
+        "District-heating percentage and public charging points are missing for all 32 neighbourhoods. Cars per household is missing for three; eleven other housing/benefit fields are missing for one row each.",
+        "The rows with additional missing values include De Boezem, Oostambacht/Heronpark and Ruyven. Missing or suppressed values remain Unknown and are never imputed as zero.",
+        "The 313 HWH points, 34 DUO locations, 65 RDI sites/122 registrations and one NBNL postcode are bounded public context with different coverage and semantics, not a complete local system inventory."
+      ]
+    },
+    "settlements": {
+      "status": "pass",
+      "summary": "Three BAG woonplaatsen and eight BRT settlement features are retained without duplicating population.",
+      "evidenceRefs": ["E01"],
+      "notes": [
+        "BAG represents Pijnacker, Nootdorp and Delfgauw. BRT additionally categorizes Katwijkerlaan, Klein-Delfgauw, Noukoop and Oude Leede as buurtschappen and Vlieland as a deelkern.",
+        "Cartographic settlement labels are not separate population containers; municipal and neighbourhood totals remain authoritative for resident denominators.",
+        "Rural, greenhouse, visitor and incident-time occupancy within settlement extents remains Unknown."
+      ]
+    },
+    "transport": {
+      "status": "warn",
+      "summary": "Five logical road-border links and 59 transit stops load, but shared corridors, internal access and live state are unresolved.",
+      "evidenceRefs": ["E03", "E06", "E07", "E08"],
+      "notes": [
+        "A13, three N470 relations and N471 connect three neighbouring municipalities. Repeated N470 sections are one physical corridor family, and nominal ceilings of 260/150 scenario units are not observed capacity or independent evacuation throughput.",
+        "No ProRail station lies inside the boundary; 59 scheduled stop areas do. Static road/rail/transit geometry omits internal junctions, direction, queues, disruptions, emergency priority, accessible vehicles and safe destinations.",
+        "NWB links support Mobility and explicit road-logistics/Supply only. No matching NDW record is Unknown live state, not proof every road is open; cross-boundary acute care also requires an event-valid route and acceptance state."
+      ]
+    },
+    "emergencyContext": {
+      "status": "fail",
+      "summary": "Strategic risks and preparedness guidance are authoritative, but no incident/action/resource state supports exact first-72-hour decisions.",
+      "evidenceRefs": ["E03", "E04", "E06", "E07", "E08"],
+      "notes": [
+        "No RIVM acute-care point is registered inside GM1926; nearest straight-line distance does not establish travel, acceptance, staff, bed/room availability, backup or specialty care.",
+        "Delfland's 2023 response and named storage prove relevant mechanisms and assets, not their operation or available capacity in another event. Regional 72-hour household advice does not measure stocks or public distribution.",
+        "Needed action classes include warning, polder/boezem/storage/pump/sewer control, evacuation and welfare, road/transit control, hospital transfer, greenhouse/agricultural protection, temporary water, reception, food/fuel/medicine, utility repair and mutual aid.",
+        "No issue-valid warning, asset operation, route state, hospital acceptance, staff, generator/fuel, stock, repair crew or confirmed action is ingested."
+      ]
+    }
+  },
+  "modelChecks": {
+    "scenarioMatrix": {
+      "status": "pass",
+      "summary": "All ten presets produce finite deterministic outputs at every required checkpoint and service; local-calibration failures are recorded separately.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E08"],
+      "notes": [
+        "The focused contract covered severe storm, pluvial flood, river flood, coastal flood, heatwave, winter storm, cyberattack, earthquake, wildfire and compound at T+0/6/12/24/48/72 across power, water, drainage, gas, telecom, mobility, facilities and supply.",
+        "At T+24 internal inundation scalar / severity / pressure / affected people-equivalent / cumulative event-attributable service person-hours are storm 0.354269 / 0.196211 / 0.288184 / 12,135 / 297,957.61; pluvial 0.329054 / 0.237650 / 0.228913 / 7,281 / 176,090.88; river 1.569131 / 0.483827 / 0.468496 / 26,902 / 479,349.50; coastal 1.673751 / 0.546973 / 0.474053 / 27,356 / 572,200.40; and compound 0.395253 / 0.915745 / 0.517633 / 30,925 / 554,534.75.",
+        "Other T+24 severity / pressure / affected / person-hours are heat 0.104033 / 0.186329 / 3,794 / 154,268.29; winter 0.729045 / 0.288498 / 12,161 / 351,149.41; cyber 0.489122 / 0.331903 / 15,715 / 303,074.02; and wildfire 0.099693 / 0.121031 / 0 / 55,648.10. Earthquake has zero current-event severity and zero affected at T+24 while cumulative burden is 5,491.59 person-hours.",
+        "At T+72 river remains at scalar/severity 1.569131/0.483827, pressure 0.489215 and 28,598 affected, with 1,879,065.64 person-hours. Compound remains at scalar 0.395253, pressure 0.543771 and 33,066 affected, with 2,080,429.31 person-hours. All values are synthetic exercise outputs, not observed depth, casualties or operator outages."
+      ]
+    },
+    "numericalInvariants": {
+      "status": "pass",
+      "summary": "Bounds, finiteness, determinism, exact baseline behavior, reconciliation and cumulative-burden contracts pass.",
+      "evidenceRefs": [],
+      "notes": [
+        "The initial MUNICIPALITY_AUDIT_CODE=GM1926 pnpm audit:model run passed one file and two tests in 30.54 seconds, with 30.31 seconds test execution; the final current-code rerun also passed in 29.08 seconds, with 28.86 seconds test execution.",
+        "The gate exercises all presets/checkpoints/services, repeats deterministic T+24 runs, reconciles detail rows and official-region totals, checks service-layer-invariant physical hazard, and rejects neutral/hub priorities.",
+        "Demand, delivery and causal ledgers close; values remain finite and bounded; cumulative event-attributable service person-hours are monotonic against the matched no-event baseline.",
+        "Arithmetic consistency is necessary but does not establish hydraulic validity, physical utility topology, real affected people or local recovery."
+      ]
+    },
+    "spatialPlausibility": {
+      "status": "fail",
+      "summary": "A common neighbourhood ranking and unsupported hydraulic amplitudes contradict GM1926's mechanism-specific geography.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05"],
+      "notes": [
+        "At T+24 severe storm, pluvial, river, coastal, heat, winter, cyber and wildfire all have the identical five leaders: De Scheg, Ruyven, Zuidpolder Oude Leede, Emerald Zuid and Koningshof. Different amplitudes do not make the shared complete order mechanism-specific.",
+        "The order does not encode named storage/managed-water connectivity, low terrain, provincial pluvial footprint, business-park heat, greenhouse exposure, an ignition/perimeter or a cyber target. Earthquake is zero at T+24 and compound saturation masks rather than resolves the issue.",
+        "River holds internal floodDepthM 1.569131 from T+24 through T+72; coastal reaches 1.673751 at T+24 without a selected source water body, boundary condition, defence/breach state, connected footprint, arrival or recession. The legacy internal name does not make these values surveyed metres.",
+        "Official evidence supports severe mechanisms, including extreme coastal and regional-boezem pathways, but not these exact generic local results. Unknown selected-event support is not evidence of zero flood risk."
+      ]
+    },
+    "serviceDependencies": {
+      "status": "fail",
+      "summary": "Exact eight-service percentages are inspectable but not calibrated to Delfland, Stedin, Dunea, telecom, transport, facilities or supply.",
+      "evidenceRefs": ["E04", "E06", "E07", "E08"],
+      "notes": [
+        "Five NWB edges support Mobility and explicit road-logistics/Supply only; they are not electricity, drinking-water, drainage, gas, telecom, acute-care or inventory connections.",
+        "At compound T+48 and T+72 modeled availability is exactly power 0.405053, water 0.410896, drainage 0.334728, gas 0.572311, telecom 0.213920, mobility 0.819290, facilities 0.320990 and supply 0.620626. No cited authority or operator validates these decimals.",
+        "HWH points, named storage, provider territory, NBNL planning, RDI registrations, DUO locations, care records and scheduled stops remain context. They do not provide connected capacity, asset state, switching, pressure/quality, backhaul, backup, staffing, stock or restoration.",
+        "Sensitive or unavailable topology must remain Unknown or be represented by a clearly labelled, versioned aggregate synthetic graph with ranges and no implication of operator validation."
+      ]
+    },
+    "causalTrace": {
+      "status": "fail",
+      "summary": "The numerical ledger closes, but source, spatial, network and recovery provenance is not decision-grade.",
+      "evidenceRefs": ["E02", "E03", "E04", "E05", "E06", "E07", "E08"],
+      "notes": [
+        "Service-stage deltas, weighted pressure, local demand/delivery and matched-no-event person-hour arithmetic reconcile and are reproducible.",
+        "River/coastal screens omit the selected water system, forcing, datum, primary/regional defence or breach/overtopping state, hydraulic footprint, probability, arrival, duration/recession and expert review. Pluvial omits the selected provincial layer/model-coverage semantics.",
+        "Cyber lacks a named organization/system boundary and authorized architecture; wildfire lacks ignition/perimeter, eligible fuels and plume; earthquake lacks a selected event/source, site response and fragility; heat lacks issue-valid weather and dynamic exposure.",
+        "Annual statistics, strategic plans, dated observed response, public registers, current no-match feeds and synthetic checkpoints remain distinct evidence classes even where the arithmetic is consistent."
+      ]
+    },
+    "recovery72h": {
+      "status": "fail",
+      "summary": "Persistent river and compound trajectories lack incident forcing, water-control, access, utility, care, stock and action evidence.",
+      "evidenceRefs": ["E03", "E04", "E06", "E07", "E08"],
+      "notes": [
+        "River flood scalar/severity is exactly unchanged from T+24 through T+72 while affected count grows from 26,902 to 28,598 and pressure from 0.468496 to 0.489215. No hydrograph, defence state, storage/pump operation, recession or repair input explains the plateau.",
+        "From T+48 through T+72 compound scalar, pressure, affected count and all eight service values are exactly frozen while severity declines 0.511631 to 0.449676 and cumulative person-hours grow 1,315,124.24 to 2,080,429.31.",
+        "Coastal reports physical hazard zero and 1,009 affected at T+72; heat retains its physical forcing but becomes operational with zero affected, while winter also becomes operational with zero current-event affected. Such state changes are deterministic rules, not authority-confirmed recovery.",
+        "No action/resource ledger supplies owner, authority, target, prerequisite, crew, material, fuel/water, access, start/end, state, evidence time or uncertainty. Household preparedness advice cannot fill that gap."
+      ]
+    }
+  },
+  "scenarioCoverage": {
+    "presets": [
+      "severe-storm",
+      "pluvial-flood",
+      "river-flood",
+      "coastal-flood",
+      "heatwave",
+      "winter-storm",
+      "cyberattack",
+      "earthquake",
+      "wildfire",
+      "compound"
+    ],
+    "checkpointsHours": [0, 6, 12, 24, 48, 72],
+    "services": [
+      "power",
+      "water",
+      "drainage",
+      "gas",
+      "telecom",
+      "mobility",
+      "facilities",
+      "supply"
+    ]
+  },
+  "findings": [
+    {
+      "id": "GM1926-DATA-001",
+      "severity": "informational",
+      "category": "identity",
+      "status": "fixed",
+      "summary": "Official 2025 identity, centre, headline demography and safety-region assignment agree.",
+      "evidence": "Live CBS returns GM1926 / Pijnacker-Nootdorp, 58,126 residents, density 1,576/km², 16.5% aged 65+ and 6,127 one-person households. The generated reference point lies inside the 2025 generalized polygon and the municipality maps uniquely to Zuid-Holland and Veiligheidsregio Haaglanden. The 32 published neighbourhood rows sum nine above the municipality total, a +0.015% rounding/suppression difference retained in provenance.",
+      "action": "Keep the 2025 source edition and existing municipality total. Continue to expose the published neighbourhood sum, reconciliation delta, nulls and generalized-geometry limitation without treating rounded small-area values as exact individuals."
+    },
+    {
+      "id": "GM1926-NODATA-001",
+      "severity": "informational",
+      "category": "regional-data",
+      "status": "fixed",
+      "summary": "Material CBS nulls and current public-feed no-matches are preserved rather than converted to zeros.",
+      "evidence": "District heating and charging are absent in 32/32 neighbourhoods, cars per household in 3/32, and eleven other measures in one row each. The current bounded context has no local KNMI station, PM2.5 station, seismic event, Waterinfo observation/forecast or NDW situation. These are coverage/no-match outcomes. By contrast, no RIVM acute-care point inside GM1926 is a scoped register result. Model zero, official scoped zero and NoData are not interchangeable.",
+      "action": "Retain field-level missingness and source coverage metadata. UI, export and model adapters must label Unknown/no matching record distinctly from modeled zero and from an authoritative scoped zero."
+    },
+    {
+      "id": "GM1926-FLOOD-SOURCE-001",
+      "severity": "critical",
+      "category": "hazard",
+      "status": "open",
+      "summary": "Generic river and coastal presets drive exact local impacts without a selected hydraulic system or event.",
+      "evidence": "Primary evidence distinguishes extreme sea/Randstad flooding, river influence and regional canal/boezem or defence failure; the municipal maximum map explicitly combines cases that cannot occur as one event. Nevertheless, at T+24 river reports severity 0.483827, normalized inundation scalar 1.569131 and 26,902 affected, while coastal reports 0.546973, 1.673751 and 27,356. River remains at 1.569131 through T+72. No source water body, hydrograph/datum, tide/surge, regional or primary defence state, breach/overtopping mode, connected footprint, arrival or recession is selected. The internal floodDepthM label is not evidence that the scalar is a measured depth in metres.",
+      "action": "Suppress decision-grade exact affected, service and depth-like output for unsupported generic river/coastal cases. Enable it only for an authority-selected, versioned LIWO/RWS/Delfland case with source system, forcing, defence/breach assumptions, footprint, units/resolution, arrival/recession, probability, CRS, coverage/NoData, licence, transform hash and expert approval. Unknown support must not become zero risk."
+    },
+    {
+      "id": "GM1926-PLUVIAL-GROUNDWATER-001",
+      "severity": "critical",
+      "category": "hazard",
+      "status": "open",
+      "summary": "The pluvial result is disconnected from available provincial rain modeling and the local managed drainage system.",
+      "evidence": "At T+24 pluvial reports scalar 0.329054, 7,281 affected and Drainage availability 0.603382 without identifying a rain product, terrain edition, sewer-coverage model, infiltration, initial groundwater/water level, catchment, pump/storage state or NoData. Zuid-Holland publishes a 100 mm/2 h 3Di layer with variable sewer inclusion, building vulnerability and a 70 mm/hour provincial-road analysis; Delfland publishes named storage and a dated 50 mm response. These validate relevant mechanisms and data routes, not the model's exact output.",
+      "action": "Build a versioned pluvial adapter from the provincial native raster/model-information layer plus AHN/BGT, building and road exposure, with rainfall forcing, initial water/groundwater state, sewer inclusion, infiltration, resolution, licence and NoData explicit. Bind Delfland storage, pumps and catchments only after topology/state validation; otherwise label them context and output Unknown or bounded synthetic ranges."
+    },
+    {
+      "id": "GM1926-SPATIAL-SEED-001",
+      "severity": "critical",
+      "category": "geography",
+      "status": "open",
+      "summary": "Eight unrelated hazard families reuse exactly the same leading neighbourhood order.",
+      "evidence": "At T+24 severe storm, pluvial, river, coastal, heat, winter, cyber and wildfire all rank De Scheg, Ruyven, Zuidpolder Oude Leede, Emerald Zuid and Koningshof first in exactly that order. Official evidence distinguishes low managed polders, mapped pluvial footprint, business-park heat, greenhouse exposure, transport corridors and cyber targets. Wildfire has no selected ignition or fuel domain and cyber no system boundary, so the common order is a reproducible shared-seed artifact rather than local hazard evidence.",
+      "action": "Replace the common municipality seed with hazard-specific eligible domains, source/forcing, footprint and exposed-object adapters. Use the full 2025 polygon and versioned native layers. Add regressions that unrelated presets cannot silently share a complete neighbourhood rank and that no selected source/footprint produces Unknown, not fabricated precision."
+    },
+    {
+      "id": "GM1926-WATER-CHAIN-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Flood, drainage and drinking-water values do not use the registered polder–boezem–storage–pump chain.",
+      "evidence": "Public context includes 313 HWH objects, named Oude Polder and Zuidpolder storage totaling 120,000 m³ and an observed 2023 response moving water from polders through the boezem toward sea/New Waterway. Yet exact Water and Drainage availability has no catchment, flow direction, asset connectivity, compatible capacity, control position, blockage, power/backup or current operation. Capacity is null on 282/313 public objects, and populated records are not automatically compatible.",
+      "action": "Version Delfland legger and HWH native records with feature date, geometry, type, owner, licence, CRS, cadence, coverage and NoData. Model catchments, level areas, storage and direction separately; require authorized current control/capacity/power/backup state for causal use. Keep register-only features affectsSimulation=false or use a documented aggregate synthetic fallback with uncertainty."
+    },
+    {
+      "id": "GM1926-DYNAMIC-EXPOSURE-001",
+      "severity": "high",
+      "category": "exposure",
+      "status": "open",
+      "summary": "Static residents cannot support exact incident-time exposure in commuter, school, greenhouse and care contexts.",
+      "evidence": "The model reconciles 58,126 residents but primary evidence identifies greenhouse-sector concentration and regional commuter/transport dependencies; public context adds 34 education locations and 59 stop areas. It has no issue-valid pupils, workers, visitors, patients, road/transit users, responders, home-care dependency or self-reliance. Exact affected counts such as 30,925 compound at T+24 therefore mean modeled resident-equivalent exposure, not people observed or known present.",
+      "action": "Label current counts people-equivalent and publish uncertainty. Add privacy-preserving, authority-reviewed time-of-day/day-type dynamic exposure for schools, greenhouse/business districts, transit, care and visitors only where cadence and lawful use support it; otherwise preserve Unknown instead of reallocating static residents."
+    },
+    {
+      "id": "GM1926-ACCESS-CARE-001",
+      "severity": "high",
+      "category": "network",
+      "status": "open",
+      "summary": "Cross-boundary evacuation, supply, mutual-aid and acute-care access are not routed through live local bottlenecks.",
+      "evidence": "The graph exposes five logical border relations across A13/N470/N471 and 59 GTFS stops, but not internal feeders, junctions, direction, congestion, incident footprint, accessible transit, emergency priority or safe destinations. No acute-care point is registered inside GM1926; Reinier de Graaf is about 5.93 km straight-line from the centre, followed by Haga Zoetermeer at 8.29 km and Franciscus Gasthuis at 8.32 km. Straight-line proximity is not a passable route, travel time or acceptance/continuity state.",
+      "action": "Build an authority-reviewed multimodal graph from monthly CC0 NWB, internal roads/crossings and valid transit/traffic feeds, with shared-corridor identity and event-valid restrictions. Represent acute care, mutual aid, shelters and distribution points only with role, destination, route, accessibility, activation, staffing/capacity, backup, validity and uncertainty."
+    },
+    {
+      "id": "GM1926-UTILITY-CYBER-001",
+      "severity": "high",
+      "category": "service",
+      "status": "open",
+      "summary": "Exact lifeline and cyber impacts have no verified physical topology, target architecture or live operator state.",
+      "evidence": "Stedin/Dunea territories, one Pijnacker 2 planning sample, 65 RDI sites/122 antenna registrations, HWH assets, schools and roads are public context, not customer connectivity, current load/pressure, switching, backhaul, backup, stock, damage or restoration. Cyber at T+24 reports severity 0.489122, 15,715 affected and exact service values without a named organization, system boundary, attack path or authorized dependencies. No drainage/telecom territory feature at the centre is Unknown, not absence.",
+      "action": "Require authorized operator topology/state and a declared cyber exercise boundary before presenting exact service impact. Where security prevents release, use a minimum versioned aggregate dependency graph with uncertainty, target roles and synthetic labels. Keep provider, grid-plan, antenna, water, school and road objects as context/affectsSimulation=false until a verified causal binding exists."
+    },
+    {
+      "id": "GM1926-OTHER-HAZARDS-001",
+      "severity": "medium",
+      "category": "limitation",
+      "status": "accepted-limitation",
+      "summary": "Storm, heat, winter, earthquake and wildfire are plausible exercise families but remain uncalibrated or narrowly scoped.",
+      "evidence": "At T+24 storm and winter report 12,135 and 12,161 affected without issue-valid local weather; heat reports 3,794 without dynamic vulnerability or observation. Earthquake is zero at T+24 after a tiny fixed T+6 ground-motion scalar rather than a selected event/GMPE/site/fragility; VRH assesses damaging shaking very unlikely locally. Wildfire reports zero direct fire, smoke 0.205993 and drought 0.487452 without ignition, fuel/moisture or plume. Missing local stations/events are not all-clears.",
+      "action": "Keep these as explicitly synthetic exercise presets. Bind weather to declared synthetic forcing or versioned KNMI issue/valid products, earthquake to a selected source/event plus GMPE/site/fragility, and wildfire to an explicit ignition/perimeter, eligible vegetation, fuel/moisture, wind and plume. Preserve omitted mechanisms as Unknown."
+    },
+    {
+      "id": "GM1926-RECOVERY-72H-001",
+      "severity": "high",
+      "category": "model",
+      "status": "open",
+      "summary": "River and compound plateaus and other recovery transitions lack a traceable action/resource ledger.",
+      "evidence": "River keeps inundation scalar/severity 1.569131/0.483827 from T+24 to T+72 while affected and pressure grow. Compound at T+48/T+72 keeps scalar 0.395253, pressure 0.543771, 33,066 affected and every service value exactly fixed while severity falls and burden grows by 765,305.07 person-hours. Coastal, heat and winter status/affected transitions are likewise model rules. No hydrograph, storage/pump action, route, hospital, utility, crew, fuel, material, stock or confirmed intervention explains them.",
+      "action": "Require a typed incident/action/resource ledger at T+0/6/12/24/48/72 with authority, owner, target, prerequisite, crew/material/fuel/water, access, start/end, state, evidence time and uncertainty. Explain each deterioration, plateau and restoration, or mark the recovery path unsupported/Unknown while retaining arithmetic diagnostics."
+    },
+    {
+      "id": "GM1926-CONTRACT-001",
+      "severity": "informational",
+      "category": "model",
+      "status": "fixed",
+      "summary": "The canonical/web preset contract, deterministic matrix and numerical invariants pass for GM1926.",
+      "evidence": "The focused audit ran every public preset, all six checkpoints and eight services; values were finite/bounded, deterministic at T+24 and invariant to selected-service changes in physical hazard. Population/detail, demand/delivery, causal deltas and cumulative person-hour ledgers reconcile; exact-zero baseline behavior and route ceilings pass. apps/web/src/scenarios.ts delegates to the canonical sim-core factory and its tests assert exact equality.",
+      "action": "Retain the focused GM1926 regression and canonical preset equality checks. Treat this as a software-contract verification only; it must remain separate from local physical calibration and operational authority."
+    }
+  ],
+  "corrections": [
+    {
+      "summary": "Evidence-gate GM1926 river/coastal precision behind one selected, versioned hydraulic event.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "packages/sim-core/src/municipality-coverage.test.ts",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "Without an authority-selected event, outputs are labelled derived screening/unsupported and exact affected, service and depth-like claims are suppressed rather than forced to zero. A supported case records water system, forcing/datum, defence/breach assumptions, footprint, native units/resolution, arrival/recession, probability, coverage/NoData, edition, licence, transform hash and expert reviewer; no normalized scalar is presented as measured metres."
+    },
+    {
+      "summary": "Replace the shared GM1926 neighbourhood seed with source- and mechanism-aware spatial adapters, including the provincial pluvial route.",
+      "files": [
+        "scripts/fetch-realism-data.mjs",
+        "packages/sim-core/src/geometry.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/data.ts",
+        "apps/web/src/components/MapView.tsx"
+      ],
+      "validation": "Use the full 2025 municipality polygon and versioned native hazard layers. Pluvial tests preserve rainfall, sewer-model coverage, terrain, infiltration, resolution, licence and NoData; selected hydraulic footprints control flood ordering; heat, fire and cyber use distinct eligible objects. Unrelated hazards cannot silently share the complete 32-neighbourhood rank, and no selected source/footprint renders Unknown."
+    },
+    {
+      "summary": "Integrate Delfland's managed water chain without promoting public registers to live topology or capacity.",
+      "files": [
+        "scripts/fetch-water-assets.mjs",
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/data.ts"
+      ],
+      "validation": "Version Delfland legger and HWH features with publisher, feature date, geometry, type, owner, CRS, licence, cadence, coverage and NoData. Storage, pumps, weirs, level areas and catchments remain official context/affectsSimulation=false until connectivity, direction, compatible capacity, control state, power/backup and authorization are present; 282 null capacity fields remain Unknown."
+    },
+    {
+      "summary": "Add typed dynamic exposure, multimodal access and cross-boundary acute-care roles.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/network.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/data.ts",
+        "apps/web/src/components/OperationsBrief.tsx"
+      ],
+      "validation": "NWB/NDW govern Mobility and explicit road-logistics/Supply only, shared N470 sections are non-additive, and no road record remains Unknown. Affected counts are labelled people-equivalent unless privacy-safe dynamic exposure is supplied. Reinier de Graaf and other cross-boundary destinations expose route, acceptance, role, activation, accessibility, staffing/capacity, backup, valid time and uncertainty instead of straight-line assurance."
+    },
+    {
+      "summary": "Evidence-gate all eight lifelines and cyber causality while preserving public utility/facility data as context.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/network.ts",
+        "packages/sim-core/src/model.ts",
+        "apps/web/src/data.ts",
+        "apps/web/src/components/CausalExplanation.tsx"
+      ],
+      "validation": "Electricity, drinking water, drainage, gas, telecom, facilities and supply require distinct versioned topology/state/capacity/backup evidence or transparent synthetic ranges. A cyber run declares organization/system boundary, target, architecture assumptions and attack path. Provider territory, NBNL planning, HWH, RDI, DUO and care registers remain context until verified bindings exist; missing coverage displays Unknown."
+    },
+    {
+      "summary": "Make first-72-hour evolution and displayed precision conditional on a traceable incident/action/resource ledger.",
+      "files": [
+        "packages/sim-core/src/types.ts",
+        "packages/sim-core/src/model.ts",
+        "packages/sim-core/src/model.test.ts",
+        "apps/web/src/components/CausalExplanation.tsx",
+        "apps/web/src/components/OperationsBrief.tsx",
+        "apps/web/src/components/Inspector.tsx"
+      ],
+      "validation": "At T+0/6/12/24/48/72 every deterioration, plateau and restoration cites incident driver, owner/authority, action, target, prerequisite, crew/material/fuel/water, access, start/end, state, evidence time and uncertainty. Unexplained river/compound freezes remain unsupported rather than decision-grade, household preparedness is not counted as stock, and UI/export place support/time/NoData warnings next to exact values."
+    }
+  ],
+  "residualLimitations": [
+    "Complete physical electricity, gas, drinking-water, sewer/drainage, telecom, health-care and supply topology, control logic, live load, damage, outage, backup, crews, spares, fuel, stocks and restoration state are unavailable or security-sensitive. Public provider territories, geometry and registers cannot honestly replace them.",
+    "Delfland pages and HWH objects establish assets, design storage and an observed 2023 mechanism, not exercise-time available volume, pump/weir position, blockage, power/backup, water level, water quality or command decision.",
+    "LIWO and provincial scenarios require expert selection, layer-specific edition/licence, event, probability, units, resolution, coverage and NoData interpretation. Static modeled water depth is neither a live observation nor forecast.",
+    "CBS residents omit incident-time greenhouse/business workers, pupils, patients, visitors, commuters, road/transit users and responders. Rounded/suppressed aggregates cannot identify individual self-reliance, mobility or medical need.",
+    "NWB, ProRail and GTFS do not establish scenario-time road/rail/transit operation, direction, accessibility, emergency priority, evacuation suitability or throughput. No matching NDW record does not mean an open route.",
+    "RIVM acute-care registration and straight-line distance do not establish travel time, hospital acceptance, staffing, capacity, specialty service, backup utilities or transfer availability.",
+    "No local KNMI, RIVM air-quality, seismic or Waterinfo point in the bounded snapshot is a coverage result. Nearby observations may be useful with a documented representativeness method but are not automatically municipal values.",
+    "The 2023 risk profile and 2021 municipal PlanMER are strategic/datum-specific evidence; they are not current incident probability, warning, asset state or response authorization.",
+    "Exact hazard, affected-population, service availability, flow, status, recovery and person-hour values remain synthetic/derived exercise outputs, not observations, casualties, official forecasts, operator commitments or decision-grade advice until critical/high findings are corrected and authorities review the case.",
+    "The audit covers only the first 72 hours. Flooding, displacement, infrastructure repair, groundwater, drought, greenhouse/agricultural loss, public-health effects and recovery may persist substantially longer."
+  ],
+  "provinceReviewFlags": [
+    "Zuid-Holland, Delfland, Rijkswaterstaat/WMCN, Pijnacker-Nootdorp and VRH should define which selected LIWO/provincial/Delfland sea, river, regional-boezem and pluvial cases are valid for GM1926, including forcing, defence state, footprint, arrival/recession, units, probability and NoData.",
+    "Province and municipality should require hazard-specific neighbourhood allocation from native layers and full-polygon geometry; one common rank across rain, flood, heat, winter, cyber and fire is a model defect, not municipal uncertainty.",
+    "Delfland and the municipality should agree a reusable public-data contract for polder, boezem, storage, level area, pump, weir and sewer context, clearly separating register/design information from authorized operational state and security-sensitive controls.",
+    "Zuid-Holland, road/transit authorities and VRH should review A13/N470/N471 as named, direction-specific, non-additive bottlenecks and define event-valid routing for evacuation, mutual aid, logistics and cross-boundary acute care.",
+    "VRH, municipalities and care/utility operators should define a minimum publishable first-72-hour action/resource contract covering warnings, reception, hospital transfer, temporary water, food/fuel/medicine, staff/crews, backup and restoration without exposing sensitive topology.",
+    "Province review should require strict separation of annual statistics, strategic plans, dated observations, live/forecast products, official hydraulic scenarios, public registers, synthetic assumptions, authoritative scoped zeros and Unknown state."
+  ]
+}
