@@ -44,10 +44,12 @@ The useful pattern is not visual imitation but interaction consistency:
 The simulator implements this with 11 modes and a fixed 72-hour control. Hazard and population use distinct palettes; service layers use a shared operational-state palette so users learn the color grammar once.
 
 Basemap, perspective, simulation question and context overlays are deliberately separate dimensions.
-Switching from cartography to the annual PDOK aerial orthophoto, or from 2D to official PDOK 3D,
-must not reset the selected municipality, scenario clock or service layer. Likewise, **Affected
+Switching from cartography to the annual PDOK aerial orthophoto or the sun-synchronised Realistic
+rendering, or from 2D to official PDOK 3D, must not reset the selected municipality, scenario clock
+or service layer. Realistic mode is explicitly a visualization of scenario time and modeled power
+availability—not live night-light or lamp telemetry. Likewise, **Affected
 regions** is a persistent simulation overlay rather than a twelfth statistic: it outlines the
-municipalities affected at the current quarter-hour in amber/red and preserves unsupported spatial
+municipalities affected at the current quarter-hour across the entire country in amber/red and preserves unsupported spatial
 evidence as gray Unknown. **Traffic + accidents** is independently toggleable observed context;
 `Accident`, congestion and other DATEX II records keep their source publication/validity semantics
 and expose whether delivery is live, stale, or the deployment fallback. A same-origin server adapter

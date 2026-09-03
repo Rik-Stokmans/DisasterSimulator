@@ -60,6 +60,7 @@ import {
   nearestPrecipitationProbabilityCheckpoint,
   nearestWaterForecastCheckpoint,
 } from '../data'
+import { realisticLightingForFrame } from '../realisticLighting'
 import {
   colorForAvailability,
   colorForImpact,
@@ -85,7 +86,7 @@ const PDOK_3D_TERRAIN_URL =
   'https://api.pdok.nl/kadaster/3d-basisvoorziening/ogc/v1/collections/terreinen/3dtiles?f=json'
 const THREE_DECODER_ROOT = 'https://unpkg.com/three@0.184.0/examples/jsm/libs'
 
-type BasemapMode = 'cartographic' | 'aerial'
+type BasemapMode = 'cartographic' | 'aerial' | 'realistic'
 type PerspectiveMode = '2d' | '3d'
 type OverlayPreference = 'auto' | 'on' | 'off'
 type Official3dState =
@@ -106,6 +107,18 @@ interface MeshoptCapableTilesLayer {
   }
 }
 
+interface ViewportSynchronizedTilesLayer {
+  _renderer?: {
+    setViewport(x: number, y: number, width: number, height: number): void
+    setScissor(x: number, y: number, width: number, height: number): void
+    setScissorTest(enabled: boolean): void
+  }
+  _tilesCamera?: object
+  _tiles?: {
+    setResolution(camera: object, width: number, height: number): boolean
+  }
+}
+
 function attachMeshoptDecoder(layer: ThreeDTilesLayer, decoder: object) {
   // maplibre-gl-3d-tiles configures Draco and KTX2 itself, but v0.5.6 does
   // not yet expose the Meshopt hook used by PDOK's GLBs. Attach it before the
@@ -114,6 +127,30 @@ function attachMeshoptDecoder(layer: ThreeDTilesLayer, decoder: object) {
     ._tiles?.manager?.getHandler('tile.glb')
   if (!loader) throw new Error('The official 3D mesh decoder could not be initialized')
   loader.setMeshoptDecoder(decoder)
+}
+
+function synchronizeThreeDTilesViewport(layer: ThreeDTilesLayer) {
+  // maplibre-gl-3d-tiles v0.5.6 snapshots the shared canvas dimensions in
+  // onAdd. MapLibre owns that canvas and can resize its drawing buffer later,
+  // leaving both Three.js's viewport and the tileset's screen-space-error
+  // resolution stale. Refresh them immediately before every custom render so
+  // resize, DPR, zoom, and pan transitions all use the same live dimensions.
+  const render = layer.render.bind(layer)
+  layer.render = (gl, args) => {
+    const width = gl.drawingBufferWidth
+    const height = gl.drawingBufferHeight
+    const internals = layer as unknown as ViewportSynchronizedTilesLayer
+    const renderer = internals._renderer
+    if (width > 0 && height > 0 && renderer) {
+      renderer.setViewport(0, 0, width, height)
+      renderer.setScissor(0, 0, width, height)
+      renderer.setScissorTest(false)
+      if (internals._tiles && internals._tilesCamera) {
+        internals._tiles.setResolution(internals._tilesCamera, width, height)
+      }
+    }
+    render(gl, args)
+  }
 }
 
 const FLOW_DASH_FRAMES = [
@@ -524,6 +561,8 @@ function municipalityFeatureStates(
           impactState,
           affectedShare: Math.round(affectedShare * 200) / 200,
           affectedPopulation: city?.affectedPopulation ?? 0,
+          powerAvailability: city?.services.power.availability ?? 1,
+          powerOutage: city ? 1 - city.services.power.availability : 0,
         },
       }
     })
@@ -578,6 +617,8 @@ function gatewayFeatureStates(
         affectedShare: Math.round(
           Math.min(1, city.affectedPopulation / Math.max(1, city.population)) * 200,
         ) / 200,
+        powerAvailability: city.services.power.availability,
+        powerOutage: 1 - city.services.power.availability,
       },
     }
   })
@@ -1191,6 +1232,35 @@ function addSimulationLayers(map: MapLibreMap) {
     paint: {
       'fill-color': ['coalesce', ['feature-state', 'color'], '#33434a'],
       'fill-opacity': ['coalesce', ['feature-state', 'opacity'], 0.2],
+    },
+  })
+  map.addLayer({
+    id: 'realistic-power-outage-fill',
+    type: 'fill',
+    source: 'municipalities-state',
+    layout: { visibility: 'none' },
+    paint: {
+      'fill-color': '#01050a',
+      'fill-opacity': [
+        '*',
+        ['coalesce', ['feature-state', 'powerOutage'], 0],
+        0.7,
+      ],
+    },
+  })
+  map.addLayer({
+    id: 'realistic-power-outage-outline',
+    type: 'line',
+    source: 'municipalities-state',
+    layout: { visibility: 'none' },
+    paint: {
+      'line-color': '#18232d',
+      'line-opacity': [
+        '*',
+        ['coalesce', ['feature-state', 'powerOutage'], 0],
+        0.72,
+      ],
+      'line-width': ['interpolate', ['linear'], ['zoom'], 5, 0.8, 12, 3.2],
     },
   })
   map.addLayer({
@@ -3293,6 +3363,48 @@ function addSimulationLayers(map: MapLibreMap) {
     },
   })
   map.addLayer({
+    id: 'realistic-city-light-glow',
+    type: 'circle',
+    source: 'city-gateways',
+    maxzoom: 13.8,
+    layout: { visibility: 'none' },
+    paint: {
+      'circle-radius': [
+        'interpolate',
+        ['linear'],
+        ['zoom'],
+        5,
+        ['*', ['get', 'radius'], 1.15],
+        12,
+        ['*', ['get', 'radius'], 2.8],
+      ],
+      'circle-color': '#ffc66d',
+      'circle-opacity': [
+        '*',
+        ['coalesce', ['feature-state', 'powerAvailability'], 1],
+        0.34,
+      ],
+      'circle-blur': 0.82,
+    },
+  })
+  map.addLayer({
+    id: 'realistic-city-lights',
+    type: 'circle',
+    source: 'city-gateways',
+    maxzoom: 13.8,
+    layout: { visibility: 'none' },
+    paint: {
+      'circle-radius': ['interpolate', ['linear'], ['zoom'], 5, 1.2, 12, 3.4],
+      'circle-color': '#ffe5a7',
+      'circle-opacity': [
+        '*',
+        ['coalesce', ['feature-state', 'powerAvailability'], 1],
+        0.88,
+      ],
+      'circle-blur': 0.18,
+    },
+  })
+  map.addLayer({
     id: 'city-gateways',
     type: 'circle',
     source: 'city-gateways',
@@ -3419,6 +3531,18 @@ function addSimulationLayers(map: MapLibreMap) {
     source: 'city-areas',
     minzoom: 7.8,
     paint: { 'fill-color': ['get', 'color'], 'fill-opacity': ['get', 'opacity'] },
+  })
+  map.addLayer({
+    id: 'realistic-settlement-lights',
+    type: 'fill',
+    source: 'city-settlements',
+    minzoom: 8.2,
+    layout: { visibility: 'none' },
+    paint: {
+      'fill-color': '#ffd27d',
+      'fill-opacity': 0.12,
+      'fill-outline-color': 'rgba(255, 224, 156, 0.28)',
+    },
   })
   map.addLayer({
     id: 'city-hazard-pulse',
@@ -3670,7 +3794,9 @@ function addSimulationLayers(map: MapLibreMap) {
     },
   })
   // Current road incidents and impact boundaries answer high-priority map
-  // questions and must stay legible above gateway/status markers.
+  // questions and must stay legible above gateway/status markers. The impact
+  // fill deliberately keeps its original lower position so it never masks
+  // city service areas, infrastructure, facilities, labels or night lights.
   for (const layerId of [
     'official-road-situation-lines',
     'official-road-situation-points',
@@ -3681,6 +3807,7 @@ function addSimulationLayers(map: MapLibreMap) {
   ]) map.moveLayer(layerId)
   map.moveLayer('affected-region-overlay-halo')
   map.moveLayer('affected-region-overlay-outline')
+  map.moveLayer('affected-region-gateway-markers')
 }
 
 function setSourceData(map: MapLibreMap, sourceId: string, data: FeatureCollection) {
@@ -3769,6 +3896,21 @@ export function MapView({
   const roadSituationOverlayEnabled =
     roadSituationOverlayPreference === 'on' ||
     (roadSituationOverlayPreference === 'auto' && transportFocus)
+
+  const realisticLighting = useMemo(
+    () => realisticLightingForFrame(frame.scenario, frame.minute),
+    [
+      frame.minute,
+      frame.scenario.referenceDate,
+      frame.scenario.season,
+      frame.scenario.startClockHour,
+    ],
+  )
+  const selectedPowerAvailability = useMemo(
+    () => frame.municipalities.find((municipality) => municipality.id === selectedMunicipalityId)
+      ?.services.power.availability ?? 1,
+    [frame.municipalities, selectedMunicipalityId],
+  )
 
   const municipalityGeometryData = useMemo(
     () => municipalityGeometry(collection),
@@ -4187,13 +4329,78 @@ export function MapView({
   useEffect(() => {
     const map = mapRef.current
     if (!map || !mapReady) return
-    const aerial = basemapMode === 'aerial'
-    map.setLayoutProperty('pdok-grey', 'visibility', aerial ? 'none' : 'visible')
+    const realistic = basemapMode === 'realistic'
+    const aerial = basemapMode === 'aerial' || realistic
+    const night = realistic ? realisticLighting.nightFactor : 0
+    // Keep a dim cartographic fallback underneath realistic aerial imagery so
+    // orthophoto coverage edges never turn into black tile-shaped holes.
+    map.setLayoutProperty('pdok-grey', 'visibility', aerial && !realistic ? 'none' : 'visible')
     map.setLayoutProperty('pdok-aerial', 'visibility', aerial ? 'visible' : 'none')
     // BGT is a cartographic reference layer. Drawing it over the orthophoto
     // would make source dates and visual meaning needlessly ambiguous.
     map.setLayoutProperty('pdok-bgt-detail', 'visibility', aerial ? 'none' : 'visible')
-  }, [basemapMode, mapReady])
+    map.setPaintProperty(
+      'background',
+      'background-color',
+      realistic
+        ? night > 0.72
+          ? '#01050b'
+          : night > 0.08
+            ? '#0b1420'
+            : '#13272c'
+        : '#0d1419',
+    )
+    map.setPaintProperty('pdok-aerial', 'raster-opacity', realistic ? 0.9 : 0.78)
+    map.setPaintProperty('pdok-aerial', 'raster-saturation', realistic ? -0.05 - night * 0.7 : -0.12)
+    map.setPaintProperty('pdok-aerial', 'raster-contrast', realistic ? 0.08 + night * 0.25 : 0.08)
+    map.setPaintProperty('pdok-aerial', 'raster-brightness-min', realistic ? 0.07 - night * 0.05 : 0.08)
+    map.setPaintProperty('pdok-aerial', 'raster-brightness-max', realistic ? 0.78 - night * 0.62 : 0.72)
+    map.setPaintProperty('pdok-grey', 'raster-opacity', realistic ? 0.5 : 0.58)
+    map.setPaintProperty('pdok-grey', 'raster-saturation', realistic ? -0.92 : -0.85)
+    map.setPaintProperty('pdok-grey', 'raster-contrast', realistic ? 0.22 + night * 0.08 : 0.18)
+    map.setPaintProperty('pdok-grey', 'raster-brightness-min', realistic ? 0.02 : 0.12)
+    map.setPaintProperty('pdok-grey', 'raster-brightness-max', realistic ? 0.38 - night * 0.22 : 0.52)
+
+    const realisticVisibility = realistic ? 'visible' : 'none'
+    for (const layerId of ['realistic-power-outage-fill', 'realistic-power-outage-outline']) {
+      map.setLayoutProperty(layerId, 'visibility', realisticVisibility)
+    }
+    map.setPaintProperty('realistic-power-outage-fill', 'fill-opacity', [
+      '*',
+      ['coalesce', ['feature-state', 'powerOutage'], 0],
+      0.58 + night * 0.18,
+    ])
+    const lightsVisible = realistic && night > 0.025
+    for (const layerId of ['realistic-city-light-glow', 'realistic-city-lights']) {
+      map.setLayoutProperty(layerId, 'visibility', lightsVisible ? 'visible' : 'none')
+    }
+    map.setLayoutProperty(
+      'realistic-settlement-lights',
+      'visibility',
+      lightsVisible && viewMode === 'city' ? 'visible' : 'none',
+    )
+    map.setPaintProperty('realistic-city-light-glow', 'circle-opacity', [
+      '*',
+      ['coalesce', ['feature-state', 'powerAvailability'], 1],
+      night * 0.38,
+    ])
+    map.setPaintProperty('realistic-city-lights', 'circle-opacity', [
+      '*',
+      ['coalesce', ['feature-state', 'powerAvailability'], 1],
+      night * 0.92,
+    ])
+    map.setPaintProperty(
+      'realistic-settlement-lights',
+      'fill-opacity',
+      night * (0.04 + selectedPowerAvailability * 0.22),
+    )
+    map.setPaintProperty(
+      'realistic-settlement-lights',
+      'fill-outline-color',
+      `rgba(255, 224, 156, ${Math.min(0.42, night * selectedPowerAvailability * 0.38).toFixed(3)})`,
+    )
+    map.triggerRepaint()
+  }, [basemapMode, mapReady, realisticLighting.nightFactor, selectedPowerAvailability, viewMode])
 
   useEffect(() => {
     const map = mapRef.current
@@ -4207,7 +4414,19 @@ export function MapView({
     ]) {
       map.setLayoutProperty(layerId, 'visibility', visibility)
     }
-  }, [affectedOverlayEnabled, mapReady])
+    // This overlay always reads the complete national municipality source.
+    // At country scale, slightly stronger fills make a dispersed event legible
+    // without replacing municipality-level detail when the operator zooms in.
+    const countryScale = mapZoom <= DETAIL_EXIT_ZOOM
+    map.setPaintProperty('affected-region-overlay-fill', 'fill-opacity', [
+      'match',
+      ['feature-state', 'impactState'],
+      'critical', ['+', countryScale ? 0.22 : 0.16, ['*', 0.08, ['global-state', 'selectionPulse']]],
+      'affected', countryScale ? 0.17 : 0.12,
+      'unsupported', countryScale ? 0.045 : 0.025,
+      0,
+    ])
+  }, [affectedOverlayEnabled, mapReady, mapZoom])
 
   useEffect(() => {
     const map = mapRef.current
@@ -4312,6 +4531,8 @@ export function MapView({
           onLoad: markLoaded,
           onError: markFailed,
         })
+        synchronizeThreeDTilesViewport(terrain)
+        synchronizeThreeDTilesViewport(buildings)
         const addedLayers: ThreeDTilesLayer[] = []
         try {
           map.addLayer(terrain, 'municipality-fill')
@@ -4621,7 +4842,7 @@ export function MapView({
       '*',
       ['coalesce', ['feature-state', 'opacity'], 0.2],
       viewMode === 'city' ? 0.42 : 1,
-      basemapMode === 'aerial' ? 0.72 : 1,
+      basemapMode === 'realistic' ? 0.46 : basemapMode === 'aerial' ? 0.72 : 1,
       perspectiveMode === '3d' ? 0.58 : 1,
     ])
     const outlineFactor = viewMode === 'city' ? 0.48 : 1
@@ -4654,8 +4875,13 @@ export function MapView({
         ['+', 0.54, ['*', 0.46, ['global-state', 'motionSecondary']]],
       ])
     }
-    map.setPaintProperty('city-gateway-halo', 'circle-opacity', viewMode === 'city' ? 0.035 : 0.14)
-    const gatewayFactor = viewMode === 'city' ? 0.28 : 1
+    const realisticNight = basemapMode === 'realistic' ? realisticLighting.nightFactor : 0
+    map.setPaintProperty(
+      'city-gateway-halo',
+      'circle-opacity',
+      (viewMode === 'city' ? 0.035 : 0.14) * (1 - realisticNight * 0.76),
+    )
+    const gatewayFactor = (viewMode === 'city' ? 0.28 : 1) * (1 - realisticNight * 0.7)
     map.setPaintProperty('city-gateways', 'circle-opacity', [
       'interpolate',
       ['linear'],
@@ -4667,7 +4893,12 @@ export function MapView({
     ])
     map.setLayoutProperty('city-gateway-labels', 'visibility', viewMode === 'city' ? 'none' : 'visible')
     map.setLayoutProperty('selected-gateway-label', 'visibility', viewMode === 'city' ? 'none' : 'visible')
-  }, [basemapMode, perspectiveMode, viewMode, mapReady])
+    map.setPaintProperty(
+      'city-gateway-labels',
+      'text-color',
+      realisticNight > 0.3 ? '#ead9b7' : '#eaf4f5',
+    )
+  }, [basemapMode, perspectiveMode, realisticLighting.nightFactor, viewMode, mapReady])
 
   useEffect(() => {
     const map = mapRef.current
@@ -4934,13 +5165,39 @@ export function MapView({
       map.setLayoutProperty(layerId, 'visibility', activeLayer === 'telecom' ? 'visible' : 'none')
     }
     const facilityFocus = activeLayer === 'facilities'
+    const realisticBuildingLights =
+      basemapMode === 'realistic' && realisticLighting.nightFactor > 0.025
     const buildingContextFocus =
       viewMode === 'city' &&
       perspectiveMode === '2d' &&
-      (activeLayer === 'hazard' || activeLayer === 'population' || facilityFocus)
+      (activeLayer === 'hazard' || activeLayer === 'population' || facilityFocus || realisticBuildingLights)
     for (const layerId of ['official-bag-building-fill', 'official-bag-building-outline']) {
       map.setLayoutProperty(layerId, 'visibility', buildingContextFocus ? 'visible' : 'none')
     }
+    map.setPaintProperty(
+      'official-bag-building-fill',
+      'fill-color',
+      realisticBuildingLights ? '#ffd27d' : '#a9cae8',
+    )
+    map.setPaintProperty(
+      'official-bag-building-fill',
+      'fill-opacity',
+      realisticBuildingLights
+        ? realisticLighting.nightFactor * (0.04 + selectedPowerAvailability * 0.3)
+        : 0.14,
+    )
+    map.setPaintProperty(
+      'official-bag-building-outline',
+      'line-color',
+      realisticBuildingLights ? '#ffe9b1' : '#d8ebfb',
+    )
+    map.setPaintProperty(
+      'official-bag-building-outline',
+      'line-opacity',
+      realisticBuildingLights
+        ? realisticLighting.nightFactor * (0.08 + selectedPowerAvailability * 0.58)
+        : 0.52,
+    )
     for (const layerId of [
       'official-government-service-clusters',
       'official-government-service-cluster-counts',
@@ -4980,13 +5237,16 @@ export function MapView({
     )
   }, [
     activeLayer,
+    basemapMode,
     frame.hour,
     frame.scenario.components,
     frame.scenario.disaster,
     mapReady,
     perspectiveMode,
     publicPrecipitationProbabilityContext,
+    realisticLighting.nightFactor,
     roadSituationOverlayEnabled,
+    selectedPowerAvailability,
     viewMode,
   ])
 
@@ -5123,7 +5383,7 @@ export function MapView({
   }
 
   return (
-    <div className="map-shell">
+    <div className={`map-shell${basemapMode === 'realistic' ? ' realistic-view' : ''}`}>
       <div
         ref={containerRef}
         className="map-canvas"
@@ -5132,6 +5392,19 @@ export function MapView({
         aria-label={`Interactive Netherlands map · ${layerById[activeLayer].label}`}
         aria-describedby="map-keyboard-instructions"
       />
+      {basemapMode === 'realistic' && (
+        <div
+          className="realistic-atmosphere"
+          aria-hidden="true"
+          style={{
+            '--sun-azimuth': `${realisticLighting.azimuthDegrees}deg`,
+            '--sun-wash-alpha': realisticLighting.daylightBand === 'twilight'
+              ? 0.16
+              : Math.max(0.015, (1 - realisticLighting.nightFactor) * 0.085),
+            '--night-wash-alpha': realisticLighting.nightFactor * 0.2,
+          } as CSSProperties}
+        />
+      )}
       <span id="map-keyboard-instructions" className="visually-hidden">
         Use the municipality chooser for a nonvisual location selection. Use the layer controls to
         change the mapped service and the timeline checkpoints to change time.
@@ -5152,9 +5425,15 @@ export function MapView({
         </button>
         <header>
           <strong>Map view</strong>
-          <small>{basemapMode === 'aerial' ? 'PDOK orthophoto · not live' : 'PDOK cartography'}</small>
+          <small>{
+            basemapMode === 'realistic'
+              ? `${realisticLighting.daylightBand} · ${realisticLighting.localTime} NL`
+              : basemapMode === 'aerial'
+                ? 'PDOK orthophoto · not live'
+                : 'PDOK cartography'
+          }</small>
         </header>
-        <div className="map-view-segment" role="group" aria-label="Basemap">
+        <div className="map-view-segment basemap-segment" role="group" aria-label="Basemap">
           <button
             type="button"
             className={basemapMode === 'cartographic' ? 'active' : ''}
@@ -5172,6 +5451,15 @@ export function MapView({
             onClick={() => setBasemapMode('aerial')}
           >
             Aerial
+          </button>
+          <button
+            type="button"
+            className={basemapMode === 'realistic' ? 'active' : ''}
+            aria-pressed={basemapMode === 'realistic'}
+            aria-label="Use sun-synchronised realistic basemap"
+            onClick={() => setBasemapMode('realistic')}
+          >
+            Realistic
           </button>
         </div>
         <div className="map-view-segment" role="group" aria-label="Map perspective">
@@ -5202,7 +5490,7 @@ export function MapView({
           onClick={() => setAffectedOverlayEnabled((current) => !current)}
         >
           <span>Affected regions</span>
-          <small>{impactSummary.affected} affected · {impactSummary.critical} critical</small>
+          <small>{impactSummary.affected} affected · {impactSummary.critical} critical · nationwide</small>
         </button>
         <button
           type="button"
@@ -5230,13 +5518,22 @@ export function MapView({
         </button>
         {affectedOverlayEnabled && (
           <div className="affected-overlay-key" aria-label={`Affected-region status at ${simulationTimeLabel}`}>
-            <strong>{simulationTimeLabel}</strong>
+            <strong>{simulationTimeLabel} · all NL</strong>
             <span><i className="affected" />Affected</span>
             <span><i className="critical" />Critical</span>
             {impactSummary.unsupported > 0 && (
               <span><i className="unsupported" />Unknown {impactSummary.unsupported}</span>
             )}
           </div>
+        )}
+        {basemapMode === 'realistic' && (
+          <p className="map-source-status realistic" role="status">
+            {realisticLighting.daylightBand === 'daylight'
+              ? 'Daylight'
+              : realisticLighting.daylightBand === 'twilight'
+                ? 'Twilight'
+                : 'Night'} · {realisticLighting.localDate} {realisticLighting.localTime} NL · sun {realisticLighting.elevationDegrees.toFixed(1)}° · {realisticLighting.usesScenarioDate ? 'scenario-date solar model' : `${frame.scenario.season} reference-day solar model`} · lights and local darkness follow simulated power availability
+          </p>
         )}
         {roadSituationOverlayEnabled && (
           <div className="traffic-overlay-key" aria-label="Observed traffic and accident status">

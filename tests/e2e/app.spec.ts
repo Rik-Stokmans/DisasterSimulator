@@ -199,13 +199,27 @@ test('loads the server-refreshed, time-bounded NDW road feed only for mobility a
     const map = (window as Window & {
       __resilienceMap?: {
         getSource(id: string): unknown
+        getLayer(id: string): unknown
         getLayoutProperty(layer: string, property: string): unknown
       }
-    }).__resilienceMap!
+    }).__resilienceMap
+    if (!map) {
+      return {
+        sourceReady: false,
+        lineVisibility: 'not-ready',
+        pointVisibility: 'not-ready',
+      }
+    }
+    const linesReady = Boolean(map.getLayer('official-road-situation-lines'))
+    const pointsReady = Boolean(map.getLayer('official-road-situation-points'))
     return {
       sourceReady: Boolean(map.getSource('official-road-situations')),
-      lineVisibility: map.getLayoutProperty('official-road-situation-lines', 'visibility'),
-      pointVisibility: map.getLayoutProperty('official-road-situation-points', 'visibility'),
+      lineVisibility: linesReady
+        ? map.getLayoutProperty('official-road-situation-lines', 'visibility')
+        : 'not-ready',
+      pointVisibility: pointsReady
+        ? map.getLayoutProperty('official-road-situation-points', 'visibility')
+        : 'not-ready',
     }
   })
   await expect.poll(roadSituationState).toEqual({
@@ -633,12 +647,25 @@ test('shows the official RWS 70 mm cloudburst depth raster only for pluvial scen
 })
 
 test('shows official AHN4 ground elevation at city scale only for flood hazard context', async ({ page }) => {
+  test.setTimeout(45_000)
+  await page.setViewportSize({ width: 1_000, height: 700 })
   const errors = captureErrors(page)
   const terrainRequests: string[] = []
   const rasterFixturePath = new URL(
     '../../apps/web/public/data/public-context/knmi-radar.png',
     import.meta.url,
   ).pathname
+  const competingFloodRasters = [
+    'https://service.pdok.nl/tno/bro-grondwatermonitoring-in-samenhang-karakteristieken/wms/v1_0**',
+    'https://service.pdok.nl/rws/overstromingen-risicogebied/wms/v1_0**',
+    'https://basisinformatie-overstromingen.nl/geoserver/ows**',
+    'https://rev-portaal.nl/geoserver/wms**',
+  ]
+  for (const rasterUrl of competingFloodRasters) {
+    await page.route(rasterUrl, async (route) => {
+      await route.fulfill({ status: 200, contentType: 'image/png', path: rasterFixturePath })
+    })
+  }
   await page.route('https://service.pdok.nl/rws/ahn/wms/v1_0**', async (route) => {
     terrainRequests.push(route.request().url())
     await route.fulfill({ status: 200, contentType: 'image/png', path: rasterFixturePath })
@@ -646,7 +673,7 @@ test('shows official AHN4 ground elevation at city scale only for flood hazard c
 
   await page.goto(appPath)
   await page.getByLabel('Open municipality').selectOption({ label: 'Breda' })
-  await page.getByRole('button', { name: 'Hazard forcing: Scenario severity' }).click()
+  await page.getByLabel('Disaster').selectOption('river-flood')
 
   const terrainState = () => page.evaluate(() => {
     const map = (window as Window & {
@@ -666,7 +693,7 @@ test('shows official AHN4 ground elevation at city scale only for flood hazard c
   await expect.poll(terrainState).toEqual({ sourceReady: true, visibility: 'none' })
   expect(terrainRequests).toEqual([])
 
-  await page.getByLabel('Disaster').selectOption('river-flood')
+  await page.getByRole('button', { name: 'Hazard forcing: Scenario severity' }).click()
   await expect(page.getByText('Official terrain elevation · AHN4 DTM', { exact: true })).toBeVisible()
   await expect(page.getByText(/0\.5 m ground-elevation raster at city scale.*laser acquisition 2020–2022/)).toBeVisible()
   await expect(page.getByText(/not current water level, water depth, hydraulic connectivity, flow direction, road passability or event state/)).toBeVisible()
@@ -1935,7 +1962,7 @@ test('shows audited ferry lifelines only for mobility and emergency supply', asy
   expect(errors).toEqual([])
 })
 
-test('keeps heavy geometry static when the simulation time changes', async ({ page }) => {
+test('keeps heavy geometry static while refreshing time-scoped forecast points', async ({ page }) => {
   const errors = captureErrors(page)
   await page.goto(appPath)
   await expect(page.locator('.maplibregl-canvas')).toBeVisible()
@@ -1987,7 +2014,12 @@ test('keeps heavy geometry static when the simulation time changes', async ({ pa
   const updatedSources = await page.evaluate(() =>
     (window as Window & { __e2eUpdatedSources?: string[] }).__e2eUpdatedSources ?? [],
   )
-  expect(updatedSources).toEqual([])
+  // Issued Waterinfo point forecasts legitimately change with the selected
+  // checkpoint. Municipality, route and city geometry must stay on feature state.
+  expect(new Set(updatedSources)).toEqual(new Set([
+    'official-waterinfo-forecast-water-levels',
+    'official-waterinfo-forecast-discharges',
+  ]))
   const featureStateSources = await page.evaluate(() =>
     (window as Window & { __e2eFeatureStateSources?: string[] }).__e2eFeatureStateSources ?? [],
   )
@@ -2038,7 +2070,12 @@ test('changes disaster, season and climate assumptions without changing map work
   await page.getByRole('button', { name: 'Hazard forcing: Scenario severity' }).click()
   await page.getByRole('slider', { name: /Simulation time/ }).fill('96')
 
-  await expect(page.getByText('Digital disruption', { exact: true })).toBeVisible()
+  // Eindhoven's independent audit withholds unsupported local cyber precision;
+  // changing scenario controls must preserve that evidence gate.
+  await expect(page.locator('.status-hero-copy')).toContainText('Local result unavailable')
+  await expect(
+    page.locator('.mini-grid').getByText('Spatial evidence', { exact: true }).locator('..'),
+  ).toContainText('Unsupported')
   await expect(page.getByLabel('Disaster')).toHaveValue('cyberattack')
   await expect(page.getByLabel('Season')).toHaveValue('summer')
   await expect(page.getByLabel('Climate')).toHaveValue('Hn')

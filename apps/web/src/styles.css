@@ -50,6 +50,13 @@ button:focus-visible, select:focus-visible, input:focus-visible {
 
 .app-shell, .map-shell, .map-canvas { position: absolute; inset: 0; }
 .app-shell { background: #081015; overflow: hidden; }
+.realistic-atmosphere {
+  position:absolute; z-index:4; inset:0; pointer-events:none;
+  background:
+    linear-gradient(calc(var(--sun-azimuth) + 90deg),rgba(255,195,112,var(--sun-wash-alpha)) 0%,transparent 48%),
+    linear-gradient(calc(var(--sun-azimuth) - 90deg),transparent 42%,rgba(22,46,83,var(--night-wash-alpha)) 100%);
+  mix-blend-mode:soft-light;
+}
 .panel {
   background: var(--panel);
   border: 1px solid var(--border);
@@ -408,6 +415,7 @@ button:focus-visible, select:focus-visible, input:focus-visible {
 .map-view-controls header small { overflow:hidden; color:var(--subtle); font-size:8px; text-overflow:ellipsis; white-space:nowrap; }
 .map-view-mobile-toggle { display:none; }
 .map-view-segment { min-width:0; display:grid; grid-template-columns:1fr 1fr; gap:2px; padding:2px; border:1px solid var(--border); border-radius:8px; background:rgba(255,255,255,.018); }
+.map-view-segment.basemap-segment { grid-column:1 / 3; grid-template-columns:repeat(3,minmax(0,1fr)); }
 .map-view-segment button {
   min-width:0; min-height:32px; border:0; border-radius:6px; color:#91a5aa; background:transparent;
   cursor:pointer; font-size:9px; font-weight:700;
@@ -441,6 +449,7 @@ button:focus-visible, select:focus-visible, input:focus-visible {
 .map-source-status { grid-column:1 / 3; margin:0; padding:6px 7px; border:1px solid rgba(116,216,198,.15); border-radius:7px; color:#a9d7cf; background:rgba(84,215,176,.04); font-size:7.5px; line-height:1.4; }
 .map-source-status.loading,.map-source-status.waiting-for-city { color:#e7c58e; border-color:rgba(255,173,77,.18); background:rgba(255,173,77,.045); }
 .map-source-status.partial,.map-source-status.unavailable,.map-source-status.unknown { color:#d8bd9b; border-color:rgba(255,173,77,.2); background:rgba(255,173,77,.045); }
+.map-source-status.realistic { color:#f3d8a2; border-color:rgba(255,198,109,.24); background:rgba(255,198,109,.055); }
 .map-source-status a { color:inherit; text-decoration:underline; text-underline-offset:2px; }
 .map-legend { position:absolute; z-index:15; left:calc(var(--left-width) + 24px); bottom:calc(var(--bottom-height) + 24px); padding:8px 10px; border-radius:9px; max-width:520px; }
 .legend-heading { display:flex; gap:9px; margin-bottom:6px; font-size:10px; color:var(--muted); text-transform:uppercase; letter-spacing:.055em; }

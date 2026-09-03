@@ -6,9 +6,9 @@ Hosted preview (Cloudflare Access): [rikstokmans.com/warroom/projects/disasterSi
 
 ## What is in this prototype
 
-- 342 Dutch municipalities on an interactive MapLibre map with zoom, pan and selection, plus switchable PDOK cartography, annual 25 cm aerial orthophotos and official nationwide 3D terrain/buildings loaded only at city scale.
+- 342 Dutch municipalities on an interactive MapLibre map with zoom, pan and selection, plus switchable PDOK cartography, annual 25 cm aerial orthophotos, a sun-synchronised Realistic view and official nationwide 3D terrain/buildings loaded only at city scale.
 - 11 Windy-inspired map modes: overview, hazard, electricity, drinking water, drainage, gas, telecom, mobility, critical facilities, population needs, and emergency supply.
-- An independent, timeline-aware affected-region overlay that remains visible while the user changes map question, basemap or 2D/3D perspective. It distinguishes affected, critical and unsupported/Unknown municipalities instead of treating missing spatial evidence as unaffected.
+- An independent, timeline-aware affected-region overlay that remains nationwide when the user zooms back out and stays visible while the user changes map question, basemap or 2D/3D perspective. It distinguishes affected, critical and unsupported/Unknown municipalities instead of treating missing spatial evidence as unaffected.
 - A 72-hour timeline with 289 quarter-hour states, scrub/wheel controls, events, stepping, playback, and 1×/4×/12× speeds.
 - Ten scenario presets: severe storm, pluvial flood, river flood, coastal flood, heatwave/drought, winter storm, cyberattack, Groningen earthquake, wildfire/smoke, and a compound cascade.
 - A municipality-by-municipality evidence audit. Every completed `correction-required` or blocked audit is compiled into a deterministic fail-closed guard before a production build: its unsupported local consequence, access, outage and recovery precision is withheld across all hazard presets, while source geometry and diagnostic values can remain visibly non-operational. A stale or missing generated guard blocks the build. Hydraulic/coastal eligibility, source containment and other physical corrections still require explicit human review; the generator never turns audit prose into a causal model.
@@ -92,7 +92,7 @@ pnpm check
 - Choose a map mode in the left rail.
 - Keep **Affected regions** on while changing map modes to see the current T+0–T+72 impact footprint independently of the selected statistic.
 - Toggle **Traffic + accidents** to show the server-refreshed NDW accident, congestion and incident records on any map; publication time and live/fallback state are shown in the map panel.
-- Switch between PDOK **Map/Aerial** and **2D/3D** views. Aerial means an annual Dutch orthophoto, not live satellite imagery; 3D loads official PDOK terrain and buildings only after moving to city scale.
+- Switch between PDOK **Map/Aerial/Realistic** and **2D/3D** views. Aerial means an annual Dutch orthophoto, not live satellite imagery. Realistic applies a Netherlands solar-position model to the scenario date, season and local T+0 clock, adds aggregate settlement and BAG building-light proxies, and darkens each municipality as simulated electricity availability falls. Runs without a reference date visibly use a representative seasonal day. 3D loads official PDOK terrain and buildings only after moving to city scale.
 - Toggle **Traffic cameras** to exercise the permission-safe camera contract. Until an authorized inventory/media adapter is configured, the UI deliberately reports Unknown and draws no invented cameras.
 - Drag the timeline or use the mouse wheel over it for 15-minute changes.
 - Use Left/Right outside the map for one-frame steps and Space to play/pause.
@@ -200,6 +200,7 @@ The map's animated NWB corridors are logical Mobility and road-logistics/Supply 
 
 - This is a scenario-exploration prototype, not a calibrated digital twin.
 - PDOK Luchtfoto RGB is annual Dutch aerial orthophotography, not live satellite imagery. PDOK 3D Basisvoorziening is also annual context; building/terrain geometry does not prove occupancy, damage, access or current condition.
+- Realistic lighting is a scenario-clock visualization, not observed cloud cover, night-light imagery, individual lamp telemetry or proof of an outage. Municipality darkness and building/settlement lights are transparent renderings of the synthetic electricity state; unsupported network topology remains Unknown.
 - NDW labels its Actueel beeld as a real-time feed. Gatekeeper now retrieves and filters that feed server-side, holds a 60-second last-known-good response, and the open page requests a refresh every minute while the overlay is in use. If the upstream fetch fails, the UI visibly changes to stale/fallback semantics; this is not a guaranteed mission-critical feed or a historical/future scenario replay. Missing or expired records stay Unknown and never mean an open road.
 - The traffic-camera UI is an adapter boundary, not a camera feed. Rijkswaterstaat does not make operational road-camera imagery generally available to private third parties without a legal basis, and NDW currently describes camera support in its viewer as under development. No external stream URL or credential is shipped to the browser.
 - Hazard forcing and fragility curves are deterministic model assumptions, not calibrated forecasts. Official flood-depth rasters and representative KNMI time series are a later calibration step.

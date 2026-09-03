@@ -311,12 +311,16 @@ It is a small set of resilient adapters that materially changes the model:
     routes. The source's separate `vaarwegstatus` values are route-role codes (for example main or
     alternative route), not open/closed status. A timestamped Notices-to-Skippers adapter remains
     required before operational restrictions can be aligned to observation/replay time.
-16. **Aerial and 3D reference views:** PDOK `Actueel_ortho25` is now a selectable annual aerial
-    basemap and PDOK 3D Basisvoorziening terrain/buildings load on demand from city zoom 12.5.
+16. **Aerial, Realistic and 3D reference views:** PDOK `Actueel_ortho25` is now a selectable annual
+    aerial basemap. Realistic mode derives solar elevation from the scenario date or a disclosed
+    seasonal reference day and Europe/Amsterdam simulation clock, then adds power-scaled municipal,
+    settlement and BAG-building illumination proxies. PDOK 3D Basisvoorziening terrain/buildings
+    load on demand from city zoom 12.5; their shared WebGL viewport and tileset resolution are
+    resynchronised on every render so resize, pan and zoom retain full-canvas alignment.
     Basemap and perspective switches preserve selected place, simulation time, question and impact
     overlay. Neither source is live or causal: a visible building is not occupied/intact and visible
     terrain is not a flood surface.
-17. **Affected-region composition:** the current simulation frame now produces a separate municipal
+17. **Affected-region composition:** the current simulation frame now produces a separate nationwide municipal
     affected/critical/unsupported state at every quarter hour. That overlay composes with all eleven
     statistics and both basemaps/perspectives. Unsupported hazard geography remains gray Unknown;
     it is not counted as unaffected and cannot provide false reassurance.

@@ -153,6 +153,9 @@ export function Inspector({
           : service.availability
   const unsupportedHazard =
     activeLayer === 'hazard' && selected.hazard.spatialEvidence === 'unsupported'
+  const partiallySupportedWildfire =
+    selected.hazard.disaster === 'wildfire' &&
+    selected.hazard.unsupportedDimensions?.includes('fire')
   const affectedPopulation = selectedDistrict?.affectedPopulation ?? selected.affectedPopulation
   const inspectedPopulation = selectedDistrict?.population ?? selected.population
   const metricHeadline =
@@ -433,7 +436,7 @@ export function Inspector({
 
       {activeLayer === 'hazard' ? (
         <div className="mini-grid">
-          {unsupportedHazard ? (
+          {unsupportedHazard && !partiallySupportedWildfire ? (
             <>
               <div><AlertTriangle size={15} /><span>Local hazard</span><strong>Unknown</strong></div>
               <div><MapPin size={15} /><span>Spatial evidence</span><strong>Unsupported</strong></div>
