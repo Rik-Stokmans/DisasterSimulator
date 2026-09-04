@@ -1,18 +1,22 @@
 # NL Resilience Lab presentation
 
-The editable deck is generated from the current DisasterSimulator repository and is intentionally broader than a short school presentation, so slides can be removed without breaking the story.
+The presentation is an HTML-first 16:9 deck. It uses one idea per page, large
+type and a small number of product screenshots so it remains readable both on a
+projector and as a PDF.
 
 ## Files
 
-- `NL-Resilience-Lab-overview.pptx` — editable 16:9 PowerPoint deck with speaker notes.
-- `NL-Resilience-Lab-overview.pdf` — portable presentation/export copy.
-- `build-deck.cjs` — source used to regenerate the deck.
+- `overview.html` — editable presentation source with presenter notes.
+- `NL-Resilience-Lab-overview.pdf` — generated presentation.
+- `build-pdf.mjs` — Playwright export plus layout-overflow validation.
+- `NL-Resilience-Lab-overview.pptx` / `build-deck.cjs` — legacy PowerPoint
+  version, kept only for reference.
 
 ## Suggested cuts
 
-- **5-minute version:** slides 1, 2, 3, 5, 6, 8, 14, 17.
-- **10-minute version:** add slides 4, 7, 9, 11, 13 and 15.
-- **Technical review:** keep the full deck; move slides 9, 13 and 16 to an appendix if needed.
+- **5-minute version:** slides 1–6, 9, 12 and 14.
+- **10-minute version:** use the full 14-slide story.
+- **Live demo:** follow slide 13 and return to slide 14 for questions.
 
 ## Accuracy notes
 
@@ -21,10 +25,12 @@ The editable deck is generated from the current DisasterSimulator repository and
 - Operational and official overlays are not described as causal inputs unless the engine explicitly binds them.
 - Dataset counts shown in the deck come from the checked-in compressed GeoJSON fixtures.
 
-To rebuild, install `pptxgenjs` in the local Node environment and run:
+To rebuild from the repository root, run:
 
 ```sh
-node presentations/build-deck.cjs
+pnpm presentation:build
 ```
 
-The deck uses Avenir Next. PowerPoint can substitute Aptos or another sans-serif if the font is unavailable.
+The export uses the checked-in Playwright dependency and fails when visible slide
+content overflows its layout. Open `overview.html` directly in a browser for an
+editable, searchable preview.

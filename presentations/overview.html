@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NL Resilience Lab — Disaster Simulator</title>
+  <style>
+    :root {
+      --ink: #08171a;
+      --ink-2: #0d2226;
+      --paper: #f3f1e8;
+      --white: #ffffff;
+      --mist: #a9b9b8;
+      --line: rgba(255, 255, 255, .14);
+      --mint: #6ce4c8;
+      --cyan: #6fd8f2;
+      --violet: #bd91f5;
+      --amber: #f4bd68;
+      --coral: #f67982;
+      --green: #9ddb9a;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; background: #cfd5d2; }
+    body { font-family: "Avenir Next", Avenir, Inter, Arial, sans-serif; color: var(--white); }
+    a { color: inherit; text-decoration: none; }
+
+    @page { size: 13.333in 7.5in; margin: 0; }
+    @media print {
+      html, body { background: transparent; }
+      .slide { break-after: page; page-break-after: always; }
+      .slide:last-child { break-after: auto; page-break-after: auto; }
+    }
+
+    .slide {
+      position: relative;
+      width: 13.333in;
+      height: 7.5in;
+      overflow: hidden;
+      background: var(--ink);
+      isolation: isolate;
+    }
+    .slide::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background:
+        radial-gradient(circle at 88% 12%, rgba(108, 228, 200, .10), transparent 26%),
+        linear-gradient(120deg, transparent 0 65%, rgba(255,255,255,.018) 65% 66%, transparent 66% 100%);
+    }
+    .light { color: var(--ink); background: var(--paper); }
+    .light::before {
+      background:
+        radial-gradient(circle at 88% 8%, rgba(108, 228, 200, .28), transparent 28%),
+        linear-gradient(120deg, transparent 0 65%, rgba(8,23,26,.025) 65% 66%, transparent 66% 100%);
+    }
+
+    .chrome {
+      position: absolute;
+      top: .34in; left: .58in; right: .58in;
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: 8.5pt; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--mist); z-index: 5;
+    }
+    .light .chrome { color: #607273; }
+    .brand { display: flex; gap: .15in; align-items: center; }
+    .mark { width: .23in; height: .23in; border: 1.5px solid var(--mint); border-radius: 50%; position: relative; }
+    .mark::after { content: ""; position: absolute; width: .06in; height: .06in; border: 1px solid var(--mint); border-radius: 50%; top: .069in; left: .069in; }
+    .slide-no { color: var(--mint); margin-left: .13in; }
+
+    .content { position: absolute; inset: 1.05in .64in .46in .64in; }
+    .kicker { margin: 0 0 .12in; color: var(--mint); font-size: 9pt; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { font-size: 45pt; line-height: .98; letter-spacing: -.038em; margin-bottom: .24in; }
+    h2 { max-width: 11.2in; font-size: 31pt; line-height: 1.04; letter-spacing: -.028em; margin-bottom: .17in; }
+    h3 { font-size: 15pt; line-height: 1.15; margin-bottom: .08in; }
+    .lede { max-width: 9.2in; color: var(--mist); font-size: 16pt; line-height: 1.42; }
+    .light .lede, .light .muted { color: #526667; }
+    .muted { color: var(--mist); }
+    .accent { color: var(--mint); }
+    .coral { color: var(--coral); }
+    .amber { color: var(--amber); }
+    .violet { color: var(--violet); }
+    .cyan { color: var(--cyan); }
+
+    .eyebrow { font-size: 8.5pt; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; color: var(--mint); }
+    .rule { height: 1px; background: var(--line); }
+    .light .rule { background: rgba(8, 23, 26, .17); }
+    .chip { display: inline-flex; align-items: center; gap: .08in; padding: .08in .14in; border: 1px solid var(--line); border-radius: 99px; font-size: 8.5pt; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; background: rgba(8,23,26,.42); }
+    .chip::before { content: ""; width: .06in; height: .06in; border-radius: 50%; background: currentColor; }
+    .light .chip { color: var(--ink); border-color: rgba(8,23,26,.17); background: rgba(255,255,255,.42); }
+    .note { position: absolute; left: .64in; bottom: .22in; font-size: 7.5pt; color: #6e8587; }
+    .notes { display: none; }
+
+    /* Cover */
+    .cover::before { background: linear-gradient(90deg, var(--ink) 0 43%, rgba(8,23,26,.92) 48%, rgba(8,23,26,.18) 72%, rgba(8,23,26,.42) 100%); z-index: -1; }
+    .cover-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 58% center; z-index: -2; filter: saturate(.74) contrast(1.05); }
+    .cover .content { width: 6.2in; top: 1.44in; right: auto; }
+    .cover h1 { font-size: 51pt; max-width: 5.6in; }
+    .cover .lede { width: 5.2in; font-size: 17pt; }
+    .cover-meta { position: absolute; left: .65in; bottom: .55in; display: flex; gap: .24in; align-items: center; font-size: 9pt; color: var(--mist); }
+
+    /* Thesis */
+    .thesis { display: grid; grid-template-columns: 4.1in 1fr; gap: .7in; align-items: end; padding-bottom: .35in; }
+    .thesis h2 { font-size: 40pt; max-width: 7in; margin: 0; }
+    .cascade-steps { display: grid; gap: .13in; }
+    .cascade-step { display: grid; grid-template-columns: .58in 1fr; gap: .16in; padding-top: .16in; border-top: 1px solid var(--line); }
+    .cascade-step .num { font-size: 19pt; line-height: 1; font-weight: 800; color: var(--mint); }
+    .cascade-step p { margin: .03in 0 0; font-size: 11pt; line-height: 1.38; color: var(--mist); }
+
+    /* Product */
+    .product-shot { position: absolute; left: .65in; right: .65in; top: 2.02in; height: 4.62in; border-radius: .16in; overflow: hidden; border: 1px solid rgba(255,255,255,.2); box-shadow: 0 .22in .5in rgba(0,0,0,.32); }
+    .product-shot img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+    .product-shot::after { content: ""; position: absolute; inset: 0; box-shadow: inset 0 0 0 1px rgba(255,255,255,.06); pointer-events: none; }
+    .stats { position: absolute; right: .93in; top: 1.86in; display: flex; gap: .09in; z-index: 2; }
+    .stat { min-width: 1.38in; padding: .13in .16in; background: var(--paper); color: var(--ink); border-radius: .11in; box-shadow: 0 .08in .22in rgba(0,0,0,.24); }
+    .stat b { display: block; font-size: 18pt; line-height: 1; color: #107b6d; }
+    .stat span { display: block; margin-top: .05in; font-size: 6.8pt; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+
+    /* Pipeline */
+    .pipeline { display: grid; grid-template-columns: repeat(6, 1fr); margin-top: .42in; border-top: 1px solid var(--line); }
+    .stage { position: relative; padding: .28in .16in .18in 0; min-height: 2.45in; border-right: 1px solid var(--line); }
+    .stage:not(:first-child) { padding-left: .18in; }
+    .stage:last-child { border-right: 0; }
+    .stage .index { font-size: 10pt; color: var(--mint); font-weight: 800; }
+    .stage h3 { margin-top: .48in; font-size: 16pt; }
+    .stage p { font-size: 10.5pt; line-height: 1.38; color: var(--mist); }
+    .stage::after { content: "→"; position: absolute; right: -.11in; top: .22in; width: .22in; text-align: center; color: var(--mint); background: var(--ink); z-index: 2; }
+    .stage:last-child::after { display: none; }
+    .repeatability { margin-top: .3in; display: flex; justify-content: space-between; align-items: center; padding: .2in .26in; border-radius: .12in; background: var(--ink-2); border: 1px solid var(--line); }
+    .repeatability b { font-size: 14pt; }
+    .repeatability span { font-size: 9pt; color: var(--mist); }
+
+    /* Hubs */
+    .hubs { display: grid; grid-template-columns: 1fr 1fr; gap: .35in; margin-top: .25in; }
+    .hub { min-height: 3.76in; border: 1px solid rgba(8,23,26,.16); border-radius: .18in; padding: .3in; background: rgba(255,255,255,.46); }
+    .hub-head { display: grid; grid-template-columns: .9in 1fr; align-items: center; gap: .22in; }
+    .hub-node { width: .88in; height: .88in; display: grid; place-items: center; border: 2px solid #168f7b; border-radius: 50%; font-size: 8.5pt; font-weight: 800; letter-spacing: .05em; }
+    .hub:nth-child(2) .hub-node { border-color: #cf8528; }
+    .hub-head h3 { font-size: 20pt; margin: 0; }
+    .dependents { margin-top: .3in; display: grid; grid-template-columns: repeat(2, 1fr); gap: .12in; }
+    .dependent { padding: .15in; background: rgba(8,23,26,.055); border-radius: .09in; border-left: 3px solid #168f7b; }
+    .hub:nth-child(2) .dependent { border-left-color: #cf8528; }
+    .dependent b { font-size: 10.5pt; }
+    .dependent span { display: block; margin-top: .04in; font-size: 8.5pt; color: #5a6e6f; }
+    .hub-callout { margin-top: .22in; padding-top: .18in; border-top: 1px solid rgba(8,23,26,.15); font-size: 10.5pt; line-height: 1.4; }
+
+    /* Timeline */
+    .timeline { position: relative; margin: .72in .2in 0; height: 2.4in; }
+    .timeline-line { position: absolute; left: 0; right: 0; top: .82in; height: 3px; background: linear-gradient(90deg, var(--cyan), var(--mint), var(--amber), var(--coral), var(--violet)); }
+    .moment { position: absolute; top: 0; width: 1.66in; transform: translateX(-50%); text-align: center; }
+    .moment::after { content: ""; display: block; position: absolute; left: calc(50% - .07in); top: .75in; width: .14in; height: .14in; background: currentColor; border: 3px solid var(--ink); border-radius: 50%; }
+    .moment b { font-size: 18pt; }
+    .moment span { display: block; margin-top: 1.06in; font-size: 8pt; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--mist); }
+    .moment:nth-child(2) { left: 0; transform: none; text-align: left; color: var(--cyan); }
+    .moment:nth-child(2)::after { left: 0; }
+    .moment:nth-child(3) { left: 8.33%; color: var(--mint); }
+    .moment:nth-child(4) { left: 33.33%; color: var(--amber); }
+    .moment:nth-child(5) { left: 66.66%; color: var(--coral); }
+    .moment:nth-child(6) { right: 0; transform: none; text-align: right; color: var(--violet); }
+    .moment:nth-child(6)::after { left: auto; right: 0; }
+    .clock-notes { display: grid; grid-template-columns: repeat(4, 1fr); gap: .12in; margin-top: .15in; }
+    .clock { padding: .18in; border-top: 2px solid var(--mint); background: var(--ink-2); }
+    .clock:nth-child(2) { border-color: var(--amber); }
+    .clock:nth-child(3) { border-color: var(--cyan); }
+    .clock:nth-child(4) { border-color: var(--violet); }
+    .clock b { font-size: 9pt; letter-spacing: .08em; text-transform: uppercase; }
+    .clock p { margin: .06in 0 0; font-size: 9.5pt; line-height: 1.3; color: var(--mist); }
+
+    /* Geography */
+    .geo-grid { display: grid; grid-template-columns: 5.05in 1fr; gap: .46in; margin-top: .25in; }
+    .scales { display: grid; gap: .14in; align-content: start; }
+    .scale { display: grid; grid-template-columns: .58in 1.35in 1fr; gap: .16in; align-items: center; padding: .2in; border: 1px solid rgba(8,23,26,.14); border-radius: .12in; background: rgba(255,255,255,.38); }
+    .scale-num { display: grid; place-items: center; width: .48in; height: .48in; border-radius: 50%; background: var(--ink); color: var(--mint); font-size: 10pt; font-weight: 800; }
+    .scale h3 { margin: 0; font-size: 13pt; }
+    .scale p { margin: 0; font-size: 9.5pt; line-height: 1.35; color: #526667; }
+    .geo-shot { height: 3.7in; border-radius: .16in; overflow: hidden; box-shadow: 0 .18in .4in rgba(8,23,26,.18); }
+    .geo-shot img { width: 100%; height: 100%; object-fit: cover; object-position: 57% center; }
+    .conservation { margin-top: .16in; font-size: 10pt; font-weight: 700; text-align: center; color: #456162; }
+
+    /* Data */
+    .data-layout { display: grid; grid-template-columns: 4.35in 1fr; gap: .45in; margin-top: .25in; }
+    .source-list { border-top: 1px solid var(--line); }
+    .source-row { display: grid; grid-template-columns: 1.22in 1fr; gap: .18in; padding: .14in 0; border-bottom: 1px solid var(--line); }
+    .source-row b { font-size: 8.5pt; letter-spacing: .08em; text-transform: uppercase; color: var(--mint); }
+    .source-row span { font-size: 9.5pt; line-height: 1.35; color: var(--mist); }
+    .coupling { display: grid; grid-template-columns: repeat(2, 1fr); gap: .14in; }
+    .tier { min-height: 1.45in; padding: .2in; background: var(--ink-2); border-radius: .12in; border: 1px solid var(--line); }
+    .tier b { font-size: 9pt; letter-spacing: .11em; text-transform: uppercase; }
+    .tier p { margin: .11in 0 0; font-size: 10pt; line-height: 1.4; color: var(--mist); }
+    .tier:nth-child(1) b { color: var(--mint); }
+    .tier:nth-child(2) b { color: var(--cyan); }
+    .tier:nth-child(3) b { color: var(--amber); }
+    .tier:nth-child(4) b { color: var(--violet); }
+
+    /* Evidence */
+    .evidence-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: .14in; margin-top: .4in; }
+    .evidence-card { min-height: 2.9in; padding: .25in; border-radius: .14in; background: rgba(255,255,255,.45); border: 1px solid rgba(8,23,26,.14); }
+    .evidence-card .dot { width: .1in; height: .1in; border-radius: 50%; background: currentColor; margin-bottom: .26in; }
+    .evidence-card h3 { font-size: 13pt; }
+    .evidence-card p { font-size: 10.5pt; line-height: 1.45; color: #526667; }
+    .evidence-card strong { display: block; margin-top: .34in; padding-top: .17in; border-top: 1px solid rgba(8,23,26,.14); font-size: 9.5pt; }
+    .not-equal { margin-top: .3in; padding: .18in; border-radius: .1in; background: var(--ink); color: var(--coral); text-align: center; font-size: 14pt; font-weight: 800; letter-spacing: .025em; }
+
+    /* Explain */
+    .explain-layout { display: grid; grid-template-columns: 4.1in 1fr; gap: .38in; margin-top: .28in; }
+    .trace { border-left: 1px solid var(--line); margin-left: .1in; }
+    .trace-row { position: relative; display: grid; grid-template-columns: 1.7in 1fr; gap: .2in; margin: 0 0 .13in .23in; padding: .07in .14in; background: var(--ink-2); border-radius: .07in; }
+    .trace-row::before { content: ""; position: absolute; left: -.285in; top: .16in; width: .09in; height: .09in; border-radius: 50%; background: var(--mint); }
+    .trace-row b { font-size: 8.5pt; letter-spacing: .06em; text-transform: uppercase; }
+    .trace-row span { font-size: 9pt; color: var(--mist); text-align: right; }
+    .explain-shot { position: relative; height: 3.62in; border-radius: .15in; overflow: hidden; border: 1px solid var(--line); }
+    .explain-shot img { width: 100%; height: 100%; object-fit: cover; object-position: 63% center; }
+    .explain-shot::after { content: "Deterministic reruns, not post-hoc AI prose"; position: absolute; right: .15in; bottom: .15in; padding: .1in .15in; border-radius: 99px; background: rgba(8,23,26,.86); color: var(--mint); font-size: 8.5pt; font-weight: 800; }
+
+    /* Scenarios */
+    .scenario-layout { display: grid; grid-template-columns: 4.6in 1fr; gap: .48in; margin-top: .25in; }
+    .scenario-cloud { display: flex; flex-wrap: wrap; gap: .1in; align-content: start; }
+    .scenario-cloud .chip { padding: .12in .17in; font-size: 9pt; }
+    .levers { display: grid; grid-template-columns: repeat(2, 1fr); gap: .1in; }
+    .lever { padding: .15in .17in; border-radius: .08in; background: rgba(8,23,26,.06); border-left: 3px solid #168f7b; font-size: 10pt; font-weight: 700; }
+    .scenario-principle { margin-top: .23in; padding: .2in .24in; background: var(--ink); color: var(--white); border-radius: .11in; font-size: 13pt; font-weight: 700; }
+
+    /* Scope */
+    .scope-grid { display: grid; grid-template-columns: 2.28in 1fr 1fr; gap: .18in; margin-top: .28in; }
+    .audit-score { padding: .28in; background: var(--ink-2); border-radius: .15in; min-height: 3.6in; }
+    .audit-score b { display: block; color: var(--mint); font-size: 42pt; line-height: .92; }
+    .audit-score span { display: block; margin-top: .11in; color: var(--mist); font-size: 9pt; line-height: 1.4; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; }
+    .audit-score p { margin-top: .42in; font-size: 10pt; line-height: 1.45; color: var(--mist); }
+    .scope-card { padding: .25in; border-radius: .15in; border: 1px solid var(--line); min-height: 3.6in; }
+    .scope-card.good { border-color: rgba(108,228,200,.5); }
+    .scope-card.limit { border-color: rgba(246,121,130,.5); }
+    .scope-card h3 { font-size: 11pt; letter-spacing: .08em; text-transform: uppercase; }
+    .scope-card.good h3 { color: var(--mint); }
+    .scope-card.limit h3 { color: var(--coral); }
+    .scope-card ul { list-style: none; margin: .23in 0 0; padding: 0; }
+    .scope-card li { position: relative; margin-bottom: .14in; padding-left: .2in; color: var(--mist); font-size: 10.5pt; line-height: 1.35; }
+    .scope-card li::before { content: ""; position: absolute; left: 0; top: .08in; width: .07in; height: .07in; border-radius: 50%; background: var(--mint); }
+    .scope-card.limit li::before { width: .09in; height: 2px; top: .11in; border-radius: 0; background: var(--coral); }
+
+    /* Demo */
+    .demo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: .12in; margin-top: .28in; counter-reset: demo; }
+    .demo-step { counter-increment: demo; min-height: 1.35in; padding: .18in; border-top: 2px solid var(--mint); background: var(--ink-2); }
+    .demo-step::before { content: "0" counter(demo); color: var(--mint); font-size: 9pt; font-weight: 800; }
+    .demo-step h3 { margin-top: .13in; font-size: 12pt; }
+    .demo-step p { margin: 0; color: var(--mist); font-size: 9pt; line-height: 1.35; }
+    .demo-rule { margin-top: .22in; text-align: center; font-size: 13pt; font-weight: 700; color: var(--amber); }
+
+    /* Close */
+    .close::before { background: linear-gradient(90deg, var(--ink) 0 48%, rgba(8,23,26,.82) 57%, rgba(8,23,26,.25) 100%); z-index: -1; }
+    .close img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 60% center; z-index: -2; filter: saturate(.66); }
+    .close .content { width: 6.3in; right: auto; top: 1.4in; }
+    .close h2 { font-size: 40pt; }
+    .close-links { margin-top: .55in; display: grid; gap: .12in; font-size: 10pt; }
+    .close-links a { color: var(--mint); }
+  </style>
+</head>
+<body>
+  <section class="slide cover">
+    <img class="cover-image" src="../artifacts/gatekeeper-v2.png" alt="Disaster Simulator interface">
+    <div class="chrome"><div class="brand"><span class="mark"></span>NL Resilience Lab</div><div>Project overview <span class="slide-no">01</span></div></div>
+    <div class="content">
+      <p class="kicker">DisasterSimulator</p>
+      <h1>Explore the first 72 hours.</h1>
+      <p class="lede">A transparent disaster-cascade simulator for the Netherlands.</p>
+    </div>
+    <div class="cover-meta"><span>Rik Stokmans</span><span>•</span><span>4 September 2026</span></div>
+    <aside class="notes">Opening: this project asks what happens after the first shock—when essential services begin to depend on one another. It is an interactive exploration prototype, not a forecast or calibrated digital twin.</aside>
+  </section>
+
+  <section class="slide">
+    <div class="chrome"><div class="brand"><span class="mark"></span>NL Resilience Lab</div><div>Problem framing <span class="slide-no">02</span></div></div>
+    <div class="content thesis">
+      <div>
+        <p class="kicker">The premise</p>
+        <h2>A disaster is not one failure.</h2>
+        <p class="lede">It is a chain of dependencies, delays and constrained choices.</p>
+      </div>
+      <div class="cascade-steps">
+        <div class="cascade-step"><span class="num">01</span><div><h3>Shock</h3><p>Wind, water, heat, cyber, ground motion or fire creates the initiating pressure.</p></div></div>
+        <div class="cascade-step"><span class="num">02</span><div><h3>Cascade</h3><p>Power, telecom, water, mobility and supply degrade on different clocks.</p></div></div>
+        <div class="cascade-step"><span class="num">03</span><div><h3>Choice</h3><p>Preparedness, backup, access and repair capacity change what happens next.</p></div></div>
+      </div>
+    </div>
+    <aside class="notes">The simulator is about the cascade. It steps through how service availability, reserves, repair and transport access interact—not just how a hazard colours a map.</aside>
+  </section>
+
+  <section class="slide">
+    <div class="chrome"><div class="brand"><span class="mark"></span>NL Resilience Lab</div><div>The product <span class="slide-no">03</span></div></div>
+    <div class="content">
+      <p class="kicker">One coherent state</p>
+      <h2>National overview. Local consequences.</h2>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>342</b><span>municipalities</span></div>
+      <div class="stat"><b>72 h</b><span>simulation</span></div>
+      <div class="stat"><b>289</b><span>time states</span></div>
+    </div>
+    <figure class="product-shot"><img src="../artifacts/gatekeeper-v2.png" alt="National disaster simulation interface"></figure>
+    <p class="note">The same scenario, time and service state remain coherent while the view changes.</p>
+    <aside class="notes">Users can switch between ten presets, eight modeled services and eleven map questions, then move from the national view to a municipality and CBS neighbourhood detail.</aside>
+  </section>
+
+  <section class="slide">
+    <div class="chrome"><div class="brand"><span class="mark"></span>NL Resilience Lab</div><div>Simulation model <span class="slide-no">04</span></div></div>
+    <div class="content">
+      <p class="kicker">Inside the engine</p>
+      <h2>Six visible stages. One repeatable result.</h2>
+      <div class="pipeline">
+        <div class="stage"><span class="index">01</span><h3>Scenario</h3><p>Hazard, climate, intensity, start and duration.</p></div>
+        <div class="stage"><span class="index">02</span><h3>Hazard</h3><p>Time envelope, location and audited guards.</p></div>
+        <div class="stage"><span class="index">03</span><h3>Damage</h3><p>Service pressure, resilience and preparedness.</p></div>
+        <div class="stage"><span class="index">04</span><h3>Cascade</h3><p>Power and mobility constrain dependent services.</p></div>
+        <div class="stage"><span class="index">05</span><h3>Balance</h3><p>Supported routes reduce local shortfalls.</p></div>
+        <div class="stage"><span class="index">06</span><h3>Explain</h3><p>Status, causes, impacts and counterfactuals.</p></div>
+      </div>
+      <div class="repeatability"><b>Same configuration + stable seed → same state and explanation</b><span>Repeatable does not mean forecast-certain.</span></div>
+    </div>
+    <aside class="notes">Walk left to right. No runtime random draws are used. The model is deterministic and inspectable, but that does not make it calibrated or certain.</aside>
+  </section>
+
+  <section class="slide light">
+    <div class="chrome"><div class="brand"><span class="mark"></span>NL Resilience Lab</div><div>Dependencies <span class="slide-no">05</span></div></div>
+    <div class="content">
+      <p class="kicker">The cascade</p>
+      <h2>Two structural hubs shape the outcome.</h2>
+      <div class="hubs">
+        <div class="hub">
+          <div class="hub-head"><div class="hub-node">POWER</div><div><h3>Power constrains services.</h3><p class="muted">Backup buys time, not immunity.</p></div></div>
+          <div class="dependents">
+            <div class="dependent"><b>Water</b><span>backup window</span></div>
+            <div class="dependent"><b>Telecom</b><span>battery window</span></div>
+            <div class="dependent"><b>Drainage</b><span>continuous need</span></div>
+            <div class="dependent"><b>Gas controls</b><span>partly passive</span></div>
+            <div class="dependent"><b>Facilities</b><span>generator support</span></div>
+          </div>
+        </div>
+        <div class="hub">
+          <div class="hub-head"><div class="hub-node">MOBILITY</div><div><h3>Mobility constrains supply.</h3><p class="muted">Access governs road-based logistics.</p></div></div>
+          <div class="dependents">
+            <div class="dependent"><b>Road access</b><span>NWB corridors</span></div>
+            <div class="dependent"><b>Logistics</b><span>route capacity</span></div>
+            <div class="dependent"><b>Emergency supply</b><span>delivery potential</span></div>
+            <div class="dependent"><b>Repair</b><span>access guard</span></div>
+          </div>
+          <p class="hub-callout">Road geometry is causal only for Mobility and explicitly modelled road logistics—not as a substitute for utility topology.</p>
+        </div>
+      </div>
+    </div>
+    <aside class="notes">Power is the main upstream service. Mobility is upstream for supply and repair access. The road graph is deliberately not reused as electricity, water, gas or telecom topology.</aside>
+  </section>
+
+  <section class="slide">
+    <div class="chrome"><div class="brand"><span class="mark"></span>NL Resilience Lab</div><div>Time <span class="slide-no">06</span></div></div>
+    <div class="content">
+      <p class="kicker">The first 72 hours</p>
+      <h2>The answer changes with the clock.</h2>
+      <p class="lede">Shock, backup endurance, cascading shortfall and restoration do not peak together.</p>
+      <div class="timeline">
+        <div class="timeline-line"></div>
+        <div class="moment"><b>T+0</b><span>event starts</span></div>
+        <div class="moment"><b>T+6</b><span>early response</span></div>
+        <div class="moment"><b>T+24</b><span>backups deplete</span></div>
+        <div class="moment"><b>T+48</b><span>cascade / repair</span></div>
+        <div class="moment"><b>T+72</b><span>recovery state</span></div>
+      </div>
+      <div class="clock-notes">
+        <div class="clock"><b>Response delay</b><p>When organised restoration may begin.</p></div>
+        <div class="clock"><b>Backup endurance</b><p>How long dependencies stay decoupled.</p></div>
+        <div class="clock"><b>Access guard</b><p>When standing water can pause repair.</p></div>
+        <div class="clock"><b>Peak damage</b><p>What may persist after forcing declines.</p></div>
+      </div>
+    </div>
+    <aside class="notes">A service may remain healthy while backup lasts, fail later as upstream power is lost, and recover only after both response delay and access constraints allow repair.</aside>
+  </section>
+
+  <section class="slide light">
+    <div class="chrome"><div class="brand"><span class="mark"></span>NL Resilience Lab</div><div>Geography <span class="slide-no">07</span></div></div>
+    <div class="content">
+      <p class="kicker">One model, three scales</p>
+      <h2>Zoom in without changing the story.</h2>
+      <div class="geo-grid">
+        <div class="scales">
+          <div class="scale"><span class="scale-num">01</span><h3>Netherlands</h3><p>National balancing, affected-region footprint and 342 municipalities.</p></div>
+          <div class="scale"><span class="scale-num">02</span><h3>Municipality</h3><p>Demand, delivery, reserve and one stable causal trace.</p></div>
+          <div class="scale"><span class="scale-num">03</span><h3>CBS buurt</h3><p>Local impact allocation using population and vulnerability context.</p></div>
+        </div>
+        <div>
+          <div class="geo-shot"><img src="../artifacts/v2-final-eindhoven.png" alt="Eindhoven neighbourhood detail"></div>
+          <p class="conservation">Local allocation redistributes municipal inflow; it never creates supply.</p>
+        </div>
+      </div>
+    </div>
+    <aside class="notes">The view changes, not the underlying state. Neighbourhood allocation is reconciled exactly back to the municipal total.</aside>
+  </section>
+
+  <section class="slide">
+    <div class="chrome"><div class="brand"><span class="mark"></span>NL Resilience Lab</div><div>Data coupling <span class="slide-no">08</span></div></div>
+    <div class="content">
+      <p class="kicker">Public data, explicit roles</p>
+      <h2>Not every visible layer drives the model.</h2>
+      <div class="data-layout">
+        <div class="source-list">
+          <div class="source-row"><b>Place + people</b><span>CBS, PDOK, BAG and BRT TOP10NL</span></div>
+          <div class="source-row"><b>Mobility</b><span>NWB, ProRail, OVapi, NDOV, NDW and FIS</span></div>
+          <div class="source-row"><b>Hazards</b><span>KNMI, RWS Waterinfo, LIWO, AHN4, RIVM and Risicokaart</span></div>
+          <div class="source-row"><b>Services</b><span>Grid operators, HWH, DAMO, GWSW, RDI and ENTSOG</span></div>
+          <div class="source-row"><b>Facilities</b><span>KVK public services, RIVM acute care and DUO education</span></div>
+        </div>
+        <div class="coupling">
+          <div class="tier"><b>Causal</b><p>Scenario controls and model inputs directly affect the simulation.</p></div>
+          <div class="tier"><b>Structural</b><p>Geography and audited connectivity allocate state and supported flows.</p></div>
+          <div class="tier"><b>Context</b><p>Timestamped official observations orient the user, but remain non-causal by default.</p></div>
+          <div class="tier"><b>Unknown</b><p>Missing support stays visible. It never silently becomes zero impact or open access.</p></div>
+        </div>
+      </div>
+    </div>
+    <p class="note">Every refresh preserves source URL, edition, licence, retrieval time and caveats.</p>
+    <aside class="notes">This is the key data-governance rule. A current road incident or radar image is not automatically a future scenario. It needs explicit time, place and semantics before it can affect the engine.</aside>
+  </section>
+
+  <section class="slide light">
+    <div class="chrome"><div class="brand"><span class="mark"></span>NL Resilience Lab</div><div>Evidence <span class="slide-no">09</span></div></div>
+    <div class="content">
+      <p class="kicker">Honest semantics</p>
+      <h2>Observed is not the same as simulated.</h2>
+      <div class="evidence-grid">
+        <div class="evidence-card cyan"><div class="dot"></div><h3>Official context</h3><p>Boundaries, assets, provider areas and registers.</p><strong>Where things are</strong></div>
+        <div class="evidence-card accent"><div class="dot"></div><h3>Observed context</h3><p>Radar, stations, incidents and current measurements.</p><strong>What was observed</strong></div>
+        <div class="evidence-card violet"><div class="dot"></div><h3>Scenario state</h3><p>Synthetic hazard, availability, demand and recovery.</p><strong>What the model explores</strong></div>
+        <div class="evidence-card amber"><div class="dot"></div><h3>Unknown / NoData</h3><p>Missing coverage, horizon, permission or semantics.</p><strong>What must not be inferred</strong></div>
+      </div>
+      <div class="not-equal">NO DATA ≠ ZERO HAZARD ≠ OPEN ROUTE ≠ HEALTHY SERVICE</div>
+    </div>
+    <aside class="notes">A utility line on a map is not outage telemetry. Unknown is a first-class state so missing evidence cannot masquerade as safety.</aside>
+  </section>
+
+  <section class="slide">
+    <div class="chrome"><div class="brand"><span class="mark"></span>NL Resilience Lab</div><div>Explainability <span class="slide-no">10</span></div></div>
+    <div class="content">
+      <p class="kicker">Why this state?</p>
+      <h2>The explanation is part of the engine.</h2>
+      <div class="explain-layout">
+        <div class="trace">
+          <div class="trace-row"><b>Baseline resilience</b><span>starting state</span></div>
+          <div class="trace-row"><b>Direct hazard</b><span>exact stage delta</span></div>
+          <div class="trace-row"><b>Restoration</b><span>repair progress</span></div>
+          <div class="trace-row"><b>Dependency</b><span>power / mobility</span></div>
+          <div class="trace-row"><b>Intervention</b><span>policy effect</span></div>
+          <div class="trace-row"><b>Network transfer</b><span>supported route effect</span></div>
+        </div>
+        <div class="explain-shot"><img src="../artifacts/final-supply.png" alt="Supply dependency view in the simulator"></div>
+      </div>
+    </div>
+    <aside class="notes">Every municipality frame returns its drivers, stage deltas and counterfactuals. Counterfactuals are exact deterministic reruns—for example without direct damage or with an upstream service restored.</aside>
+  </section>
+
+  <section class="slide light">
+    <div class="chrome"><div class="brand"><span class="mark"></span>NL Resilience Lab</div><div>Scenario lab <span class="slide-no">11</span></div></div>
+    <div class="content">
+      <p class="kicker">Controlled comparison</p>
+      <h2>Ten starting points. One lever at a time.</h2>
+      <div class="scenario-layout">
+        <div class="scenario-cloud">
+          <span class="chip cyan">Severe windstorm</span><span class="chip cyan">Urban cloudburst</span>
+          <span class="chip cyan">River high water</span><span class="chip cyan">Coastal surge</span>
+          <span class="chip amber">Heatwave + drought</span><span class="chip cyan">Winter storm</span>
+          <span class="chip violet">Cyberattack</span><span class="chip violet">Groningen earthquake</span>
+          <span class="chip amber">Wildfire + smoke</span><span class="chip coral">Compound cascade</span>
+        </div>
+        <div class="levers">
+          <div class="lever">Preparedness</div><div class="lever">Response delay</div>
+          <div class="lever">Backup endurance</div><div class="lever">Repair capacity</div>
+          <div class="lever">Climate path</div><div class="lever">Season + demand</div>
+          <div class="lever">Network capacity</div><div class="lever">Household readiness</div>
+        </div>
+      </div>
+      <div class="scenario-principle">Hold the event constant → change one assumption → inspect one downstream effect.</div>
+    </div>
+    <aside class="notes">The presets cover meteorological, hydrological, geophysical, digital and compound events. The value is in controlled comparisons, not in touring every available control.</aside>
+  </section>
+
+  <section class="slide">
+    <div class="chrome"><div class="brand"><span class="mark"></span>NL Resilience Lab</div><div>Critical reflection <span class="slide-no">12</span></div></div>
+    <div class="content">
+      <p class="kicker">Useful because the limits stay visible</p>
+      <h2>Designed to fail safely.</h2>
+      <div class="scope-grid">
+        <div class="audit-score"><b>245</b><span>of 342 municipalities audited</span><p>Unsupported local pathways are withheld instead of rendered as confident detail.</p></div>
+        <div class="scope-card good"><h3>What it does well</h3><ul><li>Compare assumptions and policies</li><li>Reveal time-dependent cascades</li><li>Keep national and local views coherent</li><li>Expose drivers and counterfactuals</li><li>Preserve provenance and uncertainty</li></ul></div>
+        <div class="scope-card limit"><h3>What it does not claim</h3><ul><li>A calibrated digital twin or forecast</li><li>Live utility outage telemetry</li><li>Physical utility network topology</li><li>Observed affected-person counts</li><li>Real-world units for route capacity</li></ul></div>
+      </div>
+    </div>
+    <p class="note">Audit snapshot generated 3 September 2026. Human review remains necessary.</p>
+    <aside class="notes">The municipality audit program checks numerical and spatial plausibility and compiles deterministic guards. Audit prose never becomes a causal model automatically.</aside>
+  </section>
+
+  <section class="slide">
+    <div class="chrome"><div class="brand"><span class="mark"></span>NL Resilience Lab</div><div>Live demo <span class="slide-no">13</span></div></div>
+    <div class="content">
+      <p class="kicker">Four-minute walkthrough</p>
+      <h2>Tell one causal story.</h2>
+      <div class="demo-grid">
+        <div class="demo-step"><h3>Start national</h3><p>Choose Compound cascade and keep the affected region visible.</p></div>
+        <div class="demo-step"><h3>Move through time</h3><p>Scrub from T+0 to T+24 and watch the headline state change.</p></div>
+        <div class="demo-step"><h3>Follow a dependency</h3><p>Move from Power to Telecom, or Mobility to Supply.</p></div>
+        <div class="demo-step"><h3>Zoom to Eindhoven</h3><p>Compare local demand, delivery and reserve.</p></div>
+        <div class="demo-step"><h3>Change one lever</h3><p>Increase backup or reduce response delay.</p></div>
+        <div class="demo-step"><h3>Explain the result</h3><p>Open “Why this state?” and finish on the causal trace.</p></div>
+      </div>
+      <p class="demo-rule">Change one assumption. Show one downstream effect.</p>
+    </div>
+    <aside class="notes">Avoid touring every layer. The audience should leave understanding one dependency chain and one policy comparison.</aside>
+  </section>
+
+  <section class="slide close">
+    <img src="../artifacts/gatekeeper-v2.png" alt="Disaster Simulator interface">
+    <div class="chrome"><div class="brand"><span class="mark"></span>NL Resilience Lab</div><div>Close <span class="slide-no">14</span></div></div>
+    <div class="content">
+      <p class="kicker">The invitation</p>
+      <h2>See the cascade.<br>Question the assumptions.<br><span class="accent">Improve the response.</span></h2>
+      <div class="close-links">
+        <a href="https://github.com/Rik-Stokmans/DisasterSimulator">github.com/Rik-Stokmans/DisasterSimulator</a>
+        <a href="https://rikstokmans.com/warroom/projects/disasterSimulator">rikstokmans.com/warroom/projects/disasterSimulator</a>
+      </div>
+    </div>
+    <aside class="notes">The simulator is valuable because it makes the cascade, the assumptions and the uncertainty inspectable. Invite questions about the model, the public-data couplings or the next calibration steps.</aside>
+  </section>
+</body>
+</html>
