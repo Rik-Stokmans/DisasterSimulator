@@ -40,6 +40,7 @@ const C = {
 
 const img = (name) => path.join(__dirname, '..', 'artifacts', name)
 const output = path.join(__dirname, 'NL-Resilience-Lab-overview.pptx')
+const framedSlides = []
 
 function addText(slide, text, x, y, w, h, opts = {}) {
   slide.addText(text, {
@@ -92,11 +93,11 @@ function circle(slide, x, y, d, fill, lineColor = fill, lineWidth = 0) {
   })
 }
 
-function pill(slide, text, x, y, w, color = C.mint, fill = C.panel2) {
+function pill(slide, text, x, y, w, color = C.mint, fill = C.panel2, opts = {}) {
   rect(slide, x, y, w, 0.34, fill, 0.17, C.line)
   circle(slide, x + 0.14, y + 0.125, 0.09, color)
   addText(slide, text, x + 0.32, y + 0.05, w - 0.42, 0.24, {
-    fontSize: 9.5,
+    fontSize: opts.fontSize ?? 9.5,
     color: C.white,
     bold: true,
     charSpacing: 0.2,
@@ -111,6 +112,10 @@ function addBrand(slide, x = 0.55, y = 0.32) {
 
 function addFrame(slide, section, number, opts = {}) {
   slide.background = { color: opts.background ?? C.bg }
+  framedSlides.push({ slide, section })
+}
+
+function addFrameChrome(slide, section) {
   addBrand(slide)
   addText(slide, 'NL RESILIENCE LAB', 0.98, 0.34, 2.2, 0.22, {
     fontSize: 9,
@@ -216,9 +221,9 @@ function numberedStep(slide, n, heading, body, x, y, w, accent = C.mint) {
   addText(slide, 'NL RESILIENCE LAB', 1.18, 0.7, 3.1, 0.25, { fontSize: 10, bold: true, charSpacing: 1.8, color: C.mint })
   addText(slide, 'Exploring the\nfirst 72 hours', 0.72, 1.75, 6.0, 1.55, { fontSize: 36, bold: true, valign: 'top', breakLine: true, breakLineOnTextOverflow: false })
   addText(slide, 'A transparent disaster-cascade simulator for the Netherlands', 0.75, 3.52, 5.75, 0.72, { fontSize: 17, color: C.muted, valign: 'top' })
-  pill(slide, 'SCENARIO EXPLORATION', 0.75, 4.55, 2.1, C.cyan)
-  pill(slide, 'EXPLAINABLE MODEL', 3.0, 4.55, 1.94, C.purple)
-  pill(slide, 'OFFICIAL DUTCH DATA', 0.75, 5.0, 2.13, C.amber)
+  pill(slide, 'SCENARIO EXPLORATION', 0.75, 4.55, 2.28, C.cyan, C.panel2, { fontSize: 8.5 })
+  pill(slide, 'EXPLAINABLE MODEL', 3.15, 4.55, 2.12, C.purple, C.panel2, { fontSize: 8.5 })
+  pill(slide, 'OFFICIAL DUTCH DATA', 0.75, 5.0, 2.28, C.amber, C.panel2, { fontSize: 8.5 })
   addText(slide, 'Rik Stokmans  /  DisasterSimulator', 0.75, 6.58, 4.6, 0.22, { fontSize: 9.5, color: C.muted })
   addText(slide, 'github.com/Rik-Stokmans/DisasterSimulator', 0.75, 6.9, 4.9, 0.2, { fontSize: 8.2, color: C.mint, hyperlink: { url: 'https://github.com/Rik-Stokmans/DisasterSimulator' } })
   slide.addNotes('Opening: The project asks what happens after the initial hazard—when essential services start depending on one another. It is an interactive scenario-exploration prototype, not a forecast or calibrated digital twin.')
@@ -271,7 +276,7 @@ function numberedStep(slide, n, heading, body, x, y, w, accent = C.mint) {
     addText(slide, s[1], x + 0.18, y + 0.72, 1.47, 0.24, { fontSize: 7.8, bold: true, color: C.muted, charSpacing: 0.85 })
   })
   imageCrop(slide, img('final-hazard.png'), 7.22, 2.55, 5.43, 3.9, 1440, 1000, { focusX: 0.58, focusY: 0.48 })
-  pill(slide, 'NATIONAL → MUNICIPAL → BUURT', 7.56, 5.88, 2.6, C.mint, C.bg)
+  pill(slide, 'NATIONAL → MUNICIPAL → BUURT', 7.56, 5.88, 2.72, C.mint, C.bg, { fontSize: 8.3 })
   pill(slide, '2D / 3D / REALISTIC', 10.3, 5.88, 2.0, C.cyan, C.bg)
   footerSource(slide, 'Counts from the current repository snapshot · 4 September 2026', null)
   slide.addNotes('The national experience contains 342 municipalities and 289 quarter-hour states. Users can switch between ten hazard presets, eight modeled services and eleven map modes, then zoom into municipality and neighbourhood detail.')
@@ -454,12 +459,6 @@ function numberedStep(slide, n, heading, body, x, y, w, accent = C.mint) {
   })
   addText(slide, 'Every refresh preserves source URL, edition, licence, retrieval time and caveats.', 0.72, 6.38, 11.7, 0.33, { fontSize: 13, bold: true, color: C.white, align: 'center' })
   footerSource(slide, 'Checked-in dataset counts from the current repository snapshot', null)
-  // Re-assert the small running header after the wide source cards. Some
-  // presentation importers otherwise flatten this slide without its header.
-  addBrand(slide)
-  addText(slide, 'NL RESILIENCE LAB', 0.98, 0.34, 2.2, 0.22, { fontSize: 9, bold: true, color: C.muted, charSpacing: 1.4 })
-  addText(slide, 'DATA COUPLING', 9.9, 0.34, 2.75, 0.22, { fontSize: 8.5, bold: true, color: C.dim, align: 'right', charSpacing: 1.25 })
-  line(slide, 0.55, 0.82, 12.23, 0.82, C.line, 0.7)
   slide.addNotes('Do not read this as one giant fused truth layer. The integrations are categorized. CBS and PDOK anchor place and people; transport geometry comes from NWB, ProRail and public transport feeds; weather and hazards come from KNMI, Rijkswaterstaat and related public sources; service and facility layers provide context with explicit coverage limits.')
 }
 
@@ -665,6 +664,10 @@ function numberedStep(slide, n, heading, body, x, y, w, accent = C.mint) {
   addText(slide, 'rikstokmans.com/warroom/projects/disasterSimulator', 1.72, 5.96, 4.82, 0.28, { fontSize: 10.2, color: C.white, hyperlink: { url: 'https://rikstokmans.com/warroom/projects/disasterSimulator' } })
   slide.addNotes('Closing line: The simulator is valuable because it makes the cascade, the assumptions and the uncertainty inspectable. Invite questions about either the system model, the public-data couplings or the next calibration steps.')
 }
+
+// Render shared slide chrome last. Keeping it on the top drawing layer avoids
+// intermittent header/brand loss in PowerPoint and LibreOffice importers.
+framedSlides.forEach(({ slide, section }) => addFrameChrome(slide, section))
 
 pptx.writeFile({ fileName: output })
   .then(() => console.log(`Wrote ${output}`))
