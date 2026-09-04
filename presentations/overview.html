@@ -132,6 +132,14 @@
     .repeatability b { font-size: 14pt; }
     .repeatability span { font-size: 9pt; color: var(--mist); }
 
+    /* Executive value */
+    .value-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: .18in; margin-top: .38in; }
+    .value-card { min-height: 3.05in; padding: .3in; border-radius: .16in; border: 1px solid rgba(8,23,26,.14); background: rgba(255,255,255,.48); }
+    .value-card .index { display: grid; place-items: center; width: .45in; height: .45in; border-radius: 50%; background: var(--ink); color: var(--mint); font-size: 9pt; font-weight: 800; }
+    .value-card h3 { margin-top: .46in; font-size: 19pt; }
+    .value-card p { margin: 0; color: #526667; font-size: 11.5pt; line-height: 1.5; }
+    .high-level-rule { margin-top: .24in; padding: .18in .24in; border-radius: .11in; background: var(--ink); color: var(--white); text-align: center; font-size: 12pt; font-weight: 700; }
+
     /* Hubs */
     .hubs { display: grid; grid-template-columns: 1fr 1fr; gap: .35in; margin-top: .25in; }
     .hub { min-height: 3.76in; border: 1px solid rgba(8,23,26,.16); border-radius: .18in; padding: .3in; background: rgba(255,255,255,.46); }
@@ -259,7 +267,7 @@
 <body>
   <section class="slide cover">
     <img class="cover-image" src="../artifacts/gatekeeper-v2.png" alt="Disaster Simulator interface">
-    <div class="chrome"><div class="brand"><span class="mark"></span>NL Resilience Lab</div><div>Project overview <span class="slide-no">01</span></div></div>
+    <div class="chrome"><div class="brand"><span class="mark"></span>NL Resilience Lab</div><div>Executive overview <span class="slide-no">01</span></div></div>
     <div class="content">
       <p class="kicker">DisasterSimulator</p>
       <h1>Explore the first 72 hours.</h1>
@@ -295,228 +303,31 @@
     <div class="stats">
       <div class="stat"><b>342</b><span>municipalities</span></div>
       <div class="stat"><b>72 h</b><span>simulation</span></div>
-      <div class="stat"><b>289</b><span>time states</span></div>
+      <div class="stat"><b>3</b><span>geographic scales</span></div>
     </div>
     <figure class="product-shot"><img src="../artifacts/gatekeeper-v2.png" alt="National disaster simulation interface"></figure>
     <p class="note">The same scenario, time and service state remain coherent while the view changes.</p>
     <aside class="notes">Users can switch between ten presets, eight modeled services and eleven map questions, then move from the national view to a municipality and CBS neighbourhood detail.</aside>
   </section>
 
-  <section class="slide">
-    <div class="chrome"><div class="brand"><span class="mark"></span>NL Resilience Lab</div><div>Simulation model <span class="slide-no">04</span></div></div>
-    <div class="content">
-      <p class="kicker">Inside the engine</p>
-      <h2>Six visible stages. One repeatable result.</h2>
-      <div class="pipeline">
-        <div class="stage"><span class="index">01</span><h3>Scenario</h3><p>Hazard, climate, intensity, start and duration.</p></div>
-        <div class="stage"><span class="index">02</span><h3>Hazard</h3><p>Time envelope, location and audited guards.</p></div>
-        <div class="stage"><span class="index">03</span><h3>Damage</h3><p>Service pressure, resilience and preparedness.</p></div>
-        <div class="stage"><span class="index">04</span><h3>Cascade</h3><p>Power and mobility constrain dependent services.</p></div>
-        <div class="stage"><span class="index">05</span><h3>Balance</h3><p>Supported routes reduce local shortfalls.</p></div>
-        <div class="stage"><span class="index">06</span><h3>Explain</h3><p>Status, causes, impacts and counterfactuals.</p></div>
-      </div>
-      <div class="repeatability"><b>Same configuration + stable seed → same state and explanation</b><span>Repeatable does not mean forecast-certain.</span></div>
-    </div>
-    <aside class="notes">Walk left to right. No runtime random draws are used. The model is deterministic and inspectable, but that does not make it calibrated or certain.</aside>
-  </section>
-
   <section class="slide light">
-    <div class="chrome"><div class="brand"><span class="mark"></span>NL Resilience Lab</div><div>Dependencies <span class="slide-no">05</span></div></div>
+    <div class="chrome"><div class="brand"><span class="mark"></span>NL Resilience Lab</div><div>Why it matters <span class="slide-no">04</span></div></div>
     <div class="content">
-      <p class="kicker">The cascade</p>
-      <h2>Two structural hubs shape the outcome.</h2>
-      <div class="hubs">
-        <div class="hub">
-          <div class="hub-head"><div class="hub-node">POWER</div><div><h3>Power constrains services.</h3><p class="muted">Backup buys time, not immunity.</p></div></div>
-          <div class="dependents">
-            <div class="dependent"><b>Water</b><span>backup window</span></div>
-            <div class="dependent"><b>Telecom</b><span>battery window</span></div>
-            <div class="dependent"><b>Drainage</b><span>continuous need</span></div>
-            <div class="dependent"><b>Gas controls</b><span>partly passive</span></div>
-            <div class="dependent"><b>Facilities</b><span>generator support</span></div>
-          </div>
-        </div>
-        <div class="hub">
-          <div class="hub-head"><div class="hub-node">MOBILITY</div><div><h3>Mobility constrains supply.</h3><p class="muted">Access governs road-based logistics.</p></div></div>
-          <div class="dependents">
-            <div class="dependent"><b>Road access</b><span>NWB corridors</span></div>
-            <div class="dependent"><b>Logistics</b><span>route capacity</span></div>
-            <div class="dependent"><b>Emergency supply</b><span>delivery potential</span></div>
-            <div class="dependent"><b>Repair</b><span>access guard</span></div>
-          </div>
-          <p class="hub-callout">Road geometry is causal only for Mobility and explicitly modelled road logistics—not as a substitute for utility topology.</p>
-        </div>
+      <p class="kicker">From complexity to conversation</p>
+      <h2>Explore risk. Compare choices. Explain outcomes.</h2>
+      <div class="value-grid">
+        <div class="value-card"><span class="index">01</span><h3>Explore the cascade</h3><p>See how disruption can move between essential services and across the first 72 hours.</p></div>
+        <div class="value-card"><span class="index">02</span><h3>Compare responses</h3><p>Change preparedness, backup or repair assumptions and inspect the downstream effect.</p></div>
+        <div class="value-card"><span class="index">03</span><h3>Explain the result</h3><p>Keep drivers, uncertainty and public-data provenance visible at every geographic scale.</p></div>
       </div>
+      <div class="high-level-rule">Built for exploration and decision support — not as a forecast or calibrated digital twin.</div>
     </div>
-    <aside class="notes">Power is the main upstream service. Mobility is upstream for supply and repair access. The road graph is deliberately not reused as electricity, water, gas or telecom topology.</aside>
-  </section>
-
-  <section class="slide">
-    <div class="chrome"><div class="brand"><span class="mark"></span>NL Resilience Lab</div><div>Time <span class="slide-no">06</span></div></div>
-    <div class="content">
-      <p class="kicker">The first 72 hours</p>
-      <h2>The answer changes with the clock.</h2>
-      <p class="lede">Shock, backup endurance, cascading shortfall and restoration do not peak together.</p>
-      <div class="timeline">
-        <div class="timeline-line"></div>
-        <div class="moment"><b>T+0</b><span>event starts</span></div>
-        <div class="moment"><b>T+6</b><span>early response</span></div>
-        <div class="moment"><b>T+24</b><span>backups deplete</span></div>
-        <div class="moment"><b>T+48</b><span>cascade / repair</span></div>
-        <div class="moment"><b>T+72</b><span>recovery state</span></div>
-      </div>
-      <div class="clock-notes">
-        <div class="clock"><b>Response delay</b><p>When organised restoration may begin.</p></div>
-        <div class="clock"><b>Backup endurance</b><p>How long dependencies stay decoupled.</p></div>
-        <div class="clock"><b>Access guard</b><p>When standing water can pause repair.</p></div>
-        <div class="clock"><b>Peak damage</b><p>What may persist after forcing declines.</p></div>
-      </div>
-    </div>
-    <aside class="notes">A service may remain healthy while backup lasts, fail later as upstream power is lost, and recover only after both response delay and access constraints allow repair.</aside>
-  </section>
-
-  <section class="slide light">
-    <div class="chrome"><div class="brand"><span class="mark"></span>NL Resilience Lab</div><div>Geography <span class="slide-no">07</span></div></div>
-    <div class="content">
-      <p class="kicker">One model, three scales</p>
-      <h2>Zoom in without changing the story.</h2>
-      <div class="geo-grid">
-        <div class="scales">
-          <div class="scale"><span class="scale-num">01</span><h3>Netherlands</h3><p>National balancing, affected-region footprint and 342 municipalities.</p></div>
-          <div class="scale"><span class="scale-num">02</span><h3>Municipality</h3><p>Demand, delivery, reserve and one stable causal trace.</p></div>
-          <div class="scale"><span class="scale-num">03</span><h3>CBS buurt</h3><p>Local impact allocation using population and vulnerability context.</p></div>
-        </div>
-        <div>
-          <div class="geo-shot"><img src="../artifacts/v2-final-eindhoven.png" alt="Eindhoven neighbourhood detail"></div>
-          <p class="conservation">Local allocation redistributes municipal inflow; it never creates supply.</p>
-        </div>
-      </div>
-    </div>
-    <aside class="notes">The view changes, not the underlying state. Neighbourhood allocation is reconciled exactly back to the municipal total.</aside>
-  </section>
-
-  <section class="slide">
-    <div class="chrome"><div class="brand"><span class="mark"></span>NL Resilience Lab</div><div>Data coupling <span class="slide-no">08</span></div></div>
-    <div class="content">
-      <p class="kicker">Public data, explicit roles</p>
-      <h2>Not every visible layer drives the model.</h2>
-      <div class="data-layout">
-        <div class="source-list">
-          <div class="source-row"><b>Place + people</b><span>CBS, PDOK, BAG and BRT TOP10NL</span></div>
-          <div class="source-row"><b>Mobility</b><span>NWB, ProRail, OVapi, NDOV, NDW and FIS</span></div>
-          <div class="source-row"><b>Hazards</b><span>KNMI, RWS Waterinfo, LIWO, AHN4, RIVM and Risicokaart</span></div>
-          <div class="source-row"><b>Services</b><span>Grid operators, HWH, DAMO, GWSW, RDI and ENTSOG</span></div>
-          <div class="source-row"><b>Facilities</b><span>KVK public services, RIVM acute care and DUO education</span></div>
-        </div>
-        <div class="coupling">
-          <div class="tier"><b>Causal</b><p>Scenario controls and model inputs directly affect the simulation.</p></div>
-          <div class="tier"><b>Structural</b><p>Geography and audited connectivity allocate state and supported flows.</p></div>
-          <div class="tier"><b>Context</b><p>Timestamped official observations orient the user, but remain non-causal by default.</p></div>
-          <div class="tier"><b>Unknown</b><p>Missing support stays visible. It never silently becomes zero impact or open access.</p></div>
-        </div>
-      </div>
-    </div>
-    <p class="note">Every refresh preserves source URL, edition, licence, retrieval time and caveats.</p>
-    <aside class="notes">This is the key data-governance rule. A current road incident or radar image is not automatically a future scenario. It needs explicit time, place and semantics before it can affect the engine.</aside>
-  </section>
-
-  <section class="slide light">
-    <div class="chrome"><div class="brand"><span class="mark"></span>NL Resilience Lab</div><div>Evidence <span class="slide-no">09</span></div></div>
-    <div class="content">
-      <p class="kicker">Honest semantics</p>
-      <h2>Observed is not the same as simulated.</h2>
-      <div class="evidence-grid">
-        <div class="evidence-card cyan"><div class="dot"></div><h3>Official context</h3><p>Boundaries, assets, provider areas and registers.</p><strong>Where things are</strong></div>
-        <div class="evidence-card accent"><div class="dot"></div><h3>Observed context</h3><p>Radar, stations, incidents and current measurements.</p><strong>What was observed</strong></div>
-        <div class="evidence-card violet"><div class="dot"></div><h3>Scenario state</h3><p>Synthetic hazard, availability, demand and recovery.</p><strong>What the model explores</strong></div>
-        <div class="evidence-card amber"><div class="dot"></div><h3>Unknown / NoData</h3><p>Missing coverage, horizon, permission or semantics.</p><strong>What must not be inferred</strong></div>
-      </div>
-      <div class="not-equal">NO DATA ≠ ZERO HAZARD ≠ OPEN ROUTE ≠ HEALTHY SERVICE</div>
-    </div>
-    <aside class="notes">A utility line on a map is not outage telemetry. Unknown is a first-class state so missing evidence cannot masquerade as safety.</aside>
-  </section>
-
-  <section class="slide">
-    <div class="chrome"><div class="brand"><span class="mark"></span>NL Resilience Lab</div><div>Explainability <span class="slide-no">10</span></div></div>
-    <div class="content">
-      <p class="kicker">Why this state?</p>
-      <h2>The explanation is part of the engine.</h2>
-      <div class="explain-layout">
-        <div class="trace">
-          <div class="trace-row"><b>Baseline resilience</b><span>starting state</span></div>
-          <div class="trace-row"><b>Direct hazard</b><span>exact stage delta</span></div>
-          <div class="trace-row"><b>Restoration</b><span>repair progress</span></div>
-          <div class="trace-row"><b>Dependency</b><span>power / mobility</span></div>
-          <div class="trace-row"><b>Intervention</b><span>policy effect</span></div>
-          <div class="trace-row"><b>Network transfer</b><span>supported route effect</span></div>
-        </div>
-        <div class="explain-shot"><img src="../artifacts/final-supply.png" alt="Supply dependency view in the simulator"></div>
-      </div>
-    </div>
-    <aside class="notes">Every municipality frame returns its drivers, stage deltas and counterfactuals. Counterfactuals are exact deterministic reruns—for example without direct damage or with an upstream service restored.</aside>
-  </section>
-
-  <section class="slide light">
-    <div class="chrome"><div class="brand"><span class="mark"></span>NL Resilience Lab</div><div>Scenario lab <span class="slide-no">11</span></div></div>
-    <div class="content">
-      <p class="kicker">Controlled comparison</p>
-      <h2>Ten starting points. One lever at a time.</h2>
-      <div class="scenario-layout">
-        <div class="scenario-cloud">
-          <span class="chip cyan">Severe windstorm</span><span class="chip cyan">Urban cloudburst</span>
-          <span class="chip cyan">River high water</span><span class="chip cyan">Coastal surge</span>
-          <span class="chip amber">Heatwave + drought</span><span class="chip cyan">Winter storm</span>
-          <span class="chip violet">Cyberattack</span><span class="chip violet">Groningen earthquake</span>
-          <span class="chip amber">Wildfire + smoke</span><span class="chip coral">Compound cascade</span>
-        </div>
-        <div class="levers">
-          <div class="lever">Preparedness</div><div class="lever">Response delay</div>
-          <div class="lever">Backup endurance</div><div class="lever">Repair capacity</div>
-          <div class="lever">Climate path</div><div class="lever">Season + demand</div>
-          <div class="lever">Network capacity</div><div class="lever">Household readiness</div>
-        </div>
-      </div>
-      <div class="scenario-principle">Hold the event constant → change one assumption → inspect one downstream effect.</div>
-    </div>
-    <aside class="notes">The presets cover meteorological, hydrological, geophysical, digital and compound events. The value is in controlled comparisons, not in touring every available control.</aside>
-  </section>
-
-  <section class="slide">
-    <div class="chrome"><div class="brand"><span class="mark"></span>NL Resilience Lab</div><div>Critical reflection <span class="slide-no">12</span></div></div>
-    <div class="content">
-      <p class="kicker">Useful because the limits stay visible</p>
-      <h2>Designed to fail safely.</h2>
-      <div class="scope-grid">
-        <div class="audit-score"><b>245</b><span>of 342 municipalities audited</span><p>Unsupported local pathways are withheld instead of rendered as confident detail.</p></div>
-        <div class="scope-card good"><h3>What it does well</h3><ul><li>Compare assumptions and policies</li><li>Reveal time-dependent cascades</li><li>Keep national and local views coherent</li><li>Expose drivers and counterfactuals</li><li>Preserve provenance and uncertainty</li></ul></div>
-        <div class="scope-card limit"><h3>What it does not claim</h3><ul><li>A calibrated digital twin or forecast</li><li>Live utility outage telemetry</li><li>Physical utility network topology</li><li>Observed affected-person counts</li><li>Real-world units for route capacity</li></ul></div>
-      </div>
-    </div>
-    <p class="note">Audit snapshot generated 3 September 2026. Human review remains necessary.</p>
-    <aside class="notes">The municipality audit program checks numerical and spatial plausibility and compiles deterministic guards. Audit prose never becomes a causal model automatically.</aside>
-  </section>
-
-  <section class="slide">
-    <div class="chrome"><div class="brand"><span class="mark"></span>NL Resilience Lab</div><div>Live demo <span class="slide-no">13</span></div></div>
-    <div class="content">
-      <p class="kicker">Four-minute walkthrough</p>
-      <h2>Tell one causal story.</h2>
-      <div class="demo-grid">
-        <div class="demo-step"><h3>Start national</h3><p>Choose Compound cascade and keep the affected region visible.</p></div>
-        <div class="demo-step"><h3>Move through time</h3><p>Scrub from T+0 to T+24 and watch the headline state change.</p></div>
-        <div class="demo-step"><h3>Follow a dependency</h3><p>Move from Power to Telecom, or Mobility to Supply.</p></div>
-        <div class="demo-step"><h3>Zoom to Eindhoven</h3><p>Compare local demand, delivery and reserve.</p></div>
-        <div class="demo-step"><h3>Change one lever</h3><p>Increase backup or reduce response delay.</p></div>
-        <div class="demo-step"><h3>Explain the result</h3><p>Open “Why this state?” and finish on the causal trace.</p></div>
-      </div>
-      <p class="demo-rule">Change one assumption. Show one downstream effect.</p>
-    </div>
-    <aside class="notes">Avoid touring every layer. The audience should leave understanding one dependency chain and one policy comparison.</aside>
+    <aside class="notes">The product creates a shared, inspectable conversation about dependencies and response choices. It makes assumptions visible without claiming forecast certainty.</aside>
   </section>
 
   <section class="slide close">
     <img src="../artifacts/gatekeeper-v2.png" alt="Disaster Simulator interface">
-    <div class="chrome"><div class="brand"><span class="mark"></span>NL Resilience Lab</div><div>Close <span class="slide-no">14</span></div></div>
+    <div class="chrome"><div class="brand"><span class="mark"></span>NL Resilience Lab</div><div>Close <span class="slide-no">05</span></div></div>
     <div class="content">
       <p class="kicker">The invitation</p>
       <h2>See the cascade.<br>Question the assumptions.<br><span class="accent">Improve the response.</span></h2>
