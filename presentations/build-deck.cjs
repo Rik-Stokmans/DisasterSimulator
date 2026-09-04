@@ -155,15 +155,26 @@ function footerSource(slide, textValue, url) {
 }
 
 function imageCrop(slide, file, x, y, w, h, imageW, imageH, crop = {}) {
-  // Use an actual OOXML source crop so the embedded image cannot bleed beyond
-  // its intended frame in PowerPoint, Keynote or Quick Look.
+  // PptxGenJS calculates the OOXML crop from addImage's original w/h. Give it
+  // a cover-scaled source rectangle, then crop that rectangle to the frame.
+  // Passing the frame size as both the original and target size produces an
+  // empty srcRect and stretches the bitmap in PowerPoint.
+  const sourceRatio = imageW / imageH
+  const frameRatio = w / h
+  const focusX = Math.min(1, Math.max(0, crop.focusX ?? 0.5))
+  const focusY = Math.min(1, Math.max(0, crop.focusY ?? 0.5))
+  const scaledW = sourceRatio > frameRatio ? h * sourceRatio : w
+  const scaledH = sourceRatio > frameRatio ? h : w / sourceRatio
+  const cropX = Math.min(scaledW - w, Math.max(0, focusX * scaledW - w / 2))
+  const cropY = Math.min(scaledH - h, Math.max(0, focusY * scaledH - h / 2))
+
   slide.addImage({
     path: file,
     x,
     y,
-    w,
-    h,
-    sizing: { type: 'cover', w, h },
+    w: scaledW,
+    h: scaledH,
+    sizing: { type: 'crop', x: cropX, y: cropY, w, h },
   })
   if (crop.border !== false) {
     slide.addShape(pptx.ShapeType.rect, { x, y, w, h, fill: { color: 'FFFFFF', transparency: 100 }, line: { color: C.line, width: 1 } })
@@ -328,19 +339,17 @@ function numberedStep(slide, n, heading, body, x, y, w, accent = C.mint) {
   circle(slide, 2.5, 3.15, 1.25, C.panel2, C.cyan, 2)
   addText(slide, 'POWER', 2.5, 3.51, 1.25, 0.28, { fontSize: 13, bold: true, align: 'center', color: C.cyan })
   const deps = [
-    { x: 0.7, y: 2.26, t: 'WATER', c: C.mint, note: 'backup window' },
-    { x: 4.15, y: 2.26, t: 'DRAINAGE', c: C.mint, note: 'continuous' },
-    { x: 0.7, y: 4.66, t: 'TELECOM', c: C.purple, note: 'battery window' },
-    { x: 4.15, y: 4.66, t: 'GAS CONTROLS', c: C.amber, note: 'partial passive' },
-    { x: 2.42, y: 5.48, t: 'FACILITIES', c: C.coral, note: 'generators' },
+    { x: 0.7, y: 2.26, t: 'WATER', c: C.mint, note: 'backup window', from: [2.72, 3.31], to: [2.4, 2.78] },
+    { x: 4.15, y: 2.26, t: 'DRAINAGE', c: C.mint, note: 'continuous', from: [3.53, 3.31], to: [4.15, 2.78] },
+    { x: 0.7, y: 4.66, t: 'TELECOM', c: C.purple, note: 'battery window', from: [2.72, 4.24], to: [2.4, 4.88] },
+    { x: 4.15, y: 4.66, t: 'GAS CONTROLS', c: C.amber, note: 'partial passive', from: [3.53, 4.24], to: [4.15, 4.88] },
+    { x: 2.42, y: 5.48, t: 'FACILITIES', c: C.coral, note: 'generators', from: [3.13, 4.4], to: [3.27, 5.48] },
   ]
   deps.forEach((d) => {
+    arrow(slide, d.from[0], d.from[1], d.to[0], d.to[1], C.line, 1.15)
     rect(slide, d.x, d.y, 1.7, 0.62, C.panel, 0.14, d.c)
     addText(slide, d.t, d.x + 0.1, d.y + 0.11, 1.5, 0.2, { fontSize: 9.3, bold: true, color: d.c, align: 'center' })
     addText(slide, d.note, d.x + 0.1, d.y + 0.34, 1.5, 0.16, { fontSize: 7.5, color: C.muted, align: 'center' })
-    const tx = d.x < 2 ? d.x + 1.7 : d.x
-    const ty = d.y + 0.31
-    arrow(slide, 3.13, 3.76, tx, ty, C.line, 1.15)
   })
 
   line(slide, 6.55, 2.28, 6.55, 6.2, C.line, 1)
