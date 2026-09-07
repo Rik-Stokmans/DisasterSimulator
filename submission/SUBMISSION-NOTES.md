@@ -10,8 +10,7 @@ summary designed to be understood in two to five minutes.
 
 ## Requirement checklist
 
-- **Group member:** Rik Stokmans. Repository history, presentation metadata and
-  the earlier attributed deck identify no other project contributor.
+- **Group members:** Daniil, Vince and Rik.
 - **Problem:** cascading failure of essential systems during the first 72 hours.
 - **Target group:** municipal crisis teams, safety regions, infrastructure
   partners and tabletop-exercise facilitators.

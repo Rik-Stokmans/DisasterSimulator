@@ -18,11 +18,11 @@ try {
   await page.evaluate(() => document.fonts.ready)
 
   const requiredCopy = [
-    'Project member',
+    'Group members',
     'The problem',
     'Target group',
-    'What I developed',
-    'How I tested whether it could work',
+    'What we developed',
+    'How we tested whether it could work',
     'Most important learning',
   ]
   const renderedText = (await page.locator('#showcase').textContent()) ?? ''
