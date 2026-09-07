@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DisasterSimulator — one-page project showcase</title>
+  <style>
+    :root {
+      --ink: #071417;
+      --panel: #0d2024;
+      --panel-soft: #132b2f;
+      --paper: #f4f1e8;
+      --white: #ffffff;
+      --mist: #a9bdbc;
+      --muted: #6f898a;
+      --line: rgba(255, 255, 255, .14);
+      --mint: #6ce4c8;
+      --cyan: #63d5f0;
+      --amber: #f4bd68;
+      --coral: #f67c85;
+      --violet: #bd91f5;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; background: #cbd2cf; }
+    body {
+      color: var(--white);
+      font-family: "Avenir Next", Avenir, Inter, "Helvetica Neue", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    @page { size: 13.333in 7.5in; margin: 0; }
+    @media print {
+      html, body { background: transparent; }
+      .sheet { box-shadow: none; }
+    }
+
+    .sheet {
+      position: relative;
+      width: 13.333in;
+      height: 7.5in;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 91% 7%, rgba(108, 228, 200, .13), transparent 24%),
+        linear-gradient(132deg, transparent 0 69%, rgba(255, 255, 255, .025) 69.1% 69.35%, transparent 69.45%),
+        var(--ink);
+      box-shadow: 0 24px 70px rgba(7, 20, 23, .35);
+      isolation: isolate;
+    }
+
+    .topbar {
+      position: absolute;
+      top: .32in;
+      left: .48in;
+      right: .48in;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: .34in;
+      z-index: 5;
+    }
+
+    .brand,
+    .member {
+      display: flex;
+      align-items: center;
+      gap: .12in;
+      font-size: 8.5pt;
+      font-weight: 760;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .brand { color: var(--mist); }
+    .brand strong { color: var(--white); }
+    .mark {
+      position: relative;
+      width: .28in;
+      height: .28in;
+      border: 1.6px solid var(--mint);
+      border-radius: 50%;
+    }
+    .mark::before,
+    .mark::after {
+      content: "";
+      position: absolute;
+      border: 1px solid var(--mint);
+      border-radius: 50%;
+    }
+    .mark::before { inset: .07in; }
+    .mark::after {
+      width: .04in;
+      height: .04in;
+      top: .11in;
+      left: .11in;
+      background: var(--mint);
+    }
+
+    .member {
+      padding: .09in .15in;
+      border: 1px solid var(--line);
+      border-radius: 99px;
+      color: var(--mist);
+      background: rgba(13, 32, 36, .68);
+    }
+    .member b { color: var(--mint); }
+
+    .main {
+      position: absolute;
+      top: .9in;
+      left: .48in;
+      right: .48in;
+      height: 4.25in;
+      display: grid;
+      grid-template-columns: 4.2in 1fr;
+      gap: .38in;
+    }
+
+    .story {
+      display: flex;
+      min-width: 0;
+      min-height: 0;
+      flex-direction: column;
+    }
+
+    .kicker {
+      margin: 0 0 .11in;
+      color: var(--mint);
+      font-size: 8.5pt;
+      font-weight: 800;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      margin-bottom: .12in;
+      font-size: 31pt;
+      font-weight: 760;
+      line-height: .98;
+      letter-spacing: -.04em;
+    }
+    .lede {
+      max-width: 3.9in;
+      margin-bottom: .15in;
+      color: var(--mist);
+      font-size: 10.8pt;
+      line-height: 1.38;
+    }
+
+    .brief-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .08in;
+    }
+    .brief {
+      min-height: .88in;
+      padding: .11in .13in;
+      border: 1px solid var(--line);
+      border-radius: .11in;
+      background: rgba(13, 32, 36, .82);
+    }
+    .brief.solution { grid-column: 1 / -1; min-height: .72in; }
+    .label {
+      display: flex;
+      align-items: center;
+      gap: .08in;
+      margin-bottom: .045in;
+      color: var(--cyan);
+      font-size: 6.7pt;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .label::before {
+      content: "";
+      width: .055in;
+      height: .055in;
+      flex: none;
+      border-radius: 50%;
+      background: currentColor;
+    }
+    .brief:nth-child(2) .label { color: var(--amber); }
+    .brief.solution .label { color: var(--violet); }
+    .brief p {
+      margin: 0;
+      color: #dce8e6;
+      font-size: 7.6pt;
+      line-height: 1.33;
+    }
+
+    .visual {
+      position: relative;
+      min-width: 0;
+      min-height: 0;
+      height: 100%;
+      margin: 0;
+      border: 1px solid rgba(255, 255, 255, .2);
+      border-radius: .16in;
+      overflow: hidden;
+      background: #0b161a;
+      box-shadow: 0 .22in .5in rgba(0, 0, 0, .32);
+    }
+    .visual > img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 50%;
+      filter: saturate(.9) contrast(1.03);
+    }
+    .visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06);
+    }
+    .prototype-badge {
+      position: absolute;
+      top: .15in;
+      left: .15in;
+      display: flex;
+      align-items: center;
+      gap: .07in;
+      padding: .08in .12in;
+      border: 1px solid rgba(108, 228, 200, .45);
+      border-radius: 99px;
+      color: var(--mint);
+      background: rgba(7, 20, 23, .9);
+      font-size: 7.4pt;
+      font-weight: 800;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+      z-index: 2;
+    }
+    .prototype-badge::before {
+      content: "";
+      width: .06in;
+      height: .06in;
+      border-radius: 50%;
+      background: var(--mint);
+      box-shadow: 0 0 .11in var(--mint);
+    }
+
+    .national-inset {
+      position: absolute;
+      right: .15in;
+      bottom: .15in;
+      width: 2.18in;
+      height: 1.52in;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, .35);
+      border-radius: .1in;
+      background: var(--ink);
+      box-shadow: 0 .12in .3in rgba(0, 0, 0, .45);
+      z-index: 2;
+    }
+    .national-inset img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 45% center;
+    }
+    .inset-caption {
+      position: absolute;
+      left: .07in;
+      bottom: .07in;
+      padding: .055in .08in;
+      border-radius: .05in;
+      color: var(--white);
+      background: rgba(7, 20, 23, .88);
+      font-size: 6.6pt;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .metrics {
+      position: absolute;
+      left: 4.98in;
+      right: .48in;
+      top: 5.33in;
+      height: .58in;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: .1in;
+      background: var(--panel);
+    }
+    .metric {
+      display: flex;
+      align-items: center;
+      gap: .1in;
+      padding: .09in .14in;
+      border-right: 1px solid var(--line);
+    }
+    .metric:last-child { border-right: 0; }
+    .metric b { color: var(--mint); font-size: 15pt; line-height: 1; }
+    .metric span {
+      color: var(--mist);
+      font-size: 6.7pt;
+      font-weight: 760;
+      line-height: 1.25;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .bottom {
+      position: absolute;
+      left: .48in;
+      right: .48in;
+      bottom: .36in;
+      height: 1.17in;
+      display: grid;
+      grid-template-columns: 1.54fr 1fr;
+      gap: .18in;
+    }
+    .tested,
+    .learned {
+      border-radius: .12in;
+      padding: .16in .19in;
+    }
+    .tested {
+      color: var(--ink);
+      background: var(--paper);
+    }
+    .tested .section-title,
+    .learned .section-title {
+      margin: 0 0 .1in;
+      font-size: 7.5pt;
+      font-weight: 850;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+    .tested .section-title { color: #227c70; }
+    .test-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .16in;
+    }
+    .test-step { display: grid; grid-template-columns: .27in 1fr; gap: .08in; }
+    .test-step b {
+      display: grid;
+      place-items: center;
+      width: .25in;
+      height: .25in;
+      border-radius: 50%;
+      color: var(--mint);
+      background: var(--ink);
+      font-size: 7.5pt;
+    }
+    .test-step p { margin: 0; color: #496062; font-size: 7.35pt; line-height: 1.36; }
+    .test-step strong { color: var(--ink); }
+
+    .learned {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(108, 228, 200, .32);
+      background: linear-gradient(125deg, rgba(108, 228, 200, .13), rgba(99, 213, 240, .05));
+    }
+    .learned .section-title { color: var(--mint); }
+    .learned p {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      max-width: 4.15in;
+      color: #e9f4f1;
+      font-size: 8.2pt;
+      font-weight: 640;
+      line-height: 1.34;
+    }
+    .learned em { color: var(--amber); font-style: normal; }
+
+    .footer {
+      position: absolute;
+      left: .5in;
+      right: .5in;
+      bottom: .13in;
+      display: flex;
+      justify-content: space-between;
+      color: #668183;
+      font-size: 5.9pt;
+      letter-spacing: .035em;
+    }
+    .footer strong { color: #87a4a4; }
+  </style>
+</head>
+<body>
+  <article class="sheet" id="showcase" aria-label="DisasterSimulator one-page project showcase">
+    <header class="topbar">
+      <div class="brand"><span class="mark" aria-hidden="true"></span><strong>NL Resilience Lab</strong><span>DisasterSimulator · Project showcase</span></div>
+      <div class="member"><span>Project member</span><b>Rik Stokmans</b></div>
+    </header>
+
+    <main class="main">
+      <section class="story" data-overflow-check>
+        <p class="kicker">First 72 hours · The Netherlands</p>
+        <h1>When power fails,<br>what fails next?</h1>
+        <p class="lede">A transparent scenario laboratory for the Netherlands’ first 72 hours of cascading disruption.</p>
+
+        <div class="brief-grid">
+          <article class="brief" data-overflow-check>
+            <div class="label">The problem</div>
+            <p>A prolonged outage quickly becomes a water, telecom, mobility, care and supply crisis. Teams must prioritize scarce resources while conditions keep changing.</p>
+          </article>
+          <article class="brief" data-overflow-check>
+            <div class="label">Target group</div>
+            <p>Municipal crisis teams, safety regions, infrastructure partners and facilitators of emergency tabletop exercises.</p>
+          </article>
+          <article class="brief solution" data-overflow-check>
+            <div class="label">What I developed</div>
+            <p>A national-to-neighbourhood map to choose a disaster, scrub T+00–T+72, switch system layers, compare interventions and inspect the evidence behind each result.</p>
+          </article>
+        </div>
+      </section>
+
+      <figure class="visual" aria-label="Working DisasterSimulator prototype">
+        <img src="assets/prototype-eindhoven.png" alt="DisasterSimulator prototype showing Eindhoven, essential-system layers, scenario controls, causal explanation and the 72-hour timeline">
+        <figcaption class="prototype-badge">Working proof of concept</figcaption>
+        <div class="national-inset">
+          <img src="assets/prototype-national.png" alt="Nationwide disaster impact map at T plus 12 hours">
+          <span class="inset-caption">National impact · T+12</span>
+        </div>
+      </figure>
+    </main>
+
+    <section class="metrics" aria-label="Prototype scope">
+      <div class="metric"><b>342</b><span>Dutch<br>municipalities</span></div>
+      <div class="metric"><b>72 h</b><span>289 quarter-hour<br>states</span></div>
+      <div class="metric"><b>10</b><span>disaster<br>presets</span></div>
+      <div class="metric"><b>40</b><span>regional-field<br>catalogue</span></div>
+    </section>
+
+    <section class="bottom">
+      <article class="tested" data-overflow-check>
+        <h2 class="section-title">How I tested whether it could work</h2>
+        <div class="test-steps">
+          <div class="test-step"><b>1</b><p><strong>Briefing → requirements.</strong> Translated the Eindhoven municipality and safety-region 72-hour case into a dependency model.</p></div>
+          <div class="test-step"><b>2</b><p><strong>Working prototype.</strong> Exercised scenarios, timeline, layers, geographic scales and intervention comparisons end to end.</p></div>
+          <div class="test-step"><b>3</b><p><strong>Verification.</strong> 147 automated model/UI tests plus generated-data checks for 342 municipalities and 14,729 neighbourhoods.</p></div>
+        </div>
+      </article>
+
+      <article class="learned" data-overflow-check>
+        <h2 class="section-title">Most important learning</h2>
+        <p>Realism is not “more detail.” It is making clear what is <em>observed</em>, what is <em>modelled</em> and what is still <em>unknown</em>. Reproducible does not automatically mean predictive.</p>
+      </article>
+    </section>
+
+    <footer class="footer">
+      <span><strong>Evidence used:</strong> project briefing, workshop notes, working prototype, deterministic tests and municipality audit programme.</span>
+      <span>Scenario exploration prototype · not an operational forecast or calibrated digital twin · 7 September 2026</span>
+    </footer>
+  </article>
+</body>
+</html>
